@@ -1,0 +1,139 @@
+// !$*UTF8*$!
+{
+	1D6058900D05DD3D006BFB54 /* ultimatebattle */ = {
+		activeExec = 0;
+		executables = (
+			BFA4FD19132B0DC100612508 /* ultimatebattle */,
+		);
+	};
+	29B97313FDCFA39411CA2CEA /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeExecutable = BFA4FD19132B0DC100612508 /* ultimatebattle */;
+		activeTarget = 1D6058900D05DD3D006BFB54 /* ultimatebattle */;
+		addToTargets = (
+			1D6058900D05DD3D006BFB54 /* ultimatebattle */,
+		);
+		codeSenseManager = BFA4FD2D132B0DCB00612508 /* Code sense */;
+		executables = (
+			BFA4FD19132B0DC100612508 /* ultimatebattle */,
+		);
+		perUserDictionary = {
+			PBXPerProjectTemplateStateSaveDate = 321588673;
+			PBXWorkspaceStateSaveDate = 321588673;
+		};
+		sourceControlManager = BFA4FD2C132B0DCB00612508 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	BFA4FD19132B0DC100612508 /* ultimatebattle */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		dataTipCustomDataFormattersEnabled = 1;
+		dataTipShowTypeColumn = 1;
+		dataTipSortType = 0;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = ultimatebattle;
+		showTypeColumn = 0;
+		sourceDirectories = (
+		);
+	};
+	BFA4FD29132B0DCB00612508 /* Ship.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1411, 719}}";
+			sepNavSelRange = "{341, 0}";
+			sepNavVisRange = "{0, 348}";
+		};
+	};
+	BFA4FD2A132B0DCB00612508 /* Ship.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1411, 719}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 224}";
+		};
+	};
+	BFA4FD2C132B0DCB00612508 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+			repositoryNamesForRoots = {
+				"" = "";
+			};
+		};
+	};
+	BFA4FD2D132B0DCB00612508 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	BFA4FD2E132B0DF700612508 /* Weapon.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1411, 720}}";
+			sepNavSelRange = "{376, 0}";
+			sepNavVisRange = "{0, 376}";
+		};
+	};
+	BFA4FD2F132B0DF700612508 /* Weapon.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1411, 1230}}";
+			sepNavSelRange = "{532, 0}";
+			sepNavVisRange = "{264, 276}";
+		};
+	};
+	BFA4FD31132B0E6000612508 /* Bullet.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1411, 719}}";
+			sepNavSelRange = "{219, 0}";
+			sepNavVisRange = "{0, 254}";
+		};
+	};
+	BFA4FD32132B0E6000612508 /* Bullet.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1411, 810}}";
+			sepNavSelRange = "{176, 0}";
+			sepNavVisRange = "{35, 345}";
+		};
+	};
+	BFA4FD36132B0E7200612508 /* GameObject.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1411, 750}}";
+			sepNavSelRange = "{185, 0}";
+			sepNavVisRange = "{0, 391}";
+		};
+	};
+	BFA4FD37132B0E7200612508 /* GameObject.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1411, 990}}";
+			sepNavSelRange = "{393, 0}";
+			sepNavVisRange = "{157, 280}";
+		};
+	};
+	BFA4FD5D132B106C00612508 /* Turn.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1411, 719}}";
+			sepNavSelRange = "{264, 0}";
+			sepNavVisRange = "{0, 271}";
+		};
+	};
+	BFA4FD5E132B106C00612508 /* Turn.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1411, 719}}";
+			sepNavSelRange = "{211, 0}";
+			sepNavVisRange = "{0, 237}";
+		};
+	};
+}

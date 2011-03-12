@@ -1,0 +1,440 @@
+Tultimatebattle
+v7
+r0
+t321589820.933979
+cCheck dependencies
+cProcessInfoPlistFile /Users/cmp/ultimatebattle/build/Debug-iphonesimulator/ultimatebattle.app/Info.plist ultimatebattle-Info.plist
+cCompileXIB /Users/cmp/ultimatebattle/MainWindow.xib
+cCompileXIB /Users/cmp/ultimatebattle/ultimatebattleViewController.xib
+cProcessPCH /var/folders/Z7/Z7f7b2yHHXuYr9sBp9SHME+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ultimatebattle_Prefix-aiildwjyhhpbooatuywzfmqolrqx/ultimatebattle_Prefix.pch.gch ultimatebattle_Prefix.pch normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/Objects-normal/i386/main.o /Users/cmp/ultimatebattle/main.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/Objects-normal/i386/ultimatebattleAppDelegate.o /Users/cmp/ultimatebattle/Classes/ultimatebattleAppDelegate.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/Objects-normal/i386/ultimatebattleViewController.o /Users/cmp/ultimatebattle/Classes/ultimatebattleViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/Objects-normal/i386/Ship.o /Users/cmp/ultimatebattle/Ship.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/Objects-normal/i386/Weapon.o /Users/cmp/ultimatebattle/Weapon.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/Objects-normal/i386/Bullet.o /Users/cmp/ultimatebattle/Bullet.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/Objects-normal/i386/GameObject.o /Users/cmp/ultimatebattle/GameObject.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/Objects-normal/i386/Turn.o /Users/cmp/ultimatebattle/Turn.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cLd /Users/cmp/ultimatebattle/build/Debug-iphonesimulator/ultimatebattle.app/ultimatebattle normal i386
+cGenerateDSYMFile /Users/cmp/ultimatebattle/build/Debug-iphonesimulator/ultimatebattle.app.dSYM /Users/cmp/ultimatebattle/build/Debug-iphonesimulator/ultimatebattle.app/ultimatebattle
+cTouch /Users/cmp/ultimatebattle/build/Debug-iphonesimulator/ultimatebattle.app
+
+N/Developer/VacationXcode/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk
+c000000004C494D260000000000000110
+t1279872294
+s272
+
+N/Developer/VacationXcode/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
+c000000004BD1CD90000000000026F020
+t1272040848
+s2551840
+
+N/Developer/VacationXcode/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/Foundation.framework/Foundation
+c000000004BD1FFC200000000002A96A0
+t1272053698
+s2791072
+
+N/Developer/VacationXcode/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h
+c000000004BD1FF9E0000000000001355
+t1272053662
+s4949
+
+N/Developer/VacationXcode/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.h
+c000000004BD20412000000000000098F
+t1272054802
+s2447
+
+N/Developer/VacationXcode/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/UIKit.framework/UIKit
+c000000004BD20471000000000222E640
+t1272054897
+s35841600
+
+N/Users/cmp/ultimatebattle/Bullet.h
+c000000004D7AD82C00000000000000FE
+t1299896364
+s254
+i<Foundation/Foundation.h>
+i"GameObject.h"
+
+N/Users/cmp/ultimatebattle/Bullet.m
+c000000004D7AD9FC000000000000017B
+t1299896828
+s379
+i"Bullet.h"
+
+N/Users/cmp/ultimatebattle/Classes/ultimatebattleAppDelegate.h
+c000000004D7AD64100000000000001FE
+t1299895873
+s510
+i<UIKit/UIKit.h>
+
+N/Users/cmp/ultimatebattle/Classes/ultimatebattleAppDelegate.m
+c000000004D7AD64100000000000007C2
+t1299895873
+s1986
+i"ultimatebattleAppDelegate.h"
+i"ultimatebattleViewController.h"
+
+N/Users/cmp/ultimatebattle/Classes/ultimatebattleViewController.h
+c000000004D7AD64100000000000000F8
+t1299895873
+s248
+i<UIKit/UIKit.h>
+
+N/Users/cmp/ultimatebattle/Classes/ultimatebattleViewController.m
+c000000004D7AD6410000000000000561
+t1299895873
+s1377
+i"ultimatebattleViewController.h"
+
+N/Users/cmp/ultimatebattle/GameObject.h
+c000000004D7AD9A90000000000000187
+t1299896745
+s391
+i<Foundation/Foundation.h>
+i"Turn.h"
+
+N/Users/cmp/ultimatebattle/GameObject.m
+c000000004D7ADABC00000000000001C9
+t1299897020
+s457
+i"GameObject.h"
+
+N/Users/cmp/ultimatebattle/MainWindow.xib
+c000000004D7AD6410000000000004D4F
+t1299895873
+s19791
+
+N/Users/cmp/ultimatebattle/Move.h
+c000000004D7AD90B000000000000010F
+t1299896587
+s271
+i<Foundation/Foundation.h>
+
+N/Users/cmp/ultimatebattle/Move.m
+c000000004D7AD97E00000000000000ED
+t1299896702
+s237
+i"Move.h"
+
+N/Users/cmp/ultimatebattle/Ship.h
+c000000004D7ADA9B0000000000000189
+t1299896987
+s393
+i<Foundation/Foundation.h>
+i"Weapon.h"
+i"GameObject.h"
+
+N/Users/cmp/ultimatebattle/Ship.m
+c000000004D7ADA9F0000000000000288
+t1299896991
+s648
+i"Ship.h"
+
+N/Users/cmp/ultimatebattle/Turn.h
+c000000004D7AD9FC0000000000000128
+t1299896828
+s296
+i<Foundation/Foundation.h>
+
+N/Users/cmp/ultimatebattle/Turn.m
+c000000004D7AD9FC0000000000000134
+t1299896828
+s308
+i"Move.h"
+
+N/Users/cmp/ultimatebattle/Weapon.h
+c000000004D7AD8D60000000000000178
+t1299896534
+s376
+i<Foundation/Foundation.h>
+i"Bullet.h"
+
+N/Users/cmp/ultimatebattle/Weapon.m
+c000000004D7AD9AF00000000000001EB
+t1299896751
+s491
+i"Weapon.h"
+
+N/Users/cmp/ultimatebattle/build/Debug-iphonesimulator/ultimatebattle.app
+t1299897020
+s238
+
+N/Users/cmp/ultimatebattle/build/Debug-iphonesimulator/ultimatebattle.app.dSYM
+t1299897020
+s102
+
+N/Users/cmp/ultimatebattle/build/Debug-iphonesimulator/ultimatebattle.app/Info.plist
+t1299896529
+s826
+
+N/Users/cmp/ultimatebattle/build/Debug-iphonesimulator/ultimatebattle.app/MainWindow.nib
+t1299896529
+s1137
+
+N/Users/cmp/ultimatebattle/build/Debug-iphonesimulator/ultimatebattle.app/PkgInfo
+t1299896529
+s8
+
+N/Users/cmp/ultimatebattle/build/Debug-iphonesimulator/ultimatebattle.app/ultimatebattle
+t1299897020
+s28268
+
+N/Users/cmp/ultimatebattle/build/Debug-iphonesimulator/ultimatebattle.app/ultimatebattleViewController.nib
+t1299896529
+s764
+
+N/Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/Objects-normal/i386/Bullet.o
+t1299896828
+s6752
+
+N/Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/Objects-normal/i386/GameObject.o
+t1299897020
+s11776
+
+N/Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/Objects-normal/i386/Move.o
+t1299896722
+s8504
+
+N/Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/Objects-normal/i386/Ship.o
+t1299896991
+s12000
+
+N/Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/Objects-normal/i386/Turn.o
+t1299896828
+s9244
+
+N/Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/Objects-normal/i386/Weapon.o
+t1299896828
+s10888
+
+N/Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/Objects-normal/i386/main.o
+t1299896531
+s6332
+
+N/Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/Objects-normal/i386/ultimatebattle.LinkFileList
+c000000004D7AD9A9000000000000040F
+t1299896745
+s1039
+
+N/Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/Objects-normal/i386/ultimatebattleAppDelegate.o
+t1299896531
+s45468
+
+N/Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/Objects-normal/i386/ultimatebattleViewController.o
+t1299896531
+s34540
+
+N/Users/cmp/ultimatebattle/main.m
+c000000004D7AD6410000000000000165
+t1299895873
+s357
+i<UIKit/UIKit.h>
+
+N/Users/cmp/ultimatebattle/ultimatebattleViewController.xib
+c000000004D7AD6410000000000003EFD
+t1299895873
+s16125
+
+N/Users/cmp/ultimatebattle/ultimatebattle_Prefix.pch
+c000000004D7AD64100000000000000C5
+t1299895873
+s197
+i<Foundation/Foundation.h>
+i<UIKit/UIKit.h>
+
+N/var/folders/Z7/Z7f7b2yHHXuYr9sBp9SHME+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ultimatebattle_Prefix-aiildwjyhhpbooatuywzfmqolrqx/ultimatebattle_Prefix.pch.gch
+t1299896530
+s13830032
+
+Nultimatebattle-Info.plist
+c000000004D7AD64100000000000004D6
+t1299895873
+s1238
+
+CCheck dependencies
+r0
+lSLF07#2@18"Check dependencies321589820#321589820#0(0"0(0#1#0"8647798240#0"0#
+
+CCompileC build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/Objects-normal/i386/Bullet.o /Users/cmp/ultimatebattle/Bullet.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s321589628.614588
+e321589628.684145
+r1
+xCompileC
+xbuild/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/Objects-normal/i386/Bullet.o
+x/Users/cmp/ultimatebattle/Bullet.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@42"Compile /Users/cmp/ultimatebattle/Bullet.m321589628#321589628#0(0"0(0#0#34"/Users/cmp/ultimatebattle/Bullet.m8644502784#2012"    cd /Users/cmp/ultimatebattle    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/VacationXcode/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/VacationXcode/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/VacationXcode/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/VacationXcode/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -iquote /Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/ultimatebattle-generated-files.hmap -I/Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/ultimatebattle-own-target-headers.hmap -I/Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/ultimatebattle-all-target-headers.hmap -iquote /Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/ultimatebattle-project-headers.hmap -F/Users/cmp/ultimatebattle/build/Debug-iphonesimulator -I/Users/cmp/ultimatebattle/build/Debug-iphonesimulator/include -I/Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/DerivedSources/i386 -I/Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/DerivedSources -include /var/folders/Z7/Z7f7b2yHHXuYr9sBp9SHME+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ultimatebattle_Prefix-aiildwjyhhpbooatuywzfmqolrqx/ultimatebattle_Prefix.pch -c /Users/cmp/ultimatebattle/Bullet.m -o /Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/Objects-normal/i386/Bullet.o0#
+
+CCompileC build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/Objects-normal/i386/GameObject.o /Users/cmp/ultimatebattle/GameObject.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s321589820.644032
+e321589820.898190
+r1
+xCompileC
+xbuild/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/Objects-normal/i386/GameObject.o
+x/Users/cmp/ultimatebattle/GameObject.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@46"Compile /Users/cmp/ultimatebattle/GameObject.m321589820#321589820#0(0"0(0#0#38"/Users/cmp/ultimatebattle/GameObject.m8641303552#2020"    cd /Users/cmp/ultimatebattle    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/VacationXcode/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/VacationXcode/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/VacationXcode/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/VacationXcode/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -iquote /Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/ultimatebattle-generated-files.hmap -I/Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/ultimatebattle-own-target-headers.hmap -I/Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/ultimatebattle-all-target-headers.hmap -iquote /Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/ultimatebattle-project-headers.hmap -F/Users/cmp/ultimatebattle/build/Debug-iphonesimulator -I/Users/cmp/ultimatebattle/build/Debug-iphonesimulator/include -I/Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/DerivedSources/i386 -I/Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/DerivedSources -include /var/folders/Z7/Z7f7b2yHHXuYr9sBp9SHME+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ultimatebattle_Prefix-aiildwjyhhpbooatuywzfmqolrqx/ultimatebattle_Prefix.pch -c /Users/cmp/ultimatebattle/GameObject.m -o /Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/Objects-normal/i386/GameObject.o0#
+
+CCompileC build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/Objects-normal/i386/Move.o /Users/cmp/ultimatebattle/Move.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s321589522.418142
+e321589522.550668
+r1
+xCompileC
+xbuild/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/Objects-normal/i386/Move.o
+x/Users/cmp/ultimatebattle/Move.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@40"Compile /Users/cmp/ultimatebattle/Move.m321589522#321589522#0(0"0(0#0#32"/Users/cmp/ultimatebattle/Move.m8619879872#2008"    cd /Users/cmp/ultimatebattle    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/VacationXcode/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/VacationXcode/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/VacationXcode/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/VacationXcode/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -iquote /Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/ultimatebattle-generated-files.hmap -I/Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/ultimatebattle-own-target-headers.hmap -I/Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/ultimatebattle-all-target-headers.hmap -iquote /Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/ultimatebattle-project-headers.hmap -F/Users/cmp/ultimatebattle/build/Debug-iphonesimulator -I/Users/cmp/ultimatebattle/build/Debug-iphonesimulator/include -I/Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/DerivedSources/i386 -I/Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/DerivedSources -include /var/folders/Z7/Z7f7b2yHHXuYr9sBp9SHME+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ultimatebattle_Prefix-aiildwjyhhpbooatuywzfmqolrqx/ultimatebattle_Prefix.pch -c /Users/cmp/ultimatebattle/Move.m -o /Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/Objects-normal/i386/Move.o0#
+
+CCompileC build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/Objects-normal/i386/Ship.o /Users/cmp/ultimatebattle/Ship.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s321589791.196674
+e321589791.369918
+r1
+xCompileC
+xbuild/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/Objects-normal/i386/Ship.o
+x/Users/cmp/ultimatebattle/Ship.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@40"Compile /Users/cmp/ultimatebattle/Ship.m321589791#321589791#0(0"0(0#0#32"/Users/cmp/ultimatebattle/Ship.m8615019488#2008"    cd /Users/cmp/ultimatebattle    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/VacationXcode/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/VacationXcode/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/VacationXcode/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/VacationXcode/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -iquote /Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/ultimatebattle-generated-files.hmap -I/Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/ultimatebattle-own-target-headers.hmap -I/Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/ultimatebattle-all-target-headers.hmap -iquote /Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/ultimatebattle-project-headers.hmap -F/Users/cmp/ultimatebattle/build/Debug-iphonesimulator -I/Users/cmp/ultimatebattle/build/Debug-iphonesimulator/include -I/Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/DerivedSources/i386 -I/Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/DerivedSources -include /var/folders/Z7/Z7f7b2yHHXuYr9sBp9SHME+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ultimatebattle_Prefix-aiildwjyhhpbooatuywzfmqolrqx/ultimatebattle_Prefix.pch -c /Users/cmp/ultimatebattle/Ship.m -o /Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/Objects-normal/i386/Ship.o0#
+
+CCompileC build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/Objects-normal/i386/Turn.o /Users/cmp/ultimatebattle/Turn.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s321589628.684244
+e321589628.785263
+r1
+xCompileC
+xbuild/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/Objects-normal/i386/Turn.o
+x/Users/cmp/ultimatebattle/Turn.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@40"Compile /Users/cmp/ultimatebattle/Turn.m321589628#321589628#0(0"0(0#0#32"/Users/cmp/ultimatebattle/Turn.m8629663808#2008"    cd /Users/cmp/ultimatebattle    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/VacationXcode/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/VacationXcode/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/VacationXcode/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/VacationXcode/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -iquote /Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/ultimatebattle-generated-files.hmap -I/Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/ultimatebattle-own-target-headers.hmap -I/Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/ultimatebattle-all-target-headers.hmap -iquote /Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/ultimatebattle-project-headers.hmap -F/Users/cmp/ultimatebattle/build/Debug-iphonesimulator -I/Users/cmp/ultimatebattle/build/Debug-iphonesimulator/include -I/Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/DerivedSources/i386 -I/Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/DerivedSources -include /var/folders/Z7/Z7f7b2yHHXuYr9sBp9SHME+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ultimatebattle_Prefix-aiildwjyhhpbooatuywzfmqolrqx/ultimatebattle_Prefix.pch -c /Users/cmp/ultimatebattle/Turn.m -o /Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/Objects-normal/i386/Turn.o0#
+
+CCompileC build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/Objects-normal/i386/Weapon.o /Users/cmp/ultimatebattle/Weapon.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s321589628.541183
+e321589628.614483
+r1
+xCompileC
+xbuild/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/Objects-normal/i386/Weapon.o
+x/Users/cmp/ultimatebattle/Weapon.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@42"Compile /Users/cmp/ultimatebattle/Weapon.m321589628#321589628#0(0"0(0#0#34"/Users/cmp/ultimatebattle/Weapon.m8614285600#2012"    cd /Users/cmp/ultimatebattle    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/VacationXcode/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/VacationXcode/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/VacationXcode/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/VacationXcode/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -iquote /Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/ultimatebattle-generated-files.hmap -I/Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/ultimatebattle-own-target-headers.hmap -I/Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/ultimatebattle-all-target-headers.hmap -iquote /Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/ultimatebattle-project-headers.hmap -F/Users/cmp/ultimatebattle/build/Debug-iphonesimulator -I/Users/cmp/ultimatebattle/build/Debug-iphonesimulator/include -I/Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/DerivedSources/i386 -I/Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/DerivedSources -include /var/folders/Z7/Z7f7b2yHHXuYr9sBp9SHME+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ultimatebattle_Prefix-aiildwjyhhpbooatuywzfmqolrqx/ultimatebattle_Prefix.pch -c /Users/cmp/ultimatebattle/Weapon.m -o /Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/Objects-normal/i386/Weapon.o0#
+
+CCompileC build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/Objects-normal/i386/main.o /Users/cmp/ultimatebattle/main.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s321589330.824991
+e321589331.153877
+r1
+xCompileC
+xbuild/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/Objects-normal/i386/main.o
+x/Users/cmp/ultimatebattle/main.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@40"Compile /Users/cmp/ultimatebattle/main.m321589330#321589331#0(0"0(0#0#32"/Users/cmp/ultimatebattle/main.m8614621824#2008"    cd /Users/cmp/ultimatebattle    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/VacationXcode/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/VacationXcode/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/VacationXcode/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/VacationXcode/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -iquote /Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/ultimatebattle-generated-files.hmap -I/Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/ultimatebattle-own-target-headers.hmap -I/Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/ultimatebattle-all-target-headers.hmap -iquote /Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/ultimatebattle-project-headers.hmap -F/Users/cmp/ultimatebattle/build/Debug-iphonesimulator -I/Users/cmp/ultimatebattle/build/Debug-iphonesimulator/include -I/Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/DerivedSources/i386 -I/Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/DerivedSources -include /var/folders/Z7/Z7f7b2yHHXuYr9sBp9SHME+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ultimatebattle_Prefix-aiildwjyhhpbooatuywzfmqolrqx/ultimatebattle_Prefix.pch -c /Users/cmp/ultimatebattle/main.m -o /Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/Objects-normal/i386/main.o0#
+
+CCompileC build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/Objects-normal/i386/ultimatebattleAppDelegate.o /Users/cmp/ultimatebattle/Classes/ultimatebattleAppDelegate.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s321589330.826249
+e321589331.172545
+r1
+xCompileC
+xbuild/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/Objects-normal/i386/ultimatebattleAppDelegate.o
+x/Users/cmp/ultimatebattle/Classes/ultimatebattleAppDelegate.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@69"Compile /Users/cmp/ultimatebattle/Classes/ultimatebattleAppDelegate.m321589330#321589331#0(0"0(0#0#61"/Users/cmp/ultimatebattle/Classes/ultimatebattleAppDelegate.m8614893440#2058"    cd /Users/cmp/ultimatebattle    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/VacationXcode/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/VacationXcode/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/VacationXcode/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/VacationXcode/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -iquote /Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/ultimatebattle-generated-files.hmap -I/Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/ultimatebattle-own-target-headers.hmap -I/Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/ultimatebattle-all-target-headers.hmap -iquote /Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/ultimatebattle-project-headers.hmap -F/Users/cmp/ultimatebattle/build/Debug-iphonesimulator -I/Users/cmp/ultimatebattle/build/Debug-iphonesimulator/include -I/Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/DerivedSources/i386 -I/Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/DerivedSources -include /var/folders/Z7/Z7f7b2yHHXuYr9sBp9SHME+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ultimatebattle_Prefix-aiildwjyhhpbooatuywzfmqolrqx/ultimatebattle_Prefix.pch -c /Users/cmp/ultimatebattle/Classes/ultimatebattleAppDelegate.m -o /Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/Objects-normal/i386/ultimatebattleAppDelegate.o0#
+
+CCompileC build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/Objects-normal/i386/ultimatebattleViewController.o /Users/cmp/ultimatebattle/Classes/ultimatebattleViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s321589331.154047
+e321589331.219388
+r1
+xCompileC
+xbuild/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/Objects-normal/i386/ultimatebattleViewController.o
+x/Users/cmp/ultimatebattle/Classes/ultimatebattleViewController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@72"Compile /Users/cmp/ultimatebattle/Classes/ultimatebattleViewController.m321589331#321589331#0(0"0(0#0#64"/Users/cmp/ultimatebattle/Classes/ultimatebattleViewController.m8614662240#2064"    cd /Users/cmp/ultimatebattle    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/VacationXcode/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/VacationXcode/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/VacationXcode/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/VacationXcode/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -iquote /Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/ultimatebattle-generated-files.hmap -I/Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/ultimatebattle-own-target-headers.hmap -I/Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/ultimatebattle-all-target-headers.hmap -iquote /Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/ultimatebattle-project-headers.hmap -F/Users/cmp/ultimatebattle/build/Debug-iphonesimulator -I/Users/cmp/ultimatebattle/build/Debug-iphonesimulator/include -I/Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/DerivedSources/i386 -I/Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/DerivedSources -include /var/folders/Z7/Z7f7b2yHHXuYr9sBp9SHME+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ultimatebattle_Prefix-aiildwjyhhpbooatuywzfmqolrqx/ultimatebattle_Prefix.pch -c /Users/cmp/ultimatebattle/Classes/ultimatebattleViewController.m -o /Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/Objects-normal/i386/ultimatebattleViewController.o0#
+
+CCompileXIB /Users/cmp/ultimatebattle/MainWindow.xib
+s321589329.560860
+e321589329.953270
+r1
+xCompileXIB
+x/Users/cmp/ultimatebattle/MainWindow.xib
+lSLF07#2@25"CompileXIB MainWindow.xib321589329#321589329#0(0"0(0#0#40"/Users/cmp/ultimatebattle/MainWindow.xib8614206080#594"    cd /Users/cmp/ultimatebattle    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 3.2    setenv PATH "/Developer/VacationXcode/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/VacationXcode/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/VacationXcode/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/cmp/ultimatebattle/build/Debug-iphonesimulator/ultimatebattle.app/MainWindow.nib /Users/cmp/ultimatebattle/MainWindow.xib --sdk /Developer/VacationXcode/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk0#
+
+CCompileXIB /Users/cmp/ultimatebattle/ultimatebattleViewController.xib
+s321589329.561607
+e321589329.953416
+r1
+xCompileXIB
+x/Users/cmp/ultimatebattle/ultimatebattleViewController.xib
+lSLF07#2@43"CompileXIB ultimatebattleViewController.xib321589329#321589329#0(0"0(0#0#58"/Users/cmp/ultimatebattle/ultimatebattleViewController.xib8614092960#630"    cd /Users/cmp/ultimatebattle    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 3.2    setenv PATH "/Developer/VacationXcode/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/VacationXcode/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/VacationXcode/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/cmp/ultimatebattle/build/Debug-iphonesimulator/ultimatebattle.app/ultimatebattleViewController.nib /Users/cmp/ultimatebattle/ultimatebattleViewController.xib --sdk /Developer/VacationXcode/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk0#
+
+CGenerateDSYMFile /Users/cmp/ultimatebattle/build/Debug-iphonesimulator/ultimatebattle.app.dSYM /Users/cmp/ultimatebattle/build/Debug-iphonesimulator/ultimatebattle.app/ultimatebattle
+s321589820.917149
+e321589820.931453
+r1
+xGenerateDSYMFile
+x/Users/cmp/ultimatebattle/build/Debug-iphonesimulator/ultimatebattle.app.dSYM
+x/Users/cmp/ultimatebattle/build/Debug-iphonesimulator/ultimatebattle.app/ultimatebattle
+lSLF07#2@130"GenerateDSYMFile build/Debug-iphonesimulator/ultimatebattle.app.dSYM build/Debug-iphonesimulator/ultimatebattle.app/ultimatebattle321589820#321589820#0(0"0(0#0#87"/Users/cmp/ultimatebattle/build/Debug-iphonesimulator/ultimatebattle.app/ultimatebattle8644558528#407"    cd /Users/cmp/ultimatebattle    setenv PATH "/Developer/VacationXcode/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/VacationXcode/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/VacationXcode/usr/bin/dsymutil /Users/cmp/ultimatebattle/build/Debug-iphonesimulator/ultimatebattle.app/ultimatebattle -o /Users/cmp/ultimatebattle/build/Debug-iphonesimulator/ultimatebattle.app.dSYM0#
+
+CLd /Users/cmp/ultimatebattle/build/Debug-iphonesimulator/ultimatebattle.app/ultimatebattle normal i386
+s321589820.898267
+e321589820.917048
+r1
+xLd
+x/Users/cmp/ultimatebattle/build/Debug-iphonesimulator/ultimatebattle.app/ultimatebattle
+xnormal
+xi386
+lSLF07#2@92"Link /Users/cmp/ultimatebattle/build/Debug-iphonesimulator/ultimatebattle.app/ultimatebattle321589820#321589820#0(0"0(0#0#0"8645269504#926"    cd /Users/cmp/ultimatebattle    setenv MACOSX_DEPLOYMENT_TARGET 10.5    setenv PATH "/Developer/VacationXcode/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/VacationXcode/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/VacationXcode/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -arch i386 -isysroot /Developer/VacationXcode/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -L/Users/cmp/ultimatebattle/build/Debug-iphonesimulator -F/Users/cmp/ultimatebattle/build/Debug-iphonesimulator -filelist /Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/Objects-normal/i386/ultimatebattle.LinkFileList -mmacosx-version-min=10.5 -Xlinker -objc_abi_version -Xlinker 2 -framework Foundation -framework UIKit -framework CoreGraphics -o /Users/cmp/ultimatebattle/build/Debug-iphonesimulator/ultimatebattle.app/ultimatebattle0#
+
+CProcessInfoPlistFile /Users/cmp/ultimatebattle/build/Debug-iphonesimulator/ultimatebattle.app/Info.plist ultimatebattle-Info.plist
+s321589329.551162
+e321589329.560782
+r1
+xProcessInfoPlistFile
+x/Users/cmp/ultimatebattle/build/Debug-iphonesimulator/ultimatebattle.app/Info.plist
+xultimatebattle-Info.plist
+lSLF07#2@33"Process ultimatebattle-Info.plist321589329#321589329#0(0"0(0#0#51"/Users/cmp/ultimatebattle/ultimatebattle-Info.plist8615819744#489"    cd /Users/cmp/ultimatebattle    setenv PATH "/Developer/VacationXcode/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/VacationXcode/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-infoPlistUtility ultimatebattle-Info.plist -genpkginfo /Users/cmp/ultimatebattle/build/Debug-iphonesimulator/ultimatebattle.app/PkgInfo -expandbuildsettings -format binary -platform iphonesimulator -o /Users/cmp/ultimatebattle/build/Debug-iphonesimulator/ultimatebattle.app/Info.plist0#
+
+CProcessPCH /var/folders/Z7/Z7f7b2yHHXuYr9sBp9SHME+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ultimatebattle_Prefix-aiildwjyhhpbooatuywzfmqolrqx/ultimatebattle_Prefix.pch.gch ultimatebattle_Prefix.pch normal i386 objective-c com.apple.compilers.gcc.4_2
+s321589329.953523
+e321589330.824889
+r1
+xProcessPCH
+x/var/folders/Z7/Z7f7b2yHHXuYr9sBp9SHME+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ultimatebattle_Prefix-aiildwjyhhpbooatuywzfmqolrqx/ultimatebattle_Prefix.pch.gch
+xultimatebattle_Prefix.pch
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@36"Precompile ultimatebattle_Prefix.pch321589329#321589330#0(0"0(0#0#51"/Users/cmp/ultimatebattle/ultimatebattle_Prefix.pch8616917952#1906"    cd /Users/cmp/ultimatebattle    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/VacationXcode/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/VacationXcode/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/VacationXcode/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c-header -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/VacationXcode/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -iquote /Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/ultimatebattle-generated-files.hmap -I/Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/ultimatebattle-own-target-headers.hmap -I/Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/ultimatebattle-all-target-headers.hmap -iquote /Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/ultimatebattle-project-headers.hmap -F/Users/cmp/ultimatebattle/build/Debug-iphonesimulator -I/Users/cmp/ultimatebattle/build/Debug-iphonesimulator/include -I/Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/DerivedSources/i386 -I/Users/cmp/ultimatebattle/build/ultimatebattle.build/Debug-iphonesimulator/ultimatebattle.build/DerivedSources -c /Users/cmp/ultimatebattle/ultimatebattle_Prefix.pch -o /var/folders/Z7/Z7f7b2yHHXuYr9sBp9SHME+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ultimatebattle_Prefix-aiildwjyhhpbooatuywzfmqolrqx/ultimatebattle_Prefix.pch.gch0#
+
+CTouch /Users/cmp/ultimatebattle/build/Debug-iphonesimulator/ultimatebattle.app
+s321589820.931726
+e321589820.933955
+r1
+xTouch
+x/Users/cmp/ultimatebattle/build/Debug-iphonesimulator/ultimatebattle.app
+lSLF07#2@78"Touch /Users/cmp/ultimatebattle/build/Debug-iphonesimulator/ultimatebattle.app321589820#321589820#0(0"0(0#0#0"8643666624#287"    cd /Users/cmp/ultimatebattle    setenv PATH "/Developer/VacationXcode/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/VacationXcode/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /usr/bin/touch -c /Users/cmp/ultimatebattle/build/Debug-iphonesimulator/ultimatebattle.app0#
+
