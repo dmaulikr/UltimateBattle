@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "Bullet.h"
 
+@class Bullet;
+
 @interface Weapon : NSObject {
 
 }
@@ -18,6 +20,6 @@
 @property(nonatomic, retain) Bullet *bullet;
 
 -(void)tick;
--(Bullet *)fire;
+-(NSArray *)fireWithYFacing:(int)facing;
 
 @end

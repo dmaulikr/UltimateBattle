@@ -16,7 +16,7 @@
 //Override with subclasess of bullet	
 }
 
-+(Bullet *)newBullet {
++(NSArray *)newBulletsWithYFacing:(int)facing {
 	//Override with subclasses of bullet
 	//Generate a bullet based on its properties
 	return nil;

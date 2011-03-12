@@ -22,9 +22,15 @@
 	}
 }
 
--(Bullet *)fire {
+-(NSArray *)newBulletsWithYFacing:(int)facing {
+	NSArray *bullets = [[self.bullet class] newBulletsWithYFacing:facing];
+	
+	return bullets;
+}
+
+-(NSArray *)fireWithYFacing:(int)facing {
 	if ([self canFire]) {
-		return [[self.bullet class] newBullet];
+		return [self newBulletsWithYFacing:facing];
 	}
 	
 	return nil;

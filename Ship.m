@@ -26,9 +26,9 @@
 	//Call super to move and animate us
 	[super tick];
 	if ([self.turn firing]) {
-		Bullet *b = [self.weapon fire];
+		NSArray *b = [self.weapon fireWithYFacing:self.yFacing];
 		if (b) {
-			[self.bullets addObject:b];
+			[self.bullets addObjectsFromArray:b];
 		}
 	}
 	//Store this current turn

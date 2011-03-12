@@ -16,6 +16,7 @@
 @property(nonatomic) CGPoint vel;
 @property(nonatomic) CGPoint l; //location
 @property(nonatomic,retain) Turn *turn;
+@property(nonatomic) int yFacing;
 
 -(void)animate;
 -(void)move;

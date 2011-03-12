@@ -1,3 +1,0 @@
-/Users/cmp/ultimatebattle/Ship.m:13: error: no declaration of property 'bullets' found in the interface
-/Users/cmp/ultimatebattle/Ship.m: In function '-[Ship tick]':
-/Users/cmp/ultimatebattle/Ship.m:31: error: request for member 'bullets' in something not a structure or union

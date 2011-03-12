@@ -11,6 +11,8 @@
 #import "GameObject.h"
 #define Ship_HP 100
 
+@class Weapon;
+
 @interface Ship : GameObject {
 
 }
@@ -18,6 +20,7 @@
 @property(nonatomic, retain) NSMutableArray *moves;
 @property(nonatomic) int hp;
 @property(nonatomic, retain) Weapon *weapon;
+@property(nonatomic, retain) NSMutableArray *bullets;
 
 
 @end

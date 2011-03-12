@@ -17,9 +17,9 @@
 		28D7ACF80DDB3853001CB0EB /* ultimatebattleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D7ACF70DDB3853001CB0EB /* ultimatebattleViewController.m */; };
 		BFA4FD2B132B0DCB00612508 /* Ship.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA4FD2A132B0DCB00612508 /* Ship.m */; };
 		BFA4FD30132B0DF700612508 /* Weapon.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA4FD2F132B0DF700612508 /* Weapon.m */; };
-		BFA4FD33132B0E6000612508 /* Bullet.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA4FD32132B0E6000612508 /* Bullet.m */; };
 		BFA4FD38132B0E7200612508 /* GameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA4FD37132B0E7200612508 /* GameObject.m */; };
 		BFA4FD5F132B106C00612508 /* Turn.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA4FD5E132B106C00612508 /* Turn.m */; };
+		BFBB6D26132C2B2900151B43 /* Bullet.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA4FD32132B0E6000612508 /* Bullet.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -198,9 +198,9 @@
 				28D7ACF80DDB3853001CB0EB /* ultimatebattleViewController.m in Sources */,
 				BFA4FD2B132B0DCB00612508 /* Ship.m in Sources */,
 				BFA4FD30132B0DF700612508 /* Weapon.m in Sources */,
-				BFA4FD33132B0E6000612508 /* Bullet.m in Sources */,
 				BFA4FD38132B0E7200612508 /* GameObject.m in Sources */,
 				BFA4FD5F132B106C00612508 /* Turn.m in Sources */,
+				BFBB6D26132C2B2900151B43 /* Bullet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
