@@ -17,7 +17,7 @@
 @property(nonatomic) CGPoint l; //location
 @property(nonatomic,retain) Turn *turn;
 @property(nonatomic) int yFacing;
-@property(nonatomic) int speed;
+@property(nonatomic) double speed;
 
 -(void)animate;
 -(void)move;

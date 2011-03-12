@@ -22,6 +22,7 @@
 		BFBB6D26132C2B2900151B43 /* Bullet.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA4FD32132B0E6000612508 /* Bullet.m */; };
 		BFBB6D49132C2DE300151B43 /* BasicBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBB6D48132C2DE300151B43 /* BasicBullet.m */; };
 		BFBB6D74132C2F1100151B43 /* WideDoubleBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBB6D73132C2F1100151B43 /* WideDoubleBullet.m */; };
+		BFBB6D87132C303800151B43 /* TriShotBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBB6D86132C303800151B43 /* TriShotBullet.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,8 @@
 		BFBB6D48132C2DE300151B43 /* BasicBullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicBullet.m; sourceTree = "<group>"; };
 		BFBB6D72132C2F1100151B43 /* WideDoubleBullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WideDoubleBullet.h; sourceTree = "<group>"; };
 		BFBB6D73132C2F1100151B43 /* WideDoubleBullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WideDoubleBullet.m; sourceTree = "<group>"; };
+		BFBB6D85132C303800151B43 /* TriShotBullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriShotBullet.h; sourceTree = "<group>"; };
+		BFBB6D86132C303800151B43 /* TriShotBullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TriShotBullet.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +149,8 @@
 				BFA4FD32132B0E6000612508 /* Bullet.m */,
 				BFBB6D47132C2DE300151B43 /* BasicBullet.h */,
 				BFBB6D48132C2DE300151B43 /* BasicBullet.m */,
+				BFBB6D85132C303800151B43 /* TriShotBullet.h */,
+				BFBB6D86132C303800151B43 /* TriShotBullet.m */,
 			);
 			name = Bullets;
 			sourceTree = "<group>";
@@ -221,6 +226,7 @@
 				BFBB6D26132C2B2900151B43 /* Bullet.m in Sources */,
 				BFBB6D49132C2DE300151B43 /* BasicBullet.m in Sources */,
 				BFBB6D74132C2F1100151B43 /* WideDoubleBullet.m in Sources */,
+				BFBB6D87132C303800151B43 /* TriShotBullet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

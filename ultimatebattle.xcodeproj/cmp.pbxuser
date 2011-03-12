@@ -120,14 +120,14 @@
 	BFA4FD31132B0E6000612508 /* Bullet.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1411, 923}}";
-			sepNavSelRange = "{259, 0}";
-			sepNavVisRange = "{0, 315}";
+			sepNavSelRange = "{321, 0}";
+			sepNavVisRange = "{0, 328}";
 		};
 	};
 	BFA4FD32132B0E6000612508 /* Bullet.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1411, 1200}}";
-			sepNavSelRange = "{190, 0}";
+			sepNavIntBoundsRect = "{{0, 0}, {1411, 1170}}";
+			sepNavSelRange = "{175, 14}";
 			sepNavVisRange = "{0, 482}";
 		};
 	};
@@ -169,22 +169,22 @@
 	BFBB6D48132C2DE300151B43 /* BasicBullet.m */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1411, 923}}";
-			sepNavSelRange = "{190, 275}";
-			sepNavVisRange = "{0, 471}";
+			sepNavSelRange = "{216, 0}";
+			sepNavVisRange = "{0, 488}";
 		};
 	};
 	BFBB6D72132C2F1100151B43 /* WideDoubleBullet.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1411, 923}}";
-			sepNavSelRange = "{232, 0}";
-			sepNavVisRange = "{0, 244}";
+			sepNavSelRange = "{243, 0}";
+			sepNavVisRange = "{0, 243}";
 		};
 	};
 	BFBB6D73132C2F1100151B43 /* WideDoubleBullet.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1411, 923}}";
-			sepNavSelRange = "{205, 0}";
-			sepNavVisRange = "{0, 436}";
+			sepNavIntBoundsRect = "{{0, 0}, {1436.45, 990}}";
+			sepNavSelRange = "{255, 0}";
+			sepNavVisRange = "{27, 623}";
 		};
 	};
 }

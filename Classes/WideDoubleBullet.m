@@ -12,7 +12,7 @@
 @implementation WideDoubleBullet
 
 -(void)setup {
-	self.speed = 3;		
+	self.speed = 3;
 	[super setup];
 }
 
