@@ -11,6 +11,19 @@
 
 @implementation Bullet
 
+-(void)setup {
+//Override in subclasses	
+}
+
+-(id)initWithYFacing:(int)facing {
+	self = [super init];
+	if (self) {
+		self.yFacing = facing;
+		[self setup];
+	}
+	return self;
+}
+
 -(void)animate {
 	[super animate];
 //Override with subclasess of bullet	

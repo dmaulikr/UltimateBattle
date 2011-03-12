@@ -63,6 +63,7 @@
 		dataTipSortType = 0;
 		debuggerPlugin = GDBDebugging;
 		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
 		enableDebugStr = 1;
 		environmentEntries = (
 		);
@@ -76,16 +77,16 @@
 	};
 	BFA4FD29132B0DCB00612508 /* Ship.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1411, 946}}";
-			sepNavSelRange = "{239, 0}";
+			sepNavIntBoundsRect = "{{0, 0}, {1411, 923}}";
+			sepNavSelRange = "{455, 0}";
 			sepNavVisRange = "{0, 463}";
 		};
 	};
 	BFA4FD2A132B0DCB00612508 /* Ship.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1411, 1470}}";
-			sepNavSelRange = "{771, 0}";
-			sepNavVisRange = "{256, 515}";
+			sepNavIntBoundsRect = "{{0, 0}, {1411, 1440}}";
+			sepNavSelRange = "{519, 0}";
+			sepNavVisRange = "{145, 576}";
 		};
 	};
 	BFA4FD2C132B0DCB00612508 /* Source Control */ = {
@@ -104,44 +105,44 @@
 	};
 	BFA4FD2E132B0DF700612508 /* Weapon.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1411, 946}}";
-			sepNavSelRange = "{198, 0}";
-			sepNavVisRange = "{0, 392}";
+			sepNavIntBoundsRect = "{{0, 0}, {1411, 923}}";
+			sepNavSelRange = "{408, 0}";
+			sepNavVisRange = "{0, 416}";
 		};
 	};
 	BFA4FD2F132B0DF700612508 /* Weapon.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1411, 1230}}";
-			sepNavSelRange = "{532, 0}";
-			sepNavVisRange = "{264, 276}";
+			sepNavIntBoundsRect = "{{0, 0}, {1411, 1350}}";
+			sepNavSelRange = "{656, 0}";
+			sepNavVisRange = "{219, 442}";
 		};
 	};
 	BFA4FD31132B0E6000612508 /* Bullet.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1411, 946}}";
-			sepNavSelRange = "{242, 0}";
-			sepNavVisRange = "{0, 272}";
+			sepNavIntBoundsRect = "{{0, 0}, {1411, 923}}";
+			sepNavSelRange = "{259, 0}";
+			sepNavVisRange = "{0, 315}";
 		};
 	};
 	BFA4FD32132B0E6000612508 /* Bullet.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1411, 946}}";
-			sepNavSelRange = "{150, 0}";
-			sepNavVisRange = "{0, 379}";
+			sepNavIntBoundsRect = "{{0, 0}, {1411, 1140}}";
+			sepNavSelRange = "{219, 34}";
+			sepNavVisRange = "{0, 426}";
 		};
 	};
 	BFA4FD36132B0E7200612508 /* GameObject.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1411, 750}}";
-			sepNavSelRange = "{185, 0}";
-			sepNavVisRange = "{0, 391}";
+			sepNavIntBoundsRect = "{{0, 0}, {1411, 923}}";
+			sepNavSelRange = "{375, 0}";
+			sepNavVisRange = "{0, 425}";
 		};
 	};
 	BFA4FD37132B0E7200612508 /* GameObject.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1411, 990}}";
-			sepNavSelRange = "{393, 0}";
-			sepNavVisRange = "{0, 453}";
+			sepNavIntBoundsRect = "{{0, 0}, {1411, 1020}}";
+			sepNavSelRange = "{452, 0}";
+			sepNavVisRange = "{39, 439}";
 		};
 	};
 	BFA4FD5D132B106C00612508 /* Turn.h */ = {
@@ -156,6 +157,20 @@
 			sepNavIntBoundsRect = "{{0, 0}, {1411, 946}}";
 			sepNavSelRange = "{211, 0}";
 			sepNavVisRange = "{0, 308}";
+		};
+	};
+	BFBB6D47132C2DE300151B43 /* BasicBullet.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1411, 923}}";
+			sepNavSelRange = "{227, 0}";
+			sepNavVisRange = "{0, 233}";
+		};
+	};
+	BFBB6D48132C2DE300151B43 /* BasicBullet.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1411, 923}}";
+			sepNavSelRange = "{338, 0}";
+			sepNavVisRange = "{0, 368}";
 		};
 	};
 }

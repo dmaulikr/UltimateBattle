@@ -20,6 +20,7 @@
 		BFA4FD38132B0E7200612508 /* GameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA4FD37132B0E7200612508 /* GameObject.m */; };
 		BFA4FD5F132B106C00612508 /* Turn.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA4FD5E132B106C00612508 /* Turn.m */; };
 		BFBB6D26132C2B2900151B43 /* Bullet.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA4FD32132B0E6000612508 /* Bullet.m */; };
+		BFBB6D49132C2DE300151B43 /* BasicBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBB6D48132C2DE300151B43 /* BasicBullet.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,12 +41,14 @@
 		BFA4FD2A132B0DCB00612508 /* Ship.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ship.m; sourceTree = "<group>"; };
 		BFA4FD2E132B0DF700612508 /* Weapon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Weapon.h; sourceTree = "<group>"; };
 		BFA4FD2F132B0DF700612508 /* Weapon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Weapon.m; sourceTree = "<group>"; };
-		BFA4FD31132B0E6000612508 /* Bullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bullet.h; sourceTree = "<group>"; };
-		BFA4FD32132B0E6000612508 /* Bullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bullet.m; sourceTree = "<group>"; };
+		BFA4FD31132B0E6000612508 /* Bullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Bullet.h; path = ../Bullet.h; sourceTree = "<group>"; };
+		BFA4FD32132B0E6000612508 /* Bullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Bullet.m; path = ../Bullet.m; sourceTree = "<group>"; };
 		BFA4FD36132B0E7200612508 /* GameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObject.h; sourceTree = "<group>"; };
 		BFA4FD37132B0E7200612508 /* GameObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameObject.m; sourceTree = "<group>"; };
 		BFA4FD5D132B106C00612508 /* Turn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Turn.h; sourceTree = "<group>"; };
 		BFA4FD5E132B106C00612508 /* Turn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Turn.m; sourceTree = "<group>"; };
+		BFBB6D47132C2DE300151B43 /* BasicBullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicBullet.h; sourceTree = "<group>"; };
+		BFBB6D48132C2DE300151B43 /* BasicBullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicBullet.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +68,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				BFBB6D46132C2DCE00151B43 /* Bullets */,
 				1D3623240D0F684500981E51 /* ultimatebattleAppDelegate.h */,
 				1D3623250D0F684500981E51 /* ultimatebattleAppDelegate.m */,
 				28D7ACF60DDB3853001CB0EB /* ultimatebattleViewController.h */,
@@ -88,8 +92,6 @@
 				BFA4FD5E132B106C00612508 /* Turn.m */,
 				BFA4FD36132B0E7200612508 /* GameObject.h */,
 				BFA4FD37132B0E7200612508 /* GameObject.m */,
-				BFA4FD31132B0E6000612508 /* Bullet.h */,
-				BFA4FD32132B0E6000612508 /* Bullet.m */,
 				BFA4FD2E132B0DF700612508 /* Weapon.h */,
 				BFA4FD2F132B0DF700612508 /* Weapon.m */,
 				080E96DDFE201D6D7F000001 /* Classes */,
@@ -130,6 +132,17 @@
 				288765A40DF7441C002DB57D /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BFBB6D46132C2DCE00151B43 /* Bullets */ = {
+			isa = PBXGroup;
+			children = (
+				BFA4FD31132B0E6000612508 /* Bullet.h */,
+				BFA4FD32132B0E6000612508 /* Bullet.m */,
+				BFBB6D47132C2DE300151B43 /* BasicBullet.h */,
+				BFBB6D48132C2DE300151B43 /* BasicBullet.m */,
+			);
+			name = Bullets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,6 +214,7 @@
 				BFA4FD38132B0E7200612508 /* GameObject.m in Sources */,
 				BFA4FD5F132B106C00612508 /* Turn.m in Sources */,
 				BFBB6D26132C2B2900151B43 /* Bullet.m in Sources */,
+				BFBB6D49132C2DE300151B43 /* BasicBullet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

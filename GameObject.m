@@ -11,7 +11,7 @@
 
 @implementation GameObject
 @synthesize vel, l, turn;
-@synthesize yFacing;
+@synthesize yFacing, speed;
 
 -(void)animate { 
 //Draw magic here	
