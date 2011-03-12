@@ -14,9 +14,9 @@
 }
 
 
--(id)initWithYFacing:(int)facing;
-
 +(NSArray *)newBulletsWithYFacing:(int)facing;
 
+-(id)initWithYFacing:(int)facing;
+-(void)setup;
 
 @end

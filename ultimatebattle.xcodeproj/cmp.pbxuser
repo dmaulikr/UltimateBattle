@@ -126,23 +126,23 @@
 	};
 	BFA4FD32132B0E6000612508 /* Bullet.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1411, 1140}}";
-			sepNavSelRange = "{219, 34}";
-			sepNavVisRange = "{0, 426}";
+			sepNavIntBoundsRect = "{{0, 0}, {1411, 1200}}";
+			sepNavSelRange = "{190, 0}";
+			sepNavVisRange = "{0, 482}";
 		};
 	};
 	BFA4FD36132B0E7200612508 /* GameObject.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1411, 923}}";
-			sepNavSelRange = "{375, 0}";
-			sepNavVisRange = "{0, 425}";
+			sepNavSelRange = "{407, 0}";
+			sepNavVisRange = "{0, 457}";
 		};
 	};
 	BFA4FD37132B0E7200612508 /* GameObject.m */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1411, 1020}}";
-			sepNavSelRange = "{452, 0}";
-			sepNavVisRange = "{39, 439}";
+			sepNavSelRange = "{239, 0}";
+			sepNavVisRange = "{39, 446}";
 		};
 	};
 	BFA4FD5D132B106C00612508 /* Turn.h */ = {
@@ -169,8 +169,22 @@
 	BFBB6D48132C2DE300151B43 /* BasicBullet.m */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1411, 923}}";
-			sepNavSelRange = "{338, 0}";
-			sepNavVisRange = "{0, 368}";
+			sepNavSelRange = "{190, 275}";
+			sepNavVisRange = "{0, 471}";
+		};
+	};
+	BFBB6D72132C2F1100151B43 /* WideDoubleBullet.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1411, 923}}";
+			sepNavSelRange = "{232, 0}";
+			sepNavVisRange = "{0, 244}";
+		};
+	};
+	BFBB6D73132C2F1100151B43 /* WideDoubleBullet.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1411, 923}}";
+			sepNavSelRange = "{205, 0}";
+			sepNavVisRange = "{0, 436}";
 		};
 	};
 }

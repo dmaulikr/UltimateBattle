@@ -21,6 +21,7 @@
 		BFA4FD5F132B106C00612508 /* Turn.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA4FD5E132B106C00612508 /* Turn.m */; };
 		BFBB6D26132C2B2900151B43 /* Bullet.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA4FD32132B0E6000612508 /* Bullet.m */; };
 		BFBB6D49132C2DE300151B43 /* BasicBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBB6D48132C2DE300151B43 /* BasicBullet.m */; };
+		BFBB6D74132C2F1100151B43 /* WideDoubleBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBB6D73132C2F1100151B43 /* WideDoubleBullet.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,8 @@
 		BFA4FD5E132B106C00612508 /* Turn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Turn.m; sourceTree = "<group>"; };
 		BFBB6D47132C2DE300151B43 /* BasicBullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicBullet.h; sourceTree = "<group>"; };
 		BFBB6D48132C2DE300151B43 /* BasicBullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicBullet.m; sourceTree = "<group>"; };
+		BFBB6D72132C2F1100151B43 /* WideDoubleBullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WideDoubleBullet.h; sourceTree = "<group>"; };
+		BFBB6D73132C2F1100151B43 /* WideDoubleBullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WideDoubleBullet.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +140,8 @@
 		BFBB6D46132C2DCE00151B43 /* Bullets */ = {
 			isa = PBXGroup;
 			children = (
+				BFBB6D72132C2F1100151B43 /* WideDoubleBullet.h */,
+				BFBB6D73132C2F1100151B43 /* WideDoubleBullet.m */,
 				BFA4FD31132B0E6000612508 /* Bullet.h */,
 				BFA4FD32132B0E6000612508 /* Bullet.m */,
 				BFBB6D47132C2DE300151B43 /* BasicBullet.h */,
@@ -215,6 +220,7 @@
 				BFA4FD5F132B106C00612508 /* Turn.m in Sources */,
 				BFBB6D26132C2B2900151B43 /* Bullet.m in Sources */,
 				BFBB6D49132C2DE300151B43 /* BasicBullet.m in Sources */,
+				BFBB6D74132C2F1100151B43 /* WideDoubleBullet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

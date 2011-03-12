@@ -12,6 +12,7 @@
 @implementation BasicBullet
 
 -(void)setup {
+	self.speed = 3;
 	self.vel = CGPointMake(0, self.yFacing * self.speed);	
 }
 

@@ -12,7 +12,8 @@
 @implementation Bullet
 
 -(void)setup {
-//Override in subclasses	
+	self.vel = CGPointMake(0, self.yFacing * self.speed);	
+	//Override in subclasses	
 }
 
 -(id)initWithYFacing:(int)facing {
