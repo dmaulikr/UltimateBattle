@@ -10,14 +10,16 @@
 
 
 @implementation Turn
-@synthesize vel, firing;
+@synthesize l, vel, firing, weaponIndex;
 
 -(void)becomeEmptyTurn {
 	self.vel = CGPointZero;
 	self.firing = NO;
+	self.weaponIndex = -1;
 }
 
 -(void)dealloc {
 	[super dealloc];
 }
+
 @end

@@ -17,10 +17,17 @@
 
 }
 
+@property(nonatomic) int currentWeaponIndex;
 @property(nonatomic, retain) NSMutableArray *moves;
 @property(nonatomic) int hp;
-@property(nonatomic, retain) Weapon *weapon;
+@property(nonatomic, retain) NSMutableArray *weapons;
 @property(nonatomic, retain) NSMutableArray *bullets;
+
+-(Weapon *)currentWeapon;
+-(Turn *)currentTurn;
+-(void)resetTurn;
+-(void)cycleWeapon;
+-(void)changeWeapon:(int)newWeaponIndex;
 
 
 @end

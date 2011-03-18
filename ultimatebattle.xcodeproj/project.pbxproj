@@ -23,6 +23,8 @@
 		BFBB6D49132C2DE300151B43 /* BasicBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBB6D48132C2DE300151B43 /* BasicBullet.m */; };
 		BFBB6D74132C2F1100151B43 /* WideDoubleBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBB6D73132C2F1100151B43 /* WideDoubleBullet.m */; };
 		BFBB6D87132C303800151B43 /* TriShotBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBB6D86132C303800151B43 /* TriShotBullet.m */; };
+		BFCD44EE1332FBBC00182581 /* PlayerCopyShip.m in Sources */ = {isa = PBXBuildFile; fileRef = BFCD44ED1332FBBC00182581 /* PlayerCopyShip.m */; };
+		BFCD44F31332FBD900182581 /* CopyShip.m in Sources */ = {isa = PBXBuildFile; fileRef = BFCD44F21332FBD900182581 /* CopyShip.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,8 +41,8 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* ultimatebattle_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ultimatebattle_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* ultimatebattle-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ultimatebattle-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
-		BFA4FD29132B0DCB00612508 /* Ship.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ship.h; sourceTree = "<group>"; };
-		BFA4FD2A132B0DCB00612508 /* Ship.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ship.m; sourceTree = "<group>"; };
+		BFA4FD29132B0DCB00612508 /* Ship.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Ship.h; path = ../Ship.h; sourceTree = "<group>"; };
+		BFA4FD2A132B0DCB00612508 /* Ship.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Ship.m; path = ../Ship.m; sourceTree = "<group>"; };
 		BFA4FD2E132B0DF700612508 /* Weapon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Weapon.h; sourceTree = "<group>"; };
 		BFA4FD2F132B0DF700612508 /* Weapon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Weapon.m; sourceTree = "<group>"; };
 		BFA4FD31132B0E6000612508 /* Bullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Bullet.h; path = ../Bullet.h; sourceTree = "<group>"; };
@@ -55,6 +57,10 @@
 		BFBB6D73132C2F1100151B43 /* WideDoubleBullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WideDoubleBullet.m; sourceTree = "<group>"; };
 		BFBB6D85132C303800151B43 /* TriShotBullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriShotBullet.h; sourceTree = "<group>"; };
 		BFBB6D86132C303800151B43 /* TriShotBullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TriShotBullet.m; sourceTree = "<group>"; };
+		BFCD44EC1332FBBC00182581 /* PlayerCopyShip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerCopyShip.h; sourceTree = "<group>"; };
+		BFCD44ED1332FBBC00182581 /* PlayerCopyShip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerCopyShip.m; sourceTree = "<group>"; };
+		BFCD44F11332FBD900182581 /* CopyShip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CopyShip.h; sourceTree = "<group>"; };
+		BFCD44F21332FBD900182581 /* CopyShip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CopyShip.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +80,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				BFCD44EB1332FB8500182581 /* Ships */,
 				BFBB6D46132C2DCE00151B43 /* Bullets */,
 				1D3623240D0F684500981E51 /* ultimatebattleAppDelegate.h */,
 				1D3623250D0F684500981E51 /* ultimatebattleAppDelegate.m */,
@@ -105,8 +112,6 @@
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
-				BFA4FD29132B0DCB00612508 /* Ship.h */,
-				BFA4FD2A132B0DCB00612508 /* Ship.m */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -153,6 +158,19 @@
 				BFBB6D86132C303800151B43 /* TriShotBullet.m */,
 			);
 			name = Bullets;
+			sourceTree = "<group>";
+		};
+		BFCD44EB1332FB8500182581 /* Ships */ = {
+			isa = PBXGroup;
+			children = (
+				BFA4FD29132B0DCB00612508 /* Ship.h */,
+				BFA4FD2A132B0DCB00612508 /* Ship.m */,
+				BFCD44EC1332FBBC00182581 /* PlayerCopyShip.h */,
+				BFCD44ED1332FBBC00182581 /* PlayerCopyShip.m */,
+				BFCD44F11332FBD900182581 /* CopyShip.h */,
+				BFCD44F21332FBD900182581 /* CopyShip.m */,
+			);
+			name = Ships;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -227,6 +245,8 @@
 				BFBB6D49132C2DE300151B43 /* BasicBullet.m in Sources */,
 				BFBB6D74132C2F1100151B43 /* WideDoubleBullet.m in Sources */,
 				BFBB6D87132C303800151B43 /* TriShotBullet.m in Sources */,
+				BFCD44EE1332FBBC00182581 /* PlayerCopyShip.m in Sources */,
+				BFCD44F31332FBD900182581 /* CopyShip.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

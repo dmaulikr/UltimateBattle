@@ -13,8 +13,10 @@
 
 }
 
+@property(nonatomic) CGPoint l;
 @property(nonatomic) CGPoint vel;
 @property(nonatomic) BOOL firing;
+@property(nonatomic) int weaponIndex;
 
 -(void)becomeEmptyTurn;
 

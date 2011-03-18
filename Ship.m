@@ -10,39 +10,60 @@
 
 
 @implementation Ship
-@synthesize moves, hp, weapon, bullets;
+@synthesize currentWeaponIndex, moves, hp, weapons, bullets;
 
 -(id)init {
 	self = [super init];
 	if (self) {
 		self.moves = [NSMutableArray array];
-		self.weapon = [[Weapon alloc] init];
+		self.weapons = [NSMutableArray array];
 		self.hp = Ship_HP;
 	}
 	return self;
 }
 
+-(Weapon *)currentWeapon {
+	return [self.weapons objectAtIndex:self.currentWeaponIndex];
+}
+
+-(Turn *)currentTurn {
+	return self.turn;	
+}
+
 -(void)tick {
 	//Call super to move and animate us
 	[super tick];
-	if ([self.turn firing]) {
-		NSArray *b = [self.weapon fireWithYFacing:self.yFacing];
+	if ([[self currentTurn] firing]) {
+		NSArray *b = [[self currentWeapon] fireWithYFacing:self.yFacing];
 		if (b) {
 			[self.bullets addObjectsFromArray:b];
 		}
 	}
-	//Store this current turn
-	[self.moves addObject:self.turn];
-	
-	
-	//Clear out the turn's instructions
-	[self.turn becomeEmptyTurn];
-	
 }
-	
+
+-(void)ensureValidWeaponIndex {
+	if (self.currentWeaponIndex >= [self.weapons count] || self.currentWeaponIndex < 0){
+		self.currentWeaponIndex = 0;	
+	}
+}
+
+-(void)cycleWeapon {
+	self.currentWeaponIndex++;
+	[self ensureValidWeaponIndex];
+}
+
+-(void)changeWeapon:(int)newWeaponIndex {
+	self.currentWeaponIndex = newWeaponIndex;
+	[self ensureValidWeaponIndex];
+}
+
+-(void)resetTurn {
+	//Default does nothing
+}
+
 -(void)dealloc {
 	self.moves = nil;
-	self.weapon = nil;
+	self.weapons = nil;
 	[super dealloc];
 }
 
