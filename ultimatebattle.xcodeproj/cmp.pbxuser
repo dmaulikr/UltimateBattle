@@ -97,16 +97,16 @@
 	};
 	BFA4FD29132B0DCB00612508 /* Ship.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1411, 946}}";
-			sepNavSelRange = "{455, 0}";
-			sepNavVisRange = "{0, 463}";
+			sepNavIntBoundsRect = "{{0, 0}, {1411, 1020}}";
+			sepNavSelRange = "{637, 0}";
+			sepNavVisRange = "{0, 639}";
 		};
 	};
 	BFA4FD2A132B0DCB00612508 /* Ship.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1411, 1290}}";
-			sepNavSelRange = "{586, 0}";
-			sepNavVisRange = "{147, 525}";
+			sepNavIntBoundsRect = "{{0, 0}, {1411, 2160}}";
+			sepNavSelRange = "{1283, 0}";
+			sepNavVisRange = "{522, 638}";
 		};
 	};
 	BFA4FD2C132B0DCB00612508 /* Source Control */ = {
@@ -126,15 +126,15 @@
 	BFA4FD2E132B0DF700612508 /* Weapon.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1411, 923}}";
-			sepNavSelRange = "{408, 0}";
-			sepNavVisRange = "{0, 416}";
+			sepNavSelRange = "{206, 0}";
+			sepNavVisRange = "{0, 424}";
 		};
 	};
 	BFA4FD2F132B0DF700612508 /* Weapon.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1411, 1350}}";
-			sepNavSelRange = "{656, 0}";
-			sepNavVisRange = "{219, 442}";
+			sepNavIntBoundsRect = "{{0, 0}, {1411, 1320}}";
+			sepNavSelRange = "{219, 0}";
+			sepNavVisRange = "{0, 529}";
 		};
 	};
 	BFA4FD31132B0E6000612508 /* Bullet.h */ = {
@@ -147,8 +147,8 @@
 	BFA4FD32132B0E6000612508 /* Bullet.m */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1411, 1200}}";
-			sepNavSelRange = "{175, 14}";
-			sepNavVisRange = "{0, 482}";
+			sepNavSelRange = "{406, 0}";
+			sepNavVisRange = "{149, 487}";
 		};
 	};
 	BFA4FD36132B0E7200612508 /* GameObject.h */ = {
@@ -167,16 +167,16 @@
 	};
 	BFA4FD5D132B106C00612508 /* Turn.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1411, 946}}";
-			sepNavSelRange = "{151, 0}";
-			sepNavVisRange = "{0, 296}";
+			sepNavIntBoundsRect = "{{0, 0}, {1411, 923}}";
+			sepNavSelRange = "{334, 0}";
+			sepNavVisRange = "{0, 366}";
 		};
 	};
 	BFA4FD5E132B106C00612508 /* Turn.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1411, 946}}";
-			sepNavSelRange = "{211, 0}";
-			sepNavVisRange = "{0, 308}";
+			sepNavIntBoundsRect = "{{0, 0}, {1411, 923}}";
+			sepNavSelRange = "{304, 0}";
+			sepNavVisRange = "{0, 348}";
 		};
 	};
 	BFBB6D47132C2DE300151B43 /* BasicBullet.h */ = {
@@ -226,7 +226,7 @@
 		fRef = BFA4FD5E132B106C00612508 /* Turn.m */;
 		name = "Turn.m: 15";
 		rLen = 0;
-		rLoc = 211;
+		rLoc = 227;
 		rType = 0;
 		vrLen = 308;
 		vrLoc = 0;
@@ -246,7 +246,7 @@
 		fRef = BFA4FD2F132B0DF700612508 /* Weapon.m */;
 		name = "Weapon.m: 44";
 		rLen = 0;
-		rLoc = 656;
+		rLoc = 654;
 		rType = 0;
 		vrLen = 442;
 		vrLoc = 219;
@@ -266,7 +266,7 @@
 		fRef = BFA4FD29132B0DCB00612508 /* Ship.h */;
 		name = "Ship.h: 23";
 		rLen = 0;
-		rLoc = 455;
+		rLoc = 509;
 		rType = 0;
 		vrLen = 463;
 		vrLoc = 0;
@@ -276,7 +276,7 @@
 		fRef = BFA4FD2A132B0DCB00612508 /* Ship.m */;
 		name = "Ship.m: 29";
 		rLen = 0;
-		rLoc = 519;
+		rLoc = 733;
 		rType = 0;
 		vrLen = 576;
 		vrLoc = 145;
@@ -410,9 +410,23 @@
 	};
 	BFCD44ED1332FBBC00182581 /* PlayerCopyShip.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1411, 946}}";
-			sepNavSelRange = "{361, 0}";
-			sepNavVisRange = "{0, 369}";
+			sepNavIntBoundsRect = "{{0, 0}, {1411, 923}}";
+			sepNavSelRange = "{306, 0}";
+			sepNavVisRange = "{0, 367}";
+		};
+	};
+	BFCD44F11332FBD900182581 /* CopyShip.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1411, 923}}";
+			sepNavSelRange = "{234, 0}";
+			sepNavVisRange = "{0, 244}";
+		};
+	};
+	BFCD44F21332FBD900182581 /* CopyShip.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1411, 930}}";
+			sepNavSelRange = "{201, 0}";
+			sepNavVisRange = "{0, 476}";
 		};
 	};
 }

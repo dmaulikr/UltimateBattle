@@ -18,6 +18,7 @@
 		self.moves = [NSMutableArray array];
 		self.weapons = [NSMutableArray array];
 		self.hp = Ship_HP;
+		self.turn = [[Turn alloc] init];
 	}
 	return self;
 }
@@ -64,6 +65,7 @@
 -(void)dealloc {
 	self.moves = nil;
 	self.weapons = nil;
+	self.turn = nil;
 	[super dealloc];
 }
 

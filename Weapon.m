@@ -24,7 +24,6 @@
 
 -(NSArray *)newBulletsWithYFacing:(int)facing {
 	NSArray *bullets = [[self.bullet class] newBulletsWithYFacing:facing];
-	
 	return bullets;
 }
 

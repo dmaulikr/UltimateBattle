@@ -25,6 +25,7 @@
 		BFBB6D87132C303800151B43 /* TriShotBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBB6D86132C303800151B43 /* TriShotBullet.m */; };
 		BFCD44EE1332FBBC00182581 /* PlayerCopyShip.m in Sources */ = {isa = PBXBuildFile; fileRef = BFCD44ED1332FBBC00182581 /* PlayerCopyShip.m */; };
 		BFCD44F31332FBD900182581 /* CopyShip.m in Sources */ = {isa = PBXBuildFile; fileRef = BFCD44F21332FBD900182581 /* CopyShip.m */; };
+		BFCD45041332FFC900182581 /* LaserGun.m in Sources */ = {isa = PBXBuildFile; fileRef = BFCD45031332FFC900182581 /* LaserGun.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,8 +44,8 @@
 		8D1107310486CEB800E47090 /* ultimatebattle-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ultimatebattle-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		BFA4FD29132B0DCB00612508 /* Ship.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Ship.h; path = ../Ship.h; sourceTree = "<group>"; };
 		BFA4FD2A132B0DCB00612508 /* Ship.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Ship.m; path = ../Ship.m; sourceTree = "<group>"; };
-		BFA4FD2E132B0DF700612508 /* Weapon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Weapon.h; sourceTree = "<group>"; };
-		BFA4FD2F132B0DF700612508 /* Weapon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Weapon.m; sourceTree = "<group>"; };
+		BFA4FD2E132B0DF700612508 /* Weapon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Weapon.h; path = ../Weapon.h; sourceTree = "<group>"; };
+		BFA4FD2F132B0DF700612508 /* Weapon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Weapon.m; path = ../Weapon.m; sourceTree = "<group>"; };
 		BFA4FD31132B0E6000612508 /* Bullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Bullet.h; path = ../Bullet.h; sourceTree = "<group>"; };
 		BFA4FD32132B0E6000612508 /* Bullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Bullet.m; path = ../Bullet.m; sourceTree = "<group>"; };
 		BFA4FD36132B0E7200612508 /* GameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObject.h; sourceTree = "<group>"; };
@@ -61,6 +62,8 @@
 		BFCD44ED1332FBBC00182581 /* PlayerCopyShip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerCopyShip.m; sourceTree = "<group>"; };
 		BFCD44F11332FBD900182581 /* CopyShip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CopyShip.h; sourceTree = "<group>"; };
 		BFCD44F21332FBD900182581 /* CopyShip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CopyShip.m; sourceTree = "<group>"; };
+		BFCD45021332FFC900182581 /* LaserGun.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaserGun.h; sourceTree = "<group>"; };
+		BFCD45031332FFC900182581 /* LaserGun.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaserGun.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +83,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				BFCD45011332FFB500182581 /* Weapons */,
 				BFCD44EB1332FB8500182581 /* Ships */,
 				BFBB6D46132C2DCE00151B43 /* Bullets */,
 				1D3623240D0F684500981E51 /* ultimatebattleAppDelegate.h */,
@@ -105,8 +109,6 @@
 				BFA4FD5E132B106C00612508 /* Turn.m */,
 				BFA4FD36132B0E7200612508 /* GameObject.h */,
 				BFA4FD37132B0E7200612508 /* GameObject.m */,
-				BFA4FD2E132B0DF700612508 /* Weapon.h */,
-				BFA4FD2F132B0DF700612508 /* Weapon.m */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -171,6 +173,17 @@
 				BFCD44F21332FBD900182581 /* CopyShip.m */,
 			);
 			name = Ships;
+			sourceTree = "<group>";
+		};
+		BFCD45011332FFB500182581 /* Weapons */ = {
+			isa = PBXGroup;
+			children = (
+				BFA4FD2E132B0DF700612508 /* Weapon.h */,
+				BFA4FD2F132B0DF700612508 /* Weapon.m */,
+				BFCD45021332FFC900182581 /* LaserGun.h */,
+				BFCD45031332FFC900182581 /* LaserGun.m */,
+			);
+			name = Weapons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -247,6 +260,7 @@
 				BFBB6D87132C303800151B43 /* TriShotBullet.m in Sources */,
 				BFCD44EE1332FBBC00182581 /* PlayerCopyShip.m in Sources */,
 				BFCD44F31332FBD900182581 /* CopyShip.m in Sources */,
+				BFCD45041332FFC900182581 /* LaserGun.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
