@@ -8,8 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Weapon.h"
-
-@class BasicBullet;
+#import "BasicBullet.h"
 
 @interface LaserGun : Weapon {
 

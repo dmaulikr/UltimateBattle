@@ -62,6 +62,32 @@
 			BFBB6D9F132C319D00151B43 = BFBB6D9F132C319D00151B43 /* PBXTextBookmark */;
 			BFBB6DA0132C319D00151B43 = BFBB6DA0132C319D00151B43 /* PBXTextBookmark */;
 			BFCD44E71332FB3500182581 /* PBXTextBookmark */ = BFCD44E71332FB3500182581 /* PBXTextBookmark */;
+			BFCD450C1333003000182581 /* PBXTextBookmark */ = BFCD450C1333003000182581 /* PBXTextBookmark */;
+			BFCD450D1333003000182581 /* PBXTextBookmark */ = BFCD450D1333003000182581 /* PBXTextBookmark */;
+			BFCD45111333004A00182581 /* PBXTextBookmark */ = BFCD45111333004A00182581 /* PBXTextBookmark */;
+			BFCD45121333004A00182581 /* PBXTextBookmark */ = BFCD45121333004A00182581 /* PBXTextBookmark */;
+			BFCD45131333004A00182581 /* PBXTextBookmark */ = BFCD45131333004A00182581 /* PBXTextBookmark */;
+			BFCD45141333005800182581 /* PBXTextBookmark */ = BFCD45141333005800182581 /* PBXTextBookmark */;
+			BFCD45151333005800182581 /* PBXTextBookmark */ = BFCD45151333005800182581 /* PBXTextBookmark */;
+			BFCD45161333005800182581 /* PBXTextBookmark */ = BFCD45161333005800182581 /* PBXTextBookmark */;
+			BFCD45171333005800182581 /* PBXTextBookmark */ = BFCD45171333005800182581 /* PBXTextBookmark */;
+			BFCD45181333005800182581 /* PBXTextBookmark */ = BFCD45181333005800182581 /* PBXTextBookmark */;
+			BFCD45191333005800182581 /* PBXTextBookmark */ = BFCD45191333005800182581 /* PBXTextBookmark */;
+			BFCD451A1333005800182581 /* PBXTextBookmark */ = BFCD451A1333005800182581 /* PBXTextBookmark */;
+			BFCD451B1333005800182581 /* PBXTextBookmark */ = BFCD451B1333005800182581 /* PBXTextBookmark */;
+			BFCD451C1333005800182581 /* PBXTextBookmark */ = BFCD451C1333005800182581 /* PBXTextBookmark */;
+			BFCD451D1333005800182581 /* PBXTextBookmark */ = BFCD451D1333005800182581 /* PBXTextBookmark */;
+			BFCD451E1333005800182581 /* PBXTextBookmark */ = BFCD451E1333005800182581 /* PBXTextBookmark */;
+			BFCD451F1333005800182581 /* PBXTextBookmark */ = BFCD451F1333005800182581 /* PBXTextBookmark */;
+			BFCD45201333005800182581 /* PBXTextBookmark */ = BFCD45201333005800182581 /* PBXTextBookmark */;
+			BFCD45211333005800182581 /* PBXTextBookmark */ = BFCD45211333005800182581 /* PBXTextBookmark */;
+			BFCD45221333005800182581 /* PBXTextBookmark */ = BFCD45221333005800182581 /* PBXTextBookmark */;
+			BFCD45231333005800182581 /* PBXTextBookmark */ = BFCD45231333005800182581 /* PBXTextBookmark */;
+			BFCD452C1333008900182581 /* PBXTextBookmark */ = BFCD452C1333008900182581 /* PBXTextBookmark */;
+			BFCD452D1333008900182581 /* PBXTextBookmark */ = BFCD452D1333008900182581 /* PBXTextBookmark */;
+			BFCD452E1333008900182581 /* PBXTextBookmark */ = BFCD452E1333008900182581 /* PBXTextBookmark */;
+			BFCD452F1333008900182581 /* PBXTextBookmark */ = BFCD452F1333008900182581 /* PBXTextBookmark */;
+			BFCD45301333008900182581 /* PBXTextBookmark */ = BFCD45301333008900182581 /* PBXTextBookmark */;
 		};
 		sourceControlManager = BFA4FD2C132B0DCB00612508 /* Source Control */;
 		userBuildSettings = {
@@ -74,7 +100,7 @@
 		argumentStrings = (
 		);
 		autoAttachOnCrash = 1;
-		breakpointsEnabled = 0;
+		breakpointsEnabled = 1;
 		configStateDict = {
 		};
 		customDataFormattersEnabled = 1;
@@ -106,7 +132,7 @@
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1411, 2160}}";
 			sepNavSelRange = "{1283, 0}";
-			sepNavVisRange = "{522, 638}";
+			sepNavVisRange = "{800, 509}";
 		};
 	};
 	BFA4FD2C132B0DCB00612508 /* Source Control */ = {
@@ -126,15 +152,15 @@
 	BFA4FD2E132B0DF700612508 /* Weapon.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1411, 923}}";
-			sepNavSelRange = "{206, 0}";
-			sepNavVisRange = "{0, 424}";
+			sepNavSelRange = "{198, 0}";
+			sepNavVisRange = "{0, 416}";
 		};
 	};
 	BFA4FD2F132B0DF700612508 /* Weapon.m */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1411, 1320}}";
-			sepNavSelRange = "{219, 0}";
-			sepNavVisRange = "{0, 529}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{174, 485}";
 		};
 	};
 	BFA4FD31132B0E6000612508 /* Bullet.h */ = {
@@ -147,8 +173,8 @@
 	BFA4FD32132B0E6000612508 /* Bullet.m */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1411, 1200}}";
-			sepNavSelRange = "{406, 0}";
-			sepNavVisRange = "{149, 487}";
+			sepNavSelRange = "{390, 0}";
+			sepNavVisRange = "{129, 502}";
 		};
 	};
 	BFA4FD36132B0E7200612508 /* GameObject.h */ = {
@@ -189,8 +215,8 @@
 	BFBB6D48132C2DE300151B43 /* BasicBullet.m */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1411, 923}}";
-			sepNavSelRange = "{216, 0}";
-			sepNavVisRange = "{0, 488}";
+			sepNavSelRange = "{406, 0}";
+			sepNavVisRange = "{0, 486}";
 		};
 	};
 	BFBB6D72132C2F1100151B43 /* WideDoubleBullet.h */ = {
@@ -203,8 +229,8 @@
 	BFBB6D73132C2F1100151B43 /* WideDoubleBullet.m */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1436.45, 990}}";
-			sepNavSelRange = "{204, 0}";
-			sepNavVisRange = "{3, 645}";
+			sepNavSelRange = "{253, 0}";
+			sepNavVisRange = "{0, 643}";
 		};
 	};
 	BFBB6D85132C303800151B43 /* TriShotBullet.h */ = {
@@ -428,5 +454,273 @@
 			sepNavSelRange = "{201, 0}";
 			sepNavVisRange = "{0, 476}";
 		};
+	};
+	BFCD45021332FFC900182581 /* LaserGun.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1411, 923}}";
+			sepNavSelRange = "{209, 0}";
+			sepNavVisRange = "{0, 250}";
+		};
+	};
+	BFCD45031332FFC900182581 /* LaserGun.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1411, 923}}";
+			sepNavSelRange = "{155, 0}";
+			sepNavVisRange = "{0, 352}";
+		};
+	};
+	BFCD450C1333003000182581 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = BFBB6D73132C2F1100151B43 /* WideDoubleBullet.m */;
+		rLen = 5;
+		rLoc = 246;
+		rType = 0;
+	};
+	BFCD450D1333003000182581 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = BFBB6D73132C2F1100151B43 /* WideDoubleBullet.m */;
+		name = "WideDoubleBullet.m: 15";
+		rLen = 0;
+		rLoc = 237;
+		rType = 0;
+		vrLen = 100;
+		vrLoc = 205;
+	};
+	BFCD45111333004A00182581 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = BFBB6D73132C2F1100151B43 /* WideDoubleBullet.m */;
+		name = "WideDoubleBullet.m: 15";
+		rLen = 0;
+		rLoc = 237;
+		rType = 0;
+		vrLen = 100;
+		vrLoc = 205;
+	};
+	BFCD45121333004A00182581 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = BFA4FD32132B0E6000612508 /* Bullet.m */;
+		rLen = 5;
+		rLoc = 379;
+		rType = 0;
+	};
+	BFCD45131333004A00182581 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = BFA4FD32132B0E6000612508 /* Bullet.m */;
+		name = "Bullet.m: 23";
+		rLen = 5;
+		rLoc = 379;
+		rType = 0;
+		vrLen = 125;
+		vrLoc = 150;
+	};
+	BFCD45141333005800182581 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = BFCD44EC1332FBBC00182581 /* PlayerCopyShip.h */;
+		name = "PlayerCopyShip.h: 12";
+		rLen = 0;
+		rLoc = 222;
+		rType = 0;
+		vrLen = 234;
+		vrLoc = 0;
+	};
+	BFCD45151333005800182581 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = BFA4FD5D132B106C00612508 /* Turn.h */;
+		name = "Turn.h: 19";
+		rLen = 0;
+		rLoc = 334;
+		rType = 0;
+		vrLen = 366;
+		vrLoc = 0;
+	};
+	BFCD45161333005800182581 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = BFA4FD5E132B106C00612508 /* Turn.m */;
+		name = "Turn.m: 19";
+		rLen = 0;
+		rLoc = 304;
+		rType = 0;
+		vrLen = 348;
+		vrLoc = 0;
+	};
+	BFCD45171333005800182581 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = BFA4FD29132B0DCB00612508 /* Ship.h */;
+		name = "Ship.h: 30";
+		rLen = 0;
+		rLoc = 637;
+		rType = 0;
+		vrLen = 639;
+		vrLoc = 0;
+	};
+	BFCD45181333005800182581 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = BFCD44F11332FBD900182581 /* CopyShip.h */;
+		name = "CopyShip.h: 13";
+		rLen = 0;
+		rLoc = 234;
+		rType = 0;
+		vrLen = 244;
+		vrLoc = 0;
+	};
+	BFCD45191333005800182581 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = BFCD44F21332FBD900182581 /* CopyShip.m */;
+		name = "CopyShip.m: 14";
+		rLen = 0;
+		rLoc = 201;
+		rType = 0;
+		vrLen = 476;
+		vrLoc = 0;
+	};
+	BFCD451A1333005800182581 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = BFCD44ED1332FBBC00182581 /* PlayerCopyShip.m */;
+		name = "PlayerCopyShip.m: 19";
+		rLen = 0;
+		rLoc = 306;
+		rType = 0;
+		vrLen = 367;
+		vrLoc = 0;
+	};
+	BFCD451B1333005800182581 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = BFA4FD2E132B0DF700612508 /* Weapon.h */;
+		name = "Weapon.h: 13";
+		rLen = 0;
+		rLoc = 198;
+		rType = 0;
+		vrLen = 424;
+		vrLoc = 0;
+	};
+	BFCD451C1333005800182581 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = BFCD45021332FFC900182581 /* LaserGun.h */;
+		name = "LaserGun.h: 12";
+		rLen = 0;
+		rLoc = 208;
+		rType = 0;
+		vrLen = 247;
+		vrLoc = 0;
+	};
+	BFCD451D1333005800182581 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = BFA4FD2F132B0DF700612508 /* Weapon.m */;
+		name = "Weapon.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 485;
+		vrLoc = 174;
+	};
+	BFCD451E1333005800182581 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = BFCD45031332FFC900182581 /* LaserGun.m */;
+		name = "LaserGun.m: 19";
+		rLen = 11;
+		rLoc = 294;
+		rType = 0;
+		vrLen = 352;
+		vrLoc = 0;
+	};
+	BFCD451F1333005800182581 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = BFBB6D48132C2DE300151B43 /* BasicBullet.m */;
+		name = "BasicBullet.m: 12";
+		rLen = 28;
+		rLoc = 161;
+		rType = 0;
+		vrLen = 488;
+		vrLoc = 0;
+	};
+	BFCD45201333005800182581 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = BFA4FD2A132B0DCB00612508 /* Ship.m */;
+		name = "Ship.m: 68";
+		rLen = 0;
+		rLoc = 1283;
+		rType = 0;
+		vrLen = 509;
+		vrLoc = 800;
+	};
+	BFCD45211333005800182581 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = BFBB6D73132C2F1100151B43 /* WideDoubleBullet.m */;
+		name = "WideDoubleBullet.m: 16";
+		rLen = 0;
+		rLoc = 253;
+		rType = 0;
+		vrLen = 643;
+		vrLoc = 0;
+	};
+	BFCD45221333005800182581 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = BFA4FD32132B0E6000612508 /* Bullet.m */;
+		name = "Bullet.m: 25";
+		rLen = 0;
+		rLoc = 390;
+		rType = 0;
+		vrLen = 502;
+		vrLoc = 129;
+	};
+	BFCD45231333005800182581 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = BFA4FD32132B0E6000612508 /* Bullet.m */;
+		name = "Bullet.m: 25";
+		rLen = 0;
+		rLoc = 390;
+		rType = 0;
+		vrLen = 502;
+		vrLoc = 129;
+	};
+	BFCD452C1333008900182581 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = BFA4FD32132B0E6000612508 /* Bullet.m */;
+		name = "Bullet.m: 25";
+		rLen = 0;
+		rLoc = 390;
+		rType = 0;
+		vrLen = 502;
+		vrLoc = 129;
+	};
+	BFCD452D1333008900182581 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = BFBB6D48132C2DE300151B43 /* BasicBullet.m */;
+		name = "BasicBullet.m: 20";
+		rLen = 0;
+		rLoc = 406;
+		rType = 0;
+		vrLen = 486;
+		vrLoc = 0;
+	};
+	BFCD452E1333008900182581 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = BFA4FD2E132B0DF700612508 /* Weapon.h */;
+		name = "Weapon.h: 12";
+		rLen = 0;
+		rLoc = 198;
+		rType = 0;
+		vrLen = 416;
+		vrLoc = 0;
+	};
+	BFCD452F1333008900182581 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = BFCD45031332FFC900182581 /* LaserGun.m */;
+		name = "LaserGun.m: 12";
+		rLen = 0;
+		rLoc = 155;
+		rType = 0;
+		vrLen = 352;
+		vrLoc = 0;
+	};
+	BFCD45301333008900182581 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = BFCD45021332FFC900182581 /* LaserGun.h */;
+		name = "LaserGun.h: 12";
+		rLen = 0;
+		rLoc = 209;
+		rType = 0;
+		vrLen = 250;
+		vrLoc = 0;
 	};
 }

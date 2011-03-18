@@ -18,12 +18,10 @@
 
 +(NSArray *)newBulletsWithYFacing:(int)facing {
 	BasicBullet *b = [[[BasicBullet alloc] initWithYFacing:facing] autorelease];
-
 	
 	NSArray *bullets = [NSArray arrayWithObject:b];
 	
-	return bullets;
-	
+	return bullets;	
 }
 
 

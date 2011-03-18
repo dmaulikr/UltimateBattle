@@ -19,7 +19,6 @@
 		self.bullet = [[BasicBullet alloc] init];
 	}
 	return self;
-}
-					   
+}					   
 
 @end
