@@ -11,6 +11,7 @@
 
 @implementation Ship
 @synthesize currentWeaponIndex, moves, hp, weapons, bullets;
+@synthesize engine;
 
 -(id)init {
 	self = [super init];
@@ -32,8 +33,13 @@
 }
 
 -(void)tick {
+    
+   //Determine our position
+    self.l = [self.engine moveFrom:self.l withVel:self.vel];
+    
 	//Call super to move and animate us
 	[super tick];
+
 	if ([[self currentTurn] firing]) {
 		NSArray *b = [[self currentWeapon] fireWithYFacing:self.yFacing];
 		if (b) {
@@ -66,6 +72,7 @@
 	self.moves = nil;
 	self.weapons = nil;
 	self.turn = nil;
+  self.engine = nil;
 	[super dealloc];
 }
 
