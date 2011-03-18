@@ -35,6 +35,7 @@
 -(void)tick {
     
    //Determine our position
+    self.vel = [self.engine velocityForTargetPoint:self.turn.targetLocation from:self.l];
     self.l = [self.engine moveFrom:self.l withVel:self.vel];
     
 	//Call super to move and animate us

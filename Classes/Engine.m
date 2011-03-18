@@ -10,7 +10,7 @@
 
 
 @implementation Engine
-@synthesize  movementBounds;
+@synthesize speed, movementBounds;
 
 -(id)init {
     self = [super init];
@@ -27,6 +27,11 @@
         return newLocation;    
     }
     return l;
+}
+
+-(CGPoint)velocityForTargetPoint:(CGPoint)target from:(CGPoint)location {
+    //TODO: Get angle, then multiply by speed
+    return CGPointZero;
 }
 
 @end

@@ -13,7 +13,9 @@
 }
 
 @property(nonatomic) CGRect movementBounds;
+@property(nonatomic) float speed;
 
 -(CGPoint)moveFrom:(CGPoint )l withVel:(CGPoint)vel;
+-(CGPoint)velocityForTargetPoint:(CGPoint)target from:(CGPoint)location;
 
 @end
