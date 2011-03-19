@@ -11,6 +11,7 @@
 
 @implementation Ship
 @synthesize currentWeaponIndex, moves, hp, weapons, bullets;
+@synthesize engine;
 
 -(id)init {
 	self = [super init];
@@ -35,6 +36,7 @@
 -(void)tick {
 	//Call super to move and animate us
 	[super tick];
+
 	if ([[self currentTurn] firing]) {
 		NSArray *b = [[self currentWeapon] fireWithYFacing:self.yFacing];
 		if (b) {

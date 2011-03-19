@@ -10,11 +10,12 @@
 
 
 @implementation Turn
-@synthesize l, vel, firing, weaponIndex;
+@synthesize l, targetLocation, vel, firing, weaponIndex;
 
 -(void)becomeEmptyTurn {
 	self.vel = CGPointZero;
-	self.firing = NO;
+    self.targetLocation = CGPointZero;
+    self.firing = NO;
 	self.weaponIndex = -1;
 }
 

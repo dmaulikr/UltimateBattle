@@ -18,9 +18,12 @@
 @property(nonatomic,retain) Turn *turn;
 @property(nonatomic) int yFacing;
 @property(nonatomic) double speed;
+@property(nonatomic, retain) UIImageView *imageView;
 
 -(void)animate;
 -(void)move;
 -(void)tick;
+
+-(Turn *)currentTurn;
 
 @end

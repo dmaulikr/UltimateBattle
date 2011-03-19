@@ -33,6 +33,29 @@
 	currentKills = 0;
 }
 
+-(void)bulletLoop {
+	for (Bullet *b in self.bullets) {
+		[b tick];
+	}
+}
+
+-(void)copyLoop {
+	for (CopyShip *c in self.copies) {
+		[c tick];
+	}
+}
+
+-(void)playerLoop {
+	//Determine player's target 
+	[self.player tick];	
+}
+
+-(void)loop {
+	[self bulletLoop];
+	[self copyLoop];
+	[self playerLoop];
+}
+
 -(void)checkForLevel {
 	if (currentKills == [self.copies count]) {
 		[self nextLevel];	
@@ -42,12 +65,6 @@
 -(void)tick {
 	[self checkForLevel];
 }
-
-// Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    return YES;
-}
-
 
 - (void)dealloc {
 	self.copies = nil;

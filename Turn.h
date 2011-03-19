@@ -15,6 +15,7 @@
 
 @property(nonatomic) CGPoint l;
 @property(nonatomic) CGPoint vel;
+@property(nonatomic) CGPoint targetLocation;
 @property(nonatomic) BOOL firing;
 @property(nonatomic) int weaponIndex;
 

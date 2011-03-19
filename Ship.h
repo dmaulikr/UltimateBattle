@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "Weapon.h"
 #import "GameObject.h"
+#import "Engine.h"
+
 #define Ship_HP 100
 
 @class Weapon;
@@ -22,9 +24,9 @@
 @property(nonatomic) int hp;
 @property(nonatomic, retain) NSMutableArray *weapons;
 @property(nonatomic, retain) NSMutableArray *bullets;
+@property(nonatomic, retain) Engine *engine;
 
 -(Weapon *)currentWeapon;
--(Turn *)currentTurn;
 -(void)resetTurn;
 -(void)cycleWeapon;
 -(void)changeWeapon:(int)newWeaponIndex;

@@ -1,15 +1,15 @@
 //
-//  PlayerCopyShip.h
+//  EngineShip.h
 //  ultimatebattle
 //
-//  Created by X3N0 on 3/17/11.
+//  Created by X3N0 on 3/19/11.
 //  Copyright 2011 Rage Creations. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "EngineShip.h"
+#import "Ship.h"
 
-@interface PlayerCopyShip : EngineShip {
+@interface EngineShip : Ship {
 
 }
 

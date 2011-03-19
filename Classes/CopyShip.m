@@ -22,7 +22,6 @@
 		self.moves = turns;
 		self.weapons = ship.weapons;
 		self.hp = 1;
-		
 	}
 	return self;
 }
