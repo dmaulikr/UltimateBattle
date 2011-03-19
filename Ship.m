@@ -19,6 +19,7 @@
 		self.weapons = [NSMutableArray array];
 		self.hp = Ship_HP;
 		self.turn = [[Turn alloc] init];
+		self.currentWeaponIndex = 0;
 	}
 	return self;
 }

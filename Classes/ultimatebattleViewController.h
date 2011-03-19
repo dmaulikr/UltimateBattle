@@ -7,10 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Ship.h"
 
 @interface ultimatebattleViewController : UIViewController {
-
+	int level;
+	int currentKills;
 }
+
+@property(nonatomic, retain) NSMutableArray *copies;
+@property(nonatomic, retain) Ship *player;
+@property(nonatomic , retain) NSMutableArray *bullets;
 
 @end
 

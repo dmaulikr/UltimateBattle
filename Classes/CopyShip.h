@@ -13,4 +13,8 @@
 	int currentTurnIndex;
 }
 
+-(id)initWithShip:(Ship *)ship;
+
+-(void)resetState;
+
 @end

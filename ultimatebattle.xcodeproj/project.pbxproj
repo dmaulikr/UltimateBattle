@@ -23,6 +23,8 @@
 		BFBB6D49132C2DE300151B43 /* BasicBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBB6D48132C2DE300151B43 /* BasicBullet.m */; };
 		BFBB6D74132C2F1100151B43 /* WideDoubleBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBB6D73132C2F1100151B43 /* WideDoubleBullet.m */; };
 		BFBB6D87132C303800151B43 /* TriShotBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBB6D86132C303800151B43 /* TriShotBullet.m */; };
+		BFBBA73F133548130087DB5F /* GameController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBBA73E133548130087DB5F /* GameController.m */; };
+		BFBBA7421335482F0087DB5F /* DefeatCopyGameController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBBA7411335482F0087DB5F /* DefeatCopyGameController.m */; };
 		BFCD44EE1332FBBC00182581 /* PlayerCopyShip.m in Sources */ = {isa = PBXBuildFile; fileRef = BFCD44ED1332FBBC00182581 /* PlayerCopyShip.m */; };
 		BFCD44F31332FBD900182581 /* CopyShip.m in Sources */ = {isa = PBXBuildFile; fileRef = BFCD44F21332FBD900182581 /* CopyShip.m */; };
 		BFCD45041332FFC900182581 /* LaserGun.m in Sources */ = {isa = PBXBuildFile; fileRef = BFCD45031332FFC900182581 /* LaserGun.m */; };
@@ -58,6 +60,11 @@
 		BFBB6D73132C2F1100151B43 /* WideDoubleBullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WideDoubleBullet.m; sourceTree = "<group>"; };
 		BFBB6D85132C303800151B43 /* TriShotBullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriShotBullet.h; sourceTree = "<group>"; };
 		BFBB6D86132C303800151B43 /* TriShotBullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TriShotBullet.m; sourceTree = "<group>"; };
+		BFBBA73D133548130087DB5F /* GameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameController.h; sourceTree = "<group>"; };
+		BFBBA73E133548130087DB5F /* GameController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameController.m; sourceTree = "<group>"; };
+		BFBBA7401335482F0087DB5F /* DefeatCopyGameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefeatCopyGameController.h; sourceTree = "<group>"; };
+		BFBBA7411335482F0087DB5F /* DefeatCopyGameController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefeatCopyGameController.m; sourceTree = "<group>"; };
+		BFBBA744133549130087DB5F /* ShipEventsProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShipEventsProtocol.h; sourceTree = "<group>"; };
 		BFCD44EC1332FBBC00182581 /* PlayerCopyShip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerCopyShip.h; sourceTree = "<group>"; };
 		BFCD44ED1332FBBC00182581 /* PlayerCopyShip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerCopyShip.m; sourceTree = "<group>"; };
 		BFCD44F11332FBD900182581 /* CopyShip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CopyShip.h; sourceTree = "<group>"; };
@@ -83,6 +90,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				BFBBA73B1335477C0087DB5F /* Controllers */,
 				BFCD45011332FFB500182581 /* Weapons */,
 				BFCD44EB1332FB8500182581 /* Ships */,
 				BFBB6D46132C2DCE00151B43 /* Bullets */,
@@ -162,6 +170,17 @@
 			name = Bullets;
 			sourceTree = "<group>";
 		};
+		BFBBA73B1335477C0087DB5F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BFBBA73D133548130087DB5F /* GameController.h */,
+				BFBBA73E133548130087DB5F /* GameController.m */,
+				BFBBA7401335482F0087DB5F /* DefeatCopyGameController.h */,
+				BFBBA7411335482F0087DB5F /* DefeatCopyGameController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		BFCD44EB1332FB8500182581 /* Ships */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +190,7 @@
 				BFCD44ED1332FBBC00182581 /* PlayerCopyShip.m */,
 				BFCD44F11332FBD900182581 /* CopyShip.h */,
 				BFCD44F21332FBD900182581 /* CopyShip.m */,
+				BFBBA744133549130087DB5F /* ShipEventsProtocol.h */,
 			);
 			name = Ships;
 			sourceTree = "<group>";
@@ -261,6 +281,8 @@
 				BFCD44EE1332FBBC00182581 /* PlayerCopyShip.m in Sources */,
 				BFCD44F31332FBD900182581 /* CopyShip.m in Sources */,
 				BFCD45041332FFC900182581 /* LaserGun.m in Sources */,
+				BFBBA73F133548130087DB5F /* GameController.m in Sources */,
+				BFBBA7421335482F0087DB5F /* DefeatCopyGameController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
