@@ -29,9 +29,9 @@
 	};
 	28D7ACF70DDB3853001CB0EB /* ultimatebattleViewController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1467.76, 2100}}";
-			sepNavSelRange = "{919, 0}";
-			sepNavVisRange = "{665, 494}";
+			sepNavIntBoundsRect = "{{0, 0}, {1467.76, 2670}}";
+			sepNavSelRange = "{869, 8}";
+			sepNavVisRange = "{583, 668}";
 		};
 	};
 	29B97313FDCFA39411CA2CEA /* Project object */ = {
@@ -145,6 +145,12 @@
 			BFBBA7C2133563050087DB5F /* PBXTextBookmark */ = BFBBA7C2133563050087DB5F /* PBXTextBookmark */;
 			BFBBA7C3133563050087DB5F /* PBXTextBookmark */ = BFBBA7C3133563050087DB5F /* PBXTextBookmark */;
 			BFBBA7C61335633B0087DB5F /* PBXTextBookmark */ = BFBBA7C61335633B0087DB5F /* PBXTextBookmark */;
+			BFBBA7C8133563BC0087DB5F /* PBXTextBookmark */ = BFBBA7C8133563BC0087DB5F /* PBXTextBookmark */;
+			BFBBA7C9133563BC0087DB5F /* PBXTextBookmark */ = BFBBA7C9133563BC0087DB5F /* PBXTextBookmark */;
+			BFBBA7CA133563BC0087DB5F /* PBXTextBookmark */ = BFBBA7CA133563BC0087DB5F /* PBXTextBookmark */;
+			BFBBA7CB133563BC0087DB5F /* PBXTextBookmark */ = BFBBA7CB133563BC0087DB5F /* PBXTextBookmark */;
+			BFBBA7D413356E620087DB5F /* XCBuildMessageTextBookmark */ = BFBBA7D413356E620087DB5F /* XCBuildMessageTextBookmark */;
+			BFBBA7D513356E620087DB5F /* PBXTextBookmark */ = BFBBA7D513356E620087DB5F /* PBXTextBookmark */;
 			BFCD45141333005800182581 = BFCD45141333005800182581 /* PBXTextBookmark */;
 			BFCD45151333005800182581 = BFCD45151333005800182581 /* PBXTextBookmark */;
 			BFCD45161333005800182581 = BFCD45161333005800182581 /* PBXTextBookmark */;
@@ -221,16 +227,16 @@
 	};
 	BFA4FD29132B0DCB00612508 /* Ship.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1411, 1080}}";
-			sepNavSelRange = "{601, 0}";
-			sepNavVisRange = "{36, 652}";
+			sepNavIntBoundsRect = "{{0, 0}, {1411, 1110}}";
+			sepNavSelRange = "{682, 34}";
+			sepNavVisRange = "{36, 687}";
 		};
 	};
 	BFA4FD2A132B0DCB00612508 /* Ship.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1411, 2250}}";
-			sepNavSelRange = "{575, 0}";
-			sepNavVisRange = "{511, 669}";
+			sepNavIntBoundsRect = "{{0, 0}, {1411, 2370}}";
+			sepNavSelRange = "{1286, 1}";
+			sepNavVisRange = "{575, 639}";
 		};
 	};
 	BFA4FD2C132B0DCB00612508 /* Source Control */ = {
@@ -312,8 +318,8 @@
 	};
 	BFBB6D48132C2DE300151B43 /* BasicBullet.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1411, 923}}";
-			sepNavSelRange = "{406, 0}";
+			sepNavIntBoundsRect = "{{0, 0}, {1411, 946}}";
+			sepNavSelRange = "{280, 0}";
 			sepNavVisRange = "{0, 486}";
 		};
 	};
@@ -583,7 +589,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* ultimatebattleViewController.m */;
 		name = "ultimatebattleViewController.m: 25";
 		rLen = 0;
-		rLoc = 577;
+		rLoc = 1057;
 		rType = 0;
 		vrLen = 700;
 		vrLoc = 38;
@@ -623,7 +629,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* ultimatebattleViewController.m */;
 		name = "ultimatebattleViewController.m: 25";
 		rLen = 0;
-		rLoc = 597;
+		rLoc = 1077;
 		rType = 0;
 		vrLen = 730;
 		vrLoc = 38;
@@ -733,7 +739,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* ultimatebattleViewController.m */;
 		name = "ultimatebattleViewController.m: 15";
 		rLen = 0;
-		rLoc = 334;
+		rLoc = 354;
 		rType = 0;
 		vrLen = 739;
 		vrLoc = 38;
@@ -743,7 +749,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* ultimatebattleViewController.m */;
 		name = "ultimatebattleViewController.m: 30";
 		rLen = 0;
-		rLoc = 731;
+		rLoc = 1209;
 		rType = 0;
 		vrLen = 740;
 		vrLoc = 38;
@@ -763,7 +769,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* ultimatebattleViewController.m */;
 		name = "ultimatebattleViewController.m: 33";
 		rLen = 0;
-		rLoc = 772;
+		rLoc = 1250;
 		rType = 0;
 		vrLen = 626;
 		vrLoc = 477;
@@ -957,7 +963,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* ultimatebattleViewController.m */;
 		name = "ultimatebattleViewController.m: 37";
 		rLen = 0;
-		rLoc = 1126;
+		rLoc = 1604;
 		rType = 0;
 		vrLen = 717;
 		vrLoc = 152;
@@ -1007,7 +1013,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* ultimatebattleViewController.m */;
 		name = "ultimatebattleViewController.m: 45";
 		rLen = 0;
-		rLoc = 1203;
+		rLoc = 1681;
 		rType = 0;
 		vrLen = 457;
 		vrLoc = 518;
@@ -1047,7 +1053,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* ultimatebattleViewController.m */;
 		name = "ultimatebattleViewController.m: 38";
 		rLen = 0;
-		rLoc = 842;
+		rLoc = 1320;
 		rType = 0;
 		vrLen = 666;
 		vrLoc = 252;
@@ -1057,7 +1063,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* ultimatebattleViewController.m */;
 		name = "ultimatebattleViewController.m: 49";
 		rLen = 0;
-		rLoc = 991;
+		rLoc = 1469;
 		rType = 0;
 		vrLen = 467;
 		vrLoc = 665;
@@ -1067,7 +1073,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* ultimatebattleViewController.m */;
 		name = "ultimatebattleViewController.m: 46";
 		rLen = 0;
-		rLoc = 919;
+		rLoc = 1397;
 		rType = 0;
 		vrLen = 494;
 		vrLoc = 665;
@@ -1142,6 +1148,86 @@
 		vrLen = 669;
 		vrLoc = 511;
 	};
+	BFBBA7C8133563BC0087DB5F /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = BFA4FD2A132B0DCB00612508 /* Ship.m */;
+		name = "Ship.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 516;
+		vrLoc = 845;
+	};
+	BFBBA7C9133563BC0087DB5F /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = BFBBA7411335482F0087DB5F /* DefeatCopyGameController.m */;
+		name = "DefeatCopyGameController.m: 14";
+		rLen = 1;
+		rLoc = 248;
+		rType = 0;
+		vrLen = 290;
+		vrLoc = 0;
+	};
+	BFBBA7CA133563BC0087DB5F /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = BFBBA7401335482F0087DB5F /* DefeatCopyGameController.h */;
+		name = "DefeatCopyGameController.h: 8";
+		rLen = 0;
+		rLoc = 147;
+		rType = 0;
+		vrLen = 346;
+		vrLoc = 0;
+	};
+	BFBBA7CB133563BC0087DB5F /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* ultimatebattleViewController.m */;
+		name = "ultimatebattleViewController.m: 46";
+		rLen = 0;
+		rLoc = 1397;
+		rType = 0;
+		vrLen = 473;
+		vrLoc = 665;
+	};
+	BFBBA7CE13356E3C0087DB5F /* Bullets.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1411, 946}}";
+			sepNavSelRange = "{194, 0}";
+			sepNavVisRange = "{0, 194}";
+		};
+	};
+	BFBBA7D413356E620087DB5F /* XCBuildMessageTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "Expected expression before 'BasicBullet'";
+		fRef = 28D7ACF70DDB3853001CB0EB /* ultimatebattleViewController.m */;
+		fallbackIsa = XCBuildMessageTextBookmark;
+		rLen = 0;
+		rLoc = 33;
+		rType = 1;
+	};
+	BFBBA7D513356E620087DB5F /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* ultimatebattleViewController.m */;
+		name = "ultimatebattleViewController.m: 27";
+		rLen = 0;
+		rLoc = 792;
+		rType = 0;
+		vrLen = 170;
+		vrLoc = 539;
+	};
+	BFBBA7DE13356EBC0087DB5F /* TriGun.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1411, 946}}";
+			sepNavSelRange = "{210, 0}";
+			sepNavVisRange = "{0, 222}";
+		};
+	};
+	BFBBA7DF13356EBC0087DB5F /* TriGun.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1411, 946}}";
+			sepNavSelRange = "{148, 0}";
+			sepNavVisRange = "{0, 375}";
+		};
+	};
 	BFCD44EC1332FBBC00182581 /* PlayerCopyShip.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1411, 946}}";
@@ -1165,9 +1251,9 @@
 	};
 	BFCD44F21332FBD900182581 /* CopyShip.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1411, 1590}}";
-			sepNavSelRange = "{431, 0}";
-			sepNavVisRange = "{37, 552}";
+			sepNavIntBoundsRect = "{{0, 0}, {1411, 1530}}";
+			sepNavSelRange = "{155, 25}";
+			sepNavVisRange = "{37, 529}";
 		};
 	};
 	BFCD45021332FFC900182581 /* LaserGun.h */ = {
@@ -1179,8 +1265,8 @@
 	};
 	BFCD45031332FFC900182581 /* LaserGun.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1411, 923}}";
-			sepNavSelRange = "{155, 0}";
+			sepNavIntBoundsRect = "{{0, 0}, {1411, 946}}";
+			sepNavSelRange = "{181, 166}";
 			sepNavVisRange = "{0, 352}";
 		};
 	};
@@ -1309,7 +1395,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* ultimatebattleViewController.m */;
 		name = "ultimatebattleViewController.m: 36";
 		rLen = 0;
-		rLoc = 515;
+		rLoc = 535;
 		rType = 0;
 		vrLen = 566;
 		vrLoc = 601;

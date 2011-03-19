@@ -61,6 +61,10 @@
 	[self ensureValidWeaponIndex];
 }
 
+-(void)addWeapon:(Weapon *)weapon {
+	[self.weapons addObject:weapon];
+}
+
 -(void)resetTurn {
 	//Default does nothing
 }

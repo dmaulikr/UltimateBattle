@@ -10,6 +10,7 @@
 #import "Ship.h"
 #import "LaserGun.h"
 #import "CopyShip.h"
+#import "Bullets.h"
 
 @implementation ultimatebattleViewController
 @synthesize copies, player, bullets;
@@ -20,12 +21,35 @@
 	self.copies = [NSMutableArray array];
 }
 
+-(Weapon *)newWeaponForLevel:(int)aLevel {
+
+	if (aLevel == 1) {
+		LaserGun *w = [[[LaserGun alloc] initWithYFacing:1] autorelease];
+		return w;
+	} else if (aLevel == 2) {
+		TriGun *w = [[[TriGun alloc] initWithYFacing:1] autorelease];
+		return w;
+	}
+	
+		
+	return nil;
+}
+
+-(Ship *)newShipForLevel:(int)aLevel {
+	Ship *newShip = [[[CopyShip alloc] initWithShip:self.player] autorelease];
+	[newShip addWeapon:[self newWeaponForLevel:aLevel]];
+	return newShip;
+}
+
 -(void)nextLevel {
 	for (CopyShip *ship in self.copies) {
 		[ship resetState];
 	}
 	
-	Ship *newShip = [[CopyShip alloc] initWithShip:self.player];
+	level++;
+	
+
+	Ship *newShip = [self newShipForLevel:level];
 	[self.copies addObject:newShip];
 	newShip.bullets = self.bullets;
 	[newShip release];

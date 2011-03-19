@@ -31,5 +31,6 @@
 -(void)cycleWeapon;
 -(void)changeWeapon:(int)newWeaponIndex;
 
+-(void)addWeapon:(Weapon *)weapon;
 
 @end

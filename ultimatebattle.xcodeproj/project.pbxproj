@@ -29,6 +29,7 @@
 		BFBBA73F133548130087DB5F /* GameController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBBA73E133548130087DB5F /* GameController.m */; };
 		BFBBA7421335482F0087DB5F /* DefeatCopyGameController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBBA7411335482F0087DB5F /* DefeatCopyGameController.m */; };
 		BFBBA79313355FC10087DB5F /* EngineShip.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBBA79213355FC10087DB5F /* EngineShip.m */; };
+		BFBBA7E013356EBC0087DB5F /* TriGun.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBBA7DF13356EBC0087DB5F /* TriGun.m */; };
 		BFCD44EE1332FBBC00182581 /* PlayerCopyShip.m in Sources */ = {isa = PBXBuildFile; fileRef = BFCD44ED1332FBBC00182581 /* PlayerCopyShip.m */; };
 		BFCD44F31332FBD900182581 /* CopyShip.m in Sources */ = {isa = PBXBuildFile; fileRef = BFCD44F21332FBD900182581 /* CopyShip.m */; };
 		BFCD45041332FFC900182581 /* LaserGun.m in Sources */ = {isa = PBXBuildFile; fileRef = BFCD45031332FFC900182581 /* LaserGun.m */; };
@@ -77,6 +78,9 @@
 		BFBBA744133549130087DB5F /* ShipEventsProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShipEventsProtocol.h; sourceTree = "<group>"; };
 		BFBBA79113355FC10087DB5F /* EngineShip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EngineShip.h; sourceTree = "<group>"; };
 		BFBBA79213355FC10087DB5F /* EngineShip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EngineShip.m; sourceTree = "<group>"; };
+		BFBBA7CE13356E3C0087DB5F /* Bullets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bullets.h; sourceTree = "<group>"; };
+		BFBBA7DE13356EBC0087DB5F /* TriGun.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriGun.h; sourceTree = "<group>"; };
+		BFBBA7DF13356EBC0087DB5F /* TriGun.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TriGun.m; sourceTree = "<group>"; };
 		BFCD44EC1332FBBC00182581 /* PlayerCopyShip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerCopyShip.h; sourceTree = "<group>"; };
 		BFCD44ED1332FBBC00182581 /* PlayerCopyShip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerCopyShip.m; sourceTree = "<group>"; };
 		BFCD44F11332FBD900182581 /* CopyShip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CopyShip.h; sourceTree = "<group>"; };
@@ -103,14 +107,11 @@
 			isa = PBXGroup;
 			children = (
 				8DB34F641333EF1B00504C0F /* Engines */,
-				BFBBA73B1335477C0087DB5F /* Controllers */,
 				BFCD45011332FFB500182581 /* Weapons */,
 				BFCD44EB1332FB8500182581 /* Ships */,
 				BFBB6D46132C2DCE00151B43 /* Bullets */,
-				1D3623240D0F684500981E51 /* ultimatebattleAppDelegate.h */,
-				1D3623250D0F684500981E51 /* ultimatebattleAppDelegate.m */,
-				28D7ACF60DDB3853001CB0EB /* ultimatebattleViewController.h */,
-				28D7ACF70DDB3853001CB0EB /* ultimatebattleViewController.m */,
+				BFBBA7C7133563AA0087DB5F /* View Controllers */,
+				BFBBA73B1335477C0087DB5F /* Logic Controllers */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -192,11 +193,12 @@
 				BFBB6D48132C2DE300151B43 /* BasicBullet.m */,
 				BFBB6D85132C303800151B43 /* TriShotBullet.h */,
 				BFBB6D86132C303800151B43 /* TriShotBullet.m */,
+				BFBBA7CE13356E3C0087DB5F /* Bullets.h */,
 			);
 			name = Bullets;
 			sourceTree = "<group>";
 		};
-		BFBBA73B1335477C0087DB5F /* Controllers */ = {
+		BFBBA73B1335477C0087DB5F /* Logic Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				BFBBA73D133548130087DB5F /* GameController.h */,
@@ -204,7 +206,18 @@
 				BFBBA7401335482F0087DB5F /* DefeatCopyGameController.h */,
 				BFBBA7411335482F0087DB5F /* DefeatCopyGameController.m */,
 			);
-			name = Controllers;
+			name = "Logic Controllers";
+			sourceTree = "<group>";
+		};
+		BFBBA7C7133563AA0087DB5F /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1D3623240D0F684500981E51 /* ultimatebattleAppDelegate.h */,
+				1D3623250D0F684500981E51 /* ultimatebattleAppDelegate.m */,
+				28D7ACF60DDB3853001CB0EB /* ultimatebattleViewController.h */,
+				28D7ACF70DDB3853001CB0EB /* ultimatebattleViewController.m */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 		BFCD44EB1332FB8500182581 /* Ships */ = {
@@ -230,6 +243,8 @@
 				BFA4FD2F132B0DF700612508 /* Weapon.m */,
 				BFCD45021332FFC900182581 /* LaserGun.h */,
 				BFCD45031332FFC900182581 /* LaserGun.m */,
+				BFBBA7DE13356EBC0087DB5F /* TriGun.h */,
+				BFBBA7DF13356EBC0087DB5F /* TriGun.m */,
 			);
 			name = Weapons;
 			sourceTree = "<group>";
@@ -315,6 +330,7 @@
 				BFBBA73F133548130087DB5F /* GameController.m in Sources */,
 				BFBBA7421335482F0087DB5F /* DefeatCopyGameController.m in Sources */,
 				BFBBA79313355FC10087DB5F /* EngineShip.m in Sources */,
+				BFBBA7E013356EBC0087DB5F /* TriGun.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
