@@ -10,6 +10,7 @@
 #import "Ship.h"
 #import "LaserGun.h"
 #import "CopyShip.h"
+#import "PlayerCopyShip.h"
 #import "Bullets.h"
 
 @implementation ultimatebattleViewController
@@ -19,6 +20,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	self.copies = [NSMutableArray array];
+	self.bullets = [NSMutableArray array];
+	self.player = [[PlayerCopyShip alloc] initWithYFacing:-1];
 }
 
 -(Weapon *)newWeaponForLevel:(int)aLevel {
@@ -28,6 +31,9 @@
 		return w;
 	} else if (aLevel == 2) {
 		TriGun *w = [[[TriGun alloc] initWithYFacing:1] autorelease];
+		return w;
+	} else if (aLevel == 3) {
+		WideDoubleShotGun *w = [[[WideDoubleShotGun alloc] initWithYFacing:1] autorelease];
 		return w;
 	}
 	

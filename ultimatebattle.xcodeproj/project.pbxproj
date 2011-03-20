@@ -33,6 +33,7 @@
 		BFCD44EE1332FBBC00182581 /* PlayerCopyShip.m in Sources */ = {isa = PBXBuildFile; fileRef = BFCD44ED1332FBBC00182581 /* PlayerCopyShip.m */; };
 		BFCD44F31332FBD900182581 /* CopyShip.m in Sources */ = {isa = PBXBuildFile; fileRef = BFCD44F21332FBD900182581 /* CopyShip.m */; };
 		BFCD45041332FFC900182581 /* LaserGun.m in Sources */ = {isa = PBXBuildFile; fileRef = BFCD45031332FFC900182581 /* LaserGun.m */; };
+		BFFC4FCC133677BB00E9F51F /* WideDoubleShotGun.m in Sources */ = {isa = PBXBuildFile; fileRef = BFFC4FCB133677BB00E9F51F /* WideDoubleShotGun.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +88,8 @@
 		BFCD44F21332FBD900182581 /* CopyShip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CopyShip.m; sourceTree = "<group>"; };
 		BFCD45021332FFC900182581 /* LaserGun.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaserGun.h; sourceTree = "<group>"; };
 		BFCD45031332FFC900182581 /* LaserGun.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaserGun.m; sourceTree = "<group>"; };
+		BFFC4FCA133677BB00E9F51F /* WideDoubleShotGun.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WideDoubleShotGun.h; sourceTree = "<group>"; };
+		BFFC4FCB133677BB00E9F51F /* WideDoubleShotGun.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WideDoubleShotGun.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,6 +248,8 @@
 				BFCD45031332FFC900182581 /* LaserGun.m */,
 				BFBBA7DE13356EBC0087DB5F /* TriGun.h */,
 				BFBBA7DF13356EBC0087DB5F /* TriGun.m */,
+				BFFC4FCA133677BB00E9F51F /* WideDoubleShotGun.h */,
+				BFFC4FCB133677BB00E9F51F /* WideDoubleShotGun.m */,
 			);
 			name = Weapons;
 			sourceTree = "<group>";
@@ -331,6 +336,7 @@
 				BFBBA7421335482F0087DB5F /* DefeatCopyGameController.m in Sources */,
 				BFBBA79313355FC10087DB5F /* EngineShip.m in Sources */,
 				BFBBA7E013356EBC0087DB5F /* TriGun.m in Sources */,
+				BFFC4FCC133677BB00E9F51F /* WideDoubleShotGun.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

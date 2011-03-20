@@ -33,4 +33,6 @@
 
 -(void)addWeapon:(Weapon *)weapon;
 
+-(id)initWithYFacing:(int)facing;
+
 @end

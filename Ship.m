@@ -13,7 +13,7 @@
 @synthesize currentWeaponIndex, moves, hp, weapons, bullets;
 @synthesize engine;
 
--(id)init {
+-(id)initWithYFacing:(int)facing {
 	self = [super init];
 	if (self) {
 		self.moves = [NSMutableArray array];
@@ -21,6 +21,7 @@
 		self.hp = Ship_HP;
 		self.turn = [[Turn alloc] init];
 		self.currentWeaponIndex = 0;
+		self.yFacing = facing;
 	}
 	return self;
 }

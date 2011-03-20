@@ -12,7 +12,6 @@
 @implementation PlayerCopyShip
 
 
-
 -(void)tick{
 	[super tick];
 	//Store this current turn

@@ -9,3 +9,4 @@
 #import "BasicBullet.h"
 #import "LaserGun.h"
 #import "TriGun.h"
+#import "WideDoubleShotGun.h"
