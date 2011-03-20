@@ -35,6 +35,7 @@
 //}
 
 -(void)move {
+	NSLog(@"current turn vel x: %f",((Turn *)[self currentTurn]).vel.x);
 	self.l = CGPointMake(self.l.x + ((Turn *)[self currentTurn]).vel.x, self.l.y + ((Turn *)[self currentTurn]).vel.y);
 }
 

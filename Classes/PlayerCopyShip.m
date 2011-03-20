@@ -23,9 +23,7 @@
 
 
 -(void)tick{
-	NSLog(@"player tick l.x: %f",self.l.x);
 	[super tick];
-	NSLog(@"player after super tick l.x: %f",self.l.x);	
 	//Store this current turn
 	[self.moves addObject:self.turn];
 	

@@ -12,7 +12,7 @@
 @implementation CopyShip
 
 -(id)initWithShip:(Ship *)ship {
-	self = [super init];
+	self = [super initWithYFacing:1];
 	if (self) {
 		
 		self.imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Ship1_Bank1_21.png"]];
@@ -24,20 +24,27 @@
 			}
 			self.moves = turns;
 		} else {
-			Turn *t = [[Turn alloc] init];
-			[self.moves addObject:t];
-			[t release];
+			for (int i = 0; i < 100; i++) {
+				Turn *t = [[Turn alloc] init];
+//				t.l = CGPointMake(382,340);
+				t.vel = CGPointMake(-i, -3);
+				[self.moves addObject:t];
+				[t release];
+			}
 		}
 		
 		
 
 		self.weapons = ship.weapons;
 		self.hp = 1;
+		
+		[self resetState];
 	}
 	return self;
 }
 
 -(void)resetState {
+	currentTurnIndex = 0;
 	self.l = CGPointMake(382,340);
 	for (Weapon *w in self.weapons) {
 		w.repeatLeft = 0;	
@@ -45,20 +52,26 @@
 }
 
 -(Turn *)currentTurn {
-	return [self.moves objectAtIndex:currentTurnIndex];	
+	Turn *ct = [self.moves objectAtIndex:currentTurnIndex];
+	NSLog(@"ct.vel.x: %f",ct.vel.x);
+	return ct;
 }
 
 -(void)tick {
+	NSLog(@"tick l.x: %f",self.l.x);
 	[super tick];
+	NSLog(@"POST Super tick l.x: %f",self.l.x);
 	currentTurnIndex++;
 	if (currentTurnIndex >= [self.moves count]) {
-		[self resetTurn];
+		[self resetState];
 	}
 }
 
 -(void)resetTurn {
-	currentTurnIndex = 0;	
-	self.l = ((Turn *)[self currentTurn]).l;
+//	currentTurnIndex = 0;	
+//	NSLog(@"resetting turn l.x: %f",self.l.x);
+//	self.l = ((Turn *)[self currentTurn]).l;
+//	NSLog(@"POST resetting turn l.x: %f",self.l.x);	
 }
 
 @end

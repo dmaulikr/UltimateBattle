@@ -12,7 +12,6 @@
 @interface ultimatebattleViewController : UIViewController {
 	int level;
 	int currentKills;
-	
 	NSTimer *timer;
 }
 

@@ -86,8 +86,6 @@
 	//Determine player's target 
 	self.player.l = CGPointMake(500, 500);
 	[self.player tick];
-	NSLog(@"self.player.imageView: %@",self.player.imageView);
-	NSLog(@"self.player.imageView: %f %f",self.player.imageView.center.x, self.player.imageView.center.y);
 }
 
 -(void)loop {
