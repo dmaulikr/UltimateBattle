@@ -11,8 +11,8 @@
 
 @implementation EngineShip
 
--(id)init {
-	self = [super init];
+-(id)initWithYFacing:(int)facing {
+	self = [super initWithYFacing:facing];
 	if (self) {
 		self.engine = [[Engine alloc] init];
 	}
