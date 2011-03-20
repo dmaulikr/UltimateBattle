@@ -19,9 +19,14 @@
 	return self;
 }
 
+-(void)move {
+	NSLog(@"move.l.x: %f",self.l.x);
+	self.turn.vel = [self.engine velocityForTargetPoint:self.turn.targetLocation from:self.l];
+    self.l = [self.engine moveFrom:self.l withVel:self.turn.vel];	
+	NSLog(@"POST move.l.x: %f",self.l.x);	
+}
+
 -(void)tick {
-	self.vel = [self.engine velocityForTargetPoint:self.turn.targetLocation from:self.l];
-    self.l = [self.engine moveFrom:self.l withVel:self.vel];
 	[super tick];
 }
 

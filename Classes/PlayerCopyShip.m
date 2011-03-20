@@ -11,9 +11,21 @@
 
 @implementation PlayerCopyShip
 
+-(id)initWithYFacing:(int)facing {
+	self = [super initWithYFacing:facing];
+	if (self) {
+		self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 84,70)];
+		self.imageView.image = [UIImage imageNamed:@"Shp2_Bank2_30.png"];
+		self.l = CGPointMake(384,700);
+	}
+	return self;
+}
+
 
 -(void)tick{
+	NSLog(@"player tick l.x: %f",self.l.x);
 	[super tick];
+	NSLog(@"player after super tick l.x: %f",self.l.x);	
 	//Store this current turn
 	[self.moves addObject:self.turn];
 	

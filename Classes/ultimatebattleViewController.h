@@ -12,11 +12,15 @@
 @interface ultimatebattleViewController : UIViewController {
 	int level;
 	int currentKills;
+	
+	NSTimer *timer;
 }
 
 @property(nonatomic, retain) NSMutableArray *copies;
 @property(nonatomic, retain) Ship *player;
 @property(nonatomic , retain) NSMutableArray *bullets;
 
-@end
+-(void)startGame;
+-(void)nextLevel;
 
+@end

@@ -19,6 +19,7 @@
 -(id)initWithYFacing:(int)facing {
 	self = [super init];
 	if (self) {
+		self.imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"plasma34.png"]];
 		self.yFacing = facing;
 		[self setup];
 	}

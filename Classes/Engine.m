@@ -22,8 +22,10 @@
 }
 
 -(CGPoint)moveFrom:(CGPoint)l withVel:(CGPoint)vel {
+	NSLog(@"l.x is: %f",l.x);
     CGPoint newLocation = CGPointMake(l.x + vel.x,l.y+vel.y);
     if (CGRectContainsPoint(self.movementBounds, newLocation)) {
+		NSLog(@"new location.l.x: %f",newLocation.x);
         return newLocation;    
     }
     return l;

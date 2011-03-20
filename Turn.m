@@ -12,6 +12,14 @@
 @implementation Turn
 @synthesize l, targetLocation, vel, firing, weaponIndex;
 
+-(id)init {
+	self = [super init];
+	if (self) {
+		[self becomeEmptyTurn];
+	}
+	return self;
+}
+
 -(void)becomeEmptyTurn {
 	self.vel = CGPointZero;
     self.targetLocation = CGPointZero;

@@ -30,8 +30,16 @@
 	return [self.weapons objectAtIndex:self.currentWeaponIndex];
 }
 
--(Turn *)currentTurn {
-	return self.turn;	
+//-(Turn *)currentTurn {
+//	return self.turn;	
+//}
+
+-(void)move {
+	self.l = CGPointMake(self.l.x + ((Turn *)[self currentTurn]).vel.x, self.l.y + ((Turn *)[self currentTurn]).vel.y);
+}
+
+-(void)animate {
+	self.imageView.center = self.l;	
 }
 
 -(void)tick {

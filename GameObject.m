@@ -16,6 +16,7 @@
 
 -(void)animate { 
 //Draw magic here	
+self.imageView.center = self.l;	
 }
 
 -(Turn *)currentTurn {
@@ -23,7 +24,7 @@
 }
 
 -(void)move {
-	self.l = CGPointMake(self.l.x + [self currentTurn].vel.x, self.l.y + [self currentTurn].vel.y);
+	self.l = CGPointMake(self.l.x + ((Turn *)[self currentTurn]).vel.x, self.l.y + ((Turn *)[self currentTurn]).vel.y);
 }
 
 -(void)tick {

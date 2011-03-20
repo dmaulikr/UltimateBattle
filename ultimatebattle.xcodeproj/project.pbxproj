@@ -34,6 +34,9 @@
 		BFCD44F31332FBD900182581 /* CopyShip.m in Sources */ = {isa = PBXBuildFile; fileRef = BFCD44F21332FBD900182581 /* CopyShip.m */; };
 		BFCD45041332FFC900182581 /* LaserGun.m in Sources */ = {isa = PBXBuildFile; fileRef = BFCD45031332FFC900182581 /* LaserGun.m */; };
 		BFFC4FCC133677BB00E9F51F /* WideDoubleShotGun.m in Sources */ = {isa = PBXBuildFile; fileRef = BFFC4FCB133677BB00E9F51F /* WideDoubleShotGun.m */; };
+		BFFC4FDE133679A100E9F51F /* plasma34.png in Resources */ = {isa = PBXBuildFile; fileRef = BFFC4FDD133679A100E9F51F /* plasma34.png */; };
+		BFFC4FE0133679B500E9F51F /* Ship1_Bank1_21.png in Resources */ = {isa = PBXBuildFile; fileRef = BFFC4FDF133679B500E9F51F /* Ship1_Bank1_21.png */; };
+		BFFC4FE2133679BF00E9F51F /* Shp2_Bank2_30.png in Resources */ = {isa = PBXBuildFile; fileRef = BFFC4FE1133679BF00E9F51F /* Shp2_Bank2_30.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +93,9 @@
 		BFCD45031332FFC900182581 /* LaserGun.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaserGun.m; sourceTree = "<group>"; };
 		BFFC4FCA133677BB00E9F51F /* WideDoubleShotGun.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WideDoubleShotGun.h; sourceTree = "<group>"; };
 		BFFC4FCB133677BB00E9F51F /* WideDoubleShotGun.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WideDoubleShotGun.m; sourceTree = "<group>"; };
+		BFFC4FDD133679A100E9F51F /* plasma34.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plasma34.png; sourceTree = "<group>"; };
+		BFFC4FDF133679B500E9F51F /* Ship1_Bank1_21.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ship1_Bank1_21.png; sourceTree = "<group>"; };
+		BFFC4FE1133679BF00E9F51F /* Shp2_Bank2_30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Shp2_Bank2_30.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +161,9 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BFFC4FE1133679BF00E9F51F /* Shp2_Bank2_30.png */,
+				BFFC4FDF133679B500E9F51F /* Ship1_Bank1_21.png */,
+				BFFC4FDD133679A100E9F51F /* plasma34.png */,
 				2899E5210DE3E06400AC0155 /* ultimatebattleViewController.xib */,
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* ultimatebattle-Info.plist */,
@@ -305,6 +314,9 @@
 			files = (
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
 				2899E5220DE3E06400AC0155 /* ultimatebattleViewController.xib in Resources */,
+				BFFC4FDE133679A100E9F51F /* plasma34.png in Resources */,
+				BFFC4FE0133679B500E9F51F /* Ship1_Bank1_21.png in Resources */,
+				BFFC4FE2133679BF00E9F51F /* Shp2_Bank2_30.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

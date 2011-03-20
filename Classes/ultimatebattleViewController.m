@@ -22,21 +22,29 @@
 	self.copies = [NSMutableArray array];
 	self.bullets = [NSMutableArray array];
 	self.player = [[PlayerCopyShip alloc] initWithYFacing:-1];
+	[self.view addSubview:self.player.imageView];
+	[self startGame];
+}
+
+-(void)startGame {
+	level = 0;
+	currentKills = 0;
+	[self nextLevel];
+	timer = [[NSTimer scheduledTimerWithTimeInterval:0.02 target:self selector:@selector(loop) userInfo:nil repeats:YES] retain];
 }
 
 -(Weapon *)newWeaponForLevel:(int)aLevel {
 
 	if (aLevel == 1) {
-		LaserGun *w = [[[LaserGun alloc] initWithYFacing:1] autorelease];
+		LaserGun *w = [[[LaserGun alloc] init] autorelease];
 		return w;
 	} else if (aLevel == 2) {
-		TriGun *w = [[[TriGun alloc] initWithYFacing:1] autorelease];
+		TriGun *w = [[[TriGun alloc] init] autorelease];
 		return w;
 	} else if (aLevel == 3) {
-		WideDoubleShotGun *w = [[[WideDoubleShotGun alloc] initWithYFacing:1] autorelease];
+		WideDoubleShotGun *w = [[[WideDoubleShotGun alloc] init] autorelease];
 		return w;
 	}
-	
 		
 	return nil;
 }
@@ -53,12 +61,11 @@
 	}
 	
 	level++;
-	
 
 	Ship *newShip = [self newShipForLevel:level];
+	[self.view addSubview:newShip.imageView];
 	[self.copies addObject:newShip];
 	newShip.bullets = self.bullets;
-	[newShip release];
 	
 	currentKills = 0;
 }
@@ -77,7 +84,10 @@
 
 -(void)playerLoop {
 	//Determine player's target 
-	[self.player tick];	
+	self.player.l = CGPointMake(500, 500);
+	[self.player tick];
+	NSLog(@"self.player.imageView: %@",self.player.imageView);
+	NSLog(@"self.player.imageView: %f %f",self.player.imageView.center.x, self.player.imageView.center.y);
 }
 
 -(void)loop {

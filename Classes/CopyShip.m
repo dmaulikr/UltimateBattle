@@ -14,12 +14,23 @@
 -(id)initWithShip:(Ship *)ship {
 	self = [super init];
 	if (self) {
+		
+		self.imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Ship1_Bank1_21.png"]];
 		NSMutableArray *turns = ship.moves;
-		for (Turn *t in turns) {
-			t.vel = CGPointMake(-t.vel.x, t.vel.y);
+		
+		if ([turns count] > 0) {
+			for (Turn *t in turns) {
+				t.vel = CGPointMake(-t.vel.x, t.vel.y);
+			}
+			self.moves = turns;
+		} else {
+			Turn *t = [[Turn alloc] init];
+			[self.moves addObject:t];
+			[t release];
 		}
 		
-		self.moves = turns;
+		
+
 		self.weapons = ship.weapons;
 		self.hp = 1;
 	}
