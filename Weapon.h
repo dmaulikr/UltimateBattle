@@ -20,6 +20,6 @@
 @property(nonatomic, retain) Bullet *bullet;
 
 -(void)tick;
--(NSArray *)fireWithYFacing:(int)facing;
+-(NSArray *)fireWithYFacing:(int)facing from:(CGPoint)from;
 
 @end

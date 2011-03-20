@@ -22,6 +22,7 @@
 		BFA4FD30132B0DF700612508 /* Weapon.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA4FD2F132B0DF700612508 /* Weapon.m */; };
 		BFA4FD38132B0E7200612508 /* GameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA4FD37132B0E7200612508 /* GameObject.m */; };
 		BFA4FD5F132B106C00612508 /* Turn.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA4FD5E132B106C00612508 /* Turn.m */; };
+		BFA7433F1336BD1100EB9064 /* cmpgames.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA7433E1336BD1100EB9064 /* cmpgames.m */; };
 		BFBB6D26132C2B2900151B43 /* Bullet.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA4FD32132B0E6000612508 /* Bullet.m */; };
 		BFBB6D49132C2DE300151B43 /* BasicBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBB6D48132C2DE300151B43 /* BasicBullet.m */; };
 		BFBB6D74132C2F1100151B43 /* WideDoubleBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBB6D73132C2F1100151B43 /* WideDoubleBullet.m */; };
@@ -69,6 +70,8 @@
 		BFA4FD37132B0E7200612508 /* GameObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameObject.m; sourceTree = "<group>"; };
 		BFA4FD5D132B106C00612508 /* Turn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Turn.h; sourceTree = "<group>"; };
 		BFA4FD5E132B106C00612508 /* Turn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Turn.m; sourceTree = "<group>"; };
+		BFA7433D1336BD1100EB9064 /* cmpgames.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cmpgames.h; sourceTree = "<group>"; };
+		BFA7433E1336BD1100EB9064 /* cmpgames.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cmpgames.m; sourceTree = "<group>"; };
 		BFBB6D47132C2DE300151B43 /* BasicBullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicBullet.h; sourceTree = "<group>"; };
 		BFBB6D48132C2DE300151B43 /* BasicBullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicBullet.m; sourceTree = "<group>"; };
 		BFBB6D72132C2F1100151B43 /* WideDoubleBullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WideDoubleBullet.h; sourceTree = "<group>"; };
@@ -115,6 +118,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				BFA7433D1336BD1100EB9064 /* cmpgames.h */,
+				BFA7433E1336BD1100EB9064 /* cmpgames.m */,
 				8DB34F641333EF1B00504C0F /* Engines */,
 				BFCD45011332FFB500182581 /* Weapons */,
 				BFCD44EB1332FB8500182581 /* Ships */,
@@ -349,6 +354,7 @@
 				BFBBA79313355FC10087DB5F /* EngineShip.m in Sources */,
 				BFBBA7E013356EBC0087DB5F /* TriGun.m in Sources */,
 				BFFC4FCC133677BB00E9F51F /* WideDoubleShotGun.m in Sources */,
+				BFA7433F1336BD1100EB9064 /* cmpgames.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

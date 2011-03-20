@@ -35,7 +35,6 @@
 //}
 
 -(void)move {
-	NSLog(@"current turn vel x: %f",((Turn *)[self currentTurn]).vel.x);
 	self.l = CGPointMake(self.l.x + ((Turn *)[self currentTurn]).vel.x, self.l.y + ((Turn *)[self currentTurn]).vel.y);
 }
 
@@ -48,8 +47,9 @@
 	[super tick];
 
 	if ([[self currentTurn] firing]) {
-		NSArray *b = [[self currentWeapon] fireWithYFacing:self.yFacing];
+		NSArray *b = [[self currentWeapon] fireWithYFacing:self.yFacing from:self.l];
 		if (b) {
+			NSLog(@"adding bullets: %@",b);
 			[self.bullets addObjectsFromArray:b];
 		}
 	}

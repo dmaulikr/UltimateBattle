@@ -53,14 +53,11 @@
 
 -(Turn *)currentTurn {
 	Turn *ct = [self.moves objectAtIndex:currentTurnIndex];
-	NSLog(@"ct.vel.x: %f",ct.vel.x);
 	return ct;
 }
 
 -(void)tick {
-	NSLog(@"tick l.x: %f",self.l.x);
 	[super tick];
-	NSLog(@"POST Super tick l.x: %f",self.l.x);
 	currentTurnIndex++;
 	if (currentTurnIndex >= [self.moves count]) {
 		[self resetState];
@@ -73,5 +70,7 @@
 //	self.l = ((Turn *)[self currentTurn]).l;
 //	NSLog(@"POST resetting turn l.x: %f",self.l.x);	
 }
+
+
 
 @end

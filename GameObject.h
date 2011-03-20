@@ -19,6 +19,7 @@
 @property(nonatomic) int yFacing;
 @property(nonatomic) double speed;
 @property(nonatomic, retain) UIImageView *imageView;
+@property(nonatomic) BOOL drawn;
 
 -(void)animate;
 -(void)move;

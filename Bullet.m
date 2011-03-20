@@ -16,9 +16,10 @@
 	//Override in subclasses	
 }
 
--(id)initWithYFacing:(int)facing {
+-(id)initWithYFacing:(int)facing from:(CGPoint)from{
 	self = [super init];
 	if (self) {
+		self.l = from;
 		self.imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"plasma34.png"]];
 		self.yFacing = facing;
 		[self setup];
@@ -26,12 +27,16 @@
 	return self;
 }
 
+-(void)move {
+	self.l = CGPointMake(self.l.x+self.vel.x,self.l.y+self.vel.y);
+}	
+
 -(void)animate {
 	[super animate];
 //Override with subclasess of bullet	
 }
 
-+(NSArray *)newBulletsWithYFacing:(int)facing {
++(NSArray *)newBulletsWithYFacing:(int)facing from:(CGPoint)from {
 	//Override with subclasses of bullet
 	//Generate a bullet based on its properties
 	return nil;

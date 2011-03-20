@@ -28,7 +28,7 @@
 	[self.moves addObject:self.turn];
 	
 	//Clear out the turn's instructions
-	[self.turn becomeEmptyTurn];
+//	[self.turn becomeEmptyTurn];
 }	
 
 @end

@@ -13,23 +13,24 @@
 @synthesize repeatLeft, repeatReset, bullet;
 
 -(BOOL)canFire {
-	return repeatLeft == 0;
+	return self.repeatLeft == 0;
 }
 
 -(void)tick {
-	if (repeatLeft > 0) {
-		repeatLeft--;
+	if (self.repeatLeft > 0) {
+		self.repeatLeft--;
 	}
 }
 
--(NSArray *)newBulletsWithYFacing:(int)facing {
-	NSArray *bullets = [[self.bullet class] newBulletsWithYFacing:facing];
+-(NSArray *)newBulletsWithYFacing:(int)facing from:(CGPoint)from {
+	NSArray *bullets = [[self.bullet class] newBulletsWithYFacing:facing from:from];
 	return bullets;
 }
 
--(NSArray *)fireWithYFacing:(int)facing {
+-(NSArray *)fireWithYFacing:(int)facing from:(CGPoint)from {
 	if ([self canFire]) {
-		return [self newBulletsWithYFacing:facing];
+		self.repeatLeft = self.repeatReset;
+		return [self newBulletsWithYFacing:facing from:from];
 	}
 	
 	return nil;

@@ -12,7 +12,7 @@
 @implementation GameObject
 @synthesize vel, l, turn;
 @synthesize yFacing, speed;
-@synthesize imageView;
+@synthesize imageView, drawn;
 
 -(void)animate { 
 //Draw magic here	

@@ -14,9 +14,9 @@
 }
 
 
-+(NSArray *)newBulletsWithYFacing:(int)facing;
++(NSArray *)newBulletsWithYFacing:(int)facing from:(CGPoint)from;
 
--(id)initWithYFacing:(int)facing;
+-(id)initWithYFacing:(int)facing from:(CGPoint)from;
 -(void)setup;
 
 @end

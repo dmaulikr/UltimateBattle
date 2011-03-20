@@ -11,13 +11,17 @@
 
 @implementation BasicBullet
 
+
 -(void)setup {
 	self.speed = 3;
 	self.vel = CGPointMake(0, self.yFacing * self.speed);	
 }
 
-+(NSArray *)newBulletsWithYFacing:(int)facing {
-	BasicBullet *b = [[[BasicBullet alloc] initWithYFacing:facing] autorelease];
++(NSArray *)newBulletsWithYFacing:(int)facing from:(CGPoint)from {
+	BasicBullet *b = [[[BasicBullet alloc] initWithYFacing:facing from:from] autorelease];
+
+
+	[b setup];
 	
 	NSArray *bullets = [NSArray arrayWithObject:b];
 	

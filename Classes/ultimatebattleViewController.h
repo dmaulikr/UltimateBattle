@@ -13,6 +13,7 @@
 	int level;
 	int currentKills;
 	NSTimer *timer;
+	CGPoint gestureStartPoint, currentPosition;
 }
 
 @property(nonatomic, retain) NSMutableArray *copies;

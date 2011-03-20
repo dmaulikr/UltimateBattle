@@ -7,7 +7,7 @@
 //
 
 #import "Engine.h"
-
+#import "cmpgames.h"
 
 @implementation Engine
 @synthesize speed, movementBounds;
@@ -17,6 +17,7 @@
     if (self) {
         //TODO: Check device version and initialize with iphone or ipad screen size
         self.movementBounds = CGRectMake(0, 0, 764, 1024);
+		self.speed = 2;
     }
     return self;
 }
@@ -24,7 +25,6 @@
 -(CGPoint)moveFrom:(CGPoint)l withVel:(CGPoint)vel {
     CGPoint newLocation = CGPointMake(l.x + vel.x,l.y+vel.y);
     if (CGRectContainsPoint(self.movementBounds, newLocation)) {
-		NSLog(@"new location.l.x: %f",newLocation.x);
         return newLocation;    
     }
     return l;
@@ -32,7 +32,9 @@
 
 -(CGPoint)velocityForTargetPoint:(CGPoint)target from:(CGPoint)location {
     //TODO: Get angle, then multiply by speed
-    return CGPointZero;
+	CGPoint angle = GetAngle(location, target);
+	angle = MultiplyVel(angle, self.speed);
+	return angle;
 }
 
 @end

@@ -22,6 +22,7 @@
 	self.copies = [NSMutableArray array];
 	self.bullets = [NSMutableArray array];
 	self.player = [[PlayerCopyShip alloc] initWithYFacing:-1];
+	self.player.bullets = self.bullets;
 	[self.view addSubview:self.player.imageView];
 	[self startGame];
 }
@@ -31,6 +32,9 @@
 	currentKills = 0;
 	[self nextLevel];
 	timer = [[NSTimer scheduledTimerWithTimeInterval:0.02 target:self selector:@selector(loop) userInfo:nil repeats:YES] retain];
+	
+	LaserGun *w= [[[LaserGun alloc] init] autorelease];
+	[self.player addWeapon:w];
 }
 
 -(Weapon *)newWeaponForLevel:(int)aLevel {
@@ -73,6 +77,10 @@
 -(void)bulletLoop {
 	for (Bullet *b in self.bullets) {
 		[b tick];
+		if (!b.drawn) {
+			[self.view addSubview:b.imageView];
+			b.drawn = YES;	
+		}
 	}
 }
 
@@ -84,7 +92,7 @@
 
 -(void)playerLoop {
 	//Determine player's target 
-	self.player.l = CGPointMake(500, 500);
+	self.player.turn.firing = YES;
 	[self.player tick];
 }
 
@@ -108,5 +116,19 @@
 	self.copies = nil;
 	[super dealloc];
 }
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{		
+	UITouch *touch = [touches anyObject];
+	gestureStartPoint = [touch locationInView:self.view];
+	self.player.turn.targetLocation = gestureStartPoint;
+	
+}
+
+-(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
+	UITouch *touch = [touches anyObject];
+	currentPosition = [touch locationInView:self.view];
+	self.player.turn.targetLocation = currentPosition;	
+}	
+
 
 @end
