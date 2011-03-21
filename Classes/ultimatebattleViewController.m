@@ -76,6 +76,8 @@
 -(void)checkForHitCopiesWithBullet:(Bullet *)b {
 	for (CopyShip *c in self.copies) {
 		if (b.vel.y < 0 && c.hp > 0 && GetDist(b.l, c.l) <= 30) {
+            b.vel = CGPointZero;
+            b.l = CGPointZero;
 			c.hp = 0;
 			currentKills++;
 		}

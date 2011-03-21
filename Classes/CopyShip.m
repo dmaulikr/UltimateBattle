@@ -16,24 +16,38 @@
 	if (self) {
 		
 		self.imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Ship1_Bank1_21.png"]];
-		NSMutableArray *turns = [[NSMutableArray arrayWithArray:ship.moves] retain];
+
+        NSMutableArray *turns = [NSMutableArray array];
+        for (Turn *ot in ship.moves) {
+            Turn *t = [[Turn alloc] init];
+            t.l = ot.l;
+            t.vel = ot.vel;
+            t.firing = ot.firing;
+            t.targetLocation = ot.targetLocation;
+            t.weaponIndex = ot.weaponIndex;
+            [turns addObject:t];
+            [t release];
+        }
 		
+        NSLog(@"Turns count: %d", [turns count]);
 		if ([turns count] > 0) {
 			for (Turn *t in turns) {
-				t.vel = CGPointMake(-t.vel.x, t.vel.y);
+				t.vel = CGPointMake(t.vel.x, -t.vel.y);
 			}
-			self.moves =2 turns;
+			self.moves =turns;
 		} else {
 				Turn *t = [[Turn alloc] init];
 				t.vel = CGPointMake(0,0);
+                [self.moves removeAllObjects];
 				[self.moves addObject:t];
 				[t release];
 		}
 		
-		[turns release];
+	//	[turns release];
 		
 		
-		NSMutableArray *weps = [[NSMutableArray arrayWithArray:ship.weapons] retain];
+        NSMutableArray *weps = [[NSMutableArray arrayWithArray:ship.weapons] copy];
+//        NSMutableArray *weps = [[NSMutableArray alloc] initWithArray:ship.weapons copyItems:YES];
 		self.weapons = weps;
 		[weps release];
 		self.hp = 1;

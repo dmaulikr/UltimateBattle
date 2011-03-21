@@ -20,6 +20,10 @@
 	return NO;
 }
 
+-(id)copyWithZone:(NSZone *)zone {
+    return self;
+}
+
 -(void)setRepeatLeft:(int)value {
 	repeatLeft = value;
 }

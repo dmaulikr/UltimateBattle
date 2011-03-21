@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface Turn : NSObject {
+@interface Turn : NSObject <NSCopying> {
 
 }
 

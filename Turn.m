@@ -20,6 +20,10 @@
 	return self;
 }
 
+-(id)copyWithZone:(NSZone *)zone {
+    return self;   
+}
+
 -(void)becomeEmptyTurn {
 	self.vel = CGPointZero;
     self.targetLocation = CGPointZero;

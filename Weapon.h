@@ -11,7 +11,7 @@
 
 @class Bullet;
 
-@interface Weapon : NSObject {
+@interface Weapon : NSObject <NSCopying>{
 
 }
 
