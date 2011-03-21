@@ -47,12 +47,18 @@
 		}
 		
 	//	[turns release];
+		self.weapons = [NSMutableArray array];
+        for (Weapon *owep in ship.weapons) {
+            Weapon *nw = [[Weapon alloc] init];
+            nw.bullet = owep.bullet;
+            nw.repeatLeft = 0;
+            nw.repeatReset = owep.repeatReset;
+            [self.weapons addObject:nw];
+            [nw release];
+        }
 		
-		
-        NSMutableArray *weps = [[NSMutableArray arrayWithArray:ship.weapons] copy];
+//        NSMutableArray *weps = [[NSMutableArray arrayWithArray:ship.weapons] copy];
 //        NSMutableArray *weps = [[NSMutableArray alloc] initWithArray:ship.weapons copyItems:YES];
-		self.weapons = weps;
-		[weps release];
 		self.hp = 1;
 		
 		[self resetState];

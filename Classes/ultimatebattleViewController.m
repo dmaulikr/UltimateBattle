@@ -35,7 +35,7 @@
 	[self.player addWeapon:[self newWeaponForLevel:1]];	
 	timer = [[NSTimer scheduledTimerWithTimeInterval:0.02 target:self selector:@selector(loop) userInfo:nil repeats:YES] retain];
     
-    [self performSelector:@selector(copyMyShip) withObject:nil afterDelay:5];
+//    [self performSelector:@selector(copyMyShip) withObject:nil afterDelay:5];
 }
 
 -(void)copyMyShip {
@@ -77,12 +77,15 @@
 	newShip.bullets = self.bullets;
 	
 	currentKills = 0;
+    
+    [self.player resetTurns];
 }
 
 -(void)checkForHitCopiesWithBullet:(Bullet *)b {
 	for (CopyShip *c in self.copies) {
 		if (b.vel.y < 0 && c.hp > 0 && GetDist(b.l, c.l) <= 30) {
             b.vel = CGPointZero;
+            b.died = YES;
             b.l = CGPointZero;
 			c.hp = 0;
 			currentKills++;
@@ -95,6 +98,7 @@
 		[self.view addSubview:b.imageView];
 		b.drawn = YES;
 	}
+
 }	
 
 -(void)bulletLoop {
@@ -103,6 +107,22 @@
 		[self checkForDrawingBullet:b];
 		[self checkForHitCopiesWithBullet:b];
 	}
+    
+    NSMutableArray *badBullets = [NSMutableArray array];
+    for (Bullet *b in self.bullets) {
+        if (b.died) {
+            [badBullets addObject:b];
+        } else {
+            if (b.l.y < 100 || b.l.y > 800) {
+                [badBullets addObject:b];                
+            }
+        }
+    }
+    
+    for (Bullet *badBullet in badBullets) {
+        [badBullet.imageView removeFromSuperview];
+        [self.bullets removeObject:badBullet];
+    }
 }
 
 -(void)copyLoop {

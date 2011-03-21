@@ -46,19 +46,22 @@
 	//Call super to move and animate us
 	[super tick];
 	
+    NSLog(@"currentWeapon: %@",[self currentWeapon]);
+	if ([self currentWeapon]) {
+        [(Weapon *)[self currentWeapon] tick];
+    }
+    
 	
-	[(Weapon *)[self currentWeapon] tick];
-	
-//    if (self.hp > 0) {
-//	if ([[self currentTurn] firing]) {
-//		NSArray *b = [[self currentWeapon] fireWithYFacing:self.yFacing from:self.l];
-//		if (b) {
-//			NSLog(@"adding bullets: %@",b);
-//			[self.bullets addObjectsFromArray:b];
-//		}
-//			
-//	}
-//    }
+    if (self.hp > 0) {
+	if ([[self currentTurn] firing]) {
+		NSArray *b = [[self currentWeapon] fireWithYFacing:self.yFacing from:self.l];
+		if (b) {
+			NSLog(@"adding bullets: %@",b);
+			[self.bullets addObjectsFromArray:b];
+		}
+			
+	}
+    }
 }
 
 -(void)ensureValidWeaponIndex {
