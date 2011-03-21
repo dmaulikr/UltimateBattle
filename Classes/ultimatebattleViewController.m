@@ -34,6 +34,12 @@
 	[self nextLevel];
 	[self.player addWeapon:[self newWeaponForLevel:1]];	
 	timer = [[NSTimer scheduledTimerWithTimeInterval:0.02 target:self selector:@selector(loop) userInfo:nil repeats:YES] retain];
+    
+    [self performSelector:@selector(copyMyShip) withObject:nil afterDelay:5];
+}
+
+-(void)copyMyShip {
+    [self nextLevel];
 }
 
 -(Weapon *)newWeaponForLevel:(int)aLevel {

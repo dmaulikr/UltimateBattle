@@ -25,8 +25,15 @@
 -(void)tick{
 	[super tick];
 	//Store this current turn
-	[self.moves addObject:self.turn];
-	
+
+    Turn *t = [[Turn alloc] init];
+    t.vel = self.turn.vel;
+    t.firing = self.turn.firing;
+    t.targetLocation = self.turn.targetLocation;
+    t.weaponIndex = self.turn.weaponIndex;
+	[self.moves addObject:t];
+    [t release];
+    
 	//Clear out the turn's instructions
 //	[self.turn becomeEmptyTurn];
 }	

@@ -24,6 +24,10 @@
     return self;   
 }
 
+-(NSString *)description {
+    return [NSString stringWithFormat:@"X: %f   Y: %f",self.vel.x, self.vel.y];
+}
+
 -(void)becomeEmptyTurn {
 	self.vel = CGPointZero;
     self.targetLocation = CGPointZero;

@@ -17,16 +17,19 @@
 		
 		self.imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Ship1_Bank1_21.png"]];
 
+        NSLog(@"ship moves: %@",ship.moves);
+        
         NSMutableArray *turns = [NSMutableArray array];
+        NSLog(@"ship moves count: %d",[ship.moves count]);
         for (Turn *ot in ship.moves) {
             Turn *t = [[Turn alloc] init];
-            t.l = ot.l;
             t.vel = ot.vel;
             t.firing = ot.firing;
             t.targetLocation = ot.targetLocation;
             t.weaponIndex = ot.weaponIndex;
             [turns addObject:t];
             [t release];
+            NSLog(@"t.vel.x: %f",t.vel.x);
         }
 		
         NSLog(@"Turns count: %d", [turns count]);
@@ -77,7 +80,7 @@
 	[super tick];
 	currentTurnIndex++;
 	if (currentTurnIndex >= [self.moves count]) {
-		[self resetState];
+		[self resetTurn];
 	}
 	
 	if (self.hp <= 0 && !self.died) {
@@ -90,7 +93,8 @@
 }
 
 -(void)resetTurn {
-//	currentTurnIndex = 0;	
+	currentTurnIndex = 0;
+	self.l = CGPointMake(382,340);
 //	NSLog(@"resetting turn l.x: %f",self.l.x);
 //	self.l = ((Turn *)[self currentTurn]).l;
 //	NSLog(@"POST resetting turn l.x: %f",self.l.x);	

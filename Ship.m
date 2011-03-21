@@ -49,14 +49,16 @@
 	
 	[(Weapon *)[self currentWeapon] tick];
 	
-	if ([[self currentTurn] firing]) {
-		NSArray *b = [[self currentWeapon] fireWithYFacing:self.yFacing from:self.l];
-		if (b) {
-			NSLog(@"adding bullets: %@",b);
-			[self.bullets addObjectsFromArray:b];
-		}
-			
-	}
+//    if (self.hp > 0) {
+//	if ([[self currentTurn] firing]) {
+//		NSArray *b = [[self currentWeapon] fireWithYFacing:self.yFacing from:self.l];
+//		if (b) {
+//			NSLog(@"adding bullets: %@",b);
+//			[self.bullets addObjectsFromArray:b];
+//		}
+//			
+//	}
+//    }
 }
 
 -(void)ensureValidWeaponIndex {
