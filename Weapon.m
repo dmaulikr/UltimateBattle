@@ -13,7 +13,15 @@
 @synthesize repeatLeft, repeatReset, bullet;
 
 -(BOOL)canFire {
-	return self.repeatLeft == 0;
+	if (self.repeatLeft == 0) {
+		return YES;
+	}
+	
+	return NO;
+}
+
+-(void)setRepeatLeft:(int)value {
+	repeatLeft = value;
 }
 
 -(void)tick {

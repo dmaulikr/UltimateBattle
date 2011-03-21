@@ -21,5 +21,6 @@
 
 -(void)tick;
 -(NSArray *)fireWithYFacing:(int)facing from:(CGPoint)from;
+-(BOOL)canFire;
 
 @end

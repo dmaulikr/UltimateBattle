@@ -27,12 +27,12 @@
 }
 
 -(Weapon *)currentWeapon {
-	return [self.weapons objectAtIndex:self.currentWeaponIndex];
+	if ([self.weapons count] > 0) {
+		return [self.weapons objectAtIndex:self.currentWeaponIndex];
+	}
+	
+	return nil;
 }
-
-//-(Turn *)currentTurn {
-//	return self.turn;	
-//}
 
 -(void)move {
 	self.l = CGPointMake(self.l.x + ((Turn *)[self currentTurn]).vel.x, self.l.y + ((Turn *)[self currentTurn]).vel.y);
@@ -45,13 +45,17 @@
 -(void)tick {
 	//Call super to move and animate us
 	[super tick];
-
+	
+	
+	[(Weapon *)[self currentWeapon] tick];
+	
 	if ([[self currentTurn] firing]) {
 		NSArray *b = [[self currentWeapon] fireWithYFacing:self.yFacing from:self.l];
 		if (b) {
 			NSLog(@"adding bullets: %@",b);
 			[self.bullets addObjectsFromArray:b];
 		}
+			
 	}
 }
 
@@ -71,7 +75,12 @@
 	[self ensureValidWeaponIndex];
 }
 
+-(void)eraseAllWeapons {
+	[self.weapons removeAllObjects];	
+}
+
 -(void)addWeapon:(Weapon *)weapon {
+	NSLog(@"Adding weapon with repeatleft: %d",weapon.repeatLeft);
 	[self.weapons addObject:weapon];
 }
 

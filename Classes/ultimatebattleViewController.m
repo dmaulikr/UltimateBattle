@@ -31,14 +31,11 @@
 	level = 0;
 	currentKills = 0;
 	[self nextLevel];
+	[self.player addWeapon:[self newWeaponForLevel:1]];	
 	timer = [[NSTimer scheduledTimerWithTimeInterval:0.02 target:self selector:@selector(loop) userInfo:nil repeats:YES] retain];
-	
-	LaserGun *w= [[[LaserGun alloc] init] autorelease];
-	[self.player addWeapon:w];
 }
 
 -(Weapon *)newWeaponForLevel:(int)aLevel {
-
 	if (aLevel == 1) {
 		LaserGun *w = [[[LaserGun alloc] init] autorelease];
 		return w;
@@ -53,9 +50,8 @@
 	return nil;
 }
 
--(Ship *)newShipForLevel:(int)aLevel {
+-(Ship *)copiedPlayerShip {
 	Ship *newShip = [[[CopyShip alloc] initWithShip:self.player] autorelease];
-	[newShip addWeapon:[self newWeaponForLevel:aLevel]];
 	return newShip;
 }
 
@@ -66,10 +62,14 @@
 	
 	level++;
 
-	Ship *newShip = [self newShipForLevel:level];
+	Ship *newShip = [self copiedPlayerShip];
+	[newShip eraseAllWeapons];
 	[self.view addSubview:newShip.imageView];
+	newShip.drawn = YES;
 	[self.copies addObject:newShip];
 	newShip.bullets = self.bullets;
+	
+
 	
 	currentKills = 0;
 }
@@ -87,6 +87,10 @@
 -(void)copyLoop {
 	for (CopyShip *c in self.copies) {
 		[c tick];
+		if (!c.drawn && c.hp > 0) {
+			[self.view addSubview:c.imageView];
+			c.drawn = YES;
+		}
 	}
 }
 

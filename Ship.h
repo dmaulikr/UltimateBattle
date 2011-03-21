@@ -30,6 +30,7 @@
 -(void)resetTurn;
 -(void)cycleWeapon;
 -(void)changeWeapon:(int)newWeaponIndex;
+-(void)eraseAllWeapons;
 
 -(void)addWeapon:(Weapon *)weapon;
 

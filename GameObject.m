@@ -13,6 +13,7 @@
 @synthesize vel, l, turn;
 @synthesize yFacing, speed;
 @synthesize imageView, drawn;
+@synthesize died;
 
 -(void)animate { 
 //Draw magic here	

@@ -24,18 +24,16 @@
 			}
 			self.moves = turns;
 		} else {
-			for (int i = 0; i < 100; i++) {
 				Turn *t = [[Turn alloc] init];
-//				t.l = CGPointMake(382,340);
-				t.vel = CGPointMake(-i, -3);
+				t.vel = CGPointMake(0,0);
 				[self.moves addObject:t];
 				[t release];
-			}
 		}
 		
 		
-
-		self.weapons = ship.weapons;
+		NSMutableArray *weps = [[NSMutableArray arrayWithArray:ship.weapons] retain];
+		self.weapons = weps;
+		[weps release];
 		self.hp = 1;
 		
 		[self resetState];
@@ -62,6 +60,14 @@
 	if (currentTurnIndex >= [self.moves count]) {
 		[self resetState];
 	}
+	
+	if (self.hp <= 0 && !self.died) {
+		self.died = YES;
+		self.drawn = NO;
+		[self.imageView removeFromSuperview];
+	}
+	
+	
 }
 
 -(void)resetTurn {

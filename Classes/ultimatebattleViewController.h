@@ -23,4 +23,6 @@
 -(void)startGame;
 -(void)nextLevel;
 
+-(Weapon *)newWeaponForLevel:(int)aLevel;
+
 @end

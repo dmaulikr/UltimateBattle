@@ -15,10 +15,10 @@
 	self.speed = 2;	
 }
 
-+(NSArray *)newBulletsWithYFacing:(int)facing {
-	TriShotBullet *lb = [[[TriShotBullet alloc] init] autorelease];
-	TriShotBullet *cb = [[[TriShotBullet alloc] init] autorelease];
-	TriShotBullet *rb = [[[TriShotBullet alloc] init] autorelease];
++(NSArray *)newBulletsWithYFacing:(int)facing from:(CGPoint)from {
+	TriShotBullet *lb = [[[TriShotBullet alloc] initWithYFacing:facing from:from] autorelease];
+	TriShotBullet *cb = [[[TriShotBullet alloc] initWithYFacing:facing from:from] autorelease];
+	TriShotBullet *rb = [[[TriShotBullet alloc] initWithYFacing:facing from:from] autorelease];
 	
 	lb.vel = CGPointMake(-3, lb.vel.y);
 	cb.vel = CGPointMake(0, cb.vel.y);

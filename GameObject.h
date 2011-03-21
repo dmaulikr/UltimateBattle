@@ -20,6 +20,7 @@
 @property(nonatomic) double speed;
 @property(nonatomic, retain) UIImageView *imageView;
 @property(nonatomic) BOOL drawn;
+@property(nonatomic) BOOL died;
 
 -(void)animate;
 -(void)move;
