@@ -12,6 +12,7 @@
 #import "CopyShip.h"
 #import "PlayerCopyShip.h"
 #import "Bullets.h"
+#import "cmpgames.h"
 
 @implementation ultimatebattleViewController
 @synthesize copies, player, bullets;
@@ -56,6 +57,7 @@
 }
 
 -(void)nextLevel {
+	
 	for (CopyShip *ship in self.copies) {
 		[ship resetState];
 	}
@@ -63,24 +65,35 @@
 	level++;
 
 	Ship *newShip = [self copiedPlayerShip];
-	[newShip eraseAllWeapons];
 	[self.view addSubview:newShip.imageView];
 	newShip.drawn = YES;
 	[self.copies addObject:newShip];
 	newShip.bullets = self.bullets;
 	
-
-	
 	currentKills = 0;
 }
+
+-(void)checkForHitCopiesWithBullet:(Bullet *)b {
+	for (CopyShip *c in self.copies) {
+		if (b.vel.y < 0 && c.hp > 0 && GetDist(b.l, c.l) <= 30) {
+			c.hp = 0;
+			currentKills++;
+		}
+	}
+}
+
+-(void)checkForDrawingBullet:(Bullet *)b {
+	if (!b.drawn) {
+		[self.view addSubview:b.imageView];
+		b.drawn = YES;
+	}
+}	
 
 -(void)bulletLoop {
 	for (Bullet *b in self.bullets) {
 		[b tick];
-		if (!b.drawn) {
-			[self.view addSubview:b.imageView];
-			b.drawn = YES;	
-		}
+		[self checkForDrawingBullet:b];
+		[self checkForHitCopiesWithBullet:b];
 	}
 }
 
@@ -100,16 +113,17 @@
 	[self.player tick];
 }
 
--(void)loop {
-	[self bulletLoop];
-	[self copyLoop];
-	[self playerLoop];
-}
-
 -(void)checkForLevel {
 	if (currentKills == [self.copies count]) {
 		[self nextLevel];	
 	}
+}
+
+-(void)loop {
+	[self bulletLoop];
+	[self copyLoop];
+	[self playerLoop];
+	[self checkForLevel];
 }
 
 -(void)tick {

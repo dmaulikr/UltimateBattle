@@ -79,6 +79,10 @@
 	[self.weapons removeAllObjects];	
 }
 
+-(void)resetTurns {
+	[self.moves removeAllObjects];	
+}
+
 -(void)addWeapon:(Weapon *)weapon {
 	NSLog(@"Adding weapon with repeatleft: %d",weapon.repeatLeft);
 	[self.weapons addObject:weapon];

@@ -13,7 +13,7 @@
 @synthesize vel, l, turn;
 @synthesize yFacing, speed;
 @synthesize imageView, drawn;
-@synthesize died;
+@synthesize died, player;
 
 -(void)animate { 
 //Draw magic here	

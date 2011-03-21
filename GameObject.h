@@ -21,6 +21,7 @@
 @property(nonatomic, retain) UIImageView *imageView;
 @property(nonatomic) BOOL drawn;
 @property(nonatomic) BOOL died;
+@property(nonatomic) BOOL player;
 
 -(void)animate;
 -(void)move;

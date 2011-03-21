@@ -36,4 +36,6 @@
 
 -(id)initWithYFacing:(int)facing;
 
+-(void)resetTurns;
+
 @end
