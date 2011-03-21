@@ -245,7 +245,7 @@
 		fRef = BFCD44F21332FBD900182581 /* CopyShip.m */;
 		name = "CopyShip.m: 68";
 		rLen = 0;
-		rLoc = 1427;
+		rLoc = 1428;
 		rType = 0;
 		vrLen = 533;
 		vrLoc = 981;
@@ -255,7 +255,7 @@
 		fRef = BFCD44F21332FBD900182581 /* CopyShip.m */;
 		name = "CopyShip.m: 33";
 		rLen = 0;
-		rLoc = 721;
+		rLoc = 722;
 		rType = 0;
 		vrLen = 734;
 		vrLoc = 154;
@@ -282,7 +282,7 @@
 		fRef = BFCD44F21332FBD900182581 /* CopyShip.m */;
 		name = "CopyShip.m: 50";
 		rLen = 0;
-		rLoc = 999;
+		rLoc = 1000;
 		rType = 0;
 		vrLen = 509;
 		vrLoc = 679;
@@ -292,7 +292,7 @@
 		fRef = BFCD44F21332FBD900182581 /* CopyShip.m */;
 		name = "CopyShip.m: 48";
 		rLen = 0;
-		rLoc = 964;
+		rLoc = 965;
 		rType = 0;
 		vrLen = 510;
 		vrLoc = 679;
@@ -382,7 +382,7 @@
 		fRef = BFCD44F21332FBD900182581 /* CopyShip.m */;
 		name = "CopyShip.m: 25";
 		rLen = 0;
-		rLoc = 565;
+		rLoc = 566;
 		rType = 0;
 		vrLen = 736;
 		vrLoc = 131;
@@ -482,7 +482,7 @@
 		fRef = BFCD44F21332FBD900182581 /* CopyShip.m */;
 		name = "CopyShip.m: 25";
 		rLen = 0;
-		rLoc = 565;
+		rLoc = 566;
 		rType = 0;
 		vrLen = 733;
 		vrLoc = 131;
@@ -543,7 +543,7 @@
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1411, 1260}}";
 			sepNavSelRange = "{795, 0}";
-			sepNavVisRange = "{128, 669}";
+			sepNavVisRange = "{127, 670}";
 		};
 	};
 	BFA4FD2A132B0DCB00612508 /* Ship.m */ = {
@@ -907,7 +907,7 @@
 		fRef = BFCD44F21332FBD900182581 /* CopyShip.m */;
 		name = "CopyShip.m: 34";
 		rLen = 0;
-		rLoc = 764;
+		rLoc = 765;
 		rType = 0;
 		vrLen = 676;
 		vrLoc = 128;
@@ -1022,7 +1022,7 @@
 		fRef = BFCD44F21332FBD900182581 /* CopyShip.m */;
 		name = "CopyShip.m: 22";
 		rLen = 19;
-		rLoc = 908;
+		rLoc = 909;
 		rType = 0;
 		vrLen = 427;
 		vrLoc = 0;
@@ -1174,7 +1174,7 @@
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1411, 1050}}";
 			sepNavSelRange = "{486, 1}";
-			sepNavVisRange = "{43, 616}";
+			sepNavVisRange = "{24, 635}";
 		};
 	};
 	BFCD44F11332FBD900182581 /* CopyShip.h */ = {
@@ -1186,9 +1186,9 @@
 	};
 	BFCD44F21332FBD900182581 /* CopyShip.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1639.95, 2430}}";
-			sepNavSelRange = "{565, 0}";
-			sepNavVisRange = "{131, 733}";
+			sepNavIntBoundsRect = "{{0, 0}, {1639.95, 2400}}";
+			sepNavSelRange = "{566, 0}";
+			sepNavVisRange = "{131, 734}";
 		};
 	};
 	BFCD45021332FFC900182581 /* LaserGun.h */ = {

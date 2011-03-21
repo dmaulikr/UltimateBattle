@@ -22,7 +22,7 @@
 			for (Turn *t in turns) {
 				t.vel = CGPointMake(-t.vel.x, t.vel.y);
 			}
-			self.moves = turns;
+			self.moves =2 turns;
 		} else {
 				Turn *t = [[Turn alloc] init];
 				t.vel = CGPointMake(0,0);
