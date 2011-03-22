@@ -46,7 +46,6 @@
 	//Call super to move and animate us
 	[super tick];
 	
-    NSLog(@"currentWeapon: %@",[self currentWeapon]);
 	if ([self currentWeapon]) {
         [(Weapon *)[self currentWeapon] tick];
     }
@@ -57,7 +56,7 @@
 		NSArray *b = [[self currentWeapon] fireWithYFacing:self.yFacing from:self.l];
 		if (b) {
 			NSLog(@"adding bullets: %@",b);
-			[self.bullets addObjectsFromArray:b]    
+			[self.bullets addObjectsFromArray:b];
 		}
 			
 	}

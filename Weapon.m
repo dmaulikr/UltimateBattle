@@ -16,7 +16,6 @@
 	if (self.repeatLeft == 0) {
 		return YES;
 	}
-	
 	return NO;
 }
 

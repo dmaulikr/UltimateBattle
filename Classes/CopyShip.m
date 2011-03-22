@@ -7,7 +7,7 @@
 //
 
 #import "CopyShip.h"
-
+#import "NSObject+Properties.h"
 
 @implementation CopyShip
 
@@ -22,14 +22,8 @@
         NSMutableArray *turns = [NSMutableArray array];
         NSLog(@"ship moves count: %d",[ship.moves count]);
         for (Turn *ot in ship.moves) {
-            Turn *t = [[Turn alloc] init];
-            t.vel = ot.vel;
-            t.firing = ot.firing;
-            t.targetLocation = ot.targetLocation;
-            t.weaponIndex = ot.weaponIndex;
+			Turn *t = [ot magicCopy];
             [turns addObject:t];
-            [t release];
-            NSLog(@"t.vel.x: %f",t.vel.x);
         }
 		
         NSLog(@"Turns count: %d", [turns count]);
@@ -49,12 +43,8 @@
 	//	[turns release];
 		self.weapons = [NSMutableArray array];
         for (Weapon *owep in ship.weapons) {
-            Weapon *nw = [[Weapon alloc] init];
-            nw.bullet = owep.bullet;
-            nw.repeatLeft = 0;
-            nw.repeatReset = owep.repeatReset;
+			Weapon *nw = [owep magicCopy];
             [self.weapons addObject:nw];
-            [nw release];
         }
 		
 //        NSMutableArray *weps = [[NSMutableArray arrayWithArray:ship.weapons] copy];
