@@ -16,8 +16,8 @@
 @synthesize died, player;
 
 -(void)animate { 
-//Draw magic here	
-self.imageView.center = self.l;	
+//Draw magic here
+self.imageView.center = self.l;
 }
 
 -(Turn *)currentTurn {

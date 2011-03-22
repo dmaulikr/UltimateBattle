@@ -57,7 +57,7 @@
 		NSArray *b = [[self currentWeapon] fireWithYFacing:self.yFacing from:self.l];
 		if (b) {
 			NSLog(@"adding bullets: %@",b);
-			[self.bullets addObjectsFromArray:b];
+			[self.bullets addObjectsFromArray:b]    
 		}
 			
 	}

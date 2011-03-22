@@ -45,7 +45,7 @@
 				[self.moves addObject:t];
 				[t release];
 		}
-		
+        
 	//	[turns release];
 		self.weapons = [NSMutableArray array];
         for (Weapon *owep in ship.weapons) {
