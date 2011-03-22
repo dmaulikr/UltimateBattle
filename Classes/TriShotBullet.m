@@ -12,7 +12,8 @@
 @implementation TriShotBullet
 
 -(void)setup {
-	self.speed = 2;	
+	self.speed = 9;	
+	[super setup];
 }
 
 +(NSArray *)newBulletsWithYFacing:(int)facing from:(CGPoint)from {

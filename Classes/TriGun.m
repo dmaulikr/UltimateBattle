@@ -15,7 +15,7 @@
 	self = [super init];
 	if (self) {
 		self.repeatLeft = 0;
-		self.repeatReset = 10;
+		self.repeatReset = 70;
 		self.bullet = [[TriShotBullet alloc] init];
 	}
 	return self;

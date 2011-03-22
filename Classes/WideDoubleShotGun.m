@@ -16,7 +16,7 @@
 	self = [super init];
 	if (self) {
 		self.repeatLeft = 0;
-		self.repeatReset = 10;
+		self.repeatReset = 50;
 		self.bullet = [[WideDoubleBullet alloc] init];
 	}
 	return self;

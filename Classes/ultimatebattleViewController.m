@@ -53,8 +53,9 @@
 		WideDoubleShotGun *w = [[[WideDoubleShotGun alloc] init] autorelease];
 		return w;
 	}
-		
-	return nil;
+
+	TriGun *w = [[[TriGun alloc] init] autorelease];
+	return w;
 }
 
 -(Ship *)copiedPlayerShip {
@@ -78,6 +79,9 @@
 	
 	currentKills = 0;
     
+	[self.player eraseAllWeapons];
+	[self.player addWeapon:[self newWeaponForLevel:level]];
+	
     [self.player resetTurns];
 }
 
