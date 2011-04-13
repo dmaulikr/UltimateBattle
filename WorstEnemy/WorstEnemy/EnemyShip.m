@@ -44,9 +44,8 @@
     ccTime current = firstMove.startTime;
     for(Move *move in shipMoves) {
         if (current != move.startTime) {
-            [ccActions addObject:[CCDelayTime actionWithDuration:0.3]];
-//            [ccActions addObject:[CCDelayTime actionWithDuration:(move.startTime - current)]];
-            //[ccActions addObject:[CCMoveBy actionWithDuration:(move.startTime - current) position:ccp(0,0)]];
+            float delayDuration = move.startTime - current;
+            [ccActions addObject:[CCDelayTime actionWithDuration:delayDuration]];
         }
         [ccActions addObject:[move createEnemyMove]];
         current = move.endTime;
@@ -57,7 +56,7 @@
         [ccActions addObject:reset];
         NSLog(@"move sequence");
         self.moveSequence = [EnemyShip getActionSequence:ccActions];
-    }    
+    }     
 }
 
 -(void) reset {

@@ -34,22 +34,12 @@
 }
 
 -(CCMoveTo *) createEnemyMove {
-    CGFloat distance = ccpDistance(self.fromPoint, self.toPoint);
-    
     CGPoint adjustPoint = ccpSub(self.toPoint, self.fromPoint);
     adjustPoint = ccp(-adjustPoint.x, adjustPoint.y);
     
-    CGPoint moveToPoint = ccp(self.fromPoint.x + adjustPoint.x - PLAYER_ENEMY_DISTANCE, self.toPoint.y);
-    
-    return [CCMoveTo actionWithDuration:(distance/THRUST) position:moveToPoint];
+    float duration = self.endTime - self.startTime;
+    return [CCMoveBy actionWithDuration:duration position:adjustPoint];
 }
 
-//-(CCMoveBy *) createEnemyMove {
-//    CGPoint moveByPoint = ccpSub(self.toPoint, self.fromPoint);
-//    moveByPoint = ccp(-moveByPoint.x, moveByPoint.y);
-//    NSLog(@"start time %f - end time %f", self.startTime, self.endTime);
-//    ccTime duration = self.endTime - self.startTime;
-//    return [CCMoveBy actionWithDuration:duration position:moveByPoint];
-//}
 
 @end
