@@ -30,7 +30,7 @@
 -(NSArray *) getBullets:(CGPoint) point {
     if ([self canFire]) {
         NSMutableArray * bullets = [NSMutableArray array]; 
-        Bullet *b = [[Bullet alloc] initWithStart:(point) withVelocity:ccp(-3,0)];
+        Bullet *b = [[Bullet alloc] initWithStart:(point)];
         [bullets addObject:b];
         [b release];
         self.cooldown = self.cooldownRate;
@@ -39,6 +39,20 @@
         self.cooldown--;
         return nil;
     }
+}
+
+-(NSArray *) getEnemyBullets:(CGPoint) point {
+    if ([self canFire]) {
+        NSMutableArray * bullets = [NSMutableArray array]; 
+        EnemyBullet *b = [[EnemyBullet alloc] initWithStart:(point)];
+        [bullets addObject:b];
+        [b release];
+        self.cooldown = self.cooldownRate;
+        return bullets;
+    } else {
+        self.cooldown--;
+        return nil;
+    }    
 }
 
 @end

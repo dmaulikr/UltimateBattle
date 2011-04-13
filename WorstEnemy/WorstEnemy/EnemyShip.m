@@ -16,6 +16,7 @@
 @synthesize isDead;
 @synthesize moveSequence;
 @synthesize startPoint;
+@synthesize weapon;
 
 # define SHIP_SIZE 45
 # define HALF_SHIP_SIZE 22.5
@@ -23,7 +24,7 @@
 -(id) initWithMoves:(NSMutableArray *)shipMoves atStartPoint:(CGPoint) point {
     self = [super init];
     if (self) {
-        
+        self.weapon = [[Weapon alloc] init];
         [self createMoveSequenceFromShipMoves:shipMoves];
         self.isDead = false;
         self.startPoint = point;
@@ -88,6 +89,10 @@
 
 -(void) revive {
     self.isDead = false;
+}
+
+-(NSArray *) fire {
+    return [self.weapon getEnemyBullets:self.sprite.position];
 }
 
 +(CCFiniteTimeAction *) getActionSequence: (NSArray *) actions

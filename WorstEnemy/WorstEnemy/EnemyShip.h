@@ -15,6 +15,7 @@
     
 }
 
+@property (nonatomic, retain) Weapon *weapon;
 @property (nonatomic, retain) CCSprite *sprite;
 @property (nonatomic) BOOL isDead;
 @property (nonatomic, retain) CCFiniteTimeAction *moveSequence;
@@ -30,6 +31,7 @@
 -(void) kill;
 -(void) revive;
 -(void) reset;
+-(NSArray *) fire;
 
 -(CGRect) getRect;
 

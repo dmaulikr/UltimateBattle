@@ -25,6 +25,7 @@
 @property (nonatomic, retain) Ship *ship;
 @property (nonatomic, retain) KillerBar *killerBar;
 @property (nonatomic, retain) NSMutableArray *bullets;
+@property (nonatomic, retain) NSMutableArray *enemyBullets;
 @property (nonatomic, retain) NSMutableArray *enemies;
 @property (nonatomic, retain) NSMutableArray *pastLives;
 @property (nonatomic) int kill_count;

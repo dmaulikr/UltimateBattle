@@ -10,6 +10,7 @@
 #import "cmpgames.h"
 #import "Bullet.h"
 #import "cocos2d.h"
+#import "EnemyBullet.h"
 
 @interface Weapon : NSObject {
     
@@ -19,5 +20,6 @@
 @property (nonatomic) int cooldownRate;
 
 -(NSArray *) getBullets:(CGPoint) point;
+-(NSArray *) getEnemyBullets:(CGPoint) point;
 
 @end

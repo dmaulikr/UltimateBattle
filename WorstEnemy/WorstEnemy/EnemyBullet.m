@@ -1,14 +1,15 @@
 //
-//  Bullet.m
+//  EnemyBullet.m
 //  WorstEnemy
 //
-//  Created by Jonathan Birkholz on 3/21/11.
+//  Created by Jonathan Birkholz on 4/12/11.
 //  Copyright 2011 Pursuit. All rights reserved.
 //
 
-#import "Bullet.h"
+#import "EnemyBullet.h"
 
-@implementation Bullet
+
+@implementation EnemyBullet
 
 @synthesize sprite;
 @synthesize trail;
@@ -30,9 +31,9 @@
 
 -(void) createTrail {
     trail = [[CCParticleFire alloc] initWithTotalParticles:7000];
-    [trail setStartColor:ccc4FFromccc3B(ccc3(0, 50, 250))]; 
+    [trail setStartColor:ccc4FFromccc3B(ccc3(250, 50, 0))]; 
     [trail setPosition:self.sprite.position];
-    [trail setAngle:0.0];
+    [trail setAngle:180.0];
     [trail setAngleVar:0.0];
     [trail setStartSize:0.3];
     [trail setPosVar:ccp(0,0)];
@@ -48,7 +49,7 @@
     [layer addChild:self.sprite];
     [layer addChild:self.trail z:-1];
     
-    CGPoint targetPoint = ccp(-10, self.sprite.position.y);
+    CGPoint targetPoint = ccp(650, self.sprite.position.y);
     CGFloat distance = ccpDistance(self.sprite.position, targetPoint);
     CCMoveTo *moveTo = [CCMoveTo actionWithDuration:(distance/BULLET_SPEED) position:targetPoint];
     [self.sprite runAction:moveTo];

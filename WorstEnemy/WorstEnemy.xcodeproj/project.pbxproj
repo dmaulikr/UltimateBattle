@@ -135,6 +135,7 @@
 		8CB4C639134513D600789154 /* KillerBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB4C638134513D600789154 /* KillerBar.m */; };
 		8CB4C63C1345165500789154 /* killer_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CB4C63B1345165500789154 /* killer_bar.png */; };
 		8CCB5FBE133B086A003BACA0 /* EnemyShip.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CCB5FBD133B086A003BACA0 /* EnemyShip.m */; };
+		8CEA1C761355434900392118 /* EnemyBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CEA1C751355434900392118 /* EnemyBullet.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -390,6 +391,9 @@
 		8CB4C63B1345165500789154 /* killer_bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = killer_bar.png; sourceTree = "<group>"; };
 		8CCB5FBC133B086A003BACA0 /* EnemyShip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnemyShip.h; sourceTree = "<group>"; };
 		8CCB5FBD133B086A003BACA0 /* EnemyShip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnemyShip.m; sourceTree = "<group>"; };
+		8CEA1C741355434900392118 /* EnemyBullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnemyBullet.h; sourceTree = "<group>"; };
+		8CEA1C751355434900392118 /* EnemyBullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnemyBullet.m; sourceTree = "<group>"; };
+		8CEA1C781355436700392118 /* BulletProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BulletProtocol.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -753,6 +757,9 @@
 				8C3AB502133D311A003AC848 /* Move.m */,
 				8CB4C637134513D600789154 /* KillerBar.h */,
 				8CB4C638134513D600789154 /* KillerBar.m */,
+				8CEA1C741355434900392118 /* EnemyBullet.h */,
+				8CEA1C751355434900392118 /* EnemyBullet.m */,
+				8CEA1C781355436700392118 /* BulletProtocol.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -937,6 +944,7 @@
 				8CCB5FBE133B086A003BACA0 /* EnemyShip.m in Sources */,
 				8C3AB503133D311A003AC848 /* Move.m in Sources */,
 				8CB4C639134513D600789154 /* KillerBar.m in Sources */,
+				8CEA1C761355434900392118 /* EnemyBullet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

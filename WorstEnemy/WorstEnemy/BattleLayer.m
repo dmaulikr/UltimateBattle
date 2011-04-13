@@ -16,6 +16,7 @@
 @synthesize ship;
 @synthesize killerBar;
 @synthesize bullets;
+@synthesize enemyBullets;
 @synthesize enemies;
 @synthesize kill_count;
 @synthesize newLevelDelay;
@@ -53,6 +54,7 @@
         [self.killerBar addToLayer:self];
         
         self.bullets = [NSMutableArray array];
+        self.enemyBullets = [NSMutableArray array];
         self.enemies = [NSMutableArray array];
         self.pastLives = [NSMutableArray array];
         self.newLevelDelay = NEW_LEVEL_DELAY;
@@ -121,26 +123,44 @@
     
     NSArray *bullets_to_add = [self.ship fire];
     if (bullets_to_add) {
-        for(Bullet *b in bullets_to_add) {
+        for(id<BulletProtocol> b in bullets_to_add) {
             [self.bullets addObject:b];
             [b addToLayer:self];
         }
     }
     
+    NSMutableArray *enemyBulletsToAdd = [NSMutableArray array];
+    for (EnemyShip *e in self.enemies) {
+        [enemyBulletsToAdd addObjectsFromArray:[e fire]];
+    }; 
+    
+    if (enemyBulletsToAdd) {
+        for(id<BulletProtocol> b in enemyBulletsToAdd) {
+            [self.enemyBullets addObject:b];
+            [b addToLayer:self];
+        }
+    }    
+
+    
     NSMutableArray *bullets_to_remove = [NSMutableArray array];
-    for (Bullet *b in self.bullets) {
+    for (id<BulletProtocol> b in self.bullets) {
         if (b.sprite.position.x < 0){
             [bullets_to_remove addObject:b];
         }
     }
+    for (id<BulletProtocol> b in self.enemyBullets) {
+        if (b.sprite.position.x >400){
+            [bullets_to_remove addObject:b];
+        }
+    }
     
-    for (Bullet *b in bullets_to_remove) {
+    for (id<BulletProtocol> b in bullets_to_remove) {
         [b removeFromLayer:self];
         [self.bullets removeObject:b];
     }; 
 
     NSMutableArray *enemies_to_destroy = [NSMutableArray array];
-    for (Bullet *b in self.bullets) {
+    for (id<BulletProtocol> b in self.bullets) {
         for(EnemyShip *e in self.enemies) {
             if (!e.isDead) {
                 if (CGRectIntersectsRect([b getRect], [e getRect])) {
@@ -224,6 +244,7 @@
     self.bullets = nil;
     self.pastLives = nil;
     self.enemies = nil;
+    self.enemyBullets = nil;
     
 	// in case you have something to dealloc, do it in this method
 	// in this particular example nothing needs to be released.
