@@ -11,7 +11,7 @@
 #import "cocos2d.h"
 #import "Ship.h"
 #import "cmpgames.h"
-#import "Bullet.h"
+#import "WBullet.h"
 #import "EnemyShip.h"
 #import "KillerBar.h"
 #import "Move.h"

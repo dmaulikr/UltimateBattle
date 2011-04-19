@@ -1,16 +1,17 @@
 //
-//  EngineShip.h
+//  BasicBullet.h
 //  ultimatebattle
 //
-//  Created by X3N0 on 3/19/11.
+//  Created by X3N0 on 3/12/11.
 //  Copyright 2011 Rage Creations. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "UltimateShip.h"
+#import "Bullet.h"
 
-@interface EngineShip : UltimateShip {
+@interface BasicBullet : Bullet {
 
 }
+
 
 @end

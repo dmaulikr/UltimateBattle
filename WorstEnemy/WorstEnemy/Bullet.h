@@ -1,18 +1,22 @@
 //
 //  Bullet.h
-//  WorstEnemy
+//  ultimatebattle
 //
-//  Created by Jonathan Birkholz on 3/21/11.
-//  Copyright 2011 Pursuit. All rights reserved.
+//  Created by X3N0 on 3/11/11.
+//  Copyright 2011 Rage Creations. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "cmpgames.h"
-#import "cocos2d.h"
-#import "BulletProtocol.h"
+#import "GameObject.h"
 
-@interface Bullet : NSObject <BulletProtocol> {
-    
+@interface Bullet : GameObject {
+
 }
+
+
++(NSArray *)newBulletsWithYFacing:(int)facing from:(CGPoint)from;
+
+-(id)initWithYFacing:(int)facing from:(CGPoint)from;
+-(void)setup;
 
 @end

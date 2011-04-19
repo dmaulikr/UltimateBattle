@@ -15,7 +15,7 @@
 
 #define START_POINT ccp(0,175)
 #define END_POINT ccp(500,175)
-#define SPEED 5
+#define SPEED 1
 #define BAR_SIZE 50
 #define HALF_BAR_SIZE 25
 
@@ -46,7 +46,7 @@
     self.sprite.position = START_POINT;
     
     CCMoveTo *pause = [CCMoveTo actionWithDuration:2 position:START_POINT];
-    CCMoveTo *moveTo = [CCMoveTo actionWithDuration:5 position:END_POINT];
+    CCMoveTo *moveTo = [CCMoveTo actionWithDuration:50 position:END_POINT];
     [self.sprite runAction:[CCSequence actionOne:pause two:moveTo]];
 }
 

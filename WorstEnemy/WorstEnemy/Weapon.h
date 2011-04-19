@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "cmpgames.h"
-#import "Bullet.h"
+#import "WBullet.h"
 #import "cocos2d.h"
 #import "EnemyBullet.h"
 

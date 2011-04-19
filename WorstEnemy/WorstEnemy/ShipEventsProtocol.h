@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "UltimateShip.h"
+#import "Ship.h"
 
 
 @protocol ShipEventsProtocol
 
--(void)destroyed:(UltimateShip *)ship;
+-(void)destroyed:(Ship *)ship;
 
 @end

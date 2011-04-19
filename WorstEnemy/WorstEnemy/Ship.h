@@ -11,6 +11,7 @@
 #import "Weapon.h"
 #import "cocos2d.h"
 #import "Move.h"
+#import "Engine.h"
 
 @interface Ship : NSObject {
     

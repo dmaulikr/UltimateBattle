@@ -7,7 +7,7 @@
 //
 
 #import "ultimatebattleViewController.h"
-#import "Ship.h"
+#import "UltimateShip.h"
 #import "LaserGun.h"
 #import "CopyShip.h"
 #import "PlayerCopyShip.h"
@@ -42,7 +42,7 @@
     [self nextLevel];
 }
 
--(Weapon *)newWeaponForLevel:(int)aLevel {
+-(UltimateWeapon *)newWeaponForLevel:(int)aLevel {
 	if (aLevel == 1) {
 		LaserGun *w = [[[LaserGun alloc] init] autorelease];
 		return w;
@@ -58,12 +58,14 @@
 	return w;
 }
 
--(Ship *)copiedPlayerShip {
-	Ship *newShip = [[[CopyShip alloc] initWithShip:self.player] autorelease];
+-(UltimateShip *)copiedPlayerShip {
+	UltimateShip *newShip = [[[CopyShip alloc] initWithShip:self.player] autorelease];
 	return newShip;
 }
 
 -(void)nextLevel {
+	
+	self.player.l = CGPointMake(384,700);
 	
 	for (CopyShip *ship in self.copies) {
 		[ship resetState];
@@ -71,7 +73,7 @@
 	
 	level++;
 
-	Ship *newShip = [self copiedPlayerShip];
+	UltimateShip *newShip = [self copiedPlayerShip];
 	[self.view addSubview:newShip.imageView];
 	newShip.drawn = YES;
 	[self.copies addObject:newShip];

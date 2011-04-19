@@ -117,6 +117,7 @@
         return;
     }
     
+	
     if (CGRectIntersectsRect([self.killerBar getRect], [self.ship getRect])) {
         [self killPlayer];
     }
@@ -165,6 +166,7 @@
             if (!e.isDead) {
                 if (CGRectIntersectsRect([b getRect], [e getRect])) {
                     [enemies_to_destroy addObject:e];
+					[b.sprite setPosition:ccp(-1000,-1000)];
                 }
             }
         }
@@ -208,7 +210,7 @@
 
     self.kill_count = 0;
 
-    for (Bullet *b in self.bullets) {
+    for (WBullet *b in self.bullets) {
         [b removeFromLayer:self];
     }
     [self.bullets removeAllObjects];

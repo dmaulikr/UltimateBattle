@@ -12,7 +12,7 @@
 @implementation DefeatCopyGameController
 @synthesize copies;
 
--(void)destroyed:(Ship *)ship {
+-(void)destroyed:(UltimateShip *)ship {
 	
 }
 

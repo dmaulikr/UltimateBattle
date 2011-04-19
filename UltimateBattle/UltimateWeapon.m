@@ -6,10 +6,10 @@
 //  Copyright 2011 Rage Creations. All rights reserved.
 //
 
-#import "Weapon.h"
+#import "UltimateWeapon.h"
 
 
-@implementation Weapon
+@implementation UltimateWeapon
 @synthesize repeatLeft, repeatReset, bullet;
 
 -(BOOL)canFire {

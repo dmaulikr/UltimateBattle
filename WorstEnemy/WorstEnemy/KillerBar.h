@@ -17,5 +17,6 @@
 
 -(void) addToLayer:(CCLayer *) layer;
 -(CGRect) getRect;
+-(void)reset;
 
 @end

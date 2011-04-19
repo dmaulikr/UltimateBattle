@@ -6,10 +6,10 @@
 //  Copyright 2011 Rage Creations. All rights reserved.
 //
 
-#import "Ship.h"
+#import "UltimateShip.h"
 
 
-@implementation Ship
+@implementation UltimateShip
 @synthesize currentWeaponIndex, moves, hp, weapons, bullets;
 @synthesize engine;
 
@@ -26,7 +26,7 @@
 	return self;
 }
 
--(Weapon *)currentWeapon {
+-(UltimateWeapon *)currentWeapon {
 	if ([self.weapons count] > 0) {
 		return [self.weapons objectAtIndex:self.currentWeaponIndex];
 	}
@@ -47,7 +47,7 @@
 	[super tick];
 	
 	if ([self currentWeapon]) {
-        [(Weapon *)[self currentWeapon] tick];
+        [(UltimateWeapon *)[self currentWeapon] tick];
     }
     
 	
@@ -87,7 +87,7 @@
 	[self.moves removeAllObjects];	
 }
 
--(void)addWeapon:(Weapon *)weapon {
+-(void)addWeapon:(UltimateWeapon *)weapon {
 	NSLog(@"Adding weapon with repeatleft: %d",weapon.repeatLeft);
 	[self.weapons addObject:weapon];
 }

@@ -131,11 +131,28 @@
 		8C9FDF461338076400D20C9D /* Ship.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9FDF451338076400D20C9D /* Ship.m */; };
 		8C9FDF4913380BDF00D20C9D /* cmpgames.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9FDF4813380BDF00D20C9D /* cmpgames.m */; };
 		8C9FDF54133812F100D20C9D /* Weapon.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9FDF53133812F100D20C9D /* Weapon.m */; };
-		8C9FDF571338145600D20C9D /* Bullet.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9FDF561338145500D20C9D /* Bullet.m */; };
+		8C9FDF571338145600D20C9D /* WBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9FDF561338145500D20C9D /* WBullet.m */; };
 		8CB4C639134513D600789154 /* KillerBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB4C638134513D600789154 /* KillerBar.m */; };
 		8CB4C63C1345165500789154 /* killer_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CB4C63B1345165500789154 /* killer_bar.png */; };
 		8CCB5FBE133B086A003BACA0 /* EnemyShip.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CCB5FBD133B086A003BACA0 /* EnemyShip.m */; };
 		8CEA1C761355434900392118 /* EnemyBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CEA1C751355434900392118 /* EnemyBullet.m */; };
+		BFBA6DF1135D1A4700C0DC8E /* WorstEnemyBattlefield.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBA6DF0135D1A4700C0DC8E /* WorstEnemyBattlefield.m */; };
+		BFBA6E0F135D204F00C0DC8E /* PlayerCopyShip.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBA6E0E135D204F00C0DC8E /* PlayerCopyShip.m */; };
+		BFBA6E17135D211F00C0DC8E /* UltimateShip.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBA6E11135D211F00C0DC8E /* UltimateShip.m */; };
+		BFBA6E18135D211F00C0DC8E /* CopyShip.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBA6E13135D211F00C0DC8E /* CopyShip.m */; };
+		BFBA6E19135D211F00C0DC8E /* EngineShip.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBA6E16135D211F00C0DC8E /* EngineShip.m */; };
+		BFBA6E1C135D212800C0DC8E /* NSObject+Properties.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBA6E1B135D212800C0DC8E /* NSObject+Properties.m */; };
+		BFBA6E25135D216300C0DC8E /* Turn.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBA6E22135D216300C0DC8E /* Turn.m */; };
+		BFBA6E26135D216300C0DC8E /* GameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBA6E24135D216300C0DC8E /* GameObject.m */; };
+		BFBA6E2B135D217400C0DC8E /* Engine.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBA6E2A135D217400C0DC8E /* Engine.m */; };
+		BFDAC117135D238000A43934 /* Bullet.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDAC116135D238000A43934 /* Bullet.m */; };
+		BFF16BF5135D2A2A003EF4DC /* UltimateWeapon.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF16BF4135D2A2A003EF4DC /* UltimateWeapon.m */; };
+		BFF16C07135D2A3D003EF4DC /* LaserGun.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF16C02135D2A3D003EF4DC /* LaserGun.m */; };
+		BFF16C08135D2A3D003EF4DC /* TriGun.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF16C04135D2A3D003EF4DC /* TriGun.m */; };
+		BFF16C09135D2A3D003EF4DC /* WideDoubleShotGun.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF16C06135D2A3D003EF4DC /* WideDoubleShotGun.m */; };
+		BFF16C1E135D2AC8003EF4DC /* BasicBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF16C1B135D2AC8003EF4DC /* BasicBullet.m */; };
+		BFF16C1F135D2AC8003EF4DC /* TriShotBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF16C1D135D2AC8003EF4DC /* TriShotBullet.m */; };
+		BFF16C32135D2B12003EF4DC /* WideDoubleBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF16C31135D2B12003EF4DC /* WideDoubleBullet.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -384,8 +401,8 @@
 		8C9FDF4813380BDF00D20C9D /* cmpgames.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cmpgames.m; sourceTree = "<group>"; };
 		8C9FDF52133812F000D20C9D /* Weapon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Weapon.h; sourceTree = "<group>"; };
 		8C9FDF53133812F100D20C9D /* Weapon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Weapon.m; sourceTree = "<group>"; };
-		8C9FDF551338145400D20C9D /* Bullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bullet.h; sourceTree = "<group>"; };
-		8C9FDF561338145500D20C9D /* Bullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bullet.m; sourceTree = "<group>"; };
+		8C9FDF551338145400D20C9D /* WBullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBullet.h; sourceTree = "<group>"; };
+		8C9FDF561338145500D20C9D /* WBullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBullet.m; sourceTree = "<group>"; };
 		8CB4C637134513D600789154 /* KillerBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KillerBar.h; sourceTree = "<group>"; };
 		8CB4C638134513D600789154 /* KillerBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KillerBar.m; sourceTree = "<group>"; };
 		8CB4C63B1345165500789154 /* killer_bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = killer_bar.png; sourceTree = "<group>"; };
@@ -394,6 +411,41 @@
 		8CEA1C741355434900392118 /* EnemyBullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnemyBullet.h; sourceTree = "<group>"; };
 		8CEA1C751355434900392118 /* EnemyBullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnemyBullet.m; sourceTree = "<group>"; };
 		8CEA1C781355436700392118 /* BulletProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BulletProtocol.h; sourceTree = "<group>"; };
+		BFBA6DEF135D1A4700C0DC8E /* WorstEnemyBattlefield.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorstEnemyBattlefield.h; sourceTree = "<group>"; };
+		BFBA6DF0135D1A4700C0DC8E /* WorstEnemyBattlefield.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorstEnemyBattlefield.m; sourceTree = "<group>"; };
+		BFBA6E0D135D204F00C0DC8E /* PlayerCopyShip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerCopyShip.h; sourceTree = "<group>"; };
+		BFBA6E0E135D204F00C0DC8E /* PlayerCopyShip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerCopyShip.m; sourceTree = "<group>"; };
+		BFBA6E10135D211F00C0DC8E /* UltimateShip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UltimateShip.h; sourceTree = "<group>"; };
+		BFBA6E11135D211F00C0DC8E /* UltimateShip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UltimateShip.m; sourceTree = "<group>"; };
+		BFBA6E12135D211F00C0DC8E /* CopyShip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CopyShip.h; sourceTree = "<group>"; };
+		BFBA6E13135D211F00C0DC8E /* CopyShip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CopyShip.m; sourceTree = "<group>"; };
+		BFBA6E14135D211F00C0DC8E /* ShipEventsProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShipEventsProtocol.h; sourceTree = "<group>"; };
+		BFBA6E15135D211F00C0DC8E /* EngineShip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EngineShip.h; sourceTree = "<group>"; };
+		BFBA6E16135D211F00C0DC8E /* EngineShip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EngineShip.m; sourceTree = "<group>"; };
+		BFBA6E1A135D212800C0DC8E /* NSObject+Properties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Properties.h"; sourceTree = "<group>"; };
+		BFBA6E1B135D212800C0DC8E /* NSObject+Properties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Properties.m"; sourceTree = "<group>"; };
+		BFBA6E21135D216300C0DC8E /* Turn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Turn.h; sourceTree = "<group>"; };
+		BFBA6E22135D216300C0DC8E /* Turn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Turn.m; sourceTree = "<group>"; };
+		BFBA6E23135D216300C0DC8E /* GameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObject.h; sourceTree = "<group>"; };
+		BFBA6E24135D216300C0DC8E /* GameObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameObject.m; sourceTree = "<group>"; };
+		BFBA6E29135D217400C0DC8E /* Engine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Engine.h; sourceTree = "<group>"; };
+		BFBA6E2A135D217400C0DC8E /* Engine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Engine.m; sourceTree = "<group>"; };
+		BFDAC115135D238000A43934 /* Bullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bullet.h; sourceTree = "<group>"; };
+		BFDAC116135D238000A43934 /* Bullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bullet.m; sourceTree = "<group>"; };
+		BFF16BF3135D2A2A003EF4DC /* UltimateWeapon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UltimateWeapon.h; sourceTree = "<group>"; };
+		BFF16BF4135D2A2A003EF4DC /* UltimateWeapon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UltimateWeapon.m; sourceTree = "<group>"; };
+		BFF16C01135D2A3D003EF4DC /* LaserGun.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaserGun.h; sourceTree = "<group>"; };
+		BFF16C02135D2A3D003EF4DC /* LaserGun.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaserGun.m; sourceTree = "<group>"; };
+		BFF16C03135D2A3D003EF4DC /* TriGun.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriGun.h; sourceTree = "<group>"; };
+		BFF16C04135D2A3D003EF4DC /* TriGun.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TriGun.m; sourceTree = "<group>"; };
+		BFF16C05135D2A3D003EF4DC /* WideDoubleShotGun.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WideDoubleShotGun.h; sourceTree = "<group>"; };
+		BFF16C06135D2A3D003EF4DC /* WideDoubleShotGun.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WideDoubleShotGun.m; sourceTree = "<group>"; };
+		BFF16C1A135D2AC8003EF4DC /* BasicBullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicBullet.h; sourceTree = "<group>"; };
+		BFF16C1B135D2AC8003EF4DC /* BasicBullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicBullet.m; sourceTree = "<group>"; };
+		BFF16C1C135D2AC8003EF4DC /* TriShotBullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriShotBullet.h; sourceTree = "<group>"; };
+		BFF16C1D135D2AC8003EF4DC /* TriShotBullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TriShotBullet.m; sourceTree = "<group>"; };
+		BFF16C30135D2B12003EF4DC /* WideDoubleBullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WideDoubleBullet.h; sourceTree = "<group>"; };
+		BFF16C31135D2B12003EF4DC /* WideDoubleBullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WideDoubleBullet.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -450,6 +502,7 @@
 		8C9FDDE4133801E100D20C9D /* WorstEnemy */ = {
 			isa = PBXGroup;
 			children = (
+				BF20364F135A770800C84288 /* UltimateShipClasses */,
 				8C9FDF431338074C00D20C9D /* Classes */,
 				8C9FDF30133801E500D20C9D /* AppDelegate.h */,
 				8C9FDF31133801E500D20C9D /* AppDelegate.m */,
@@ -749,8 +802,8 @@
 				8C9FDF451338076400D20C9D /* Ship.m */,
 				8C9FDF52133812F000D20C9D /* Weapon.h */,
 				8C9FDF53133812F100D20C9D /* Weapon.m */,
-				8C9FDF551338145400D20C9D /* Bullet.h */,
-				8C9FDF561338145500D20C9D /* Bullet.m */,
+				8C9FDF551338145400D20C9D /* WBullet.h */,
+				8C9FDF561338145500D20C9D /* WBullet.m */,
 				8CCB5FBC133B086A003BACA0 /* EnemyShip.h */,
 				8CCB5FBD133B086A003BACA0 /* EnemyShip.m */,
 				8C3AB501133D311A003AC848 /* Move.h */,
@@ -760,8 +813,50 @@
 				8CEA1C741355434900392118 /* EnemyBullet.h */,
 				8CEA1C751355434900392118 /* EnemyBullet.m */,
 				8CEA1C781355436700392118 /* BulletProtocol.h */,
+				BFBA6DEF135D1A4700C0DC8E /* WorstEnemyBattlefield.h */,
+				BFBA6DF0135D1A4700C0DC8E /* WorstEnemyBattlefield.m */,
 			);
 			name = Classes;
+			sourceTree = "<group>";
+		};
+		BF20364F135A770800C84288 /* UltimateShipClasses */ = {
+			isa = PBXGroup;
+			children = (
+				BFF16C30135D2B12003EF4DC /* WideDoubleBullet.h */,
+				BFF16C31135D2B12003EF4DC /* WideDoubleBullet.m */,
+				BFF16BF3135D2A2A003EF4DC /* UltimateWeapon.h */,
+				BFF16BF4135D2A2A003EF4DC /* UltimateWeapon.m */,
+				BFF16C1A135D2AC8003EF4DC /* BasicBullet.h */,
+				BFF16C1B135D2AC8003EF4DC /* BasicBullet.m */,
+				BFF16C1C135D2AC8003EF4DC /* TriShotBullet.h */,
+				BFF16C1D135D2AC8003EF4DC /* TriShotBullet.m */,
+				BFF16C01135D2A3D003EF4DC /* LaserGun.h */,
+				BFF16C02135D2A3D003EF4DC /* LaserGun.m */,
+				BFF16C03135D2A3D003EF4DC /* TriGun.h */,
+				BFF16C04135D2A3D003EF4DC /* TriGun.m */,
+				BFF16C05135D2A3D003EF4DC /* WideDoubleShotGun.h */,
+				BFF16C06135D2A3D003EF4DC /* WideDoubleShotGun.m */,
+				BFDAC115135D238000A43934 /* Bullet.h */,
+				BFDAC116135D238000A43934 /* Bullet.m */,
+				BFBA6E29135D217400C0DC8E /* Engine.h */,
+				BFBA6E2A135D217400C0DC8E /* Engine.m */,
+				BFBA6E21135D216300C0DC8E /* Turn.h */,
+				BFBA6E22135D216300C0DC8E /* Turn.m */,
+				BFBA6E23135D216300C0DC8E /* GameObject.h */,
+				BFBA6E24135D216300C0DC8E /* GameObject.m */,
+				BFBA6E1A135D212800C0DC8E /* NSObject+Properties.h */,
+				BFBA6E1B135D212800C0DC8E /* NSObject+Properties.m */,
+				BFBA6E10135D211F00C0DC8E /* UltimateShip.h */,
+				BFBA6E11135D211F00C0DC8E /* UltimateShip.m */,
+				BFBA6E12135D211F00C0DC8E /* CopyShip.h */,
+				BFBA6E13135D211F00C0DC8E /* CopyShip.m */,
+				BFBA6E14135D211F00C0DC8E /* ShipEventsProtocol.h */,
+				BFBA6E15135D211F00C0DC8E /* EngineShip.h */,
+				BFBA6E16135D211F00C0DC8E /* EngineShip.m */,
+				BFBA6E0D135D204F00C0DC8E /* PlayerCopyShip.h */,
+				BFBA6E0E135D204F00C0DC8E /* PlayerCopyShip.m */,
+			);
+			name = UltimateShipClasses;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -940,11 +1035,28 @@
 				8C9FDF461338076400D20C9D /* Ship.m in Sources */,
 				8C9FDF4913380BDF00D20C9D /* cmpgames.m in Sources */,
 				8C9FDF54133812F100D20C9D /* Weapon.m in Sources */,
-				8C9FDF571338145600D20C9D /* Bullet.m in Sources */,
+				8C9FDF571338145600D20C9D /* WBullet.m in Sources */,
 				8CCB5FBE133B086A003BACA0 /* EnemyShip.m in Sources */,
 				8C3AB503133D311A003AC848 /* Move.m in Sources */,
 				8CB4C639134513D600789154 /* KillerBar.m in Sources */,
 				8CEA1C761355434900392118 /* EnemyBullet.m in Sources */,
+				BFBA6DF1135D1A4700C0DC8E /* WorstEnemyBattlefield.m in Sources */,
+				BFBA6E0F135D204F00C0DC8E /* PlayerCopyShip.m in Sources */,
+				BFBA6E17135D211F00C0DC8E /* UltimateShip.m in Sources */,
+				BFBA6E18135D211F00C0DC8E /* CopyShip.m in Sources */,
+				BFBA6E19135D211F00C0DC8E /* EngineShip.m in Sources */,
+				BFBA6E1C135D212800C0DC8E /* NSObject+Properties.m in Sources */,
+				BFBA6E25135D216300C0DC8E /* Turn.m in Sources */,
+				BFBA6E26135D216300C0DC8E /* GameObject.m in Sources */,
+				BFBA6E2B135D217400C0DC8E /* Engine.m in Sources */,
+				BFDAC117135D238000A43934 /* Bullet.m in Sources */,
+				BFF16BF5135D2A2A003EF4DC /* UltimateWeapon.m in Sources */,
+				BFF16C07135D2A3D003EF4DC /* LaserGun.m in Sources */,
+				BFF16C08135D2A3D003EF4DC /* TriGun.m in Sources */,
+				BFF16C09135D2A3D003EF4DC /* WideDoubleShotGun.m in Sources */,
+				BFF16C1E135D2AC8003EF4DC /* BasicBullet.m in Sources */,
+				BFF16C1F135D2AC8003EF4DC /* TriShotBullet.m in Sources */,
+				BFF16C32135D2B12003EF4DC /* WideDoubleBullet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

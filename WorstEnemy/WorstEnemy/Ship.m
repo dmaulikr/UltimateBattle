@@ -96,6 +96,8 @@
 -(void) endCurrentMove {
     if (self.currentMove) {
         [self.currentMove endMoveWithToPoint:self.sprite.position withEndTime:self.totalTime];
+		self.totalTime = 0;
+		
         [self.moves addObject:self.currentMove];
         self.currentMove = nil;
     }

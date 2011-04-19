@@ -7,15 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Weapon.h"
+#import "UltimateWeapon.h"
 #import "GameObject.h"
 #import "Engine.h"
 
 #define Ship_HP 100
 
-@class Weapon;
+@class UltimateWeapon;
 
-@interface Ship : GameObject {
+@interface UltimateShip : GameObject {
 
 }
 
@@ -26,13 +26,13 @@
 @property(nonatomic, retain) NSMutableArray *bullets;
 @property(nonatomic, retain) Engine *engine;
 
--(Weapon *)currentWeapon;
+-(UltimateWeapon *)currentWeapon;
 -(void)resetTurn;
 -(void)cycleWeapon;
 -(void)changeWeapon:(int)newWeaponIndex;
 -(void)eraseAllWeapons;
 
--(void)addWeapon:(Weapon *)weapon;
+-(void)addWeapon:(UltimateWeapon *)weapon;
 
 -(id)initWithYFacing:(int)facing;
 
