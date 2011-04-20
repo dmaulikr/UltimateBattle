@@ -47,6 +47,24 @@
 		};
 		perUserProjectItems = {
 			BF737A02135E848F007E9520 /* PBXTextBookmark */ = BF737A02135E848F007E9520 /* PBXTextBookmark */;
+			BF737A48135E8724007E9520 /* PBXTextBookmark */ = BF737A48135E8724007E9520 /* PBXTextBookmark */;
+			BF737A49135E8724007E9520 /* PBXTextBookmark */ = BF737A49135E8724007E9520 /* PBXTextBookmark */;
+			BF737A54135E8775007E9520 /* PBXTextBookmark */ = BF737A54135E8775007E9520 /* PBXTextBookmark */;
+			BF737A55135E8775007E9520 /* PBXTextBookmark */ = BF737A55135E8775007E9520 /* PBXTextBookmark */;
+			BF737A56135E8775007E9520 /* PBXTextBookmark */ = BF737A56135E8775007E9520 /* PBXTextBookmark */;
+			BF737A57135E8775007E9520 /* PBXTextBookmark */ = BF737A57135E8775007E9520 /* PBXTextBookmark */;
+			BF737A58135E8775007E9520 /* PBXTextBookmark */ = BF737A58135E8775007E9520 /* PBXTextBookmark */;
+			BF737A59135E8775007E9520 /* PBXTextBookmark */ = BF737A59135E8775007E9520 /* PBXTextBookmark */;
+			BF737A5C135E877A007E9520 /* PBXTextBookmark */ = BF737A5C135E877A007E9520 /* PBXTextBookmark */;
+			BF737A5D135E877A007E9520 /* PBXTextBookmark */ = BF737A5D135E877A007E9520 /* PBXTextBookmark */;
+			BF737A5E135E877B007E9520 /* PBXTextBookmark */ = BF737A5E135E877B007E9520 /* PBXTextBookmark */;
+			BF737A5F135E877B007E9520 /* PBXTextBookmark */ = BF737A5F135E877B007E9520 /* PBXTextBookmark */;
+			BF737A60135E877B007E9520 /* PBXTextBookmark */ = BF737A60135E877B007E9520 /* PBXTextBookmark */;
+			BF737A61135E877B007E9520 /* PBXTextBookmark */ = BF737A61135E877B007E9520 /* PBXTextBookmark */;
+			BF737A62135E877B007E9520 /* PBXTextBookmark */ = BF737A62135E877B007E9520 /* PBXTextBookmark */;
+			BF737A63135E877B007E9520 /* PBXTextBookmark */ = BF737A63135E877B007E9520 /* PBXTextBookmark */;
+			BF737A64135E877B007E9520 /* PBXTextBookmark */ = BF737A64135E877B007E9520 /* PBXTextBookmark */;
+			BF737A65135E877B007E9520 /* PBXTextBookmark */ = BF737A65135E877B007E9520 /* PBXTextBookmark */;
 			BFBA6E39135D21D400C0DC8E = BFBA6E39135D21D400C0DC8E /* PBXTextBookmark */;
 			BFBA6E3A135D21D400C0DC8E = BFBA6E3A135D21D400C0DC8E /* PBXTextBookmark */;
 			BFBA6E3B135D21D400C0DC8E = BFBA6E3B135D21D400C0DC8E /* PBXTextBookmark */;
@@ -96,6 +114,13 @@
 			sepNavSelRange = "{5085, 0}";
 			sepNavVisRange = "{4828, 626}";
 			sepNavWindowFrame = "{{-1, 3}, {1152, 838}}";
+		};
+	};
+	8C9FDF39133801E500D20C9D /* GameConfig.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1651, 1148}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 516}";
 		};
 	};
 	8C9FDF441338076400D20C9D /* Ship.h */ = {
@@ -174,24 +199,195 @@
 		isa = PBXTextBookmark;
 		fRef = BFBA6E11135D211F00C0DC8E /* UltimateShip.m */;
 		name = "UltimateShip.m: 1";
-		rLen = 2069;
+		rLen = 2067;
 		rLoc = 0;
 		rType = 0;
 		vrLen = 482;
 		vrLoc = 1504;
 	};
+	BF737A48135E8724007E9520 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = BFBA6E0E135D204F00C0DC8E /* PlayerCopyShip.m */;
+		rLen = 9;
+		rLoc = 374;
+		rType = 0;
+	};
+	BF737A49135E8724007E9520 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = BFBA6E0E135D204F00C0DC8E /* PlayerCopyShip.m */;
+		name = "PlayerCopyShip.m: 17";
+		rLen = 0;
+		rLoc = 350;
+		rType = 0;
+		vrLen = 295;
+		vrLoc = 138;
+	};
+	BF737A54135E8775007E9520 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = BFBA6E0E135D204F00C0DC8E /* PlayerCopyShip.m */;
+		name = "PlayerCopyShip.m: 17";
+		rLen = 0;
+		rLoc = 350;
+		rType = 0;
+		vrLen = 295;
+		vrLoc = 138;
+	};
+	BF737A55135E8775007E9520 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = BFBA6E13135D211F00C0DC8E /* CopyShip.m */;
+		name = "CopyShip.m: 85";
+		rLen = 0;
+		rLoc = 1994;
+		rType = 0;
+		vrLen = 294;
+		vrLoc = 1785;
+	};
+	BF737A56135E8775007E9520 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = BFBA6DF0135D1A4700C0DC8E /* WorstEnemyBattlefield.m */;
+		name = "WorstEnemyBattlefield.m: 105";
+		rLen = 0;
+		rLoc = 2222;
+		rType = 0;
+		vrLen = 419;
+		vrLoc = 134;
+	};
+	BF737A57135E8775007E9520 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = BFBA6E11135D211F00C0DC8E /* UltimateShip.m */;
+		name = "UltimateShip.m: 42";
+		rLen = 0;
+		rLoc = 882;
+		rType = 0;
+		vrLen = 351;
+		vrLoc = 700;
+	};
+	BF737A58135E8775007E9520 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = BFDAC116135D238000A43934 /* Bullet.m */;
+		rLen = 0;
+		rLoc = 439;
+		rType = 0;
+	};
+	BF737A59135E8775007E9520 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = BFDAC116135D238000A43934 /* Bullet.m */;
+		name = "Bullet.m: 23";
+		rLen = 0;
+		rLoc = 439;
+		rType = 0;
+		vrLen = 389;
+		vrLoc = 190;
+	};
+	BF737A5C135E877A007E9520 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = BFBA6E11135D211F00C0DC8E /* UltimateShip.m */;
+		rLen = 0;
+		rLoc = 882;
+		rType = 0;
+	};
+	BF737A5D135E877A007E9520 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = BFBA6E11135D211F00C0DC8E /* UltimateShip.m */;
+		name = "UltimateShip.m: 42";
+		rLen = 0;
+		rLoc = 882;
+		rType = 0;
+		vrLen = 351;
+		vrLoc = 700;
+	};
+	BF737A5E135E877B007E9520 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = BFBA6E10135D211F00C0DC8E /* UltimateShip.h */;
+		name = "UltimateShip.h: 18";
+		rLen = 10;
+		rLoc = 303;
+		rType = 0;
+		vrLen = 589;
+		vrLoc = 124;
+	};
+	BF737A5F135E877B007E9520 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = BFBA6E23135D216300C0DC8E /* GameObject.h */;
+		name = "GameObject.h: 35";
+		rLen = 0;
+		rLoc = 703;
+		rType = 0;
+		vrLen = 535;
+		vrLoc = 168;
+	};
+	BF737A60135E877B007E9520 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = BFBA6E13135D211F00C0DC8E /* CopyShip.m */;
+		name = "CopyShip.m: 45";
+		rLen = 0;
+		rLoc = 1077;
+		rType = 0;
+		vrLen = 686;
+		vrLoc = 801;
+	};
+	BF737A61135E877B007E9520 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8C9FDF39133801E500D20C9D /* GameConfig.h */;
+		name = "GameConfig.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 516;
+		vrLoc = 0;
+	};
+	BF737A62135E877B007E9520 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = BFBA6E24135D216300C0DC8E /* GameObject.m */;
+		name = "GameObject.m: 20";
+		rLen = 0;
+		rLoc = 372;
+		rType = 0;
+		vrLen = 453;
+		vrLoc = 130;
+	};
+	BF737A63135E877B007E9520 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = BFBA6DEF135D1A4700C0DC8E /* WorstEnemyBattlefield.h */;
+		name = "WorstEnemyBattlefield.h: 14";
+		rLen = 0;
+		rLoc = 276;
+		rType = 0;
+		vrLen = 624;
+		vrLoc = 0;
+	};
+	BF737A64135E877B007E9520 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = BFBA6DF0135D1A4700C0DC8E /* WorstEnemyBattlefield.m */;
+		name = "WorstEnemyBattlefield.m: 18";
+		rLen = 0;
+		rLoc = 326;
+		rType = 0;
+		vrLen = 569;
+		vrLoc = 0;
+	};
+	BF737A65135E877B007E9520 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = BFBA6E11135D211F00C0DC8E /* UltimateShip.m */;
+		name = "UltimateShip.m: 42";
+		rLen = 0;
+		rLoc = 882;
+		rType = 0;
+		vrLen = 607;
+		vrLoc = 583;
+	};
 	BFBA6DEF135D1A4700C0DC8E /* WorstEnemyBattlefield.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1808, 1312}}";
-			sepNavSelRange = "{630, 0}";
-			sepNavVisRange = "{330, 383}";
+			sepNavIntBoundsRect = "{{0, 0}, {1651, 1353}}";
+			sepNavSelRange = "{276, 0}";
+			sepNavVisRange = "{0, 624}";
 		};
 	};
 	BFBA6DF0135D1A4700C0DC8E /* WorstEnemyBattlefield.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1808, 1599}}";
-			sepNavSelRange = "{540, 0}";
-			sepNavVisRange = "{402, 234}";
+			sepNavIntBoundsRect = "{{0, 0}, {1572.52, 5822}}";
+			sepNavSelRange = "{2222, 0}";
+			sepNavVisRange = "{134, 419}";
 		};
 	};
 	BFBA6E0D135D204F00C0DC8E /* PlayerCopyShip.h */ = {
@@ -203,23 +399,23 @@
 	};
 	BFBA6E0E135D204F00C0DC8E /* PlayerCopyShip.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1854.28, 1804}}";
-			sepNavSelRange = "{287, 0}";
-			sepNavVisRange = "{0, 517}";
+			sepNavIntBoundsRect = "{{0, 0}, {1507.49, 1722}}";
+			sepNavSelRange = "{350, 0}";
+			sepNavVisRange = "{138, 295}";
 		};
 	};
 	BFBA6E10135D211F00C0DC8E /* UltimateShip.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1808, 1886}}";
-			sepNavSelRange = "{162, 0}";
-			sepNavVisRange = "{36, 283}";
+			sepNavIntBoundsRect = "{{0, 0}, {1651, 1640}}";
+			sepNavSelRange = "{303, 10}";
+			sepNavVisRange = "{124, 589}";
 		};
 	};
 	BFBA6E11135D211F00C0DC8E /* UltimateShip.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {2591.19, 4346}}";
-			sepNavSelRange = "{0, 2069}";
-			sepNavVisRange = "{1504, 482}";
+			sepNavIntBoundsRect = "{{0, 0}, {2591.19, 4141}}";
+			sepNavSelRange = "{882, 0}";
+			sepNavVisRange = "{583, 607}";
 		};
 	};
 	BFBA6E12135D211F00C0DC8E /* CopyShip.h */ = {
@@ -231,9 +427,9 @@
 	};
 	BFBA6E13135D211F00C0DC8E /* CopyShip.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {2266.08, 3608}}";
-			sepNavSelRange = "{1172, 0}";
-			sepNavVisRange = "{939, 519}";
+			sepNavIntBoundsRect = "{{0, 0}, {2157.71, 4387}}";
+			sepNavSelRange = "{1994, 0}";
+			sepNavVisRange = "{1785, 294}";
 		};
 	};
 	BFBA6E15135D211F00C0DC8E /* EngineShip.h */ = {
@@ -252,16 +448,16 @@
 	};
 	BFBA6E23135D216300C0DC8E /* GameObject.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1651, 1271}}";
-			sepNavSelRange = "{159, 0}";
-			sepNavVisRange = "{0, 580}";
+			sepNavIntBoundsRect = "{{0, 0}, {1651, 1435}}";
+			sepNavSelRange = "{703, 0}";
+			sepNavVisRange = "{168, 535}";
 		};
 	};
 	BFBA6E24135D216300C0DC8E /* GameObject.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {2591.19, 1722}}";
-			sepNavSelRange = "{678, 0}";
-			sepNavVisRange = "{296, 382}";
+			sepNavIntBoundsRect = "{{0, 0}, {2591.19, 1640}}";
+			sepNavSelRange = "{372, 0}";
+			sepNavVisRange = "{130, 453}";
 		};
 	};
 	BFBA6E2A135D217400C0DC8E /* Engine.m */ = {
@@ -397,12 +593,19 @@
 		vrLen = 406;
 		vrLoc = 0;
 	};
+	BFDAC116135D238000A43934 /* Bullet.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1442.47, 1927}}";
+			sepNavSelRange = "{439, 0}";
+			sepNavVisRange = "{190, 389}";
+		};
+	};
 	BFDAC140135D274700A43934 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = BFBA6E0E135D204F00C0DC8E /* PlayerCopyShip.m */;
 		name = "PlayerCopyShip.m: 17";
 		rLen = 0;
-		rLoc = 287;
+		rLoc = 350;
 		rType = 0;
 		vrLen = 489;
 		vrLoc = 0;
@@ -412,7 +615,7 @@
 		fRef = BFBA6E24135D216300C0DC8E /* GameObject.m */;
 		name = "GameObject.m: 42";
 		rLen = 0;
-		rLoc = 678;
+		rLoc = 686;
 		rType = 0;
 		vrLen = 382;
 		vrLoc = 296;
@@ -492,7 +695,7 @@
 		fRef = BFBA6DEF135D1A4700C0DC8E /* WorstEnemyBattlefield.h */;
 		name = "WorstEnemyBattlefield.h: 26";
 		rLen = 36;
-		rLoc = 583;
+		rLoc = 625;
 		rType = 0;
 		vrLen = 575;
 		vrLoc = 130;
@@ -502,7 +705,7 @@
 		fRef = BFBA6DF0135D1A4700C0DC8E /* WorstEnemyBattlefield.m */;
 		name = "WorstEnemyBattlefield.m: 34";
 		rLen = 0;
-		rLoc = 616;
+		rLoc = 801;
 		rType = 0;
 		vrLen = 461;
 		vrLoc = 169;
@@ -573,7 +776,7 @@
 		isa = PBXTextBookmark;
 		fRef = BFBA6E11135D211F00C0DC8E /* UltimateShip.m */;
 		name = "UltimateShip.m: 1";
-		rLen = 2069;
+		rLen = 2067;
 		rLoc = 0;
 		rType = 0;
 		vrLen = 482;

@@ -82,7 +82,7 @@
 	if (self.hp <= 0 && !self.died) {
 		self.died = YES;
 		self.drawn = NO;
-		[self.imageView removeFromSuperview];
+		NSLog(@"Remove sprite from super layer");
 	}
 	
 	

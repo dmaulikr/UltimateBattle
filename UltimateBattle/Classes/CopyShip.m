@@ -15,7 +15,7 @@
 	self = [super initWithYFacing:1];
 	if (self) {
 		
-		self.imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Ship1_Bank1_21.png"]];
+		self.sprite = [CCSprite spriteWithFile:@"Ship1_Bank1_21.png"];
 
         NSLog(@"ship moves: %@",ship.moves);
         
@@ -82,7 +82,7 @@
 	if (self.hp <= 0 && !self.died) {
 		self.died = YES;
 		self.drawn = NO;
-		[self.imageView removeFromSuperview];
+		NSLog(@"remove sprite from super layer");
 	}
 	
 	

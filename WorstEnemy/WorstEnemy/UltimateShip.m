@@ -39,7 +39,7 @@
 }
 
 -(void)animate {
-	self.imageView.center = self.l;	
+	self.sprite.position = self.l;
 }
 
 -(void)tick {

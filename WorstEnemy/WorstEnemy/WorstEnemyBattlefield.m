@@ -102,7 +102,7 @@
     }
     
     for (Bullet *badBullet in badBullets) {
-        [badBullet.imageView removeFromSuperview];
+		[badBullet.sprite removeFromParentAndCleanup:YES];
         [self.bullets removeObject:badBullet];
     }
 }
