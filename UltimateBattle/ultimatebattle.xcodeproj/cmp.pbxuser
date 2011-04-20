@@ -22,16 +22,17 @@
 	};
 	28D7ACF60DDB3853001CB0EB /* ultimatebattleViewController.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {951.199, 840}}";
-			sepNavSelRange = "{503, 79}";
-			sepNavVisRange = "{60, 527}";
+			sepNavIntBoundsRect = "{{0, 0}, {1633, 1148}}";
+			sepNavSelRange = "{536, 1}";
+			sepNavVisRange = "{3, 604}";
 		};
 	};
 	28D7ACF70DDB3853001CB0EB /* ultimatebattleViewController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {2807.92, 6412}}";
-			sepNavSelRange = "{712, 0}";
-			sepNavVisRange = "{1718, 349}";
+			sepNavIntBoundsRect = "{{0, 0}, {2807.92, 7257}}";
+			sepNavSelRange = "{2050, 1}";
+			sepNavVisRange = "{1709, 342}";
+			sepNavWindowFrame = "{{15, 335}, {1665, 838}}";
 		};
 	};
 	29B97313FDCFA39411CA2CEA /* Project object */ = {
@@ -72,8 +73,8 @@
 					PBXFileDataSource_Target_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 324872734;
-			PBXWorkspaceStateSaveDate = 324872734;
+			PBXPerProjectTemplateStateSaveDate = 324961729;
+			PBXWorkspaceStateSaveDate = 324961729;
 		};
 		perUserProjectItems = {
 			BF203657135A772700C84288 = BF203657135A772700C84288 /* PBXTextBookmark */;
@@ -83,7 +84,6 @@
 			BF4630D11336EA4F00D3D1DC = BF4630D11336EA4F00D3D1DC /* PBXTextBookmark */;
 			BF54B86E135D29D300E2D1AA = BF54B86E135D29D300E2D1AA /* PBXTextBookmark */;
 			BF54B86F135D29D300E2D1AA = BF54B86F135D29D300E2D1AA /* PBXTextBookmark */;
-			BF54B872135D29FB00E2D1AA = BF54B872135D29FB00E2D1AA /* PBXTextBookmark */;
 			BF70914F13368219006AFD38 = BF70914F13368219006AFD38 /* PBXTextBookmark */;
 			BFA537F7133D74C5001B7D84 = BFA537F7133D74C5001B7D84 /* PBXTextBookmark */;
 			BFA743371336BCD100EB9064 = BFA743371336BCD100EB9064 /* PBXTextBookmark */;
@@ -109,17 +109,16 @@
 			BFBBA7CA133563BC0087DB5F = BFBBA7CA133563BC0087DB5F /* PBXTextBookmark */;
 			BFBBA7F413356FA30087DB5F = BFBBA7F413356FA30087DB5F /* PBXTextBookmark */;
 			BFC16EA413385E1800F981FB = BFC16EA413385E1800F981FB /* PBXTextBookmark */;
-			BFC16EA613385E1800F981FB = BFC16EA613385E1800F981FB /* PBXTextBookmark */;
-			BFC16EED133861C500F981FB = BFC16EED133861C500F981FB /* PBXTextBookmark */;
 			BFC16EF8133861ED00F981FB = BFC16EF8133861ED00F981FB /* PBXTextBookmark */;
 			BFC16EF9133861ED00F981FB = BFC16EF9133861ED00F981FB /* PBXTextBookmark */;
 			BFC16EFA133861ED00F981FB = BFC16EFA133861ED00F981FB /* PBXTextBookmark */;
 			BFDAC11A135D238500A43934 = BFDAC11A135D238500A43934 /* PBXTextBookmark */;
 			BFDAC16D135D29A600A43934 = BFDAC16D135D29A600A43934 /* PBXTextBookmark */;
-			BFDAC16F135D29A600A43934 = BFDAC16F135D29A600A43934 /* PBXTextBookmark */;
 			BFDAC170135D29A600A43934 = BFDAC170135D29A600A43934 /* PBXBookmark */;
-			BFF16BF6135D2A3A003EF4DC /* PBXTextBookmark */ = BFF16BF6135D2A3A003EF4DC /* PBXTextBookmark */;
-			BFF16BF7135D2A3A003EF4DC /* PBXTextBookmark */ = BFF16BF7135D2A3A003EF4DC /* PBXTextBookmark */;
+			BFF16BF6135D2A3A003EF4DC = BFF16BF6135D2A3A003EF4DC /* PBXTextBookmark */;
+			BFF16C37135D2CE1003EF4DC = BFF16C37135D2CE1003EF4DC /* PBXTextBookmark */;
+			BFF16C38135D2CE1003EF4DC = BFF16C38135D2CE1003EF4DC /* PBXTextBookmark */;
+			BFF16C39135D2CE1003EF4DC = BFF16C39135D2CE1003EF4DC /* PBXTextBookmark */;
 			BFFC500B13367CC200E9F51F = BFFC500B13367CC200E9F51F /* PBXTextBookmark */;
 			BFFC500C13367CC200E9F51F = BFFC500C13367CC200E9F51F /* PBXBookmark */;
 			BFFC500E13367CC200E9F51F = BFFC500E13367CC200E9F51F /* PBXBookmark */;
@@ -232,16 +231,6 @@
 		rType = 0;
 		vrLen = 399;
 		vrLoc = 72;
-	};
-	BF54B872135D29FB00E2D1AA /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = BFA4FD2E132B0DF700612508 /* UltimateWeapon.h */;
-		name = "UltimateWeapon.h: 19";
-		rLen = 0;
-		rLoc = 307;
-		rType = 0;
-		vrLen = 470;
-		vrLoc = 0;
 	};
 	BF70914F13368219006AFD38 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -545,7 +534,7 @@
 	};
 	BFBB6D72132C2F1100151B43 /* WideDoubleBullet.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1411, 946}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1633, 1035}}";
 			sepNavSelRange = "{243, 0}";
 			sepNavVisRange = "{0, 243}";
 		};
@@ -566,9 +555,9 @@
 	};
 	BFBB6D86132C303800151B43 /* TriShotBullet.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1499.07, 1020}}";
+			sepNavIntBoundsRect = "{{0, 0}, {2071.01, 1353}}";
 			sepNavSelRange = "{226, 0}";
-			sepNavVisRange = "{0, 794}";
+			sepNavVisRange = "{0, 706}";
 		};
 	};
 	BFBBA72E133547000087DB5F /* PBXBookmarkGroup */ = {
@@ -781,26 +770,6 @@
 		path = "/Users/cmp/bizeeti-iphone/bizeeti/BZItem.m";
 		sourceTree = "<absolute>";
 	};
-	BFC16EA613385E1800F981FB /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = BFCD45021332FFC900182581 /* LaserGun.h */;
-		name = "LaserGun.h: 15";
-		rLen = 0;
-		rLoc = 259;
-		rType = 0;
-		vrLen = 250;
-		vrLoc = 0;
-	};
-	BFC16EED133861C500F981FB /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = BFBB6D86132C303800151B43 /* TriShotBullet.m */;
-		name = "TriShotBullet.m: 15";
-		rLen = 0;
-		rLoc = 226;
-		rType = 0;
-		vrLen = 794;
-		vrLoc = 0;
-	};
 	BFC16EF8133861ED00F981FB /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = BFBBA7DF13356EBC0087DB5F /* TriGun.m */;
@@ -893,16 +862,6 @@
 		vrLen = 583;
 		vrLoc = 275;
 	};
-	BFDAC16F135D29A600A43934 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = BFA4FD2E132B0DF700612508 /* UltimateWeapon.h */;
-		name = "Weapon.h: 19";
-		rLen = 0;
-		rLoc = 307;
-		rType = 0;
-		vrLen = 462;
-		vrLoc = 0;
-	};
 	BFDAC170135D29A600A43934 /* PBXBookmark */ = {
 		isa = PBXBookmark;
 		fRef = BFFC4FDF133679B500E9F51F /* Ship1_Bank1_21.png */;
@@ -917,7 +876,7 @@
 		vrLen = 470;
 		vrLoc = 0;
 	};
-	BFF16BF7135D2A3A003EF4DC /* PBXTextBookmark */ = {
+	BFF16C37135D2CE1003EF4DC /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = BFCD45021332FFC900182581 /* LaserGun.h */;
 		name = "LaserGun.h: 15";
@@ -925,6 +884,26 @@
 		rLoc = 259;
 		rType = 0;
 		vrLen = 266;
+		vrLoc = 0;
+	};
+	BFF16C38135D2CE1003EF4DC /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = BFBB6D86132C303800151B43 /* TriShotBullet.m */;
+		name = "TriShotBullet.m: 15";
+		rLen = 0;
+		rLoc = 226;
+		rType = 0;
+		vrLen = 706;
+		vrLoc = 0;
+	};
+	BFF16C39135D2CE1003EF4DC /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = BFBB6D72132C2F1100151B43 /* WideDoubleBullet.h */;
+		name = "WideDoubleBullet.h: 17";
+		rLen = 0;
+		rLoc = 243;
+		rType = 0;
+		vrLen = 243;
 		vrLoc = 0;
 	};
 	BFFC4FCA133677BB00E9F51F /* WideDoubleShotGun.h */ = {

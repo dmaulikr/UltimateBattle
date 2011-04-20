@@ -12,12 +12,12 @@
 @implementation GameObject
 @synthesize vel, l, turn;
 @synthesize yFacing, speed;
-@synthesize imageView, drawn;
+@synthesize imageView, drawn, sprite;
 @synthesize died, player;
 
 -(void)animate { 
 //Draw magic here
-self.imageView.center = self.l;
+	self.sprite.position = self.l;
 }
 
 -(Turn *)currentTurn {

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Turn.h"
+#import "CCSprite.h"
 
 @interface GameObject : NSObject {
 
@@ -19,6 +20,7 @@
 @property(nonatomic) int yFacing;
 @property(nonatomic) double speed;
 @property(nonatomic, retain) UIImageView *imageView;
+@property(nonatomic, retain) CCSprite *sprite;
 @property(nonatomic) BOOL drawn;
 @property(nonatomic) BOOL died;
 @property(nonatomic) BOOL player;

@@ -14,8 +14,8 @@
 -(id)initWithShip:(UltimateShip *)ship {
 	self = [super initWithYFacing:1];
 	if (self) {
-		
-		self.imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Ship1_Bank1_21.png"]];
+	
+		self.sprite = [CCSprite spriteWithFile:@"Ship1_Bank1_21.png"];
 
         NSLog(@"ship moves: %@",ship.moves);
         

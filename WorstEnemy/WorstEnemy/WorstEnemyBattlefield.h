@@ -10,6 +10,8 @@
 #import "cocos2d.h"
 #import "CCLayer.h"
 #import "PlayerCopyShip.h"
+#import "CopyShip.h"
+#import "cmpgames.h"
 
 @interface WorstEnemyBattlefield : NSObject {
 	int level;
