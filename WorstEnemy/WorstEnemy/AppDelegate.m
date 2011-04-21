@@ -12,6 +12,7 @@
 #import "GameConfig.h"
 #import "BattleLayer.h"
 #import "RootViewController.h"
+#import "WorstEnemyBattleMindLayer.h"
 
 @implementation AppDelegate
 
@@ -106,7 +107,8 @@
 	[self removeStartupFlicker];
 	
 	// Run the intro Scene
-	[[CCDirector sharedDirector] runWithScene: [BattleLayer scene]];
+//	[[CCDirector sharedDirector] runWithScene: [BattleLayer scene]];
+	[[CCDirector sharedDirector] runWithScene: [WorstEnemyBattleMindLayer scene]];	
 }
 
 

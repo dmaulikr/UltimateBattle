@@ -145,6 +145,10 @@
 		BFBA6E25135D216300C0DC8E /* Turn.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBA6E22135D216300C0DC8E /* Turn.m */; };
 		BFBA6E26135D216300C0DC8E /* GameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBA6E24135D216300C0DC8E /* GameObject.m */; };
 		BFBA6E2B135D217400C0DC8E /* Engine.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBA6E2A135D217400C0DC8E /* Engine.m */; };
+		BFCEF3E2135FAC89006AB2F8 /* WorstEnemyBattleMindLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = BFCEF3E1135FAC89006AB2F8 /* WorstEnemyBattleMindLayer.m */; };
+		BFCEF40C135FB474006AB2F8 /* Shp2_Bank2_30.png in Resources */ = {isa = PBXBuildFile; fileRef = BFCEF409135FB474006AB2F8 /* Shp2_Bank2_30.png */; };
+		BFCEF40D135FB474006AB2F8 /* Ship1_Bank1_21.png in Resources */ = {isa = PBXBuildFile; fileRef = BFCEF40A135FB474006AB2F8 /* Ship1_Bank1_21.png */; };
+		BFCEF40E135FB474006AB2F8 /* plasma34.png in Resources */ = {isa = PBXBuildFile; fileRef = BFCEF40B135FB474006AB2F8 /* plasma34.png */; };
 		BFDAC117135D238000A43934 /* Bullet.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDAC116135D238000A43934 /* Bullet.m */; };
 		BFF16BF5135D2A2A003EF4DC /* UltimateWeapon.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF16BF4135D2A2A003EF4DC /* UltimateWeapon.m */; };
 		BFF16C07135D2A3D003EF4DC /* LaserGun.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF16C02135D2A3D003EF4DC /* LaserGun.m */; };
@@ -430,6 +434,11 @@
 		BFBA6E24135D216300C0DC8E /* GameObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameObject.m; sourceTree = "<group>"; };
 		BFBA6E29135D217400C0DC8E /* Engine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Engine.h; sourceTree = "<group>"; };
 		BFBA6E2A135D217400C0DC8E /* Engine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Engine.m; sourceTree = "<group>"; };
+		BFCEF3E0135FAC89006AB2F8 /* WorstEnemyBattleMindLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorstEnemyBattleMindLayer.h; sourceTree = "<group>"; };
+		BFCEF3E1135FAC89006AB2F8 /* WorstEnemyBattleMindLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorstEnemyBattleMindLayer.m; sourceTree = "<group>"; };
+		BFCEF409135FB474006AB2F8 /* Shp2_Bank2_30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Shp2_Bank2_30.png; sourceTree = "<group>"; };
+		BFCEF40A135FB474006AB2F8 /* Ship1_Bank1_21.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ship1_Bank1_21.png; sourceTree = "<group>"; };
+		BFCEF40B135FB474006AB2F8 /* plasma34.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plasma34.png; sourceTree = "<group>"; };
 		BFDAC115135D238000A43934 /* Bullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bullet.h; sourceTree = "<group>"; };
 		BFDAC116135D238000A43934 /* Bullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bullet.m; sourceTree = "<group>"; };
 		BFF16BF3135D2A2A003EF4DC /* UltimateWeapon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UltimateWeapon.h; sourceTree = "<group>"; };
@@ -525,6 +534,9 @@
 		8C9FDDE5133801E100D20C9D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BFCEF409135FB474006AB2F8 /* Shp2_Bank2_30.png */,
+				BFCEF40A135FB474006AB2F8 /* Ship1_Bank1_21.png */,
+				BFCEF40B135FB474006AB2F8 /* plasma34.png */,
 				8CB4C63B1345165500789154 /* killer_bar.png */,
 				8C530172133ADBEB000BD591 /* bullet.png */,
 				8C9FDF3F133803BA00D20C9D /* enemy_ship.png */,
@@ -855,6 +867,8 @@
 				BFBA6E16135D211F00C0DC8E /* EngineShip.m */,
 				BFBA6E0D135D204F00C0DC8E /* PlayerCopyShip.h */,
 				BFBA6E0E135D204F00C0DC8E /* PlayerCopyShip.m */,
+				BFCEF3E0135FAC89006AB2F8 /* WorstEnemyBattleMindLayer.h */,
+				BFCEF3E1135FAC89006AB2F8 /* WorstEnemyBattleMindLayer.m */,
 			);
 			name = UltimateShipClasses;
 			sourceTree = "<group>";
@@ -922,6 +936,9 @@
 				8C9FDF42133803BA00D20C9D /* your_ship.png in Resources */,
 				8C530173133ADBEB000BD591 /* bullet.png in Resources */,
 				8CB4C63C1345165500789154 /* killer_bar.png in Resources */,
+				BFCEF40C135FB474006AB2F8 /* Shp2_Bank2_30.png in Resources */,
+				BFCEF40D135FB474006AB2F8 /* Ship1_Bank1_21.png in Resources */,
+				BFCEF40E135FB474006AB2F8 /* plasma34.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1057,6 +1074,7 @@
 				BFF16C1E135D2AC8003EF4DC /* BasicBullet.m in Sources */,
 				BFF16C1F135D2AC8003EF4DC /* TriShotBullet.m in Sources */,
 				BFF16C32135D2B12003EF4DC /* WideDoubleBullet.m in Sources */,
+				BFCEF3E2135FAC89006AB2F8 /* WorstEnemyBattleMindLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

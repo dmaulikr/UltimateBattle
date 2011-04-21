@@ -32,6 +32,12 @@
 }
 
 -(void)startGame{
+	level = 0;
+	currentKills = 0;
+	[self nextLevel];
+	[self.player addWeapon:[self newWeaponForLevel:1]];	
+	timer = [[NSTimer scheduledTimerWithTimeInterval:0.02 target:self selector:@selector(loop) userInfo:nil repeats:YES] retain];
+	
 }
 
 -(UltimateShip *)copiedPlayerShip {
