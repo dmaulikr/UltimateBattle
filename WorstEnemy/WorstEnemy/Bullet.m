@@ -31,11 +31,13 @@
 	self.l = CGPointMake(self.l.x+self.vel.x,self.l.y+self.vel.y);
 	NSLog(@"bullet l.x/y: %f %f",self.l.x,self.l.y);
 	NSLog(@"bullet.vel: %f %f",self.vel.x, self.vel.y);
+	self.sprite.position = self.l;
 	
 }	
 
 -(void)animate {
 	self.sprite.position = self.l;
+		NSLog(@"sprite pos: %f, %f",self.sprite.position.x, self.sprite.position.y);
 	[super animate];
 //Override with subclasess of bullet	
 }
@@ -46,5 +48,7 @@
 	return nil;
 	
 }
+
+
 
 @end

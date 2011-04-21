@@ -30,7 +30,7 @@
 -(NSArray *) getBullets:(CGPoint) point {
     if ([self canFire]) {
         NSMutableArray * bullets = [NSMutableArray array]; 
-        WBullet *b = [[WBullet alloc] initWithStart:(point)];
+        WBullet *b = [[WBullet alloc] initWithStart:point];
         [bullets addObject:b];
         [b release];
         self.cooldown = self.cooldownRate;

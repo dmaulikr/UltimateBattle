@@ -83,7 +83,7 @@
 }
 
 -(NSArray *) fire {
-    return [self.weapon getBullets:self.sprite.position];
+    return [self.weapon getBullets:CGPointMake(50,50)];//self.sprite.position];
 }
 
 -(CGRect) getRect {

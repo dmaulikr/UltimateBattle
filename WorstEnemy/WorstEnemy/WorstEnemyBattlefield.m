@@ -63,7 +63,7 @@
 
 -(void)nextLevel {
 	
-	self.player.l = CGPointMake(384,700);
+	self.player.l = CGPointMake(250,250);
 	
 	for (CopyShip *ship in self.copies) {
 		[ship resetState];
@@ -107,13 +107,9 @@
 }	
 
 -(void)bulletLoop {
-	xx++;
-	if (xx > 300) {
-		xx = 0;
-	}
+
 	for (Bullet *b in self.bullets) {
-		NSLog(@"bullet");
-		b.l = CGPointMake(xx+100, 100);
+
 		
 		[b tick];
 		[self checkForDrawingBullet:b];
@@ -125,7 +121,7 @@
         if (b.died) {
             [badBullets addObject:b];
         } else {
-            if (b.l.y < 100 || b.l.y > 800) {
+            if (b.l.y < 0 || b.l.y > 800) {
                 [badBullets addObject:b];                
             }
         }
@@ -141,7 +137,8 @@
 	for (CopyShip *c in self.copies) {
 		[c tick];
 		if (!c.drawn && c.hp > 0) {
-			[self.layer addChild:c.sprite];
+			NSLog(@"Trying to add child copy");
+		//	[self.layer addChild:c.sprite];
 			c.drawn = YES;
 		}
 	}

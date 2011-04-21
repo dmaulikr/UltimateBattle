@@ -15,7 +15,7 @@
 	self = [super initWithYFacing:facing];
 	if (self) {
 		self.sprite = [CCSprite spriteWithFile:@"Shp2_Bank2_30.png"];
-		self.l = CGPointMake(160,230);
+		self.l = CGPointMake(0,0);
 	}
 	return self;
 }
