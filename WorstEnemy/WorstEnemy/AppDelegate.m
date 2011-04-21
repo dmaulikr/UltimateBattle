@@ -84,7 +84,8 @@
 	// Edit the RootViewController.m file to edit the supported orientations.
 	//
 
-	[director setDeviceOrientation:kCCDeviceOrientationPortrait];
+//	[director setDeviceOrientation:kCCDeviceOrientationPortrait];
+//	[director setDeviceOrientation:kCCDevice];	
 	[director setAnimationInterval:1.0/60];
 	[director setDisplayFPS:YES];
 	
