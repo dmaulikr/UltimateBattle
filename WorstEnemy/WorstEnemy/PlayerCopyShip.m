@@ -15,7 +15,7 @@
 	self = [super initWithYFacing:facing];
 	if (self) {
 		self.sprite = [CCSprite spriteWithFile:@"Shp2_Bank2_30.png"];
-		self.l = CGPointMake(384,700);
+		self.l = CGPointMake(160,230);
 	}
 	return self;
 }
@@ -25,6 +25,8 @@
 	[super tick];
 	//Store this current turn
 
+	NSLog(@"player x/y: %f %f",self.sprite.position.x,self.sprite.position.y);
+	
     Turn *t = [[Turn alloc] init];
     t.vel = self.turn.vel;
     t.firing = self.turn.firing;

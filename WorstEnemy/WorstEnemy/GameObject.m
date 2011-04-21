@@ -17,6 +17,8 @@
 
 -(void)animate { 
 //Draw magic here
+	self.l = CGPointMake(160, 230);
+	NSLog(@"self.l.x/y: %f, %f",self.l.x, self.l.y);
 	self.sprite.position = self.l;
 }
 

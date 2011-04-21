@@ -30,9 +30,27 @@
 -(id)init {
 	self = [super init];
 	if (self) {
+        self.isTouchEnabled = true;		
 		self.battle = [[WorstEnemyBattlefield alloc] initWithLayer:self];
+		[self.battle startGame];
 	}
 	return self;
 }
+
+-(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
+    return YES;
+}
+
+-(void) ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    UITouch *touch =[touches anyObject];
+    CGPoint touchPoint = [touch locationInView:[touch view]];
+    CGPoint pointToMoveTo = [[CCDirector sharedDirector] convertToGL:touchPoint];
+	[self.battle touchLocation:CGPointMake(touchPoint.x, 320-touchPoint.y)];
+}
+
+-(void) ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+    [self ccTouchesBegan:touches withEvent:event];
+}
+
 
 @end

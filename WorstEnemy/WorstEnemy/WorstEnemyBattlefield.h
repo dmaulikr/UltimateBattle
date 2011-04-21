@@ -31,4 +31,6 @@
 -(UltimateWeapon *)newWeaponForLevel:(int)aLevel;
 -(id)initWithLayer:(CCLayer *)aLayer;
 
+-(void)touchLocation:(CGPoint)location;
+
 @end

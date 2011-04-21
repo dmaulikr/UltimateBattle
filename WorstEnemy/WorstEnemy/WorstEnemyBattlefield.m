@@ -7,6 +7,9 @@
 //
 
 #import "WorstEnemyBattlefield.h"
+#import "TriGun.h"
+#import "LaserGun.h"
+#import "WideDoubleShotGun.h"
 
 
 @implementation WorstEnemyBattlefield
@@ -28,7 +31,19 @@
 }
 
 -(UltimateWeapon *)newWeaponForLevel:(int)aLevel {
-	return nil;
+	if (aLevel == 1) {
+		LaserGun *w = [[[LaserGun alloc] init] autorelease];
+		return w;
+	} else if (aLevel == 2) {
+		TriGun *w = [[[TriGun alloc] init] autorelease];
+		return w;
+	} else if (aLevel == 3) {
+		WideDoubleShotGun *w = [[[WideDoubleShotGun alloc] init] autorelease];
+		return w;
+	}
+	
+	TriGun *w = [[[TriGun alloc] init] autorelease];
+	return w;
 }
 
 -(void)startGame{
@@ -126,6 +141,7 @@
 -(void)playerLoop {
 	//Determine player's target 
 	self.player.turn.firing = YES;
+	NSLog(@"hi");
 	[self.player tick];
 }
 
@@ -144,6 +160,10 @@
 
 -(void)tick {
 	[self checkForLevel];
+}
+
+-(void)touchLocation:(CGPoint)location {
+	self.player.turn.targetLocation = location;
 }
 
 @end
