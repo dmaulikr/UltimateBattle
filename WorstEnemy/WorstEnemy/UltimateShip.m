@@ -22,6 +22,7 @@
 		self.turn = [[Turn alloc] init];
 		self.currentWeaponIndex = 0;
 		self.yFacing = facing;
+		self.bullets = [NSMutableArray array];
 	}
 	return self;
 }
@@ -53,9 +54,10 @@
 	
     if (self.hp > 0) {
 	if ([[self currentTurn] firing]) {
-		NSArray *b = [[self currentWeapon] fireWithYFacing:self.yFacing from:self.l];
+		NSArray *b = [[self currentWeapon] fireWithYFacing:self.yFacing from:CGPointMake(self.l.x,320-self.l.y)];
 		if (b) {
 			NSLog(@"adding bullets: %@",b);
+			NSLog(@"self.bullets: %@",self.bullets);
 			[self.bullets addObjectsFromArray:b];
 		}
 			

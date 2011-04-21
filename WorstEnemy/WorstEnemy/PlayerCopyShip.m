@@ -24,8 +24,6 @@
 -(void)tick{
 	[super tick];
 	//Store this current turn
-
-	NSLog(@"player x/y: %f %f",self.sprite.position.x,self.sprite.position.y);
 	
     Turn *t = [[Turn alloc] init];
     t.vel = self.turn.vel;

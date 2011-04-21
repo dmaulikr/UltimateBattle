@@ -23,6 +23,7 @@
 		self.copies = [NSMutableArray array];
 		self.bullets = [NSMutableArray array];
 		self.player = [[PlayerCopyShip alloc] initWithYFacing:-1];		
+		self.player.bullets = self.bullets;
 		[self.layer addChild:self.player.sprite];
 	}
 	
@@ -75,6 +76,7 @@
 	newShip.drawn = YES;
 	[self.copies addObject:newShip];
 	newShip.bullets = self.bullets;
+	NSLog(@"newShip.bullets: %@",newShip.bullets);
 	
 	currentKills = 0;
     
@@ -105,7 +107,14 @@
 }	
 
 -(void)bulletLoop {
+	xx++;
+	if (xx > 300) {
+		xx = 0;
+	}
 	for (Bullet *b in self.bullets) {
+		NSLog(@"bullet");
+		b.l = CGPointMake(xx+100, 100);
+		
 		[b tick];
 		[self checkForDrawingBullet:b];
 		[self checkForHitCopiesWithBullet:b];
@@ -141,7 +150,6 @@
 -(void)playerLoop {
 	//Determine player's target 
 	self.player.turn.firing = YES;
-	NSLog(@"hi");
 	[self.player tick];
 }
 
