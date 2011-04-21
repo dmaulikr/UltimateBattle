@@ -17,7 +17,6 @@
 
 -(void)animate { 
 //Draw magic here
-//	self.l = CGPointMake(160, 230);
 	self.sprite.position = self.l;
 
 }

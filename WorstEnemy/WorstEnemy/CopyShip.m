@@ -61,7 +61,7 @@
 	self.hp = 1;
 	self.drawn = NO;
 	self.died = NO;
-	self.l = CGPointMake(100,100);
+	self.l = CGPointMake(400,300);
 	for (UltimateWeapon *w in self.weapons) {
 		w.repeatLeft = 0;	
 	}

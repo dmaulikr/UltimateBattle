@@ -63,7 +63,7 @@
 
 -(void)nextLevel {
 	
-	self.player.l = CGPointMake(250,250);
+	self.player.l = CGPointMake(400,800);
 	
 	for (CopyShip *ship in self.copies) {
 		[ship resetState];
@@ -72,11 +72,12 @@
 	level++;
 	
 	UltimateShip *newShip = [self copiedPlayerShip];
+	newShip.l = CGPointMake(400, 300);
+	newShip.sprite.position = newShip.l;
 	[self.layer addChild:newShip.sprite];
 	newShip.drawn = YES;
 	[self.copies addObject:newShip];
 	newShip.bullets = self.bullets;
-	NSLog(@"newShip.bullets: %@",newShip.bullets);
 	
 	currentKills = 0;
     
@@ -94,6 +95,7 @@
             b.l = CGPointZero;
 			c.hp = 0;
 			currentKills++;
+			[c.sprite removeFromParentAndCleanup:YES];
 		}
 	}
 }
@@ -107,10 +109,7 @@
 }	
 
 -(void)bulletLoop {
-
-	for (Bullet *b in self.bullets) {
-
-		
+	for (Bullet *b in self.bullets) {		
 		[b tick];
 		[self checkForDrawingBullet:b];
 		[self checkForHitCopiesWithBullet:b];
@@ -121,7 +120,7 @@
         if (b.died) {
             [badBullets addObject:b];
         } else {
-            if (b.l.y < 0 || b.l.y > 800) {
+            if (b.l.y < 0 || b.l.y > 1100) {
                 [badBullets addObject:b];                
             }
         }
@@ -136,9 +135,10 @@
 -(void)copyLoop {
 	for (CopyShip *c in self.copies) {
 		[c tick];
+		NSLog(@"c.l.x: %f",c.l.x);
 		if (!c.drawn && c.hp > 0) {
 			NSLog(@"Trying to add child copy");
-		//	[self.layer addChild:c.sprite];
+			[self.layer addChild:c.sprite];
 			c.drawn = YES;
 		}
 	}
