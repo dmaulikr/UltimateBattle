@@ -11,6 +11,7 @@
 #import "GameObject.h"
 #import "Engine.h"
 
+#define SHIP_PLACEMENT_HEIGHT 300
 #define Ship_HP 100
 
 @class UltimateWeapon;

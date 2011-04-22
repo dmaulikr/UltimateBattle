@@ -9,12 +9,16 @@
 #import <Foundation/Foundation.h>
 #import "GameObject.h"
 
+#import "UltimateBullet.h"
+
 @interface Bullet : GameObject {
 
 }
 
 
 +(NSArray *)newBulletsWithYFacing:(int)facing from:(CGPoint)from;
+
+@property(nonatomic, retain) UltimateBullet *ub;
 
 -(id)initWithYFacing:(int)facing from:(CGPoint)from;
 -(void)setup;

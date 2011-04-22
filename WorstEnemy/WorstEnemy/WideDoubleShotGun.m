@@ -22,4 +22,16 @@
 	return self;
 }		
 
+-(NSArray *)newBulletsWithYFacing:(int)facing from:(CGPoint)from {
+	WideDoubleBullet *lb = [[[WideDoubleBullet alloc] initWithYFacing:facing from:from ] autorelease];
+	lb.vel = CGPointMake(-2, lb.vel.y);
+	
+	WideDoubleBullet *rb = [[[WideDoubleBullet alloc] initWithYFacing:facing from:from] autorelease];
+	rb.vel = CGPointMake(2, rb.vel.y);
+	
+	NSArray *bullets = [NSArray arrayWithObjects:lb, rb, nil];
+	
+	return bullets;
+}
+
 @end

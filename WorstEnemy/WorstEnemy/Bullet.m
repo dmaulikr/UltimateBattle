@@ -10,6 +10,7 @@
 
 
 @implementation Bullet
+@synthesize ub;
 
 -(void)setup {
 	self.vel = CGPointMake(0, self.yFacing * self.speed);	
@@ -30,6 +31,7 @@
 -(void)move {
 	self.l = CGPointMake(self.l.x+self.vel.x,self.l.y+self.vel.y);
 	self.sprite.position = self.l;
+	self.ub.l = self.l;
 	
 }	
 

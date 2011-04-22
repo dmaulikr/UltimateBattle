@@ -17,7 +17,7 @@
     if (self) {
         //TODO: Check device version and initialize with iphone or ipad screen size
         self.movementBounds = CGRectMake(0, 0, 764, 1024);
-		self.speed = 2;
+		self.speed = 3;
     }
     return self;
 }
@@ -32,9 +32,13 @@
 
 -(CGPoint)velocityForTargetPoint:(CGPoint)target from:(CGPoint)location {
     //TODO: Get angle, then multiply by speed
+	if (GetDist(location, target) > self.speed) {
 	CGPoint angle = GetAngle(location, target);
 	angle = MultiplyVel(angle, self.speed);
 	return angle;
+	} 
+	
+	return CGPointZero;
 }
 
 @end

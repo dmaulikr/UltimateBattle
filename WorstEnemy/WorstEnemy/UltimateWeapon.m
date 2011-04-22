@@ -33,9 +33,11 @@
 	}
 }
 
+
 -(NSArray *)newBulletsWithYFacing:(int)facing from:(CGPoint)from {
-	NSArray *bullets = [[self.bullet class] newBulletsWithYFacing:facing from:from];
-	return bullets;
+	//OVERRIDE
+	NSLog(@"shouldn't see this");
+	return nil;
 }
 
 -(NSArray *)fireWithYFacing:(int)facing from:(CGPoint)from {

@@ -56,8 +56,6 @@
 	if ([[self currentTurn] firing]) {
 		NSArray *b = [[self currentWeapon] fireWithYFacing:self.yFacing from:CGPointMake(self.l.x,self.l.y)];
 		if (b) {
-			NSLog(@"adding bullets: %@",b);
-			NSLog(@"self.bullets: %@",self.bullets);
 			[self.bullets addObjectsFromArray:b];
 		}
 			

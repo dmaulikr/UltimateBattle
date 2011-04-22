@@ -21,4 +21,15 @@
 	return self;
 }					   
 
+-(NSArray *)newBulletsWithYFacing:(int)facing from:(CGPoint)from {
+	BasicBullet *b = [[[BasicBullet alloc] initWithYFacing:facing from:from] autorelease];
+	[b setup];
+	
+	NSArray *bullets = [NSArray arrayWithObject:b];
+	
+	return bullets;	
+}
+
+
+
 @end

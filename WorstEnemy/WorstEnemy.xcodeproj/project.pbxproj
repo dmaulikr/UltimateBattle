@@ -286,6 +286,10 @@
 		8D0BABDB1360CAED000AAC9B /* Shp2_Bank2_30.png in Resources */ = {isa = PBXBuildFile; fileRef = BFCEF409135FB474006AB2F8 /* Shp2_Bank2_30.png */; };
 		8D0BABDC1360CAED000AAC9B /* Ship1_Bank1_21.png in Resources */ = {isa = PBXBuildFile; fileRef = BFCEF40A135FB474006AB2F8 /* Ship1_Bank1_21.png */; };
 		8D0BABDD1360CAED000AAC9B /* plasma34.png in Resources */ = {isa = PBXBuildFile; fileRef = BFCEF40B135FB474006AB2F8 /* plasma34.png */; };
+		8DEDFE971361DB3000163796 /* UltimateBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DEDFE961361DB3000163796 /* UltimateBullet.m */; };
+		8DEDFE981361DB3000163796 /* UltimateBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DEDFE961361DB3000163796 /* UltimateBullet.m */; };
+		8DEDFEA21361DC7A00163796 /* BasicBulletParticles.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DEDFEA11361DC7A00163796 /* BasicBulletParticles.m */; };
+		8DEDFEA31361DC7A00163796 /* BasicBulletParticles.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DEDFEA11361DC7A00163796 /* BasicBulletParticles.m */; };
 		BFBA6DF1135D1A4700C0DC8E /* WorstEnemyBattlefield.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBA6DF0135D1A4700C0DC8E /* WorstEnemyBattlefield.m */; };
 		BFBA6E0F135D204F00C0DC8E /* PlayerCopyShip.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBA6E0E135D204F00C0DC8E /* PlayerCopyShip.m */; };
 		BFBA6E17135D211F00C0DC8E /* UltimateShip.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBA6E11135D211F00C0DC8E /* UltimateShip.m */; };
@@ -566,6 +570,10 @@
 		8CEA1C751355434900392118 /* EnemyBullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnemyBullet.m; sourceTree = "<group>"; };
 		8CEA1C781355436700392118 /* BulletProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BulletProtocol.h; sourceTree = "<group>"; };
 		8D0BABE11360CAED000AAC9B /* WorstEnemy-iPad-Upgraded.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WorstEnemy-iPad-Upgraded.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DEDFE951361DB3000163796 /* UltimateBullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UltimateBullet.h; sourceTree = "<group>"; };
+		8DEDFE961361DB3000163796 /* UltimateBullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UltimateBullet.m; sourceTree = "<group>"; };
+		8DEDFEA01361DC7A00163796 /* BasicBulletParticles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicBulletParticles.h; sourceTree = "<group>"; };
+		8DEDFEA11361DC7A00163796 /* BasicBulletParticles.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicBulletParticles.m; sourceTree = "<group>"; };
 		BFBA6DEF135D1A4700C0DC8E /* WorstEnemyBattlefield.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorstEnemyBattlefield.h; sourceTree = "<group>"; };
 		BFBA6DF0135D1A4700C0DC8E /* WorstEnemyBattlefield.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorstEnemyBattlefield.m; sourceTree = "<group>"; };
 		BFBA6E0D135D204F00C0DC8E /* PlayerCopyShip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerCopyShip.h; sourceTree = "<group>"; };
@@ -1044,6 +1052,10 @@
 				BFBA6E0E135D204F00C0DC8E /* PlayerCopyShip.m */,
 				BFCEF3E0135FAC89006AB2F8 /* WorstEnemyBattleMindLayer.h */,
 				BFCEF3E1135FAC89006AB2F8 /* WorstEnemyBattleMindLayer.m */,
+				8DEDFE951361DB3000163796 /* UltimateBullet.h */,
+				8DEDFE961361DB3000163796 /* UltimateBullet.m */,
+				8DEDFEA01361DC7A00163796 /* BasicBulletParticles.h */,
+				8DEDFEA11361DC7A00163796 /* BasicBulletParticles.m */,
 			);
 			name = UltimateShipClasses;
 			sourceTree = "<group>";
@@ -1291,6 +1303,8 @@
 				BFF16C1F135D2AC8003EF4DC /* TriShotBullet.m in Sources */,
 				BFF16C32135D2B12003EF4DC /* WideDoubleBullet.m in Sources */,
 				BFCEF3E2135FAC89006AB2F8 /* WorstEnemyBattleMindLayer.m in Sources */,
+				8DEDFE981361DB3000163796 /* UltimateBullet.m in Sources */,
+				8DEDFEA31361DC7A00163796 /* BasicBulletParticles.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1424,6 +1438,8 @@
 				8D0BABC11360CAED000AAC9B /* TriShotBullet.m in Sources */,
 				8D0BABC21360CAED000AAC9B /* WideDoubleBullet.m in Sources */,
 				8D0BABC31360CAED000AAC9B /* WorstEnemyBattleMindLayer.m in Sources */,
+				8DEDFE971361DB3000163796 /* UltimateBullet.m in Sources */,
+				8DEDFEA21361DC7A00163796 /* BasicBulletParticles.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

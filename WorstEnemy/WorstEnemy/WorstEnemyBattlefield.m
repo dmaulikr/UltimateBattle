@@ -22,7 +22,7 @@
 		self.layer = aLayer;
 		self.copies = [NSMutableArray array];
 		self.bullets = [NSMutableArray array];
-		self.player = [[PlayerCopyShip alloc] initWithYFacing:-1];		
+		self.player = [[PlayerCopyShip alloc] initWithYFacing:1];		
 		self.player.bullets = self.bullets;
 		[self.layer addChild:self.player.sprite];
 	}
@@ -63,7 +63,7 @@
 
 -(void)nextLevel {
 	
-	self.player.l = CGPointMake(400,800);
+	self.player.l = CGPointMake(384,SHIP_PLACEMENT_HEIGHT);
 	
 	for (CopyShip *ship in self.copies) {
 		[ship resetState];
@@ -72,7 +72,6 @@
 	level++;
 	
 	UltimateShip *newShip = [self copiedPlayerShip];
-	newShip.l = CGPointMake(400, 300);
 	newShip.sprite.position = newShip.l;
 	[self.layer addChild:newShip.sprite];
 	newShip.drawn = YES;
@@ -89,7 +88,7 @@
 
 -(void)checkForHitCopiesWithBullet:(Bullet *)b {
 	for (CopyShip *c in self.copies) {
-		if (b.vel.y < 0 && c.hp > 0 && GetDist(b.l, c.l) <= 30) {
+		if (b.vel.y > 0 && c.hp > 0 && GetDist(b.l, c.l) <= 30) {
             b.vel = CGPointZero;
             b.died = YES;
             b.l = CGPointZero;
@@ -103,6 +102,10 @@
 -(void)checkForDrawingBullet:(Bullet *)b {
 	if (!b.drawn) {
 		[self.layer addChild:b.sprite];
+		b.ub = [[UltimateBullet alloc] init];
+		[b.ub createParticles];
+
+		[self.layer addChild:b.ub.particles z:-1];
 		b.drawn = YES;
 	}
 	
@@ -135,7 +138,6 @@
 -(void)copyLoop {
 	for (CopyShip *c in self.copies) {
 		[c tick];
-		NSLog(@"c.l.x: %f",c.l.x);
 		if (!c.drawn && c.hp > 0) {
 			NSLog(@"Trying to add child copy");
 			[self.layer addChild:c.sprite];

@@ -12,21 +12,18 @@
 @implementation CopyShip
 
 -(id)initWithShip:(UltimateShip *)ship {
-	self = [super initWithYFacing:1];
+	self = [super initWithYFacing:-1];
 	if (self) {
 	
 		self.sprite = [CCSprite spriteWithFile:@"Ship1_Bank1_21.png"];
-
-        NSLog(@"ship moves: %@",ship.moves);
         
         NSMutableArray *turns = [NSMutableArray array];
-        NSLog(@"ship moves count: %d",[ship.moves count]);
+
         for (Turn *ot in ship.moves) {
 			Turn *t = [ot magicCopy];
             [turns addObject:t];
         }
 		
-        NSLog(@"Turns count: %d", [turns count]);
 		if ([turns count] > 0) {
 			for (Turn *t in turns) {
 				t.vel = CGPointMake(t.vel.x, -t.vel.y);
@@ -40,15 +37,11 @@
 				[t release];
 		}
         
-	//	[turns release];
 		self.weapons = [NSMutableArray array];
         for (UltimateWeapon *owep in ship.weapons) {
 			UltimateWeapon *nw = [owep magicCopy];
             [self.weapons addObject:nw];
         }
-		
-//        NSMutableArray *weps = [[NSMutableArray arrayWithArray:ship.weapons] copy];
-//        NSMutableArray *weps = [[NSMutableArray alloc] initWithArray:ship.weapons copyItems:YES];
 		self.hp = 1;
 		
 		[self resetState];
@@ -61,7 +54,7 @@
 	self.hp = 1;
 	self.drawn = NO;
 	self.died = NO;
-	self.l = CGPointMake(400,300);
+	self.l = CGPointMake(384,1024-SHIP_PLACEMENT_HEIGHT);
 	for (UltimateWeapon *w in self.weapons) {
 		w.repeatLeft = 0;	
 	}
@@ -84,18 +77,11 @@
 		self.drawn = NO;
 		NSLog(@"Remove sprite from super layer");
 	}
-	
-	
 }
 
 -(void)resetTurn {
 	currentTurnIndex = 0;
-	self.l = CGPointMake(382,340);
-//	NSLog(@"resetting turn l.x: %f",self.l.x);
-//	self.l = ((Turn *)[self currentTurn]).l;
-//	NSLog(@"POST resetting turn l.x: %f",self.l.x);	
+	self.l = CGPointMake(384,1024-SHIP_PLACEMENT_HEIGHT);
 }
-
-
 
 @end
