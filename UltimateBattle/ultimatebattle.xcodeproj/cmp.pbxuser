@@ -73,8 +73,8 @@
 					PBXFileDataSource_Filename_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 325048328;
-			PBXWorkspaceStateSaveDate = 325048328;
+			PBXPerProjectTemplateStateSaveDate = 325211723;
+			PBXWorkspaceStateSaveDate = 325211723;
 		};
 		perUserProjectItems = {
 			BF203657135A772700C84288 /* PBXTextBookmark */ = BF203657135A772700C84288 /* PBXTextBookmark */;
@@ -107,14 +107,12 @@
 			BFBBA7C9133563BC0087DB5F /* PBXTextBookmark */ = BFBBA7C9133563BC0087DB5F /* PBXTextBookmark */;
 			BFBBA7CA133563BC0087DB5F /* PBXTextBookmark */ = BFBBA7CA133563BC0087DB5F /* PBXTextBookmark */;
 			BFBBA7F413356FA30087DB5F /* PBXTextBookmark */ = BFBBA7F413356FA30087DB5F /* PBXTextBookmark */;
-			BFC16EA413385E1800F981FB /* PBXTextBookmark */ = BFC16EA413385E1800F981FB /* PBXTextBookmark */;
 			BFC16EF8133861ED00F981FB /* PBXTextBookmark */ = BFC16EF8133861ED00F981FB /* PBXTextBookmark */;
 			BFC16EF9133861ED00F981FB /* PBXTextBookmark */ = BFC16EF9133861ED00F981FB /* PBXTextBookmark */;
 			BFCEF411135FB476006AB2F8 /* PBXTextBookmark */ = BFCEF411135FB476006AB2F8 /* PBXTextBookmark */;
 			BFCEF464135FBFE3006AB2F8 /* PBXBookmark */ = BFCEF464135FBFE3006AB2F8 /* PBXBookmark */;
 			BFCEF465135FBFE3006AB2F8 /* PBXTextBookmark */ = BFCEF465135FBFE3006AB2F8 /* PBXTextBookmark */;
 			BFCEF47C135FC00A006AB2F8 /* PBXTextBookmark */ = BFCEF47C135FC00A006AB2F8 /* PBXTextBookmark */;
-			BFCEF50C135FD790006AB2F8 /* PBXTextBookmark */ = BFCEF50C135FD790006AB2F8 /* PBXTextBookmark */;
 			BFDAC11A135D238500A43934 /* PBXTextBookmark */ = BFDAC11A135D238500A43934 /* PBXTextBookmark */;
 			BFDAC16D135D29A600A43934 /* PBXTextBookmark */ = BFDAC16D135D29A600A43934 /* PBXTextBookmark */;
 			BFDAC170135D29A600A43934 /* PBXBookmark */ = BFDAC170135D29A600A43934 /* PBXBookmark */;
@@ -422,7 +420,7 @@
 		ignoreCount = 0;
 		lineNumber = 17;
 		location = ultimatebattle;
-		modificationTime = 325045639.809817;
+		modificationTime = 325211969.631973;
 		originalNumberOfMultipleMatches = 1;
 		state = 2;
 	};
@@ -751,23 +749,6 @@
 			sepNavVisRange = "{0, 816}";
 		};
 	};
-	BFC16EA413385E1800F981FB /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = BFC16EA513385E1800F981FB /* BZItem.m */;
-		name = "BZItem.m: 160";
-		rLen = 0;
-		rLoc = 3803;
-		rType = 0;
-		vrLen = 1050;
-		vrLoc = 3472;
-	};
-	BFC16EA513385E1800F981FB /* BZItem.m */ = {
-		isa = PBXFileReference;
-		lastKnownFileType = sourcecode.c.objc;
-		name = BZItem.m;
-		path = "/Users/cmp/bizeeti-iphone/bizeeti/BZItem.m";
-		sourceTree = "<absolute>";
-	};
 	BFC16EF8133861ED00F981FB /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = BFBBA7DF13356EBC0087DB5F /* TriGun.m */;
@@ -863,16 +844,6 @@
 		rType = 0;
 		vrLen = 408;
 		vrLoc = 0;
-	};
-	BFCEF50C135FD790006AB2F8 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 28D7ACF70DDB3853001CB0EB /* ultimatebattleViewController.m */;
-		name = "ultimatebattleViewController.m: 119";
-		rLen = 0;
-		rLoc = 2858;
-		rType = 0;
-		vrLen = 603;
-		vrLoc = 2598;
 	};
 	BFDAC11A135D238500A43934 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;

@@ -439,7 +439,7 @@
 @implementation CCParticleMeteor
 -(id) init
 {
-	return [self initWithTotalParticles:150];
+	return [self initWithTotalParticles:1500];
 }
 
 -(id) initWithTotalParticles:(int) p
@@ -456,7 +456,7 @@
 		self.gravity = ccp(-200,200);
 
 		// Gravity Mode: speed of particles
-		self.speed = 15;
+		self.speed = 4;
 		self.speedVar = 5;
 		
 		// Gravity Mode: radial
@@ -477,7 +477,7 @@
 		posVar = CGPointZero;
 		
 		// life of particles
-		life = 2;
+		life = 1;
 		lifeVar = 1;
 		
 		// size, in pixels
@@ -509,7 +509,7 @@
 		self.texture = [[CCTextureCache sharedTextureCache] addImage: @"fire.png"];
 		
 		// additive
-		self.blendAdditive = YES;
+		self.blendAdditive =YES;
 	}
 	
 	return self;

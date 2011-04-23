@@ -14,18 +14,19 @@
 @synthesize l, particles;
 
 -(void)createParticles {
-	self.particles = [[CCParticleFire alloc] initWithTotalParticles:50];
+	self.particles = [[CCParticleMeteor alloc] initWithTotalParticles:250];
 	[self.particles setPosition:self.l];
     [self.particles setAngle:0.0];
     [self.particles setAngleVar:0.0];
-    [self.particles setStartSize:2.0];
-    [self.particles setPosVar:CGPointMake(0,4)];
-    [self.particles setEndSize:0.01];
-    [self.particles setLife:0.2];
-    [self.particles setLifeVar:0.1];
-    [self.particles setSpeed: 200];
+    [self.particles setStartSize:1.5];
+    [self.particles setPosVar:CGPointMake(0,0)];
+    [self.particles setEndSize:0.5];
+    [self.particles setLife:.05];
+    [self.particles setLifeVar:.05];
+    [self.particles setSpeed:0];
     [self.particles setSourcePosition:CGPointMake(0,0)];
-    [self.particles setTexture:nil];	
+    [self.particles setTexture:nil];
+
 }
 
 @end

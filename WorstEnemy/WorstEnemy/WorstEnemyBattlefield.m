@@ -101,14 +101,15 @@
 
 -(void)checkForDrawingBullet:(Bullet *)b {
 	if (!b.drawn) {
-		[self.layer addChild:b.sprite];
+//		[self.layer addChild:b.sprite];
 		b.ub = [[UltimateBullet alloc] init];
+		b.ub.l = b.l;
 		[b.ub createParticles];
+		[b.ub.particles setGravity:CGPointMake(0,b.vel.y)];
 
 		[self.layer addChild:b.ub.particles z:-1];
 		b.drawn = YES;
 	}
-	
 }	
 
 -(void)bulletLoop {
@@ -116,6 +117,9 @@
 		[b tick];
 		[self checkForDrawingBullet:b];
 		[self checkForHitCopiesWithBullet:b];
+		b.ub.l = b.l;
+		[b.ub.particles setPosition:b.l];
+//		[b.ub.particles setSourcePosition:b.l];
 	}
     
     NSMutableArray *badBullets = [NSMutableArray array];
@@ -131,6 +135,7 @@
     
     for (Bullet *badBullet in badBullets) {
 		[badBullet.sprite removeFromParentAndCleanup:YES];
+		[badBullet.ub.particles removeFromParentAndCleanup:YES];
         [self.bullets removeObject:badBullet];
     }
 }

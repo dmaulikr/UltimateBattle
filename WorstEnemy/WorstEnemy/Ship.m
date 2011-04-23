@@ -48,11 +48,11 @@
     self.engine_flare = [[CCParticleFire alloc] initWithTotalParticles:7000];
     [self.engine_flare setPosition:[self engineFlarePoint:self.sprite.position]];
     [self.engine_flare setAngle:0.0];
-    [self.engine_flare setAngleVar:0.0];
+    [self.engine_flare setAngleVar:30.0];
     [self.engine_flare setStartSize:2.0];
     [self.engine_flare setPosVar:ccp(0,4)];
     [self.engine_flare setEndSize:0.01];
-    [self.engine_flare setLife:0.2];
+    [self.engine_flare setLife:5.2];
     [self.engine_flare setLifeVar:0.1];
     [self.engine_flare setSpeed: 200];
     [self.engine_flare setSourcePosition:ccp(0,0)];
