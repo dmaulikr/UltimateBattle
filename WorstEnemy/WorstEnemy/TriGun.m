@@ -25,9 +25,9 @@
 	TriShotBullet *cb = [[[TriShotBullet alloc] initWithYFacing:facing from:from] autorelease];
 	TriShotBullet *rb = [[[TriShotBullet alloc] initWithYFacing:facing from:from] autorelease];
 	
-	lb.vel = CGPointMake(-.8, lb.vel.y);
+	lb.vel = CGPointMake(-1.2, lb.vel.y);
 	cb.vel = CGPointMake(0, cb.vel.y);
-	rb.vel = CGPointMake(.8, rb.vel.y);	
+	rb.vel = CGPointMake(1.2, rb.vel.y);	
 	
 	
 	NSArray *bullets = [NSArray arrayWithObjects:lb, cb, rb, nil];

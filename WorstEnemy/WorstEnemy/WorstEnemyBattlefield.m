@@ -11,6 +11,8 @@
 #import "LaserGun.h"
 #import "WideDoubleShotGun.h"
 #import "TightTriGun.h"
+#import "EvenQuadGun.h"
+#import "FocusedQuadGun.h"
 
 
 @implementation WorstEnemyBattlefield
@@ -45,9 +47,15 @@
 	} else if (aLevel == 4) {
 		TightTriGun *w = [[[TightTriGun alloc] init] autorelease];
 		return w;
+	} else if (aLevel == 5) {
+		EvenQuadGun *w = [[[EvenQuadGun alloc] init] autorelease];
+		return w;
+	} else if (aLevel == 6) {
+		FocusedQuadGun *w = [[[FocusedQuadGun alloc] init] autorelease];
+		return w;
 	}
 	
-	TriGun *w = [[[TriGun alloc] init] autorelease];
+	EvenQuadGun *w = [[[EvenQuadGun alloc] init] autorelease];
 	return w;
 }
 

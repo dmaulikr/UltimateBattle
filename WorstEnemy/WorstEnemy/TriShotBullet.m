@@ -14,7 +14,7 @@
 
 
 -(void)setup {
-	self.speed = 5;	
+	self.speed = 4;	
 	self.sprite = [CCSprite spriteWithFile:@"redtriangle.png"];
 	[self resetSpeed];
 }

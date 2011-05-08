@@ -35,6 +35,6 @@
 
 -(void)touchLocation:(CGPoint)location;
 
--(void)removeBullets;
+-(void)removeBullets:(NSMutableArray *)badBullets;
 
 @end

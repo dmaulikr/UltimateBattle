@@ -314,6 +314,10 @@
 		BF101C8C13769CFF00AF9C30 /* tinybluediamond.png in Resources */ = {isa = PBXBuildFile; fileRef = BF101C8A13769CFF00AF9C30 /* tinybluediamond.png */; };
 		BF101C9113769D1F00AF9C30 /* EvenQuadGun.m in Sources */ = {isa = PBXBuildFile; fileRef = BF101C9013769D1F00AF9C30 /* EvenQuadGun.m */; };
 		BF101C9213769D1F00AF9C30 /* EvenQuadGun.m in Sources */ = {isa = PBXBuildFile; fileRef = BF101C9013769D1F00AF9C30 /* EvenQuadGun.m */; };
+		BF101CBF13769FD100AF9C30 /* FocusedQuadBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = BF101CBE13769FD100AF9C30 /* FocusedQuadBullet.m */; };
+		BF101CC013769FD100AF9C30 /* FocusedQuadBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = BF101CBE13769FD100AF9C30 /* FocusedQuadBullet.m */; };
+		BF101CC313769FFC00AF9C30 /* FocusedQuadGun.m in Sources */ = {isa = PBXBuildFile; fileRef = BF101CC213769FFC00AF9C30 /* FocusedQuadGun.m */; };
+		BF101CC413769FFC00AF9C30 /* FocusedQuadGun.m in Sources */ = {isa = PBXBuildFile; fileRef = BF101CC213769FFC00AF9C30 /* FocusedQuadGun.m */; };
 		BF31D134136CE20200843C27 /* pulse0001.png in Resources */ = {isa = PBXBuildFile; fileRef = BF31D12C136CE20200843C27 /* pulse0001.png */; };
 		BF31D135136CE20200843C27 /* pulse0002.png in Resources */ = {isa = PBXBuildFile; fileRef = BF31D12D136CE20200843C27 /* pulse0002.png */; };
 		BF31D136136CE20200843C27 /* pulse0003.png in Resources */ = {isa = PBXBuildFile; fileRef = BF31D12E136CE20200843C27 /* pulse0003.png */; };
@@ -631,6 +635,10 @@
 		BF101C8A13769CFF00AF9C30 /* tinybluediamond.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tinybluediamond.png; sourceTree = "<group>"; };
 		BF101C8F13769D1F00AF9C30 /* EvenQuadGun.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EvenQuadGun.h; sourceTree = "<group>"; };
 		BF101C9013769D1F00AF9C30 /* EvenQuadGun.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EvenQuadGun.m; sourceTree = "<group>"; };
+		BF101CBD13769FD100AF9C30 /* FocusedQuadBullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FocusedQuadBullet.h; sourceTree = "<group>"; };
+		BF101CBE13769FD100AF9C30 /* FocusedQuadBullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FocusedQuadBullet.m; sourceTree = "<group>"; };
+		BF101CC113769FFC00AF9C30 /* FocusedQuadGun.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FocusedQuadGun.h; sourceTree = "<group>"; };
+		BF101CC213769FFC00AF9C30 /* FocusedQuadGun.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FocusedQuadGun.m; sourceTree = "<group>"; };
 		BF31D12C136CE20200843C27 /* pulse0001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pulse0001.png; sourceTree = "<group>"; };
 		BF31D12D136CE20200843C27 /* pulse0002.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pulse0002.png; sourceTree = "<group>"; };
 		BF31D12E136CE20200843C27 /* pulse0003.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pulse0003.png; sourceTree = "<group>"; };
@@ -1146,6 +1154,10 @@
 				BF101C8513769C3500AF9C30 /* QuadBullet.m */,
 				BF101C8F13769D1F00AF9C30 /* EvenQuadGun.h */,
 				BF101C9013769D1F00AF9C30 /* EvenQuadGun.m */,
+				BF101CBD13769FD100AF9C30 /* FocusedQuadBullet.h */,
+				BF101CBE13769FD100AF9C30 /* FocusedQuadBullet.m */,
+				BF101CC113769FFC00AF9C30 /* FocusedQuadGun.h */,
+				BF101CC213769FFC00AF9C30 /* FocusedQuadGun.m */,
 			);
 			name = UltimateShipClasses;
 			sourceTree = "<group>";
@@ -1430,6 +1442,8 @@
 				BF101C171376984500AF9C30 /* TightTriBullet.m in Sources */,
 				BF101C8613769C3500AF9C30 /* QuadBullet.m in Sources */,
 				BF101C9113769D1F00AF9C30 /* EvenQuadGun.m in Sources */,
+				BF101CBF13769FD100AF9C30 /* FocusedQuadBullet.m in Sources */,
+				BF101CC313769FFC00AF9C30 /* FocusedQuadGun.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1570,6 +1584,8 @@
 				BF101C181376984500AF9C30 /* TightTriBullet.m in Sources */,
 				BF101C8713769C3500AF9C30 /* QuadBullet.m in Sources */,
 				BF101C9213769D1F00AF9C30 /* EvenQuadGun.m in Sources */,
+				BF101CC013769FD100AF9C30 /* FocusedQuadBullet.m in Sources */,
+				BF101CC413769FFC00AF9C30 /* FocusedQuadGun.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
