@@ -25,3 +25,4 @@ CGPoint SXetX(CGPoint v1, float x);
 CGPoint SYetY(CGPoint v1, float y);
 CGPoint SXOffsetX(CGPoint v1, float x);
 CGPoint SYOffsetY(CGPoint v1, float y);
+float rotationFromPointWithVel(CGPoint l, CGPoint vel);

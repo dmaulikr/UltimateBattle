@@ -30,6 +30,11 @@
 	b2.vel = CGPointMake(-1, b2.vel.y);
 	b3.vel = CGPointMake(1, b3.vel.y);	
 	b4.vel = CGPointMake(3, b4.vel.y);	
+
+	b1.sprite.rotation = rotationFromPointWithVel(b1.l, b1.vel);
+	b2.sprite.rotation = rotationFromPointWithVel(b2.l, b2.vel);
+	b3.sprite.rotation = rotationFromPointWithVel(b3.l, b3.vel);
+	b4.sprite.rotation = rotationFromPointWithVel(b4.l, b4.vel);
 	
 	NSArray *bullets = [NSArray arrayWithObjects:b1, b2, b3, b4, nil];
 	return bullets;

@@ -7,6 +7,7 @@
 //
 
 #import "cmpgames.h"
+#import "ccMacros.h"
 
 CGPoint CombineVel(CGPoint v1, CGPoint v2){
 	v1 = CGPointMake(v1.x+v2.x,v1.y+v2.y);
@@ -93,3 +94,18 @@ CGPoint MultiplyVel(CGPoint cref , float mfact){
 	return cref;
 }
 
+float rotationFromPointWithVel(CGPoint l, CGPoint vel) {
+	CGPoint target = CombineVel(l, vel);
+	
+	int offX = (l.x - target.x);
+	int offY = (l.y - target.y);
+	
+	float angleRadians = atanf((float)offX / (float)offY);
+	float angleDegrees = CC_RADIANS_TO_DEGREES(angleRadians);
+
+	if (target.y < l.y) {
+		angleDegrees = angleDegrees + 180;
+	}
+	
+	return angleDegrees;
+}

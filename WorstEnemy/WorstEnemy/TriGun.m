@@ -28,7 +28,10 @@
 	lb.vel = CGPointMake(-1.2, lb.vel.y);
 	cb.vel = CGPointMake(0, cb.vel.y);
 	rb.vel = CGPointMake(1.2, rb.vel.y);	
-	
+
+	lb.sprite.rotation = rotationFromPointWithVel(lb.l, lb.vel);
+	cb.sprite.rotation = rotationFromPointWithVel(cb.l, cb.vel);
+	rb.sprite.rotation = rotationFromPointWithVel(rb.l, rb.vel);	
 	
 	NSArray *bullets = [NSArray arrayWithObjects:lb, cb, rb, nil];
 	return bullets;
