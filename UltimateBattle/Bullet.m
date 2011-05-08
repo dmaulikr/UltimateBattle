@@ -20,7 +20,7 @@
 	self = [super init];
 	if (self) {
 		self.l = from;
-		self.sprite = [CCSprite spriteWithFile:@"plasma34.png"];
+		self.imageView =  [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"plasma34.png"]];
 		self.yFacing = facing;
 		[self setup];
 	}

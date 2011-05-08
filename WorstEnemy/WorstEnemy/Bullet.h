@@ -9,18 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "GameObject.h"
 
-#import "UltimateBullet.h"
+#import "DefaultBullet.h"
 
-@interface Bullet : GameObject {
+@interface Bullet : DefaultBullet {
 
 }
 
-
-+(NSArray *)newBulletsWithYFacing:(int)facing from:(CGPoint)from;
-
-@property(nonatomic, retain) UltimateBullet *ub;
-
--(id)initWithYFacing:(int)facing from:(CGPoint)from;
--(void)setup;
+-(void)resetSpeed;
 
 @end

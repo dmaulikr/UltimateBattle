@@ -11,12 +11,12 @@
 
 @implementation TriShotBullet
 
+
+
 -(void)setup {
-	self.speed = 9;	
-	[super setup];
+	self.speed = 5;	
+	self.sprite = [CCSprite spriteWithFile:@"redtriangle.png"];
+	[self resetSpeed];
 }
-
-
-
 
 @end

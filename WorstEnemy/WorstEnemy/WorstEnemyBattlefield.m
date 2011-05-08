@@ -10,6 +10,7 @@
 #import "TriGun.h"
 #import "LaserGun.h"
 #import "WideDoubleShotGun.h"
+#import "TightTriGun.h"
 
 
 @implementation WorstEnemyBattlefield
@@ -41,6 +42,9 @@
 	} else if (aLevel == 3) {
 		WideDoubleShotGun *w = [[[WideDoubleShotGun alloc] init] autorelease];
 		return w;
+	} else if (aLevel == 4) {
+		TightTriGun *w = [[[TightTriGun alloc] init] autorelease];
+		return w;
 	}
 	
 	TriGun *w = [[[TriGun alloc] init] autorelease];
@@ -61,9 +65,23 @@
 	return newShip;
 }
 
+-(void)eraseAllBullets {
+	NSMutableArray *badBullets = [NSMutableArray array];
+	for (Bullet *b in self.bullets) {
+		[badBullets addObject:b];	
+	}
+	
+	[self removeBullets:badBullets];
+}
+
 -(void)nextLevel {
 	
+	[self eraseAllBullets];
+	
 	self.player.l = CGPointMake(384,SHIP_PLACEMENT_HEIGHT);
+	self.player.vel = CGPointZero;
+	self.player.turn.vel = CGPointZero;
+	self.player.turn.targetLocation = self.player.l;
 	
 	for (CopyShip *ship in self.copies) {
 		[ship resetState];
@@ -99,15 +117,29 @@
 	}
 }
 
+-(void)removeBullets:(NSMutableArray *)badBullets {
+	for (Bullet *badBullet in badBullets) {
+		[badBullet.sprite removeFromParentAndCleanup:YES];
+		//		for (int i = 0; i < [badBullet.ub.particles count]; i++) {
+		//			[[badBullet.ub.particles objectAtIndex:i] removeFromParentAndCleanup:YES];
+		//		}
+		[self.bullets removeObject:badBullet];
+	}
+}
+
+
 -(void)checkForDrawingBullet:(Bullet *)b {
 	if (!b.drawn) {
-//		[self.layer addChild:b.sprite];
-		b.ub = [[UltimateBullet alloc] init];
-		b.ub.l = b.l;
-		[b.ub createParticles];
-		[b.ub.particles setGravity:CGPointMake(0,b.vel.y)];
+		[self.layer addChild:b.sprite];
+//		b.ub = [[UltimateBullet alloc] init];
+//		b.ub.l = b.l;
+//		[b.ub createParticles];
+	//	[b.ub.particles setGravity:CGPointMake(0,b.vel.y)];
 
-		[self.layer addChild:b.ub.particles z:-1];
+//		for (int i = 0; i < [b.ub.particles count]; i++) {
+	
+//		[self.layer addChild:[b.ub.particles objectAtIndex:i] z:-1];
+//		}
 		b.drawn = YES;
 	}
 }	
@@ -117,8 +149,13 @@
 		[b tick];
 		[self checkForDrawingBullet:b];
 		[self checkForHitCopiesWithBullet:b];
-		b.ub.l = b.l;
-		[b.ub.particles setPosition:b.l];
+//		b.ub.l = b.l;
+//		for (int i = 0; i < [b.ub.particles count]; i++) {
+//			id particle = [b.ub.particles objectAtIndex:i];
+//			[particle setPosition:CGPointMake(b.ub.l.x,b.ub.l.y+(i*10))];
+//											  
+//		}
+////		[b.ub.particles setPosition:b.l];
 //		[b.ub.particles setSourcePosition:b.l];
 	}
     
@@ -133,11 +170,7 @@
         }
     }
     
-    for (Bullet *badBullet in badBullets) {
-		[badBullet.sprite removeFromParentAndCleanup:YES];
-		[badBullet.ub.particles removeFromParentAndCleanup:YES];
-        [self.bullets removeObject:badBullet];
-    }
+	[self removeBullets:badBullets];
 }
 
 -(void)copyLoop {

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Bullet.h"
+#import "cmpgames.h"
 
 @class Bullet;
 

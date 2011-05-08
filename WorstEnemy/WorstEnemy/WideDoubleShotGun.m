@@ -16,7 +16,7 @@
 	self = [super init];
 	if (self) {
 		self.repeatLeft = 0;
-		self.repeatReset = 50;
+		self.repeatReset = 30;
 		self.bullet = [[WideDoubleBullet alloc] init];
 	}
 	return self;
@@ -24,10 +24,10 @@
 
 -(NSArray *)newBulletsWithYFacing:(int)facing from:(CGPoint)from {
 	WideDoubleBullet *lb = [[[WideDoubleBullet alloc] initWithYFacing:facing from:from ] autorelease];
-	lb.vel = CGPointMake(-2, lb.vel.y);
+	lb.vel = CGPointMake(-4, lb.vel.y);
 	
 	WideDoubleBullet *rb = [[[WideDoubleBullet alloc] initWithYFacing:facing from:from] autorelease];
-	rb.vel = CGPointMake(2, rb.vel.y);
+	rb.vel = CGPointMake(4, rb.vel.y);
 	
 	NSArray *bullets = [NSArray arrayWithObjects:lb, rb, nil];
 	

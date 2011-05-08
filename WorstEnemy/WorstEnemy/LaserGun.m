@@ -16,7 +16,7 @@
 	if (self) {
 		self.repeatLeft = 0;
 		self.repeatReset = 50;
-		self.bullet = [[BasicBullet alloc] init];
+//		self.bullet = [[BasicBullet alloc] init];
 	}
 	return self;
 }					   

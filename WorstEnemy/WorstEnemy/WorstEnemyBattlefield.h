@@ -35,4 +35,6 @@
 
 -(void)touchLocation:(CGPoint)location;
 
+-(void)removeBullets;
+
 @end

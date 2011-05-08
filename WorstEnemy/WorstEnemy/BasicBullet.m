@@ -13,8 +13,9 @@
 
 
 -(void)setup {
-	self.speed = 11;
+	self.speed = 7;
 	self.vel = CGPointMake(0, self.yFacing * self.speed);	
+	self.sprite = [CCSprite spriteWithFile:@"greenblot.png"];	
 }
 
 +(NSArray *)newBulletsWithYFacing:(int)facing from:(CGPoint)from {

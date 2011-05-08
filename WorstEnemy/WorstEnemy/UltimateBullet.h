@@ -14,7 +14,7 @@
 }
 
 @property(nonatomic) CGPoint l;
-@property(nonatomic, retain) id particles;
+@property(nonatomic, retain) NSMutableArray *particles;
 
 -(void)createParticles;
 

@@ -490,7 +490,7 @@
 		
 		// color of particles
 		startColor.r = 0.2f;
-		startColor.g = 0.4f;
+		startColor.g = 0.0f;
 		startColor.b = 0.7f;
 		startColor.a = 1.0f;
 		startColorVar.r = 0.0f;
@@ -498,15 +498,15 @@
 		startColorVar.b = 0.2f;
 		startColorVar.a = 0.1f;
 		endColor.r = 0.0f;
-		endColor.g = 0.0f;
+		endColor.g = 1.0f;
 		endColor.b = 0.0f;
-		endColor.a = 1.0f;
+		endColor.a = 0.1f;
 		endColorVar.r = 0.0f;
 		endColorVar.g = 0.0f;
 		endColorVar.b = 0.0f;
 		endColorVar.a = 0.0f;
 		
-		self.texture = [[CCTextureCache sharedTextureCache] addImage: @"fire.png"];
+		self.texture = [[CCTextureCache sharedTextureCache] addImage: @"turtlesmallsize1.png"];
 		
 		// additive
 		self.blendAdditive =YES;

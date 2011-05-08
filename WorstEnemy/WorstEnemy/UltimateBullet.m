@@ -14,19 +14,27 @@
 @synthesize l, particles;
 
 -(void)createParticles {
-	self.particles = [[CCParticleMeteor alloc] initWithTotalParticles:250];
-	[self.particles setPosition:self.l];
-    [self.particles setAngle:0.0];
-    [self.particles setAngleVar:0.0];
-    [self.particles setStartSize:1.5];
-    [self.particles setPosVar:CGPointMake(0,0)];
-    [self.particles setEndSize:0.5];
-    [self.particles setLife:.05];
-    [self.particles setLifeVar:.05];
-    [self.particles setSpeed:0];
-    [self.particles setSourcePosition:CGPointMake(0,0)];
-    [self.particles setTexture:nil];
+	self.particles = [NSMutableArray array];
+	
+	for (int i = 0; i < 1; i++) {
+		id particle;
+		particle = [[CCParticleMeteor alloc] initWithTotalParticles:500];
+		[particle setPosition:CGPointMake(self.l.x, self.l.y + (i * 10))];
+		 [particle setAngle:0.0];
+		 [particle setAngleVar:0.0];
+		[particle setStartSize:.5];
+		 [particle setPosVar:CGPointMake(0,0)];
+		 [particle setEndSize:.5];
+		 [particle setLife:.05];
+		 [particle setLifeVar:.01];
+		 [particle setSpeed:0];
+		 [particle setSourcePosition:CGPointMake(0,0)];
 
-}
-
-@end
+		 [particle setTexture:nil];
+		 [self.particles addObject:particle];
+		 [particle release];
+		 }
+		 
+		 }
+		 
+		 @end
