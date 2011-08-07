@@ -15,7 +15,7 @@
 	self = [super init];
 	if (self) {
 		self.repeatLeft = 0;
-		self.repeatReset = 60;
+		self.repeatReset = 6;
 	}
 	return self;
 }					   

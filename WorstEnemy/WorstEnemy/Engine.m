@@ -17,7 +17,7 @@
     if (self) {
         //TODO: Check device version and initialize with iphone or ipad screen size
         self.movementBounds = CGRectMake(0, 0, 764, 1024);
-		self.speed = 3;
+		self.speed = 8;
     }
     return self;
 }

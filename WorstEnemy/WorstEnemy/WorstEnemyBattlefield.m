@@ -194,8 +194,8 @@
 
 -(void)playerLoop {
 	//Determine player's target 
-	self.player.turn.firing = YES;
 	[self.player tick];
+	self.player.turn.firing = NO;
 }
 
 -(void)checkForLevel {
@@ -216,7 +216,11 @@
 }
 
 -(void)touchLocation:(CGPoint)location {
-	self.player.turn.targetLocation = location;
+	if (location.x > 700) {
+		self.player.turn.firing = YES;
+	} else {
+		self.player.turn.targetLocation = location;		
+	}
 }
 
 @end
