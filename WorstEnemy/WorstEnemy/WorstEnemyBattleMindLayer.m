@@ -42,9 +42,10 @@
 }
 
 -(void) ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    UITouch *touch =[touches anyObject];
-    CGPoint touchPoint = [touch locationInView:[touch view]];
-	[self.battle touchLocation:CGPointMake(touchPoint.x, 1024-touchPoint.y)];
+    for (UITouch *touch in touches) {
+        CGPoint touchPoint = [touch locationInView:[touch view]];        
+        [self.battle touchLocation:CGPointMake(touchPoint.x, 1024-touchPoint.y)];
+    }
 }
 
 -(void) ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
