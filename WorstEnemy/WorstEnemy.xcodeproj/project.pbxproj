@@ -286,6 +286,8 @@
 		8D0BABDB1360CAED000AAC9B /* Shp2_Bank2_30.png in Resources */ = {isa = PBXBuildFile; fileRef = BFCEF409135FB474006AB2F8 /* Shp2_Bank2_30.png */; };
 		8D0BABDC1360CAED000AAC9B /* Ship1_Bank1_21.png in Resources */ = {isa = PBXBuildFile; fileRef = BFCEF40A135FB474006AB2F8 /* Ship1_Bank1_21.png */; };
 		8D0BABDD1360CAED000AAC9B /* plasma34.png in Resources */ = {isa = PBXBuildFile; fileRef = BFCEF40B135FB474006AB2F8 /* plasma34.png */; };
+		8D7A357114291BEC007E897A /* CPScoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7A357014291BEC007E897A /* CPScoreManager.m */; };
+		8D7A357214291BEC007E897A /* CPScoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7A357014291BEC007E897A /* CPScoreManager.m */; };
 		8DEDFE971361DB3000163796 /* UltimateBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DEDFE961361DB3000163796 /* UltimateBullet.m */; };
 		8DEDFE981361DB3000163796 /* UltimateBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DEDFE961361DB3000163796 /* UltimateBullet.m */; };
 		8DEDFEA21361DC7A00163796 /* BasicBulletParticles.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DEDFEA11361DC7A00163796 /* BasicBulletParticles.m */; };
@@ -614,6 +616,8 @@
 		8CEA1C751355434900392118 /* EnemyBullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnemyBullet.m; sourceTree = "<group>"; };
 		8CEA1C781355436700392118 /* BulletProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BulletProtocol.h; sourceTree = "<group>"; };
 		8D0BABE11360CAED000AAC9B /* WorstEnemy-iPad-Upgraded.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WorstEnemy-iPad-Upgraded.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D7A356F14291BEB007E897A /* CPScoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPScoreManager.h; sourceTree = "<group>"; };
+		8D7A357014291BEC007E897A /* CPScoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPScoreManager.m; sourceTree = "<group>"; };
 		8DEDFE951361DB3000163796 /* UltimateBullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UltimateBullet.h; sourceTree = "<group>"; };
 		8DEDFE961361DB3000163796 /* UltimateBullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UltimateBullet.m; sourceTree = "<group>"; };
 		8DEDFEA01361DC7A00163796 /* BasicBulletParticles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicBulletParticles.h; sourceTree = "<group>"; };
@@ -776,6 +780,8 @@
 				8C9FDF02133801E400D20C9D /* FontLabel */,
 				8C9FDF13133801E500D20C9D /* TouchJSON */,
 				8C9FDF2C133801E500D20C9D /* Supporting Files */,
+				8D7A356F14291BEB007E897A /* CPScoreManager.h */,
+				8D7A357014291BEC007E897A /* CPScoreManager.m */,
 			);
 			path = WorstEnemy;
 			sourceTree = "<group>";
@@ -1444,6 +1450,7 @@
 				BF101C9113769D1F00AF9C30 /* EvenQuadGun.m in Sources */,
 				BF101CBF13769FD100AF9C30 /* FocusedQuadBullet.m in Sources */,
 				BF101CC313769FFC00AF9C30 /* FocusedQuadGun.m in Sources */,
+				8D7A357114291BEC007E897A /* CPScoreManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1586,6 +1593,7 @@
 				BF101C9213769D1F00AF9C30 /* EvenQuadGun.m in Sources */,
 				BF101CC013769FD100AF9C30 /* FocusedQuadBullet.m in Sources */,
 				BF101CC413769FFC00AF9C30 /* FocusedQuadGun.m in Sources */,
+				8D7A357214291BEC007E897A /* CPScoreManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
