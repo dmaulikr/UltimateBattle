@@ -41,9 +41,13 @@
     return YES;
 }
 
+
+
 -(void) ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    NSLog(@"touches count: %d",[touches count]);
     for (UITouch *touch in touches) {
         CGPoint touchPoint = [touch locationInView:[touch view]];        
+        NSLog(@"passing point to battle: %f, %f",touchPoint.x, touchPoint.y);
         [self.battle touchLocation:CGPointMake(touchPoint.x, 1024-touchPoint.y)];
     }
 }
