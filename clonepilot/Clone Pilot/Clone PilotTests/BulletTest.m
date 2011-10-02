@@ -8,12 +8,17 @@ describe(@"Bullet", ^{
     __block Bullet *b;
     
     beforeEach(^{
-       CGPoint vel = CGPointMake(0, -3);
-       b = [[[Bullet alloc] initWithVelocity:vel] autorelease];
+        CGPoint start = CGPointMake(100, 100);
+        CGPoint vel = CGPointMake(0, -3);
+        b = [[[Bullet alloc] initWithLocation:start velocity:vel] autorelease];
     });
     
-    it(@"should have a velocity when initialized", ^{
-        [[theValue(b.vel.y) should] equal:theValue(-3)];
+    it(@"should have a location when initialized", ^{
+        [[theValue(b.l) shouldNot] equal:theValue(CGPointZero)];
+    });
+    
+    it(@"should have a vertical velocity when initialized", ^{
+        [[theValue(b.vel.y) shouldNot] equal:theValue(0)];
     });  
     
     
@@ -21,6 +26,10 @@ describe(@"Bullet", ^{
         CGPoint oldLocation = b.l;
         [b tick]; 
         [[theValue(b.l) shouldNot] equal:theValue(oldLocation)];
+    });
+    
+    it(@"should mark itself as deallocatable when out of bounds", ^{
+        
     });
     
 });

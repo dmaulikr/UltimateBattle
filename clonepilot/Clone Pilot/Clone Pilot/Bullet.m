@@ -14,9 +14,10 @@
 @synthesize vel;
 @synthesize l;
 
-- (id)initWithVelocity:(CGPoint)velocity {
+- (id)initWithLocation:(CGPoint)location velocity:(CGPoint)velocity {
     self = [super init];
     if (self) {
+        self.l = location;
         self.vel = velocity;
     }
     

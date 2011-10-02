@@ -16,7 +16,7 @@
 @property (nonatomic, assign) CGPoint vel;
 @property (nonatomic, assign) CGPoint l;
 
-- (id)initWithVelocity:(CGPoint)velocity;
+- (id)initWithLocation:(CGPoint)location velocity:(CGPoint)velocity;
 
 - (void)tick;
 
