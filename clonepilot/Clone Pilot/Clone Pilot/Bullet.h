@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "VRBoundaryFrame.h"
 
 @interface Bullet : NSObject {
     
@@ -15,6 +15,7 @@
 
 @property (nonatomic, assign) CGPoint vel;
 @property (nonatomic, assign) CGPoint l;
+@property (nonatomic, assign) BOOL finished;
 
 - (id)initWithLocation:(CGPoint)location velocity:(CGPoint)velocity;
 

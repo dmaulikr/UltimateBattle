@@ -29,7 +29,10 @@ describe(@"Bullet", ^{
     });
     
     it(@"should mark itself as deallocatable when out of bounds", ^{
-        
+        for (int i = 0; i < 102; i++) {
+            [b tick];
+        }
+        [[theValue(b.finished) should] equal:theValue(YES)];
     });
     
 });

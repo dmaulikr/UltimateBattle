@@ -12,6 +12,8 @@
 		8D6EA3461438DDFB002BD85E /* Bullet.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6EA3441438DDFB002BD85E /* Bullet.m */; };
 		8D6EA34B1438F233002BD85E /* VRGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6EA34A1438F233002BD85E /* VRGeometry.m */; };
 		8D6EA34C1438F233002BD85E /* VRGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6EA34A1438F233002BD85E /* VRGeometry.m */; };
+		8D6EA3541438F72D002BD85E /* VRBoundaryFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6EA3531438F72D002BD85E /* VRBoundaryFrame.m */; };
+		8D6EA3551438F72D002BD85E /* VRBoundaryFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6EA3531438F72D002BD85E /* VRBoundaryFrame.m */; };
 		8DC7F8931438D8870016D718 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC7F8921438D8870016D718 /* UIKit.framework */; };
 		8DC7F8951438D8870016D718 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC7F8941438D8870016D718 /* Foundation.framework */; };
 		8DC7F8971438D8870016D718 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC7F8961438D8870016D718 /* CoreGraphics.framework */; };
@@ -113,6 +115,8 @@
 		8D6EA3441438DDFB002BD85E /* Bullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bullet.m; sourceTree = "<group>"; };
 		8D6EA3491438F233002BD85E /* VRGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VRGeometry.h; sourceTree = "<group>"; };
 		8D6EA34A1438F233002BD85E /* VRGeometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VRGeometry.m; sourceTree = "<group>"; };
+		8D6EA3521438F72D002BD85E /* VRBoundaryFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VRBoundaryFrame.h; sourceTree = "<group>"; };
+		8D6EA3531438F72D002BD85E /* VRBoundaryFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VRBoundaryFrame.m; sourceTree = "<group>"; };
 		8DC7F88E1438D8870016D718 /* Clone Pilot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Clone Pilot.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DC7F8921438D8870016D718 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8DC7F8941438D8870016D718 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -330,6 +334,7 @@
 		8D6EA3471438E0C8002BD85E /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				8D6EA34D1438F683002BD85E /* Interfaces */,
 				8D6EA3481438E0D7002BD85E /* Maths */,
 			);
 			name = Support;
@@ -342,6 +347,15 @@
 				8D6EA34A1438F233002BD85E /* VRGeometry.m */,
 			);
 			name = Maths;
+			sourceTree = "<group>";
+		};
+		8D6EA34D1438F683002BD85E /* Interfaces */ = {
+			isa = PBXGroup;
+			children = (
+				8D6EA3521438F72D002BD85E /* VRBoundaryFrame.h */,
+				8D6EA3531438F72D002BD85E /* VRBoundaryFrame.m */,
+			);
+			name = Interfaces;
 			sourceTree = "<group>";
 		};
 		8DC7F8831438D8870016D718 = {
@@ -709,6 +723,7 @@
 				8DC7F9AC1438DA120016D718 /* BulletHellBattlefield.m in Sources */,
 				8D6EA3451438DDFB002BD85E /* Bullet.m in Sources */,
 				8D6EA34B1438F233002BD85E /* VRGeometry.m in Sources */,
+				8D6EA3541438F72D002BD85E /* VRBoundaryFrame.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -788,6 +803,7 @@
 				8D6EA3411438DDB9002BD85E /* BulletTest.m in Sources */,
 				8D6EA3461438DDFB002BD85E /* Bullet.m in Sources */,
 				8D6EA34C1438F233002BD85E /* VRGeometry.m in Sources */,
+				8D6EA3551438F72D002BD85E /* VRBoundaryFrame.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

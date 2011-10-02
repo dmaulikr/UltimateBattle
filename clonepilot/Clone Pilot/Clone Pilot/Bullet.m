@@ -13,12 +13,14 @@
 
 @synthesize vel;
 @synthesize l;
+@synthesize finished;
 
 - (id)initWithLocation:(CGPoint)location velocity:(CGPoint)velocity {
     self = [super init];
     if (self) {
         self.l = location;
         self.vel = velocity;
+    
     }
     
     return self;
@@ -26,6 +28,9 @@
 
 - (void)updateLocation {
     self.l = CombinedPoint(self.l, self.vel);
+    if (CGRectContainsPoint([self boundaryFrame], self.l)) {
+        self.finished = YES;
+    }
 }
 
 - (void)tick {
