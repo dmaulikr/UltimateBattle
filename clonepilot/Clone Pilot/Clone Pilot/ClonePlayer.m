@@ -10,5 +10,15 @@
 
 
 @implementation ClonePlayer
+@synthesize l;
+@synthesize vel;
+
+- (id)initWithLocation:(CGPoint)location {
+    self = [super init];
+    if (self) {
+        self.l = location;
+    }
+    return self;
+}
 
 @end

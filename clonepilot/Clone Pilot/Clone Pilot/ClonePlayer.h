@@ -7,10 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "VRGameObject.h"
 
-
-@interface ClonePlayer : NSObject {
+@interface ClonePlayer : NSObject <VRGameObject> {
     
 }
+
+- (id)initWithLocation:(CGPoint)location;
 
 @end

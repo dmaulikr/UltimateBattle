@@ -1,5 +1,6 @@
 #import "Kiwi.h"
 #import "ClonePilotBattlefield.h"
+#import "ClonePlayer.h"
 
 SPEC_BEGIN(ClonePilotBattlefieldTest)
 
@@ -12,7 +13,8 @@ describe(@"Clone Pilot Battlefield", ^{
     
     context(@"Initialization", ^{
         it(@"should have a player with a location", ^{
-            [theObject([f player]) shouldNotBeNil];
+            [[theValue([[[f player ]class] isSubclassOfClass:[ClonePlayer class]]) should] beTrue];
+//            [theObject([f player]) shouldNotBeNil];
         });
         
         

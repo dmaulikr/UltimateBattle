@@ -19,6 +19,8 @@
 		8DABC646143901EA009020E0 /* ClonePilotBattlefield.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DABC63F1438FFBC009020E0 /* ClonePilotBattlefield.m */; };
 		8DABC64914390226009020E0 /* ClonePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DABC64814390225009020E0 /* ClonePlayer.m */; };
 		8DABC64A14390226009020E0 /* ClonePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DABC64814390225009020E0 /* ClonePlayer.m */; };
+		8DABC64D1439054D009020E0 /* VRGameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DABC64C1439054D009020E0 /* VRGameObject.m */; };
+		8DABC64E1439054D009020E0 /* VRGameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DABC64C1439054D009020E0 /* VRGameObject.m */; };
 		8DC7F8931438D8870016D718 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC7F8921438D8870016D718 /* UIKit.framework */; };
 		8DC7F8951438D8870016D718 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC7F8941438D8870016D718 /* Foundation.framework */; };
 		8DC7F8971438D8870016D718 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC7F8961438D8870016D718 /* CoreGraphics.framework */; };
@@ -127,6 +129,8 @@
 		8DABC643143901C1009020E0 /* ClonePilotBattlefieldTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClonePilotBattlefieldTest.m; sourceTree = "<group>"; };
 		8DABC64714390225009020E0 /* ClonePlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClonePlayer.h; sourceTree = "<group>"; };
 		8DABC64814390225009020E0 /* ClonePlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClonePlayer.m; sourceTree = "<group>"; };
+		8DABC64B1439054D009020E0 /* VRGameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VRGameObject.h; sourceTree = "<group>"; };
+		8DABC64C1439054D009020E0 /* VRGameObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VRGameObject.m; sourceTree = "<group>"; };
 		8DC7F88E1438D8870016D718 /* Clone Pilot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Clone Pilot.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DC7F8921438D8870016D718 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8DC7F8941438D8870016D718 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -366,6 +370,8 @@
 			children = (
 				8D6EA3521438F72D002BD85E /* VRBoundaryFrame.h */,
 				8D6EA3531438F72D002BD85E /* VRBoundaryFrame.m */,
+				8DABC64B1439054D009020E0 /* VRGameObject.h */,
+				8DABC64C1439054D009020E0 /* VRGameObject.m */,
 			);
 			name = Interfaces;
 			sourceTree = "<group>";
@@ -741,6 +747,7 @@
 				8D6EA3541438F72D002BD85E /* VRBoundaryFrame.m in Sources */,
 				8DABC645143901E9009020E0 /* ClonePilotBattlefield.m in Sources */,
 				8DABC64914390226009020E0 /* ClonePlayer.m in Sources */,
+				8DABC64D1439054D009020E0 /* VRGameObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -824,6 +831,7 @@
 				8DABC644143901C2009020E0 /* ClonePilotBattlefieldTest.m in Sources */,
 				8DABC646143901EA009020E0 /* ClonePilotBattlefield.m in Sources */,
 				8DABC64A14390226009020E0 /* ClonePlayer.m in Sources */,
+				8DABC64E1439054D009020E0 /* VRGameObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
