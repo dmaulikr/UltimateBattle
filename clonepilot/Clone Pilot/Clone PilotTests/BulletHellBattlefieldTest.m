@@ -12,7 +12,7 @@ describe(@"Foobar", ^{
     });
     
     it(@"should initialize a bullet hell battlefield", ^{
-        [theValue([f bullets]) shouldNotBeNil];
+        [theObject([f bullets]) shouldNotBeNil];
     });
     
     it(@"should move bullets within itself", ^{
@@ -21,6 +21,15 @@ describe(@"Foobar", ^{
         CGPoint oldLocation = b.l;
         [f tick];
         [[theValue(b.l) shouldNot] equal:theValue(oldLocation)];
+    });
+    
+    it(@"should remove finished bullets from itself", ^{
+        Bullet *b = [Bullet sampleBullet];
+        [f addBullet:b];
+        for (int i = 0; i < 102; i++) {
+            [f tick];
+        }
+        [[theValue([[f bullets] containsObject:b]) shouldNot] beTrue];
     });
     
 });
