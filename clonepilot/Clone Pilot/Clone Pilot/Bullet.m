@@ -15,6 +15,10 @@
 @synthesize l;
 @synthesize finished;
 
++ (Bullet *)sampleBullet {
+    return [[[Bullet alloc] initWithLocation:CGPointMake(100,100) velocity:CGPointMake(0,-3)] autorelease];
+}
+
 - (id)initWithLocation:(CGPoint)location velocity:(CGPoint)velocity {
     self = [super init];
     if (self) {

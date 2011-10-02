@@ -21,4 +21,6 @@
 
 - (void)tick;
 
++ (Bullet *)sampleBullet;
+
 @end

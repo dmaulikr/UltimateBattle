@@ -7,12 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "Bullet.h"
 
 @interface BulletHellBattlefield : NSObject {
     
 }
 
 @property (nonatomic, retain) NSMutableArray *bullets;
+
+- (void)tick;
+- (void)addBullet:(Bullet *)b;
 
 @end

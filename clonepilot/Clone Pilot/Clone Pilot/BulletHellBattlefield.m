@@ -8,7 +8,6 @@
 
 #import "BulletHellBattlefield.h"
 
-
 @implementation BulletHellBattlefield
 
 @synthesize bullets;
@@ -20,6 +19,16 @@
     }
     
     return self;
+}
+
+- (void)tick {
+    for (Bullet *b in self.bullets) {
+        [b tick];
+    }
+}
+
+- (void)addBullet:(Bullet *)b {
+    [self.bullets addObject:b];
 }
 
 - (void)dealloc {
