@@ -15,4 +15,6 @@
 
 - (id)initWithLocation:(CGPoint)location;
 
++ (ClonePlayer *)samplePlayer;
+
 @end

@@ -14,11 +14,7 @@ describe(@"Clone Pilot Battlefield", ^{
     context(@"Initialization", ^{
         it(@"should have a player with a location", ^{
             [[theValue([[[f player ]class] isSubclassOfClass:[ClonePlayer class]]) should] beTrue];
-//            [theObject([f player]) shouldNotBeNil];
         });
-        
-        
-        
     });
     
 });

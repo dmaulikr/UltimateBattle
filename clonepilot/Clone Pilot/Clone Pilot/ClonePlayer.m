@@ -13,6 +13,10 @@
 @synthesize l;
 @synthesize vel;
 
++ (ClonePlayer *)samplePlayer {
+    return [[[ClonePlayer alloc] initWithLocation:CGPointMake(384, 500)] autorelease];
+}
+
 - (id)initWithLocation:(CGPoint)location {
     self = [super init];
     if (self) {
