@@ -20,8 +20,7 @@ describe(@"Bullet", ^{
     it(@"should move on tick", ^{
         CGPoint oldLocation = b.l;
         [b tick]; 
-        
-         
+        [[theValue(b.l) shouldNot] equal:theValue(oldLocation)];
     });
     
 });
