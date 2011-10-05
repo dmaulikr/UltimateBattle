@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8D3E721F143BE6FE00D59706 /* Turn.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D3E721E143BE6FE00D59706 /* Turn.m */; };
+		8D3E7220143BE6FE00D59706 /* Turn.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D3E721E143BE6FE00D59706 /* Turn.m */; };
 		8D6EA3411438DDB9002BD85E /* BulletTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6EA3401438DDB9002BD85E /* BulletTest.m */; };
 		8D6EA3451438DDFB002BD85E /* Bullet.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6EA3441438DDFB002BD85E /* Bullet.m */; };
 		8D6EA3461438DDFB002BD85E /* Bullet.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6EA3441438DDFB002BD85E /* Bullet.m */; };
@@ -118,6 +120,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8D3E721D143BE6FE00D59706 /* Turn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Turn.h; sourceTree = "<group>"; };
+		8D3E721E143BE6FE00D59706 /* Turn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Turn.m; sourceTree = "<group>"; };
 		8D6EA3401438DDB9002BD85E /* BulletTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BulletTest.m; sourceTree = "<group>"; };
 		8D6EA3431438DDFB002BD85E /* Bullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bullet.h; sourceTree = "<group>"; };
 		8D6EA3441438DDFB002BD85E /* Bullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bullet.m; sourceTree = "<group>"; };
@@ -330,6 +334,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8D3E721B143BE6ED00D59706 /* Turns */ = {
+			isa = PBXGroup;
+			children = (
+				8D3E721D143BE6FE00D59706 /* Turn.h */,
+				8D3E721E143BE6FE00D59706 /* Turn.m */,
+			);
+			name = Turns;
+			sourceTree = "<group>";
+		};
 		8D6EA3391438DCB7002BD85E /* Bullet Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -419,6 +432,7 @@
 		8DC7F8981438D8870016D718 /* Clone Pilot */ = {
 			isa = PBXGroup;
 			children = (
+				8D3E721B143BE6ED00D59706 /* Turns */,
 				8D6EA3421438DDEA002BD85E /* Bullets */,
 				8DC7F9A91438D9F70016D718 /* Battlefields */,
 				8DC7F8A11438D8870016D718 /* Clone_PilotAppDelegate.h */,
@@ -759,6 +773,7 @@
 				8DABC645143901E9009020E0 /* ClonePilotBattlefield.m in Sources */,
 				8DABC64914390226009020E0 /* ClonePlayer.m in Sources */,
 				8DABC64D1439054D009020E0 /* VRGameObject.m in Sources */,
+				8D3E721F143BE6FE00D59706 /* Turn.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -844,6 +859,7 @@
 				8DABC64A14390226009020E0 /* ClonePlayer.m in Sources */,
 				8DABC64E1439054D009020E0 /* VRGameObject.m in Sources */,
 				8DABC6521439076D009020E0 /* ClonePlayerTest.m in Sources */,
+				8D3E7220143BE6FE00D59706 /* Turn.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

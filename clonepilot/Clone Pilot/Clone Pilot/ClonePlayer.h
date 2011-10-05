@@ -8,10 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "VRGameObject.h"
+#import "Turn.h"
 
 @interface ClonePlayer : NSObject <VRGameObject> {
     
 }
+
+@property (nonatomic, retain) NSMutableArray *currentMoves;
 
 - (id)initWithLocation:(CGPoint)location;
 
