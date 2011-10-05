@@ -7,3 +7,33 @@ CGPoint MultipliedPoint(CGPoint p, float modifier) {
     CGPoint multipliedPoint = CGPointMake(p.x * modifier, p.y * modifier);
     return multipliedPoint;
 }
+
+float GetDistance(CGPoint a, CGPoint b) {
+    float x = ((a.x - b.x) * (a.x - b.x));
+	float y = ((a.y - b.y) * (a.y - b.y));
+	if (x + y == 0){
+        x= 1;
+		y = 3;
+	}
+	float veldistance = sqrt((x+y));
+    return veldistance;
+}
+
+CGPoint GetAngle(CGPoint a ,CGPoint b){
+
+	float veldistance = GetDistance(a, b);
+    
+	float distvar = ((fabsf(a.x-b.x))/veldistance);
+	float distvar2 = ((fabsf(a.y-b.y))/veldistance);
+	
+	if (b.x < b.x){
+		distvar = -distvar;
+	}
+	if (b.y < a.y){
+		distvar2 = -distvar2;
+	}
+	
+	CGPoint finalVel = CGPointMake(distvar,distvar2);
+	
+	return finalVel;
+}

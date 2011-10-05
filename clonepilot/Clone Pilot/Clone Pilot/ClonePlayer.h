@@ -17,4 +17,6 @@
 
 + (ClonePlayer *)samplePlayer;
 
+- (void)tick;
+
 @end

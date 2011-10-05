@@ -5,10 +5,6 @@
 
 @property (nonatomic, assign) CGPoint l;
 @property (nonatomic, assign) CGPoint vel;
+@property (nonatomic, assign) CGPoint t;
 
 @end
-
-
-//NSObject(VRGameObject)
-
-
