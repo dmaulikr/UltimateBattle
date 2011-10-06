@@ -12,4 +12,8 @@
 @implementation Turn
 @synthesize vel;
 
+- (NSString *)description {
+    return [NSString stringWithFormat:@"vel:%.5f%.5f",vel.x,vel.y];
+}
+
 @end

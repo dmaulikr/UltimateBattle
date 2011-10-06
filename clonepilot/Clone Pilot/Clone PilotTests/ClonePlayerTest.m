@@ -20,16 +20,28 @@ describe(@"Clone Player", ^{
     
     it(@"should record movements", ^{
         p.t = CGPointMake(300, 300);
-        CGPoint velAngle = GetAngle(p.l, p.t);
-        [p tick];
-        Turn *t = [[[Turn alloc] init] autorelease];
-        t.vel = velAngle;
-        NSArray *moveArray = [NSArray arrayWithObject:t];
-        NSLog(@"moveArray: %@", moveArray);
-        NSLog(@"p.currentMoves: %@",p.currentMoves);
+        Turn *turn1 = [[[Turn alloc] init] autorelease];
+        turn1.vel = GetAngle(p.l, p.t);;
+        [p tick];        
         
-        Turn *firstSavedTurn = [p.currentMoves objectAtIndex:0];
-        [[theValue(t.vel) should] equal:theValue(firstSavedTurn.vel)];
+        Turn *turn2 = [[[Turn alloc] init] autorelease];
+        turn2.vel = GetAngle(p.l, p.t);
+        [p tick];        
+        
+        NSArray *moveArray = [NSArray arrayWithObjects:turn1, turn2, nil];
+        
+        BOOL result = YES;
+        
+        for (int i = 0; i < [moveArray count]; i++) {
+            Turn *t1 = [moveArray objectAtIndex:i];
+            Turn *t2 = [p.currentMoves objectAtIndex:i];
+            
+            if (![[t1 description] isEqualToString:[t2 description]]) {
+                result = NO;
+            }
+        }
+        
+        [[theValue(result) should] beTrue];
     });
 });
 
