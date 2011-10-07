@@ -14,5 +14,6 @@
 }
 
 @property (nonatomic, assign) CGPoint vel;
+@property (nonatomic, assign) BOOL firing;
 
 @end

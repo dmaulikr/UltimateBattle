@@ -2,7 +2,7 @@
 #import "BulletHellBattlefield.h"
 #import "ClonePlayer.h"
 
-@interface ClonePilotBattlefield : BulletHellBattlefield {
+@interface ClonePilotBattlefield : BulletHellBattlefield <BulletDelegate> {
     
 }
 

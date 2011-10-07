@@ -17,6 +17,15 @@ describe(@"Clone Pilot Battlefield", ^{
         });
     });
     
+    context(@"Player shooting bullets", ^ {
+        it(@"should shoot get a bullet from the player", ^ {
+            [[f player] fire];
+            [[f player] tick];
+            [[theValue([[f bullets] count]) should] equal:theValue(1)];
+        });
+        
+    });
+    
 });
 
 SPEC_END

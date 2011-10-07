@@ -12,8 +12,7 @@ float GetDistance(CGPoint a, CGPoint b) {
     float x = ((a.x - b.x) * (a.x - b.x));
 	float y = ((a.y - b.y) * (a.y - b.y));
 	if (x + y == 0){
-        x= 1;
-		y = 3;
+        return 0;
 	}
 	float veldistance = sqrt((x+y));
     return veldistance;

@@ -11,9 +11,10 @@
 
 @implementation Turn
 @synthesize vel;
+@synthesize firing;
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"vel:%.5f%.5f",vel.x,vel.y];
+    return [NSString stringWithFormat:@"vel:%.5f%.5f firing:%d",vel.x,vel.y,firing];
 }
 
 @end
