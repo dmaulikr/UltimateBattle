@@ -17,14 +17,22 @@
     return self;
 }
 
-- (void)spawnFirstClone {
+- (void)addClone {
     ClonePilot *p = [[ClonePilot alloc] init];
     [self.clones addObject:p];
     [p release];
 }
 
+- (void)activateAllClones {
+    for (ClonePilot *p in self.clones) {
+        p.living = YES;
+    }
+}
+
 - (void)advanceLevel {
     _level++;
+    [self activateAllClones];
+    [self addClone];
 }
 
 - (void)killClone:(ClonePilot *)pilot {
@@ -39,6 +47,7 @@
         for (ClonePilot *p in self.clones) {
             if (GetDistance(b.l, p.l) <= b.radius + p.radius) {
                 [self killClone:p];
+                b.finished = YES;
             }
         }
     }
@@ -77,7 +86,7 @@
 }
 
 - (void)startup {
-    [self spawnFirstClone];
+    [self addClone];
 }
 
 - (void)addBullet:(Bullet *)b {
