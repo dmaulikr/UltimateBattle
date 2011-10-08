@@ -57,11 +57,21 @@ describe(@"Clone Pilot Battlefield", ^{
         it(@"should collide a bullet with a clone pilot and kill the clone", ^{
             [f startup];
             [[f player] fire];
-            NSLog(@"f clones: %@", [f clones]);
             for (int i = 0; i < 424; i++) {
                 [f tick];
             }
             [[theValue([f livingClones]) should] equal:theValue(0)];
+        });
+    });
+    
+    context(@"Leveling", ^{
+        it(@"should increase in level when all clones are dead", ^{
+            [f startup];
+            [[f player] fire];
+            for (int i = 0; i < 424; i++) {
+                [f tick];
+            }
+            [[theValue([f level]) should] equal:theValue(1)];
         });
     });
     

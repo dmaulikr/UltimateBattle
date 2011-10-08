@@ -23,15 +23,37 @@
     [p release];
 }
 
+- (void)advanceLevel {
+    _level++;
+}
+
+- (void)killClone:(ClonePilot *)pilot {
+    pilot.living = NO;
+    if ([self livingClones] == 0) {
+        [self advanceLevel];
+    }
+}
+
 - (void)bulletLoop {
     for (Bullet *b in self.bullets) {
-        [b tick];
         for (ClonePilot *p in self.clones) {
             if (GetDistance(b.l, p.l) <= b.radius + p.radius) {
-                p.living = NO;
+                [self killClone:p];
             }
         }
     }
+    
+      [super bulletLoop];
+}
+
+- (void)cloneLoop {
+    NSMutableArray *finishedClones = [NSMutableArray array];
+    for (ClonePilot *p in self.clones) {
+        if (![p living]) {
+            [finishedClones addObject:p];
+        }
+    }
+    [self.clones removeObjectsInArray:finishedClones];
 }
 
 - (void)playerLoop {
@@ -39,8 +61,9 @@
 }
 
 - (void)tick {
-    [self bulletLoop];
+    [super tick];
     [self playerLoop];
+    [self cloneLoop];
 }
 
 - (NSInteger)livingClones {

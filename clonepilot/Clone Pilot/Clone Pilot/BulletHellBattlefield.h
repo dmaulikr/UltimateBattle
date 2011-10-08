@@ -10,12 +10,15 @@
 #import "Bullet.h"
 
 @interface BulletHellBattlefield : NSObject {
-    
+    NSInteger _level;
 }
 
 @property (nonatomic, retain) NSMutableArray *bullets;
 
+- (NSInteger)level;
 - (void)tick;
 - (void)addBullet:(Bullet *)b;
+
+- (void)bulletLoop;
 
 @end

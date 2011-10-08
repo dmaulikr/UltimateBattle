@@ -16,12 +16,13 @@
     self = [super init];
     if (self) {
         self.bullets = [NSMutableArray array];
+        _level = 0;
     }
     
     return self;
 }
 
-- (void)tick {
+- (void)bulletLoop {
     NSMutableArray *removableBullets = [NSMutableArray array];
     for (Bullet *b in self.bullets) {
         [b tick];
@@ -33,8 +34,16 @@
     [self.bullets removeObjectsInArray:removableBullets];
 }
 
+- (void)tick {
+    [self bulletLoop];
+}
+
 - (void)addBullet:(Bullet *)b {
     [self.bullets addObject:b];
+}
+
+- (NSInteger)level {
+    return _level;
 }
 
 - (void)dealloc {
