@@ -10,9 +10,7 @@
 #import "VRGeometry.h"
 
 @implementation ClonePlayer
-@synthesize l;
-@synthesize vel;
-@synthesize t;
+@synthesize l, vel, t, radius;
 @synthesize currentMoves;
 @synthesize bulletDelegate;
 

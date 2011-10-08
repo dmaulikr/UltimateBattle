@@ -1,5 +1,6 @@
 #import "ClonePilotBattlefield.h"
 #import "ClonePilot.h"
+#import "VRGeometry.h"
 
 @implementation ClonePilotBattlefield
 
@@ -25,6 +26,11 @@
 - (void)bulletLoop {
     for (Bullet *b in self.bullets) {
         [b tick];
+        for (ClonePilot *p in self.clones) {
+            if (GetDistance(b.l, p.l) <= b.radius + p.radius) {
+                p.living = NO;
+            }
+        }
     }
 }
 
@@ -35,6 +41,16 @@
 - (void)tick {
     [self bulletLoop];
     [self playerLoop];
+}
+
+- (NSInteger)livingClones {
+    NSInteger living = 0;
+    for (ClonePilot *p in self.clones) {
+        if ([p living]) {
+            living++;
+        }
+    }
+    return living;
 }
 
 - (void)startup {

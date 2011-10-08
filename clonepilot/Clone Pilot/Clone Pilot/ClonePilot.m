@@ -10,14 +10,17 @@
 
 
 @implementation ClonePilot
-@synthesize l, vel, t;
+@synthesize l, vel, t, radius;
 @synthesize moves;
+@synthesize living;
 
 - (id)init {
     self = [super init];
     if (self) {
         self.l = CGPointMake(384, 300);
         self.moves = [NSMutableArray array];
+        self.living = YES;
+        self.radius = 15;
     }
     
     return self;

@@ -10,5 +10,6 @@
 @property (nonatomic, retain) NSMutableArray *clones;
 
 - (void)startup;
+- (NSInteger)livingClones;
 
 @end

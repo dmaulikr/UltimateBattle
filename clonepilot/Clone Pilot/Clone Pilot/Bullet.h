@@ -16,6 +16,7 @@
 @property (nonatomic, assign) CGPoint vel;
 @property (nonatomic, assign) CGPoint l;
 @property (nonatomic, assign) BOOL finished;
+@property (nonatomic, assign) double radius;
 
 - (id)initWithLocation:(CGPoint)location velocity:(CGPoint)velocity;
 

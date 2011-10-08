@@ -14,6 +14,7 @@
 @synthesize vel;
 @synthesize l;
 @synthesize finished;
+@synthesize radius;
 
 + (Bullet *)sampleBullet {
     return [[[Bullet alloc] initWithLocation:CGPointMake(100,100) velocity:CGPointMake(0,-3)] autorelease];
@@ -24,6 +25,7 @@
     if (self) {
         self.l = location;
         self.vel = velocity;
+        self.radius = 15;
     
     }
     

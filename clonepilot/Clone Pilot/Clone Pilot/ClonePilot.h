@@ -14,5 +14,6 @@
 }
 
 @property (nonatomic, retain) NSMutableArray *moves;
+@property (nonatomic, assign) BOOL living;
 
 @end

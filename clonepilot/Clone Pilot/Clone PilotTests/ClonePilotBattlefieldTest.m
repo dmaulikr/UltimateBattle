@@ -53,15 +53,17 @@ describe(@"Clone Pilot Battlefield", ^{
         });
     });
     
-//    context(@"Basic combat", ^{
-//        it(@"should collide a bullet with a clone pilot", ^{
-//            [f startup];
-//            [[f player] fire];
-//            for (int i = 0; i < 424; i++) {
-//                [f tick];
-//            }
-//        });
-//    });
+    context(@"Basic combat", ^{
+        it(@"should collide a bullet with a clone pilot and kill the clone", ^{
+            [f startup];
+            [[f player] fire];
+            NSLog(@"f clones: %@", [f clones]);
+            for (int i = 0; i < 424; i++) {
+                [f tick];
+            }
+            [[theValue([f livingClones]) should] equal:theValue(0)];
+        });
+    });
     
 });
 
