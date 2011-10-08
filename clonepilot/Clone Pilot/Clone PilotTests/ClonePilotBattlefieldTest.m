@@ -75,6 +75,15 @@ describe(@"Clone Pilot Battlefield", ^{
         });
     });
     
+    context(@"Copying player moves", ^{
+        it(@"should copy player moves into a new clone", ^{
+            //turns = player.moves
+            //advance level
+            //assert new clone turns = turns
+            [[theValue(0) should] equal:theValue(1)];            
+        });
+    });
+    
 });
 
 SPEC_END
