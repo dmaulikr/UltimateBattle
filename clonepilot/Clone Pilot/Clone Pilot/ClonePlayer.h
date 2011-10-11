@@ -26,12 +26,16 @@
 
 - (id)initWithLocation:(CGPoint)location;
 
-+ (ClonePlayer *)samplePlayer;
-
 - (void)tick;
 
 - (Turn *)currentTurn;
 - (void)fire;
 - (BOOL)isFiring;
+- (void)reset;
+
++ (ClonePlayer *)samplePlayer;
++ (CGPoint)defaultLocation;
+
+
 
 @end

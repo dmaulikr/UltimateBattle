@@ -1,5 +1,4 @@
 #import "ClonePilotBattlefield.h"
-#import "ClonePilot.h"
 #import "VRGeometry.h"
 
 @implementation ClonePilotBattlefield
@@ -10,7 +9,7 @@
 - (id)init {
     self = [super init];
     if (self) {
-        self.player = [[[ClonePlayer alloc] initWithLocation:CGPointMake(384,300)] autorelease];
+        self.player = [[[ClonePlayer alloc] initWithLocation:[ClonePlayer defaultLocation]] autorelease];
         self.player.bulletDelegate = self;
         self.clones = [NSMutableArray array];
     }
@@ -29,10 +28,18 @@
     }
 }
 
+- (void)copyPlayerMovesToNewClone {
+    NSMutableArray *copiedManuevers = [[self.player currentMoves] retain];
+    [self latestClone].moves = copiedManuevers;
+    [copiedManuevers release];
+   // [self.player reset];
+}
+
 - (void)advanceLevel {
     _level++;
     [self activateAllClones];
     [self addClone];
+    [self copyPlayerMovesToNewClone];
 }
 
 - (void)killClone:(ClonePilot *)pilot {
@@ -83,6 +90,10 @@
         }
     }
     return living;
+}
+
+- (ClonePilot *)latestClone {
+    return [self.clones lastObject];
 }
 
 - (void)startup {

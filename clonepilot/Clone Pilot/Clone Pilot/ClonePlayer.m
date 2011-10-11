@@ -18,6 +18,10 @@
     return [[[ClonePlayer alloc] initWithLocation:CGPointMake(384, 724)] autorelease];
 }
 
++ (CGPoint)defaultLocation {
+    return CGPointMake(384,300);
+}
+
 - (id)initWithLocation:(CGPoint)location {
     self = [super init];
     if (self) {
@@ -68,6 +72,12 @@
 
 - (BOOL)isFiring {
     return self.currentTurn.firing;
+}
+
+- (void)reset {
+    [self.currentMoves removeAllObjects];
+    self.vel = CGPointZero;
+    self.l = [ClonePlayer defaultLocation];
 }
 
 - (void)dealloc {

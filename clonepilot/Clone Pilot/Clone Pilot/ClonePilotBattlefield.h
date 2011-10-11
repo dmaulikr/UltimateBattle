@@ -1,6 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "BulletHellBattlefield.h"
 #import "ClonePlayer.h"
+#import "ClonePilot.h"
 
 @interface ClonePilotBattlefield : BulletHellBattlefield <BulletDelegate> {
     
@@ -11,5 +12,9 @@
 
 - (void)startup;
 - (NSInteger)livingClones;
+
+- (ClonePilot *)latestClone;
+
+- (void)advanceLevel;
 
 @end

@@ -77,10 +77,27 @@ describe(@"Clone Pilot Battlefield", ^{
     
     context(@"Copying player moves", ^{
         it(@"should copy player moves into a new clone", ^{
+            [f startup];
+            [f player].t = CGPointMake(250,630);
+            [f tick];
+            [f tick];
+            NSMutableArray *turns = [[f player] currentMoves];
+            [f advanceLevel];
+            ClonePilot *nc = [f latestClone];
+            NSString *newCloneMoves = [[nc moves] description];
+            NSString *oldTurns      = [turns description];
+            NSLog(@"old turns: %@",oldTurns);
+            NSLog(@"new moves: %@",newCloneMoves);
+            
+            BOOL result = [oldTurns isEqualToString:newCloneMoves];
+            
+            [[theValue(result) should] beTrue];
+            
+            
             //turns = player.moves
             //advance level
             //assert new clone turns = turns
-            [[theValue(0) should] equal:theValue(1)];            
+           // [[theValue(0) should] equal:theValue(1)];            
         });
     });
     
