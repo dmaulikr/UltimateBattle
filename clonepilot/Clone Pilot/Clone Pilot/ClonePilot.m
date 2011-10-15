@@ -14,6 +14,10 @@
 @synthesize moves;
 @synthesize living;
 
+- (NSString *)description {
+    return [NSString stringWithFormat:@"x:%f y:%f vx:%f vy:%f",self.l.x, self.l.y, self.vel.x, self.vel.y];
+}
+
 + (CGPoint)defaultLocation {
     return CGPointMake(384, 300);
 }

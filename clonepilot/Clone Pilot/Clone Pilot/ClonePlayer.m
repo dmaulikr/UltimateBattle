@@ -15,18 +15,22 @@
 @synthesize bulletDelegate;
 
 + (ClonePlayer *)samplePlayer {
-    return [[[ClonePlayer alloc] initWithLocation:CGPointMake(384, 724)] autorelease];
+    return [[[ClonePlayer alloc] init] autorelease];
 }
 
 + (CGPoint)defaultLocation {
     return CGPointMake(384,724);
 }
 
+- (NSString *)description {
+    return [NSString stringWithFormat:@"x:%f y:%f vx:%f vy:%f",self.l.x, self.l.y, self.vel.x, self.vel.y];
+}
+
 - (id)init {
     self = [super init];
     if (self) {
         self.l = [ClonePlayer defaultLocation];
-        self.t = CGPointZero;
+        self.t = self.l;
         self.currentMoves = [NSMutableArray array];
     }
     return self;
@@ -48,7 +52,7 @@
 }
 
 - (void)tick {
-    if ([self hasTurn]) {
+    if ([self isFiring]) {
        Bullet *b = [self newBullet];
        [self.bulletDelegate addBullet:b];
     }

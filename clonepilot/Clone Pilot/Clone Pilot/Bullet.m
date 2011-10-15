@@ -20,6 +20,10 @@
     return [[[Bullet alloc] initWithLocation:CGPointMake(100,100) velocity:CGPointMake(0,-3)] autorelease];
 }
 
+- (NSString *)description {
+    return [NSString stringWithFormat:@"x:%f y:%f vx:%f vy:%f",self.l.x, self.l.y, self.vel.x, self.vel.y];
+}
+
 - (id)initWithLocation:(CGPoint)location velocity:(CGPoint)velocity {
     self = [super init];
     if (self) {
@@ -34,7 +38,7 @@
 
 - (void)updateLocation {
     self.l = CombinedPoint(self.l, self.vel);
-    if (CGRectContainsPoint([self boundaryFrame], self.l)) {
+    if (!CGRectContainsPoint([self boundaryFrame], self.l)) {
         self.finished = YES;
     }
 }

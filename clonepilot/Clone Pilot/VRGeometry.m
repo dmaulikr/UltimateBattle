@@ -22,6 +22,10 @@ CGPoint GetAngle(CGPoint a ,CGPoint b){
 
 	float veldistance = GetDistance(a, b);
     
+    if (veldistance == 0) {
+        return CGPointMake(0, 0);
+    }
+    
 	float distvar = ((fabsf(a.x-b.x))/veldistance);
 	float distvar2 = ((fabsf(a.y-b.y))/veldistance);
 	

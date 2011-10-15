@@ -8,40 +8,26 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "Clone PilotTests/ClonePilotBattlefieldTest.m"
-         timestampString = "340348024.126427"
+         filePath = "Clone Pilot/ClonePilotBattlefield.m"
+         timestampString = "340355908.061115"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "107"
-         endingLineNumber = "107"
-         landmarkName = "describe()"
-         landmarkType = "6">
+         startingLineNumber = "55"
+         endingLineNumber = "55"
+         landmarkName = "-bulletLoop"
+         landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "Clone PilotTests/ClonePilotBattlefieldTest.m"
-         timestampString = "340348051.122956"
+         filePath = "Clone PilotTests/ClonePlayerTest.m"
+         timestampString = "340356797.004339"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "65"
-         endingLineNumber = "65"
-         landmarkName = "describe()"
-         landmarkType = "6">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "Clone PilotTests/ClonePilotBattlefieldTest.m"
-         timestampString = "340348151.924784"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "59"
-         endingLineNumber = "59"
+         startingLineNumber = "36"
+         endingLineNumber = "36"
          landmarkName = "describe()"
          landmarkType = "6">
       </FileBreakpoint>

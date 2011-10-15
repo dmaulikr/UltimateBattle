@@ -56,9 +56,9 @@ describe(@"Clone Pilot Battlefield", ^{
     context(@"Leveling", ^{
         it(@"should increase in level when all clones are dead", ^{
             [f startup];
+            [f player].t = [f player].l;
             [[f player] fire];
-            for (int i = 0; i < 800; i++) {
-//            while ([f livingClones] == 1) {
+            while ([f livingClones] == 1) {
                 [f tick];
             }
             
