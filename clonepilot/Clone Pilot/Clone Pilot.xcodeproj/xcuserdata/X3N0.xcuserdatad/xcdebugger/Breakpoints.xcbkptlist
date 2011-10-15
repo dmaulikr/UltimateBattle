@@ -17,19 +17,5 @@
          landmarkName = "-bulletLoop"
          landmarkType = "5">
       </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "Clone PilotTests/ClonePlayerTest.m"
-         timestampString = "340356797.004339"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "36"
-         endingLineNumber = "36"
-         landmarkName = "describe()"
-         landmarkType = "6">
-      </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>

@@ -20,6 +20,10 @@ describe(@"Clone Player", ^{
     
     it(@"should record movements", ^{
         p.t = CGPointMake(300, 300);
+        
+        Turn *emptyTurn = [[[Turn alloc] init] autorelease];
+        emptyTurn.vel = CGPointZero;
+        
         Turn *turn1 = [[[Turn alloc] init] autorelease];
         turn1.vel = GetAngle(p.l, p.t);;
         [p tick];        
@@ -28,7 +32,7 @@ describe(@"Clone Player", ^{
         turn2.vel = GetAngle(p.l, p.t);
         [p tick];        
         
-        NSArray *moveArray = [NSArray arrayWithObjects:turn1, turn2, nil];
+        NSArray *moveArray = [NSArray arrayWithObjects:emptyTurn, turn1, turn2, nil];
         
         BOOL result = YES;
         
@@ -46,6 +50,10 @@ describe(@"Clone Player", ^{
     
     it(@"should record stationary turns", ^{
         p.t = CGPointMake(300, 300);
+        
+        Turn *emptyTurn = [[[Turn alloc] init] autorelease];
+        emptyTurn.vel = CGPointZero;
+        
         Turn *turn1 = [[[Turn alloc] init] autorelease];
         turn1.vel = GetAngle(p.l, p.t);;
         [p tick];
@@ -55,7 +63,7 @@ describe(@"Clone Player", ^{
         turn2.vel = GetAngle(p.l, p.t);
         [p tick];
         
-        NSArray *moveArray = [NSArray arrayWithObjects:turn1, turn2, nil];
+        NSArray *moveArray = [NSArray arrayWithObjects:emptyTurn, turn1, turn2, nil];
         
         BOOL result = YES;
         

@@ -14,6 +14,8 @@
 @synthesize currentMoves;
 @synthesize bulletDelegate;
 
+
+
 + (ClonePlayer *)samplePlayer {
     return [[[ClonePlayer alloc] init] autorelease];
 }
@@ -26,20 +28,21 @@
     return [NSString stringWithFormat:@"x:%f y:%f vx:%f vy:%f",self.l.x, self.l.y, self.vel.x, self.vel.y];
 }
 
+- (void)generateTurn {
+    Turn *turn = [[Turn alloc] init];
+    [self.currentMoves addObject:turn];    
+    [turn release];
+}
+
 - (id)init {
     self = [super init];
     if (self) {
         self.l = [ClonePlayer defaultLocation];
         self.t = self.l;
         self.currentMoves = [NSMutableArray array];
+        [self generateTurn];
     }
     return self;
-}
-
-- (void)generateTurn {
-    Turn *turn = [[Turn alloc] init];
-    [self.currentMoves addObject:turn];    
-    [turn release];
 }
 
 - (Bullet *)newBullet {
@@ -49,6 +52,15 @@
 
 - (BOOL)hasTurn {
     return [[self currentMoves] count] > 0;
+}
+
+- (void)fireBullet {
+    Bullet *b = [self newBullet];
+    [self.bulletDelegate addBullet:b];
+}
+
+- (BOOL)firstTurn {
+    return [[self currentMoves] count] == 1;
 }
 
 - (void)tick {
@@ -75,7 +87,11 @@
 }
 
 - (BOOL)isFiring {
-    return self.currentTurn.firing;
+    if ([self hasTurn]) {
+        return self.currentTurn.firing;
+    }
+    
+    return NO;
 }
 
 - (void)reset {
