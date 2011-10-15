@@ -24,6 +24,12 @@
 		8DABC64D1439054D009020E0 /* VRGameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DABC64C1439054D009020E0 /* VRGameObject.m */; };
 		8DABC64E1439054D009020E0 /* VRGameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DABC64C1439054D009020E0 /* VRGameObject.m */; };
 		8DABC6521439076D009020E0 /* ClonePlayerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DABC6511439076D009020E0 /* ClonePlayerTest.m */; };
+		8DB98BA2144A10E20089B94C /* SingleLaser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DB98BA1144A10E20089B94C /* SingleLaser.m */; };
+		8DB98BA3144A10E20089B94C /* SingleLaser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DB98BA1144A10E20089B94C /* SingleLaser.m */; };
+		8DB98BA6144A11530089B94C /* Weapon.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DB98BA5144A11530089B94C /* Weapon.m */; };
+		8DB98BA7144A11530089B94C /* Weapon.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DB98BA5144A11530089B94C /* Weapon.m */; };
+		8DB98BAC144A1B530089B94C /* WeaponTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DB98BAA144A1B530089B94C /* WeaponTest.m */; };
+		8DB98BB1144A1F150089B94C /* SingleLaserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DB98BB0144A1F150089B94C /* SingleLaserTest.m */; };
 		8DBD92E3145A44BD00349A7D /* ClonePilot.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBD92E2145A44BD00349A7D /* ClonePilot.m */; };
 		8DBD92E4145A44BD00349A7D /* ClonePilot.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBD92E2145A44BD00349A7D /* ClonePilot.m */; };
 		8DC7F8931438D8870016D718 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC7F8921438D8870016D718 /* UIKit.framework */; };
@@ -139,6 +145,12 @@
 		8DABC64B1439054D009020E0 /* VRGameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VRGameObject.h; sourceTree = "<group>"; };
 		8DABC64C1439054D009020E0 /* VRGameObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VRGameObject.m; sourceTree = "<group>"; };
 		8DABC6511439076D009020E0 /* ClonePlayerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClonePlayerTest.m; sourceTree = "<group>"; };
+		8DB98BA0144A10E20089B94C /* SingleLaser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleLaser.h; sourceTree = "<group>"; };
+		8DB98BA1144A10E20089B94C /* SingleLaser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleLaser.m; sourceTree = "<group>"; };
+		8DB98BA4144A11530089B94C /* Weapon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Weapon.h; sourceTree = "<group>"; };
+		8DB98BA5144A11530089B94C /* Weapon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Weapon.m; sourceTree = "<group>"; };
+		8DB98BAA144A1B530089B94C /* WeaponTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeaponTest.m; sourceTree = "<group>"; };
+		8DB98BB0144A1F150089B94C /* SingleLaserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleLaserTest.m; sourceTree = "<group>"; };
 		8DBD92E1145A44BD00349A7D /* ClonePilot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClonePilot.h; sourceTree = "<group>"; };
 		8DBD92E2145A44BD00349A7D /* ClonePilot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClonePilot.m; sourceTree = "<group>"; };
 		8DC7F88E1438D8870016D718 /* Clone Pilot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Clone Pilot.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -401,6 +413,26 @@
 			name = "Clone Tests";
 			sourceTree = "<group>";
 		};
+		8DB98B9E144A10C70089B94C /* Weapons */ = {
+			isa = PBXGroup;
+			children = (
+				8DB98BA0144A10E20089B94C /* SingleLaser.h */,
+				8DB98BA1144A10E20089B94C /* SingleLaser.m */,
+				8DB98BA4144A11530089B94C /* Weapon.h */,
+				8DB98BA5144A11530089B94C /* Weapon.m */,
+			);
+			name = Weapons;
+			sourceTree = "<group>";
+		};
+		8DB98BA8144A12A80089B94C /* Weapon Tests */ = {
+			isa = PBXGroup;
+			children = (
+				8DB98BAA144A1B530089B94C /* WeaponTest.m */,
+				8DB98BB0144A1F150089B94C /* SingleLaserTest.m */,
+			);
+			name = "Weapon Tests";
+			sourceTree = "<group>";
+		};
 		8DBD92DF145A448B00349A7D /* Ships */ = {
 			isa = PBXGroup;
 			children = (
@@ -445,6 +477,7 @@
 		8DC7F8981438D8870016D718 /* Clone Pilot */ = {
 			isa = PBXGroup;
 			children = (
+				8DB98B9E144A10C70089B94C /* Weapons */,
 				8DBD92DF145A448B00349A7D /* Ships */,
 				8D3E721B143BE6ED00D59706 /* Turns */,
 				8D6EA3421438DDEA002BD85E /* Bullets */,
@@ -474,6 +507,7 @@
 		8DC7F8B81438D8870016D718 /* Clone PilotTests */ = {
 			isa = PBXGroup;
 			children = (
+				8DB98BA8144A12A80089B94C /* Weapon Tests */,
 				8DABC64F1439075D009020E0 /* Clone Tests */,
 				8D6EA3391438DCB7002BD85E /* Bullet Tests */,
 				8DC7F9A51438D8FB0016D718 /* Battlefield Tests */,
@@ -789,6 +823,8 @@
 				8DABC64D1439054D009020E0 /* VRGameObject.m in Sources */,
 				8D3E721F143BE6FE00D59706 /* Turn.m in Sources */,
 				8DBD92E3145A44BD00349A7D /* ClonePilot.m in Sources */,
+				8DB98BA2144A10E20089B94C /* SingleLaser.m in Sources */,
+				8DB98BA6144A11530089B94C /* Weapon.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -876,6 +912,10 @@
 				8DABC6521439076D009020E0 /* ClonePlayerTest.m in Sources */,
 				8D3E7220143BE6FE00D59706 /* Turn.m in Sources */,
 				8DBD92E4145A44BD00349A7D /* ClonePilot.m in Sources */,
+				8DB98BA3144A10E20089B94C /* SingleLaser.m in Sources */,
+				8DB98BA7144A11530089B94C /* Weapon.m in Sources */,
+				8DB98BAC144A1B530089B94C /* WeaponTest.m in Sources */,
+				8DB98BB1144A1F150089B94C /* SingleLaserTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

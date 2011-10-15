@@ -10,6 +10,7 @@
 #import "VRGameObject.h"
 #import "Turn.h"
 #import "Bullet.h"
+#import "Weapon.h"
 
 @protocol BulletDelegate <NSObject>
 
@@ -23,6 +24,7 @@
 
 @property (nonatomic, retain) NSMutableArray *currentMoves;
 @property (nonatomic, assign) id <BulletDelegate> bulletDelegate;
+@property (nonatomic, retain) Weapon *weapon;
 
 - (void)tick;
 

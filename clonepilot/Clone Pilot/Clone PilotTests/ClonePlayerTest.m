@@ -1,6 +1,7 @@
 #import "Kiwi.h"
 #import "ClonePlayer.h"
 #import "VRGeometry.h"
+#import "SingleLaser.h"
 
 SPEC_BEGIN(ClonePlayerTest)
 
@@ -88,6 +89,11 @@ describe(@"Clone Player", ^{
         [p fire];
         [p tick];
         [[theValue([p isFiring]) should] beFalse];  
+    });
+    
+    it(@"should start with a default weapon", ^{
+        BOOL result = [[[p weapon] description] isEqualToString:@"SingleLaser"];
+        [[theValue(result) should] beTrue];
     });
     
     

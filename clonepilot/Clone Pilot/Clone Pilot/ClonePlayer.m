@@ -8,12 +8,13 @@
 
 #import "ClonePlayer.h"
 #import "VRGeometry.h"
+#import "SingleLaser.h"
 
 @implementation ClonePlayer
 @synthesize l, vel, t, radius;
 @synthesize currentMoves;
 @synthesize bulletDelegate;
-
+@synthesize weapon;
 
 
 + (ClonePlayer *)samplePlayer {
@@ -34,6 +35,12 @@
     [turn release];
 }
 
+- (void)assignDefaultWeapon {
+    SingleLaser *w = [[SingleLaser alloc] init];
+    self.weapon = w;
+    [w release];
+}
+
 - (id)init {
     self = [super init];
     if (self) {
@@ -41,6 +48,7 @@
         self.t = self.l;
         self.currentMoves = [NSMutableArray array];
         [self generateTurn];
+        [self assignDefaultWeapon];
     }
     return self;
 }
@@ -103,6 +111,7 @@
 - (void)dealloc {
     self.bulletDelegate = nil;
     [currentMoves release];
+    [weapon release];
     [super dealloc];
 }
 
