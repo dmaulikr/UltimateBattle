@@ -14,10 +14,14 @@
 @synthesize moves;
 @synthesize living;
 
++ (CGPoint)defaultLocation {
+    return CGPointMake(384, 300);
+}
+
 - (id)init {
     self = [super init];
     if (self) {
-        self.l = CGPointMake(384, 300);
+        self.l = [ClonePilot defaultLocation];
         self.moves = [NSMutableArray array];
         self.living = YES;
         self.radius = 15;

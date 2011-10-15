@@ -24,8 +24,6 @@
 @property (nonatomic, retain) NSMutableArray *currentMoves;
 @property (nonatomic, assign) id <BulletDelegate> bulletDelegate;
 
-- (id)initWithLocation:(CGPoint)location;
-
 - (void)tick;
 
 - (Turn *)currentTurn;
@@ -35,7 +33,5 @@
 
 + (ClonePlayer *)samplePlayer;
 + (CGPoint)defaultLocation;
-
-
 
 @end

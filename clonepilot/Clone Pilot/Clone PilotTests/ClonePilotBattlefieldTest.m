@@ -57,7 +57,8 @@ describe(@"Clone Pilot Battlefield", ^{
         it(@"should increase in level when all clones are dead", ^{
             [f startup];
             [[f player] fire];
-            while ([f livingClones] == 1) {
+            for (int i = 0; i < 800; i++) {
+//            while ([f livingClones] == 1) {
                 [f tick];
             }
             
@@ -95,7 +96,17 @@ describe(@"Clone Pilot Battlefield", ^{
             
             [[theValue([[[f player] currentMoves] count]) should] equal:theValue(0)];
             [turns release];
-            
+        });
+        
+        it(@"should reset clones position", ^ {
+            [f startup];
+            [f player].t = CGPointMake(250,630);
+            [f tick];
+            [f tick];
+            [f advanceLevel];
+            for (ClonePilot *p in [f clones]) {
+                [[theValue(p.l) should] equal:theValue([ClonePilot defaultLocation])];
+            }
         });
     });
     

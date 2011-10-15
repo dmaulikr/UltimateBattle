@@ -19,13 +19,13 @@
 }
 
 + (CGPoint)defaultLocation {
-    return CGPointMake(384,300);
+    return CGPointMake(384,724);
 }
 
-- (id)initWithLocation:(CGPoint)location {
+- (id)init {
     self = [super init];
     if (self) {
-        self.l = location;
+        self.l = [ClonePlayer defaultLocation];
         self.t = CGPointZero;
         self.currentMoves = [NSMutableArray array];
     }

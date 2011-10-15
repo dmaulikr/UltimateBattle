@@ -9,7 +9,7 @@
 - (id)init {
     self = [super init];
     if (self) {
-        self.player = [[[ClonePlayer alloc] initWithLocation:[ClonePlayer defaultLocation]] autorelease];
+        self.player = [[[ClonePlayer alloc] init] autorelease];
         self.player.bulletDelegate = self;
         self.clones = [NSMutableArray array];
     }
