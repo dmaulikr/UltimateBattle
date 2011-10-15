@@ -29,10 +29,10 @@
 }
 
 - (void)copyPlayerMovesToNewClone {
-    NSMutableArray *copiedManuevers = [[self.player currentMoves] retain];
+    NSMutableArray *copiedManuevers = [[self.player currentMoves] copy];
     [self latestClone].moves = copiedManuevers;
     [copiedManuevers release];
-   // [self.player reset];
+    [self.player reset];
 }
 
 - (void)advanceLevel {

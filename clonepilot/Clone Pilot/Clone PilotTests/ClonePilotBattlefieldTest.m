@@ -81,7 +81,7 @@ describe(@"Clone Pilot Battlefield", ^{
             [f player].t = CGPointMake(250,630);
             [f tick];
             [f tick];
-            NSMutableArray *turns = [[f player] currentMoves];
+            NSMutableArray *turns = [[[f player] currentMoves] copy];
             [f advanceLevel];
             ClonePilot *nc = [f latestClone];
             NSString *newCloneMoves = [[nc moves] description];
@@ -93,11 +93,9 @@ describe(@"Clone Pilot Battlefield", ^{
             
             [[theValue(result) should] beTrue];
             
+            [[theValue([[[f player] currentMoves] count]) should] equal:theValue(0)];
+            [turns release];
             
-            //turns = player.moves
-            //advance level
-            //assert new clone turns = turns
-           // [[theValue(0) should] equal:theValue(1)];            
         });
     });
     

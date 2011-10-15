@@ -49,8 +49,8 @@
 
 - (void)tick {
     if ([self hasTurn]) {
-        Bullet *b = [self newBullet];
-        [self.bulletDelegate addBullet:b];
+       Bullet *b = [self newBullet];
+       [self.bulletDelegate addBullet:b];
     }
     
     self.vel = GetAngle(self.l, self.t);
