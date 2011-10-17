@@ -9,6 +9,15 @@
 #import "Weapon.h"
 
 @implementation Weapon
+@synthesize speed;
+
+- (id)init {
+    self = [super init];
+    if (self) {
+        self.speed = [[self class] defaultSpeed];
+    }
+    return self;
+}
 
 - (NSArray *)newBullets {
     return [NSArray array];
@@ -16,6 +25,10 @@
 
 - (NSString *)description {
     return NSStringFromClass([self class]);
+}
+
++ (float)defaultSpeed {
+    return 3;
 }
 
 @end

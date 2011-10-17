@@ -20,6 +20,12 @@ describe(@"Single Laser Test", ^ {
         Bullet *b = [bullets lastObject];
         [[theValue(b.vel.x) should] equal:theValue(0)];
     });
+    
+    it(@"should have y velocity equivilant to weapon speed", ^{
+        NSArray *bullets = [w newBulletsForLocation:CGPointMake(384,300) direction:-1];
+        Bullet *b = [bullets lastObject];
+        [[theValue(b.vel.y) should] equal:theValue([w speed] * -1)]; 
+    });
         
 });
 

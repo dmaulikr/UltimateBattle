@@ -12,6 +12,10 @@
     
 }
 
+@property (nonatomic, assign) float speed;
+
 - (NSArray *)newBullets;
+
++ (float)defaultSpeed;
 
 @end
