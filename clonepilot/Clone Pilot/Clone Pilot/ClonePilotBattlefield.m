@@ -8,6 +8,7 @@
 @synthesize player;
 @synthesize clones;
 @synthesize score;
+@synthesize shotsFired;
 
 - (id)init {
     self = [super init];
@@ -56,6 +57,10 @@
     [self addClone];
     [self copyPlayerMovesToNewClone];
     [self copyPlayerWeaponToNewClone];
+}
+
+- (void)fired {
+    self.shotsFired++;
 }
 
 - (void)advanceScoreForKillingClone {

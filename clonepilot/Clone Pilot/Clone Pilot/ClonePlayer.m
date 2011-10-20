@@ -92,6 +92,7 @@
 
 - (void)fire {
     self.currentTurn.firing = YES;
+    [self.bulletDelegate fired];
 }
 
 - (BOOL)isFiring {

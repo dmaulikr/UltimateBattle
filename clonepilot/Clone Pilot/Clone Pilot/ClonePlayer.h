@@ -14,9 +14,11 @@
 
 @protocol BulletDelegate <NSObject>
 
+- (void)fired;
 - (void)addBullet:(Bullet *)b;
 
 @end
+
 
 @interface ClonePlayer : NSObject <VRGameObject> {
     

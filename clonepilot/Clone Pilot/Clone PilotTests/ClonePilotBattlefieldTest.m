@@ -138,6 +138,12 @@ describe(@"Clone Pilot Battlefield", ^{
             }
             [[theValue(f.score) should] beGreaterThan:theValue(0)];
         });
+        
+        it(@"should track shots fired", ^ {
+            [f startup];
+            [[f player] fire];
+            [[theValue(f.shotsFired) should] equal:theValue(1)];
+        });
     });
     
 });
