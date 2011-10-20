@@ -9,6 +9,7 @@
 @synthesize clones;
 @synthesize score;
 @synthesize shotsFired;
+@synthesize hits;
 
 - (id)init {
     self = [super init];
@@ -51,7 +52,20 @@
     [w release];
 }
 
+- (NSInteger)accuracyScoreModifier {
+    return 10;
+}
+
+- (void)addScoreForAccuracy {
+    float fHits = self.hits;
+    float fShotsFired = self.shotsFired;
+    float accuracy = fHits / fShotsFired;
+    self.score += (accuracy * [self accuracyScoreModifier]);
+}
+
 - (void)advanceLevel {
+    [self addScoreForAccuracy];
+    
     _level++;
     [self activateAllClones];
     [self addClone];
@@ -63,8 +77,12 @@
     self.shotsFired++;
 }
 
+- (NSInteger)cloneKillValue {
+    return 1;
+}
+
 - (void)advanceScoreForKillingClone {
-    self.score+= CLONE_KILL_VALUE;
+    self.score+= [self cloneKillValue];
 }
 
 - (void)killClone:(ClonePilot *)pilot {
@@ -80,6 +98,7 @@
         for (ClonePilot *p in self.clones) {
             if (GetDistance(b.l, p.l) <= b.radius + p.radius) {
                 [self killClone:p];
+                self.hits++;
                 b.finished = YES;
             }
         }

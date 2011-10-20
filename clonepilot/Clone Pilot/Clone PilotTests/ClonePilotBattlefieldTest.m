@@ -144,6 +144,30 @@ describe(@"Clone Pilot Battlefield", ^{
             [[f player] fire];
             [[theValue(f.shotsFired) should] equal:theValue(1)];
         });
+        
+        it(@"should track hits", ^ {
+            [f startup];
+            [[theValue(f.hits) should] equal:theValue(0)];
+            
+            [[f player] fire];
+            while ([f livingClones] == 1) {
+                [f tick];
+            }
+           
+            [[theValue(f.hits) should] equal:theValue(1)];
+        });
+        
+        it(@"should score on accuracy", ^{
+            [f startup];
+            [[f player] fire];
+            [[f player] fire];
+            
+            while ([f livingClones] == 1) {
+                [f tick];
+            }
+            
+            [[theValue(f.score) should] equal:theValue(5)];
+        });
     });
     
 });

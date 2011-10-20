@@ -8,26 +8,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "Clone Pilot/ClonePilotBattlefield.m"
-         timestampString = "340844325.685236"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "84"
-         endingLineNumber = "84"
-         landmarkName = "-bulletLoop"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
          filePath = "Clone PilotTests/ClonePilotBattlefieldTest.m"
-         timestampString = "340844164.121654"
+         timestampString = "340845287.356744"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "152"
-         endingLineNumber = "152">
+         startingLineNumber = "176"
+         endingLineNumber = "176">
       </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>
