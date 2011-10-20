@@ -20,10 +20,5 @@
     return [NSArray arrayWithObject:b];
 }
 
-- (id)copyWithZone:(NSZone *)zone {
-    SingleLaser *another = [[SingleLaser alloc] init];
-    another.speed = self.speed;
-    return another;
-}
 
 @end
