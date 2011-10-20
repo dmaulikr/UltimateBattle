@@ -9,11 +9,13 @@
 #import <Foundation/Foundation.h>
 
 
-@interface Turn : NSObject {
+@interface Turn : NSObject <NSCopying> {
     
 }
 
 @property (nonatomic, assign) CGPoint vel;
 @property (nonatomic, assign) BOOL firing;
+
+- (NSString *)mirrorDescription;
 
 @end

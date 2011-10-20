@@ -77,20 +77,30 @@ describe(@"Clone Pilot Battlefield", ^{
     });
     
     context(@"Copying player moves", ^{
-        it(@"should copy player moves into a new clone", ^{
+        it(@"should copy player moves into a new clone with y and x inverted", ^{
             [f startup];
             [f player].t = CGPointMake(250,630);
             [f tick];
             [f tick];
-            NSMutableArray *turns = [[[f player] currentMoves] copy];
+            NSMutableArray *turns = [[NSMutableArray alloc] initWithArray:[[f player] currentMoves] copyItems:YES];
+//            NSMutableArray *turns = [[[f player] currentMoves] copy];
             [f advanceLevel];
             ClonePilot *nc = [f latestClone];
-            NSString *newCloneMoves = [[nc moves] description];
-            NSString *oldTurns      = [turns description];
-            NSLog(@"old turns: %@",oldTurns);
-            NSLog(@"new moves: %@",newCloneMoves);
+            NSString *mirrorDescription = @"";
+            for (Turn *t in turns) {
+                mirrorDescription = [NSString stringWithFormat:@"%@%@",mirrorDescription,[t mirrorDescription]];
+            }
             
-            BOOL result = [oldTurns isEqualToString:newCloneMoves];
+            NSString *cloneDescription = @"";
+            for (Turn *t in [nc moves]) {
+                cloneDescription = [NSString stringWithFormat:@"%@%@",cloneDescription, [t description]];
+            }
+            
+            NSLog(@"old turns: %@", [turns description]);
+            NSLog(@"mirroDescription: %@", mirrorDescription);
+            NSLog(@"new clone moves: %@", cloneDescription);
+            
+            BOOL result = [mirrorDescription isEqualToString:cloneDescription];
             
             [[theValue(result) should] beTrue];
             
@@ -108,6 +118,7 @@ describe(@"Clone Pilot Battlefield", ^{
                 [[theValue(p.l) should] equal:theValue([ClonePilot defaultLocation])];
             }
         });
+    
     });
     
 });

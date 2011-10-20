@@ -9,11 +9,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Clone Pilot/ClonePilotBattlefield.m"
-         timestampString = "340355908.061115"
+         timestampString = "340826234.517355"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "55"
-         endingLineNumber = "55"
+         startingLineNumber = "60"
+         endingLineNumber = "60"
          landmarkName = "-bulletLoop"
          landmarkType = "5">
       </FileBreakpoint>
