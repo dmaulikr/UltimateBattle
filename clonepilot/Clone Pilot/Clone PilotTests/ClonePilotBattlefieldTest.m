@@ -129,7 +129,15 @@ describe(@"Clone Pilot Battlefield", ^{
             BOOL result = [oldWeapon isEqualToString:newWeapon];
             [[theValue(result) should] beTrue];
         });
-    
+        
+        it(@"should score when it kills", ^ {
+            [f startup];
+            [[f player] fire];
+            while ([f livingClones] == 1) {
+                [f tick];
+            }
+            [[theValue(f.score) should] beGreaterThan:theValue(0)];
+        });
     });
     
 });

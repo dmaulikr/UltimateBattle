@@ -1,10 +1,13 @@
 #import "ClonePilotBattlefield.h"
 #import "VRGeometry.h"
 
+#define CLONE_KILL_VALUE 1
+
 @implementation ClonePilotBattlefield
 
 @synthesize player;
 @synthesize clones;
+@synthesize score;
 
 - (id)init {
     self = [super init];
@@ -55,11 +58,16 @@
     [self copyPlayerWeaponToNewClone];
 }
 
+- (void)advanceScoreForKillingClone {
+    self.score+= CLONE_KILL_VALUE;
+}
+
 - (void)killClone:(ClonePilot *)pilot {
     pilot.living = NO;
     if ([self livingClones] == 0) {
         [self advanceLevel];
     }
+    [self advanceScoreForKillingClone];
 }
 
 - (void)bulletLoop {
