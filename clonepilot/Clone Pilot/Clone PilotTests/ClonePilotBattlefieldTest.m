@@ -83,7 +83,6 @@ describe(@"Clone Pilot Battlefield", ^{
             [f tick];
             [f tick];
             NSMutableArray *turns = [[NSMutableArray alloc] initWithArray:[[f player] currentMoves] copyItems:YES];
-//            NSMutableArray *turns = [[[f player] currentMoves] copy];
             [f advanceLevel];
             ClonePilot *nc = [f latestClone];
             NSString *mirrorDescription = @"";
@@ -117,6 +116,18 @@ describe(@"Clone Pilot Battlefield", ^{
             for (ClonePilot *p in [f clones]) {
                 [[theValue(p.l) should] equal:theValue([ClonePilot defaultLocation])];
             }
+        });
+        
+        it(@"should copy weapons", ^ {
+            [f startup];
+            NSString *oldWeapon = [[[f player] weapon] description];
+            [f advanceLevel];
+            ClonePilot *c = [f latestClone];
+            NSString *newWeapon = [[c weapon] description];
+            NSLog(@"oldWeapon: %@", oldWeapon);
+            NSLog(@"newWeapon: %@", newWeapon);
+            BOOL result = [oldWeapon isEqualToString:newWeapon];
+            [[theValue(result) should] beTrue];
         });
     
     });

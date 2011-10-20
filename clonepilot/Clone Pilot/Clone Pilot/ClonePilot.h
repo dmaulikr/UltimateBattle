@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "VRGameObject.h"
+#import "Weapon.h"
 
 @interface ClonePilot : NSObject <VRGameObject> {
     
@@ -15,6 +16,7 @@
 
 @property (nonatomic, retain) NSMutableArray *moves;
 @property (nonatomic, assign) BOOL living;
+@property (nonatomic, retain) Weapon *weapon;
 
 + (CGPoint)defaultLocation;
 

@@ -40,11 +40,19 @@
     [self.player reset];
 }
 
+- (void)copyPlayerWeaponToNewClone {
+    
+    Weapon *w = [self.player.weapon copy];
+    [self latestClone].weapon = w;
+    [w release];
+}
+
 - (void)advanceLevel {
     _level++;
     [self activateAllClones];
     [self addClone];
     [self copyPlayerMovesToNewClone];
+    [self copyPlayerWeaponToNewClone];
 }
 
 - (void)killClone:(ClonePilot *)pilot {
