@@ -13,6 +13,4 @@
     
 }
 
-- (NSArray *)newBulletsForLocation:(CGPoint)location direction:(NSInteger)direction;
-
 @end

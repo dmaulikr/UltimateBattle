@@ -1,5 +1,6 @@
 #import "ClonePilotBattlefield.h"
 #import "VRGeometry.h"
+#import "TriLaser.h"
 
 #define CLONE_KILL_VALUE 1
 
@@ -46,7 +47,6 @@
 }
 
 - (void)copyPlayerWeaponToNewClone {
-    
     Weapon *w = [self.player.weapon copy];
     [self latestClone].weapon = w;
     [w release];
@@ -56,21 +56,26 @@
     return 10;
 }
 
-- (void)addScoreForAccuracy {
-    float fHits = self.hits;
-    float fShotsFired = self.shotsFired;
-    float accuracy = fHits / fShotsFired;
-    self.score += (accuracy * [self accuracyScoreModifier]);
+- (void)assignWeaponToPlayer {
+    switch (self.level) {
+        case 1:
+            self.player.weapon = [[[TriLaser alloc] init] autorelease];
+            break;
+        case 2:
+            break;
+            
+        default:
+            break;
+    }
 }
 
 - (void)advanceLevel {
-    [self addScoreForAccuracy];
-    
     _level++;
     [self activateAllClones];
     [self addClone];
     [self copyPlayerMovesToNewClone];
     [self copyPlayerWeaponToNewClone];
+    [self assignWeaponToPlayer];
 }
 
 - (void)fired {
@@ -87,10 +92,10 @@
 
 - (void)killClone:(ClonePilot *)pilot {
     pilot.living = NO;
+    [self advanceScoreForKillingClone];
     if ([self livingClones] == 0) {
         [self advanceLevel];
     }
-    [self advanceScoreForKillingClone];
 }
 
 - (void)bulletLoop {
@@ -104,7 +109,7 @@
         }
     }
     
-      [super bulletLoop];
+    [super bulletLoop];
 }
 
 - (void)cloneLoop {

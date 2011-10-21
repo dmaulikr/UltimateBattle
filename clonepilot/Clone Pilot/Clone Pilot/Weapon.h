@@ -16,6 +16,8 @@
 
 - (NSArray *)newBullets;
 
+- (NSArray *)newBulletsForLocation:(CGPoint)location direction:(NSInteger)direction;
+
 + (float)defaultSpeed;
 
 @end

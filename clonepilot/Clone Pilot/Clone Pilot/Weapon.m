@@ -23,6 +23,10 @@
     return [NSArray array];
 }
 
+- (NSArray *)newBulletsForLocation:(CGPoint)location direction:(NSInteger)direction {
+    return [NSArray array];
+}
+
 - (NSString *)description {
     return NSStringFromClass([self class]);
 }

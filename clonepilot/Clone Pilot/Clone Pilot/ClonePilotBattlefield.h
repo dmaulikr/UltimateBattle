@@ -9,9 +9,9 @@
 
 @property (nonatomic, retain) ClonePlayer *player;
 @property (nonatomic, retain) NSMutableArray *clones;
-@property (nonatomic, assign) double score;
-@property (nonatomic, assign) NSInteger shotsFired;
-@property (nonatomic, assign) NSInteger hits;
+@property (nonatomic, assign) int score;
+@property (nonatomic, assign) float shotsFired;
+@property (nonatomic, assign) float hits;
 
 - (void)startup;
 - (NSInteger)livingClones;

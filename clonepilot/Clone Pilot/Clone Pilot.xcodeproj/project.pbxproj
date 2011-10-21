@@ -16,6 +16,9 @@
 		8D6EA34C1438F233002BD85E /* VRGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6EA34A1438F233002BD85E /* VRGeometry.m */; };
 		8D6EA3541438F72D002BD85E /* VRBoundaryFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6EA3531438F72D002BD85E /* VRBoundaryFrame.m */; };
 		8D6EA3551438F72D002BD85E /* VRBoundaryFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6EA3531438F72D002BD85E /* VRBoundaryFrame.m */; };
+		8DA3376114522D1C00AA3744 /* TriLaser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA3376014522D1C00AA3744 /* TriLaser.m */; };
+		8DA3376214522D1C00AA3744 /* TriLaser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA3376014522D1C00AA3744 /* TriLaser.m */; };
+		8DA3376614522E5700AA3744 /* TriLaserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA3376414522E5700AA3744 /* TriLaserTest.m */; };
 		8DABC644143901C2009020E0 /* ClonePilotBattlefieldTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DABC643143901C1009020E0 /* ClonePilotBattlefieldTest.m */; };
 		8DABC645143901E9009020E0 /* ClonePilotBattlefield.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DABC63F1438FFBC009020E0 /* ClonePilotBattlefield.m */; };
 		8DABC646143901EA009020E0 /* ClonePilotBattlefield.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DABC63F1438FFBC009020E0 /* ClonePilotBattlefield.m */; };
@@ -137,6 +140,11 @@
 		8D6EA34A1438F233002BD85E /* VRGeometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VRGeometry.m; sourceTree = "<group>"; };
 		8D6EA3521438F72D002BD85E /* VRBoundaryFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VRBoundaryFrame.h; sourceTree = "<group>"; };
 		8D6EA3531438F72D002BD85E /* VRBoundaryFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VRBoundaryFrame.m; sourceTree = "<group>"; };
+		8DA3375E14522A5200AA3744 /* ActionBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionBlock.h; sourceTree = "<group>"; };
+		8DA3375F14522D1C00AA3744 /* TriLaser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriLaser.h; sourceTree = "<group>"; };
+		8DA3376014522D1C00AA3744 /* TriLaser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TriLaser.m; sourceTree = "<group>"; };
+		8DA3376314522E5700AA3744 /* TriLaserTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriLaserTest.h; sourceTree = "<group>"; };
+		8DA3376414522E5700AA3744 /* TriLaserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TriLaserTest.m; sourceTree = "<group>"; };
 		8DABC63E1438FFBC009020E0 /* ClonePilotBattlefield.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClonePilotBattlefield.h; sourceTree = "<group>"; };
 		8DABC63F1438FFBC009020E0 /* ClonePilotBattlefield.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClonePilotBattlefield.m; sourceTree = "<group>"; };
 		8DABC643143901C1009020E0 /* ClonePilotBattlefieldTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClonePilotBattlefieldTest.m; sourceTree = "<group>"; };
@@ -379,6 +387,7 @@
 		8D6EA3471438E0C8002BD85E /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				8DA3375E14522A5200AA3744 /* ActionBlock.h */,
 				8D6EA34D1438F683002BD85E /* Interfaces */,
 				8D6EA3481438E0D7002BD85E /* Maths */,
 			);
@@ -420,6 +429,8 @@
 				8DB98BA1144A10E20089B94C /* SingleLaser.m */,
 				8DB98BA4144A11530089B94C /* Weapon.h */,
 				8DB98BA5144A11530089B94C /* Weapon.m */,
+				8DA3375F14522D1C00AA3744 /* TriLaser.h */,
+				8DA3376014522D1C00AA3744 /* TriLaser.m */,
 			);
 			name = Weapons;
 			sourceTree = "<group>";
@@ -429,6 +440,8 @@
 			children = (
 				8DB98BAA144A1B530089B94C /* WeaponTest.m */,
 				8DB98BB0144A1F150089B94C /* SingleLaserTest.m */,
+				8DA3376314522E5700AA3744 /* TriLaserTest.h */,
+				8DA3376414522E5700AA3744 /* TriLaserTest.m */,
 			);
 			name = "Weapon Tests";
 			sourceTree = "<group>";
@@ -825,6 +838,7 @@
 				8DBD92E3145A44BD00349A7D /* ClonePilot.m in Sources */,
 				8DB98BA2144A10E20089B94C /* SingleLaser.m in Sources */,
 				8DB98BA6144A11530089B94C /* Weapon.m in Sources */,
+				8DA3376114522D1C00AA3744 /* TriLaser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -916,6 +930,8 @@
 				8DB98BA7144A11530089B94C /* Weapon.m in Sources */,
 				8DB98BAC144A1B530089B94C /* WeaponTest.m in Sources */,
 				8DB98BB1144A1F150089B94C /* SingleLaserTest.m in Sources */,
+				8DA3376214522D1C00AA3744 /* TriLaser.m in Sources */,
+				8DA3376614522E5700AA3744 /* TriLaserTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

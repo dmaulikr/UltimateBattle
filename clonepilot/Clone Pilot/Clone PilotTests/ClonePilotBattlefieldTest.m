@@ -2,11 +2,19 @@
 #import "ClonePilotBattlefield.h"
 #import "ClonePlayer.h"
 #import "ClonePilot.h"
+#import "ActionBlock.h"
 
 SPEC_BEGIN(ClonePilotBattlefieldTest)
 
 describe(@"Clone Pilot Battlefield", ^{
     __block ClonePilotBattlefield *f;
+    
+    ActionBlock firstKill = ^{
+        while ([f livingClones] == 1) {
+            [f tick];
+        }
+    };
+    
     
     beforeEach(^{
         f = [[[ClonePilotBattlefield alloc] init] autorelease];
@@ -58,20 +66,14 @@ describe(@"Clone Pilot Battlefield", ^{
             [f startup];
             [f player].t = [f player].l;
             [[f player] fire];
-            while ([f livingClones] == 1) {
-                [f tick];
-            }
-            
+            firstKill();            
             [[theValue([f level]) should] equal:theValue(1)];
         });
         
         it(@"should increase number of clones when advancing level", ^{
             [f startup];
-            
             [[f player] fire];
-            while ([f livingClones] == 1) {
-                [f tick];
-            }
+            firstKill();
             [[theValue([f livingClones]) should] equal:theValue(2)];
         });
     });
@@ -133,9 +135,7 @@ describe(@"Clone Pilot Battlefield", ^{
         it(@"should score when it kills", ^ {
             [f startup];
             [[f player] fire];
-            while ([f livingClones] == 1) {
-                [f tick];
-            }
+            firstKill();
             [[theValue(f.score) should] beGreaterThan:theValue(0)];
         });
         
@@ -150,24 +150,22 @@ describe(@"Clone Pilot Battlefield", ^{
             [[theValue(f.hits) should] equal:theValue(0)];
             
             [[f player] fire];
-            while ([f livingClones] == 1) {
-                [f tick];
-            }
+            
+            firstKill();
            
             [[theValue(f.hits) should] equal:theValue(1)];
         });
         
-        it(@"should score on accuracy", ^{
+        it(@"should change weapons from level to level", ^{
             [f startup];
-            [[f player] fire];
-            [[f player] fire];
-            
-            while ([f livingClones] == 1) {
-                [f tick];
-            }
-            
-            [[theValue(f.score) should] equal:theValue(5)];
+            NSString *firstWeapon = [[[f player] weapon] description];
+            [[f player] fire];            
+            firstKill();
+            NSString *secondWeapon = [[[f player] weapon] description];
+            BOOL result = [firstWeapon isEqualToString:secondWeapon];
+            [[theValue(result) should] equal:theValue(false)];
         });
+        
     });
     
 });
