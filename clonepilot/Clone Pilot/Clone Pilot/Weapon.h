@@ -20,4 +20,5 @@
 
 + (float)defaultSpeed;
 
+
 @end

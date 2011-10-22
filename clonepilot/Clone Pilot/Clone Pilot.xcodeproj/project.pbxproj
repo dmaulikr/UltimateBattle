@@ -22,6 +22,9 @@
 		8DA3376914524BD600AA3744 /* QuadLaser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA3376814524BD600AA3744 /* QuadLaser.m */; };
 		8DA3376A14524BD600AA3744 /* QuadLaser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA3376814524BD600AA3744 /* QuadLaser.m */; };
 		8DA3377214524CBA00AA3744 /* QuadLaserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA3377014524CBA00AA3744 /* QuadLaserTest.m */; };
+		8DA337751452627F00AA3744 /* SplitLaserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA337741452627E00AA3744 /* SplitLaserTest.m */; };
+		8DA337781452637400AA3744 /* SplitLaser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA337771452637300AA3744 /* SplitLaser.m */; };
+		8DA337791452637400AA3744 /* SplitLaser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA337771452637300AA3744 /* SplitLaser.m */; };
 		8DABC644143901C2009020E0 /* ClonePilotBattlefieldTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DABC643143901C1009020E0 /* ClonePilotBattlefieldTest.m */; };
 		8DABC645143901E9009020E0 /* ClonePilotBattlefield.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DABC63F1438FFBC009020E0 /* ClonePilotBattlefield.m */; };
 		8DABC646143901EA009020E0 /* ClonePilotBattlefield.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DABC63F1438FFBC009020E0 /* ClonePilotBattlefield.m */; };
@@ -148,9 +151,13 @@
 		8DA3376014522D1C00AA3744 /* TriLaser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TriLaser.m; sourceTree = "<group>"; };
 		8DA3376314522E5700AA3744 /* TriLaserTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriLaserTest.h; sourceTree = "<group>"; };
 		8DA3376414522E5700AA3744 /* TriLaserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TriLaserTest.m; sourceTree = "<group>"; };
-		8DA3376714524BD600AA3744 /* QuadLaser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuadLaser.h; sourceTree = "<group>"; };
-		8DA3376814524BD600AA3744 /* QuadLaser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuadLaser.m; sourceTree = "<group>"; };
+		8DA3376714524BD600AA3744 /* QuadLaser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QuadLaser.h; path = "Clone PilotTests/QuadLaser.h"; sourceTree = SOURCE_ROOT; };
+		8DA3376814524BD600AA3744 /* QuadLaser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QuadLaser.m; path = "Clone PilotTests/QuadLaser.m"; sourceTree = SOURCE_ROOT; };
 		8DA3377014524CBA00AA3744 /* QuadLaserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuadLaserTest.m; sourceTree = "<group>"; };
+		8DA337731452627E00AA3744 /* SplitLaserTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplitLaserTest.h; sourceTree = "<group>"; };
+		8DA337741452627E00AA3744 /* SplitLaserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplitLaserTest.m; sourceTree = "<group>"; };
+		8DA337761452637300AA3744 /* SplitLaser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplitLaser.h; sourceTree = "<group>"; };
+		8DA337771452637300AA3744 /* SplitLaser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplitLaser.m; sourceTree = "<group>"; };
 		8DABC63E1438FFBC009020E0 /* ClonePilotBattlefield.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClonePilotBattlefield.h; sourceTree = "<group>"; };
 		8DABC63F1438FFBC009020E0 /* ClonePilotBattlefield.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClonePilotBattlefield.m; sourceTree = "<group>"; };
 		8DABC643143901C1009020E0 /* ClonePilotBattlefieldTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClonePilotBattlefieldTest.m; sourceTree = "<group>"; };
@@ -437,6 +444,10 @@
 				8DB98BA5144A11530089B94C /* Weapon.m */,
 				8DA3375F14522D1C00AA3744 /* TriLaser.h */,
 				8DA3376014522D1C00AA3744 /* TriLaser.m */,
+				8DA3376714524BD600AA3744 /* QuadLaser.h */,
+				8DA3376814524BD600AA3744 /* QuadLaser.m */,
+				8DA337761452637300AA3744 /* SplitLaser.h */,
+				8DA337771452637300AA3744 /* SplitLaser.m */,
 			);
 			name = Weapons;
 			sourceTree = "<group>";
@@ -448,9 +459,9 @@
 				8DB98BB0144A1F150089B94C /* SingleLaserTest.m */,
 				8DA3376314522E5700AA3744 /* TriLaserTest.h */,
 				8DA3376414522E5700AA3744 /* TriLaserTest.m */,
-				8DA3376714524BD600AA3744 /* QuadLaser.h */,
-				8DA3376814524BD600AA3744 /* QuadLaser.m */,
 				8DA3377014524CBA00AA3744 /* QuadLaserTest.m */,
+				8DA337731452627E00AA3744 /* SplitLaserTest.h */,
+				8DA337741452627E00AA3744 /* SplitLaserTest.m */,
 			);
 			name = "Weapon Tests";
 			sourceTree = "<group>";
@@ -849,6 +860,7 @@
 				8DB98BA6144A11530089B94C /* Weapon.m in Sources */,
 				8DA3376114522D1C00AA3744 /* TriLaser.m in Sources */,
 				8DA3376914524BD600AA3744 /* QuadLaser.m in Sources */,
+				8DA337781452637400AA3744 /* SplitLaser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -944,6 +956,8 @@
 				8DA3376614522E5700AA3744 /* TriLaserTest.m in Sources */,
 				8DA3376A14524BD600AA3744 /* QuadLaser.m in Sources */,
 				8DA3377214524CBA00AA3744 /* QuadLaserTest.m in Sources */,
+				8DA337751452627F00AA3744 /* SplitLaserTest.m in Sources */,
+				8DA337791452637400AA3744 /* SplitLaser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
