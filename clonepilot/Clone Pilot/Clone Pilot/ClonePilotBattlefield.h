@@ -19,6 +19,8 @@
 @property (nonatomic, retain) SplitLaser *splitLaser;
 @property (nonatomic, retain) TriLaser *triLaser;
 
+@property (nonatomic, retain) NSMutableArray *chosenWeapons;
+
 - (void)startup;
 - (NSInteger)livingClones;
 

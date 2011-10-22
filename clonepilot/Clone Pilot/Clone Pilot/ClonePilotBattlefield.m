@@ -13,6 +13,7 @@
 @synthesize weaponChoices;
 @synthesize splitLaser;
 @synthesize triLaser;
+@synthesize chosenWeapons;
 
 - (id)init {
     self = [super init];
@@ -22,6 +23,7 @@
         self.clones = [NSMutableArray array];
         self.splitLaser = [[[SplitLaser alloc] init] autorelease];
         self.triLaser = [[[TriLaser alloc] init] autorelease];
+        self.chosenWeapons = [NSMutableArray array];
     }
     return self;
 }
@@ -74,7 +76,11 @@
 }
 
 - (void)openWeaponOptions {
-    self.weaponChoices = [NSArray arrayWithObjects:self.splitLaser, self.triLaser, nil];
+    if (self.level == 0) {
+        self.weaponChoices = [NSArray arrayWithObjects:self.splitLaser, self.triLaser, nil];
+    }
+    
+    
 }
 
 - (void)advanceLevel {
@@ -164,6 +170,10 @@
 - (void)chooseWeapon:(NSInteger)choiceIndex {
     self.level++;
     self.player.weapon = [self.weaponChoices objectAtIndex:choiceIndex];
+    Weapon *chosenWeapon = [self.player.weapon copy];
+    [self.chosenWeapons addObject:chosenWeapon];
+    [chosenWeapon release];
+    
 }
 
 - (void)dealloc {
@@ -172,6 +182,7 @@
     [weaponChoices release];
     [splitLaser release];
     [triLaser release];
+    [chosenWeapons release];
     [super dealloc];
 }
 

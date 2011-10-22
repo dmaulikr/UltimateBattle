@@ -9,16 +9,21 @@ SPEC_BEGIN(ClonePilotBattlefieldTest)
 describe(@"Clone Pilot Battlefield", ^{
     __block ClonePilotBattlefield *f;
 
-    ActionBlock waitForCloneToDie = ^ {
+    ActionBlock kill = ^ {
+        int livingClones = [f livingClones];
+        
         while ([f livingClones] == 1) {
             [f tick];
+            if ([f livingClones] > livingClones) {
+                break;
+            }
         }
     };
     
     ActionBlock firstKill = ^{
         [f startup];
         [[f player] fire];
-        waitForCloneToDie();
+        kill();
     };
     
     
@@ -145,10 +150,14 @@ describe(@"Clone Pilot Battlefield", ^{
             
             [[f player] fire];
 
-            waitForCloneToDie();
+            kill();
            
             [[theValue(f.hits) should] equal:theValue(1)];
         });
+        
+    });
+    
+    context(@"Weapon Selection", ^ {
         
         it(@"should present choices for weapon selection between levels", ^ {
             firstKill();
@@ -168,7 +177,26 @@ describe(@"Clone Pilot Battlefield", ^{
             BOOL result = [weapon isEqualToString:[SplitLaser description]];
             [[theValue(result) should] beTrue];
         });
+
+        it(@"should track last chosen weapon", ^{ 
+            firstKill();
+            
+            [f chooseWeapon:0];
+            NSString *weapon = [[[f player] weapon] description];
+            kill();
+            [f chooseWeapon:1];
+            NSString *lastWeapon = [[f chosenWeapons] objectAtIndex:0];
+            BOOL result = [[weapon description] isEqualToString:[lastWeapon description]];
+            [[theValue(result) should] beTrue];
+        });
         
+//        it(@"should change weapon options from level to level", ^{
+//            firstKill();
+//            NSArray *firstOptions = f.weaponChoices;
+//            [f chooseWeapon:0];
+//            NSArray *secondOptions = f.weaponChoices;
+//            [[theValue(firstOptions) shouldNot] equal:theValue(secondOptions)];
+//        });
     });
     
 });
