@@ -1,6 +1,5 @@
 #import "ClonePilotBattlefield.h"
 #import "VRGeometry.h"
-#import "TriLaser.h"
 
 #define CLONE_KILL_VALUE 1
 
@@ -11,6 +10,9 @@
 @synthesize score;
 @synthesize shotsFired;
 @synthesize hits;
+@synthesize weaponChoices;
+@synthesize splitLaser;
+@synthesize triLaser;
 
 - (id)init {
     self = [super init];
@@ -18,6 +20,8 @@
         self.player = [[[ClonePlayer alloc] init] autorelease];
         self.player.bulletDelegate = self;
         self.clones = [NSMutableArray array];
+        self.splitLaser = [[[SplitLaser alloc] init] autorelease];
+        self.triLaser = [[[TriLaser alloc] init] autorelease];
     }
     return self;
 }
@@ -69,13 +73,17 @@
     }
 }
 
+- (void)openWeaponOptions {
+    self.weaponChoices = [NSArray arrayWithObjects:self.splitLaser, self.triLaser, nil];
+}
+
 - (void)advanceLevel {
     _level++;
     [self activateAllClones];
     [self addClone];
     [self copyPlayerMovesToNewClone];
     [self copyPlayerWeaponToNewClone];
-    [self assignWeaponToPlayer];
+    [self openWeaponOptions];
 }
 
 - (void)fired {
@@ -157,6 +165,9 @@
 - (void)dealloc {
     [player release];
     [clones release];
+    [weaponChoices release];
+    [splitLaser release];
+    [triLaser release];
     [super dealloc];
 }
 

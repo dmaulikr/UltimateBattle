@@ -156,14 +156,11 @@ describe(@"Clone Pilot Battlefield", ^{
             [[theValue(f.hits) should] equal:theValue(1)];
         });
         
-        it(@"should change weapons from level to level", ^{
+        it(@"should present choices for weapon selection between levels", ^ {
             [f startup];
-            NSString *firstWeapon = [[[f player] weapon] description];
-            [[f player] fire];            
+            [[f player] fire];
             firstKill();
-            NSString *secondWeapon = [[[f player] weapon] description];
-            BOOL result = [firstWeapon isEqualToString:secondWeapon];
-            [[theValue(result) should] equal:theValue(false)];
+            [[theValue([[f weaponChoices] count]) should] beGreaterThan:theValue(1)];
         });
         
     });

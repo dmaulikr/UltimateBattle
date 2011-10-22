@@ -2,6 +2,8 @@
 #import "BulletHellBattlefield.h"
 #import "ClonePlayer.h"
 #import "ClonePilot.h"
+#import "SplitLaser.h"
+#import "TriLaser.h"
 
 @interface ClonePilotBattlefield : BulletHellBattlefield <BulletDelegate> {
     
@@ -12,6 +14,10 @@
 @property (nonatomic, assign) int score;
 @property (nonatomic, assign) float shotsFired;
 @property (nonatomic, assign) float hits;
+@property (nonatomic, retain) NSArray *weaponChoices;
+
+@property (nonatomic, retain) SplitLaser *splitLaser;
+@property (nonatomic, retain) TriLaser *triLaser;
 
 - (void)startup;
 - (NSInteger)livingClones;
