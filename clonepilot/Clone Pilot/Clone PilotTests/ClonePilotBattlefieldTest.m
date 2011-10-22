@@ -61,16 +61,8 @@ describe(@"Clone Pilot Battlefield", ^{
         });
     });
     
-    context(@"Leveling", ^{
-        it(@"should increase in level when all clones are dead", ^{
-            [f startup];
-            [f player].t = [f player].l;
-            [[f player] fire];
-            firstKill();            
-            [[theValue([f level]) should] equal:theValue(1)];
-        });
-        
-        it(@"should increase number of clones when advancing level", ^{
+    context(@"Leveling", ^{        
+        it(@"should increase number of clones when all clones are killed", ^{
             [f startup];
             [[f player] fire];
             firstKill();
@@ -161,6 +153,14 @@ describe(@"Clone Pilot Battlefield", ^{
             [[f player] fire];
             firstKill();
             [[theValue([[f weaponChoices] count]) should] beGreaterThan:theValue(1)];
+        });
+        
+        it(@"should advance level when a weapon is chosen", ^{
+            [f startup];
+            [[f player] fire];
+            firstKill();
+            [f chooseWeapon:0];
+            [[theValue(f.level) should] equal:theValue(1)];
         });
         
     });

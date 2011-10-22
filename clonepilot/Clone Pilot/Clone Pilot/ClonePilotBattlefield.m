@@ -78,7 +78,6 @@
 }
 
 - (void)advanceLevel {
-    _level++;
     [self activateAllClones];
     [self addClone];
     [self copyPlayerMovesToNewClone];
@@ -160,6 +159,10 @@
 
 - (void)addBullet:(Bullet *)b {
     [self.bullets addObject:b];
+}
+
+- (void)chooseWeapon:(NSInteger)choiceIndex {
+    self.level++;
 }
 
 - (void)dealloc {

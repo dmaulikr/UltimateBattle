@@ -11,7 +11,7 @@
 
 @property (nonatomic, retain) ClonePlayer *player;
 @property (nonatomic, retain) NSMutableArray *clones;
-@property (nonatomic, assign) int score;
+@property (nonatomic, assign) NSInteger score;
 @property (nonatomic, assign) float shotsFired;
 @property (nonatomic, assign) float hits;
 @property (nonatomic, retain) NSArray *weaponChoices;
@@ -25,5 +25,7 @@
 - (ClonePilot *)latestClone;
 
 - (void)advanceLevel;
+
+- (void)chooseWeapon:(NSInteger)choiceIndex;
 
 @end

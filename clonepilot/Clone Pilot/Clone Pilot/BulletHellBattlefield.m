@@ -11,12 +11,13 @@
 @implementation BulletHellBattlefield
 
 @synthesize bullets;
+@synthesize level;
 
 - (id)init {
     self = [super init];
     if (self) {
         self.bullets = [NSMutableArray array];
-        _level = 0;
+        self.level = 0;
     }
     
     return self;
@@ -40,10 +41,6 @@
 
 - (void)addBullet:(Bullet *)b {
     [self.bullets addObject:b];
-}
-
-- (NSInteger)level {
-    return _level;
 }
 
 - (void)dealloc {
