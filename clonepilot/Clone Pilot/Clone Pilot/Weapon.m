@@ -27,9 +27,14 @@
     return [NSArray array];
 }
 
-- (NSString *)description {
-    return NSStringFromClass([self class]);
++ (NSString *)description {
+    return NSStringFromClass([self class]);    
 }
+
+- (NSString *)description {
+    return [[self class] description];
+}
+
 
 + (float)defaultSpeed {
     return 3;

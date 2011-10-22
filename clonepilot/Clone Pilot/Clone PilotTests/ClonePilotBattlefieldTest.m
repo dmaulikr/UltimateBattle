@@ -8,11 +8,17 @@ SPEC_BEGIN(ClonePilotBattlefieldTest)
 
 describe(@"Clone Pilot Battlefield", ^{
     __block ClonePilotBattlefield *f;
-    
-    ActionBlock firstKill = ^{
+
+    ActionBlock waitForCloneToDie = ^ {
         while ([f livingClones] == 1) {
             [f tick];
         }
+    };
+    
+    ActionBlock firstKill = ^{
+        [f startup];
+        [[f player] fire];
+        waitForCloneToDie();
     };
     
     
@@ -63,8 +69,6 @@ describe(@"Clone Pilot Battlefield", ^{
     
     context(@"Leveling", ^{        
         it(@"should increase number of clones when all clones are killed", ^{
-            [f startup];
-            [[f player] fire];
             firstKill();
             [[theValue([f livingClones]) should] equal:theValue(2)];
         });
@@ -125,8 +129,6 @@ describe(@"Clone Pilot Battlefield", ^{
         });
         
         it(@"should score when it kills", ^ {
-            [f startup];
-            [[f player] fire];
             firstKill();
             [[theValue(f.score) should] beGreaterThan:theValue(0)];
         });
@@ -142,25 +144,29 @@ describe(@"Clone Pilot Battlefield", ^{
             [[theValue(f.hits) should] equal:theValue(0)];
             
             [[f player] fire];
-            
-            firstKill();
+
+            waitForCloneToDie();
            
             [[theValue(f.hits) should] equal:theValue(1)];
         });
         
         it(@"should present choices for weapon selection between levels", ^ {
-            [f startup];
-            [[f player] fire];
             firstKill();
             [[theValue([[f weaponChoices] count]) should] beGreaterThan:theValue(1)];
         });
         
         it(@"should advance level when a weapon is chosen", ^{
-            [f startup];
-            [[f player] fire];
             firstKill();
             [f chooseWeapon:0];
             [[theValue(f.level) should] equal:theValue(1)];
+        });
+        
+        it(@"should assign the chosen weapon to the player", ^{
+            firstKill();
+            [f chooseWeapon:0];
+            NSString *weapon = [f.player.weapon description];
+            BOOL result = [weapon isEqualToString:[SplitLaser description]];
+            [[theValue(result) should] beTrue];
         });
         
     });

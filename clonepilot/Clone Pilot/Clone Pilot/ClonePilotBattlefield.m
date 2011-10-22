@@ -163,6 +163,7 @@
 
 - (void)chooseWeapon:(NSInteger)choiceIndex {
     self.level++;
+    self.player.weapon = [self.weaponChoices objectAtIndex:choiceIndex];
 }
 
 - (void)dealloc {
