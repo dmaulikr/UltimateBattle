@@ -23,9 +23,7 @@ describe(@"Single Laser Test", ^ {
         
         [[theValue(b.vel.x) should] equal:theValue(0)];
         [[theValue(b2.vel.x) should] equal:theValue(-2)];
-        [[theValue(b3.vel.x) should] equal:theValue(2)];        
-    
-        
+        [[theValue(b3.vel.x) should] equal:theValue(2)];
     });
     
 });
