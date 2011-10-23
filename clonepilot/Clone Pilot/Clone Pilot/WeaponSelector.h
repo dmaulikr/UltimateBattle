@@ -7,9 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ClonePlayer.h"
+#import "SingleLaser.h"
 #import "SplitLaser.h"
 #import "TriLaser.h"
-#import "ClonePlayer.h"
+#import "QuadLaser.h"
 
 @protocol WeaponSelectorDelegate <NSObject>
 
@@ -25,13 +27,19 @@
 
 @property (nonatomic, retain) NSArray *weaponChoices;
 @property (nonatomic, retain) NSMutableArray *chosenWeapons;
+@property (nonatomic, retain) SingleLaser *singleLaser;
 @property (nonatomic, retain) SplitLaser *splitLaser;
 @property (nonatomic, retain) TriLaser *triLaser;
+@property (nonatomic, retain) QuadLaser *quadLaser;
 
 @property (nonatomic, assign) id <WeaponSelectorDelegate> delegate;
 
 - (id)initWithBattlefield:(id)field;
+- (void)startup;
+
 - (void)chooseWeapon:(NSInteger)choiceIndex;
 - (void)openWeaponOptions;
+
+
 
 @end

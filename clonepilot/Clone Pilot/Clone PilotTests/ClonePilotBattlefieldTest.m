@@ -180,25 +180,27 @@ describe(@"Clone Pilot Battlefield", ^{
 
         it(@"should track last chosen weapon", ^{ 
             firstKill();
-            
             [f chooseWeapon:0];
             NSString *weapon = [[[f player] weapon] description];
             kill();
             [f chooseWeapon:1];
-            NSString *lastWeapon = [[f chosenWeapons] objectAtIndex:0];
+            NSString *lastWeapon = [[f chosenWeapons] objectAtIndex:[f level]];
             BOOL result = [[weapon description] isEqualToString:[lastWeapon description]];
             [[theValue(result) should] beTrue];
         });
         
-//        it(@"should change weapon options from level to level", ^{
-//            firstKill();
-//            NSArray *firstOptions = f.weaponChoices;
-//            [f chooseWeapon:0];
-//            NSArray *secondOptions = f.weaponChoices;
-//            [[theValue(firstOptions) shouldNot] equal:theValue(secondOptions)];
-//        });
+        it(@"should have single laser and a non single laser weapon already chosen", ^ {
+            [f startup];
+            NSArray *chosenWeapons = [f chosenWeapons];
+            NSString *w1 = [[chosenWeapons objectAtIndex:0] description];
+            NSString *w2 = [[chosenWeapons objectAtIndex:1] description];
+            BOOL singleLaserResult  = [w1 isEqualToString:[SingleLaser description]];
+            BOOL secondWeaponResult = ![w2 isEqualToString:w1];
+            
+            [[theValue(singleLaserResult) should] beTrue];
+            [[theValue(secondWeaponResult) should] beTrue];
+        });
     });
-    
 });
 
 SPEC_END

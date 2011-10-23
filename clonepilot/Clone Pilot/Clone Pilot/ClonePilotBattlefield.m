@@ -57,7 +57,6 @@
     return 10;
 }
 
-
 - (void)advanceLevel {
     [self activateAllClones];
     [self addClone];
@@ -136,6 +135,7 @@
 
 - (void)startup {
     [self addClone];
+    [self.weaponSelector startup];
 }
 
 - (void)addBullet:(Bullet *)b {

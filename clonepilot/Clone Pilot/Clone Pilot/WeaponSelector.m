@@ -11,8 +11,10 @@
 @implementation WeaponSelector
 
 @synthesize weaponChoices;
+@synthesize singleLaser;
 @synthesize splitLaser;
 @synthesize triLaser;
+@synthesize quadLaser;
 @synthesize chosenWeapons;
 @synthesize delegate;
 
@@ -20,12 +22,18 @@
     self = [super init];
     if (self) {
         self.delegate = field;
+        self.singleLaser = [[[SingleLaser alloc] init] autorelease];
         self.splitLaser = [[[SplitLaser alloc] init] autorelease];
         self.triLaser = [[[TriLaser alloc] init] autorelease];
+        self.quadLaser = [[[QuadLaser alloc] init] autorelease];
         self.chosenWeapons = [NSMutableArray array];
     }
     
     return self;
+}
+
+- (void)startup {
+    self.chosenWeapons = [NSMutableArray arrayWithObjects:self.singleLaser, self.quadLaser, nil];
 }
 
 - (void)openWeaponOptions {
@@ -42,8 +50,10 @@
 
 - (void)dealloc {
     [weaponChoices release];
+    [singleLaser release];
     [splitLaser release];
     [triLaser release];
+    [quadLaser release];
     [chosenWeapons release];
     self.delegate = nil;
     [super dealloc];
