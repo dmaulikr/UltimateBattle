@@ -2,8 +2,9 @@
 #import "BulletHellBattlefield.h"
 #import "ClonePlayer.h"
 #import "ClonePilot.h"
-#import "SplitLaser.h"
-#import "TriLaser.h"
+#import "WeaponSelector.h"
+
+@class WeaponSelector;
 
 @interface ClonePilotBattlefield : BulletHellBattlefield <BulletDelegate> {
     
@@ -14,12 +15,7 @@
 @property (nonatomic, assign) NSInteger score;
 @property (nonatomic, assign) float shotsFired;
 @property (nonatomic, assign) float hits;
-@property (nonatomic, retain) NSArray *weaponChoices;
-
-@property (nonatomic, retain) SplitLaser *splitLaser;
-@property (nonatomic, retain) TriLaser *triLaser;
-
-@property (nonatomic, retain) NSMutableArray *chosenWeapons;
+@property (nonatomic, retain) WeaponSelector *weaponSelector;
 
 - (void)startup;
 - (NSInteger)livingClones;
@@ -29,5 +25,11 @@
 - (void)advanceLevel;
 
 - (void)chooseWeapon:(NSInteger)choiceIndex;
+
+- (void)playerChoseWeapon:(Weapon *)weapon;
+
+- (NSArray *)weaponChoices;
+
+- (NSArray *)chosenWeapons;
 
 @end

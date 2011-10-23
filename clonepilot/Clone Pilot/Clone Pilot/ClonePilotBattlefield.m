@@ -10,10 +10,7 @@
 @synthesize score;
 @synthesize shotsFired;
 @synthesize hits;
-@synthesize weaponChoices;
-@synthesize splitLaser;
-@synthesize triLaser;
-@synthesize chosenWeapons;
+@synthesize weaponSelector;
 
 - (id)init {
     self = [super init];
@@ -21,9 +18,7 @@
         self.player = [[[ClonePlayer alloc] init] autorelease];
         self.player.bulletDelegate = self;
         self.clones = [NSMutableArray array];
-        self.splitLaser = [[[SplitLaser alloc] init] autorelease];
-        self.triLaser = [[[TriLaser alloc] init] autorelease];
-        self.chosenWeapons = [NSMutableArray array];
+        self.weaponSelector = [[WeaponSelector alloc] initWithBattlefield:self];
     }
     return self;
 }
@@ -62,33 +57,13 @@
     return 10;
 }
 
-- (void)assignWeaponToPlayer {
-    switch (self.level) {
-        case 1:
-            self.player.weapon = [[[TriLaser alloc] init] autorelease];
-            break;
-        case 2:
-            break;
-            
-        default:
-            break;
-    }
-}
-
-- (void)openWeaponOptions {
-    if (self.level == 0) {
-        self.weaponChoices = [NSArray arrayWithObjects:self.splitLaser, self.triLaser, nil];
-    }
-    
-    
-}
 
 - (void)advanceLevel {
     [self activateAllClones];
     [self addClone];
     [self copyPlayerMovesToNewClone];
     [self copyPlayerWeaponToNewClone];
-    [self openWeaponOptions];
+    [self.weaponSelector openWeaponOptions];
 }
 
 - (void)fired {
@@ -167,22 +142,27 @@
     [self.bullets addObject:b];
 }
 
-- (void)chooseWeapon:(NSInteger)choiceIndex {
+- (void)playerChoseWeapon:(Weapon *)weapon {
     self.level++;
-    self.player.weapon = [self.weaponChoices objectAtIndex:choiceIndex];
-    Weapon *chosenWeapon = [self.player.weapon copy];
-    [self.chosenWeapons addObject:chosenWeapon];
-    [chosenWeapon release];
-    
+    self.player.weapon = weapon;
+}
+
+- (void)chooseWeapon:(NSInteger)choiceIndex {
+    [self.weaponSelector chooseWeapon:choiceIndex];
+}
+
+- (NSArray *)weaponChoices {
+    return self.weaponSelector.weaponChoices;
+}
+
+- (NSArray *)chosenWeapons {
+    return [NSArray arrayWithArray:self.weaponSelector.chosenWeapons];
 }
 
 - (void)dealloc {
     [player release];
     [clones release];
-    [weaponChoices release];
-    [splitLaser release];
-    [triLaser release];
-    [chosenWeapons release];
+    [weaponSelector release];
     [super dealloc];
 }
 

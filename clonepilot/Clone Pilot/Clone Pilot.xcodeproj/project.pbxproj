@@ -124,6 +124,8 @@
 		8DC7F9A81438D9230016D718 /* BulletHellBattlefieldTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F9A71438D9230016D718 /* BulletHellBattlefieldTest.m */; };
 		8DC7F9AC1438DA120016D718 /* BulletHellBattlefield.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F9AB1438DA120016D718 /* BulletHellBattlefield.m */; };
 		8DC7F9AD1438DA120016D718 /* BulletHellBattlefield.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F9AB1438DA120016D718 /* BulletHellBattlefield.m */; };
+		8DCBEDD314536E3900E6C566 /* WeaponSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DCBEDD214536E3900E6C566 /* WeaponSelector.m */; };
+		8DCBEDD414536E3900E6C566 /* WeaponSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DCBEDD214536E3900E6C566 /* WeaponSelector.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -345,6 +347,8 @@
 		8DC7F9A71438D9230016D718 /* BulletHellBattlefieldTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BulletHellBattlefieldTest.m; sourceTree = "<group>"; };
 		8DC7F9AA1438DA120016D718 /* BulletHellBattlefield.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BulletHellBattlefield.h; sourceTree = "<group>"; };
 		8DC7F9AB1438DA120016D718 /* BulletHellBattlefield.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BulletHellBattlefield.m; sourceTree = "<group>"; };
+		8DCBEDD114536E3900E6C566 /* WeaponSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeaponSelector.h; sourceTree = "<group>"; };
+		8DCBEDD214536E3900E6C566 /* WeaponSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeaponSelector.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -448,6 +452,8 @@
 				8DA3376814524BD600AA3744 /* QuadLaser.m */,
 				8DA337761452637300AA3744 /* SplitLaser.h */,
 				8DA337771452637300AA3744 /* SplitLaser.m */,
+				8DCBEDD114536E3900E6C566 /* WeaponSelector.h */,
+				8DCBEDD214536E3900E6C566 /* WeaponSelector.m */,
 			);
 			name = Weapons;
 			sourceTree = "<group>";
@@ -861,6 +867,7 @@
 				8DA3376114522D1C00AA3744 /* TriLaser.m in Sources */,
 				8DA3376914524BD600AA3744 /* QuadLaser.m in Sources */,
 				8DA337781452637400AA3744 /* SplitLaser.m in Sources */,
+				8DCBEDD314536E3900E6C566 /* WeaponSelector.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -958,6 +965,7 @@
 				8DA3377214524CBA00AA3744 /* QuadLaserTest.m in Sources */,
 				8DA337751452627F00AA3744 /* SplitLaserTest.m in Sources */,
 				8DA337791452637400AA3744 /* SplitLaser.m in Sources */,
+				8DCBEDD414536E3900E6C566 /* WeaponSelector.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
