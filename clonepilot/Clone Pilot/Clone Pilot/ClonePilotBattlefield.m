@@ -28,8 +28,13 @@
     }
 }
 
+- (void)playerLoop {
+    [self.player tick];
+}
+
 - (void)tick {
     [self bulletLoop];
+    [self playerLoop];
 }
 
 - (void)startup {
