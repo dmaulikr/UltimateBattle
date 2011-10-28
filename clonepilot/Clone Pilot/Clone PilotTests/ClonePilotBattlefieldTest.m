@@ -154,11 +154,9 @@ describe(@"Clone Pilot Battlefield", ^{
            
             [[theValue(f.hits) should] equal:theValue(1)];
         });
-        
     });
     
     context(@"Weapon Selection", ^ {
-        
         it(@"should present choices for weapon selection between levels", ^ {
             firstKill();
             [[theValue([[f weaponChoices] count]) should] beGreaterThan:theValue(1)];
@@ -200,6 +198,24 @@ describe(@"Clone Pilot Battlefield", ^{
             [[theValue(singleLaserResult) should] beTrue];
             [[theValue(secondWeaponResult) should] beTrue];
         });
+        
+        it(@"should remove chosen weapon from weapon choices", ^ {
+            [f startup];
+            firstKill();
+            NSArray *availableWeapons = [f weaponChoices];
+            NSString *w1 = [[availableWeapons objectAtIndex:0] description];
+            [f chooseWeapon:0];
+            NSArray *newAvailableWeapons = [f weaponChoices];
+            BOOL result = YES;
+            for (Weapon *w in newAvailableWeapons) {
+                if ([[w description] isEqualToString:w1]) {
+                    result = NO;
+                }
+            }
+            
+            [[theValue(result) should] beTrue];
+        });
+        
     });
 });
 
