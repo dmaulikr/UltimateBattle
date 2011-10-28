@@ -22,6 +22,16 @@
     [p release];
 }
 
+- (void)bulletLoop {
+    for (Bullet *b in self.bullets) {
+        [b tick];
+    }
+}
+
+- (void)tick {
+    [self bulletLoop];
+}
+
 - (void)startup {
     [self spawnFirstClone];
 }

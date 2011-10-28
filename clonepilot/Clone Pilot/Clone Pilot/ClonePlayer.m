@@ -37,7 +37,7 @@
 }
 
 - (Bullet *)newBullet {
-    Bullet *b = [[[Bullet alloc] init] autorelease];
+    Bullet *b = [[[Bullet alloc] initWithLocation:self.l velocity:CGPointMake(0,-3)] autorelease];
     return b;
 }
 

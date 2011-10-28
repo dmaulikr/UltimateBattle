@@ -24,6 +24,14 @@ describe(@"Clone Pilot Battlefield", ^{
             [[f player] tick];
             [[theValue([[f bullets] count]) should] equal:theValue(1)];
         });
+        
+        it(@"should move player fired bullets", ^ {
+            [[f player] fire];
+            CGPoint oldLocation = ((Bullet *)[[f bullets] lastObject]).l;
+            [f tick];
+            CGPoint newLocation = ((Bullet *)[[f bullets] lastObject]).l;
+            [[theValue(oldLocation) shouldNot] equal:theValue(newLocation)];
+        });
     });
     
     context(@"First phase", ^{ 
@@ -44,6 +52,16 @@ describe(@"Clone Pilot Battlefield", ^{
             [[theValue([[p moves] count]) should] equal:theValue(0)];
         });
     });
+    
+//    context(@"Basic combat", ^{
+//        it(@"should collide a bullet with a clone pilot", ^{
+//            [f startup];
+//            [[f player] fire];
+//            for (int i = 0; i < 424; i++) {
+//                [f tick];
+//            }
+//        });
+//    });
     
 });
 
