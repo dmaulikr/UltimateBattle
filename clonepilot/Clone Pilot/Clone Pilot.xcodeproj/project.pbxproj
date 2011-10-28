@@ -24,6 +24,8 @@
 		8DABC64D1439054D009020E0 /* VRGameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DABC64C1439054D009020E0 /* VRGameObject.m */; };
 		8DABC64E1439054D009020E0 /* VRGameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DABC64C1439054D009020E0 /* VRGameObject.m */; };
 		8DABC6521439076D009020E0 /* ClonePlayerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DABC6511439076D009020E0 /* ClonePlayerTest.m */; };
+		8DBD92E3145A44BD00349A7D /* ClonePilot.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBD92E2145A44BD00349A7D /* ClonePilot.m */; };
+		8DBD92E4145A44BD00349A7D /* ClonePilot.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBD92E2145A44BD00349A7D /* ClonePilot.m */; };
 		8DC7F8931438D8870016D718 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC7F8921438D8870016D718 /* UIKit.framework */; };
 		8DC7F8951438D8870016D718 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC7F8941438D8870016D718 /* Foundation.framework */; };
 		8DC7F8971438D8870016D718 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC7F8961438D8870016D718 /* CoreGraphics.framework */; };
@@ -137,6 +139,8 @@
 		8DABC64B1439054D009020E0 /* VRGameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VRGameObject.h; sourceTree = "<group>"; };
 		8DABC64C1439054D009020E0 /* VRGameObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VRGameObject.m; sourceTree = "<group>"; };
 		8DABC6511439076D009020E0 /* ClonePlayerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClonePlayerTest.m; sourceTree = "<group>"; };
+		8DBD92E1145A44BD00349A7D /* ClonePilot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClonePilot.h; sourceTree = "<group>"; };
+		8DBD92E2145A44BD00349A7D /* ClonePilot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClonePilot.m; sourceTree = "<group>"; };
 		8DC7F88E1438D8870016D718 /* Clone Pilot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Clone Pilot.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DC7F8921438D8870016D718 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8DC7F8941438D8870016D718 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -356,8 +360,6 @@
 			children = (
 				8D6EA3431438DDFB002BD85E /* Bullet.h */,
 				8D6EA3441438DDFB002BD85E /* Bullet.m */,
-				8DABC64714390225009020E0 /* ClonePlayer.h */,
-				8DABC64814390225009020E0 /* ClonePlayer.m */,
 			);
 			name = Bullets;
 			sourceTree = "<group>";
@@ -399,6 +401,17 @@
 			name = "Clone Tests";
 			sourceTree = "<group>";
 		};
+		8DBD92DF145A448B00349A7D /* Ships */ = {
+			isa = PBXGroup;
+			children = (
+				8DABC64714390225009020E0 /* ClonePlayer.h */,
+				8DABC64814390225009020E0 /* ClonePlayer.m */,
+				8DBD92E1145A44BD00349A7D /* ClonePilot.h */,
+				8DBD92E2145A44BD00349A7D /* ClonePilot.m */,
+			);
+			name = Ships;
+			sourceTree = "<group>";
+		};
 		8DC7F8831438D8870016D718 = {
 			isa = PBXGroup;
 			children = (
@@ -432,6 +445,7 @@
 		8DC7F8981438D8870016D718 /* Clone Pilot */ = {
 			isa = PBXGroup;
 			children = (
+				8DBD92DF145A448B00349A7D /* Ships */,
 				8D3E721B143BE6ED00D59706 /* Turns */,
 				8D6EA3421438DDEA002BD85E /* Bullets */,
 				8DC7F9A91438D9F70016D718 /* Battlefields */,
@@ -774,6 +788,7 @@
 				8DABC64914390226009020E0 /* ClonePlayer.m in Sources */,
 				8DABC64D1439054D009020E0 /* VRGameObject.m in Sources */,
 				8D3E721F143BE6FE00D59706 /* Turn.m in Sources */,
+				8DBD92E3145A44BD00349A7D /* ClonePilot.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -860,6 +875,7 @@
 				8DABC64E1439054D009020E0 /* VRGameObject.m in Sources */,
 				8DABC6521439076D009020E0 /* ClonePlayerTest.m in Sources */,
 				8D3E7220143BE6FE00D59706 /* Turn.m in Sources */,
+				8DBD92E4145A44BD00349A7D /* ClonePilot.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

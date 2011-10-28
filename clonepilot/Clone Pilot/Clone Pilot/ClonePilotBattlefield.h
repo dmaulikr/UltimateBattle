@@ -7,5 +7,8 @@
 }
 
 @property (nonatomic, retain) ClonePlayer *player;
+@property (nonatomic, retain) NSMutableArray *clones;
+
+- (void)startup;
 
 @end

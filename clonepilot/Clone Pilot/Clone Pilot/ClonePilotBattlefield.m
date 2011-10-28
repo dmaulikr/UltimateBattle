@@ -1,17 +1,29 @@
 #import "ClonePilotBattlefield.h"
-
+#import "ClonePilot.h"
 
 @implementation ClonePilotBattlefield
 
 @synthesize player;
+@synthesize clones;
 
 - (id)init {
     self = [super init];
     if (self) {
-        self.player = [[[ClonePlayer alloc] initWithLocation:CGPointMake(384,500)] autorelease];
+        self.player = [[[ClonePlayer alloc] initWithLocation:CGPointMake(384,300)] autorelease];
         self.player.bulletDelegate = self;
+        self.clones = [NSMutableArray array];
     }
     return self;
+}
+
+- (void)spawnFirstClone {
+    ClonePilot *p = [[ClonePilot alloc] init];
+    [self.clones addObject:p];
+    [p release];
+}
+
+- (void)startup {
+    [self spawnFirstClone];
 }
 
 - (void)addBullet:(Bullet *)b {
@@ -20,6 +32,7 @@
 
 - (void)dealloc {
     [player release];
+    [clones release];
     [super dealloc];
 }
 

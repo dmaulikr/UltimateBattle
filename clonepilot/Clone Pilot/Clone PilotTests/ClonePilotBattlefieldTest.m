@@ -1,6 +1,7 @@
 #import "Kiwi.h"
 #import "ClonePilotBattlefield.h"
 #import "ClonePlayer.h"
+#import "ClonePilot.h"
 
 SPEC_BEGIN(ClonePilotBattlefieldTest)
 
@@ -23,7 +24,25 @@ describe(@"Clone Pilot Battlefield", ^{
             [[f player] tick];
             [[theValue([[f bullets] count]) should] equal:theValue(1)];
         });
+    });
+    
+    context(@"First phase", ^{ 
+        it(@"should have one enemy ship", ^{
+            [f startup];
+            [[theValue([[f clones] count]) should] equal:theValue(1)];
+        });
         
+        it(@"should be positioned across from the player", ^{
+            [f startup];
+            ClonePilot *p = [[f clones] lastObject];
+            [[theValue(p.l.x) should] equal:theValue([[f player] l].x)];
+        });
+        
+        it(@"should have no moves in the first clone", ^{
+            [f startup];
+            ClonePilot *p = [[f clones] lastObject];
+            [[theValue([[p moves] count]) should] equal:theValue(0)];
+        });
     });
     
 });

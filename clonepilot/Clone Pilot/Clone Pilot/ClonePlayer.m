@@ -17,7 +17,7 @@
 @synthesize bulletDelegate;
 
 + (ClonePlayer *)samplePlayer {
-    return [[[ClonePlayer alloc] initWithLocation:CGPointMake(384, 500)] autorelease];
+    return [[[ClonePlayer alloc] initWithLocation:CGPointMake(384, 724)] autorelease];
 }
 
 - (id)initWithLocation:(CGPoint)location {
