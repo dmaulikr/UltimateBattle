@@ -181,7 +181,7 @@ describe(@"Clone Pilot Battlefield", ^{
             [f chooseWeapon:0];
             NSString *weapon = [[[f player] weapon] description];
             kill();
-            [f chooseWeapon:1];
+            [f chooseWeapon:0];
             NSString *lastWeapon = [[f chosenWeapons] objectAtIndex:[f level]];
             BOOL result = [[weapon description] isEqualToString:[lastWeapon description]];
             [[theValue(result) should] beTrue];
@@ -200,7 +200,6 @@ describe(@"Clone Pilot Battlefield", ^{
         });
         
         it(@"should remove chosen weapon from weapon choices", ^ {
-            [f startup];
             firstKill();
             NSArray *availableWeapons = [f weaponChoices];
             NSString *w1 = [[availableWeapons objectAtIndex:0] description];
@@ -212,6 +211,8 @@ describe(@"Clone Pilot Battlefield", ^{
                     result = NO;
                 }
             }
+            
+            
             
             [[theValue(result) should] beTrue];
         });

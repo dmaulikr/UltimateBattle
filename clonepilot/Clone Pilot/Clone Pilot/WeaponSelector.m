@@ -37,14 +37,21 @@
 }
 
 - (void)openWeaponOptions {
-    if ([self.delegate level] == 0) {
+    if (!self.weaponChoices) {
         self.weaponChoices = [NSArray arrayWithObjects:self.splitLaser, self.triLaser, nil];
+    } else {
+        
     }
 }
 
 - (void)chooseWeapon:(NSInteger)choiceIndex {
     Weapon *chosenWeapon = [self.weaponChoices objectAtIndex:choiceIndex];
     [self.chosenWeapons addObject:chosenWeapon];
+    
+    NSMutableArray *choices = [NSMutableArray arrayWithArray:self.weaponChoices];
+    [choices removeObjectAtIndex:choiceIndex];
+    self.weaponChoices = [NSArray arrayWithArray:choices];
+    
     [self.delegate playerChoseWeapon:chosenWeapon];
 }
 
