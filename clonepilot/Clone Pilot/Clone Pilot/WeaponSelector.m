@@ -47,12 +47,19 @@
 - (void)chooseWeapon:(NSInteger)choiceIndex {
     Weapon *chosenWeapon = [self.weaponChoices objectAtIndex:choiceIndex];
     [self.chosenWeapons addObject:chosenWeapon];
+        
+    [self.delegate playerChoseWeapon:chosenWeapon];
     
     NSMutableArray *choices = [NSMutableArray arrayWithArray:self.weaponChoices];
     [choices removeObjectAtIndex:choiceIndex];
+    
+    Weapon *earliestChosenWeapon = [self.chosenWeapons objectAtIndex:0];
+    [choices addObject:earliestChosenWeapon];
+    [self.chosenWeapons removeObject:earliestChosenWeapon];
+    
     self.weaponChoices = [NSArray arrayWithArray:choices];
     
-    [self.delegate playerChoseWeapon:chosenWeapon];
+    
 }
 
 - (void)dealloc {
