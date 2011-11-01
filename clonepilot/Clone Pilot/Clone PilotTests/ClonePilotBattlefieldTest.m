@@ -212,7 +212,20 @@ describe(@"Clone Pilot Battlefield", ^{
                 }
             }
             
-            
+            [[theValue(result) should] beTrue];
+        });
+        
+        it(@"should move the first chosen weapon into weapon choices", ^ {
+            NSString *w1 = [[[f chosenWeapons] objectAtIndex:0] description];
+            firstKill();
+            [f chooseWeapon:0];
+            NSArray *availableWeapons = [f weaponChoices];
+            BOOL result = NO;
+            for (Weapon *w in availableWeapons) {
+                if ([[w description] isEqualToString:w1]) {
+                    result = YES;
+                }
+            }
             
             [[theValue(result) should] beTrue];
         });
