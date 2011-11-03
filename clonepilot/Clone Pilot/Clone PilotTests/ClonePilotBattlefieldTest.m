@@ -25,7 +25,13 @@ describe(@"Clone Pilot Battlefield", ^{
         [[f player] fire];
         kill();
     };
-    
+
+    ActionBlock playerHit = ^{
+        int playerHealth = [[f player] health];
+        while ([[f player] health] == playerHealth) {
+            [f tick];
+        }
+    };
     
     beforeEach(^{
         f = [[[ClonePilotBattlefield alloc] init] autorelease];
@@ -247,9 +253,16 @@ describe(@"Clone Pilot Battlefield", ^{
         
     });
     
-//    context(@"Combat", ^{
-//       describe(<#NSString *aDescription#>, <#^(void)aBlock#>) 
-//    });
+    context(@"Combat", ^{
+        it(@"should start with one health", ^{
+            [f startup];
+            [[theValue([[f player] health]) should] equal:theValue(1)];
+        });
+        
+//        it(@"should hurt player when bullet hits", ^{
+//            firstKill();
+//        });
+    });
 });
 
 SPEC_END

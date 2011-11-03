@@ -15,7 +15,7 @@
 @synthesize currentMoves;
 @synthesize bulletDelegate;
 @synthesize weapon;
-
+@synthesize health;
 
 + (ClonePlayer *)samplePlayer {
     return [[[ClonePlayer alloc] init] autorelease];
@@ -49,6 +49,7 @@
         self.currentMoves = [NSMutableArray array];
         [self generateTurn];
         [self assignDefaultWeapon];
+        self.health = 1;
     }
     return self;
 }

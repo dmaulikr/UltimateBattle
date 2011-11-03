@@ -27,6 +27,7 @@
 @property (nonatomic, retain) NSMutableArray *currentMoves;
 @property (nonatomic, assign) id <BulletDelegate> bulletDelegate;
 @property (nonatomic, retain) Weapon *weapon;
+@property (nonatomic, assign) NSInteger health;
 
 - (void)tick;
 
@@ -34,7 +35,6 @@
 - (void)fire;
 - (BOOL)isFiring;
 - (void)reset;
-//- (void)resetLocation;
 
 + (ClonePlayer *)samplePlayer;
 + (CGPoint)defaultLocation;
