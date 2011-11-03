@@ -109,7 +109,7 @@ describe(@"Clone Pilot Battlefield", ^{
             [f tick];
             NSMutableArray *turns = [[NSMutableArray alloc] initWithArray:[[f player] currentMoves] copyItems:YES];
             [f advanceLevel];
-            ClonePilot *nc = [f latestClone];
+            ClonePilot *nc = [f firstClone];
             NSString *mirrorDescription = @"";
             for (Turn *t in turns) {
                 mirrorDescription = [NSString stringWithFormat:@"%@%@",mirrorDescription,[t mirrorDescription]];
@@ -156,7 +156,7 @@ describe(@"Clone Pilot Battlefield", ^{
             [f startup];
             NSString *oldWeapon = [[[f player] weapon] description];
             [f advanceLevel];
-            ClonePilot *c = [f latestClone];
+            ClonePilot *c = [f firstClone];
             NSString *newWeapon = [[c weapon] description];
             NSLog(@"oldWeapon: %@", oldWeapon);
             NSLog(@"newWeapon: %@", newWeapon);
@@ -289,11 +289,11 @@ describe(@"Clone Pilot Battlefield", ^{
             [[theValue([p moveIndex]) should] equal:theValue(3)];            
         });
 
-        context(@"should copy horizontal movement", ^ {
+        it(@"should copy horizontal movement", ^ {
             [f startup];
             [[f player] fire];
             [f player].t = CGPointMake(500, 500);
-            NSInteger x = [f player].t.x;
+            float x = [f player].l.x;
             kill();
             [f chooseWeapon:0];
             [f tick];

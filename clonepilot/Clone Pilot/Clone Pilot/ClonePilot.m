@@ -38,8 +38,6 @@
 
     self.moveIndex++;
     
-    self.moveIndex = 0;
-    
     if (self.moveIndex >= [self.moves count]) {
         self.moveIndex = 0;
     }

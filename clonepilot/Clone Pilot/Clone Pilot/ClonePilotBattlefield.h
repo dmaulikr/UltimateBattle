@@ -21,6 +21,7 @@
 - (NSInteger)livingClones;
 
 - (ClonePilot *)latestClone;
+- (ClonePilot *)firstClone;
 
 - (void)advanceLevel;
 

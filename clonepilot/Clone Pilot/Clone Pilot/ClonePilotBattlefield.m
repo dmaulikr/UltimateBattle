@@ -35,7 +35,7 @@
     }
 }
 
-- (void)copyPlayerMovesToNewClone {
+- (void)copyPlayerMovesToLatestClone {
     NSMutableArray *copiedManuevers = [[NSMutableArray alloc] initWithArray:[self.player currentMoves] copyItems:YES];
     for (Turn *t in copiedManuevers) {
         if (fabsf(t.vel.x) + fabsf(t.vel.y) > 0) {
@@ -46,7 +46,7 @@
     [copiedManuevers release];
 }
 
-- (void)copyPlayerWeaponToNewClone {
+- (void)copyPlayerWeaponToLatestClone {
     Weapon *w = [self.player.weapon copy];
     [self latestClone].weapon = w;
     [w release];
@@ -68,9 +68,9 @@
 
 - (void)advanceLevel {
     [self activateAllClones];
+    [self copyPlayerMovesToLatestClone];
+    [self copyPlayerWeaponToLatestClone];
     [self addClone];
-    [self copyPlayerMovesToNewClone];
-    [self copyPlayerWeaponToNewClone];
     [self resetClones];
     [self resetPlayer];
     [self.weaponSelector openWeaponOptions];
@@ -147,6 +147,10 @@
 
 - (ClonePilot *)latestClone {
     return [self.clones lastObject];
+}
+
+- (ClonePilot *)firstClone {
+    return [self.clones objectAtIndex:0];
 }
 
 - (void)startup {
