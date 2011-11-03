@@ -34,6 +34,7 @@
 - (void)fire;
 - (BOOL)isFiring;
 - (void)reset;
+//- (void)resetLocation;
 
 + (ClonePlayer *)samplePlayer;
 + (CGPoint)defaultLocation;

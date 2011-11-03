@@ -107,6 +107,7 @@
     [self.currentMoves removeAllObjects];
     self.vel = CGPointZero;
     self.l = [ClonePlayer defaultLocation];
+    self.t = self.l;
 }
 
 - (void)dealloc {

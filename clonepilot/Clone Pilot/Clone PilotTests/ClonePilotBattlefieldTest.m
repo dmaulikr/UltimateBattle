@@ -121,6 +121,16 @@ describe(@"Clone Pilot Battlefield", ^{
             }
         });
         
+        it(@"should reset player position", ^ {
+            [f startup];
+            CGPoint startingPosition = [f player].l;
+            [[f player] fire];
+            [f player].t = CGPointMake(200, 400);
+            kill();
+            [f chooseWeapon:0];
+            [[theValue([f player].l) should] equal:theValue(startingPosition)];
+        });
+        
         it(@"should copy weapons", ^ {
             [f startup];
             NSString *oldWeapon = [[[f player] weapon] description];
@@ -236,6 +246,10 @@ describe(@"Clone Pilot Battlefield", ^{
         });
         
     });
+    
+//    context(@"Combat", ^{
+//       describe(<#NSString *aDescription#>, <#^(void)aBlock#>) 
+//    });
 });
 
 SPEC_END

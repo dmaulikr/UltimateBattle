@@ -44,7 +44,6 @@
     }
     [self latestClone].moves = copiedManuevers;
     [copiedManuevers release];
-    [self.player reset];
 }
 
 - (void)copyPlayerWeaponToNewClone {
@@ -57,11 +56,16 @@
     return 10;
 }
 
+- (void)resetPlayer {
+    [self.player reset];
+}
+
 - (void)advanceLevel {
     [self activateAllClones];
     [self addClone];
     [self copyPlayerMovesToNewClone];
     [self copyPlayerWeaponToNewClone];
+    [self resetPlayer];
     [self.weaponSelector openWeaponOptions];
 }
 
