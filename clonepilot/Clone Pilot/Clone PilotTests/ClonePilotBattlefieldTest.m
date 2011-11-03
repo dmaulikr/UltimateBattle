@@ -221,6 +221,20 @@ describe(@"Clone Pilot Battlefield", ^{
             [[theValue(result) should] beTrue];
         });
         
+        it(@"should record the last chosen weapon", ^ {
+            firstKill();
+            NSString *w = [[[f weaponChoices] objectAtIndex:0] description];
+            NSLog(@"PRE weapon choices: %@",[f weaponChoices]);
+            NSLog(@"PRE chosen: %@", [f chosenWeapons]);
+            [f chooseWeapon:0];
+            NSLog(@"POST weapon choices: %@",[f weaponChoices]);
+            NSLog(@"POST chosen: %@", [f chosenWeapons]);
+            NSString *chosenWeapon = [[[f chosenWeapons] objectAtIndex:[[f chosenWeapons] count] -1] description];
+            BOOL result = [w isEqualToString:chosenWeapon];
+            
+            [[theValue(result) should] beTrue];
+        });
+        
     });
 });
 
