@@ -7,13 +7,15 @@
 //
 
 #import "ClonePilot.h"
-
+#import "Turn.h"
+#import "VRGeometry.h"
 
 @implementation ClonePilot
 @synthesize l, vel, t, radius;
 @synthesize moves;
 @synthesize living;
 @synthesize weapon;
+@synthesize moveIndex;
 
 - (NSString *)description {
     return [NSString stringWithFormat:@"x:%f y:%f vx:%f vy:%f",self.l.x, self.l.y, self.vel.x, self.vel.y];
@@ -25,6 +27,29 @@
 
 + (NSInteger)identifier {
     return 1;
+}
+
+- (void)tick {
+    if ([self.moves count] > 0) {
+    Turn *turn = [self.moves objectAtIndex:self.moveIndex];
+    self.vel = turn.vel;
+    
+    self.l = CombinedPoint(self.l, self.vel);
+
+    self.moveIndex++;
+    
+    self.moveIndex = 0;
+    
+    if (self.moveIndex >= [self.moves count]) {
+        self.moveIndex = 0;
+    }
+        
+    }
+}
+
+- (void)reset {
+    self.l = [ClonePilot defaultLocation];
+    self.moveIndex = 0;
 }
 
 - (id)init {

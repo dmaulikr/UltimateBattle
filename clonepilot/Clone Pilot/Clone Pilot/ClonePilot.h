@@ -17,8 +17,12 @@
 @property (nonatomic, retain) NSMutableArray *moves;
 @property (nonatomic, assign) BOOL living;
 @property (nonatomic, retain) Weapon *weapon;
+@property (nonatomic, assign) NSInteger moveIndex;
 
 + (CGPoint)defaultLocation;
 + (NSInteger)identifier;
+
+- (void)tick;
+- (void)reset;
 
 @end

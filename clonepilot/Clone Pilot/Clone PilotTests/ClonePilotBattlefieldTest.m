@@ -25,7 +25,16 @@ describe(@"Clone Pilot Battlefield", ^{
         [[f player] fire];
         kill();
     };
-
+    
+    ActionBlock oneCloneCycle = ^ {
+        ClonePilot *p = [[f clones] objectAtIndex:0];
+        NSInteger moveIndex = p.moveIndex;
+        [f tick];
+        while (moveIndex > 0) {
+            [f tick];
+        }
+    };
+    
     ActionBlock newBullet = ^{
         int bullets = [[f bullets] count];
         while ([[f bullets] count] == bullets) {
@@ -126,9 +135,8 @@ describe(@"Clone Pilot Battlefield", ^{
         it(@"should reset clones position", ^ {
             [f startup];
             [f player].t = CGPointMake(250,630);
-            [f tick];
-            [f tick];
-            [f advanceLevel];
+            [[f player] fire];
+            kill();
             for (ClonePilot *p in [f clones]) {
                 [[theValue(p.l) should] equal:theValue([ClonePilot defaultLocation])];
             }
@@ -260,6 +268,49 @@ describe(@"Clone Pilot Battlefield", ^{
         
     });
     
+    context(@"Clone Piloting", ^{
+        it(@"should reset moveIndex on new level", ^{
+            firstKill();
+            [f chooseWeapon:0];
+            ClonePilot *p = [[f clones] objectAtIndex:0];
+            [[theValue([p moveIndex]) should] equal:theValue(1)];
+        });
+        
+        it(@"should increase moveIndex each tick", ^{
+            [f startup];
+            [[f player] fire];
+            [f player].t = CGPointMake(10, 300);
+            kill();
+            [f chooseWeapon:0];
+            [f tick];
+            ClonePilot *p = [[f clones] objectAtIndex:0];
+            [[theValue([p moveIndex]) should] equal:theValue(2)];
+            [f tick];            
+            [[theValue([p moveIndex]) should] equal:theValue(3)];            
+        });
+
+        context(@"should copy horizontal movement", ^ {
+            [f startup];
+            [[f player] fire];
+            [f player].t = CGPointMake(500, 500);
+            NSInteger x = [f player].t.x;
+            kill();
+            [f chooseWeapon:0];
+            [f tick];
+            ClonePilot *p = [[f clones] objectAtIndex:0];
+            [[theValue(p.l.x) should] equal:theValue(x)];
+        });
+        
+//        context(@"should fire when its turn fires", ^ {
+//            firstKill();
+//            newBullet();
+//            ClonePilot *p = [[f clones] objectAtIndex:0];
+//            [[theValue([p moveIndex]) should] equal:theValue(1)];
+//            Bullet *b = [[f bullets] lastObject];
+//            [[theValue([b identifier]) should] equal:theValue([ClonePilot identifier])];
+//        });
+    });
+    
     context(@"Combat", ^{
         it(@"should start with one health", ^{
             [f startup];
@@ -273,7 +324,7 @@ describe(@"Clone Pilot Battlefield", ^{
             Bullet *b = [[f bullets] lastObject];
             [[theValue([b identifier]) should] equal:theValue(bulletIdentifier)];
         });
-        
+                
 //        it(@"should assign ownership of bullets from the enemy", ^{
 //            firstKill();
 //            [f chooseWeapon:0];

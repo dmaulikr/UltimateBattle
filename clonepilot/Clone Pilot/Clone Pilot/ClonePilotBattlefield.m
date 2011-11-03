@@ -56,6 +56,12 @@
     return 10;
 }
 
+- (void)resetClones {
+    for (ClonePilot *p in self.clones) {
+        [p reset];
+    }
+}
+
 - (void)resetPlayer {
     [self.player reset];
 }
@@ -65,6 +71,7 @@
     [self addClone];
     [self copyPlayerMovesToNewClone];
     [self copyPlayerWeaponToNewClone];
+    [self resetClones];
     [self resetPlayer];
     [self.weaponSelector openWeaponOptions];
 }
@@ -113,6 +120,7 @@
         if (![p living]) {
             [finishedClones addObject:p];
         }
+        [p tick];
     }
     [self.clones removeObjectsInArray:finishedClones];
 }
