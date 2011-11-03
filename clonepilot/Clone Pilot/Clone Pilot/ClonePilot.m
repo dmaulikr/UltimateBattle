@@ -23,6 +23,10 @@
     return CGPointMake(384, 300);
 }
 
++ (NSInteger)identifier {
+    return 1;
+}
+
 - (id)init {
     self = [super init];
     if (self) {

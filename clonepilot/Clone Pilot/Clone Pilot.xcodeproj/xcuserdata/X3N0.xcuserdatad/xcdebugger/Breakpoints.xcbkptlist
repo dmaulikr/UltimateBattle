@@ -9,11 +9,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Clone PilotTests/ClonePilotBattlefieldTest.m"
-         timestampString = "342035432.855134"
+         timestampString = "342036417.007589"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "282"
-         endingLineNumber = "282">
+         startingLineNumber = "308"
+         endingLineNumber = "308">
       </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>

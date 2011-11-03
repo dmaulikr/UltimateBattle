@@ -26,12 +26,19 @@ describe(@"Clone Pilot Battlefield", ^{
         kill();
     };
 
-    ActionBlock playerHit = ^{
-        int playerHealth = [[f player] health];
-        while ([[f player] health] == playerHealth) {
+    ActionBlock newBullet = ^{
+        int bullets = [[f bullets] count];
+        while ([[f bullets] count] == bullets) {
             [f tick];
         }
     };
+    
+//    ActionBlock playerHit = ^{
+//        int playerHealth = [[f player] health];
+//        while ([[f player] health] == playerHealth) {
+//            [f tick];
+//        }
+//    };
     
     beforeEach(^{
         f = [[[ClonePilotBattlefield alloc] init] autorelease];
@@ -258,9 +265,28 @@ describe(@"Clone Pilot Battlefield", ^{
             [f startup];
             [[theValue([[f player] health]) should] equal:theValue(1)];
         });
+
+        it(@"should assign ownership of bullets from the player", ^{
+            [f startup];
+            NSInteger bulletIdentifier = [[f player] identifier];
+            [[f player] fire];
+            Bullet *b = [[f bullets] lastObject];
+            [[theValue([b identifier]) should] equal:theValue(bulletIdentifier)];
+        });
+        
+//        it(@"should assign ownership of bullets from the enemy", ^{
+//            firstKill();
+//            [f chooseWeapon:0];
+//            newBullet();
+//            Bullet *b = [[f bullets] lastObject];
+//            [[theValue(b) should] equal:theValue([ClonePilot identifier])];
+//        });
         
 //        it(@"should hurt player when bullet hits", ^{
 //            firstKill();
+//            NSInteger health = [[f player] health];
+//            playerHit();
+//            [[theValue([[f player] health]) should] beLessThan:theValue(health)];
 //        });
     });
 });

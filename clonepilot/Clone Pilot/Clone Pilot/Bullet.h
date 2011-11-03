@@ -17,6 +17,7 @@
 @property (nonatomic, assign) CGPoint l;
 @property (nonatomic, assign) BOOL finished;
 @property (nonatomic, assign) double radius;
+@property (nonatomic, assign) NSInteger identifier;
 
 - (id)initWithLocation:(CGPoint)location velocity:(CGPoint)velocity;
 

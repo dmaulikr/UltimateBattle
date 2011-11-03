@@ -98,6 +98,10 @@
                 b.finished = YES;
             }
         }
+        
+        if (GetDistance(b.l, [self player].l) <= b.radius + [[self player] radius]) {
+            [[self player] hit:b];
+        }
     }
     
     [super bulletLoop];

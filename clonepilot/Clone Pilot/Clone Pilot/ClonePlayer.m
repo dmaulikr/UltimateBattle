@@ -56,6 +56,7 @@
 
 - (Bullet *)newBullet {
     Bullet *b = [[[Bullet alloc] initWithLocation:self.l velocity:CGPointMake(0,-3)] autorelease];
+    b.identifier = [self identifier];
     return b;
 }
 
@@ -70,6 +71,10 @@
 
 - (BOOL)firstTurn {
     return [[self currentMoves] count] == 1;
+}
+
+- (NSInteger)identifier {
+    return 0;
 }
 
 - (void)tick {
@@ -89,6 +94,13 @@
         [self generateTurn];
     }
     return [self.currentMoves lastObject];
+}
+
+- (void)hit:(Bullet *)b {
+    if ([b identifier] != [self identifier]) {
+        self.health--;
+        b.finished = YES;
+    }
 }
 
 - (void)fire {

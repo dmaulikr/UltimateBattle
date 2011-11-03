@@ -31,10 +31,13 @@
 
 - (void)tick;
 
-- (Turn *)currentTurn;
 - (void)fire;
-- (BOOL)isFiring;
 - (void)reset;
+- (void)hit:(Bullet *)b;
+
+- (Turn *)currentTurn;
+- (NSInteger)identifier;
+- (BOOL)isFiring;
 
 + (ClonePlayer *)samplePlayer;
 + (CGPoint)defaultLocation;

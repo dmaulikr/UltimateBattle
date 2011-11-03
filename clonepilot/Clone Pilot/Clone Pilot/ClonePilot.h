@@ -19,5 +19,6 @@
 @property (nonatomic, retain) Weapon *weapon;
 
 + (CGPoint)defaultLocation;
++ (NSInteger)identifier;
 
 @end
