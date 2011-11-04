@@ -294,35 +294,26 @@ describe(@"Clone Pilot Battlefield", ^{
             [[f player] fire];
             [f player].t = CGPointMake(500, 500);
             
+            NSMutableArray *playerLocations = [NSMutableArray array];
             
+            int turnTotal = 5;
             
-            float x0 = [f player].l.x;
-            [f tick];
-            float x1 = [f player].l.x;            
-            [f tick];
-            float x2 = [f player].l.x;            
-            [f tick];
-            float x3 = [f player].l.x;            
-            [f tick];
-            float x4 = [f player].l.x;            
-            [f tick];
-            float x5 = [f player].l.x;
+            for (int i = 0; i < turnTotal; i++) {
+                float x = [f player].l.x;
+                [playerLocations addObject:[NSNumber numberWithFloat:x]];
+                [f tick];
+            }
+            
             kill();
             NSLog(@"killed");            
             ClonePilot *p = [[f clones] objectAtIndex:0];            
             [f chooseWeapon:0];
             NSLog(@"chose weapon");
-            [[theValue(p.l.x) should] equal:theValue(x0)];
-            [f tick];
-            [[theValue(p.l.x) should] equal:theValue(x1)];            
-            [f tick];
-            [[theValue(p.l.x) should] equal:theValue(x2)];            
-            [f tick];
-            [[theValue(p.l.x) should] equal:theValue(x3)];            
-            [f tick];         
-            [[theValue(p.l.x) should] equal:theValue(x4)];            
-            [f tick]; 
-            [[theValue(p.l.x) should] equal:theValue(x5)];                   
+            
+            for (int i = 0; i < turnTotal; i++) {
+                [[theValue(p.l.x) should] equal:theValue([[playerLocations objectAtIndex:i] floatValue])];
+                [f tick];
+            }
         });
         
 //        context(@"should fire when its turn fires", ^ {
