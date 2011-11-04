@@ -293,33 +293,36 @@ describe(@"Clone Pilot Battlefield", ^{
             [f startup];
             [[f player] fire];
             [f player].t = CGPointMake(500, 500);
-            NSLog(@"x0: %f", [f player].l.x);
+            
+            
+            
+            float x0 = [f player].l.x;
             [f tick];
-            NSLog(@"x1: %f", [f player].l.x);
+            float x1 = [f player].l.x;            
             [f tick];
-            NSLog(@"x2: %f", [f player].l.x);
+            float x2 = [f player].l.x;            
             [f tick];
-            NSLog(@"x3: %f", [f player].l.x);
+            float x3 = [f player].l.x;            
             [f tick];
-            NSLog(@"x4: %f", [f player].l.x);
+            float x4 = [f player].l.x;            
             [f tick];
-            float x = [f player].l.x;
+            float x5 = [f player].l.x;
             kill();
             NSLog(@"killed");            
             ClonePilot *p = [[f clones] objectAtIndex:0];            
             [f chooseWeapon:0];
             NSLog(@"chose weapon");
-            NSLog(@"x0: %f", p.l.x);
+            [[theValue(p.l.x) should] equal:theValue(x0)];
             [f tick];
-            NSLog(@"x1: %f", p.l.x);
+            [[theValue(p.l.x) should] equal:theValue(x1)];            
             [f tick];
-            NSLog(@"x2: %f", p.l.x);   
+            [[theValue(p.l.x) should] equal:theValue(x2)];            
             [f tick];
-            NSLog(@"x3: %f", p.l.x);   
+            [[theValue(p.l.x) should] equal:theValue(x3)];            
             [f tick];         
-            NSLog(@"x4: %f", p.l.x);   
+            [[theValue(p.l.x) should] equal:theValue(x4)];            
             [f tick]; 
-            [[theValue(p.l.x) should] equal:theValue(x)];
+            [[theValue(p.l.x) should] equal:theValue(x5)];                   
         });
         
 //        context(@"should fire when its turn fires", ^ {
