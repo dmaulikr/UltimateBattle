@@ -102,7 +102,7 @@ describe(@"Clone Pilot Battlefield", ^{
     });
     
     context(@"Copying player moves", ^{
-        it(@"should copy player moves into a new clone with y and x inverted", ^{
+        it(@"should copy player moves into a new clone with y inverted", ^{
             [f startup];
             [f player].t = CGPointMake(250,630);
             [f tick];
@@ -293,11 +293,32 @@ describe(@"Clone Pilot Battlefield", ^{
             [f startup];
             [[f player] fire];
             [f player].t = CGPointMake(500, 500);
+            NSLog(@"x0: %f", [f player].l.x);
+            [f tick];
+            NSLog(@"x1: %f", [f player].l.x);
+            [f tick];
+            NSLog(@"x2: %f", [f player].l.x);
+            [f tick];
+            NSLog(@"x3: %f", [f player].l.x);
+            [f tick];
+            NSLog(@"x4: %f", [f player].l.x);
+            [f tick];
             float x = [f player].l.x;
             kill();
+            NSLog(@"killed");            
+            ClonePilot *p = [[f clones] objectAtIndex:0];            
             [f chooseWeapon:0];
+            NSLog(@"chose weapon");
+            NSLog(@"x0: %f", p.l.x);
             [f tick];
-            ClonePilot *p = [[f clones] objectAtIndex:0];
+            NSLog(@"x1: %f", p.l.x);
+            [f tick];
+            NSLog(@"x2: %f", p.l.x);   
+            [f tick];
+            NSLog(@"x3: %f", p.l.x);   
+            [f tick];         
+            NSLog(@"x4: %f", p.l.x);   
+            [f tick]; 
             [[theValue(p.l.x) should] equal:theValue(x)];
         });
         

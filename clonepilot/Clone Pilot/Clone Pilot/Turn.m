@@ -14,10 +14,7 @@
 @synthesize firing;
 
 - (NSString *)mirrorDescription {
-    float x = 0;
-    if (fabsf(vel.x) > 0) {
-        x = -vel.x;
-    }
+    float x = vel.x;
     
     float y = 0;
     if (fabsf(vel.y) > 0) {

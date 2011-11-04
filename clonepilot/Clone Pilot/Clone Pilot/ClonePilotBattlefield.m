@@ -39,7 +39,7 @@
     NSMutableArray *copiedManuevers = [[NSMutableArray alloc] initWithArray:[self.player currentMoves] copyItems:YES];
     for (Turn *t in copiedManuevers) {
         if (fabsf(t.vel.x) + fabsf(t.vel.y) > 0) {
-            t.vel = CGPointMake(-t.vel.x, -t.vel.y);
+            t.vel = CGPointMake(t.vel.x, -t.vel.y);
         }
     }
     [self latestClone].moves = copiedManuevers;
