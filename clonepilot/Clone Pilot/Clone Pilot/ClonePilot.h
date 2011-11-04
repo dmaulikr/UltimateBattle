@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "VRGameObject.h"
 #import "Weapon.h"
+#import "Turn.h"
 
 @interface ClonePilot : NSObject <VRGameObject> {
     
@@ -24,5 +25,7 @@
 
 - (void)tick;
 - (void)reset;
+
+- (Turn *)currentTurn;
 
 @end

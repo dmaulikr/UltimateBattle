@@ -35,6 +35,7 @@
     // We'll ignore the zone for now
     Turn *another = [[Turn alloc] init];
     another.vel = self.vel;
+    another.firing = self.firing;
     
     return another;
 }

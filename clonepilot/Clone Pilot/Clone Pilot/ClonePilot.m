@@ -7,7 +7,6 @@
 //
 
 #import "ClonePilot.h"
-#import "Turn.h"
 #import "VRGeometry.h"
 
 @implementation ClonePilot
@@ -29,18 +28,22 @@
     return 1;
 }
 
+- (Turn *)currentTurn {
+    return [self.moves objectAtIndex:self.moveIndex];
+}
+
 - (void)tick {
     if ([self.moves count] > 0) {
-    Turn *turn = [self.moves objectAtIndex:self.moveIndex];
-    self.vel = turn.vel;
-    
-    self.l = CombinedPoint(self.l, self.vel);
+        Turn *turn = [self.moves objectAtIndex:self.moveIndex];
+        self.vel = turn.vel;
+        
+        self.l = CombinedPoint(self.l, self.vel);
 
-    self.moveIndex++;
-    
-    if (self.moveIndex >= [self.moves count]) {
-        self.moveIndex = 0;
-    }
+        self.moveIndex++;
+        
+        if (self.moveIndex >= [self.moves count]) {
+            self.moveIndex = 0;
+        }
         
     }
 }

@@ -316,14 +316,45 @@ describe(@"Clone Pilot Battlefield", ^{
             }
         });
         
-//        context(@"should fire when its turn fires", ^ {
-//            firstKill();
-//            newBullet();
-//            ClonePilot *p = [[f clones] objectAtIndex:0];
-//            [[theValue([p moveIndex]) should] equal:theValue(1)];
-//            Bullet *b = [[f bullets] lastObject];
-//            [[theValue([b identifier]) should] equal:theValue([ClonePilot identifier])];
-//        });
+        it(@"should fire when its turn fires", ^ {
+            [f startup];
+            [f tick];
+            [f tick];
+            [[f player] fire];
+            [f tick];
+            [f tick];
+            [f tick];
+            [f tick];
+            [f tick];
+            [[f player] fire];
+            [f tick];
+            kill();
+            [f chooseWeapon:0];
+            ClonePilot *p = [[f clones] objectAtIndex:0];
+            NSLog(@"p current move index: %d",p.moveIndex);
+            [[theValue([[p currentTurn] firing]) should] beFalse];
+            [f tick];
+            NSLog(@"p current move index: %d",p.moveIndex);            
+            [[theValue([[p currentTurn] firing]) should] beTrue];  
+            [f tick];
+            NSLog(@"p current move index: %d",p.moveIndex);            
+            [[theValue([[p currentTurn] firing]) should] beFalse];
+            [f tick];
+            NSLog(@"p current move index: %d",p.moveIndex);            
+            [[theValue([[p currentTurn] firing]) should] beFalse];
+            [f tick];
+            NSLog(@"p current move index: %d",p.moveIndex);            
+            [[theValue([[p currentTurn] firing]) should] beFalse];
+            [f tick];
+            NSLog(@"p current move index: %d",p.moveIndex);            
+            [[theValue([[p currentTurn] firing]) should] beFalse];
+            [f tick];
+            NSLog(@"p current move index: %d",p.moveIndex);            
+            [[theValue([[p currentTurn] firing]) should] beTrue];
+            [f tick];
+            NSLog(@"p current move index: %d",p.moveIndex);            
+            [[theValue([[p currentTurn] firing]) should] beFalse];            
+        });
     });
     
     context(@"Combat", ^{
