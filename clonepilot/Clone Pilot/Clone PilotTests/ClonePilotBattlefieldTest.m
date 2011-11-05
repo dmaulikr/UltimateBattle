@@ -316,6 +316,52 @@ describe(@"Clone Pilot Battlefield", ^{
             }
         });
         
+        it(@"should invert vertical movement", ^{
+            [f startup];
+            
+            float originalY = [f player].l.y;
+            float originalCloneY = ((ClonePilot *)[[f clones] objectAtIndex:0]).l.y;
+            
+            [[f player] fire];
+            [f player].t = CGPointMake(500, 700);
+
+            NSMutableArray *playerLocations = [NSMutableArray array];
+            
+            int turnTotal = 5;
+            
+            for (int i = 0; i < turnTotal; i++) {
+                Turn *turn = [[f player] currentTurn];
+                NSLog(@"turn: %@",turn);
+                
+                float y = [f player].l.y;
+                float distance = y - originalY;
+                NSLog(@"distance: %f", distance);
+                [playerLocations addObject:[NSNumber numberWithFloat:y]];
+                NSLog(@"%f",[[NSNumber numberWithFloat:y] floatValue]);
+                [f tick];
+            }
+                 
+            kill();
+            
+            ClonePilot *p = [[f clones] objectAtIndex:0];
+            
+            for (int i = 0; i < turnTotal; i++) {
+                Turn *turn = [p currentTurn];
+                NSLog(@"turn: %@",turn);
+                float y = p.l.y;
+                float oy = [[playerLocations objectAtIndex:i] floatValue];
+                
+                float playerDist    = oy - originalY;
+                float cloneDist     = originalCloneY - y;
+                NSLog(@"playerDist: %f", playerDist);
+                NSLog(@"cloneDist: %f", cloneDist);
+                
+                float distance = playerDist - cloneDist;
+                [[theValue(distance) should] beLessThan:theValue(.0001)]; //it's close. everything seems fine but this precision.
+                [f tick];
+            }
+        });
+        
         it(@"should fire when its turn fires", ^ {
             [f startup];
             [f tick];
@@ -337,6 +383,7 @@ describe(@"Clone Pilot Battlefield", ^{
             NSLog(@"p current move index: %d",p.moveIndex);            
             [[theValue([[p currentTurn] firing]) should] beTrue];  
             [f tick];
+            
             NSLog(@"p current move index: %d",p.moveIndex);            
             [[theValue([[p currentTurn] firing]) should] beFalse];
             [f tick];
