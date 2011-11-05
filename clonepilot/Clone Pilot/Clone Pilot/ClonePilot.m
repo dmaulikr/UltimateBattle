@@ -50,6 +50,9 @@
         
         if (turn.firing) {
             NSArray *bullets = [self.weapon newBulletsForLocation:self.l direction:1];
+            for (Bullet *b in bullets) {
+                b.identifier = [ClonePilot identifier];
+            }
             [self.bulletDelegate addBullets:bullets];
         }
         

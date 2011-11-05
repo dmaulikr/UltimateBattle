@@ -79,7 +79,7 @@
 
 - (void)tick {
     if ([self isFiring]) {
-       Bullet *b = [self newBullet];
+        Bullet *b = [self newBullet];
        [self.bulletDelegate addBullet:b];
     }
     

@@ -100,8 +100,12 @@ describe(@"Clone Pilot Battlefield", ^{
             [[theValue([f livingClones]) should] equal:theValue(2)];
         });
         
-        it(@"should reset bullets between levels", ^ {
-            firstKill();
+        it (@"should reset bullets between levels", ^ {
+            [f startup];
+            [f tick];
+            [[f player] fire];
+            kill();
+            [f chooseWeapon:0];
             [[theValue([[f bullets] count]) should] equal:theValue(0)]; 
         });
         
@@ -184,11 +188,8 @@ describe(@"Clone Pilot Battlefield", ^{
         it(@"should track hits", ^ {
             [f startup];
             [[theValue(f.hits) should] equal:theValue(0)];
-            
             [[f player] fire];
-
             kill();
-           
             [[theValue(f.hits) should] equal:theValue(1)];
         });
     });
@@ -423,9 +424,20 @@ describe(@"Clone Pilot Battlefield", ^{
             Bullet *b = [[f bullets] lastObject];
             [[theValue([b identifier]) should] equal:theValue(bulletIdentifier)];
         });
+
+        it(@"should assign ownership of bullets from the enemy", ^{
+            firstKill();
+            [f chooseWeapon:0];
+            newBullet();
+            Bullet *b = [[f bullets] lastObject];
+            [[theValue([b identifier]) should] equal:theValue([ClonePilot identifier])];
+        });
         
         it(@"should add bullets when its turn fires", ^{
-            firstKill();
+            [f startup];
+            [f tick];
+            [[f player] fire];
+            kill();
             NSInteger bullets = [[f bullets] count];
             [f chooseWeapon:0];
             [f tick];
@@ -433,13 +445,6 @@ describe(@"Clone Pilot Battlefield", ^{
             [[theValue(newBullets) should] beGreaterThan:theValue(bullets)];            
         });
         
-//        it(@"should assign ownership of bullets from the enemy", ^{
-//            firstKill();
-//            [f chooseWeapon:0];
-//            newBullet();
-//            Bullet *b = [[f bullets] lastObject];
-//            [[theValue(b) should] equal:theValue([ClonePilot identifier])];
-//        });
         
 //        it(@"should hurt player when bullet hits", ^{
 //            firstKill();

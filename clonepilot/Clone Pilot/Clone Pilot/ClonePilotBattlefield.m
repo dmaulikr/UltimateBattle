@@ -72,10 +72,11 @@
         b.finished = YES;
     }
     
-//    [super bulletLoop];
+    [super bulletLoop];
 }
 
 - (void)advanceLevel {
+    _shouldAdvanceLevel = NO;
     [self clearBullets];
     [self activateAllClones];
     [self copyPlayerMovesToLatestClone];
@@ -102,23 +103,29 @@
     pilot.living = NO;
     [self advanceScoreForKillingClone];
     if ([self livingClones] == 0) {
-        [self advanceLevel];
+        _shouldAdvanceLevel = YES;
     }
 }
 
 - (void)bulletLoop {
     for (Bullet *b in self.bullets) {
         for (ClonePilot *p in self.clones) {
-            if (GetDistance(b.l, p.l) <= b.radius + p.radius) {
-                [self killClone:p];
-                self.hits++;
-                b.finished = YES;
+            if (b.identifier != [ClonePilot identifier]) {
+                if (GetDistance(b.l, p.l) <= b.radius + p.radius) {
+                    [self killClone:p];
+                    self.hits++;
+                    b.finished = YES;
+                }
             }
         }
         
         if (GetDistance(b.l, [self player].l) <= b.radius + [[self player] radius]) {
             [[self player] hit:b];
         }
+    }
+    
+    if (_shouldAdvanceLevel) {
+        [self advanceLevel];
     }
     
     [super bulletLoop];

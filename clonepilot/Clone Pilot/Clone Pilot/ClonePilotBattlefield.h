@@ -7,7 +7,7 @@
 @class WeaponSelector;
 
 @interface ClonePilotBattlefield : BulletHellBattlefield <BulletDelegate> {
-    
+    BOOL _shouldAdvanceLevel;
 }
 
 @property (nonatomic, retain) ClonePlayer *player;
