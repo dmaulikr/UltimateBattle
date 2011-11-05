@@ -26,6 +26,7 @@
 - (void)addClone {
     ClonePilot *p = [[ClonePilot alloc] init];
     [self.clones addObject:p];
+    p.bulletDelegate = self;
     [p release];
 }
 
@@ -66,7 +67,16 @@
     [self.player reset];
 }
 
+- (void)clearBullets {
+    for (Bullet *b in self.bullets) {
+        b.finished = YES;
+    }
+    
+//    [super bulletLoop];
+}
+
 - (void)advanceLevel {
+    [self clearBullets];
     [self activateAllClones];
     [self copyPlayerMovesToLatestClone];
     [self copyPlayerWeaponToLatestClone];
@@ -160,6 +170,10 @@
 
 - (void)addBullet:(Bullet *)b {
     [self.bullets addObject:b];
+}
+
+- (void)addBullets:(NSArray *)bullets {
+    [self.bullets addObjectsFromArray:bullets];
 }
 
 - (void)playerChoseWeapon:(Weapon *)weapon {

@@ -11,13 +11,7 @@
 #import "Turn.h"
 #import "Bullet.h"
 #import "Weapon.h"
-
-@protocol BulletDelegate <NSObject>
-
-- (void)fired;
-- (void)addBullet:(Bullet *)b;
-
-@end
+#import "BulletDelegateProtocol.h"
 
 
 @interface ClonePlayer : NSObject <VRGameObject> {

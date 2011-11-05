@@ -10,6 +10,7 @@
 #import "VRGameObject.h"
 #import "Weapon.h"
 #import "Turn.h"
+#import "BulletDelegateProtocol.h"
 
 @interface ClonePilot : NSObject <VRGameObject> {
     
@@ -19,6 +20,7 @@
 @property (nonatomic, assign) BOOL living;
 @property (nonatomic, retain) Weapon *weapon;
 @property (nonatomic, assign) NSInteger moveIndex;
+@property (nonatomic, assign) id <BulletDelegate> bulletDelegate;
 
 + (CGPoint)defaultLocation;
 + (NSInteger)identifier;

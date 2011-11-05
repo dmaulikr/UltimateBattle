@@ -139,6 +139,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8D10349F1464FA0E001FF342 /* BulletDelegateProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BulletDelegateProtocol.h; sourceTree = "<group>"; };
 		8D3E721D143BE6FE00D59706 /* Turn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Turn.h; sourceTree = "<group>"; };
 		8D3E721E143BE6FE00D59706 /* Turn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Turn.m; sourceTree = "<group>"; };
 		8D6EA3401438DDB9002BD85E /* BulletTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BulletTest.m; sourceTree = "<group>"; };
@@ -397,6 +398,7 @@
 			children = (
 				8D6EA3431438DDFB002BD85E /* Bullet.h */,
 				8D6EA3441438DDFB002BD85E /* Bullet.m */,
+				8D10349F1464FA0E001FF342 /* BulletDelegateProtocol.h */,
 			);
 			name = Bullets;
 			sourceTree = "<group>";

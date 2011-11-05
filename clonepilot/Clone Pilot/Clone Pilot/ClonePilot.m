@@ -15,6 +15,7 @@
 @synthesize living;
 @synthesize weapon;
 @synthesize moveIndex;
+@synthesize bulletDelegate;
 
 - (NSString *)description {
     return [NSString stringWithFormat:@"x:%f y:%f vx:%f vy:%f",self.l.x, self.l.y, self.vel.x, self.vel.y];
@@ -32,6 +33,12 @@
     return [self.moves objectAtIndex:self.moveIndex];
 }
 
+- (Bullet *)newBullet {
+    Bullet *b = [[[Bullet alloc] initWithLocation:self.l velocity:CGPointMake(0,3)] autorelease];
+    b.identifier = [ClonePilot identifier];
+    return b;
+}
+
 - (void)tick {
     if ([self.moves count] > 0) {
         Turn *turn = [self.moves objectAtIndex:self.moveIndex];
@@ -41,10 +48,14 @@
 
         self.moveIndex++;
         
+        if (turn.firing) {
+            NSArray *bullets = [self.weapon newBulletsForLocation:self.l direction:1];
+            [self.bulletDelegate addBullets:bullets];
+        }
+        
         if (self.moveIndex >= [self.moves count]) {
             self.moveIndex = 0;
         }
-        
     }
 }
 
@@ -68,6 +79,7 @@
 - (void)dealloc {
     [moves release];
     [weapon release];
+    self.bulletDelegate = nil;
     [super dealloc];
 }
 

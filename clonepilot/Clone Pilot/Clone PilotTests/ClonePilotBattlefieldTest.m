@@ -99,6 +99,12 @@ describe(@"Clone Pilot Battlefield", ^{
             firstKill();
             [[theValue([f livingClones]) should] equal:theValue(2)];
         });
+        
+        it(@"should reset bullets between levels", ^ {
+            firstKill();
+            [[theValue([[f bullets] count]) should] equal:theValue(0)]; 
+        });
+        
     });
     
     context(@"Copying player moves", ^{
@@ -417,7 +423,16 @@ describe(@"Clone Pilot Battlefield", ^{
             Bullet *b = [[f bullets] lastObject];
             [[theValue([b identifier]) should] equal:theValue(bulletIdentifier)];
         });
-                
+        
+        it(@"should add bullets when its turn fires", ^{
+            firstKill();
+            NSInteger bullets = [[f bullets] count];
+            [f chooseWeapon:0];
+            [f tick];
+            NSInteger newBullets = [[f bullets] count];
+            [[theValue(newBullets) should] beGreaterThan:theValue(bullets)];            
+        });
+        
 //        it(@"should assign ownership of bullets from the enemy", ^{
 //            firstKill();
 //            [f chooseWeapon:0];
