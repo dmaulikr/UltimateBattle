@@ -42,12 +42,12 @@ describe(@"Clone Pilot Battlefield", ^{
         }
     };
     
-//    ActionBlock playerHit = ^{
-//        int playerHealth = [[f player] health];
-//        while ([[f player] health] == playerHealth) {
-//            [f tick];
-//        }
-//    };
+    ActionBlock playerHit = ^{
+        int playerHealth = [[f player] health];
+        while ([[f player] health] == playerHealth) {
+            [f tick];
+        }
+    };
     
     beforeEach(^{
         f = [[[ClonePilotBattlefield alloc] init] autorelease];
@@ -446,12 +446,21 @@ describe(@"Clone Pilot Battlefield", ^{
         });
         
         
-//        it(@"should hurt player when bullet hits", ^{
-//            firstKill();
-//            NSInteger health = [[f player] health];
-//            playerHit();
-//            [[theValue([[f player] health]) should] beLessThan:theValue(health)];
-//        });
+        it(@"should hurt player when bullet hits", ^{
+            firstKill();
+            NSInteger health = [[f player] health];
+            playerHit();
+            [[theValue([[f player] health]) should] beLessThan:theValue(health)];
+        });
+        
+        it(@"should gain health between levels", ^{
+            [f startup];
+            NSInteger health = [[f player] health];
+            [[f player] fire];
+            kill();
+            NSInteger newHealth = [[f player] health];
+            [[theValue(newHealth) should] beGreaterThan:theValue(health)];
+        });
     });
 });
 
