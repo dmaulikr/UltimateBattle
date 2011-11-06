@@ -65,6 +65,7 @@
 
 - (void)resetPlayer {
     [self.player reset];
+    self.player.health = self.player.health+ 1;
 }
 
 - (void)clearBullets {
