@@ -12,7 +12,7 @@ describe(@"Clone Pilot Battlefield", ^{
     ActionBlock kill = ^ {
         int livingClones = [f livingClones];
         
-        while ([f livingClones] == 1) {
+        while ([f livingClones] >= 1) {
             [f tick];
             if ([f livingClones] > livingClones) {
                 break;
@@ -458,8 +458,21 @@ describe(@"Clone Pilot Battlefield", ^{
             NSInteger health = [[f player] health];
             [[f player] fire];
             kill();
+            [f chooseWeapon:0];
             NSInteger newHealth = [[f player] health];
             [[theValue(newHealth) should] beGreaterThan:theValue(health)];
+        });
+        
+        it(@"should have health equal to new level plus one", ^ {
+            firstKill();
+            [f chooseWeapon:0];
+            playerHit();
+            [[f player] fire];
+            [[f player] fire];
+            kill();
+            [f chooseWeapon:0];
+            NSInteger health = [[f player] health];
+            [[theValue(health) should] equal:theValue([f level] + 1)];            
         });
     });
 });

@@ -65,7 +65,6 @@
 
 - (void)resetPlayer {
     [self.player reset];
-    self.player.health = self.player.health+ 1;
 }
 
 - (void)clearBullets {
@@ -187,6 +186,7 @@
 - (void)playerChoseWeapon:(Weapon *)weapon {
     self.level++;
     self.player.weapon = weapon;
+    self.player.health = self.level+1;
 }
 
 - (void)chooseWeapon:(NSInteger)choiceIndex {
