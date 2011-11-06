@@ -192,6 +192,23 @@ describe(@"Clone Pilot Battlefield", ^{
             kill();
             [[theValue(f.hits) should] equal:theValue(1)];
         });
+        
+        it(@"should reset position when out of moves", ^{
+            [f startup];
+            ClonePilot *p = [[f clones] lastObject];
+            CGPoint position = p.l;
+            [[f player] fire];
+            [f player].t = CGPointMake(500, 750);
+            kill();
+            BOOL hitZero = 0;
+            while (!hitZero) {
+                [f tick];
+                if (p.moveIndex == 0) {
+                    hitZero = 1;
+                }
+            }
+            [[theValue(p.l) should] equal:theValue(position)];
+        });
     });
     
     context(@"Weapon Selection", ^ {

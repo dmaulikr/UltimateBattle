@@ -58,6 +58,7 @@
         
         if (self.moveIndex >= [self.moves count]) {
             self.moveIndex = 0;
+            self.l = [ClonePilot defaultLocation];
         }
     }
 }
