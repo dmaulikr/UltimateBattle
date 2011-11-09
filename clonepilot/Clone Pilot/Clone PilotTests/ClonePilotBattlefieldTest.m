@@ -192,7 +192,7 @@ describe(@"Clone Pilot Battlefield", ^{
             firstKill();
             [f chooseWeapon:0];
             NSString *weapon = [f.player.weapon description];
-            BOOL result = [weapon isEqualToString:[SplitLaser description]];
+            BOOL result = [weapon isEqualToString:[TriLaser description]];
             [[theValue(result) should] beTrue];
         });
         
@@ -519,6 +519,16 @@ describe(@"Clone Pilot Battlefield", ^{
             [[theValue(health) should] equal:theValue([f level] + 1)];            
         });
         
+        it(@"should fire bullets from its weapon", ^ {
+            firstKill();
+            [f chooseWeapon:0];
+            NSArray *existingBullets = [NSArray arrayWithArray:[f bullets]];  
+            [[f player] fire];
+            Weapon *w = [[f player] weapon];
+            [f tick];
+            NSArray *expectedBullets = [w newBulletsForLocation:[f player].l direction:-1];
+            [[theValue([[f bullets] count]) should] equal:theValue([expectedBullets count] + [existingBullets count])];            
+        });
     });
 });
 

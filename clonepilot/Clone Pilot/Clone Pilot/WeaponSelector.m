@@ -38,7 +38,7 @@
 
 - (void)openWeaponOptions {
     if (!self.weaponChoices) {
-        self.weaponChoices = [NSArray arrayWithObjects:self.splitLaser, self.triLaser, nil];
+        self.weaponChoices = [NSArray arrayWithObjects:self.triLaser, self.splitLaser, nil];
     } else {
         
     }

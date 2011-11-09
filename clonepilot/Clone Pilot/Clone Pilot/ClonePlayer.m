@@ -69,6 +69,14 @@
     [self.bulletDelegate addBullet:b];
 }
 
+- (void)fireWeapon {
+    NSArray *bullets = [self.weapon newBulletsForLocation:self.l direction:-1];
+    for (Bullet *b in bullets) {
+        b.identifier = [self identifier];
+    }
+    [self.bulletDelegate addBullets:bullets];
+}
+
 - (BOOL)firstTurn {
     return [[self currentMoves] count] == 1;
 }
@@ -79,8 +87,9 @@
 
 - (void)tick {
     if ([self isFiring]) {
-        Bullet *b = [self newBullet];
-       [self.bulletDelegate addBullet:b];
+        [self fireWeapon];
+//        Bullet *b = [self newBullet];
+//       [self.bulletDelegate addBullet:b];
     }
     
     self.vel = GetAngle(self.l, self.t);

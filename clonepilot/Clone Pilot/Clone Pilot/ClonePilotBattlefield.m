@@ -194,7 +194,9 @@
 }
 
 - (void)addBullets:(NSArray *)bullets {
-    [self.bullets addObjectsFromArray:bullets];
+    for (Bullet *b in bullets) {
+        [self.bullets addObject:b];
+    }
 }
 
 - (void)playerChoseWeapon:(Weapon *)weapon {

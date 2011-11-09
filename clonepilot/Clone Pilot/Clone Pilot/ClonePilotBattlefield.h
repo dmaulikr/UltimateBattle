@@ -36,4 +36,7 @@
 - (NSInteger)cloneKillValue;
 - (NSInteger)fullHealthBonus;
 
+//- (void)addBullet:(Bullet *)b;
+//- (void)addBullets:(NSArray *)bullets;
+
 @end
