@@ -88,8 +88,6 @@
 - (void)tick {
     if ([self isFiring]) {
         [self fireWeapon];
-//        Bullet *b = [self newBullet];
-//       [self.bulletDelegate addBullet:b];
     }
     
     self.vel = GetAngle(self.l, self.t);
