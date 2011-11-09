@@ -63,6 +63,10 @@
     }
 }
 
+- (void)regeneratePlayerHealth {
+    self.player.health = self.level + 1;
+}
+
 - (void)resetPlayer {
     [self.player reset];
 }
@@ -73,6 +77,12 @@
     }
     
     [super bulletLoop];
+}
+
+- (void)scoreForHealth {
+    if (self.player.health == self.level) {
+        self.score += [self fullHealthBonus];
+    }
 }
 
 - (void)advanceLevel {
@@ -93,6 +103,10 @@
 
 - (NSInteger)cloneKillValue {
     return 1;
+}
+
+- (NSInteger)fullHealthBonus {
+    return 10;
 }
 
 - (void)advanceScoreForKillingClone {
@@ -186,11 +200,12 @@
 - (void)playerChoseWeapon:(Weapon *)weapon {
     self.level++;
     self.player.weapon = weapon;
-    self.player.health = self.level+1;
 }
 
 - (void)chooseWeapon:(NSInteger)choiceIndex {
     [self.weaponSelector chooseWeapon:choiceIndex];
+    [self scoreForHealth];    
+    [self regeneratePlayerHealth];        
 }
 
 - (NSArray *)weaponChoices {

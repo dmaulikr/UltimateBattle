@@ -174,42 +174,7 @@ describe(@"Clone Pilot Battlefield", ^{
             [[theValue(result) should] beTrue];
         });
         
-        it(@"should score when it kills", ^ {
-            firstKill();
-            [[theValue(f.score) should] beGreaterThan:theValue(0)];
-        });
-        
-        it(@"should track shots fired", ^ {
-            [f startup];
-            [[f player] fire];
-            [[theValue(f.shotsFired) should] equal:theValue(1)];
-        });
-        
-        it(@"should track hits", ^ {
-            [f startup];
-            [[theValue(f.hits) should] equal:theValue(0)];
-            [[f player] fire];
-            kill();
-            [[theValue(f.hits) should] equal:theValue(1)];
-        });
-        
-        it(@"should reset position when out of moves", ^{
-            [f startup];
-            ClonePilot *p = [[f clones] lastObject];
-            CGPoint position = p.l;
-            [[f player] fire];
-            [f player].t = CGPointMake(500, 750);
-            kill();
-            BOOL hitZero = 0;
-            while (!hitZero) {
-                [f tick];
-                if (p.moveIndex == 0) {
-                    hitZero = 1;
-                }
-            }
-            [[theValue(p.l) should] equal:theValue(position)];
-        });
-    });
+          });
     
     context(@"Weapon Selection", ^ {
         it(@"should present choices for weapon selection between levels", ^ {
@@ -427,8 +392,70 @@ describe(@"Clone Pilot Battlefield", ^{
             [[theValue([[p currentTurn] firing]) should] beFalse];            
         });
     });
+ 
+    context(@"Scoring", ^{
+        it(@"should score when it kills", ^ {
+            firstKill();
+            [[theValue(f.score) should] beGreaterThan:theValue(0)];
+        });
+        
+        it(@"should not score a bonus for having less than full health", ^ {
+            firstKill();
+            [f chooseWeapon:0];
+            playerHit();
+            [[f player] fire];
+            [[f player] fire];
+            kill();
+            [f chooseWeapon:0];
+            NSInteger clonesKillValue = 3 * [f cloneKillValue] + [f fullHealthBonus];;
+            [[theValue([f score]) should] equal:theValue(clonesKillValue)];
+        });
+        
+        it(@"should score a bonus for having full health", ^{
+            firstKill();
+            [f chooseWeapon:0];
+            [[f player] fire];
+            [[f player] fire];
+            [f player].t = CGPointMake(150, 300);
+            kill();
+            [f chooseWeapon:0];
+            NSInteger expectedScore = (3 * [f cloneKillValue]) + ([f fullHealthBonus] * 2);
+            [[theValue([f score]) should] equal:theValue(expectedScore)];
+        });
+    });
     
     context(@"Combat", ^{
+        it(@"should track shots fired", ^ {
+            [f startup];
+            [[f player] fire];
+            [[theValue(f.shotsFired) should] equal:theValue(1)];
+        });
+        
+        it(@"should track hits", ^ {
+            [f startup];
+            [[theValue(f.hits) should] equal:theValue(0)];
+            [[f player] fire];
+            kill();
+            [[theValue(f.hits) should] equal:theValue(1)];
+        });
+        
+        it(@"should reset position when out of moves", ^{
+            [f startup];
+            ClonePilot *p = [[f clones] lastObject];
+            CGPoint position = p.l;
+            [[f player] fire];
+            [f player].t = CGPointMake(500, 750);
+            kill();
+            BOOL hitZero = 0;
+            while (!hitZero) {
+                [f tick];
+                if (p.moveIndex == 0) {
+                    hitZero = 1;
+                }
+            }
+            [[theValue(p.l) should] equal:theValue(position)];
+        });
+        
         it(@"should start with one health", ^{
             [f startup];
             [[theValue([[f player] health]) should] equal:theValue(1)];
@@ -491,6 +518,7 @@ describe(@"Clone Pilot Battlefield", ^{
             NSInteger health = [[f player] health];
             [[theValue(health) should] equal:theValue([f level] + 1)];            
         });
+        
     });
 });
 

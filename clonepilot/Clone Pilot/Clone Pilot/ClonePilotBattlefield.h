@@ -33,4 +33,7 @@
 
 - (NSArray *)chosenWeapons;
 
+- (NSInteger)cloneKillValue;
+- (NSInteger)fullHealthBonus;
+
 @end
