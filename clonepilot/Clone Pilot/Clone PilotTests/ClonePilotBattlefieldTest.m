@@ -626,9 +626,7 @@ describe(@"Clone Pilot Battlefield", ^{
             playerHit();
             
             [[theValue([[f touches] count]) should] equal:theValue(0)];
-            
         });
-        
     });
     
     context(@"Player Input", ^{
@@ -669,7 +667,6 @@ describe(@"Clone Pilot Battlefield", ^{
             Turn *currentTurn = [[f player] currentTurn];
             [[theValue([currentTurn firing]) should] equal:theValue(YES)];
         });
-        
        
     });
 });
