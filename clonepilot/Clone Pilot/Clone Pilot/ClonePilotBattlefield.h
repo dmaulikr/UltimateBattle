@@ -3,6 +3,7 @@
 #import "ClonePlayer.h"
 #import "ClonePilot.h"
 #import "WeaponSelector.h"
+#import "VRTouch.h"
 
 @class WeaponSelector;
 
@@ -16,6 +17,7 @@
 @property (nonatomic, assign) float shotsFired;
 @property (nonatomic, assign) float hits;
 @property (nonatomic, retain) WeaponSelector *weaponSelector;
+@property (nonatomic, retain) NSMutableArray *touches;
 
 - (void)startup;
 - (NSInteger)livingClones;
@@ -36,7 +38,7 @@
 - (NSInteger)cloneKillValue;
 - (NSInteger)fullHealthBonus;
 
-//- (void)addBullet:(Bullet *)b;
-//- (void)addBullets:(NSArray *)bullets;
+- (void)addTouch:(VRTouch *)touch;
+- (void)moveTouch:(CGPoint)l;
 
 @end

@@ -16,6 +16,22 @@
 @synthesize finished;
 @synthesize radius;
 @synthesize identifier;
+@synthesize launchSpeed;
+
+-(id)copyWithZone:(NSZone *)zone
+{
+    // We'll ignore the zone for now
+    Bullet *another = [[Bullet alloc] init];
+    another.vel = self.vel;
+    another.l = self.l;
+    another.finished = self.finished;
+    another.radius = self.radius;
+    another.identifier = self.identifier;
+    another.launchSpeed = self.launchSpeed;
+    
+    return another;
+}
+
 
 + (Bullet *)sampleBullet {
     return [[[Bullet alloc] initWithLocation:CGPointMake(100,100) velocity:CGPointMake(0,-3)] autorelease];

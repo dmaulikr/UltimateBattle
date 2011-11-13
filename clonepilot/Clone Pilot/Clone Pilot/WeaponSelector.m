@@ -15,6 +15,7 @@
 @synthesize splitLaser;
 @synthesize triLaser;
 @synthesize quadLaser;
+@synthesize sideLaser;
 @synthesize chosenWeapons;
 @synthesize delegate;
 
@@ -26,6 +27,7 @@
         self.splitLaser = [[[SplitLaser alloc] init] autorelease];
         self.triLaser = [[[TriLaser alloc] init] autorelease];
         self.quadLaser = [[[QuadLaser alloc] init] autorelease];
+        self.sideLaser = [[[SideLaser alloc] init] autorelease];
         self.chosenWeapons = [NSMutableArray array];
     }
     
@@ -38,7 +40,7 @@
 
 - (void)openWeaponOptions {
     if (!self.weaponChoices) {
-        self.weaponChoices = [NSArray arrayWithObjects:self.triLaser, self.splitLaser, nil];
+        self.weaponChoices = [NSArray arrayWithObjects:self.triLaser, self.splitLaser, self.sideLaser, nil];
     } else {
         
     }
@@ -68,6 +70,7 @@
     [splitLaser release];
     [triLaser release];
     [quadLaser release];
+    [sideLaser release];
     [chosenWeapons release];
     self.delegate = nil;
     [super dealloc];

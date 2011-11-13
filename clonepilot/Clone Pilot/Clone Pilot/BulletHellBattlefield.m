@@ -25,14 +25,19 @@
 
 - (void)bulletLoop {
     NSMutableArray *removableBullets = [NSMutableArray array];
+
     for (Bullet *b in self.bullets) {
-        [b tick];
         if (b.finished) {
             [removableBullets addObject:b];
         }
     }
-    
+
     [self.bullets removeObjectsInArray:removableBullets];
+    
+    
+    for (Bullet *b in self.bullets) {
+        [b tick];
+    }
 }
 
 - (void)tick {

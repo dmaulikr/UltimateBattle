@@ -41,6 +41,11 @@
 		8DB98BB1144A1F150089B94C /* SingleLaserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DB98BB0144A1F150089B94C /* SingleLaserTest.m */; };
 		8DBD92E3145A44BD00349A7D /* ClonePilot.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBD92E2145A44BD00349A7D /* ClonePilot.m */; };
 		8DBD92E4145A44BD00349A7D /* ClonePilot.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBD92E2145A44BD00349A7D /* ClonePilot.m */; };
+		8DC03C6A146B533F003DCF2D /* SideLaserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC03C69146B533F003DCF2D /* SideLaserTest.m */; };
+		8DC03C6E146B534A003DCF2D /* SideLaser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC03C6D146B534A003DCF2D /* SideLaser.m */; };
+		8DC03C6F146B534A003DCF2D /* SideLaser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC03C6D146B534A003DCF2D /* SideLaser.m */; };
+		8DC03C72146B5380003DCF2D /* SideLaserBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC03C71146B537F003DCF2D /* SideLaserBullet.m */; };
+		8DC03C73146B5380003DCF2D /* SideLaserBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC03C71146B537F003DCF2D /* SideLaserBullet.m */; };
 		8DC7F8931438D8870016D718 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC7F8921438D8870016D718 /* UIKit.framework */; };
 		8DC7F8951438D8870016D718 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC7F8941438D8870016D718 /* Foundation.framework */; };
 		8DC7F8971438D8870016D718 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC7F8961438D8870016D718 /* CoreGraphics.framework */; };
@@ -126,6 +131,8 @@
 		8DC7F9AD1438DA120016D718 /* BulletHellBattlefield.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F9AB1438DA120016D718 /* BulletHellBattlefield.m */; };
 		8DCBEDD314536E3900E6C566 /* WeaponSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DCBEDD214536E3900E6C566 /* WeaponSelector.m */; };
 		8DCBEDD414536E3900E6C566 /* WeaponSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DCBEDD214536E3900E6C566 /* WeaponSelector.m */; };
+		8DE424C01470352700FFC6A6 /* VRTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DE424BF1470352700FFC6A6 /* VRTouch.m */; };
+		8DE424C11470352700FFC6A6 /* VRTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DE424BF1470352700FFC6A6 /* VRTouch.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -152,12 +159,10 @@
 		8DA3375E14522A5200AA3744 /* ActionBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionBlock.h; sourceTree = "<group>"; };
 		8DA3375F14522D1C00AA3744 /* TriLaser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriLaser.h; sourceTree = "<group>"; };
 		8DA3376014522D1C00AA3744 /* TriLaser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TriLaser.m; sourceTree = "<group>"; };
-		8DA3376314522E5700AA3744 /* TriLaserTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriLaserTest.h; sourceTree = "<group>"; };
 		8DA3376414522E5700AA3744 /* TriLaserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TriLaserTest.m; sourceTree = "<group>"; };
 		8DA3376714524BD600AA3744 /* QuadLaser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QuadLaser.h; path = "Clone PilotTests/QuadLaser.h"; sourceTree = SOURCE_ROOT; };
 		8DA3376814524BD600AA3744 /* QuadLaser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QuadLaser.m; path = "Clone PilotTests/QuadLaser.m"; sourceTree = SOURCE_ROOT; };
 		8DA3377014524CBA00AA3744 /* QuadLaserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuadLaserTest.m; sourceTree = "<group>"; };
-		8DA337731452627E00AA3744 /* SplitLaserTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplitLaserTest.h; sourceTree = "<group>"; };
 		8DA337741452627E00AA3744 /* SplitLaserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplitLaserTest.m; sourceTree = "<group>"; };
 		8DA337761452637300AA3744 /* SplitLaser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplitLaser.h; sourceTree = "<group>"; };
 		8DA337771452637300AA3744 /* SplitLaser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplitLaser.m; sourceTree = "<group>"; };
@@ -177,6 +182,11 @@
 		8DB98BB0144A1F150089B94C /* SingleLaserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleLaserTest.m; sourceTree = "<group>"; };
 		8DBD92E1145A44BD00349A7D /* ClonePilot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClonePilot.h; sourceTree = "<group>"; };
 		8DBD92E2145A44BD00349A7D /* ClonePilot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClonePilot.m; sourceTree = "<group>"; };
+		8DC03C69146B533F003DCF2D /* SideLaserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideLaserTest.m; sourceTree = "<group>"; };
+		8DC03C6C146B534A003DCF2D /* SideLaser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideLaser.h; sourceTree = "<group>"; };
+		8DC03C6D146B534A003DCF2D /* SideLaser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideLaser.m; sourceTree = "<group>"; };
+		8DC03C70146B537F003DCF2D /* SideLaserBullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideLaserBullet.h; sourceTree = "<group>"; };
+		8DC03C71146B537F003DCF2D /* SideLaserBullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideLaserBullet.m; sourceTree = "<group>"; };
 		8DC7F88E1438D8870016D718 /* Clone Pilot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Clone Pilot.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DC7F8921438D8870016D718 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8DC7F8941438D8870016D718 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -350,6 +360,8 @@
 		8DC7F9AB1438DA120016D718 /* BulletHellBattlefield.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BulletHellBattlefield.m; sourceTree = "<group>"; };
 		8DCBEDD114536E3900E6C566 /* WeaponSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeaponSelector.h; sourceTree = "<group>"; };
 		8DCBEDD214536E3900E6C566 /* WeaponSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeaponSelector.m; sourceTree = "<group>"; };
+		8DE424BE1470352700FFC6A6 /* VRTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VRTouch.h; sourceTree = "<group>"; };
+		8DE424BF1470352700FFC6A6 /* VRTouch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VRTouch.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -409,6 +421,8 @@
 				8DA3375E14522A5200AA3744 /* ActionBlock.h */,
 				8D6EA34D1438F683002BD85E /* Interfaces */,
 				8D6EA3481438E0D7002BD85E /* Maths */,
+				8DE424BE1470352700FFC6A6 /* VRTouch.h */,
+				8DE424BF1470352700FFC6A6 /* VRTouch.m */,
 			);
 			name = Support;
 			sourceTree = "<group>";
@@ -456,6 +470,10 @@
 				8DA337771452637300AA3744 /* SplitLaser.m */,
 				8DCBEDD114536E3900E6C566 /* WeaponSelector.h */,
 				8DCBEDD214536E3900E6C566 /* WeaponSelector.m */,
+				8DC03C6C146B534A003DCF2D /* SideLaser.h */,
+				8DC03C6D146B534A003DCF2D /* SideLaser.m */,
+				8DC03C70146B537F003DCF2D /* SideLaserBullet.h */,
+				8DC03C71146B537F003DCF2D /* SideLaserBullet.m */,
 			);
 			name = Weapons;
 			sourceTree = "<group>";
@@ -465,11 +483,10 @@
 			children = (
 				8DB98BAA144A1B530089B94C /* WeaponTest.m */,
 				8DB98BB0144A1F150089B94C /* SingleLaserTest.m */,
-				8DA3376314522E5700AA3744 /* TriLaserTest.h */,
 				8DA3376414522E5700AA3744 /* TriLaserTest.m */,
 				8DA3377014524CBA00AA3744 /* QuadLaserTest.m */,
-				8DA337731452627E00AA3744 /* SplitLaserTest.h */,
 				8DA337741452627E00AA3744 /* SplitLaserTest.m */,
+				8DC03C69146B533F003DCF2D /* SideLaserTest.m */,
 			);
 			name = "Weapon Tests";
 			sourceTree = "<group>";
@@ -870,6 +887,9 @@
 				8DA3376914524BD600AA3744 /* QuadLaser.m in Sources */,
 				8DA337781452637400AA3744 /* SplitLaser.m in Sources */,
 				8DCBEDD314536E3900E6C566 /* WeaponSelector.m in Sources */,
+				8DC03C6E146B534A003DCF2D /* SideLaser.m in Sources */,
+				8DC03C72146B5380003DCF2D /* SideLaserBullet.m in Sources */,
+				8DE424C01470352700FFC6A6 /* VRTouch.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -968,6 +988,10 @@
 				8DA337751452627F00AA3744 /* SplitLaserTest.m in Sources */,
 				8DA337791452637400AA3744 /* SplitLaser.m in Sources */,
 				8DCBEDD414536E3900E6C566 /* WeaponSelector.m in Sources */,
+				8DC03C6A146B533F003DCF2D /* SideLaserTest.m in Sources */,
+				8DC03C6F146B534A003DCF2D /* SideLaser.m in Sources */,
+				8DC03C73146B5380003DCF2D /* SideLaserBullet.m in Sources */,
+				8DE424C11470352700FFC6A6 /* VRTouch.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

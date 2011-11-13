@@ -11,6 +11,7 @@
 @synthesize shotsFired;
 @synthesize hits;
 @synthesize weaponSelector;
+@synthesize touches;
 
 - (id)init {
     self = [super init];
@@ -19,6 +20,7 @@
         self.player.bulletDelegate = self;
         self.clones = [NSMutableArray array];
         self.weaponSelector = [[WeaponSelector alloc] initWithBattlefield:self];
+        self.touches = [NSMutableArray array];
     }
     return self;
 }
@@ -121,26 +123,38 @@
     }
 }
 
-- (void)bulletLoop {
-    for (Bullet *b in self.bullets) {
-        for (ClonePilot *p in self.clones) {
-            if (b.identifier != [ClonePilot identifier]) {
-                if (GetDistance(b.l, p.l) <= b.radius + p.radius) {
-                    [self killClone:p];
-                    self.hits++;
-                    b.finished = YES;
-                }
+- (void)checkForCloneCollision:(Bullet *)b {
+    for (ClonePilot *p in self.clones) {
+        if (b.identifier != [ClonePilot identifier]) {
+            if (GetDistance(b.l, p.l) <= b.radius + p.radius) {
+                [self killClone:p];
+                self.hits++;
+                b.finished = YES;
             }
         }
-        
-        if (GetDistance(b.l, [self player].l) <= b.radius + [[self player] radius]) {
-            [[self player] hit:b];
-        }
     }
-    
+}
+
+- (void)checkForPlayerCollision:(Bullet *)b {
+    if (GetDistance(b.l, [self player].l) <= b.radius + [[self player] radius]) {
+        [[self player] hit:b];
+    }
+}
+
+- (void)checkToAdvanceLevel {
     if (_shouldAdvanceLevel) {
         [self advanceLevel];
     }
+}
+
+- (void)bulletLoop {
+    for (Bullet *b in self.bullets) {
+        [self checkForCloneCollision:b];
+        [self checkForPlayerCollision:b];      
+    }
+    
+    [self checkToAdvanceLevel];
+
     
     [super bulletLoop];
 }
@@ -218,10 +232,35 @@
     return [NSArray arrayWithArray:self.weaponSelector.chosenWeapons];
 }
 
+#pragma mark touches
+
+- (void)addTouch:(VRTouch *)touch {
+    [self.touches addObject:touch];
+    if ([self.touches count] == 1) {
+        self.player.t = touch.l;
+    }
+}
+
+- (void)moveTouch:(CGPoint)l {
+
+    VRTouch *closestTouch = nil;
+    float distance = 10000;
+    for (VRTouch *t in self.touches) {
+        if (GetDistance(t.l, l) < distance) {
+            distance = GetDistance(t.l, l);
+            closestTouch = t;
+        }
+    }
+    
+    closestTouch.l = l;
+    
+}
+
 - (void)dealloc {
     [player release];
     [clones release];
     [weaponSelector release];
+    [touches release];
     [super dealloc];
 }
 

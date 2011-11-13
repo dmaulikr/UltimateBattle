@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "VRBoundaryFrame.h"
 
-@interface Bullet : NSObject {
+@interface Bullet : NSObject <NSCopying> {
     
 }
 
@@ -18,6 +18,7 @@
 @property (nonatomic, assign) BOOL finished;
 @property (nonatomic, assign) double radius;
 @property (nonatomic, assign) NSInteger identifier;
+@property (nonatomic, assign) float launchSpeed;
 
 - (id)initWithLocation:(CGPoint)location velocity:(CGPoint)velocity;
 

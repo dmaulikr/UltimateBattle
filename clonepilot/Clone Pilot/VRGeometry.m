@@ -29,7 +29,7 @@ CGPoint GetAngle(CGPoint a ,CGPoint b){
 	float distvar = ((fabsf(a.x-b.x))/veldistance);
 	float distvar2 = ((fabsf(a.y-b.y))/veldistance);
 	
-	if (b.x < b.x){
+	if (b.x < a.x){
 		distvar = -distvar;
 	}
 	if (b.y < a.y){

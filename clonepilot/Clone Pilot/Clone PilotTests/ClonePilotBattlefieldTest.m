@@ -3,6 +3,10 @@
 #import "ClonePlayer.h"
 #import "ClonePilot.h"
 #import "ActionBlock.h"
+#import "SideLaserBullet.h"
+#import "Bullet.h"
+#import "VRGeometry.h"
+#import "VRTouch.h"
 
 SPEC_BEGIN(ClonePilotBattlefieldTest)
 
@@ -529,6 +533,37 @@ describe(@"Clone Pilot Battlefield", ^{
             NSArray *expectedBullets = [w newBulletsForLocation:[f player].l direction:-1];
             [[theValue([[f bullets] count]) should] equal:theValue([expectedBullets count] + [existingBullets count])];            
         });
+    });
+    
+    context(@"Player Input", ^{
+        it(@"should start with no active touches", ^{
+            [f startup];
+            [[theValue([[f touches] count]) should] equal:theValue(0)];
+        });
+        
+        it(@"should add a touch when passed to it", ^{
+            [f startup];
+            VRTouch *touch = [[[VRTouch alloc] initWithLocation:CGPointMake(100, 100)] autorelease];
+            [f addTouch:touch];
+            [[theValue([[f touches] count]) should] equal:theValue(1)];
+        });
+        
+        it(@"should set player target with first touch", ^{
+            [f startup]; 
+            VRTouch *touch = [[[VRTouch alloc] initWithLocation:CGPointMake(100, 100)] autorelease];            
+            [f addTouch:touch];
+            [[theValue([[f player] t]) should] equal:theValue(touch.l)];
+        });        
+        
+        it(@"should move a touch", ^{
+            [f startup];
+            VRTouch *touch = [[[VRTouch alloc] initWithLocation:CGPointMake(100, 100)] autorelease];
+            [f addTouch:touch];
+            [f moveTouch:CGPointMake(300, 300)];
+            VRTouch *t = [[f touches] objectAtIndex:0];
+            [[theValue(t.l) should] equal:theValue(CGPointMake(300, 300))];
+        });
+    
     });
 });
 
