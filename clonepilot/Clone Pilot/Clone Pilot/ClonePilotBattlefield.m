@@ -235,9 +235,11 @@
 #pragma mark touches
 
 - (void)addTouch:(VRTouch *)touch {
-    [self.touches addObject:touch];
-    if ([self.touches count] == 1) {
+    if ([self.touches count] == 0) {
+        [self.touches addObject:touch];
         self.player.t = touch.l;
+    } else {
+        [self.player fire];
     }
 }
 
