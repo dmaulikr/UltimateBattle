@@ -60,6 +60,13 @@ describe(@"Clone Pilot Battlefield", ^{
         [f addTouch:touch];
     };
     
+    ActionBlock firstPilotDeath = ^{
+        firstKill();
+        [f chooseWeapon:0];
+        playerHit();
+        playerHit();
+    };
+
     beforeEach(^{
         f = [[[ClonePilotBattlefield alloc] init] autorelease];
         startingTouch = CGPointMake(100, 100);
@@ -417,6 +424,7 @@ describe(@"Clone Pilot Battlefield", ^{
             playerHit();
             [[f player] fire];
             [[f player] fire];
+            [f player].t = CGPointMake(130, 700);
             kill();
             [f chooseWeapon:0];
             NSInteger clonesKillValue = 3 * [f cloneKillValue] + [f fullHealthBonus];;
@@ -467,11 +475,6 @@ describe(@"Clone Pilot Battlefield", ^{
             }
             [[theValue(p.l) should] equal:theValue(position)];
         });
-        
-        it(@"should start with one health", ^{
-            [f startup];
-            [[theValue([[f player] health]) should] equal:theValue(1)];
-        });
 
         it(@"should assign ownership of bullets from the player", ^{
             [f startup];
@@ -501,6 +504,23 @@ describe(@"Clone Pilot Battlefield", ^{
             [[theValue(newBullets) should] beGreaterThan:theValue(bullets)];            
         });
         
+        it(@"should fire bullets from its weapon", ^ {
+            firstKill();
+            [f chooseWeapon:0];
+            NSArray *existingBullets = [NSArray arrayWithArray:[f bullets]];  
+            [[f player] fire];
+            Weapon *w = [[f player] weapon];
+            [f tick];
+            NSArray *expectedBullets = [w newBulletsForLocation:[f player].l direction:-1];
+            [[theValue([[f bullets] count]) should] equal:theValue([expectedBullets count] + [existingBullets count])];            
+        });
+    });
+    
+    context(@"Player Health", ^{
+        it(@"should start with one health", ^{
+            [f startup];
+            [[theValue([[f player] health]) should] equal:theValue(1)];
+        });
         
         it(@"should hurt player when bullet hits", ^{
             firstKill();
@@ -531,15 +551,9 @@ describe(@"Clone Pilot Battlefield", ^{
             [[theValue(health) should] equal:theValue([f level] + 1)];            
         });
         
-        it(@"should fire bullets from its weapon", ^ {
-            firstKill();
-            [f chooseWeapon:0];
-            NSArray *existingBullets = [NSArray arrayWithArray:[f bullets]];  
-            [[f player] fire];
-            Weapon *w = [[f player] weapon];
-            [f tick];
-            NSArray *expectedBullets = [w newBulletsForLocation:[f player].l direction:-1];
-            [[theValue([[f bullets] count]) should] equal:theValue([expectedBullets count] + [existingBullets count])];            
+        it(@"should reset clones when player dies", ^{
+            firstPilotDeath();
+            [[theValue([[f clones] count]) should] equal:theValue(0)];
         });
     });
     

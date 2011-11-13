@@ -135,10 +135,22 @@
     }
 }
 
+- (void)resetBattlefield {
+   [self.clones removeAllObjects];
+}
+
+- (void)checkForDeadPlayer {
+    if ([[self player] health] <= 0) {
+        [self resetBattlefield];
+    }
+}
+
 - (void)checkForPlayerCollision:(Bullet *)b {
     if (GetDistance(b.l, [self player].l) <= b.radius + [[self player] radius]) {
         [[self player] hit:b];
     }
+    
+    [self checkForDeadPlayer];
 }
 
 - (void)checkToAdvanceLevel {
