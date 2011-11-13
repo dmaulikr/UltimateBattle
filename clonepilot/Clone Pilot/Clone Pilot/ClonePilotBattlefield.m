@@ -135,13 +135,13 @@
     }
 }
 
-- (void)resetBattlefield {
-   [self.clones removeAllObjects];
+- (void)endBattle {
+    _battlefieldEnding = YES;
 }
 
 - (void)checkForDeadPlayer {
     if ([[self player] health] <= 0) {
-        [self resetBattlefield];
+        [self endBattle];
     }
 }
 
@@ -186,10 +186,25 @@
     [self.player tick];
 }
 
+- (void)resetBattlefield {
+    [self.clones removeAllObjects];
+    [self.bullets removeAllObjects];
+    [self.player restart];
+    self.level = 0;
+    [self.weaponSelector restart];
+    [self.touches removeAllObjects];
+    _battlefieldEnding = NO;
+    
+}
+
 - (void)tick {
     [super tick];
     [self playerLoop];
     [self cloneLoop];
+    
+    if (_battlefieldEnding) {
+        [self resetBattlefield];
+    }
 }
 
 - (NSInteger)livingClones {

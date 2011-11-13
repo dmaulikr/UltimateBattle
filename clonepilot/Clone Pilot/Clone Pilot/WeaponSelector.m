@@ -34,6 +34,11 @@
     return self;
 }
 
+- (void)restart {
+    [self startup];
+    self.weaponChoices = nil;
+}
+
 - (void)startup {
     self.chosenWeapons = [NSMutableArray arrayWithObjects:self.singleLaser, self.quadLaser, nil];
 }

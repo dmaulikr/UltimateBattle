@@ -130,6 +130,12 @@
     self.t = self.l;
 }
 
+- (void)restart {
+    [self reset];
+    [self assignDefaultWeapon];
+}
+
+
 - (void)dealloc {
     self.bulletDelegate = nil;
     [currentMoves release];

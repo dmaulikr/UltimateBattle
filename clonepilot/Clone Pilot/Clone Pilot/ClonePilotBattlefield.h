@@ -9,6 +9,7 @@
 
 @interface ClonePilotBattlefield : BulletHellBattlefield <BulletDelegate> {
     BOOL _shouldAdvanceLevel;
+    BOOL _battlefieldEnding;
 }
 
 @property (nonatomic, retain) ClonePlayer *player;

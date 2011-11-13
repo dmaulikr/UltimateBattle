@@ -545,16 +545,90 @@ describe(@"Clone Pilot Battlefield", ^{
             playerHit();
             [[f player] fire];
             [[f player] fire];
+            [f player].t = CGPointMake(100, 700);
             kill();
             [f chooseWeapon:0];
             NSInteger health = [[f player] health];
             [[theValue(health) should] equal:theValue([f level] + 1)];            
         });
-        
+                
         it(@"should reset clones when player dies", ^{
             firstPilotDeath();
             [[theValue([[f clones] count]) should] equal:theValue(0)];
         });
+        
+        it(@"should erase bullets when player dies", ^{
+            firstPilotDeath();
+            [[theValue([[f bullets] count]) should] equal:theValue(0)];
+        });
+        
+        it(@"should reset player moves", ^{
+            firstPilotDeath();
+            [[theValue([[[f player] currentMoves] count]) should] equal:theValue(0)];
+        });
+        
+        it(@"should reset player location", ^{
+            [f startup];
+            CGPoint startingPosition = [f player].l;
+            [[f player] fire];
+            kill();
+            [f chooseWeapon:0];
+            [f player].t = CGPointMake([f player].l.x, [f player].l.y - 200);
+            playerHit();
+            playerHit();
+            [[theValue([f player].l) should] equal:theValue(startingPosition)];
+        });
+        
+        it(@"should reset player weapon", ^{
+            [f startup];
+            Weapon *startingWeapon = [[f player] weapon];
+            NSString *weaponDescription = [startingWeapon description];
+            [[f player] fire];
+            kill();
+            [f chooseWeapon:0];
+            playerHit();
+            playerHit();
+            NSString *resetWeapon = [[[f player] weapon] description];
+            BOOL result = [resetWeapon isEqualToString:weaponDescription];
+            [[theValue(result) should] equal:theValue(YES)];
+        });
+        
+        it(@"should reset level", ^{
+            firstPilotDeath();
+            [[theValue([f level]) should] equal:theValue(0)];
+        });
+        
+        it(@"should reset weapon choices", ^{
+            [f startup];
+            NSString *chosenWeapons     = [[[f weaponSelector] chosenWeapons] description];
+            [[f player] fire];
+            kill();
+            [f chooseWeapon:0];
+            playerHit();
+            playerHit();
+            NSString *resetChosenWeapons = [[[f weaponSelector] chosenWeapons] description];
+            NSString *resetAvailableWeapons = [[[f weaponSelector] weaponChoices] description];
+            BOOL chosenResult       = [resetChosenWeapons isEqualToString:chosenWeapons];
+            BOOL availableResult    = resetAvailableWeapons == nil;
+            [[theValue(chosenResult) should] beTrue];
+            [[theValue(availableResult) should] beTrue];
+        });
+        
+        it(@"should reset touches", ^{
+            [f startup];
+            VRTouch *t = [[[VRTouch alloc] initWithLocation:[f player].l] autorelease];
+            [f addTouch:t];
+            VRTouch *t2 = [[[VRTouch alloc] initWithLocation:[f player].l] autorelease];
+            [f addTouch:t2];
+            kill();
+            [f chooseWeapon:0];
+            playerHit();
+            playerHit();
+            
+            [[theValue([[f touches] count]) should] equal:theValue(0)];
+            
+        });
+        
     });
     
     context(@"Player Input", ^{

@@ -38,6 +38,7 @@
 
 - (id)initWithBattlefield:(id)field;
 - (void)startup;
+- (void)restart;
 
 - (void)chooseWeapon:(NSInteger)choiceIndex;
 - (void)openWeaponOptions;

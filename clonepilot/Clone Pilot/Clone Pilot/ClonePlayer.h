@@ -36,4 +36,6 @@
 + (ClonePlayer *)samplePlayer;
 + (CGPoint)defaultLocation;
 
+- (void)restart;
+
 @end
