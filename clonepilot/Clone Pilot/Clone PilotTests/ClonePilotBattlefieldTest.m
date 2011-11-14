@@ -667,7 +667,39 @@ describe(@"Clone Pilot Battlefield", ^{
             Turn *currentTurn = [[f player] currentTurn];
             [[theValue([currentTurn firing]) should] equal:theValue(YES)];
         });
-       
+    });
+    
+    context(@"Pausing", ^{
+        it(@"should start unpaused", ^{
+            [f startup];
+            [[theValue([f playing]) should] beTrue];
+        });
+        
+        it(@"should pause when playing and toggled", ^{
+            [f startup];
+            [f togglePlaying];
+            [[theValue([f playing]) should] beFalse];
+        });
+        
+        it(@"should play when paused and toggled", ^{
+            [f startup];
+            [f togglePlaying];
+            [f togglePlaying];
+            [[theValue([f playing]) should] beTrue]; 
+        });
+        
+        it(@"should freeze bullets when paused", ^{
+            [f startup];
+            [[f player] fire];
+            [f tick];
+            [f tick];
+            [f togglePlaying];
+            Bullet *b = [[f bullets] objectAtIndex:0];
+            CGPoint l = b.l;
+            [f tick];
+            [[theValue(b.l) should] equal:theValue(l)];
+        });
+        
     });
 });
 

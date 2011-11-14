@@ -198,12 +198,14 @@
 }
 
 - (void)tick {
-    [super tick];
-    [self playerLoop];
-    [self cloneLoop];
-    
-    if (_battlefieldEnding) {
-        [self resetBattlefield];
+    if ([self playing]) {
+        [super tick];
+        [self playerLoop];
+        [self cloneLoop];
+        
+        if (_battlefieldEnding) {
+            [self resetBattlefield];
+        }
     }
 }
 
@@ -283,6 +285,14 @@
     
     closestTouch.l = l;
     
+}
+
+- (BOOL)playing {
+    return !_paused;
+}
+
+- (void)togglePlaying {
+    _paused = !_paused;
 }
 
 - (void)dealloc {

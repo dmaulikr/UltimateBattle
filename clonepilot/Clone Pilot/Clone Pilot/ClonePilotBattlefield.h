@@ -10,6 +10,7 @@
 @interface ClonePilotBattlefield : BulletHellBattlefield <BulletDelegate> {
     BOOL _shouldAdvanceLevel;
     BOOL _battlefieldEnding;
+    BOOL _paused;
 }
 
 @property (nonatomic, retain) ClonePlayer *player;
@@ -41,5 +42,8 @@
 
 - (void)addTouch:(VRTouch *)touch;
 - (void)moveTouch:(CGPoint)l;
+
+- (BOOL)playing;
+- (void)togglePlaying;
 
 @end
