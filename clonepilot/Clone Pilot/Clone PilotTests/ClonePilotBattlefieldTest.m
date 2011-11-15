@@ -700,6 +700,35 @@ describe(@"Clone Pilot Battlefield", ^{
             [[theValue(b.l) should] equal:theValue(l)];
         });
         
+        it(@"should freeze player when paused", ^{
+            [f startup];
+            [f player].t = CGPointMake(100, 300);
+            [f tick];
+            CGPoint l = [f player].l;
+            [f togglePlaying];
+            [f tick];
+            [[theValue([f player].l) should] equal:theValue(l)];
+        });
+        
+        it(@"should freeze clones when paused", ^ {
+            [f startup];
+            [[f player] fire];
+            [f tick];
+            [f player].t = CGPointMake(600, 300);
+            [f tick];
+            kill();
+            [f chooseWeapon:0];
+            [f tick];
+            [f tick];
+            [f tick];
+            [f togglePlaying];
+            ClonePilot *p = [[f clones] objectAtIndex:0];
+            NSLog(@"p.vel: %f %f",p.vel.x, p.vel.y);
+            CGPoint l = p.l;
+            [f tick];
+            [[theValue(p.l) should] equal:theValue(l)];
+        });
+        
     });
 });
 
