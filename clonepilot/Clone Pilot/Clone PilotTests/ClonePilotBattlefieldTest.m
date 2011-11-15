@@ -729,6 +729,28 @@ describe(@"Clone Pilot Battlefield", ^{
             [[theValue(p.l) should] equal:theValue(l)];
         });
         
+        it(@"should not fire player bullets when paused", ^{
+            [f startup];
+            [[f player] fire];
+            [f togglePlaying];
+            [f tick];
+            [[theValue([[f bullets] count]) should] equal:theValue(0)];
+        });
+        
+        it(@"should not fire clone bullets when paused", ^{
+            [f startup];
+            [f tick];
+            [[f player] fire];
+            [f tick];
+            kill();
+            [f chooseWeapon:0];
+            [f togglePlaying];
+            [f tick];
+            [f tick];
+            [f tick];
+            [f tick];
+            [[theValue([[f bullets] count]) should] equal:theValue(0)]; 
+        });
     });
 });
 
