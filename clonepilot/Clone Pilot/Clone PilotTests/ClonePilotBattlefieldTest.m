@@ -13,7 +13,7 @@ SPEC_BEGIN(ClonePilotBattlefieldTest)
 describe(@"Clone Pilot Battlefield", ^{
     __block ClonePilotBattlefield *f;
     __block CGPoint startingTouch;
-
+    
     ActionBlock kill = ^ {
         int livingClones = [f livingClones];
         
@@ -73,8 +73,8 @@ describe(@"Clone Pilot Battlefield", ^{
     });
     
     context(@"Initialization", ^{
-        it(@"should have a player with a location", ^{
-            [[theValue([[[f player ]class] isSubclassOfClass:[ClonePlayer class]]) should] beTrue];
+        it(@"should have a player", ^{
+            [[theValue([[[f player] class] isSubclassOfClass:[ClonePlayer class]]) should] beTrue];
         });
     });
     
@@ -191,9 +191,8 @@ describe(@"Clone Pilot Battlefield", ^{
             NSLog(@"newWeapon: %@", newWeapon);
             BOOL result = [oldWeapon isEqualToString:newWeapon];
             [[theValue(result) should] beTrue];
-        });
-        
-          });
+        });    
+    });
     
     context(@"Weapon Selection", ^ {
         it(@"should present choices for weapon selection between levels", ^ {
@@ -203,15 +202,17 @@ describe(@"Clone Pilot Battlefield", ^{
         
         it(@"should advance level when a weapon is chosen", ^{
             firstKill();
+            NSInteger level = [f level];
             [f chooseWeapon:0];
-            [[theValue(f.level) should] equal:theValue(1)];
+            [[theValue(f.level) should] equal:theValue(level+1)];
         });
         
         it(@"should assign the chosen weapon to the player", ^{
             firstKill();
+            NSString *newWeapon = [[[f weaponChoices] objectAtIndex:0] description];
             [f chooseWeapon:0];
             NSString *weapon = [f.player.weapon description];
-            BOOL result = [weapon isEqualToString:[TriLaser description]];
+            BOOL result = [weapon isEqualToString:newWeapon];
             [[theValue(result) should] beTrue];
         });
         
@@ -263,11 +264,7 @@ describe(@"Clone Pilot Battlefield", ^{
         it(@"should record the last chosen weapon", ^ {
             firstKill();
             NSString *w = [[[f weaponChoices] objectAtIndex:0] description];
-            NSLog(@"PRE weapon choices: %@",[f weaponChoices]);
-            NSLog(@"PRE chosen: %@", [f chosenWeapons]);
             [f chooseWeapon:0];
-            NSLog(@"POST weapon choices: %@",[f weaponChoices]);
-            NSLog(@"POST chosen: %@", [f chosenWeapons]);
             NSString *chosenWeapon = [[[f chosenWeapons] objectAtIndex:[[f chosenWeapons] count] -1] description];
             BOOL result = [w isEqualToString:chosenWeapon];
             
@@ -275,6 +272,8 @@ describe(@"Clone Pilot Battlefield", ^{
         });
         
     });
+    
+    //visited
     
     context(@"Clone Piloting", ^{
         it(@"should reset moveIndex on new level", ^{
