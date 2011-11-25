@@ -4,6 +4,7 @@
 #import "ClonePilot.h"
 #import "WeaponSelector.h"
 #import "VRTouch.h"
+#import "CCLayer.h"
 
 @class WeaponSelector;
 
@@ -20,6 +21,7 @@
 @property (nonatomic, assign) float hits;
 @property (nonatomic, retain) WeaponSelector *weaponSelector;
 @property (nonatomic, retain) NSMutableArray *touches;
+@property (nonatomic, assign) CCLayer *layer;
 
 - (void)startup;
 - (NSInteger)livingClones;
@@ -45,5 +47,7 @@
 
 - (BOOL)playing;
 - (void)togglePlaying;
+
+- (id)initWithLayer:(CCLayer *)quantumLayer;
 
 @end

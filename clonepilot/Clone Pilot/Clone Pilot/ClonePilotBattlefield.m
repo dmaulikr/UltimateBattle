@@ -12,8 +12,9 @@
 @synthesize hits;
 @synthesize weaponSelector;
 @synthesize touches;
+@synthesize layer;
 
-- (id)init {
+- (id)initWithLayer:(CCLayer *)quantumLayer {
     self = [super init];
     if (self) {
         self.player = [[[ClonePlayer alloc] init] autorelease];
@@ -21,6 +22,7 @@
         self.clones = [NSMutableArray array];
         self.weaponSelector = [[WeaponSelector alloc] initWithBattlefield:self];
         self.touches = [NSMutableArray array];
+        self.layer = quantumLayer;
     }
     return self;
 }
@@ -300,6 +302,7 @@
     [clones release];
     [weaponSelector release];
     [touches release];
+    self.layer = nil;
     [super dealloc];
 }
 

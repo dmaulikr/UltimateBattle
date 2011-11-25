@@ -7,12 +7,9 @@
 //
 
 #import "cocos2d.h"
-
 #import "Clone_PilotAppDelegate.h"
-
 #import "Clone_PilotViewController.h"
-
-
+#import "QuantumPilotLayer.h"
 
 @implementation Clone_PilotAppDelegate
 
@@ -63,7 +60,7 @@
     
     [CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGBA8888];
     
-    //	[[CCDirector sharedDirector] runWithScene: [HelloWorldLayer scene]];    
+    	[[CCDirector sharedDirector] runWithScene: [QuantumPilotLayer scene]];    
     
     
     

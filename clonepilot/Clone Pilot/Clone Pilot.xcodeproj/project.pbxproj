@@ -188,6 +188,7 @@
 		8D1DBF781480508400C4CFEC /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D1DBF761480505D00C4CFEC /* libz.dylib */; };
 		8D3E721F143BE6FE00D59706 /* Turn.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D3E721E143BE6FE00D59706 /* Turn.m */; };
 		8D3E7220143BE6FE00D59706 /* Turn.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D3E721E143BE6FE00D59706 /* Turn.m */; };
+		8D677AEC148051BF004CA345 /* QuantumPilotLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D677AEB148051BF004CA345 /* QuantumPilotLayer.m */; };
 		8D6EA3411438DDB9002BD85E /* BulletTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6EA3401438DDB9002BD85E /* BulletTest.m */; };
 		8D6EA3451438DDFB002BD85E /* Bullet.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6EA3441438DDFB002BD85E /* Bullet.m */; };
 		8D6EA3461438DDFB002BD85E /* Bullet.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6EA3441438DDFB002BD85E /* Bullet.m */; };
@@ -511,6 +512,8 @@
 		8D1DBF761480505D00C4CFEC /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		8D3E721D143BE6FE00D59706 /* Turn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Turn.h; sourceTree = "<group>"; };
 		8D3E721E143BE6FE00D59706 /* Turn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Turn.m; sourceTree = "<group>"; };
+		8D677AEA148051BF004CA345 /* QuantumPilotLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuantumPilotLayer.h; sourceTree = "<group>"; };
+		8D677AEB148051BF004CA345 /* QuantumPilotLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuantumPilotLayer.m; sourceTree = "<group>"; };
 		8D6EA3401438DDB9002BD85E /* BulletTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BulletTest.m; sourceTree = "<group>"; };
 		8D6EA3431438DDFB002BD85E /* Bullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bullet.h; sourceTree = "<group>"; };
 		8D6EA3441438DDFB002BD85E /* Bullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bullet.m; sourceTree = "<group>"; };
@@ -996,6 +999,15 @@
 			name = Turns;
 			sourceTree = "<group>";
 		};
+		8D677AE8148051AA004CA345 /* Cocos2D Implementation */ = {
+			isa = PBXGroup;
+			children = (
+				8D677AEA148051BF004CA345 /* QuantumPilotLayer.h */,
+				8D677AEB148051BF004CA345 /* QuantumPilotLayer.m */,
+			);
+			name = "Cocos2D Implementation";
+			sourceTree = "<group>";
+		};
 		8D6EA3391438DCB7002BD85E /* Bullet Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -1106,8 +1118,6 @@
 		8DC7F8831438D8870016D718 = {
 			isa = PBXGroup;
 			children = (
-				8D1DBF761480505D00C4CFEC /* libz.dylib */,
-				8D1DBF731480503800C4CFEC /* OpenGLES.framework */,
 				8D6EA3471438E0C8002BD85E /* Support */,
 				8DC7F8981438D8870016D718 /* Clone Pilot */,
 				8DC7F8B81438D8870016D718 /* Clone PilotTests */,
@@ -1128,6 +1138,8 @@
 		8DC7F8911438D8870016D718 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8D1DBF761480505D00C4CFEC /* libz.dylib */,
+				8D1DBF731480503800C4CFEC /* OpenGLES.framework */,
 				8D1DBF6714804FCE00C4CFEC /* QuartzCore.framework */,
 				8D1DBF6514804FB100C4CFEC /* OpenAL.framework */,
 				8D1DBF6314804FAC00C4CFEC /* AVFoundation.framework */,
@@ -1144,6 +1156,7 @@
 		8DC7F8981438D8870016D718 /* Clone Pilot */ = {
 			isa = PBXGroup;
 			children = (
+				8D677AE8148051AA004CA345 /* Cocos2D Implementation */,
 				8DB98B9E144A10C70089B94C /* Weapons */,
 				8DBD92DF145A448B00349A7D /* Ships */,
 				8D3E721B143BE6ED00D59706 /* Turns */,
@@ -1416,6 +1429,7 @@
 		8DC7F8851438D8870016D718 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastUpgradeCheck = 0420;
 				ORGANIZATIONNAME = ChaiONE;
 			};
 			buildConfigurationList = 8DC7F8881438D8870016D718 /* Build configuration list for PBXProject "Clone Pilot" */;
@@ -1580,6 +1594,7 @@
 				8D1DBF5914804F4900C4CFEC /* TGAlib.m in Sources */,
 				8D1DBF5B14804F4900C4CFEC /* TransformUtils.m in Sources */,
 				8D1DBF5D14804F4900C4CFEC /* ZipUtils.m in Sources */,
+				8D677AEC148051BF004CA345 /* QuantumPilotLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
