@@ -273,8 +273,6 @@ describe(@"Clone Pilot Battlefield", ^{
         
     });
     
-    //visited
-    
     context(@"Clone Piloting", ^{
         it(@"should reset moveIndex on new level", ^{
             firstKill();
