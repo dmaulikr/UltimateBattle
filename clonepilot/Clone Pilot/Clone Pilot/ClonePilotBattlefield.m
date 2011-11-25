@@ -17,7 +17,7 @@
 - (id)initWithLayer:(CCLayer *)quantumLayer {
     self = [super init];
     if (self) {
-        self.player = [[[ClonePlayer alloc] init] autorelease];
+        self.player = [[[ClonePlayer alloc] initWithLayer:quantumLayer] autorelease];
         self.player.bulletDelegate = self;
         self.clones = [NSMutableArray array];
         self.weaponSelector = [[WeaponSelector alloc] initWithBattlefield:self];

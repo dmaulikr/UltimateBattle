@@ -28,23 +28,17 @@
 -(id) init {
 	// always call "super" init
 	// Apple recommends to re-assign "self" with the "super" return value
-	if( (self=[super init])) {
-		
-		// create and initialize a Label
-		CCLabelTTF *label = [CCLabelTTF labelWithString:@"Hello World" fontName:@"Marker Felt" fontSize:64];
-        
-		// ask director the the window size
-		CGSize size = [[CCDirector sharedDirector] winSize];
-        
-		// position the label on the center of the screen
-		label.position =  ccp( size.width /2 , size.height/2 );
-		
-		// add the label as a child to this Layer
-		[self addChild: label];
-        
+	if( (self=[super init])) {       
         self.f = [[[ClonePilotBattlefield alloc] initWithLayer:self] autorelease];
+
+        timer = [[NSTimer scheduledTimerWithTimeInterval:0.3 target:self selector:@selector(update) userInfo:nil repeats:YES] retain];
+
 	}
 	return self;
+}
+
+- (void)update {
+    [self.f tick];
 }
 
 // on "dealloc" you need to release all your retained objects

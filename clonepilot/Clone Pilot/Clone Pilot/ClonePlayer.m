@@ -16,18 +16,7 @@
 @synthesize bulletDelegate;
 @synthesize weapon;
 @synthesize health;
-
-+ (ClonePlayer *)samplePlayer {
-    return [[[ClonePlayer alloc] init] autorelease];
-}
-
-+ (CGPoint)defaultLocation {
-    return CGPointMake(384,724);
-}
-
-- (NSString *)description {
-    return [NSString stringWithFormat:@"x:%f y:%f vx:%f vy:%f",self.l.x, self.l.y, self.vel.x, self.vel.y];
-}
+@synthesize sprite;
 
 - (void)generateTurn {
     Turn *turn = [[Turn alloc] init];
@@ -41,7 +30,7 @@
     [w release];
 }
 
-- (id)init {
+- (id)commonInit {
     self = [super init];
     if (self) {
         self.l = [ClonePlayer defaultLocation];
@@ -52,6 +41,29 @@
         self.health = 1;
     }
     return self;
+}
+
+- (id)init {
+    return [self commonInit];
+}
+
+- (id)initWithLayer:(CCLayer *)layer {
+    self = [self commonInit];
+    self.sprite = [[CCSprite spriteWithFile:@"sprite-7-1.png"] retain];
+    [layer addChild:sprite];
+    return self;
+}
+
++ (ClonePlayer *)samplePlayer {
+    return [[[ClonePlayer alloc] init] autorelease];
+}
+
++ (CGPoint)defaultLocation {
+    return CGPointMake(384,724);
+}
+
+- (NSString *)description {
+    return [NSString stringWithFormat:@"x:%f y:%f vx:%f vy:%f",self.l.x, self.l.y, self.vel.x, self.vel.y];
 }
 
 - (Bullet *)newBullet {
@@ -94,6 +106,8 @@
     self.l = CombinedPoint(self.l, self.vel);
     [self generateTurn];
     self.currentTurn.vel = self.vel;
+    
+    self.sprite.position = self.l;
 }
 
 - (Turn *)currentTurn {
@@ -140,6 +154,7 @@
     self.bulletDelegate = nil;
     [currentMoves release];
     [weapon release];
+    [sprite release];
     [super dealloc];
 }
 

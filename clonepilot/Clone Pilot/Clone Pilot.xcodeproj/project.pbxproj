@@ -189,6 +189,8 @@
 		8D3E721F143BE6FE00D59706 /* Turn.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D3E721E143BE6FE00D59706 /* Turn.m */; };
 		8D3E7220143BE6FE00D59706 /* Turn.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D3E721E143BE6FE00D59706 /* Turn.m */; };
 		8D677AEC148051BF004CA345 /* QuantumPilotLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D677AEB148051BF004CA345 /* QuantumPilotLayer.m */; };
+		8D677AF0148053CA004CA345 /* sprite-7-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D677AEF148053CA004CA345 /* sprite-7-1.png */; };
+		8D677AF1148053CA004CA345 /* sprite-7-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D677AEF148053CA004CA345 /* sprite-7-1.png */; };
 		8D6EA3411438DDB9002BD85E /* BulletTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6EA3401438DDB9002BD85E /* BulletTest.m */; };
 		8D6EA3451438DDFB002BD85E /* Bullet.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6EA3441438DDFB002BD85E /* Bullet.m */; };
 		8D6EA3461438DDFB002BD85E /* Bullet.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6EA3441438DDFB002BD85E /* Bullet.m */; };
@@ -514,6 +516,7 @@
 		8D3E721E143BE6FE00D59706 /* Turn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Turn.m; sourceTree = "<group>"; };
 		8D677AEA148051BF004CA345 /* QuantumPilotLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuantumPilotLayer.h; sourceTree = "<group>"; };
 		8D677AEB148051BF004CA345 /* QuantumPilotLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuantumPilotLayer.m; sourceTree = "<group>"; };
+		8D677AEF148053CA004CA345 /* sprite-7-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sprite-7-1.png"; sourceTree = "<group>"; };
 		8D6EA3401438DDB9002BD85E /* BulletTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BulletTest.m; sourceTree = "<group>"; };
 		8D6EA3431438DDFB002BD85E /* Bullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bullet.h; sourceTree = "<group>"; };
 		8D6EA3441438DDFB002BD85E /* Bullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bullet.m; sourceTree = "<group>"; };
@@ -1008,6 +1011,13 @@
 			name = "Cocos2D Implementation";
 			sourceTree = "<group>";
 		};
+		8D677AEE148053C0004CA345 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "New Group";
+			sourceTree = "<group>";
+		};
 		8D6EA3391438DCB7002BD85E /* Bullet Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -1026,9 +1036,10 @@
 			name = Bullets;
 			sourceTree = "<group>";
 		};
-		8D6EA3471438E0C8002BD85E /* Support */ = {
+		8D6EA3471438E0C8002BD85E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8D677AEF148053CA004CA345 /* sprite-7-1.png */,
 				8D1DBE1E14804F4800C4CFEC /* cocos2d */,
 				8D1DBB1314804B5500C4CFEC /* FontLabel */,
 				8DA3375E14522A5200AA3744 /* ActionBlock.h */,
@@ -1037,7 +1048,7 @@
 				8DE424BE1470352700FFC6A6 /* VRTouch.h */,
 				8DE424BF1470352700FFC6A6 /* VRTouch.m */,
 			);
-			name = Support;
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		8D6EA3481438E0D7002BD85E /* Maths */ = {
@@ -1118,7 +1129,8 @@
 		8DC7F8831438D8870016D718 = {
 			isa = PBXGroup;
 			children = (
-				8D6EA3471438E0C8002BD85E /* Support */,
+				8D677AEE148053C0004CA345 /* New Group */,
+				8D6EA3471438E0C8002BD85E /* Resources */,
 				8DC7F8981438D8870016D718 /* Clone Pilot */,
 				8DC7F8B81438D8870016D718 /* Clone PilotTests */,
 				8DC7F8911438D8870016D718 /* Frameworks */,
@@ -1458,6 +1470,7 @@
 				8DC7F89D1438D8870016D718 /* InfoPlist.strings in Resources */,
 				8DC7F8A61438D8870016D718 /* MainWindow.xib in Resources */,
 				8DC7F8AC1438D8870016D718 /* Clone_PilotViewController.xib in Resources */,
+				8D677AF0148053CA004CA345 /* sprite-7-1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1466,6 +1479,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8DC7F8BD1438D8870016D718 /* InfoPlist.strings in Resources */,
+				8D677AF1148053CA004CA345 /* sprite-7-1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

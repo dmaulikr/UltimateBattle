@@ -10,7 +10,9 @@
 #import "cocos2d.h"
 #import "ClonePilotBattlefield.h"
 
-@interface QuantumPilotLayer : CCLayer
+@interface QuantumPilotLayer : CCLayer {
+    NSTimer *timer;
+}
 
 @property (nonatomic, retain) ClonePilotBattlefield *f;
 

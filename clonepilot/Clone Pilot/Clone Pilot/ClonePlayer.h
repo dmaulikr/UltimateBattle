@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "cocos2d.h"
 #import "VRGameObject.h"
 #import "Turn.h"
 #import "Bullet.h"
@@ -22,6 +23,7 @@
 @property (nonatomic, assign) id <BulletDelegate> bulletDelegate;
 @property (nonatomic, retain) Weapon *weapon;
 @property (nonatomic, assign) NSInteger health;
+@property (nonatomic, retain) CCSprite *sprite;
 
 - (void)tick;
 
@@ -37,5 +39,7 @@
 + (CGPoint)defaultLocation;
 
 - (void)restart;
+
+- (id)initWithLayer:(CCLayer *)layer;
 
 @end
