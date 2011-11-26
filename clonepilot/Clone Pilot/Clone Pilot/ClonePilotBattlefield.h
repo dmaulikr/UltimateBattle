@@ -20,7 +20,8 @@
 @property (nonatomic, assign) float shotsFired;
 @property (nonatomic, assign) float hits;
 @property (nonatomic, retain) WeaponSelector *weaponSelector;
-@property (nonatomic, retain) NSMutableArray *touches;
+@property (nonatomic, assign) BOOL moveActive;
+@property (nonatomic, assign) CGPoint currentTarget;
 @property (nonatomic, assign) CCLayer *layer;
 
 - (void)startup;
@@ -42,7 +43,7 @@
 - (NSInteger)cloneKillValue;
 - (NSInteger)fullHealthBonus;
 
-- (void)addTouch:(VRTouch *)touch;
+- (void)addTouch:(CGPoint)l;
 - (void)moveTouch:(CGPoint)l;
 - (void)endTouch:(CGPoint)l;
 

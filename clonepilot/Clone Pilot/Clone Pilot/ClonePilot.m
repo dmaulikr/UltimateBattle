@@ -41,6 +41,7 @@
 }
 
 - (void)tick {
+    if ([self living]) {
     if ([self.moves count] > 0) {
         Turn *turn = [self.moves objectAtIndex:self.moveIndex];
         self.vel = turn.vel;
@@ -65,6 +66,7 @@
     
     if (self.sprite) {
         self.sprite.position = self.l;
+    }
     }
 }
 

@@ -42,14 +42,11 @@
 }
 
 - (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-	NSLog(@"Touches began!");
-
     UITouch *touch = [touches anyObject];
     CGPoint tliv = [touch locationInView:[touch view]];
     CGPoint tl = ccp(tliv.x, 1024-tliv.y);
     
-    VRTouch *t = [[VRTouch alloc] initWithLocation:tl];
-    [self.f addTouch:t];
+    [self.f addTouch:tl];
 }
 
 // Override the "ccTouchesMoved:withEvent:" method to add your own logic

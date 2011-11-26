@@ -56,8 +56,7 @@ describe(@"Clone Pilot Battlefield", ^{
     
     ActionBlock firstTouch = ^{
         [f startup];
-        VRTouch *touch = [[[VRTouch alloc] initWithLocation:startingTouch] autorelease];
-        [f addTouch:touch];
+        [f addTouch:startingTouch];
     };
     
     ActionBlock firstPilotDeath = ^{
@@ -610,57 +609,28 @@ describe(@"Clone Pilot Battlefield", ^{
             [[theValue(chosenResult) should] beTrue];
             [[theValue(availableResult) should] beTrue];
         });
-        
-        it(@"should reset touches", ^{
-            [f startup];
-            VRTouch *t = [[[VRTouch alloc] initWithLocation:[f player].l] autorelease];
-            [f addTouch:t];
-            VRTouch *t2 = [[[VRTouch alloc] initWithLocation:[f player].l] autorelease];
-            [f addTouch:t2];
-            kill();
-            [f chooseWeapon:0];
-            playerHit();
-            playerHit();
-            
-            [[theValue([[f touches] count]) should] equal:theValue(0)];
-        });
     });
     
     context(@"Player Input", ^{
         it(@"should start with no active touches", ^{
             [f startup];
-            [[theValue([[f touches] count]) should] equal:theValue(0)];
+            [[theValue([f moveActive]) should] beFalse];
         });
         
         it(@"should add a touch when passed to it", ^{
             firstTouch();
-            [[theValue([[f touches] count]) should] equal:theValue(1)];
+            [[theValue([f moveActive]) should] beTrue];
         });
         
         it(@"should set player target with first touch", ^{
             firstTouch();
-            VRTouch *touch = [[f touches] objectAtIndex:0];
-            [[theValue([[f player] t]) should] equal:theValue(touch.l)];
+            [[theValue([[f player] t]) should] equal:theValue(startingTouch)];
         });        
         
-        it(@"should move a touch", ^{
-            firstTouch();    
-            [f moveTouch:CGPointMake(300, 300)];
-            VRTouch *t = [[f touches] objectAtIndex:0];
-            [[theValue(t.l) should] equal:theValue(CGPointMake(300, 300))];
-        });
-        
-        it(@"should discard second touches", ^{
-            firstTouch();
-            VRTouch *secondTouch = [[[VRTouch alloc] initWithLocation:CGPointMake(800, 800)] autorelease];
-            [f addTouch:secondTouch];
-            [[theValue([[f touches] count]) should] equal:theValue(1)];
-        });
         
         it(@"should set player's state to fire on second touch", ^{
             firstTouch();
-            VRTouch *secondTouch = [[[VRTouch alloc] initWithLocation:CGPointMake(800, 800)] autorelease];
-            [f addTouch:secondTouch];
+            [f addTouch:CGPointMake(800, 800)];
             Turn *currentTurn = [[f player] currentTurn];
             [[theValue([currentTurn firing]) should] equal:theValue(YES)];
         });

@@ -11,16 +11,15 @@
 @synthesize shotsFired;
 @synthesize hits;
 @synthesize weaponSelector;
-@synthesize touches;
 @synthesize layer;
+@synthesize currentTarget;
+@synthesize moveActive;
 
 - (id)commonInit {
     self = [super init];
     if (self) {
         self.clones = [NSMutableArray array];
         self.weaponSelector = [[WeaponSelector alloc] initWithBattlefield:self];
-        self.touches = [NSMutableArray array];
-        
     }
     return self; 
 }
@@ -76,6 +75,7 @@
 }
 
 - (void)resetClones {
+    NSLog(@"Bullets left in resetting clones: %@",self.bullets);    
     for (ClonePilot *p in self.clones) {
         [p reset];
         if (p.sprite) {
@@ -83,6 +83,7 @@
         }
         [p resetSpriteWithLayer:self.layer];
     }
+    NSLog(@"resetting with: %d clones", [[self clones] count]);
 }
 
 - (void)regeneratePlayerHealth {
@@ -117,7 +118,7 @@
     [self resetClones];
     [self resetPlayer];
     [self.weaponSelector openWeaponOptions];
-//    [self.weaponSelector chooseWeapon:0]; //auto choose
+    [self.weaponSelector chooseWeapon:0]; //auto choose
 }
 
 - (void)fired {
@@ -146,7 +147,7 @@
 
 - (void)checkForCloneCollision:(Bullet *)b {
     for (ClonePilot *p in self.clones) {
-        if (b.identifier != [ClonePilot identifier]) {
+        if (!b.finished && p.living && b.identifier != [ClonePilot identifier]) {
             if (GetDistance(b.l, p.l) <= b.radius + p.radius) {
                 [self killClone:p];
                 self.hits++;
@@ -168,7 +169,7 @@
 
 - (void)checkForPlayerCollision:(Bullet *)b {
     if (GetDistance(b.l, [self player].l) <= b.radius + [[self player] radius]) {
-        [[self player] hit:b];
+//        [[self player] hit:b];
     }
     
     [self checkForDeadPlayer];
@@ -193,17 +194,17 @@
 }
 
 - (void)cloneLoop {
-    NSMutableArray *finishedClones = [NSMutableArray array];
+   // NSMutableArray *finishedClones = [NSMutableArray array];
     for (ClonePilot *p in self.clones) {
         if (![p living]) {
-            [finishedClones addObject:p];
+         //   [finishedClones addObject:p];
             if (p.sprite) {
                 [p.sprite removeFromParentAndCleanup:YES];
             }
         }
         [p tick];
     }
-    [self.clones removeObjectsInArray:finishedClones];
+  //  [self.clones removeObjectsInArray:finishedClones];
 }
 
 - (void)playerLoop {
@@ -216,7 +217,6 @@
     [self.player restart];
     self.level = 0;
     [self.weaponSelector restart];
-    [self.touches removeAllObjects];
     _battlefieldEnding = NO;
     
 }
@@ -288,41 +288,30 @@
 
 #pragma mark touches
 
-- (void)addTouch:(VRTouch *)touch {
-//    if (touch.l.x < 50 || touch.l.x > (768 - 50)) {
-//        [self.player fire];
-//    } else {
-//        [self.touches addObject:touch];
-//        self.player.t = touch.l;
-//    }
-    
-    if ([self.touches count] == 0) {
-        [self.touches addObject:touch];
-        self.player.t = touch.l;
+- (void)addTouch:(CGPoint)l {
+
+    if (!self.moveActive) {
+        self.moveActive = YES;
+        self.player.t = l;
     } else {
         [self.player fire];
     }
+    
 }
 
-- (VRTouch *)closestTouchToLocation:(CGPoint)l {
-    VRTouch *closestTouch = nil;
-    float distance = 10000;
-    for (VRTouch *t in self.touches) {
-        if (GetDistance(t.l, l) < distance) {
-            distance = GetDistance(t.l, l);
-            closestTouch = t;
-        }
-    }
-    
-    return closestTouch;
-}
 
 - (void)moveTouch:(CGPoint)l {
-    [self closestTouchToLocation:l].l = l;
+    if (GetDistance(l, self.player.l) <= GetDistance(self.currentTarget, self.player.l)) {
+        self.player.t = l;
+    } else {
+        //ignore
+    }
 }
 
 - (void)endTouch:(CGPoint)l {
-    [self.touches removeObject:[self closestTouchToLocation:l]];
+    if (GetDistance(l, self.player.l) <= GetDistance(self.currentTarget, self.player.l)) {
+        self.player.t = self.player.l;
+    }
 }
 
 - (BOOL)playing {
@@ -337,7 +326,6 @@
     [player release];
     [clones release];
     [weaponSelector release];
-    [touches release];
     self.layer = nil;
     [super dealloc];
 }
