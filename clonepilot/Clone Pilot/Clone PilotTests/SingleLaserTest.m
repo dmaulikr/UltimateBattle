@@ -12,6 +12,7 @@ describe(@"Single Laser Test", ^ {
 
     it(@"should return one bullet", ^{
         NSArray *bullets = [w newBulletsForLocation:CGPointMake(384,300) direction:-1];
+        NSLog(@"one bullet");
         [[theValue([bullets count]) should] equal:theValue(1)];
     });
     

@@ -14,16 +14,30 @@
 @synthesize touches;
 @synthesize layer;
 
-- (id)initWithLayer:(CCLayer *)quantumLayer {
+- (id)commonInit {
     self = [super init];
     if (self) {
-        self.player = [[[ClonePlayer alloc] initWithLayer:quantumLayer] autorelease];
-        self.player.bulletDelegate = self;
         self.clones = [NSMutableArray array];
         self.weaponSelector = [[WeaponSelector alloc] initWithBattlefield:self];
         self.touches = [NSMutableArray array];
-        self.layer = quantumLayer;
+        
     }
+    return self; 
+}
+
+- (id)initWithLayer:(CCLayer *)quantumLayer {
+    self = [self commonInit];
+    self.player = [[[ClonePlayer alloc] initWithLayer:quantumLayer] autorelease];
+    self.player.bulletDelegate = self;
+    self.layer = quantumLayer;
+    
+    return self;
+}
+
+- (id)init {
+    self = [self commonInit];
+    self.player = [[[ClonePlayer alloc] init] autorelease];
+    self.player.bulletDelegate = self;
     return self;
 }
 
@@ -103,7 +117,7 @@
     [self resetClones];
     [self resetPlayer];
     [self.weaponSelector openWeaponOptions];
-    [self.weaponSelector chooseWeapon:0]; //auto choose
+//    [self.weaponSelector chooseWeapon:0]; //auto choose
 }
 
 - (void)fired {
@@ -275,19 +289,19 @@
 #pragma mark touches
 
 - (void)addTouch:(VRTouch *)touch {
-    if (touch.l.x < 50 || touch.l.x > (768 - 50)) {
-        [self.player fire];
-    } else {
-       // [self.touches addObject:touch];
-        self.player.t = touch.l;
-    }
-    
-//    if ([self.touches count] == 0) {
+//    if (touch.l.x < 50 || touch.l.x > (768 - 50)) {
+//        [self.player fire];
+//    } else {
 //        [self.touches addObject:touch];
 //        self.player.t = touch.l;
-//    } else {
-//        [self.player fire];
 //    }
+    
+    if ([self.touches count] == 0) {
+        [self.touches addObject:touch];
+        self.player.t = touch.l;
+    } else {
+        [self.player fire];
+    }
 }
 
 - (VRTouch *)closestTouchToLocation:(CGPoint)l {
