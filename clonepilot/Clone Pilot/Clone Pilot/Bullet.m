@@ -17,9 +17,9 @@
 @synthesize radius;
 @synthesize identifier;
 @synthesize launchSpeed;
+@synthesize sprite;
 
--(id)copyWithZone:(NSZone *)zone
-{
+-(id)copyWithZone:(NSZone *)zone {
     // We'll ignore the zone for now
     Bullet *another = [[Bullet alloc] init];
     another.vel = self.vel;
@@ -47,6 +47,7 @@
         self.l = location;
         self.vel = velocity;
         self.radius = 15;
+        self.sprite = [[CCSprite spriteWithFile:@"ic_text_dot.png" rect:CGRectMake(0, 0, 16, 16)] retain];
     }
     
     return self;
@@ -57,10 +58,18 @@
     if (!CGRectContainsPoint([self boundaryFrame], self.l)) {
         self.finished = YES;
     }
+    if (self.sprite) {
+        self.sprite.position = self.l;
+    }
 }
 
 - (void)tick {
     [self updateLocation];
+}
+
+- (void)dealloc {
+    [sprite release];
+    [super dealloc];
 }
 
 @end

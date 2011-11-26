@@ -32,6 +32,12 @@
         }
     }
 
+    for (Bullet *b in removableBullets) {
+        if (b.sprite) {
+            [b.sprite removeFromParentAndCleanup:YES];
+        }
+    }
+    
     [self.bullets removeObjectsInArray:removableBullets];
     
     

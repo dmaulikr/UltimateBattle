@@ -11,6 +11,7 @@
 #import "Weapon.h"
 #import "Turn.h"
 #import "BulletDelegateProtocol.h"
+#import "cocos2d.h"
 
 @interface ClonePilot : NSObject <VRGameObject> {
     
@@ -21,6 +22,7 @@
 @property (nonatomic, retain) Weapon *weapon;
 @property (nonatomic, assign) NSInteger moveIndex;
 @property (nonatomic, assign) id <BulletDelegate> bulletDelegate;
+@property (nonatomic, retain) CCSprite *sprite;
 
 + (CGPoint)defaultLocation;
 + (NSInteger)identifier;
@@ -29,5 +31,9 @@
 - (void)reset;
 
 - (Turn *)currentTurn;
+
+- (id)initWithLayer:(CCLayer *)layer;
+
+- (void)resetSpriteWithLayer:(CCLayer *)layer;
 
 @end

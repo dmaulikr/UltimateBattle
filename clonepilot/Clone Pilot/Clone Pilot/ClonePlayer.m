@@ -107,7 +107,9 @@
     [self generateTurn];
     self.currentTurn.vel = self.vel;
     
-    self.sprite.position = self.l;
+    if (self.sprite) {
+        self.sprite.position = self.l;
+    }
 }
 
 - (Turn *)currentTurn {

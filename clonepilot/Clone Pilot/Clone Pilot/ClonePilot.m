@@ -16,6 +16,7 @@
 @synthesize weapon;
 @synthesize moveIndex;
 @synthesize bulletDelegate;
+@synthesize sprite;
 
 - (NSString *)description {
     return [NSString stringWithFormat:@"x:%f y:%f vx:%f vy:%f",self.l.x, self.l.y, self.vel.x, self.vel.y];
@@ -61,6 +62,10 @@
             self.l = [ClonePilot defaultLocation];
         }
     }
+    
+    if (self.sprite) {
+        self.sprite.position = self.l;
+    }
 }
 
 - (void)reset {
@@ -68,7 +73,7 @@
     self.moveIndex = 0;
 }
 
-- (id)init {
+- (id)commonInit {
     self = [super init];
     if (self) {
         self.l = [ClonePilot defaultLocation];
@@ -80,10 +85,27 @@
     return self;
 }
 
+- (id)init {
+    return [self commonInit];
+}
+
+- (void)resetSpriteWithLayer:(CCLayer *)layer {
+    self.sprite = [[CCSprite spriteWithFile:@"sprite-7-1.png"] retain];
+    [layer addChild:self.sprite];
+}
+
+- (id)initWithLayer:(CCLayer *)layer {
+    self = [self commonInit];
+    [self resetSpriteWithLayer:layer];
+    
+    return self;
+}
+
 - (void)dealloc {
     [moves release];
     [weapon release];
     self.bulletDelegate = nil;
+    [sprite release];
     [super dealloc];
 }
 

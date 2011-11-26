@@ -36,7 +36,7 @@ describe(@"Split Laser Test", ^{
         [[theValue(b1.vel.x) should] equal:theValue(vel1.x)];
         [[theValue(b1.vel.y) should] equal:theValue(vel1.y)];        
 
-        [[theValue(b2.vel.x) should] equal:theValue(vel2.x)];
+        [[theValue(b2.vel.x) should] equal:theValue(vel2.x)];r
         [[theValue(b2.vel.y) should] equal:theValue(vel2.y)];   
     });
 });

@@ -28,7 +28,7 @@
 }
 
 - (void)addClone {
-    ClonePilot *p = [[ClonePilot alloc] init];
+    ClonePilot *p = [[ClonePilot alloc] initWithLayer:self.layer];
     [self.clones addObject:p];
     p.bulletDelegate = self;
     [p release];
@@ -64,6 +64,10 @@
 - (void)resetClones {
     for (ClonePilot *p in self.clones) {
         [p reset];
+        if (p.sprite) {
+            [p.sprite removeFromParentAndCleanup:YES];
+        }
+        [p resetSpriteWithLayer:self.layer];
     }
 }
 
@@ -99,6 +103,7 @@
     [self resetClones];
     [self resetPlayer];
     [self.weaponSelector openWeaponOptions];
+    [self.weaponSelector chooseWeapon:0]; //auto choose
 }
 
 - (void)fired {
@@ -178,6 +183,9 @@
     for (ClonePilot *p in self.clones) {
         if (![p living]) {
             [finishedClones addObject:p];
+            if (p.sprite) {
+                [p.sprite removeFromParentAndCleanup:YES];
+            }
         }
         [p tick];
     }
@@ -241,6 +249,7 @@
 - (void)addBullets:(NSArray *)bullets {
     for (Bullet *b in bullets) {
         [self.bullets addObject:b];
+        [self.layer addChild:b.sprite];
     }
 }
 
@@ -266,16 +275,22 @@
 #pragma mark touches
 
 - (void)addTouch:(VRTouch *)touch {
-    if ([self.touches count] == 0) {
-        [self.touches addObject:touch];
-        self.player.t = touch.l;
-    } else {
+    if (touch.l.x < 50 || touch.l.x > (768 - 50)) {
         [self.player fire];
+    } else {
+       // [self.touches addObject:touch];
+        self.player.t = touch.l;
     }
+    
+//    if ([self.touches count] == 0) {
+//        [self.touches addObject:touch];
+//        self.player.t = touch.l;
+//    } else {
+//        [self.player fire];
+//    }
 }
 
-- (void)moveTouch:(CGPoint)l {
-
+- (VRTouch *)closestTouchToLocation:(CGPoint)l {
     VRTouch *closestTouch = nil;
     float distance = 10000;
     for (VRTouch *t in self.touches) {
@@ -285,8 +300,15 @@
         }
     }
     
-    closestTouch.l = l;
-    
+    return closestTouch;
+}
+
+- (void)moveTouch:(CGPoint)l {
+    [self closestTouchToLocation:l].l = l;
+}
+
+- (void)endTouch:(CGPoint)l {
+    [self.touches removeObject:[self closestTouchToLocation:l]];
 }
 
 - (BOOL)playing {

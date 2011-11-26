@@ -44,6 +44,7 @@
 
 - (void)addTouch:(VRTouch *)touch;
 - (void)moveTouch:(CGPoint)l;
+- (void)endTouch:(CGPoint)l;
 
 - (BOOL)playing;
 - (void)togglePlaying;
