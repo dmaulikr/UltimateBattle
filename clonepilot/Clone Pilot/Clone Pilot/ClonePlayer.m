@@ -140,7 +140,8 @@
 }
 
 - (void)reset {
-    [self.currentMoves removeAllObjects];
+    self.currentMoves = nil;
+    self.currentMoves = [NSMutableArray array];
     self.vel = CGPointZero;
     self.l = [ClonePlayer defaultLocation];
     self.t = self.l;
@@ -149,6 +150,7 @@
 - (void)restart {
     [self reset];
     [self assignDefaultWeapon];
+    self.health = 1;    
 }
 
 

@@ -116,7 +116,7 @@
     [self activateAllClones];    
     [self resetPlayer];
     [self.weaponSelector openWeaponOptions];
-//    [self.weaponSelector chooseWeapon:0]; //auto choose
+//    [self chooseWeapon:0];
 }
 
 - (void)fired {
@@ -166,7 +166,7 @@
 }
 
 - (void)checkForPlayerCollision:(Bullet *)b {
-    if (GetDistance(b.l, [self player].l) <= b.radius + [[self player] radius]) {
+    if (!b.finished && GetDistance(b.l, [self player].l) <= b.radius + [[self player] radius]) {
         [[self player] hit:b];
     }
     
@@ -210,13 +210,19 @@
 }
 
 - (void)resetBattlefield {
+    for (ClonePilot *p in self.clones) {
+        [p.sprite removeFromParentAndCleanup:YES];
+    }
+    
+    for (Bullet *b in self.bullets) {
+        [b.sprite removeFromParentAndCleanup:YES];
+    }
+    
     [self.clones removeAllObjects];
     [self.bullets removeAllObjects];
     [self.player restart];
     self.level = 0;
-    [self.weaponSelector restart];
-    _battlefieldEnding = NO;
-    
+    [self startup];
 }
 
 - (void)tick {
@@ -250,6 +256,8 @@
 }
 
 - (void)startup {
+    _battlefieldEnding = NO;
+    _paused = NO;
     [self addClone];
     [self.weaponSelector startup];
 }
