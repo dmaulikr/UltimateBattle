@@ -42,7 +42,6 @@
 
 -(id)copyWithZone:(NSZone *)zone {
     id another = [[[self class] alloc] init];
-    NSLog(@"another: %@", another);
     ((Weapon *)another).speed = self.speed;
     return another;
 }

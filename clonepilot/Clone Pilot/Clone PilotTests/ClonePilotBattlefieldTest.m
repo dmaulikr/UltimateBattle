@@ -419,7 +419,9 @@ describe(@"Clone Pilot Battlefield", ^{
             [f chooseWeapon:0];
             playerHit();
             [[f player] fire];
+            [f tick];
             [[f player] fire];
+            [f tick];
             [f player].t = CGPointMake(130, 700);
             kill();
             [f chooseWeapon:0];
@@ -431,7 +433,9 @@ describe(@"Clone Pilot Battlefield", ^{
             firstKill();
             [f chooseWeapon:0];
             [[f player] fire];
+            [f tick];
             [[f player] fire];
+            [f tick];
             [f player].t = CGPointMake(150, 300);
             kill();
             [f chooseWeapon:0];
@@ -444,6 +448,7 @@ describe(@"Clone Pilot Battlefield", ^{
         it(@"should track shots fired", ^ {
             [f startup];
             [[f player] fire];
+            [f tick];
             [[theValue(f.shotsFired) should] equal:theValue(1)];
         });
         
@@ -476,6 +481,7 @@ describe(@"Clone Pilot Battlefield", ^{
             [f startup];
             NSInteger bulletIdentifier = [[f player] identifier];
             [[f player] fire];
+            [f tick];
             Bullet *b = [[f bullets] lastObject];
             [[theValue([b identifier]) should] equal:theValue(bulletIdentifier)];
         });
@@ -540,7 +546,9 @@ describe(@"Clone Pilot Battlefield", ^{
             [f chooseWeapon:0];
             playerHit();
             [[f player] fire];
+            [f tick];
             [[f player] fire];
+            [f tick];
             [f player].t = CGPointMake(100, 700);
             kill();
             [f chooseWeapon:0];

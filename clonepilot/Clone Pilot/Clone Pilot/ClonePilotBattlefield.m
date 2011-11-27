@@ -75,7 +75,6 @@
 }
 
 - (void)resetClones {
-    NSLog(@"Bullets left in resetting clones: %@",self.bullets);    
     for (ClonePilot *p in self.clones) {
         [p reset];
         if (p.sprite) {
@@ -83,7 +82,6 @@
         }
         [p resetSpriteWithLayer:self.layer];
     }
-    NSLog(@"resetting with: %d clones", [[self clones] count]);
 }
 
 - (void)regeneratePlayerHealth {
@@ -111,14 +109,14 @@
 - (void)advanceLevel {
     _shouldAdvanceLevel = NO;
     [self clearBullets];
-    [self activateAllClones];
     [self copyPlayerMovesToLatestClone];
     [self copyPlayerWeaponToLatestClone];
     [self addClone];
     [self resetClones];
+    [self activateAllClones];    
     [self resetPlayer];
     [self.weaponSelector openWeaponOptions];
-    [self.weaponSelector chooseWeapon:0]; //auto choose
+//    [self.weaponSelector chooseWeapon:0]; //auto choose
 }
 
 - (void)fired {
@@ -169,7 +167,7 @@
 
 - (void)checkForPlayerCollision:(Bullet *)b {
     if (GetDistance(b.l, [self player].l) <= b.radius + [[self player] radius]) {
-//        [[self player] hit:b];
+        [[self player] hit:b];
     }
     
     [self checkForDeadPlayer];
