@@ -8,7 +8,7 @@
 
 @class WeaponSelector;
 
-@interface ClonePilotBattlefield : BulletHellBattlefield <BulletDelegate> {
+@interface ClonePilotBattlefield : BulletHellBattlefield <BulletDelegate, WeaponSelectorDelegate> {
     BOOL _shouldAdvanceLevel;
     BOOL _battlefieldEnding;
     BOOL _paused;

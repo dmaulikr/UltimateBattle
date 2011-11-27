@@ -25,26 +25,26 @@ describe(@"Quad Laser Test", ^ {
         Bullet *b3 = [bullets objectAtIndex:2];
         Bullet *b4 = [bullets objectAtIndex:3];
         
-        CGPoint target = CGPointMake(sl.x-1,sl.y+1);
+        CGPoint target = CGPointMake(sl.x-1,sl.y+4);
         CGPoint bAngle = GetAngle(sl, target);
         CGPoint vector = MultipliedPoint(bAngle, w.speed);
         [[theValue(b.vel.x) should] equal:theValue(vector.x)];
         [[theValue(b.vel.y) should] equal:theValue(vector.y)];
         
-        CGPoint target2 = CGPointMake(sl.x - 3,sl.y+1);
+        CGPoint target2 = CGPointMake(sl.x - 3,sl.y+4);
         CGPoint b2Angle = GetAngle(sl, target2);
         CGPoint vector2 = MultipliedPoint(b2Angle, w.speed);
         
         [[theValue(b2.vel.x) should] equal:theValue(vector2.x)];
         [[theValue(b2.vel.y) should] equal:theValue(vector2.y)];        
         
-        CGPoint target3 = CGPointMake(sl.x+1,sl.y+1);
+        CGPoint target3 = CGPointMake(sl.x+1,sl.y+4);
         CGPoint b3Angle = GetAngle(sl, target3);
         CGPoint vector3 = MultipliedPoint(b3Angle, w.speed);
         [[theValue(b3.vel.x) should] equal:theValue(vector3.x)];
         [[theValue(b3.vel.y) should] equal:theValue(vector3.y)];        
        
-        CGPoint target4 = CGPointMake(sl.x+3,sl.y+1);
+        CGPoint target4 = CGPointMake(sl.x+3,sl.y+4);
         CGPoint b4Angle = GetAngle(sl, target4);
         CGPoint vector4 = MultipliedPoint(b4Angle, w.speed);
         [[theValue(b4.vel.x) should] equal:theValue(vector4.x)];

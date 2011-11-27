@@ -17,6 +17,7 @@
 @synthesize weapon;
 @synthesize health;
 @synthesize sprite;
+@synthesize speed;
 
 - (void)generateTurn {
     Turn *turn = [[Turn alloc] init];
@@ -39,6 +40,7 @@
         [self generateTurn];
         [self assignDefaultWeapon];
         self.health = 1;
+        self.speed = 2.5;
     }
     return self;
 }
@@ -103,6 +105,7 @@
     }
     
     self.vel = GetAngle(self.l, self.t);
+    self.vel = MultipliedPoint(self.vel, self.speed);
     self.l = CombinedPoint(self.l, self.vel);
     [self generateTurn];
     self.currentTurn.vel = self.vel;

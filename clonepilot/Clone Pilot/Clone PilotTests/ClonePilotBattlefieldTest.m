@@ -64,6 +64,7 @@ describe(@"Clone Pilot Battlefield", ^{
         [f chooseWeapon:0];
         playerHit();
         playerHit();
+        
     };
 
     beforeEach(^{
@@ -526,6 +527,7 @@ describe(@"Clone Pilot Battlefield", ^{
         
         it(@"should hurt player when bullet hits", ^{
             firstKill();
+            [f chooseWeapon:0];
             NSInteger health = [[f player] health];
             playerHit();
             [[theValue([[f player] health]) should] beLessThan:theValue(health)];
@@ -558,17 +560,20 @@ describe(@"Clone Pilot Battlefield", ^{
                 
         it(@"should reset clones when player dies", ^{
             firstPilotDeath();
-            [[theValue([[f clones] count]) should] equal:theValue(0)];
+            [f tick];
+            [[theValue([[f clones] count]) should] equal:theValue(1)];
         });
         
         it(@"should erase bullets when player dies", ^{
             firstPilotDeath();
+            [f tick];
             [[theValue([[f bullets] count]) should] equal:theValue(0)];
         });
         
         it(@"should reset player moves", ^{
             firstPilotDeath();
-            [[theValue([[[f player] currentMoves] count]) should] equal:theValue(0)];
+            [f tick];
+            [[theValue([[[f player] currentMoves] count]) should] equal:theValue(1)];
         });
         
         it(@"should reset player location", ^{
@@ -580,6 +585,7 @@ describe(@"Clone Pilot Battlefield", ^{
             [f player].t = CGPointMake([f player].l.x, [f player].l.y - 200);
             playerHit();
             playerHit();
+            [f tick];
             [[theValue([f player].l) should] equal:theValue(startingPosition)];
         });
         
@@ -592,6 +598,7 @@ describe(@"Clone Pilot Battlefield", ^{
             [f chooseWeapon:0];
             playerHit();
             playerHit();
+            [f tick];
             NSString *resetWeapon = [[[f player] weapon] description];
             BOOL result = [resetWeapon isEqualToString:weaponDescription];
             [[theValue(result) should] equal:theValue(YES)];
@@ -599,6 +606,7 @@ describe(@"Clone Pilot Battlefield", ^{
         
         it(@"should reset level", ^{
             firstPilotDeath();
+            [f tick];
             [[theValue([f level]) should] equal:theValue(0)];
         });
         
@@ -610,6 +618,7 @@ describe(@"Clone Pilot Battlefield", ^{
             [f chooseWeapon:0];
             playerHit();
             playerHit();
+            [f tick];
             NSString *resetChosenWeapons = [[[f weaponSelector] chosenWeapons] description];
             NSString *resetAvailableWeapons = [[[f weaponSelector] weaponChoices] description];
             BOOL chosenResult       = [resetChosenWeapons isEqualToString:chosenWeapons];

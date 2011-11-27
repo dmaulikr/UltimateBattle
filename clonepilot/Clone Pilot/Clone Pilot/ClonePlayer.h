@@ -24,6 +24,7 @@
 @property (nonatomic, retain) Weapon *weapon;
 @property (nonatomic, assign) NSInteger health;
 @property (nonatomic, retain) CCSprite *sprite;
+@property (nonatomic, assign) float speed;
 
 - (void)tick;
 

@@ -26,11 +26,13 @@ describe(@"Clone Player", ^{
         emptyTurn.vel = CGPointZero;
         
         Turn *turn1 = [[[Turn alloc] init] autorelease];
-        turn1.vel = GetAngle(p.l, p.t);;
+        turn1.vel = GetAngle(p.l, p.t);
+        turn1.vel = MultipliedPoint(turn1.vel, p.speed);
         [p tick];        
         
         Turn *turn2 = [[[Turn alloc] init] autorelease];
         turn2.vel = GetAngle(p.l, p.t);
+        turn2.vel = MultipliedPoint(turn2.vel, p.speed);
         [p tick];        
         
         NSArray *moveArray = [NSArray arrayWithObjects:emptyTurn, turn1, turn2, nil];
@@ -56,12 +58,15 @@ describe(@"Clone Player", ^{
         emptyTurn.vel = CGPointZero;
         
         Turn *turn1 = [[[Turn alloc] init] autorelease];
-        turn1.vel = GetAngle(p.l, p.t);;
+        turn1.vel = GetAngle(p.l, p.t);
+        turn1.vel = MultipliedPoint(turn1.vel, p.speed);
+        
         [p tick];
         
         p.t = p.l;
         Turn *turn2 = [[[Turn alloc] init] autorelease];
         turn2.vel = GetAngle(p.l, p.t);
+        turn2.vel = MultipliedPoint(turn2.vel, p.speed);
         [p tick];
         
         NSArray *moveArray = [NSArray arrayWithObjects:emptyTurn, turn1, turn2, nil];

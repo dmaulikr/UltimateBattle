@@ -116,7 +116,6 @@
     [self activateAllClones];    
     [self resetPlayer];
     [self.weaponSelector openWeaponOptions];
-//    [self chooseWeapon:0];
 }
 
 - (void)fired {
@@ -222,18 +221,23 @@
     [self.bullets removeAllObjects];
     [self.player restart];
     self.level = 0;
+    
+    self.weaponSelector.delegate = nil;
+    self.weaponSelector = nil;
+
+    self.weaponSelector = [[[WeaponSelector alloc] initWithBattlefield:self] autorelease];
+    
     [self startup];
 }
 
 - (void)tick {
     if ([self playing]) {
-        [super tick];
-        [self playerLoop];
-        [self cloneLoop];
-        
         if (_battlefieldEnding) {
             [self resetBattlefield];
         }
+        [super tick];
+        [self playerLoop];
+        [self cloneLoop];        
     }
 }
 
