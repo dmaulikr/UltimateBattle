@@ -533,30 +533,30 @@ describe(@"Clone Pilot Battlefield", ^{
             [[theValue([[f player] health]) should] beLessThan:theValue(health)];
         });
         
-        it(@"should gain health between levels", ^{
-            [f startup];
-            NSInteger health = [[f player] health];
-            [[f player] fire];
-            kill();
-            [f chooseWeapon:0];
-            NSInteger newHealth = [[f player] health];
-            [[theValue(newHealth) should] beGreaterThan:theValue(health)];
-        });
+//        it(@"should gain health between levels", ^{
+//            [f startup];
+//            NSInteger health = [[f player] health];
+//            [[f player] fire];
+//            kill();
+//            [f chooseWeapon:0];
+//            NSInteger newHealth = [[f player] health];
+//            [[theValue(newHealth) should] beGreaterThan:theValue(health)];
+//        });
         
-        it(@"should have health equal to new level plus one", ^ {
-            firstKill();
-            [f chooseWeapon:0];
-            playerHit();
-            [[f player] fire];
-            [f tick];
-            [[f player] fire];
-            [f tick];
-            [f player].t = CGPointMake(100, 700);
-            kill();
-            [f chooseWeapon:0];
-            NSInteger health = [[f player] health];
-            [[theValue(health) should] equal:theValue([f level] + 1)];            
-        });
+//        it(@"should have health equal to new level plus one", ^ {
+//            firstKill();
+//            [f chooseWeapon:0];
+//            playerHit();
+//            [[f player] fire];
+//            [f tick];
+//            [[f player] fire];
+//            [f tick];
+//            [f player].t = CGPointMake(100, 700);
+//            kill();
+//            [f chooseWeapon:0];
+//            NSInteger health = [[f player] health];
+//            [[theValue(health) should] equal:theValue([f level] + 1)];            
+//        });
                 
         it(@"should reset clones when player dies", ^{
             firstPilotDeath();

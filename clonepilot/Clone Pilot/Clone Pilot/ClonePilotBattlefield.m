@@ -116,6 +116,7 @@
     [self activateAllClones];    
     [self resetPlayer];
     [self.weaponSelector openWeaponOptions];
+    [self chooseWeapon:0];
 }
 
 - (void)fired {
@@ -191,17 +192,14 @@
 }
 
 - (void)cloneLoop {
-   // NSMutableArray *finishedClones = [NSMutableArray array];
     for (ClonePilot *p in self.clones) {
         if (![p living]) {
-         //   [finishedClones addObject:p];
             if (p.sprite) {
                 [p.sprite removeFromParentAndCleanup:YES];
             }
         }
         [p tick];
     }
-  //  [self.clones removeObjectsInArray:finishedClones];
 }
 
 - (void)playerLoop {
@@ -285,7 +283,7 @@
 - (void)chooseWeapon:(NSInteger)choiceIndex {
     [self.weaponSelector chooseWeapon:choiceIndex];
     [self scoreForHealth];    
-    [self regeneratePlayerHealth];        
+//    [self regeneratePlayerHealth];        
 }
 
 - (NSArray *)weaponChoices {
@@ -299,7 +297,6 @@
 #pragma mark touches
 
 - (void)addTouch:(CGPoint)l {
-
     if (!self.moveActive) {
         self.moveActive = YES;
         self.player.t = l;
