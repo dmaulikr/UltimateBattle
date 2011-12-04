@@ -414,35 +414,6 @@ describe(@"Clone Pilot Battlefield", ^{
             firstKill();
             [[theValue(f.score) should] beGreaterThan:theValue(0)];
         });
-        
-        it(@"should not score a bonus for having less than full health", ^ {
-            firstKill();
-            [f chooseWeapon:0];
-            playerHit();
-            [[f player] fire];
-            [f tick];
-            [[f player] fire];
-            [f tick];
-            [f player].t = CGPointMake(130, 700);
-            kill();
-            [f chooseWeapon:0];
-            NSInteger clonesKillValue = 3 * [f cloneKillValue] + [f fullHealthBonus];;
-            [[theValue([f score]) should] equal:theValue(clonesKillValue)];
-        });
-        
-        it(@"should score a bonus for having full health", ^{
-            firstKill();
-            [f chooseWeapon:0];
-            [[f player] fire];
-            [f tick];
-            [[f player] fire];
-            [f tick];
-            [f player].t = CGPointMake(150, 300);
-            kill();
-            [f chooseWeapon:0];
-            NSInteger expectedScore = (3 * [f cloneKillValue]) + ([f fullHealthBonus] * 2);
-            [[theValue([f score]) should] equal:theValue(expectedScore)];
-        });
     });
     
     context(@"Combat", ^{
@@ -532,32 +503,7 @@ describe(@"Clone Pilot Battlefield", ^{
             playerHit();
             [[theValue([[f player] health]) should] beLessThan:theValue(health)];
         });
-        
-//        it(@"should gain health between levels", ^{
-//            [f startup];
-//            NSInteger health = [[f player] health];
-//            [[f player] fire];
-//            kill();
-//            [f chooseWeapon:0];
-//            NSInteger newHealth = [[f player] health];
-//            [[theValue(newHealth) should] beGreaterThan:theValue(health)];
-//        });
-        
-//        it(@"should have health equal to new level plus one", ^ {
-//            firstKill();
-//            [f chooseWeapon:0];
-//            playerHit();
-//            [[f player] fire];
-//            [f tick];
-//            [[f player] fire];
-//            [f tick];
-//            [f player].t = CGPointMake(100, 700);
-//            kill();
-//            [f chooseWeapon:0];
-//            NSInteger health = [[f player] health];
-//            [[theValue(health) should] equal:theValue([f level] + 1)];            
-//        });
-                
+                        
         it(@"should reset clones when player dies", ^{
             firstPilotDeath();
             [f tick];
