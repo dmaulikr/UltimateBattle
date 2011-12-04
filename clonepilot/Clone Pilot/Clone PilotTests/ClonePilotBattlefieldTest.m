@@ -63,7 +63,6 @@ describe(@"Clone Pilot Battlefield", ^{
         firstKill();
         [f chooseWeapon:0];
         playerHit();
-        playerHit();
     };
     
     ActionBlock playerDestinationReached = ^{
@@ -524,6 +523,7 @@ describe(@"Clone Pilot Battlefield", ^{
         
         it(@"should reset player moves", ^{
             firstPilotDeath();
+            [f tick];
             [[theValue([[[f player] currentMoves] count]) should] equal:theValue(1)];
         });
         
@@ -534,7 +534,6 @@ describe(@"Clone Pilot Battlefield", ^{
             kill();
             [f chooseWeapon:0];
             [f player].t = CGPointMake([f player].l.x, [f player].l.y - 200);
-            playerHit();
             playerHit();
             [f tick];
             [[theValue([f player].l) should] equal:theValue(startingPosition)];
@@ -547,7 +546,6 @@ describe(@"Clone Pilot Battlefield", ^{
             [[f player] fire];
             kill();
             [f chooseWeapon:0];
-            playerHit();
             playerHit();
             [f tick];
             NSString *resetWeapon = [[[f player] weapon] description];
@@ -567,7 +565,6 @@ describe(@"Clone Pilot Battlefield", ^{
             [[f player] fire];
             kill();
             [f chooseWeapon:0];
-            playerHit();
             playerHit();
             [f tick];
             NSString *resetChosenWeapons = [[[f weaponSelector] chosenWeapons] description];
