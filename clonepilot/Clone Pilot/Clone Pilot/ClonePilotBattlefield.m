@@ -15,6 +15,8 @@
 @synthesize currentTarget;
 @synthesize moveActive;
 
+int const QP_TouchTargetingYOffset = 30;
+
 - (id)commonInit {
     self = [super init];
     if (self) {
@@ -291,20 +293,22 @@
 
 #pragma mark touches
 
+- (void)modifyPlayerTargetWithTouchLocation:(CGPoint)l {
+    self.player.t = CGPointMake(l.x, l.y + QP_TouchTargetingYOffset);
+}
+
 - (void)addTouch:(CGPoint)l {
     if (!self.moveActive) {
         self.moveActive = YES;
-        self.player.t = l;
+        [self modifyPlayerTargetWithTouchLocation:l];
     } else {
         [self.player fire];
     }
-    
 }
-
 
 - (void)moveTouch:(CGPoint)l {
     if (GetDistance(l, self.player.l) <= GetDistance(self.currentTarget, self.player.l)) {
-        self.player.t = l;
+        [self modifyPlayerTargetWithTouchLocation:l];
     } else {
         //ignore
     }

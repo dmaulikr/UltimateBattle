@@ -6,6 +6,8 @@
 #import "VRTouch.h"
 #import "CCLayer.h"
 
+extern int const QP_TouchTargetingYOffset; 
+
 @class WeaponSelector;
 
 @interface ClonePilotBattlefield : BulletHellBattlefield <BulletDelegate, WeaponSelectorDelegate> {
