@@ -64,7 +64,6 @@ describe(@"Clone Pilot Battlefield", ^{
         [f chooseWeapon:0];
         playerHit();
         playerHit();
-        
     };
 
     beforeEach(^{
@@ -518,7 +517,6 @@ describe(@"Clone Pilot Battlefield", ^{
         
         it(@"should reset player moves", ^{
             firstPilotDeath();
-            [f tick];
             [[theValue([[[f player] currentMoves] count]) should] equal:theValue(1)];
         });
         
