@@ -84,10 +84,6 @@
     }
 }
 
-- (void)regeneratePlayerHealth {
-    self.player.health = self.level + 1;
-}
-
 - (void)resetPlayer {
     [self.player reset];
 }
@@ -283,7 +279,6 @@
 - (void)chooseWeapon:(NSInteger)choiceIndex {
     [self.weaponSelector chooseWeapon:choiceIndex];
     [self scoreForHealth];    
-//    [self regeneratePlayerHealth];        
 }
 
 - (NSArray *)weaponChoices {
