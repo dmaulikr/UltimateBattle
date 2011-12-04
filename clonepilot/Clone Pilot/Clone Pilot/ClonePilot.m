@@ -9,6 +9,8 @@
 #import "ClonePilot.h"
 #import "VRGeometry.h"
 
+static int QP_ClonePilotYDirection = -1;
+
 @implementation ClonePilot
 @synthesize l, vel, t, radius;
 @synthesize moves;
@@ -23,7 +25,7 @@
 }
 
 + (CGPoint)defaultLocation {
-    return CGPointMake(384, 300);
+    return CGPointMake(384, 724);
 }
 
 + (NSInteger)identifier {
@@ -51,7 +53,7 @@
         self.moveIndex++;
         
         if (turn.firing) {
-            NSArray *bullets = [self.weapon newBulletsForLocation:self.l direction:1];
+            NSArray *bullets = [self.weapon newBulletsForLocation:self.l direction:QP_ClonePilotYDirection];
             for (Bullet *b in bullets) {
                 b.identifier = [ClonePilot identifier];
             }
