@@ -4,7 +4,7 @@
 
 SPEC_BEGIN(TriLaserTest)
 
-describe(@"Single Laser Test", ^ {
+describe(@"Tri Laser Test", ^ {
     __block TriLaser *w;
     beforeEach(^{
         w = [[[TriLaser alloc] init] autorelease];
@@ -21,7 +21,7 @@ describe(@"Single Laser Test", ^ {
         Bullet *b2 = [newBullets objectAtIndex:1];
         Bullet *b3 = [newBullets objectAtIndex:2];
         
-        [[theValue(b.vel.x) should] equal:theValue(1)];
+        [[theValue(b.vel.x) should] equal:theValue(0)];
         [[theValue(b2.vel.x) should] equal:theValue(-1)];
         [[theValue(b3.vel.x) should] equal:theValue(1)];
     });
