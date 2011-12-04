@@ -639,9 +639,10 @@ describe(@"Clone Pilot Battlefield", ^{
             [[theValue([f moveActive]) should] beTrue];
         });
         
-        it(@"should set player target with first touch", ^{
+        it(@"should set player target with first touch + offset", ^{
             firstTouch();
-            [[theValue([[f player] t]) should] equal:theValue(startingTouch)];
+            CGPoint offsetTarget = CGPointMake(startingTouch.x, startingTouch.y + QP_TouchTargetingYOffset);
+            [[theValue([[f player] t]) should] equal:theValue(offsetTarget)];
         });        
         
         
