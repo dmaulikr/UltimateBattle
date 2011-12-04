@@ -42,7 +42,7 @@ static int QP_PlayerYDirection = 1;
         [self generateTurn];
         [self assignDefaultWeapon];
         self.health = 1;
-        self.speed = 3;
+        self.speed = 5;
     }
     return self;
 }
@@ -102,11 +102,17 @@ static int QP_PlayerYDirection = 1;
 }
 
 - (void)assignVelocityForTarget {
-    if (GetDistance(self.l, self.t) > self.speed) {
+    float distanceToTarget = GetDistance(self.l, self.t);
+    if (distanceToTarget >= self.speed) {
         self.vel = GetAngle(self.l, self.t);
         self.vel = MultipliedPoint(self.vel, self.speed);        
     } else {
-        self.vel = CGPointZero;
+        if (distanceToTarget > 0) {
+            self.vel = GetAngle(self.l, self.t);
+            self.vel = MultipliedPoint(self.vel, distanceToTarget);
+        } else {
+            self.vel = CGPointZero;
+        }
     }
 }
 

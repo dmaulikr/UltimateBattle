@@ -14,8 +14,6 @@
 #import "Weapon.h"
 #import "BulletDelegateProtocol.h"
 
-extern int const QP_AcceptableProximityToTarget;
-
 @interface ClonePlayer : NSObject <VRGameObject> {
     
 }

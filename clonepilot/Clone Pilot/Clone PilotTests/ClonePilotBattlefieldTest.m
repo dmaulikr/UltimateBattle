@@ -66,8 +66,7 @@ describe(@"Clone Pilot Battlefield", ^{
     };
     
     ActionBlock playerDestinationReached = ^{
-        float acceptableProximityToTarget = [f player].speed;
-        while (GetDistance([f player].l, [f player].t) > acceptableProximityToTarget) {
+        while (GetDistance([f player].l, [f player].t) > 0) { // > acceptableProximityToTarget) {
             [f tick];
         }
     };
@@ -367,7 +366,7 @@ describe(@"Clone Pilot Battlefield", ^{
                 NSLog(@"cloneDist: %f", cloneDist);
                 
                 float distance = playerDist - cloneDist;
-                [[theValue(distance) should] beLessThan:theValue(.0001)]; //it's close. everything seems fine but this precision.
+                [[theValue(distance) should] beLessThan:theValue(.001)]; //it's close. everything seems fine but this precision.
                 [f tick];
             }
         });
@@ -603,20 +602,23 @@ describe(@"Clone Pilot Battlefield", ^{
     });
     
     context(@"Moving", ^{
-        it(@"should stop moving when within one tick's speed of target", ^{
+        it(@"should move less than its full speed if less than a speed's ticks away from target", ^{
             [f startup];
-            playerDestinationReached();
-            
-//            //Set touch so that with offset, player moves close enough
-//            //Or just set a block
-//            CGPoint currentLocation = [f player].l;
-//            float twoTicksAwayY = currentLocation.y + (2 * [f player].speed);
-//            float nudgeFactor = 1;
-//            [f addTouch:CGPointMake(currentLocation.x, twoTicksAwayY + nudgeFactor)];
-//            [f tick];
-//            [f tick];
-//            NSLog([[f player] locationAndTargetingStatus]);
-//            NSLog(@"distance between player and target: %f",GetDistance([f player].l, [f player].t));
+            CGPoint currentLocation = [f player].l;
+            [f player].t = CGPointMake(currentLocation.x, currentLocation.y - (2.5 * [[f player] speed]));
+            [f tick];
+            [f tick];
+            [f tick];
+            NSLog([[f player] locationAndTargetingStatus]);
+            [[theValue([f player].vel.y) should] beLessThan:theValue([[f player] speed])];
+        });
+        
+        it(@"should stop moving when it reaches its destination", ^{
+            [f startup];
+            CGPoint currentLocation = [f player].l;
+            [f player].t = CGPointMake(currentLocation.x, currentLocation.y - (2.5 * [[f player] speed]));
+            playerDestinationReached();   
+            [f tick];
             [[theValue([f player].vel.x) should] equal:theValue(0)];
             [[theValue([f player].vel.y) should] equal:theValue(0)];            
         });
