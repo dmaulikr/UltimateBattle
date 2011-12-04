@@ -101,14 +101,27 @@ static int QP_PlayerYDirection = 1;
     return 0;
 }
 
+- (void)assignVelocityForTarget {
+    if (GetDistance(self.l, self.t) > self.speed) {
+        self.vel = GetAngle(self.l, self.t);
+        self.vel = MultipliedPoint(self.vel, self.speed);        
+    } else {
+        self.vel = CGPointZero;
+    }
+}
+
+- (void)updateLocationWithVelocity {
+    self.l = CombinedPoint(self.l, self.vel);
+}
+
 - (void)tick {
     if ([self isFiring]) {
         [self fireWeapon];
     }
     
-    self.vel = GetAngle(self.l, self.t);
-    self.vel = MultipliedPoint(self.vel, self.speed);
-    self.l = CombinedPoint(self.l, self.vel);
+    [self assignVelocityForTarget];
+    [self updateLocationWithVelocity];
+    
     [self generateTurn];
     self.currentTurn.vel = self.vel;
     
@@ -165,6 +178,10 @@ static int QP_PlayerYDirection = 1;
     [weapon release];
     [sprite release];
     [super dealloc];
+}
+
+- (NSString *)locationAndTargetingStatus {
+    return [NSString stringWithFormat:@"Location x/y: %f,%f     Target x/y: %f %f", self.l.x,self.l.y, self.t.x,self.t.y];
 }
 
 @end

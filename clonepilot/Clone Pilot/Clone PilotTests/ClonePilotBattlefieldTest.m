@@ -65,6 +65,13 @@ describe(@"Clone Pilot Battlefield", ^{
         playerHit();
         playerHit();
     };
+    
+    ActionBlock playerDestinationReached = ^{
+        float acceptableProximityToTarget = [f player].speed;
+        while (GetDistance([f player].l, [f player].t) > acceptableProximityToTarget) {
+            [f tick];
+        }
+    };
 
     beforeEach(^{
         f = [[[ClonePilotBattlefield alloc] init] autorelease];
@@ -595,6 +602,26 @@ describe(@"Clone Pilot Battlefield", ^{
             [f addTouch:CGPointMake(800, 800)];
             Turn *currentTurn = [[f player] currentTurn];
             [[theValue([currentTurn firing]) should] equal:theValue(YES)];
+        });
+    });
+    
+    context(@"Moving", ^{
+        it(@"should stop moving when within one tick's speed of target", ^{
+            [f startup];
+            playerDestinationReached();
+            
+//            //Set touch so that with offset, player moves close enough
+//            //Or just set a block
+//            CGPoint currentLocation = [f player].l;
+//            float twoTicksAwayY = currentLocation.y + (2 * [f player].speed);
+//            float nudgeFactor = 1;
+//            [f addTouch:CGPointMake(currentLocation.x, twoTicksAwayY + nudgeFactor)];
+//            [f tick];
+//            [f tick];
+//            NSLog([[f player] locationAndTargetingStatus]);
+//            NSLog(@"distance between player and target: %f",GetDistance([f player].l, [f player].t));
+            [[theValue([f player].vel.x) should] equal:theValue(0)];
+            [[theValue([f player].vel.y) should] equal:theValue(0)];            
         });
     });
     
