@@ -13,8 +13,8 @@
 
 - (NSArray *)newBulletsForLocation:(CGPoint)location direction:(NSInteger)direction {
     Bullet *b = [[[Bullet alloc] initWithLocation:location velocity:CGPointMake(0,direction * self.speed)] autorelease];
-    Bullet *b2 = [[[Bullet alloc] initWithLocation:location velocity:CGPointMake(-.8,direction * self.speed)] autorelease];
-    Bullet *b3 = [[[Bullet alloc] initWithLocation:location velocity:CGPointMake(.8,direction * self.speed)] autorelease];        
+    Bullet *b2 = [[[Bullet alloc] initWithLocation:location velocity:CGPointMake(-1,direction * self.speed)] autorelease];
+    Bullet *b3 = [[[Bullet alloc] initWithLocation:location velocity:CGPointMake(1,direction * self.speed)] autorelease];        
     return [NSArray arrayWithObjects:b, b2, b3, nil];
 }
 

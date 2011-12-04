@@ -22,11 +22,11 @@ describe(@"Split Laser Test", ^{
     
     it(@"should fire in a split pattern", ^ {
         NSArray *bullets = [w newBulletsForLocation:sl direction:1];
-        CGPoint t1 = CGPointMake(sl.x-w.speed, sl.y + (3.3*w.speed));
+        CGPoint t1 = CGPointMake(sl.x-w.speed, sl.y + (2.8*w.speed));
         CGPoint vel1 = GetAngle(sl, t1);
         vel1 = MultipliedPoint(vel1, w.speed);
         
-        CGPoint t2 = CGPointMake(sl.x+w.speed, sl.y + (3.3*w.speed));
+        CGPoint t2 = CGPointMake(sl.x+w.speed, sl.y + (2.8*w.speed));
         CGPoint vel2 = GetAngle(sl, t2);
         vel2 = MultipliedPoint(vel2, w.speed);
         

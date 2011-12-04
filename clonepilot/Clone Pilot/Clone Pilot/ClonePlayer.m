@@ -40,7 +40,7 @@
         [self generateTurn];
         [self assignDefaultWeapon];
         self.health = 1;
-        self.speed = 2.5;
+        self.speed = 3;
     }
     return self;
 }
