@@ -10,6 +10,8 @@
 #import "VRGeometry.h"
 #import "SingleLaser.h"
 
+static int QP_PlayerYDirection = 1;
+
 @implementation ClonePlayer
 @synthesize l, vel, t, radius;
 @synthesize currentMoves;
@@ -61,7 +63,7 @@
 }
 
 + (CGPoint)defaultLocation {
-    return CGPointMake(384,724);
+    return CGPointMake(384,300);
 }
 
 - (NSString *)description {
@@ -84,7 +86,7 @@
 }
 
 - (void)fireWeapon {
-    NSArray *bullets = [self.weapon newBulletsForLocation:self.l direction:-1];
+    NSArray *bullets = [self.weapon newBulletsForLocation:self.l direction:QP_PlayerYDirection];
     for (Bullet *b in bullets) {
         b.identifier = [self identifier];
     }
