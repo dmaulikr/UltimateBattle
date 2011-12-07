@@ -7,6 +7,7 @@
 #import "CCLayer.h"
 
 extern int const QP_TouchTargetingYOffset; 
+extern int const QP_AccuracyBonusModifier;
 
 @class WeaponSelector;
 
@@ -25,6 +26,7 @@ extern int const QP_TouchTargetingYOffset;
 @property (nonatomic, assign) BOOL moveActive;
 @property (nonatomic, assign) CGPoint currentTarget;
 @property (nonatomic, assign) CCLayer *layer;
+@property (nonatomic, assign) double time;
 
 - (void)startup;
 - (NSInteger)livingClones;

@@ -413,13 +413,6 @@ describe(@"Clone Pilot Battlefield", ^{
         });
     });
  
-    context(@"Scoring", ^{
-        it(@"should score when it kills", ^ {
-            firstKill();
-            [[theValue(f.score) should] beGreaterThan:theValue(0)];
-        });
-    });
-    
     context(@"Combat", ^{
         it(@"should track shots fired", ^ {
             [f startup];
@@ -494,6 +487,28 @@ describe(@"Clone Pilot Battlefield", ^{
         });
     });
     
+    context(@"Scoring", ^{
+        it(@"should score when it kills", ^ {
+            firstKill();
+            [[theValue(f.score) should] beGreaterThan:theValue(0)];
+        });
+        
+        it(@"should score based on accuracy", ^{
+            [f startup];
+            [[f player] fire];
+            [f tick];
+            [[f player] fire];
+            [f tick];
+            kill();
+            float accuracy = [f hits] / [f shotsFired];
+            [[theValue(accuracy) should] equal:theValue(.5)];
+            float expectedAccuracyBonus = QP_AccuracyBonusModifier * accuracy * 100;
+            int totalExpectedScore = 11 + expectedAccuracyBonus;
+            [[theValue([f score]) should] equal:theValue(totalExpectedScore)];
+            //nymo
+        });
+    });
+ 
     context(@"Player Health", ^{
         it(@"should start with one health", ^{
             [f startup];
@@ -512,6 +527,24 @@ describe(@"Clone Pilot Battlefield", ^{
             firstPilotDeath();
             [f tick];
             [[theValue([[f clones] count]) should] equal:theValue(1)];
+        });
+        
+        it(@"should reset score when player dies", ^{
+            firstPilotDeath();
+            [f tick];
+            [[theValue([f score]) should] beZero];
+        });
+        
+        it(@"should reset shots fired when player dies", ^{
+            firstPilotDeath();
+            [f tick];
+            [[theValue(f.shotsFired) should] beZero];
+        });
+        
+        it(@"should reset hits when player dies", ^{
+            firstPilotDeath();
+            [f tick];
+            [[theValue(f.hits) should] beZero];
         });
         
         it(@"should erase bullets when player dies", ^{
@@ -706,6 +739,30 @@ describe(@"Clone Pilot Battlefield", ^{
             [f tick];
             [[theValue([[f bullets] count]) should] equal:theValue(0)]; 
         });
+    });
+    
+    context(@"Time", ^{
+        it(@"should have start time", ^{
+            [f startup]; 
+            [[theValue([f time]) should] beZero];
+        });
+        
+        it(@"should increment time with ticks", ^{
+            [f startup];
+            double time = [f time];
+            [f tick];
+            [[theValue([f time]) should] beGreaterThan:theValue(time)];
+        });
+        
+        it(@"should not increment time when paused",^{
+            [f startup];
+            double time = [f time];
+            [f togglePlaying];
+            [f tick];
+            [[theValue([f time]) should] equal:theValue(time)];
+        });
+        
+        
     });
 });
 

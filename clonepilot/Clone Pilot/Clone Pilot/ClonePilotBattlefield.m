@@ -14,14 +14,17 @@
 @synthesize layer;
 @synthesize currentTarget;
 @synthesize moveActive;
+@synthesize time;
 
 int const QP_TouchTargetingYOffset = 30;
+int const QP_AccuracyBonusModifier = 100;
 
 - (id)commonInit {
     self = [super init];
     if (self) {
         self.clones = [NSMutableArray array];
         self.weaponSelector = [[WeaponSelector alloc] initWithBattlefield:self];
+        self.time = 0;
     }
     return self; 
 }
@@ -217,6 +220,9 @@ int const QP_TouchTargetingYOffset = 30;
     [self.bullets removeAllObjects];
     [self.player restart];
     self.level = 0;
+    self.score = 0;
+    self.shotsFired = 0;
+    self.hits = 0;
     
     self.weaponSelector.delegate = nil;
     self.weaponSelector = nil;
@@ -226,8 +232,13 @@ int const QP_TouchTargetingYOffset = 30;
     [self startup];
 }
 
+- (void)timeloop {
+    self.time++;
+}
+
 - (void)tick {
     if ([self playing]) {
+        [self timeloop];        
         if (_battlefieldEnding) {
             [self resetBattlefield];
         }
