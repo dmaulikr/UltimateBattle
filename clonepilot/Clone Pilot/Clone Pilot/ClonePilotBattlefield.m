@@ -75,10 +75,6 @@ int const QP_AccuracyBonusModifier = 100;
     [w release];
 }
 
-- (NSInteger)accuracyScoreModifier {
-    return 10;
-}
-
 - (void)resetClones {
     for (ClonePilot *p in self.clones) {
         [p reset];
@@ -117,7 +113,7 @@ int const QP_AccuracyBonusModifier = 100;
     [self activateAllClones];    
     [self resetPlayer];
     [self.weaponSelector openWeaponOptions];
-    [self chooseWeapon:0];
+//    [self chooseWeapon:0];
 }
 
 - (void)fired {
@@ -284,14 +280,23 @@ int const QP_AccuracyBonusModifier = 100;
     }
 }
 
+- (void)scoreForAccuracy {
+    float accuracy = [self hits] / [self shotsFired];
+    self.score += QP_AccuracyBonusModifier * accuracy * 100;
+}
+
 - (void)playerChoseWeapon:(Weapon *)weapon {
     self.level++;
+    [self scoreForAccuracy];
+    self.hits = 0;
+    self.shotsFired = 0;
     self.player.weapon = weapon;
 }
 
 - (void)chooseWeapon:(NSInteger)choiceIndex {
     [self.weaponSelector chooseWeapon:choiceIndex];
-    [self scoreForHealth];    
+    [self scoreForHealth];
+    self.hits = 0;    
 }
 
 - (NSArray *)weaponChoices {

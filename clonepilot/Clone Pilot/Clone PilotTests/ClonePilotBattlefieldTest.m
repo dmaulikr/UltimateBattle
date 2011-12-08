@@ -429,6 +429,19 @@ describe(@"Clone Pilot Battlefield", ^{
             [[theValue(f.hits) should] equal:theValue(1)];
         });
         
+        it(@"should reset hits between levels", ^{
+            firstKill();
+            [f chooseWeapon:0];
+            [[theValue(f.hits) should] equal:theValue(0)];
+        });
+        
+        it(@"should reset shots fired between levels", ^{
+            firstKill();
+            [f chooseWeapon:0];
+            [[theValue(f.shotsFired) should] equal:theValue(0)];
+        });
+
+        
         it(@"should reset position when out of moves", ^{
             [f startup];
             ClonePilot *p = [[f clones] lastObject];
@@ -501,11 +514,11 @@ describe(@"Clone Pilot Battlefield", ^{
             [f tick];
             kill();
             float accuracy = [f hits] / [f shotsFired];
+            [f chooseWeapon:0];
             [[theValue(accuracy) should] equal:theValue(.5)];
             float expectedAccuracyBonus = QP_AccuracyBonusModifier * accuracy * 100;
             int totalExpectedScore = 11 + expectedAccuracyBonus;
             [[theValue([f score]) should] equal:theValue(totalExpectedScore)];
-            //nymo
         });
     });
  
