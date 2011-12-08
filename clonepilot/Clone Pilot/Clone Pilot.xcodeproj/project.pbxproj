@@ -317,6 +317,8 @@
 		8DCBEDD414536E3900E6C566 /* WeaponSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DCBEDD214536E3900E6C566 /* WeaponSelector.m */; };
 		8DE424C01470352700FFC6A6 /* VRTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DE424BF1470352700FFC6A6 /* VRTouch.m */; };
 		8DE424C11470352700FFC6A6 /* VRTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DE424BF1470352700FFC6A6 /* VRTouch.m */; };
+		8DEB4769149057B6008E7FCF /* BulletWall.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DEB4768149057B6008E7FCF /* BulletWall.m */; };
+		8DEB476A149057B6008E7FCF /* BulletWall.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DEB4768149057B6008E7FCF /* BulletWall.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -733,6 +735,8 @@
 		8DCBEDD214536E3900E6C566 /* WeaponSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeaponSelector.m; sourceTree = "<group>"; };
 		8DE424BE1470352700FFC6A6 /* VRTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VRTouch.h; sourceTree = "<group>"; };
 		8DE424BF1470352700FFC6A6 /* VRTouch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VRTouch.m; sourceTree = "<group>"; };
+		8DEB4767149057B6008E7FCF /* BulletWall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BulletWall.h; sourceTree = "<group>"; };
+		8DEB4768149057B6008E7FCF /* BulletWall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BulletWall.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1177,6 +1181,7 @@
 				8DBD92DF145A448B00349A7D /* Ships */,
 				8D3E721B143BE6ED00D59706 /* Turns */,
 				8D6EA3421438DDEA002BD85E /* Bullets */,
+				8DEB47661490579F008E7FCF /* BulletWall */,
 				8DC7F9A91438D9F70016D718 /* Battlefields */,
 				8DC7F8A11438D8870016D718 /* Clone_PilotAppDelegate.h */,
 				8DC7F8A21438D8870016D718 /* Clone_PilotAppDelegate.m */,
@@ -1400,6 +1405,16 @@
 			name = Battlefields;
 			sourceTree = "<group>";
 		};
+		8DEB47661490579F008E7FCF /* BulletWall */ = {
+			isa = PBXGroup;
+			children = (
+				8DEB4767149057B6008E7FCF /* BulletWall.h */,
+				8DEB4768149057B6008E7FCF /* BulletWall.m */,
+			);
+			name = BulletWall;
+			path = ..;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1615,6 +1630,7 @@
 				8D1DBF5B14804F4900C4CFEC /* TransformUtils.m in Sources */,
 				8D1DBF5D14804F4900C4CFEC /* ZipUtils.m in Sources */,
 				8D677AEC148051BF004CA345 /* QuantumPilotLayer.m in Sources */,
+				8DEB4769149057B6008E7FCF /* BulletWall.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1799,6 +1815,7 @@
 				8D1DBF5A14804F4900C4CFEC /* TGAlib.m in Sources */,
 				8D1DBF5C14804F4900C4CFEC /* TransformUtils.m in Sources */,
 				8D1DBF5E14804F4900C4CFEC /* ZipUtils.m in Sources */,
+				8DEB476A149057B6008E7FCF /* BulletWall.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

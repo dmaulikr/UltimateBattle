@@ -15,6 +15,7 @@
 @synthesize currentTarget;
 @synthesize moveActive;
 @synthesize time;
+@synthesize wall;
 
 int const QP_TouchTargetingYOffset = 30;
 int const QP_AccuracyBonusModifier = 100;
@@ -34,6 +35,7 @@ int const QP_AccuracyBonusModifier = 100;
     self.player = [[[ClonePlayer alloc] initWithLayer:quantumLayer] autorelease];
     self.player.bulletDelegate = self;
     self.layer = quantumLayer;
+    self.wall = [[[BulletWall alloc] initWithLayer:quantumLayer] autorelease];
     
     return self;
 }
@@ -349,6 +351,7 @@ int const QP_AccuracyBonusModifier = 100;
     [clones release];
     [weaponSelector release];
     self.layer = nil;
+    [wall release];
     [super dealloc];
 }
 

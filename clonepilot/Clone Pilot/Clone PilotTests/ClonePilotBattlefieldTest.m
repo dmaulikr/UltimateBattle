@@ -774,8 +774,13 @@ describe(@"Clone Pilot Battlefield", ^{
             [f tick];
             [[theValue([f time]) should] equal:theValue(time)];
         });
-        
-        
+    });
+    
+    context(@"BulletWall", ^{
+        it(@"should have a bullet wall", ^{
+            [f startup];
+            [[theValue([f wall]) should] beNonNil];
+        });
     });
 });
 

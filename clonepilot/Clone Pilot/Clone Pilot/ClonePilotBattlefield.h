@@ -5,6 +5,7 @@
 #import "WeaponSelector.h"
 #import "VRTouch.h"
 #import "CCLayer.h"
+#import "BulletWall.h"
 
 extern int const QP_TouchTargetingYOffset; 
 extern int const QP_AccuracyBonusModifier;
@@ -27,6 +28,7 @@ extern int const QP_AccuracyBonusModifier;
 @property (nonatomic, assign) CGPoint currentTarget;
 @property (nonatomic, assign) CCLayer *layer;
 @property (nonatomic, assign) double time;
+@property (nonatomic, retain) BulletWall *wall;
 
 - (void)startup;
 - (NSInteger)livingClones;
