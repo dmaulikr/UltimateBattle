@@ -52,7 +52,7 @@
         
         // add the label as a child to this Layer
         [self addChild:self.dataLabel2];
-
+        
 
 	}
 	return self;
@@ -63,7 +63,8 @@
     NSString *d1String = [NSString stringWithFormat:@"Wave: %d",[self.f level]];
     self.dataLabel1.string = d1String;
     NSString *d2String = [NSString stringWithFormat:@"Score: %d",[self.f score]];
-    self.dataLabel2.string = d2String;    
+    self.dataLabel2.string = d2String; 
+    self.dataLabel2.position = self.f.wall.l;
 }
 
 - (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {

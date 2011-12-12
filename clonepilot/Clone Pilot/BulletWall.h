@@ -8,8 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "CCLayer.h"
+#import "VRGameObject.h"
 
-@interface BulletWall : NSObject
+@interface BulletWall : NSObject <VRGameObject>
+
+
+- (void)tick;
+- (void)reset;
 
 - (id)initWithLayer:(CCLayer *)layer;
 

@@ -105,6 +105,10 @@ int const QP_AccuracyBonusModifier = 100;
     }
 }
 
+- (void)resetWall {
+    [self.wall reset];
+}
+
 - (void)advanceLevel {
     _shouldAdvanceLevel = NO;
     [self clearBullets];
@@ -114,6 +118,7 @@ int const QP_AccuracyBonusModifier = 100;
     [self resetClones];
     [self activateAllClones];    
     [self resetPlayer];
+    [self resetWall];
     [self.weaponSelector openWeaponOptions];
 //    [self chooseWeapon:0];
 }
@@ -227,11 +232,21 @@ int const QP_AccuracyBonusModifier = 100;
 
     self.weaponSelector = [[[WeaponSelector alloc] initWithBattlefield:self] autorelease];
     
+    [self resetWall];
+    
     [self startup];
 }
 
 - (void)timeloop {
     self.time++;
+}
+
+- (void)wallLoop {
+    [self.wall tick];
+    if (self.wall.l.y <= self.player.l.y) {
+        self.player.health = -1;
+    }
+    [self checkForDeadPlayer];
 }
 
 - (void)tick {
@@ -243,6 +258,7 @@ int const QP_AccuracyBonusModifier = 100;
         [super tick];
         [self playerLoop];
         [self cloneLoop];        
+        [self wallLoop];
     }
 }
 

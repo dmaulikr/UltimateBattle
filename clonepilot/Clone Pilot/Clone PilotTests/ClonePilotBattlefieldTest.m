@@ -7,6 +7,7 @@
 #import "Bullet.h"
 #import "VRGeometry.h"
 #import "VRTouch.h"
+#import "QuantumPilotLayer.h"
 
 SPEC_BEGIN(ClonePilotBattlefieldTest)
 
@@ -18,10 +19,10 @@ describe(@"Clone Pilot Battlefield", ^{
         int livingClones = [f livingClones];
         
         while ([f livingClones] >= 1) {
-            [f tick];
             if ([f livingClones] > livingClones) {
                 break;
             }
+            [f tick];
         }
     };
     
@@ -72,7 +73,9 @@ describe(@"Clone Pilot Battlefield", ^{
     };
 
     beforeEach(^{
-        f = [[[ClonePilotBattlefield alloc] init] autorelease];
+        
+        QuantumPilotLayer *quantumLayer = [[[QuantumPilotLayer alloc] init] autorelease];
+        f = [[[ClonePilotBattlefield alloc] initWithLayer:quantumLayer] autorelease];
         startingTouch = CGPointMake(100, 100);
     });
     
@@ -130,6 +133,11 @@ describe(@"Clone Pilot Battlefield", ^{
             kill();
             [f chooseWeapon:0];
             [[theValue([[f bullets] count]) should] equal:theValue(0)]; 
+        });
+        
+        it(@"should reset wall between levels", ^ {
+            firstKill();
+            [[theValue([f wall].l.y) should] equal:theValue(1023.5)];
         });
         
     });
@@ -578,7 +586,7 @@ describe(@"Clone Pilot Battlefield", ^{
             [[f player] fire];
             kill();
             [f chooseWeapon:0];
-            [f player].t = CGPointMake([f player].l.x, [f player].l.y - 200);
+            [f player].t = CGPointMake([f player].l.x, [f player].l.y + 100);
             playerHit();
             [f tick];
             [[theValue([f player].l) should] equal:theValue(startingPosition)];
@@ -780,6 +788,35 @@ describe(@"Clone Pilot Battlefield", ^{
         it(@"should have a bullet wall", ^{
             [f startup];
             [[theValue([f wall]) should] beNonNil];
+        });
+
+        it(@"should start at the battlefield edge", ^{
+            [f startup];
+            [[theValue([f wall].l.y) should] equal:theValue(1024)];
+        });
+        
+        it(@"should move each tick", ^{
+            [f startup];
+            float height = [f wall].l.y;
+            [f tick];
+            [[theValue([f wall].l.y) should] beLessThan:theValue(height)];
+        });
+        
+        it(@"should kill player when overlapping", ^{
+            [f startup];
+            [f player].t = CGPointMake(384, 0);
+            playerHit();
+            [[theValue([[f player] health]) should] equal:theValue(-1)];      
+        });
+        
+        it(@"should reset when it kills the player", ^{ 
+            [f startup];
+            [f tick];
+            CGPoint wallStart = [f wall].l;
+            [f player].t = CGPointMake(384, 0);
+            playerHit();
+            [f tick];
+            [[theValue([f wall].l) should] equal:theValue(wallStart)];            
         });
     });
 });
