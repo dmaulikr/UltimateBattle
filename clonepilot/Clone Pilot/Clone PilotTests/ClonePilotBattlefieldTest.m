@@ -417,7 +417,6 @@ describe(@"Clone Pilot Battlefield", ^{
             firstKill();
             ClonePilot *p = [f firstClone];
             NSInteger cloneMoves = [p.moves count];
-//            Turn *firstTurn = [p.moves objectAtIndex:0];
             [f player].t = CGPointMake(800, 800);
             while (1) {
                 if ([p moveIndex] == cloneMoves - 1) {
@@ -441,6 +440,24 @@ describe(@"Clone Pilot Battlefield", ^{
             [f tick];
             
             [[theValue([p moveIndex]) should] equal:theValue(1)];            
+        });
+        
+        it(@"should reverse velocity when reversing move direction", ^{
+            firstKill();
+            ClonePilot *p = [f firstClone];
+            Turn *t = [[p moves] objectAtIndex:1];
+            NSInteger cloneMoves = [p.moves count];
+            [f player].t = CGPointMake(800, 800);
+            while (1) {
+                if ([p moveIndex] == cloneMoves - 1) {
+                    break;
+                }
+                [f tick];
+            }
+            [f tick];
+            Turn *currentTurn = [p currentTurn];
+            [[theValue(currentTurn.vel.x) should] equal:theValue(-t.vel.x)];
+            [[theValue(currentTurn.vel.y) should] equal:theValue(-t.vel.y)];            
         });
     });
  

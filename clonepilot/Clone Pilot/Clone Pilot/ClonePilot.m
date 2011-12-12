@@ -64,6 +64,7 @@ static int QP_ClonePilotYDirection = -1;
         if ([self.moves count] > 0) {
             Turn *turn = [self.moves objectAtIndex:self.moveIndex];
             self.vel = turn.vel;
+            self.vel = CGPointMake(self.vel.x * _moveDirection, self.vel.y * _moveDirection);
             self.l = CombinedPoint(self.l, self.vel);
             [self manageFiringForTurn:turn];
             
