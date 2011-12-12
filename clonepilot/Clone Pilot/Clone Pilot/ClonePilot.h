@@ -14,7 +14,7 @@
 #import "cocos2d.h"
 
 @interface ClonePilot : NSObject <VRGameObject> {
-    
+    NSInteger _moveDirection;
 }
 
 @property (nonatomic, retain) NSMutableArray *moves;

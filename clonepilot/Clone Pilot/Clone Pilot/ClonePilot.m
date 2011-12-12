@@ -42,39 +42,46 @@ static int QP_ClonePilotYDirection = -1;
     return b;
 }
 
+- (void)manageFiringForTurn:(Turn *)turn {
+    if (turn.firing) {
+        NSArray *bullets = [self.weapon newBulletsForLocation:self.l direction:QP_ClonePilotYDirection];
+        for (Bullet *b in bullets) {
+            b.identifier = [ClonePilot identifier];
+        }
+        [self.bulletDelegate addBullets:bullets];
+    }
+}
+
+- (void)manageMoveIndexBoundary {
+    if (self.moveIndex >= [self.moves count] || self.moveIndex < 0){
+        _moveDirection = -_moveDirection;
+        self.moveIndex +=2 *_moveDirection;
+    }
+}
+
 - (void)tick {
     if ([self living]) {
-    if ([self.moves count] > 0) {
-        Turn *turn = [self.moves objectAtIndex:self.moveIndex];
-        self.vel = turn.vel;
-        
-        self.l = CombinedPoint(self.l, self.vel);
-
-        self.moveIndex++;
-        
-        if (turn.firing) {
-            NSArray *bullets = [self.weapon newBulletsForLocation:self.l direction:QP_ClonePilotYDirection];
-            for (Bullet *b in bullets) {
-                b.identifier = [ClonePilot identifier];
-            }
-            [self.bulletDelegate addBullets:bullets];
+        if ([self.moves count] > 0) {
+            Turn *turn = [self.moves objectAtIndex:self.moveIndex];
+            self.vel = turn.vel;
+            self.l = CombinedPoint(self.l, self.vel);
+            [self manageFiringForTurn:turn];
+            
+            self.moveIndex +=_moveDirection;
+            [self manageMoveIndexBoundary];
+            
         }
         
-        if (self.moveIndex >= [self.moves count]) {
-            self.moveIndex = 0;
-            self.l = [ClonePilot defaultLocation];
+        if (self.sprite) {
+            self.sprite.position = self.l;
         }
-    }
-    
-    if (self.sprite) {
-        self.sprite.position = self.l;
-    }
     }
 }
 
 - (void)reset {
     self.l = [ClonePilot defaultLocation];
     self.moveIndex = 0;
+    _moveDirection = 1;
 }
 
 - (id)commonInit {
@@ -84,6 +91,7 @@ static int QP_ClonePilotYDirection = -1;
         self.moves = [NSMutableArray array];
         self.living = YES;
         self.radius = 15;
+        _moveDirection = 1;
     }
     
     return self;

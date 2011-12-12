@@ -41,13 +41,6 @@ describe(@"Clone Pilot Battlefield", ^{
         }
     };
     
-    ActionBlock newBullet = ^{
-        int bullets = [[f bullets] count];
-        while ([[f bullets] count] == bullets) {
-            [f tick];
-        }
-    };
-    
     ActionBlock playerHit = ^{
         int playerHealth = [[f player] health];
         while ([[f player] health] == playerHealth) {
@@ -305,7 +298,7 @@ describe(@"Clone Pilot Battlefield", ^{
             [f tick];            
             [[theValue([p moveIndex]) should] equal:theValue(3)];            
         });
-
+    
         it(@"should copy horizontal movement", ^ {
             [f startup];
             [[f player] fire];
@@ -419,6 +412,36 @@ describe(@"Clone Pilot Battlefield", ^{
             NSLog(@"p current move index: %d",p.moveIndex);            
             [[theValue([[p currentTurn] firing]) should] beFalse];            
         });
+        
+        it(@"should reverse move index directions when it finishes moves", ^{
+            firstKill();
+            ClonePilot *p = [f firstClone];
+            NSInteger cloneMoves = [p.moves count];
+//            Turn *firstTurn = [p.moves objectAtIndex:0];
+            [f player].t = CGPointMake(800, 800);
+            while (1) {
+                if ([p moveIndex] == cloneMoves - 1) {
+                    break;
+                }
+                [f tick];
+
+            }
+
+            [f tick];
+            
+            [[theValue([p moveIndex]) should] equal:theValue(cloneMoves-2)];
+            
+            while (1) {
+                if ([p moveIndex] == 0) {
+                    break;
+                }
+                [f tick];
+            }
+            
+            [f tick];
+            
+            [[theValue([p moveIndex]) should] equal:theValue(1)];            
+        });
     });
  
     context(@"Combat", ^{
@@ -450,22 +473,22 @@ describe(@"Clone Pilot Battlefield", ^{
         });
 
         
-        it(@"should reset position when out of moves", ^{
-            [f startup];
-            ClonePilot *p = [[f clones] lastObject];
-            CGPoint position = p.l;
-            [[f player] fire];
-            [f player].t = CGPointMake(500, 750);
-            kill();
-            BOOL hitZero = 0;
-            while (!hitZero) {
-                [f tick];
-                if (p.moveIndex == 0) {
-                    hitZero = 1;
-                }
-            }
-            [[theValue(p.l) should] equal:theValue(position)];
-        });
+//        it(@"should reset position when out of moves", ^{
+//            [f startup];
+//            ClonePilot *p = [[f clones] lastObject];
+//            CGPoint position = p.l;
+//            [[f player] fire];
+//            [f player].t = CGPointMake(500, 750);
+//            kill();
+//            BOOL hitZero = 0;
+//            while (!hitZero) {
+//                [f tick];
+//                if (p.moveIndex == 0) {
+//                    hitZero = 1;
+//                }
+//            }
+//            [[theValue(p.l) should] equal:theValue(position)];
+//        });
 
         it(@"should assign ownership of bullets from the player", ^{
             [f startup];
@@ -479,7 +502,8 @@ describe(@"Clone Pilot Battlefield", ^{
         it(@"should assign ownership of bullets from the enemy", ^{
             firstKill();
             [f chooseWeapon:0];
-            newBullet();
+            [f player].t = CGPointMake(800, 800);
+            [f tick];
             Bullet *b = [[f bullets] lastObject];
             [[theValue([b identifier]) should] equal:theValue([ClonePilot identifier])];
         });
