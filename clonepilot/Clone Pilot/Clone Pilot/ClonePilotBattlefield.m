@@ -335,16 +335,21 @@ int const QP_AccuracyBonusModifier = 100;
     if (!self.moveActive) {
         self.moveActive = YES;
         [self modifyPlayerTargetWithTouchLocation:l];
-    } else {
+    }
+    
+        
+    if (l.x < 90|| l.x > 768-90)     {
         [self.player fire];
     }
 }
 
 - (void)moveTouch:(CGPoint)l {
+    if (l.x < 768-90 && l.x > 90) {
     if (GetDistance(l, self.player.l) <= GetDistance(self.currentTarget, self.player.l)) {
         [self modifyPlayerTargetWithTouchLocation:l];
     } else {
         //ignore
+    }
     }
 }
 

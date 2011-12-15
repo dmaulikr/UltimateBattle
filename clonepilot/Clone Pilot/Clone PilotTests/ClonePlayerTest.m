@@ -20,7 +20,7 @@ describe(@"Clone Player", ^{
     });
     
     it(@"should record movements", ^{
-        p.t = CGPointMake(300, 300);
+        p.t = CGPointMake(0, 0);
         
         Turn *emptyTurn = [[[Turn alloc] init] autorelease];
         emptyTurn.vel = CGPointZero;
