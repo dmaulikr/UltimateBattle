@@ -11,6 +11,8 @@
 
 extern int const QP_TouchTargetingYOffset; 
 extern int const QP_AccuracyBonusModifier;
+extern int const QP_MaxTime;
+extern int const QP_TimeBonusModifier;
 
 @class WeaponSelector;
 
@@ -32,6 +34,7 @@ extern int const QP_AccuracyBonusModifier;
 @property (nonatomic, assign) double time;
 @property (nonatomic, retain) BulletWall *wall;
 @property (nonatomic, retain) QPFireLayer *fireLayer1;
+@property (nonatomic, retain) QPFireLayer *fireLayer2;
 
 - (void)startup;
 - (NSInteger)livingClones;
@@ -58,6 +61,11 @@ extern int const QP_AccuracyBonusModifier;
 
 - (BOOL)playing;
 - (void)togglePlaying;
+
+- (double)maxTime;
+
+- (NSInteger)accuracyBonus;
+- (NSInteger)timeBonus;
 
 - (id)initWithLayer:(CCLayer *)quantumLayer;
 

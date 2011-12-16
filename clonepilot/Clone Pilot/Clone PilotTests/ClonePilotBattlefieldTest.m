@@ -562,11 +562,23 @@ describe(@"Clone Pilot Battlefield", ^{
             [[f player] fire];
             [f tick];
             kill();
+            double timeBonus = [f timeBonus];
             float accuracy = [f hits] / [f shotsFired];
             [f chooseWeapon:0];
             [[theValue(accuracy) should] equal:theValue(.5)];
             float expectedAccuracyBonus = QP_AccuracyBonusModifier * accuracy * 100;
-            int totalExpectedScore = 11 + expectedAccuracyBonus;
+            int totalExpectedScore = [f level] + expectedAccuracyBonus + timeBonus;
+            [[theValue([f score]) should] equal:theValue(totalExpectedScore)];
+        });
+        
+        it(@"should score based on time", ^{
+            firstKill();
+            double timeElapsed = [f time];
+            double timeLeft = QP_MaxTime - timeElapsed;
+            double expectedTimeBonus = timeLeft * QP_TimeBonusModifier;
+            float accuracyBonus = [f accuracyBonus];
+            [f chooseWeapon:0];
+            NSInteger totalExpectedScore = expectedTimeBonus + accuracyBonus + [f level];            
             [[theValue([f score]) should] equal:theValue(totalExpectedScore)];
         });
     });

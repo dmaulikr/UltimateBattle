@@ -17,9 +17,12 @@
 @synthesize time;
 @synthesize wall;
 @synthesize fireLayer1;
+@synthesize fireLayer2;
 
-int const QP_TouchTargetingYOffset = 30;
-int const QP_AccuracyBonusModifier = 100;
+int const QP_TouchTargetingYOffset  = 30;
+int const QP_AccuracyBonusModifier  = 100;
+int const QP_MaxTime                = 2000;
+int const QP_TimeBonusModifier      = 3;
 
 - (id)commonInit {
     self = [super init];
@@ -41,8 +44,14 @@ int const QP_AccuracyBonusModifier = 100;
     self.fireLayer1 = [[[QPFireLayer alloc] init] autorelease];
     self.fireLayer1.delegate = self;
     [self.fireLayer1 setContentSizeInPixels:CGSizeMake(100, 200)];
-    self.fireLayer1.positionInPixels = ccp(0,1024-100);
+    self.fireLayer1.positionInPixels = ccp(0,1024-200);
     [quantumLayer addChild:self.fireLayer1];
+    
+    self.fireLayer2 = [[[QPFireLayer alloc] init] autorelease];
+    self.fireLayer2.delegate = self;
+    [self.fireLayer2 setContentSizeInPixels:CGSizeMake(100, 200)];
+    self.fireLayer2.positionInPixels = ccp(768-100,1024-200);
+    [quantumLayer addChild:self.fireLayer2];
     
     return self;
 }
@@ -305,14 +314,27 @@ int const QP_AccuracyBonusModifier = 100;
     }
 }
 
-- (void)scoreForAccuracy {
+- (NSInteger)timeBonus {
+    return (QP_MaxTime - self.time) * QP_TimeBonusModifier;
+}
+
+- (NSInteger)accuracyBonus {
     float accuracy = [self hits] / [self shotsFired];
-    self.score += QP_AccuracyBonusModifier * accuracy * 100;
+    return QP_AccuracyBonusModifier * accuracy * 100;
+}
+
+- (void)scoreForAccuracy {
+    self.score += [self accuracyBonus];    
+}
+
+- (void)scoreForSpeed {
+    self.score += [self timeBonus];
 }
 
 - (void)playerChoseWeapon:(Weapon *)weapon {
     self.level++;
     [self scoreForAccuracy];
+    [self scoreForSpeed];
     self.hits = 0;
     self.shotsFired = 0;
     self.player.weapon = weapon;
@@ -320,7 +342,7 @@ int const QP_AccuracyBonusModifier = 100;
 
 - (void)chooseWeapon:(NSInteger)choiceIndex {
     [self.weaponSelector chooseWeapon:choiceIndex];
-    [self scoreForHealth];
+//    [self scoreForHealth];
     self.hits = 0;    
 }
 
@@ -339,7 +361,8 @@ int const QP_AccuracyBonusModifier = 100;
 }
 
 - (BOOL)pointWithinFiringLayer:(CGPoint)l {
-    return CGRectContainsPoint(self.fireLayer1.boundingBoxInPixels, CGPointMake(l.x, 1024-l.y));
+    return CGRectContainsPoint(self.fireLayer1.boundingBoxInPixels, CGPointMake(l.x, 1024-l.y)) ||
+    CGRectContainsPoint(self.fireLayer2.boundingBoxInPixels, CGPointMake(l.x, 1024-l.y));
 }
 
 - (void)addTouch:(CGPoint)l {
