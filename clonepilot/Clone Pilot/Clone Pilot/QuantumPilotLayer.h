@@ -17,6 +17,7 @@
 @property (nonatomic, retain) ClonePilotBattlefield *f;
 @property (nonatomic, retain) CCLabelTTF *dataLabel1;
 @property (nonatomic, retain) CCLabelTTF *dataLabel2;
+@property (nonatomic, retain) CCLabelTTF *wallLabel;
 
 +(CCScene *) scene;
 

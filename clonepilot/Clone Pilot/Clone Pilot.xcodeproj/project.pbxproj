@@ -188,6 +188,7 @@
 		8D1DBF781480508400C4CFEC /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D1DBF761480505D00C4CFEC /* libz.dylib */; };
 		8D3E721F143BE6FE00D59706 /* Turn.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D3E721E143BE6FE00D59706 /* Turn.m */; };
 		8D3E7220143BE6FE00D59706 /* Turn.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D3E721E143BE6FE00D59706 /* Turn.m */; };
+		8D6156BF149ACD3B0060B788 /* QPFireLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6156BE149ACD3B0060B788 /* QPFireLayer.m */; };
 		8D677AEC148051BF004CA345 /* QuantumPilotLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D677AEB148051BF004CA345 /* QuantumPilotLayer.m */; };
 		8D677AF0148053CA004CA345 /* sprite-7-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D677AEF148053CA004CA345 /* sprite-7-1.png */; };
 		8D677AF1148053CA004CA345 /* sprite-7-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D677AEF148053CA004CA345 /* sprite-7-1.png */; };
@@ -518,6 +519,8 @@
 		8D1DBF761480505D00C4CFEC /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		8D3E721D143BE6FE00D59706 /* Turn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Turn.h; sourceTree = "<group>"; };
 		8D3E721E143BE6FE00D59706 /* Turn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Turn.m; sourceTree = "<group>"; };
+		8D6156BD149ACD3B0060B788 /* QPFireLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPFireLayer.h; sourceTree = "<group>"; };
+		8D6156BE149ACD3B0060B788 /* QPFireLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPFireLayer.m; sourceTree = "<group>"; };
 		8D677AEA148051BF004CA345 /* QuantumPilotLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuantumPilotLayer.h; sourceTree = "<group>"; };
 		8D677AEB148051BF004CA345 /* QuantumPilotLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuantumPilotLayer.m; sourceTree = "<group>"; };
 		8D677AEF148053CA004CA345 /* sprite-7-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sprite-7-1.png"; sourceTree = "<group>"; };
@@ -1014,6 +1017,8 @@
 			children = (
 				8D677AEA148051BF004CA345 /* QuantumPilotLayer.h */,
 				8D677AEB148051BF004CA345 /* QuantumPilotLayer.m */,
+				8D6156BD149ACD3B0060B788 /* QPFireLayer.h */,
+				8D6156BE149ACD3B0060B788 /* QPFireLayer.m */,
 			);
 			name = "Cocos2D Implementation";
 			sourceTree = "<group>";
@@ -1631,6 +1636,7 @@
 				8D1DBF5D14804F4900C4CFEC /* ZipUtils.m in Sources */,
 				8D677AEC148051BF004CA345 /* QuantumPilotLayer.m in Sources */,
 				8DEB4769149057B6008E7FCF /* BulletWall.m in Sources */,
+				8D6156BF149ACD3B0060B788 /* QPFireLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

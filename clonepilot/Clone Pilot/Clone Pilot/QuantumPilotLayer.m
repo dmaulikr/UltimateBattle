@@ -12,6 +12,7 @@
 @synthesize f;
 @synthesize dataLabel1;
 @synthesize dataLabel2;
+@synthesize wallLabel;
 
 +(CCScene *) scene {
 	// 'scene' is an autorelease object.
@@ -53,6 +54,9 @@
         // add the label as a child to this Layer
         [self addChild:self.dataLabel2];
         
+        self.wallLabel = [CCLabelTTF labelWithString:@"Wall of Death" fontName:@"Courier New" fontSize:23];
+        self.wallLabel.position = ccp(0,0);
+        [self addChild:self.wallLabel];
 
 	}
 	return self;
@@ -64,7 +68,7 @@
     self.dataLabel1.string = d1String;
     NSString *d2String = [NSString stringWithFormat:@"Score: %d",[self.f score]];
     self.dataLabel2.string = d2String; 
-    self.dataLabel2.position = self.f.wall.l;
+    self.wallLabel.position = self.f.wall.l;
 }
 
 - (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {

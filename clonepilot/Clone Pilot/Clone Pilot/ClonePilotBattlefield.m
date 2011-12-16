@@ -16,6 +16,7 @@
 @synthesize moveActive;
 @synthesize time;
 @synthesize wall;
+@synthesize fireLayer1;
 
 int const QP_TouchTargetingYOffset = 30;
 int const QP_AccuracyBonusModifier = 100;
@@ -36,6 +37,12 @@ int const QP_AccuracyBonusModifier = 100;
     self.player.bulletDelegate = self;
     self.layer = quantumLayer;
     self.wall = [[[BulletWall alloc] initWithLayer:quantumLayer] autorelease];
+    
+    self.fireLayer1 = [[[QPFireLayer alloc] init] autorelease];
+    self.fireLayer1.delegate = self;
+    [self.fireLayer1 setContentSizeInPixels:CGSizeMake(100, 200)];
+    self.fireLayer1.positionInPixels = ccp(0,1024-100);
+    [quantumLayer addChild:self.fireLayer1];
     
     return self;
 }
@@ -331,30 +338,24 @@ int const QP_AccuracyBonusModifier = 100;
     self.player.t = CGPointMake(l.x, l.y + QP_TouchTargetingYOffset);
 }
 
+- (BOOL)pointWithinFiringLayer:(CGPoint)l {
+    return CGRectContainsPoint(self.fireLayer1.boundingBoxInPixels, CGPointMake(l.x, 1024-l.y));
+}
+
 - (void)addTouch:(CGPoint)l {
-    if (!self.moveActive) {
-        self.moveActive = YES;
+    if (![self pointWithinFiringLayer:l]) {
         [self modifyPlayerTargetWithTouchLocation:l];
-    }
-    
-        
-    if (l.x < 90|| l.x > 768-90)     {
-        [self.player fire];
     }
 }
 
 - (void)moveTouch:(CGPoint)l {
-    if (l.x < 768-90 && l.x > 90) {
-    if (GetDistance(l, self.player.l) <= GetDistance(self.currentTarget, self.player.l)) {
-        [self modifyPlayerTargetWithTouchLocation:l];
-    } else {
-        //ignore
-    }
+    if (![self pointWithinFiringLayer:l]) {
+        [self modifyPlayerTargetWithTouchLocation:l];        
     }
 }
 
 - (void)endTouch:(CGPoint)l {
-    if (GetDistance(l, self.player.l) <= GetDistance(self.currentTarget, self.player.l)) {
+    if (![self pointWithinFiringLayer:l]) {    
         self.player.t = self.player.l;
     }
 }
@@ -367,12 +368,18 @@ int const QP_AccuracyBonusModifier = 100;
     _paused = !_paused;
 }
 
+- (void)fireLayerTapped:(QPFireLayer *)fireLayer {
+    [self.player fire];
+}
+
 - (void)dealloc {
     [player release];
     [clones release];
     [weaponSelector release];
     self.layer = nil;
     [wall release];
+    [fireLayer1 removeFromParentAndCleanup:YES];
+    [fireLayer1 release];    
     [super dealloc];
 }
 

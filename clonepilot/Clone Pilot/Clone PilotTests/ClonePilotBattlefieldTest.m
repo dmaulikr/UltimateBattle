@@ -676,24 +676,18 @@ describe(@"Clone Pilot Battlefield", ^{
             [[theValue([f moveActive]) should] beFalse];
         });
         
-        it(@"should add a touch when passed to it", ^{
-            firstTouch();
-            [[theValue([f moveActive]) should] beTrue];
-        });
-        
         it(@"should set player target with first touch + offset", ^{
             firstTouch();
             CGPoint offsetTarget = CGPointMake(startingTouch.x, startingTouch.y + QP_TouchTargetingYOffset);
             [[theValue([[f player] t]) should] equal:theValue(offsetTarget)];
         });        
         
-        
-        it(@"should set player's state to fire on second touch", ^{
-            firstTouch();
-            [f addTouch:CGPointMake(800, 800)];
-            Turn *currentTurn = [[f player] currentTurn];
-            [[theValue([currentTurn firing]) should] equal:theValue(YES)];
+        it(@"should fire when fire layer tapped", ^{
+            [f startup];
+            [f.fireLayer1 addTouch:CGPointMake(0, 950)];
+            [[theValue([[[f player] currentTurn] firing]) should] beTrue];
         });
+   
     });
     
     context(@"Moving", ^{

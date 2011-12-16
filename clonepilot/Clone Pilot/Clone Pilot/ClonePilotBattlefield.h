@@ -6,13 +6,15 @@
 #import "VRTouch.h"
 #import "CCLayer.h"
 #import "BulletWall.h"
+#import "QPFireLayer.h"
+#import "QPFireLayer.h"
 
 extern int const QP_TouchTargetingYOffset; 
 extern int const QP_AccuracyBonusModifier;
 
 @class WeaponSelector;
 
-@interface ClonePilotBattlefield : BulletHellBattlefield <BulletDelegate, WeaponSelectorDelegate> {
+@interface ClonePilotBattlefield : BulletHellBattlefield <BulletDelegate, WeaponSelectorDelegate, QPFireLayerdelegate> {
     BOOL _shouldAdvanceLevel;
     BOOL _battlefieldEnding;
     BOOL _paused;
@@ -29,6 +31,7 @@ extern int const QP_AccuracyBonusModifier;
 @property (nonatomic, assign) CCLayer *layer;
 @property (nonatomic, assign) double time;
 @property (nonatomic, retain) BulletWall *wall;
+@property (nonatomic, retain) QPFireLayer *fireLayer1;
 
 - (void)startup;
 - (NSInteger)livingClones;
