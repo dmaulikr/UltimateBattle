@@ -42,7 +42,7 @@ static int QP_PlayerYDirection = 1;
         [self generateTurn];
         [self assignDefaultWeapon];
         self.health = 1;
-        self.speed = 60;
+        self.speed = 20;
     }
     return self;
 }

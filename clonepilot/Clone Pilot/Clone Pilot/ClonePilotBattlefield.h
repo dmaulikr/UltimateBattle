@@ -62,8 +62,6 @@ extern int const QP_TimeBonusModifier;
 - (BOOL)playing;
 - (void)togglePlaying;
 
-- (double)maxTime;
-
 - (NSInteger)accuracyBonus;
 - (NSInteger)timeBonus;
 

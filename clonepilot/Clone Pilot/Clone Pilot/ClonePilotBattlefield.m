@@ -136,7 +136,7 @@ int const QP_TimeBonusModifier      = 3;
     [self resetPlayer];
     [self resetWall];
     [self.weaponSelector openWeaponOptions];
-//    [self chooseWeapon:0];
+    [self chooseWeapon:0];
 }
 
 - (void)fired {
@@ -315,12 +315,13 @@ int const QP_TimeBonusModifier      = 3;
 }
 
 - (NSInteger)timeBonus {
-    return (QP_MaxTime - self.time) * QP_TimeBonusModifier;
+    NSInteger bonusTime = (QP_MaxTime - self.time) * QP_TimeBonusModifier;
+    return bonusTime;
 }
 
 - (NSInteger)accuracyBonus {
     float accuracy = [self hits] / [self shotsFired];
-    return QP_AccuracyBonusModifier * accuracy * 100;
+    return floor(QP_AccuracyBonusModifier * accuracy * 100);
 }
 
 - (void)scoreForAccuracy {
@@ -343,7 +344,7 @@ int const QP_TimeBonusModifier      = 3;
 - (void)chooseWeapon:(NSInteger)choiceIndex {
     [self.weaponSelector chooseWeapon:choiceIndex];
 //    [self scoreForHealth];
-    self.hits = 0;    
+//    self.hits = 0;    
 }
 
 - (NSArray *)weaponChoices {
@@ -366,8 +367,11 @@ int const QP_TimeBonusModifier      = 3;
 }
 
 - (void)addTouch:(CGPoint)l {
-    if (![self pointWithinFiringLayer:l]) {
-        [self modifyPlayerTargetWithTouchLocation:l];
+    if (!self.moveActive) {
+        if (![self pointWithinFiringLayer:l]) {
+            [self modifyPlayerTargetWithTouchLocation:l];
+            self.moveActive = YES;
+        }
     }
 }
 
@@ -380,6 +384,7 @@ int const QP_TimeBonusModifier      = 3;
 - (void)endTouch:(CGPoint)l {
     if (![self pointWithinFiringLayer:l]) {    
         self.player.t = self.player.l;
+        self.moveActive = NO;
     }
 }
 
