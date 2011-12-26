@@ -73,10 +73,11 @@
 
 - (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     UITouch *touch = [touches anyObject];
-    CGPoint tliv = [touch locationInView:[touch view]];
-    CGPoint tl = ccp(tliv.x, 1024-tliv.y);
-    
-    [self.f addTouch:tl];
+    [self.f addTouch:[touch locationInView:[touch view]] last:[touch previousLocationInView:[touch view]]];
+    //    [self.f plusTouch:touch];
+//    CGPoint tliv = [touch locationInView:[touch view]];
+//    CGPoint tl = ccp(tliv.x, 1024-tliv.y);   
+//    [self.f addTouch:tl];
 }
 
 // Override the "ccTouchesMoved:withEvent:" method to add your own logic
@@ -87,9 +88,11 @@
 	NSArray *touchArray = [touches allObjects];
     
     for (UITouch *touch in touchArray) {
-        CGPoint tliv = [touch locationInView:[touch view]];
-        CGPoint tl = ccp(tliv.x, 1024-tliv.y);
-        [self.f moveTouch:tl];
+        [self.f moveTouch:[touch locationInView:[touch view]] last:[touch previousLocationInView:[touch view]]];
+        //        [self.f varyTouch:touch];
+//        CGPoint tliv = [touch locationInView:[touch view]];
+//        CGPoint tl = ccp(tliv.x, 1024-tliv.y);
+//        [self.f moveTouch:tl];
     }
     
 	
@@ -99,6 +102,7 @@
     NSArray *touchArray = [touches allObjects];
     
     for (UITouch *touch in touchArray) {
+//        [self.f finishTouch:touch];
         CGPoint tliv = [touch locationInView:[touch view]];
         CGPoint tl = ccp(tliv.x, 1024-tliv.y);
         [self.f endTouch:tl];

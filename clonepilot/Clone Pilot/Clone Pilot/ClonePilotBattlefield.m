@@ -18,6 +18,7 @@
 @synthesize wall;
 @synthesize fireLayer1;
 @synthesize fireLayer2;
+@synthesize lastMove;
 
 int const QP_TouchTargetingYOffset  = 30;
 int const QP_AccuracyBonusModifier  = 100;
@@ -41,17 +42,17 @@ int const QP_TimeBonusModifier      = 3;
     self.layer = quantumLayer;
     self.wall = [[[BulletWall alloc] initWithLayer:quantumLayer] autorelease];
     
-    self.fireLayer1 = [[[QPFireLayer alloc] init] autorelease];
-    self.fireLayer1.delegate = self;
-    [self.fireLayer1 setContentSizeInPixels:CGSizeMake(100, 200)];
-    self.fireLayer1.positionInPixels = ccp(0,1024-200);
-    [quantumLayer addChild:self.fireLayer1];
-    
-    self.fireLayer2 = [[[QPFireLayer alloc] init] autorelease];
-    self.fireLayer2.delegate = self;
-    [self.fireLayer2 setContentSizeInPixels:CGSizeMake(100, 200)];
-    self.fireLayer2.positionInPixels = ccp(768-100,1024-200);
-    [quantumLayer addChild:self.fireLayer2];
+//    self.fireLayer1 = [[[QPFireLayer alloc] init] autorelease];
+//    self.fireLayer1.delegate = self;
+//    [self.fireLayer1 setContentSizeInPixels:CGSizeMake(100, 200)];
+//    self.fireLayer1.positionInPixels = ccp(0,1024-200);
+//    [quantumLayer addChild:self.fireLayer1];
+//    
+//    self.fireLayer2 = [[[QPFireLayer alloc] init] autorelease];
+//    self.fireLayer2.delegate = self;
+//    [self.fireLayer2 setContentSizeInPixels:CGSizeMake(100, 200)];
+//    self.fireLayer2.positionInPixels = ccp(768-100,1024-200);
+//    [quantumLayer addChild:self.fireLayer2];
     
     return self;
 }
@@ -136,7 +137,7 @@ int const QP_TimeBonusModifier      = 3;
     [self resetPlayer];
     [self resetWall];
     [self.weaponSelector openWeaponOptions];
-    [self chooseWeapon:0];
+//    [self chooseWeapon:0];
 }
 
 - (void)fired {
@@ -366,26 +367,61 @@ int const QP_TimeBonusModifier      = 3;
     CGRectContainsPoint(self.fireLayer2.boundingBoxInPixels, CGPointMake(l.x, 1024-l.y));
 }
 
-- (void)addTouch:(CGPoint)l {
+- (void)plusTouch:(UITouch *)t {
+
+}
+
+- (void)varyTouch:(UITouch *)t {
+    
+}
+
+- (void)finishTouch:(UITouch *)t {
+    
+}
+
+- (void)addTouch:(CGPoint)l last:(CGPoint)last{
     if (!self.moveActive) {
-        if (![self pointWithinFiringLayer:l]) {
-            [self modifyPlayerTargetWithTouchLocation:l];
-            self.moveActive = YES;
-        }
+        self.moveActive = YES;
+        self.lastMove = l;
+    } else {
+        [[self player] fire];
     }
+    //    if (!self.moveActive) {
+//        if (![self pointWithinFiringLayer:l]) {
+//            [self modifyPlayerTargetWithTouchLocation:l];
+//            self.moveActive = YES;
+//        }
+//    }
+}
+
+- (void)addTouch:(CGPoint)l {
+    [self addTouch:l last:CGPointZero];
+}
+
+- (void)moveTouch:(CGPoint)l last:(CGPoint)last{
+    if (last.x == self.lastMove.x && last.y == self.lastMove.y) {
+        CGPoint target = GetAngle(self.lastMove, l);
+        CGPoint vector = MultipliedPoint(target, self.player.speed);
+        self.player.t = CombinedPoint(self.player.l, vector);
+        self.lastMove = l;
+    }
+    
 }
 
 - (void)moveTouch:(CGPoint)l {
-    if (![self pointWithinFiringLayer:l]) {
-        [self modifyPlayerTargetWithTouchLocation:l];        
-    }
+    [self moveTouch:l last:CGPointZero];
+}
+
+- (void)endTouch:(CGPoint)l last:(CGPoint)last{
+    self.moveActive = NO;
+//    if (![self pointWithinFiringLayer:l]) {    
+//        self.player.t = self.player.l;
+//        self.moveActive = NO;
+//    }
 }
 
 - (void)endTouch:(CGPoint)l {
-    if (![self pointWithinFiringLayer:l]) {    
-        self.player.t = self.player.l;
-        self.moveActive = NO;
-    }
+    [self endTouch:l last:CGPointZero];
 }
 
 - (BOOL)playing {

@@ -688,17 +688,41 @@ describe(@"Clone Pilot Battlefield", ^{
             [[theValue([f moveActive]) should] beFalse];
         });
         
-        it(@"should set player target with first touch + offset", ^{
-            firstTouch();
-            CGPoint offsetTarget = CGPointMake(startingTouch.x, startingTouch.y + QP_TouchTargetingYOffset);
-            [[theValue([[f player] t]) should] equal:theValue(offsetTarget)];
-        });        
-        
-        it(@"should fire when fire layer tapped", ^{
+        it(@"should not fire on first touch", ^{
             [f startup];
-            [f.fireLayer1 addTouch:CGPointMake(0, 950)];
-            [[theValue([[[f player] currentTurn] firing]) should] beTrue];
+            [f addTouch:CGPointMake(384, 384)];
+            [f tick];
+            [[theValue([[f player] isFiring]) should] beFalse];
         });
+
+        it(@"should fire on second touch", ^{
+            [f startup];
+            [f addTouch:CGPointMake(384, 384)];
+            [f tick];
+            [f addTouch:CGPointMake(384, 200)];
+            [[theValue([[f player] isFiring]) should] beTrue]; 
+        });
+        
+        it(@"should generate a movement vector from moving a touch", ^{
+            [f startup];
+            [f addTouch:CGPointMake(384, 384)];
+            [f tick];
+            [f moveTouch:CGPointMake(360, 384) last:CGPointMake(384, 384)];
+            [[theValue([[f player] vel].x) should] beLessThan:theValue(0)];
+        });
+
+        
+//        it(@"should set player target with first touch + offset", ^{
+//            firstTouch();
+//            CGPoint offsetTarget = CGPointMake(startingTouch.x, startingTouch.y + QP_TouchTargetingYOffset);
+//            [[theValue([[f player] t]) should] equal:theValue(offsetTarget)];
+//        });        
+//        
+//        it(@"should fire when fire layer tapped", ^{
+//            [f startup];
+//            [f.fireLayer1 addTouch:CGPointMake(0, 950)];
+//            [[theValue([[[f player] currentTurn] firing]) should] beTrue];
+//        });
    
     });
     
@@ -866,6 +890,7 @@ describe(@"Clone Pilot Battlefield", ^{
             [[theValue([f wall].l) should] equal:theValue(wallStart)];            
         });
     });
+
 });
 
 SPEC_END

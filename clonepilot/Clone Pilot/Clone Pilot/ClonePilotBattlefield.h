@@ -35,6 +35,7 @@ extern int const QP_TimeBonusModifier;
 @property (nonatomic, retain) BulletWall *wall;
 @property (nonatomic, retain) QPFireLayer *fireLayer1;
 @property (nonatomic, retain) QPFireLayer *fireLayer2;
+@property (nonatomic, assign) CGPoint lastMove;
 
 - (void)startup;
 - (NSInteger)livingClones;
@@ -58,6 +59,15 @@ extern int const QP_TimeBonusModifier;
 - (void)addTouch:(CGPoint)l;
 - (void)moveTouch:(CGPoint)l;
 - (void)endTouch:(CGPoint)l;
+
+- (void)addTouch:(CGPoint)l last:(CGPoint)last;
+- (void)moveTouch:(CGPoint)l last:(CGPoint)last;
+- (void)endTouch:(CGPoint)l last:(CGPoint)last;
+
+
+- (void)plusTouch:(UITouch *)t;
+- (void)varyTouch:(UITouch *)t;
+- (void)finishTouch:(UITouch *)t;
 
 - (BOOL)playing;
 - (void)togglePlaying;
