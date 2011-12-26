@@ -24,6 +24,7 @@
 @synthesize moveDate;
 @synthesize moveStart;
 @synthesize movementVector;
+@synthesize rSprite;
 
 int const QP_TouchTargetingYOffset  = 30;
 int const QP_AccuracyBonusModifier  = 100;
@@ -47,7 +48,8 @@ int const QP_TimeBonusModifier      = 3;
     self.player.bulletDelegate = self;
     self.layer = quantumLayer;
     self.wall = [[[BulletWall alloc] initWithLayer:quantumLayer] autorelease];
-    
+    self.rSprite = [CCSprite spriteWithFile:@"sprite-7-1.png"];
+    [quantumLayer addChild:self.rSprite];
 //    self.fireLayer1 = [[[QPFireLayer alloc] init] autorelease];
 //    self.fireLayer1.delegate = self;
 //    [self.fireLayer1 setContentSizeInPixels:CGSizeMake(100, 200)];
@@ -232,7 +234,9 @@ int const QP_TimeBonusModifier      = 3;
 - (void)playerLoop {
     [self.player tick];
     if (self.moveActive) {
-        self.player.t = CombinedPoint(self.player.l, MultipliedPoint(self.movementVector, self.player.speed));
+        CGPoint vector = ccp(self.movementVector.x, self.movementVector.y);
+        CGPoint targetVector = MultipliedPoint(vector, self.player.speed);
+        self.player.t = CombinedPoint(self.player.l, targetVector);
     } else {
         self.player.t = self.player.l;
     }
@@ -393,8 +397,10 @@ int const QP_TimeBonusModifier      = 3;
 - (void)addTouch:(CGPoint)l last:(CGPoint)last timestamp:(NSTimeInterval)timestamp {
     if (!self.moveActive) {
         self.moveActive = YES;
-        self.moveStart = l;
-        self.lastMove = l;
+        CGPoint ll = CGPointMake(l.x, 1024-l.y);
+        self.moveStart = ll;
+        self.lastMove = ll;
+        self.rSprite.position = self.moveStart;
         self.moveTimestamp = [[NSDate date] timeIntervalSince1970] - timestamp;
         self.moveDate = [NSDate date];
         
@@ -420,8 +426,10 @@ int const QP_TimeBonusModifier      = 3;
 - (void)moveTouch:(CGPoint)l last:(CGPoint)last timestamp:(NSTimeInterval)timestamp{
 //    NSTimeInterval ts = [[NSDate date] timeIntervalSince1970] - timestamp;
 //    if (ts == self.moveTimestamp) {
-    if ([self closeEnoughToLast:last]) {
-        self.lastMove = l;
+    CGPoint lLast = CGPointMake(last.x, 1024-last.y);
+    CGPoint ll = CGPointMake(l.x, 1024-l.y);
+    if ([self closeEnoughToLast:lLast]) {
+        self.lastMove = ll;
         self.movementVector = GetAngle(self.moveStart, self.lastMove);
 //    if (last.x == self.lastMove.x && last.y == self.lastMove.y) {
 //        CGPoint target = GetAngle(self.lastMove, l);
@@ -438,7 +446,8 @@ int const QP_TimeBonusModifier      = 3;
 
 - (void)endTouch:(CGPoint)l last:(CGPoint)last timestamp:(NSTimeInterval)timestamp{
     NSTimeInterval ts = [[NSDate date] timeIntervalSince1970] - timestamp;
-    if ([self closeEnoughToLast:last]) {
+    CGPoint lLast = CGPointMake(last.x, 1024-last.y);
+    if ([self closeEnoughToLast:lLast]) {
         self.movementVector = CGPointZero;
         self.moveActive = NO;
     }

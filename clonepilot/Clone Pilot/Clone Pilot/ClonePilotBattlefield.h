@@ -41,6 +41,7 @@ extern int const QP_TimeBonusModifier;
 @property (nonatomic, retain) NSDate *moveDate;
 @property (nonatomic, assign) CGPoint moveStart;
 @property (nonatomic, assign) CGPoint movementVector;
+@property (nonatomic, retain) CCSprite *rSprite;
 
 - (void)startup;
 - (NSInteger)livingClones;
