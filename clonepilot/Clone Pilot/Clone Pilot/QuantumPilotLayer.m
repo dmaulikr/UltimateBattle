@@ -73,7 +73,7 @@
 
 - (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     UITouch *touch = [touches anyObject];
-    [self.f addTouch:[touch locationInView:[touch view]] last:[touch previousLocationInView:[touch view]]];
+    [self.f addTouch:[touch locationInView:[touch view]] last:[touch previousLocationInView:[touch view]] timestamp:touch.timestamp];
     //    [self.f plusTouch:touch];
 //    CGPoint tliv = [touch locationInView:[touch view]];
 //    CGPoint tl = ccp(tliv.x, 1024-tliv.y);   
@@ -88,7 +88,8 @@
 	NSArray *touchArray = [touches allObjects];
     
     for (UITouch *touch in touchArray) {
-        [self.f moveTouch:[touch locationInView:[touch view]] last:[touch previousLocationInView:[touch view]]];
+        NSLog(@"touch timestamp: %f",touch.timestamp);
+        [self.f moveTouch:[touch locationInView:[touch view]] last:[touch previousLocationInView:[touch view]] timestamp:touch.timestamp];
         //        [self.f varyTouch:touch];
 //        CGPoint tliv = [touch locationInView:[touch view]];
 //        CGPoint tl = ccp(tliv.x, 1024-tliv.y);
@@ -105,7 +106,7 @@
 //        [self.f finishTouch:touch];
         CGPoint tliv = [touch locationInView:[touch view]];
         CGPoint tl = ccp(tliv.x, 1024-tliv.y);
-        [self.f endTouch:tl];
+        [self.f endTouch:tl last:[touch previousLocationInView:[touch view]] timestamp:touch.timestamp];
     }
 }
 

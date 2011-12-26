@@ -708,6 +708,7 @@ describe(@"Clone Pilot Battlefield", ^{
             [f addTouch:CGPointMake(384, 384)];
             [f tick];
             [f moveTouch:CGPointMake(360, 384) last:CGPointMake(384, 384)];
+            [f tick];
             [[theValue([[f player] vel].x) should] beLessThan:theValue(0)];
         });
 

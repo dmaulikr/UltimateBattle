@@ -19,6 +19,11 @@
 @synthesize fireLayer1;
 @synthesize fireLayer2;
 @synthesize lastMove;
+@synthesize timestamps;
+@synthesize moveTimestamp;
+@synthesize moveDate;
+@synthesize moveStart;
+@synthesize movementVector;
 
 int const QP_TouchTargetingYOffset  = 30;
 int const QP_AccuracyBonusModifier  = 100;
@@ -30,6 +35,7 @@ int const QP_TimeBonusModifier      = 3;
     if (self) {
         self.clones = [NSMutableArray array];
         self.weaponSelector = [[WeaponSelector alloc] initWithBattlefield:self];
+        self.timestamps = [NSMutableArray array];
         self.time = 0;
     }
     return self; 
@@ -225,6 +231,11 @@ int const QP_TimeBonusModifier      = 3;
 
 - (void)playerLoop {
     [self.player tick];
+    if (self.moveActive) {
+        self.player.t = CombinedPoint(self.player.l, MultipliedPoint(self.movementVector, self.player.speed));
+    } else {
+        self.player.t = self.player.l;
+    }
 }
 
 - (void)resetBattlefield {
@@ -379,10 +390,14 @@ int const QP_TimeBonusModifier      = 3;
     
 }
 
-- (void)addTouch:(CGPoint)l last:(CGPoint)last{
+- (void)addTouch:(CGPoint)l last:(CGPoint)last timestamp:(NSTimeInterval)timestamp {
     if (!self.moveActive) {
         self.moveActive = YES;
+        self.moveStart = l;
         self.lastMove = l;
+        self.moveTimestamp = [[NSDate date] timeIntervalSince1970] - timestamp;
+        self.moveDate = [NSDate date];
+        
     } else {
         [[self player] fire];
     }
@@ -398,12 +413,21 @@ int const QP_TimeBonusModifier      = 3;
     [self addTouch:l last:CGPointZero];
 }
 
-- (void)moveTouch:(CGPoint)l last:(CGPoint)last{
-    if (last.x == self.lastMove.x && last.y == self.lastMove.y) {
-        CGPoint target = GetAngle(self.lastMove, l);
-        CGPoint vector = MultipliedPoint(target, self.player.speed);
-        self.player.t = CombinedPoint(self.player.l, vector);
+- (BOOL)closeEnoughToLast:(CGPoint)l {
+    return GetDistance(self.lastMove, l) < 20;
+}
+
+- (void)moveTouch:(CGPoint)l last:(CGPoint)last timestamp:(NSTimeInterval)timestamp{
+//    NSTimeInterval ts = [[NSDate date] timeIntervalSince1970] - timestamp;
+//    if (ts == self.moveTimestamp) {
+    if ([self closeEnoughToLast:last]) {
         self.lastMove = l;
+        self.movementVector = GetAngle(self.moveStart, self.lastMove);
+//    if (last.x == self.lastMove.x && last.y == self.lastMove.y) {
+//        CGPoint target = GetAngle(self.lastMove, l);
+//        CGPoint vector = MultipliedPoint(target, self.player.speed);
+//        self.player.t = CombinedPoint(self.player.l, vector);
+//        self.lastMove = l;
     }
     
 }
@@ -412,8 +436,12 @@ int const QP_TimeBonusModifier      = 3;
     [self moveTouch:l last:CGPointZero];
 }
 
-- (void)endTouch:(CGPoint)l last:(CGPoint)last{
-    self.moveActive = NO;
+- (void)endTouch:(CGPoint)l last:(CGPoint)last timestamp:(NSTimeInterval)timestamp{
+    NSTimeInterval ts = [[NSDate date] timeIntervalSince1970] - timestamp;
+    if ([self closeEnoughToLast:last]) {
+        self.movementVector = CGPointZero;
+        self.moveActive = NO;
+    }
 //    if (![self pointWithinFiringLayer:l]) {    
 //        self.player.t = self.player.l;
 //        self.moveActive = NO;
@@ -444,6 +472,7 @@ int const QP_TimeBonusModifier      = 3;
     [wall release];
     [fireLayer1 removeFromParentAndCleanup:YES];
     [fireLayer1 release];    
+    [timestamps release];
     [super dealloc];
 }
 
