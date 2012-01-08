@@ -36,11 +36,6 @@ extern int const QP_TimeBonusModifier;
 @property (nonatomic, retain) QPFireLayer *fireLayer1;
 @property (nonatomic, retain) QPFireLayer *fireLayer2;
 @property (nonatomic, assign) CGPoint lastMove;
-@property (nonatomic, retain) NSMutableArray *timestamps;
-@property (nonatomic, assign) NSTimeInterval moveTimestamp;
-@property (nonatomic, retain) NSDate *moveDate;
-@property (nonatomic, assign) CGPoint moveStart;
-@property (nonatomic, assign) CGPoint movementVector;
 @property (nonatomic, retain) CCSprite *rSprite;
 
 - (void)startup;

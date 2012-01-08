@@ -12,6 +12,7 @@
 
 @interface BulletWall : NSObject <VRGameObject>
 
+@property (nonatomic, assign) float speed;
 
 - (void)tick;
 - (void)reset;

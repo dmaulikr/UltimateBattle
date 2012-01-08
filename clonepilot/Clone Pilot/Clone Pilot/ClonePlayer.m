@@ -67,7 +67,7 @@ static int QP_PlayerYDirection = 1;
 }
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"x:%f y:%f vx:%f vy:%f",self.l.x, self.l.y, self.vel.x, self.vel.y];
+    return [NSString stringWithFormat:@"x:%f y:%f vx:%f vy:%f tx:%f ty:%f",self.l.x, self.l.y, self.vel.x, self.vel.y, self.t.x, self.t.y];
 }
 
 - (Bullet *)newBullet {

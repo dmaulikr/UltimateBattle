@@ -10,17 +10,22 @@
 #import "VRGeometry.h"
 
 @implementation BulletWall
-@synthesize l, vel, t, radius;
+@synthesize l, vel, t, radius, speed;
 
 - (CGPoint)defaultLocation {
     return CGPointMake(384, 1024);
+}
+
+- (float)defaultSpeed {
+    return .5;
 }
 
 - (id)initWithLayer:(CCLayer *)layer {
     self = [super init];
     if (self){
         self.l = [self defaultLocation];
-        self.vel = CGPointMake(0, -.5);
+        self.speed = [self defaultSpeed];
+        self.vel = CGPointMake(0, -self.speed);
     }
     return self;
 }

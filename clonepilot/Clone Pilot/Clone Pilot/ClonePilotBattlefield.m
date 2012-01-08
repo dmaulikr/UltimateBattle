@@ -19,11 +19,6 @@
 @synthesize fireLayer1;
 @synthesize fireLayer2;
 @synthesize lastMove;
-@synthesize timestamps;
-@synthesize moveTimestamp;
-@synthesize moveDate;
-@synthesize moveStart;
-@synthesize movementVector;
 @synthesize rSprite;
 
 int const QP_TouchTargetingYOffset  = 30;
@@ -36,7 +31,6 @@ int const QP_TimeBonusModifier      = 3;
     if (self) {
         self.clones = [NSMutableArray array];
         self.weaponSelector = [[WeaponSelector alloc] initWithBattlefield:self];
-        self.timestamps = [NSMutableArray array];
         self.time = 0;
     }
     return self; 
@@ -234,9 +228,9 @@ int const QP_TimeBonusModifier      = 3;
 - (void)playerLoop {
     [self.player tick];
     if (self.moveActive) {
-        CGPoint vector = ccp(self.movementVector.x, self.movementVector.y);
-        CGPoint targetVector = MultipliedPoint(vector, self.player.speed);
-        self.player.t = CombinedPoint(self.player.l, targetVector);
+//        CGPoint vector = ccp(self.movementVector.x, self.movementVector.y);
+//        CGPoint targetVector = MultipliedPoint(vector, self.player.speed);
+//        self.player.t = CombinedPoint(self.player.l, targetVector);
     } else {
         self.player.t = self.player.l;
     }
@@ -397,26 +391,15 @@ int const QP_TimeBonusModifier      = 3;
 - (void)addTouch:(CGPoint)l last:(CGPoint)last timestamp:(NSTimeInterval)timestamp {
     if (!self.moveActive) {
         self.moveActive = YES;
-        CGPoint ll = CGPointMake(l.x, 1024-l.y);
-        self.moveStart = ll;
-        self.lastMove = ll;
-        self.rSprite.position = self.moveStart;
-        self.moveTimestamp = [[NSDate date] timeIntervalSince1970] - timestamp;
-        self.moveDate = [NSDate date];
+        self.player.t = l;
         
     } else {
         [[self player] fire];
     }
-    //    if (!self.moveActive) {
-//        if (![self pointWithinFiringLayer:l]) {
-//            [self modifyPlayerTargetWithTouchLocation:l];
-//            self.moveActive = YES;
-//        }
-//    }
 }
 
 - (void)addTouch:(CGPoint)l {
-    [self addTouch:l last:CGPointZero];
+    [self addTouch:l last:CGPointZero timestamp:0];
 }
 
 - (BOOL)closeEnoughToLast:(CGPoint)l {
@@ -424,37 +407,26 @@ int const QP_TimeBonusModifier      = 3;
 }
 
 - (void)moveTouch:(CGPoint)l last:(CGPoint)last timestamp:(NSTimeInterval)timestamp{
-//    NSTimeInterval ts = [[NSDate date] timeIntervalSince1970] - timestamp;
-//    if (ts == self.moveTimestamp) {
     CGPoint lLast = CGPointMake(last.x, 1024-last.y);
     CGPoint ll = CGPointMake(l.x, 1024-l.y);
     if ([self closeEnoughToLast:lLast]) {
         self.lastMove = ll;
-        self.movementVector = GetAngle(self.moveStart, self.lastMove);
-//    if (last.x == self.lastMove.x && last.y == self.lastMove.y) {
-//        CGPoint target = GetAngle(self.lastMove, l);
-//        CGPoint vector = MultipliedPoint(target, self.player.speed);
-//        self.player.t = CombinedPoint(self.player.l, vector);
-//        self.lastMove = l;
+        self.player.t = l;
     }
     
 }
 
 - (void)moveTouch:(CGPoint)l {
-    [self moveTouch:l last:CGPointZero];
+    [self moveTouch:l last:CGPointZero timestamp:0];
 }
 
 - (void)endTouch:(CGPoint)l last:(CGPoint)last timestamp:(NSTimeInterval)timestamp{
     NSTimeInterval ts = [[NSDate date] timeIntervalSince1970] - timestamp;
     CGPoint lLast = CGPointMake(last.x, 1024-last.y);
     if ([self closeEnoughToLast:lLast]) {
-        self.movementVector = CGPointZero;
+        self.player.t = CGPointZero;
         self.moveActive = NO;
     }
-//    if (![self pointWithinFiringLayer:l]) {    
-//        self.player.t = self.player.l;
-//        self.moveActive = NO;
-//    }
 }
 
 - (void)endTouch:(CGPoint)l {
@@ -480,8 +452,7 @@ int const QP_TimeBonusModifier      = 3;
     self.layer = nil;
     [wall release];
     [fireLayer1 removeFromParentAndCleanup:YES];
-    [fireLayer1 release];    
-    [timestamps release];
+    [fireLayer1 release];
     [super dealloc];
 }
 
