@@ -20,6 +20,7 @@
 @synthesize fireLayer2;
 @synthesize lastMove;
 @synthesize rSprite;
+@synthesize controlLayers;
 
 int const QP_TouchTargetingYOffset  = 30;
 int const QP_AccuracyBonusModifier  = 100;
@@ -44,6 +45,11 @@ int const QP_TimeBonusModifier      = 3;
     self.wall = [[[BulletWall alloc] initWithLayer:quantumLayer] autorelease];
     self.rSprite = [CCSprite spriteWithFile:@"sprite-7-1.png"];
     [quantumLayer addChild:self.rSprite];
+    
+    self.controlLayers = [NSMutableArray array];
+    
+    
+    
 //    self.fireLayer1 = [[[QPFireLayer alloc] init] autorelease];
 //    self.fireLayer1.delegate = self;
 //    [self.fireLayer1 setContentSizeInPixels:CGSizeMake(100, 200)];
@@ -228,9 +234,7 @@ int const QP_TimeBonusModifier      = 3;
 - (void)playerLoop {
     [self.player tick];
     if (self.moveActive) {
-//        CGPoint vector = ccp(self.movementVector.x, self.movementVector.y);
-//        CGPoint targetVector = MultipliedPoint(vector, self.player.speed);
-//        self.player.t = CombinedPoint(self.player.l, targetVector);
+
     } else {
         self.player.t = self.player.l;
     }
@@ -384,53 +388,16 @@ int const QP_TimeBonusModifier      = 3;
     
 }
 
-- (void)finishTouch:(UITouch *)t {
-    
-}
-
-- (void)addTouch:(CGPoint)l last:(CGPoint)last timestamp:(NSTimeInterval)timestamp {
-    if (!self.moveActive) {
-        self.moveActive = YES;
-        self.player.t = l;
-        
-    } else {
-        [[self player] fire];
-    }
-}
-
 - (void)addTouch:(CGPoint)l {
-    [self addTouch:l last:CGPointZero timestamp:0];
-}
-
-- (BOOL)closeEnoughToLast:(CGPoint)l {
-    return GetDistance(self.lastMove, l) < 20;
-}
-
-- (void)moveTouch:(CGPoint)l last:(CGPoint)last timestamp:(NSTimeInterval)timestamp{
-    CGPoint lLast = CGPointMake(last.x, 1024-last.y);
-    CGPoint ll = CGPointMake(l.x, 1024-l.y);
-    if ([self closeEnoughToLast:lLast]) {
-        self.lastMove = ll;
-        self.player.t = l;
-    }
     
 }
 
 - (void)moveTouch:(CGPoint)l {
-    [self moveTouch:l last:CGPointZero timestamp:0];
-}
 
-- (void)endTouch:(CGPoint)l last:(CGPoint)last timestamp:(NSTimeInterval)timestamp{
-    NSTimeInterval ts = [[NSDate date] timeIntervalSince1970] - timestamp;
-    CGPoint lLast = CGPointMake(last.x, 1024-last.y);
-    if ([self closeEnoughToLast:lLast]) {
-        self.player.t = CGPointZero;
-        self.moveActive = NO;
-    }
 }
 
 - (void)endTouch:(CGPoint)l {
-    [self endTouch:l last:CGPointZero];
+    
 }
 
 - (BOOL)playing {
@@ -441,7 +408,7 @@ int const QP_TimeBonusModifier      = 3;
     _paused = !_paused;
 }
 
-- (void)fireLayerTapped:(QPFireLayer *)fireLayer {
+- (void)fireLayerTapped:(QPControlLayer *)fireLayer {
     [self.player fire];
 }
 
@@ -453,6 +420,7 @@ int const QP_TimeBonusModifier      = 3;
     [wall release];
     [fireLayer1 removeFromParentAndCleanup:YES];
     [fireLayer1 release];
+    [controlLayers release];
     [super dealloc];
 }
 

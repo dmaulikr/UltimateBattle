@@ -6,9 +6,9 @@
 //  Copyright (c) 2011 ChaiONE. All rights reserved.
 //
 
-#import "QPFireLayer.h"
+#import "QPControlLayer.h"
 
-@implementation QPFireLayer
+@implementation QPControlLayer
 @synthesize delegate;
 
 +(CCScene *) scene {
@@ -16,7 +16,7 @@
 	CCScene *scene = [CCScene node];
 	
 	// 'layer' is an autorelease object.
-	QPFireLayer *layer = [QPFireLayer node];
+	QPControlLayer *layer = [QPControlLayer node];
 	
 	// add layer as a child to scene
 	[scene addChild:layer];

@@ -417,19 +417,16 @@ describe(@"Clone Pilot Battlefield", ^{
             firstKill();
             ClonePilot *p = [f firstClone];
             NSInteger cloneMoves = [p.moves count];
-//            [f player].t = CGPointMake(800,[[f player] l].y);
-//            f.moveActive = YES;
-            [f addTouch:CGPointMake(800, [[f player] l].y)];
+            [f player].t = CGPointMake(800, [[f player] l].y);
+            f.moveActive = 1;
             while (1) {
                 if ([p moveIndex] == cloneMoves - 1) {
                     break;
                 }
                 [f tick];
-
             }
 
-            [f tick];
- //           [f player].t = CGPointMake(800,[[f player] l].y);            
+            [f tick];        
             [[theValue([p moveIndex]) should] equal:theValue(cloneMoves-2)];
             
             while (1) {
@@ -490,24 +487,6 @@ describe(@"Clone Pilot Battlefield", ^{
             [f chooseWeapon:0];
             [[theValue(f.shotsFired) should] equal:theValue(0)];
         });
-
-        
-//        it(@"should reset position when out of moves", ^{
-//            [f startup];
-//            ClonePilot *p = [[f clones] lastObject];
-//            CGPoint position = p.l;
-//            [[f player] fire];
-//            [f player].t = CGPointMake(500, 750);
-//            kill();
-//            BOOL hitZero = 0;
-//            while (!hitZero) {
-//                [f tick];
-//                if (p.moveIndex == 0) {
-//                    hitZero = 1;
-//                }
-//            }
-//            [[theValue(p.l) should] equal:theValue(position)];
-//        });
 
         it(@"should assign ownership of bullets from the player", ^{
             [f startup];
@@ -685,27 +664,25 @@ describe(@"Clone Pilot Battlefield", ^{
     });
     
     context(@"Player Input", ^{
-        it(@"should start with no active touches", ^{
+        it(@"should start stationary", ^{
             [f startup];
             [[theValue([f moveActive]) should] beFalse];
         });
         
-        it(@"should not fire on first touch", ^{
+        it(@"should do nothing with an oob touch", ^{
             [f startup];
             [f addTouch:CGPointMake(384, 384)];
             [f tick];
+            [[theValue([f moveActive]) should] beFalse];
             [[theValue([[f player] isFiring]) should] beFalse];
         });
 
-        it(@"should fire on second touch", ^{
+        it(@"set a velocity when a touch lands within the move control circle", ^{
             [f startup];
-            [f addTouch:CGPointMake(384, 384)];
+            [f addTouch:CGPointMake(10, 1024-50)];
             [f tick];
-            [f addTouch:CGPointMake(384, 200)];
-            [[theValue([[f player] isFiring]) should] beTrue]; 
+            [[theValue([f moveActive]) should] beTrue]; 
         });
-        
-   
     });
     
     context(@"Moving", ^{

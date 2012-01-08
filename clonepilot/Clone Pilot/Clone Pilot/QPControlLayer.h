@@ -10,17 +10,20 @@
 
 @protocol QPFireLayerdelegate;
 
-@interface QPFireLayer : CCLayer
+@interface QPControlLayer : CCLayer
 
 @property (nonatomic, assign) id <QPFireLayerdelegate> delegate;
 
 +(CCScene *) scene;
 - (void)addTouch:(CGPoint)l;
+- (void)moveTouch:(CGPoint)l;
+- (void)endTouch:(CGPoint)l;
+-(CGRect)controlRect;
 
 @end
 
 @protocol QPFireLayerdelegate <NSObject>
 
-- (void)fireLayerTapped:(QPFireLayer *)fireLayer;
+- (void)fireLayerTapped:(QPControlLayer *)fireLayer;
 
 @end

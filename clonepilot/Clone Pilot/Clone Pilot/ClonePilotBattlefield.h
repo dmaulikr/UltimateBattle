@@ -6,8 +6,8 @@
 #import "VRTouch.h"
 #import "CCLayer.h"
 #import "BulletWall.h"
-#import "QPFireLayer.h"
-#import "QPFireLayer.h"
+#import "QPControlLayer.h"
+#import "QPControlLayer.h"
 
 extern int const QP_TouchTargetingYOffset; 
 extern int const QP_AccuracyBonusModifier;
@@ -33,10 +33,11 @@ extern int const QP_TimeBonusModifier;
 @property (nonatomic, assign) CCLayer *layer;
 @property (nonatomic, assign) double time;
 @property (nonatomic, retain) BulletWall *wall;
-@property (nonatomic, retain) QPFireLayer *fireLayer1;
-@property (nonatomic, retain) QPFireLayer *fireLayer2;
+@property (nonatomic, retain) QPControlLayer *fireLayer1;
+@property (nonatomic, retain) QPControlLayer *fireLayer2;
 @property (nonatomic, assign) CGPoint lastMove;
 @property (nonatomic, retain) CCSprite *rSprite;
+@property (nonatomic, retain) NSMutableArray *controlLayers;
 
 - (void)startup;
 - (NSInteger)livingClones;
@@ -62,12 +63,6 @@ extern int const QP_TimeBonusModifier;
 - (void)addTouch:(CGPoint)l;
 - (void)moveTouch:(CGPoint)l;
 - (void)endTouch:(CGPoint)l;
-
-- (void)addTouch:(CGPoint)l last:(CGPoint)last timestamp:(NSTimeInterval)timestamp;
-- (void)moveTouch:(CGPoint)l last:(CGPoint)last timestamp:(NSTimeInterval)timestamp;
-- (void)endTouch:(CGPoint)l last:(CGPoint)last timestamp:(NSTimeInterval)timestamp;
-
-
 - (void)plusTouch:(UITouch *)t;
 - (void)varyTouch:(UITouch *)t;
 - (void)finishTouch:(UITouch *)t;

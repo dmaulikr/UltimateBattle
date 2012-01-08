@@ -73,43 +73,26 @@
 
 - (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     UITouch *touch = [touches anyObject];
-    [self.f addTouch:[touch locationInView:[touch view]] last:[touch previousLocationInView:[touch view]] timestamp:touch.timestamp];
-    //    [self.f plusTouch:touch];
-//    CGPoint tliv = [touch locationInView:[touch view]];
-//    CGPoint tl = ccp(tliv.x, 1024-tliv.y);   
-//    [self.f addTouch:tl];
+    [self.f addTouch:[touch locationInView:[touch view]]];
 }
 
-// Override the "ccTouchesMoved:withEvent:" method to add your own logic
-- (void)ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
-{
-	// This method is passed an NSSet of touches called (of course) "touches"
-	// "allObjects" returns an NSArray of all the objects in the set
+- (void)ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
 	NSArray *touchArray = [touches allObjects];
     
     for (UITouch *touch in touchArray) {
-        NSLog(@"touch timestamp: %f",touch.timestamp);
-        [self.f moveTouch:[touch locationInView:[touch view]] last:[touch previousLocationInView:[touch view]] timestamp:touch.timestamp];
-        //        [self.f varyTouch:touch];
-//        CGPoint tliv = [touch locationInView:[touch view]];
-//        CGPoint tl = ccp(tliv.x, 1024-tliv.y);
-//        [self.f moveTouch:tl];
-    }
-    
-	
+        [self.f moveTouch:[touch locationInView:[touch view]]];
+    }    
 }
 
 - (void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     NSArray *touchArray = [touches allObjects];
     
     for (UITouch *touch in touchArray) {
-//        [self.f finishTouch:touch];
-        CGPoint tliv = [touch locationInView:[touch view]];
-        CGPoint tl = ccp(tliv.x, 1024-tliv.y);
-        [self.f endTouch:tl last:[touch previousLocationInView:[touch view]] timestamp:touch.timestamp];
+  //      CGPoint tliv = [touch locationInView:[touch view]];
+//        CGPoint tl = ccp(tliv.x, 1024-tliv.y);
+        [self.f endTouch:[touch locationInView:[touch view]]];
     }
 }
-
 
 // on "dealloc" you need to release all your retained objects
 - (void) dealloc {
