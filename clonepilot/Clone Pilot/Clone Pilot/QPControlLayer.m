@@ -33,16 +33,27 @@
     return self;
 }
 
+- (BOOL)pointWithinFiringLayer:(CGPoint)l {
+    return CGRectContainsPoint(self.boundingBoxInPixels, CGPointMake(l.x, 1024-l.y));
+}
+
+- (void)layerTapped {
+    //subclasses override
+}
+
 - (void)addTouch:(CGPoint)l {
-    if (CGRectContainsPoint(self.boundingBoxInPixels, l)) {
-        [self.delegate fireLayerTapped:self];
+    if ([self pointWithinFiringLayer:l]) {
+        [self layerTapped];
     }
 }
 
 - (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {    
     UITouch *touch = [touches anyObject];
     CGPoint tliv = [touch locationInView:[touch view]];
-    [self addTouch:tliv];
+    if ([self pointWithinFiringLayer:tliv]) {
+        [self layerTapped];
+    }
+
 }
 
 - (void)dealloc {
