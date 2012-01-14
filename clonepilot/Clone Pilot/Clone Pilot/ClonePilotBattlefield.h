@@ -37,7 +37,6 @@ extern int const QP_TimeBonusModifier;
 @property (nonatomic, retain) QPControlLayer *fireLayer2;
 @property (nonatomic, assign) CGPoint lastMove;
 @property (nonatomic, retain) CCSprite *rSprite;
-@property (nonatomic, retain) NSMutableArray *controlLayers;
 
 - (void)startup;
 - (NSInteger)livingClones;

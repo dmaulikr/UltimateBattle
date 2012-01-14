@@ -74,6 +74,7 @@
 - (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     UITouch *touch = [touches anyObject];
     [self.f addTouch:[touch locationInView:[touch view]]];
+//    [self.f addTouch:touch];
 }
 
 - (void)ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {

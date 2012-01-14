@@ -677,12 +677,13 @@ describe(@"Clone Pilot Battlefield", ^{
             [[theValue([[f player] isFiring]) should] beFalse];
         });
 
-        it(@"set a velocity when a touch lands within the move control circle", ^{
-            [f startup];
-            [f addTouch:CGPointMake(10, 1024-50)];
-            [f tick];
-            [[theValue([f moveActive]) should] beTrue]; 
-        });
+        
+//        it(@"set a velocity when a touch lands within the move input circle", ^{
+//            [f startup];
+//            [f addTouch:CGPointMake(10, 1024-50)];
+//            [f tick];
+//            [[theValue([f moveActive]) should] beTrue]; 
+//        });
     });
     
     context(@"Moving", ^{

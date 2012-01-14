@@ -20,7 +20,6 @@
 @synthesize fireLayer2;
 @synthesize lastMove;
 @synthesize rSprite;
-@synthesize controlLayers;
 
 int const QP_TouchTargetingYOffset  = 30;
 int const QP_AccuracyBonusModifier  = 100;
@@ -38,30 +37,14 @@ int const QP_TimeBonusModifier      = 3;
 }
 
 - (id)initWithLayer:(CCLayer *)quantumLayer {
-    self = [self commonInit];
-    self.player = [[[ClonePlayer alloc] initWithLayer:quantumLayer] autorelease];
+    self            = [self commonInit];
+    self.player     = [[[ClonePlayer alloc] initWithLayer:quantumLayer] autorelease];
     self.player.bulletDelegate = self;
-    self.layer = quantumLayer;
-    self.wall = [[[BulletWall alloc] initWithLayer:quantumLayer] autorelease];
-    self.rSprite = [CCSprite spriteWithFile:@"sprite-7-1.png"];
+    self.layer      = quantumLayer;
+    self.wall       = [[[BulletWall alloc] initWithLayer:quantumLayer] autorelease];
+    self.rSprite    = [CCSprite spriteWithFile:@"sprite-7-1.png"];
     [quantumLayer addChild:self.rSprite];
-    
-    self.controlLayers = [NSMutableArray array];
-    
-    
-    
-//    self.fireLayer1 = [[[QPFireLayer alloc] init] autorelease];
-//    self.fireLayer1.delegate = self;
-//    [self.fireLayer1 setContentSizeInPixels:CGSizeMake(100, 200)];
-//    self.fireLayer1.positionInPixels = ccp(0,1024-200);
-//    [quantumLayer addChild:self.fireLayer1];
-//    
-//    self.fireLayer2 = [[[QPFireLayer alloc] init] autorelease];
-//    self.fireLayer2.delegate = self;
-//    [self.fireLayer2 setContentSizeInPixels:CGSizeMake(100, 200)];
-//    self.fireLayer2.positionInPixels = ccp(768-100,1024-200);
-//    [quantumLayer addChild:self.fireLayer2];
-    
+        
     return self;
 }
 
@@ -389,7 +372,7 @@ int const QP_TimeBonusModifier      = 3;
 }
 
 - (void)addTouch:(CGPoint)l {
-    
+
 }
 
 - (void)moveTouch:(CGPoint)l {
@@ -420,7 +403,6 @@ int const QP_TimeBonusModifier      = 3;
     [wall release];
     [fireLayer1 removeFromParentAndCleanup:YES];
     [fireLayer1 release];
-    [controlLayers release];
     [super dealloc];
 }
 
