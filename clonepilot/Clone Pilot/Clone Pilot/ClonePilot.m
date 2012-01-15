@@ -47,6 +47,7 @@ static int QP_ClonePilotYDirection = -1;
         NSArray *bullets = [self.weapon newBulletsForLocation:self.l direction:QP_ClonePilotYDirection];
         for (Bullet *b in bullets) {
             b.identifier = [ClonePilot identifier];
+            b.vel = CombinedPoint(self.vel, b.vel);
         }
         [self.bulletDelegate addBullets:bullets];
     }

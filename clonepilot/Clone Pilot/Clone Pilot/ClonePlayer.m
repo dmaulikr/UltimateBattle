@@ -88,6 +88,8 @@ static int QP_PlayerYDirection = 1;
 - (void)fireWeapon {
     NSArray *bullets = [self.weapon newBulletsForLocation:self.l direction:QP_PlayerYDirection];
     for (Bullet *b in bullets) {
+        CGPoint inertiaMod = CGPointMake(self.vel.x, .5 * self.vel.y);
+        b.vel = CombinedPoint(inertiaMod, b.vel);
         b.identifier = [self identifier];
     }
     [self.bulletDelegate addBullets:bullets];
