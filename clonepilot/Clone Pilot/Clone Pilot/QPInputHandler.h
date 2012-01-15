@@ -20,11 +20,15 @@
 
 @property (nonatomic, assign) CGPoint l;
 @property (nonatomic, assign) float radius;
+@property (nonatomic, assign) float movementThreshhold;
 @property (nonatomic, assign) CGPoint firePoint;
 @property (nonatomic, assign) CGPoint movePoint;
-@property (nonatomic, assign) id <QPInputHandlerDelegate> delegate;
 
 @property (nonatomic, assign) BOOL moveActive;
+@property (nonatomic, assign) id <QPInputHandlerDelegate> delegate;
+
+
+
 
 - (void)addTouchPoint:(CGPoint)tp;
 - (void)moveTouchPoint:(CGPoint)tp;

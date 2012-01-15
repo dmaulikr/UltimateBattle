@@ -135,7 +135,7 @@ int const QP_TimeBonusModifier      = 3;
     [self resetPlayer];
     [self resetWall];
     [self.weaponSelector openWeaponOptions];
-//    [self chooseWeapon:0];
+    [self chooseWeapon:0];
     [self resetTime];
 }
 
@@ -225,9 +225,6 @@ int const QP_TimeBonusModifier      = 3;
 - (void)playerLoop {
     [self.player tick];
     if (self.moveActive) {
- //       CGPoint targetVector =  MultipliedPoint(self.moveAngle, self.player.speed);
-//        CGPoint invertedTargetVector = CGPointMake(targetVector.x, -targetVector.y);
-//        CGPoint t = CombinedPoint(self.player.l, invertedTargetVector);
         CGPoint invertedAngle = CGPointMake(self.moveAngle.x, -self.moveAngle.y);
         CGPoint t = CombinedPoint(self.player.l, invertedAngle);        
         self.player.t = t;

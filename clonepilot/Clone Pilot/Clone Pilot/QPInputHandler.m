@@ -16,9 +16,14 @@
 @synthesize movePoint;
 @synthesize delegate;
 @synthesize moveActive;
+@synthesize movementThreshhold;
 
 - (float)defaultRadius {
     return 40;
+}
+
+- (float)defaultMovementThreshhold {
+    return 5;
 }
 
 - (CGPoint)defaultFirePoint {
@@ -35,6 +40,7 @@
         self.radius     = [self defaultRadius];
         self.firePoint  = [self defaultFirePoint];
         self.movePoint  = [self defaultMovePoint];
+        self.movementThreshhold = [self defaultMovementThreshhold];
         self.moveActive = NO;
     }
     return self;
@@ -51,13 +57,15 @@
 
 - (void)moveTouchPoint:(CGPoint)tp {
     float distance = GetDistance(tp, self.movePoint);
-    if (GetDistance(tp, self.firePoint) > self.radius) {
+    if (GetDistance(tp, self.firePoint) > 2 * self.radius && GetDistance(tp, self.movePoint) < 4 * self.radius) {
         if (distance > self.radius) {
             distance = self.radius;
         }
-        CGPoint angle = GetAngle(self.movePoint, tp);
-        float ratio = distance / self.radius;
-        [self.delegate movementAngle:angle distanceRatio:ratio];       
+        if (distance > [self movementThreshhold]) {
+            CGPoint angle = GetAngle(self.movePoint, tp);
+            float ratio = distance / self.radius;
+            [self.delegate movementAngle:angle distanceRatio:ratio];       
+        }
     }
 }
 

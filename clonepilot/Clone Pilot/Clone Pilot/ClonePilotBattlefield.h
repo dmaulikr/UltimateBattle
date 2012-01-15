@@ -6,7 +6,6 @@
 #import "VRTouch.h"
 #import "CCLayer.h"
 #import "BulletWall.h"
-#import "QPControlLayer.h"
 #import "QPInputHandler.h"
 
 extern int const QP_TouchTargetingYOffset; 
