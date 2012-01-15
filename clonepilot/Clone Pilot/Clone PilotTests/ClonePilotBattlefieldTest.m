@@ -417,7 +417,10 @@ describe(@"Clone Pilot Battlefield", ^{
             firstKill();
             ClonePilot *p = [f firstClone];
             NSInteger cloneMoves = [p.moves count];
-            [f player].t = CGPointMake(800, [[f player] l].y);
+
+            f.moveActive    = YES;
+            f.moveAngle     = CGPointMake(1, 0);
+            
             f.moveActive = 1;
             while (1) {
                 if ([p moveIndex] == cloneMoves - 1) {
@@ -683,6 +686,7 @@ describe(@"Clone Pilot Battlefield", ^{
             CGPoint movementTapPoint = CombinedPoint(movementCenter, CGPointMake(1, 1));
             CGPoint movementAngle = GetAngle(movementCenter, movementTapPoint);
             [f addTouch:movementTapPoint];
+            [f tick];
             CGPoint yInvertedAngle = CGPointMake(movementAngle.x, -movementAngle.y);
             CGPoint playerVectorAngle = GetAngle([f player].l, [f player].t);
             [[theValue(yInvertedAngle) should] equal:theValue(playerVectorAngle)];

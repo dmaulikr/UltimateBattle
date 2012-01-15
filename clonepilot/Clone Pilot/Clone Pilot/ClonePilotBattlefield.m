@@ -135,7 +135,7 @@ int const QP_TimeBonusModifier      = 3;
     [self resetPlayer];
     [self resetWall];
     [self.weaponSelector openWeaponOptions];
-    [self chooseWeapon:0];
+//    [self chooseWeapon:0];
     [self resetTime];
 }
 
@@ -379,7 +379,6 @@ int const QP_TimeBonusModifier      = 3;
 }
 
 - (void)addTouch:(CGPoint)l {
-    self.moveActive = YES;
     [self.inputHandler addTouchPoint:l];
 }
 
@@ -392,6 +391,7 @@ int const QP_TimeBonusModifier      = 3;
 }
 
 - (void)movementAngle:(CGPoint)angle {
+    self.moveActive = YES;
     self.moveAngle = angle;
 }
 
