@@ -16,10 +16,9 @@
 @synthesize moveActive;
 @synthesize time;
 @synthesize wall;
-@synthesize fireLayer1;
-@synthesize fireLayer2;
 @synthesize lastMove;
 @synthesize rSprite;
+@synthesize inputHandler;
 
 int const QP_TouchTargetingYOffset  = 30;
 int const QP_AccuracyBonusModifier  = 100;
@@ -44,6 +43,8 @@ int const QP_TimeBonusModifier      = 3;
     self.wall       = [[[BulletWall alloc] initWithLayer:quantumLayer] autorelease];
     self.rSprite    = [CCSprite spriteWithFile:@"sprite-7-1.png"];
     [quantumLayer addChild:self.rSprite];
+    self.inputHandler = [[[QPInputHandler alloc] init] autorelease];
+    self.inputHandler.delegate = self;
         
     return self;
 }
@@ -358,10 +359,6 @@ int const QP_TimeBonusModifier      = 3;
     self.player.t = CGPointMake(l.x, l.y + QP_TouchTargetingYOffset);
 }
 
-- (BOOL)pointWithinFiringLayer:(CGPoint)l {
-    return CGRectContainsPoint(self.fireLayer1.boundingBoxInPixels, CGPointMake(l.x, 1024-l.y)) ||
-    CGRectContainsPoint(self.fireLayer2.boundingBoxInPixels, CGPointMake(l.x, 1024-l.y));
-}
 
 - (void)plusTouch:(UITouch *)t {
 
@@ -372,15 +369,27 @@ int const QP_TimeBonusModifier      = 3;
 }
 
 - (void)addTouch:(CGPoint)l {
-
+    NSLog(@"touch x: %f y: %f",l.x,l.y);
+    [self.inputHandler addTouchPoint:l];
 }
 
 - (void)moveTouch:(CGPoint)l {
-
+    [self.inputHandler moveTouchPoint:l];
 }
 
 - (void)endTouch:(CGPoint)l {
     
+}
+
+- (void)movementAngle:(CGPoint)angle {
+    CGPoint targetVector =  MultipliedPoint(angle, self.player.speed);
+    CGPoint invertedTargetVector = CGPointMake(targetVector.x, -targetVector.y);
+    CGPoint t = CombinedPoint(self.player.l, invertedTargetVector);
+    self.player.t = t;
+}
+
+- (void)fireTapped {
+    [self.player fire];
 }
 
 - (BOOL)playing {
@@ -391,9 +400,6 @@ int const QP_TimeBonusModifier      = 3;
     _paused = !_paused;
 }
 
-- (void)fireLayerTapped:(QPControlLayer *)fireLayer {
-    [self.player fire];
-}
 
 - (void)dealloc {
     [player release];
@@ -401,8 +407,7 @@ int const QP_TimeBonusModifier      = 3;
     [weaponSelector release];
     self.layer = nil;
     [wall release];
-    [fireLayer1 removeFromParentAndCleanup:YES];
-    [fireLayer1 release];
+    [inputHandler release];
     [super dealloc];
 }
 

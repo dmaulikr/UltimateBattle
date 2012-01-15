@@ -320,15 +320,18 @@
 		8DE424C11470352700FFC6A6 /* VRTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DE424BF1470352700FFC6A6 /* VRTouch.m */; };
 		8DEB4769149057B6008E7FCF /* BulletWall.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DEB4768149057B6008E7FCF /* BulletWall.m */; };
 		8DEB476A149057B6008E7FCF /* BulletWall.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DEB4768149057B6008E7FCF /* BulletWall.m */; };
-		8DF772A414C1508800A8B2B7 /* QPInputLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF772A314C1508800A8B2B7 /* QPInputLayer.m */; };
-		8DF772A514C1509000A8B2B7 /* QPInputLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF772A314C1508800A8B2B7 /* QPInputLayer.m */; };
-		8DF772A814C1526000A8B2B7 /* QPMoveInputLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF772A714C1526000A8B2B7 /* QPMoveInputLayer.m */; };
-		8DF772A914C1526000A8B2B7 /* QPMoveInputLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF772A714C1526000A8B2B7 /* QPMoveInputLayer.m */; };
+		8DF772A414C1508800A8B2B7 /* QPInputHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF772A314C1508800A8B2B7 /* QPInputHandler.m */; };
+		8DF772A514C1509000A8B2B7 /* QPInputHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF772A314C1508800A8B2B7 /* QPInputHandler.m */; };
+		8DF772A814C1526000A8B2B7 /* QPMoveInputHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF772A714C1526000A8B2B7 /* QPMoveInputHandler.m */; };
+		8DF772A914C1526000A8B2B7 /* QPMoveInputHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF772A714C1526000A8B2B7 /* QPMoveInputHandler.m */; };
 		8DF772AC14C160FF00A8B2B7 /* NSLogWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF772AB14C160FF00A8B2B7 /* NSLogWrapper.m */; };
 		8DF772AD14C160FF00A8B2B7 /* NSLogWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF772AB14C160FF00A8B2B7 /* NSLogWrapper.m */; };
 		8DF772B214C1E0AD00A8B2B7 /* InputHandlerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF772B014C1E0AD00A8B2B7 /* InputHandlerTest.m */; };
 		8DF772B614C1E15900A8B2B7 /* QPTouchPointInputLayerHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF772B514C1E15800A8B2B7 /* QPTouchPointInputLayerHandler.m */; };
 		8DF772B714C1E15900A8B2B7 /* QPTouchPointInputLayerHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF772B514C1E15800A8B2B7 /* QPTouchPointInputLayerHandler.m */; };
+		8DF772BA14C1FA5700A8B2B7 /* QPBlockKeeper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF772B914C1FA5700A8B2B7 /* QPBlockKeeper.m */; };
+		8DF772BB14C1FA5700A8B2B7 /* QPBlockKeeper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF772B914C1FA5700A8B2B7 /* QPBlockKeeper.m */; };
+		8DF772BF14C1FB6500A8B2B7 /* QPBlockKeeperTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF772BD14C1FB6500A8B2B7 /* QPBlockKeeperTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -749,15 +752,18 @@
 		8DE424BF1470352700FFC6A6 /* VRTouch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VRTouch.m; sourceTree = "<group>"; };
 		8DEB4767149057B6008E7FCF /* BulletWall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BulletWall.h; sourceTree = "<group>"; };
 		8DEB4768149057B6008E7FCF /* BulletWall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BulletWall.m; sourceTree = "<group>"; };
-		8DF772A214C1508800A8B2B7 /* QPInputLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPInputLayer.h; sourceTree = "<group>"; };
-		8DF772A314C1508800A8B2B7 /* QPInputLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPInputLayer.m; sourceTree = "<group>"; };
-		8DF772A614C1526000A8B2B7 /* QPMoveInputLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPMoveInputLayer.h; sourceTree = "<group>"; };
-		8DF772A714C1526000A8B2B7 /* QPMoveInputLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPMoveInputLayer.m; sourceTree = "<group>"; };
+		8DF772A214C1508800A8B2B7 /* QPInputHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPInputHandler.h; sourceTree = "<group>"; };
+		8DF772A314C1508800A8B2B7 /* QPInputHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPInputHandler.m; sourceTree = "<group>"; };
+		8DF772A614C1526000A8B2B7 /* QPMoveInputHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPMoveInputHandler.h; sourceTree = "<group>"; };
+		8DF772A714C1526000A8B2B7 /* QPMoveInputHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPMoveInputHandler.m; sourceTree = "<group>"; };
 		8DF772AA14C160FF00A8B2B7 /* NSLogWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSLogWrapper.h; sourceTree = "<group>"; };
 		8DF772AB14C160FF00A8B2B7 /* NSLogWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSLogWrapper.m; sourceTree = "<group>"; };
 		8DF772B014C1E0AD00A8B2B7 /* InputHandlerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputHandlerTest.m; sourceTree = "<group>"; };
 		8DF772B414C1E15800A8B2B7 /* QPTouchPointInputLayerHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPTouchPointInputLayerHandler.h; sourceTree = "<group>"; };
 		8DF772B514C1E15800A8B2B7 /* QPTouchPointInputLayerHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPTouchPointInputLayerHandler.m; sourceTree = "<group>"; };
+		8DF772B814C1FA5700A8B2B7 /* QPBlockKeeper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBlockKeeper.h; sourceTree = "<group>"; };
+		8DF772B914C1FA5700A8B2B7 /* QPBlockKeeper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBlockKeeper.m; sourceTree = "<group>"; };
+		8DF772BD14C1FB6500A8B2B7 /* QPBlockKeeperTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBlockKeeperTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1454,10 +1460,10 @@
 		8DF772A114C1506F00A8B2B7 /* InputLayers */ = {
 			isa = PBXGroup;
 			children = (
-				8DF772A214C1508800A8B2B7 /* QPInputLayer.h */,
-				8DF772A314C1508800A8B2B7 /* QPInputLayer.m */,
-				8DF772A614C1526000A8B2B7 /* QPMoveInputLayer.h */,
-				8DF772A714C1526000A8B2B7 /* QPMoveInputLayer.m */,
+				8DF772A214C1508800A8B2B7 /* QPInputHandler.h */,
+				8DF772A314C1508800A8B2B7 /* QPInputHandler.m */,
+				8DF772A614C1526000A8B2B7 /* QPMoveInputHandler.h */,
+				8DF772A714C1526000A8B2B7 /* QPMoveInputHandler.m */,
 			);
 			name = InputLayers;
 			sourceTree = "<group>";
@@ -1466,6 +1472,7 @@
 			isa = PBXGroup;
 			children = (
 				8DF772B014C1E0AD00A8B2B7 /* InputHandlerTest.m */,
+				8DF772BD14C1FB6500A8B2B7 /* QPBlockKeeperTest.m */,
 			);
 			name = "Handler Tests";
 			sourceTree = "<group>";
@@ -1475,6 +1482,8 @@
 			children = (
 				8DF772B414C1E15800A8B2B7 /* QPTouchPointInputLayerHandler.h */,
 				8DF772B514C1E15800A8B2B7 /* QPTouchPointInputLayerHandler.m */,
+				8DF772B814C1FA5700A8B2B7 /* QPBlockKeeper.h */,
+				8DF772B914C1FA5700A8B2B7 /* QPBlockKeeper.m */,
 			);
 			name = Handlers;
 			sourceTree = "<group>";
@@ -1696,10 +1705,11 @@
 				8D677AEC148051BF004CA345 /* QuantumPilotLayer.m in Sources */,
 				8DEB4769149057B6008E7FCF /* BulletWall.m in Sources */,
 				8D6156BF149ACD3B0060B788 /* QPControlLayer.m in Sources */,
-				8DF772A414C1508800A8B2B7 /* QPInputLayer.m in Sources */,
-				8DF772A814C1526000A8B2B7 /* QPMoveInputLayer.m in Sources */,
+				8DF772A414C1508800A8B2B7 /* QPInputHandler.m in Sources */,
+				8DF772A814C1526000A8B2B7 /* QPMoveInputHandler.m in Sources */,
 				8DF772AC14C160FF00A8B2B7 /* NSLogWrapper.m in Sources */,
 				8DF772B614C1E15900A8B2B7 /* QPTouchPointInputLayerHandler.m in Sources */,
+				8DF772BA14C1FA5700A8B2B7 /* QPBlockKeeper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1885,11 +1895,13 @@
 				8D1DBF5C14804F4900C4CFEC /* TransformUtils.m in Sources */,
 				8D1DBF5E14804F4900C4CFEC /* ZipUtils.m in Sources */,
 				8DEB476A149057B6008E7FCF /* BulletWall.m in Sources */,
-				8DF772A514C1509000A8B2B7 /* QPInputLayer.m in Sources */,
-				8DF772A914C1526000A8B2B7 /* QPMoveInputLayer.m in Sources */,
+				8DF772A514C1509000A8B2B7 /* QPInputHandler.m in Sources */,
+				8DF772A914C1526000A8B2B7 /* QPMoveInputHandler.m in Sources */,
 				8DF772AD14C160FF00A8B2B7 /* NSLogWrapper.m in Sources */,
 				8DF772B214C1E0AD00A8B2B7 /* InputHandlerTest.m in Sources */,
 				8DF772B714C1E15900A8B2B7 /* QPTouchPointInputLayerHandler.m in Sources */,
+				8DF772BB14C1FA5700A8B2B7 /* QPBlockKeeper.m in Sources */,
+				8DF772BF14C1FB6500A8B2B7 /* QPBlockKeeperTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

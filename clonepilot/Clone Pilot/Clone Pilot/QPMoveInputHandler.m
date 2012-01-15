@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 ChaiONE. All rights reserved.
 //
 
-#import "QPMoveInputLayer.h"
+#import "QPMoveInputHandler.h"
 
-@implementation QPMoveInputLayer
+@implementation QPMoveInputHandler
 @synthesize delegate;
 
 - (void)processTouch:(CGPoint)l {

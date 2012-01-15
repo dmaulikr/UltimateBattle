@@ -7,7 +7,7 @@
 #import "CCLayer.h"
 #import "BulletWall.h"
 #import "QPControlLayer.h"
-#import "QPControlLayer.h"
+#import "QPInputHandler.h"
 
 extern int const QP_TouchTargetingYOffset; 
 extern int const QP_AccuracyBonusModifier;
@@ -16,7 +16,7 @@ extern int const QP_TimeBonusModifier;
 
 @class WeaponSelector;
 
-@interface ClonePilotBattlefield : BulletHellBattlefield <BulletDelegate, WeaponSelectorDelegate, QPFireLayerdelegate> {
+@interface ClonePilotBattlefield : BulletHellBattlefield <BulletDelegate, WeaponSelectorDelegate, QPInputHandlerDelegate> {
     BOOL _shouldAdvanceLevel;
     BOOL _battlefieldEnding;
     BOOL _paused;
@@ -33,10 +33,9 @@ extern int const QP_TimeBonusModifier;
 @property (nonatomic, assign) CCLayer *layer;
 @property (nonatomic, assign) double time;
 @property (nonatomic, retain) BulletWall *wall;
-@property (nonatomic, retain) QPControlLayer *fireLayer1;
-@property (nonatomic, retain) QPControlLayer *fireLayer2;
 @property (nonatomic, assign) CGPoint lastMove;
 @property (nonatomic, retain) CCSprite *rSprite;
+@property (nonatomic, retain) QPInputHandler *inputHandler;
 
 - (void)startup;
 - (NSInteger)livingClones;

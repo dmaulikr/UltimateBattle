@@ -7,12 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "QPInputLayer.h"
+#import "QPInputHandler.h"
 #import "VRGeometry.h"
 
 @protocol QPMoveInputLayerDelegate;
 
-@interface QPMoveInputLayer : QPInputLayer
+@interface QPMoveInputHandler : QPInputHandler
 
 @property (nonatomic, assign) id <QPMoveInputLayerDelegate> delegate;
 
@@ -20,6 +20,6 @@
 
 @protocol QPMoveInputLayerDelegate 
 
-- (void)QPMoveInputLayer:(QPMoveInputLayer*)layer moveVectorAngleCalculated:(CGPoint)angle;
+- (void)QPMoveInputLayer:(QPMoveInputHandler*)layer moveVectorAngleCalculated:(CGPoint)angle;
 
 @end

@@ -20,6 +20,16 @@
     return self;
 }
 
+- (void)addHandler:(QPInputHandler *)handler {
+    [self.handlers addObject:handler];
+}
+
+- (void)execute {
+    for (QPInputHandler *ih in self.handlers) {
+        
+    }
+}
+
 - (void)dealloc {
     [handlers release];
     [super dealloc];

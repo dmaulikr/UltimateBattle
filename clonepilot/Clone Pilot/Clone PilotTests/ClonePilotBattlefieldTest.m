@@ -677,13 +677,22 @@ describe(@"Clone Pilot Battlefield", ^{
             [[theValue([[f player] isFiring]) should] beFalse];
         });
 
+        it(@"set a velocity angle when a touch lands within the move input circle", ^{
+            [f startup];
+            CGPoint movementCenter = [[f inputHandler] movePoint];
+            CGPoint movementTapPoint = CombinedPoint(movementCenter, CGPointMake(1, 1));
+            CGPoint movementAngle = GetAngle(movementCenter, movementTapPoint);
+            [f addTouch:movementTapPoint];
+            CGPoint yInvertedAngle = CGPointMake(movementAngle.x, -movementAngle.y);
+            CGPoint playerVectorAngle = GetAngle([f player].l, [f player].t);
+            [[theValue(yInvertedAngle) should] equal:theValue(playerVectorAngle)];
+        });
         
-//        it(@"set a velocity when a touch lands within the move input circle", ^{
-//            [f startup];
-//            [f addTouch:CGPointMake(10, 1024-50)];
-//            [f tick];
-//            [[theValue([f moveActive]) should] beTrue]; 
-//        });
+        it(@"should fire when a touch lands within the fire area", ^{
+            [f startup];
+            [f addTouch:[f inputHandler].firePoint];
+            [[theValue([[f player] isFiring]) should] beTrue];
+        });
     });
     
     context(@"Moving", ^{

@@ -7,9 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "QPInputHandler.h"
 
 @interface QPTouchPointInputLayerHandler : NSObject
 
 @property (nonatomic, retain) NSMutableArray *handlers;
+
+- (void)addHandler:(QPInputHandler *)handler;
+
+- (void)execute;
 
 @end
