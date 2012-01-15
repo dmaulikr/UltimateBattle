@@ -378,7 +378,12 @@ int const QP_TimeBonusModifier      = 3;
 }
 
 - (void)addTouch:(CGPoint)l {
-    [self.inputHandler addTouchPoint:l];
+    if (!_paused) {
+        [self.inputHandler addTouchPoint:l];
+    } else {
+        [self togglePlaying];
+        [self.inputHandler addTouchPoint:l];        
+    }
 }
 
 - (void)moveTouch:(CGPoint)l {
@@ -400,9 +405,12 @@ int const QP_TimeBonusModifier      = 3;
 }
 
 - (void)stopMoving {
-    self.moveActive = NO;
-    self.player.t = self.player.l;
-    self.moveAngle = CGPointZero;
+    if (!_paused) {
+        [self togglePlaying];
+        self.moveActive = NO;
+        self.player.t = self.player.l;
+        self.moveAngle = CGPointZero;        
+    }
 }
 
 - (BOOL)playing {
