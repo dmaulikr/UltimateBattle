@@ -10,7 +10,7 @@
 
 @protocol QPInputHandlerDelegate <NSObject>
 
-- (void)movementAngle:(CGPoint)angle;
+- (void)movementAngle:(CGPoint)angle distanceRatio:(float)ratio;
 - (void)fireTapped;
 - (void)stopMoving;
 
@@ -23,6 +23,8 @@
 @property (nonatomic, assign) CGPoint firePoint;
 @property (nonatomic, assign) CGPoint movePoint;
 @property (nonatomic, assign) id <QPInputHandlerDelegate> delegate;
+
+@property (nonatomic, assign) BOOL moveActive;
 
 - (void)addTouchPoint:(CGPoint)tp;
 - (void)moveTouchPoint:(CGPoint)tp;

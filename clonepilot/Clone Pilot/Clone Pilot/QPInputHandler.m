@@ -15,9 +15,10 @@
 @synthesize firePoint;
 @synthesize movePoint;
 @synthesize delegate;
+@synthesize moveActive;
 
 - (float)defaultRadius {
-    return 80;
+    return 40;
 }
 
 - (CGPoint)defaultFirePoint {
@@ -34,28 +35,35 @@
         self.radius     = [self defaultRadius];
         self.firePoint  = [self defaultFirePoint];
         self.movePoint  = [self defaultMovePoint];
+        self.moveActive = NO;
     }
     return self;
 }
 
 - (void)addTouchPoint:(CGPoint)tp {
-    if (GetDistance(tp, self.firePoint) < self.radius) {
-        [self.delegate fireTapped];
-    } else if (GetDistance(tp, self.movePoint) < self.radius) {
-        CGPoint angle = GetAngle(self.movePoint, tp);
-        [self.delegate movementAngle:angle];
+    if (self.moveActive) {
+        [self.delegate fireTapped];        
+    } else {
+        self.moveActive = YES;
+        self.movePoint = tp;
     }
 }
 
 - (void)moveTouchPoint:(CGPoint)tp {
-    if (GetDistance(tp, self.movePoint) < self.radius) {
+    float distance = GetDistance(tp, self.movePoint);
+    if (GetDistance(tp, self.firePoint) > self.radius) {
+        if (distance > self.radius) {
+            distance = self.radius;
+        }
         CGPoint angle = GetAngle(self.movePoint, tp);
-        [self.delegate movementAngle:angle];
+        float ratio = distance / self.radius;
+        [self.delegate movementAngle:angle distanceRatio:ratio];       
     }
 }
 
 - (void)endTouchPoint:(CGPoint)tp {
-    if (GetDistance(tp, self.firePoint) > self.radius) {
+    if (GetDistance(tp, self.movePoint) < GetDistance(tp, self.firePoint)) {
+        self.moveActive = NO;
         [self.delegate stopMoving];
     }
 }

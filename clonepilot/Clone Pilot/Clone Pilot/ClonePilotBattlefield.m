@@ -225,9 +225,11 @@ int const QP_TimeBonusModifier      = 3;
 - (void)playerLoop {
     [self.player tick];
     if (self.moveActive) {
-        CGPoint targetVector =  MultipliedPoint(self.moveAngle, self.player.speed);
-        CGPoint invertedTargetVector = CGPointMake(targetVector.x, -targetVector.y);
-        CGPoint t = CombinedPoint(self.player.l, invertedTargetVector);
+ //       CGPoint targetVector =  MultipliedPoint(self.moveAngle, self.player.speed);
+//        CGPoint invertedTargetVector = CGPointMake(targetVector.x, -targetVector.y);
+//        CGPoint t = CombinedPoint(self.player.l, invertedTargetVector);
+        CGPoint invertedAngle = CGPointMake(self.moveAngle.x, -self.moveAngle.y);
+        CGPoint t = CombinedPoint(self.player.l, invertedAngle);        
         self.player.t = t;
     } else {
         self.player.t = self.player.l;
@@ -390,9 +392,10 @@ int const QP_TimeBonusModifier      = 3;
     [self.inputHandler endTouchPoint:l];
 }
 
-- (void)movementAngle:(CGPoint)angle {
+- (void)movementAngle:(CGPoint)angle distanceRatio:(float)ratio {
     self.moveActive = YES;
-    self.moveAngle = angle;
+    float modifier = ratio * self.player.speed;
+    self.moveAngle = MultipliedPoint(angle, modifier);
 }
 
 - (void)fireTapped {
