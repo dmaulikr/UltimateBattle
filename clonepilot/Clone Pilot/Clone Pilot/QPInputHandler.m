@@ -17,7 +17,7 @@
 @synthesize delegate;
 
 - (float)defaultRadius {
-    return 100;
+    return 80;
 }
 
 - (CGPoint)defaultFirePoint {
@@ -25,7 +25,7 @@
 }
 
 - (CGPoint)defaultMovePoint {
-    return CGPointMake(self.radius, 1024-self.radius);
+    return CGPointMake(self.radius * 1.5, 1024-self.radius*1.5);
 }
 
 - (id)init {
@@ -51,6 +51,12 @@
     if (GetDistance(tp, self.movePoint) < self.radius) {
         CGPoint angle = GetAngle(self.movePoint, tp);
         [self.delegate movementAngle:angle];
+    }
+}
+
+- (void)endTouchPoint:(CGPoint)tp {
+    if (GetDistance(tp, self.firePoint) > self.radius) {
+        [self.delegate stopMoving];
     }
 }
 

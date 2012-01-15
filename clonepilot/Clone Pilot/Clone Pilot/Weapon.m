@@ -37,7 +37,7 @@
 
 
 + (float)defaultSpeed {
-    return 5.5;
+    return 6;
 }
 
 -(id)copyWithZone:(NSZone *)zone {

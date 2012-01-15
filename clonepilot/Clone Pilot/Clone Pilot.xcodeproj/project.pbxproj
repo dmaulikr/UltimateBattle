@@ -332,6 +332,8 @@
 		8DF772BA14C1FA5700A8B2B7 /* QPBlockKeeper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF772B914C1FA5700A8B2B7 /* QPBlockKeeper.m */; };
 		8DF772BB14C1FA5700A8B2B7 /* QPBlockKeeper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF772B914C1FA5700A8B2B7 /* QPBlockKeeper.m */; };
 		8DF772BF14C1FB6500A8B2B7 /* QPBlockKeeperTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF772BD14C1FB6500A8B2B7 /* QPBlockKeeperTest.m */; };
+		8DF772E014C27D9500A8B2B7 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8DF772DF14C27D9400A8B2B7 /* Entitlements.plist */; };
+		8DF772E114C27D9500A8B2B7 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8DF772DF14C27D9400A8B2B7 /* Entitlements.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -764,6 +766,7 @@
 		8DF772B814C1FA5700A8B2B7 /* QPBlockKeeper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBlockKeeper.h; sourceTree = "<group>"; };
 		8DF772B914C1FA5700A8B2B7 /* QPBlockKeeper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBlockKeeper.m; sourceTree = "<group>"; };
 		8DF772BD14C1FB6500A8B2B7 /* QPBlockKeeperTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBlockKeeperTest.m; sourceTree = "<group>"; };
+		8DF772DF14C27D9400A8B2B7 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1167,6 +1170,7 @@
 		8DC7F8831438D8870016D718 = {
 			isa = PBXGroup;
 			children = (
+				8DF772DF14C27D9400A8B2B7 /* Entitlements.plist */,
 				8DF772AA14C160FF00A8B2B7 /* NSLogWrapper.h */,
 				8DF772AB14C160FF00A8B2B7 /* NSLogWrapper.m */,
 				8D677AEE148053C0004CA345 /* New Group */,
@@ -1564,6 +1568,7 @@
 				8DC7F8AC1438D8870016D718 /* Clone_PilotViewController.xib in Resources */,
 				8D677AF0148053CA004CA345 /* sprite-7-1.png in Resources */,
 				8D677AF314805DCD004CA345 /* ic_text_dot.png in Resources */,
+				8DF772E014C27D9500A8B2B7 /* Entitlements.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1574,6 +1579,7 @@
 				8DC7F8BD1438D8870016D718 /* InfoPlist.strings in Resources */,
 				8D677AF1148053CA004CA345 /* sprite-7-1.png in Resources */,
 				8D677AF414805DCD004CA345 /* ic_text_dot.png in Resources */,
+				8DF772E114C27D9500A8B2B7 /* Entitlements.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1955,6 +1961,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1964,6 +1971,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 			};

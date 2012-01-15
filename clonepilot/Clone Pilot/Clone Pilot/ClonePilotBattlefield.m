@@ -19,6 +19,7 @@
 @synthesize lastMove;
 @synthesize rSprite;
 @synthesize inputHandler;
+@synthesize moveAngle;
 
 int const QP_TouchTargetingYOffset  = 30;
 int const QP_AccuracyBonusModifier  = 100;
@@ -45,6 +46,7 @@ int const QP_TimeBonusModifier      = 3;
     [quantumLayer addChild:self.rSprite];
     self.inputHandler = [[[QPInputHandler alloc] init] autorelease];
     self.inputHandler.delegate = self;
+    self.rSprite.position = CGPointMake(self.inputHandler.movePoint.x, 1024-self.inputHandler.movePoint.y);
         
     return self;
 }
@@ -118,6 +120,10 @@ int const QP_TimeBonusModifier      = 3;
     [self.wall reset];
 }
 
+- (void)resetTime {
+    self.time = 0;
+}
+
 - (void)advanceLevel {
     _shouldAdvanceLevel = NO;
     [self clearBullets];
@@ -129,7 +135,8 @@ int const QP_TimeBonusModifier      = 3;
     [self resetPlayer];
     [self resetWall];
     [self.weaponSelector openWeaponOptions];
-//    [self chooseWeapon:0];
+    [self chooseWeapon:0];
+    [self resetTime];
 }
 
 - (void)fired {
@@ -218,7 +225,10 @@ int const QP_TimeBonusModifier      = 3;
 - (void)playerLoop {
     [self.player tick];
     if (self.moveActive) {
-
+        CGPoint targetVector =  MultipliedPoint(self.moveAngle, self.player.speed);
+        CGPoint invertedTargetVector = CGPointMake(targetVector.x, -targetVector.y);
+        CGPoint t = CombinedPoint(self.player.l, invertedTargetVector);
+        self.player.t = t;
     } else {
         self.player.t = self.player.l;
     }
@@ -314,7 +324,7 @@ int const QP_TimeBonusModifier      = 3;
 
 - (NSInteger)timeBonus {
     NSInteger bonusTime = (QP_MaxTime - self.time) * QP_TimeBonusModifier;
-    return bonusTime;
+    return bonusTime > 0 ? bonusTime : 0;
 }
 
 - (NSInteger)accuracyBonus {
@@ -369,7 +379,7 @@ int const QP_TimeBonusModifier      = 3;
 }
 
 - (void)addTouch:(CGPoint)l {
-    NSLog(@"touch x: %f y: %f",l.x,l.y);
+    self.moveActive = YES;
     [self.inputHandler addTouchPoint:l];
 }
 
@@ -378,18 +388,21 @@ int const QP_TimeBonusModifier      = 3;
 }
 
 - (void)endTouch:(CGPoint)l {
-    
+    [self.inputHandler endTouchPoint:l];
 }
 
 - (void)movementAngle:(CGPoint)angle {
-    CGPoint targetVector =  MultipliedPoint(angle, self.player.speed);
-    CGPoint invertedTargetVector = CGPointMake(targetVector.x, -targetVector.y);
-    CGPoint t = CombinedPoint(self.player.l, invertedTargetVector);
-    self.player.t = t;
+    self.moveAngle = angle;
 }
 
 - (void)fireTapped {
     [self.player fire];
+}
+
+- (void)stopMoving {
+    self.moveActive = NO;
+    self.player.t = self.player.l;
+    self.moveAngle = CGPointZero;
 }
 
 - (BOOL)playing {

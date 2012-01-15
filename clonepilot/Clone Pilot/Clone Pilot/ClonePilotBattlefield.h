@@ -36,6 +36,7 @@ extern int const QP_TimeBonusModifier;
 @property (nonatomic, assign) CGPoint lastMove;
 @property (nonatomic, retain) CCSprite *rSprite;
 @property (nonatomic, retain) QPInputHandler *inputHandler;
+@property (nonatomic, assign) CGPoint moveAngle;
 
 - (void)startup;
 - (NSInteger)livingClones;

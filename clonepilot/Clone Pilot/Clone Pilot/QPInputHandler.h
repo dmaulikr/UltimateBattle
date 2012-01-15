@@ -12,6 +12,7 @@
 
 - (void)movementAngle:(CGPoint)angle;
 - (void)fireTapped;
+- (void)stopMoving;
 
 @end
 
@@ -25,5 +26,6 @@
 
 - (void)addTouchPoint:(CGPoint)tp;
 - (void)moveTouchPoint:(CGPoint)tp;
+- (void)endTouchPoint:(CGPoint)tp;
 
 @end
