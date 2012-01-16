@@ -53,7 +53,7 @@ static int QP_PlayerYDirection = 1;
 
 - (id)initWithLayer:(CCLayer *)layer {
     self = [self commonInit];
-    self.sprite = [[CCSprite spriteWithFile:@"sprite-7-1.png"] retain];
+    self.sprite = [CCSprite spriteWithFile:@"sprite-7-1.png"];
     [layer addChild:sprite];
     return self;
 }
@@ -182,7 +182,8 @@ static int QP_PlayerYDirection = 1;
     self.bulletDelegate = nil;
     [currentMoves release];
     [weapon release];
-    [sprite release];
+    [sprite removeFromParentAndCleanup:YES];
+    self.sprite = nil;
     [super dealloc];
 }
 

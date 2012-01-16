@@ -47,7 +47,7 @@
         self.l = location;
         self.vel = velocity;
         self.radius = 15;
-        self.sprite = [[CCSprite spriteWithFile:@"ic_text_dot.png" rect:CGRectMake(0, 0, 16, 16)] retain];
+        self.sprite = [CCSprite spriteWithFile:@"ic_text_dot.png" rect:CGRectMake(0, 0, 16, 16)];
     }
     
     return self;
@@ -68,7 +68,8 @@
 }
 
 - (void)dealloc {
-    [sprite release];
+    [sprite removeFromParentAndCleanup:YES];
+    self.sprite = nil;
     [super dealloc];
 }
 

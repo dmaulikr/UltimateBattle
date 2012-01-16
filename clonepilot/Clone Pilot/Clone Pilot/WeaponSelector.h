@@ -13,6 +13,7 @@
 #import "TriLaser.h"
 #import "QuadLaser.h"
 #import "SideLaser.h"
+#import "WideTriLaser.h"
 
 @protocol WeaponSelectorDelegate <NSObject>
 
@@ -33,6 +34,7 @@
 @property (nonatomic, retain) TriLaser *triLaser;
 @property (nonatomic, retain) QuadLaser *quadLaser;
 @property (nonatomic, retain) SideLaser *sideLaser;
+@property (nonatomic, retain) WideTriLaser *wideTriLaser;
 
 @property (nonatomic, assign) id <WeaponSelectorDelegate> delegate;
 

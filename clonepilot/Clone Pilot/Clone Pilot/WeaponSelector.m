@@ -18,17 +18,19 @@
 @synthesize sideLaser;
 @synthesize chosenWeapons;
 @synthesize delegate;
+@synthesize wideTriLaser;
 
 - (id)initWithBattlefield:(id)field {
     self = [super init];
     if (self) {
         self.delegate = field;
-        self.singleLaser = [[[SingleLaser alloc] init] autorelease];
-        self.splitLaser = [[[SplitLaser alloc] init] autorelease];
-        self.triLaser = [[[TriLaser alloc] init] autorelease];
-        self.quadLaser = [[[QuadLaser alloc] init] autorelease];
-        self.sideLaser = [[[SideLaser alloc] init] autorelease];
-        self.chosenWeapons = [NSMutableArray array];
+        self.singleLaser    = [[[SingleLaser alloc] init] autorelease];
+        self.splitLaser     = [[[SplitLaser alloc] init] autorelease];
+        self.triLaser       = [[[TriLaser alloc] init] autorelease];
+        self.quadLaser      = [[[QuadLaser alloc] init] autorelease];
+        self.sideLaser      = [[[SideLaser alloc] init] autorelease];
+        self.wideTriLaser   = [[[WideTriLaser alloc] init] autorelease];
+        self.chosenWeapons  = [NSMutableArray array];
     }
     
     return self;
@@ -45,7 +47,7 @@
 
 - (void)openWeaponOptions {
     if (!self.weaponChoices) {
-        self.weaponChoices = [NSArray arrayWithObjects:self.triLaser, self.splitLaser, self.sideLaser, nil];
+        self.weaponChoices = [NSArray arrayWithObjects:self.triLaser, self.splitLaser, self.wideTriLaser, self.sideLaser, nil];
     } else {
         
     }
@@ -65,8 +67,6 @@
     [self.chosenWeapons removeObject:earliestChosenWeapon];
     
     self.weaponChoices = [NSArray arrayWithArray:choices];
-    
-    
 }
 
 - (void)dealloc {
@@ -77,6 +77,7 @@
     [quadLaser release];
     [sideLaser release];
     [chosenWeapons release];
+    [wideTriLaser release];
     self.delegate = nil;
     [super dealloc];
 }
