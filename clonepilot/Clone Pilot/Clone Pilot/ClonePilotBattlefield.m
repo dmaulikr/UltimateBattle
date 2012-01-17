@@ -32,6 +32,8 @@ int const QP_TimeBonusModifier      = 3;
         self.clones = [NSMutableArray array];
         self.weaponSelector = [[WeaponSelector alloc] initWithBattlefield:self];
         self.time = 0;
+        self.inputHandler = [[[QPInputHandler alloc] init] autorelease];
+        self.inputHandler.delegate = self;        
     }
     return self; 
 }
@@ -43,11 +45,7 @@ int const QP_TimeBonusModifier      = 3;
     self.layer      = quantumLayer;
     self.wall       = [[[BulletWall alloc] initWithLayer:quantumLayer] autorelease];
     self.rSprite    = [CCSprite spriteWithFile:@"sprite-7-1.png"];
-    [quantumLayer addChild:self.rSprite];
-    self.inputHandler = [[[QPInputHandler alloc] init] autorelease];
-    self.inputHandler.delegate = self;
-    self.rSprite.position = CGPointMake(self.inputHandler.movePoint.x, 1024-self.inputHandler.movePoint.y);
-        
+    [quantumLayer addChild:self.rSprite];        
     return self;
 }
 
@@ -55,6 +53,8 @@ int const QP_TimeBonusModifier      = 3;
     self = [self commonInit];
     self.player = [[[ClonePlayer alloc] init] autorelease];
     self.player.bulletDelegate = self;
+    self.rSprite.position = CGPointMake(self.inputHandler.movePoint.x, 1024-self.inputHandler.movePoint.y);
+
     return self;
 }
 
@@ -135,7 +135,7 @@ int const QP_TimeBonusModifier      = 3;
     [self resetPlayer];
     [self resetWall];
     [self.weaponSelector openWeaponOptions];
-    [self chooseWeapon:0];
+   // [self chooseWeapon:0];
     [self resetTime];
 }
 

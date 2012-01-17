@@ -418,9 +418,12 @@ describe(@"Clone Pilot Battlefield", ^{
             ClonePilot *p = [f firstClone];
             NSInteger cloneMoves = [p.moves count];
 
-            f.moveActive    = YES;
-            f.moveAngle     = CGPointMake(1, 0);
+//            f.moveActive    = YES;
             
+            [f addTouch:CGPointMake(384, 384)];
+            [f moveTouch:CGPointMake(400, 384)];
+             
+            f.moveAngle     = CGPointMake(1, 0);
             f.moveActive = 1;
             while (1) {
                 if ([p moveIndex] == cloneMoves - 1) {
@@ -680,24 +683,7 @@ describe(@"Clone Pilot Battlefield", ^{
             [[theValue([[f player] isFiring]) should] beFalse];
         });
 
-        it(@"set a velocity angle when a touch lands within the move input circle", ^{
-            [f startup];
-            CGPoint movementCenter = [[f inputHandler] movePoint];
-            CGPoint movementTapPoint = CombinedPoint(movementCenter, CGPointMake(1, 1));
-            CGPoint movementAngle = GetAngle(movementCenter, movementTapPoint);
-            [f addTouch:movementTapPoint];
-            [f tick];
-            CGPoint yInvertedAngle = CGPointMake(movementAngle.x, -movementAngle.y);
-            CGPoint playerVectorAngle = GetAngle([f player].l, [f player].t);
-            [[theValue(yInvertedAngle) should] equal:theValue(playerVectorAngle)];
         });
-        
-        it(@"should fire when a touch lands within the fire area", ^{
-            [f startup];
-            [f addTouch:[f inputHandler].firePoint];
-            [[theValue([[f player] isFiring]) should] beTrue];
-        });
-    });
     
     context(@"Moving", ^{
         it(@"should move less than its full speed if less than a speed's ticks away from target", ^{
