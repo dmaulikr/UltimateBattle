@@ -7,6 +7,7 @@
 //
 
 #import "WeaponSelector.h"
+#import "QPWeaponOptionLayer.h"
 
 @implementation WeaponSelector
 
@@ -19,6 +20,7 @@
 @synthesize chosenWeapons;
 @synthesize delegate;
 @synthesize wideTriLaser;
+@synthesize optionLayers;
 
 - (id)initWithBattlefield:(id)field {
     self = [super init];
@@ -31,6 +33,7 @@
         self.sideLaser      = [[[SideLaser alloc] init] autorelease];
         self.wideTriLaser   = [[[WideTriLaser alloc] init] autorelease];
         self.chosenWeapons  = [NSMutableArray array];
+        self.optionLayers   = [NSMutableArray array];
     }
     
     return self;
@@ -45,12 +48,38 @@
     self.chosenWeapons = [NSMutableArray arrayWithObjects:self.singleLaser, self.quadLaser, nil];
 }
 
+- (void)displayOptionLayersForWeaponChoices {    
+    [self.optionLayers removeAllObjects];
+    
+    for (Weapon *w in self.weaponChoices) {
+        QPWeaponOptionLayer *l = [[QPWeaponOptionLayer alloc] initWithWeapon:w];
+        [self.optionLayers addObject:l];
+        [l release];
+    }
+}
+
+- (void)addWeaponOptionLayersToLayer:(CCLayer *)layer {
+    NSInteger possibleWeapons = [self.weaponChoices count] >= 2 ? 2 : [self.weaponChoices count];
+    for (NSInteger i = 0; i < possibleWeapons; i++) {
+        QPWeaponOptionLayer *l = [self.optionLayers objectAtIndex:i];
+        [l addWeaponOptionsToLayer:layer];
+    }
+    
+    float screenWidth = 768;
+    float spacing = screenWidth / [self.optionLayers count] + 1;
+    float x = spacing;
+    for (QPWeaponOptionLayer *l in self.optionLayers) {
+        [l positionDisplayAroundLocation:ccp(x,1024/2)];
+        x+= spacing;
+    }
+}
+
 - (void)openWeaponOptions {
     if (!self.weaponChoices) {
         self.weaponChoices = [NSArray arrayWithObjects:self.triLaser, self.splitLaser, self.wideTriLaser, self.sideLaser, nil];
-    } else {
-        
     }
+    
+    [self displayOptionLayersForWeaponChoices];
 }
 
 - (void)chooseWeapon:(NSInteger)choiceIndex {
@@ -69,6 +98,10 @@
     self.weaponChoices = [NSArray arrayWithArray:choices];
 }
 
+- (BOOL)presentingOptions {
+    return [self.optionLayers count] > 0;
+}
+
 - (void)dealloc {
     [weaponChoices release];
     [singleLaser release];
@@ -78,6 +111,7 @@
     [sideLaser release];
     [chosenWeapons release];
     [wideTriLaser release];
+    [optionLayers release];
     self.delegate = nil;
     [super dealloc];
 }

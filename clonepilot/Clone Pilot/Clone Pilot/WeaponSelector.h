@@ -37,6 +37,7 @@
 @property (nonatomic, retain) WideTriLaser *wideTriLaser;
 
 @property (nonatomic, assign) id <WeaponSelectorDelegate> delegate;
+@property (nonatomic, retain) NSMutableArray *optionLayers;
 
 - (id)initWithBattlefield:(id)field;
 - (void)startup;
@@ -45,6 +46,8 @@
 - (void)chooseWeapon:(NSInteger)choiceIndex;
 - (void)openWeaponOptions;
 
+- (void)addWeaponOptionLayersToLayer:(CCLayer *)layer;
 
+- (BOOL)presentingOptions;
 
 @end

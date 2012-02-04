@@ -820,10 +820,18 @@ describe(@"Clone Pilot Battlefield", ^{
             firstKill();
             float time = [f time];
             [f tick];
+            [f tick];            
+            [f tick];
             [f chooseWeapon:0];
             [f tick];
-            [[theValue([f time]) should] beGreaterThan:theValue(time)];
+            [[theValue([f time]) should] equal:theValue(time+1)];
         });
+        
+        it(@"should have hitboxes on its weapon selector after a stage", ^{
+            firstKill();
+            [[theValue([[f weaponSelector] presentingOptions]) should] beTrue];
+        });
+    
     });
 
 });

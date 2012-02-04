@@ -35,6 +35,9 @@
     return [[self class] description];
 }
 
+- (NSString *)weaponImagePath {
+    return @"ic_text_dot.png";
+}
 
 + (float)defaultSpeed {
     return 6;

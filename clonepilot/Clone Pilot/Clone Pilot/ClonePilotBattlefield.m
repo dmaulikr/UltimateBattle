@@ -137,8 +137,10 @@ int const QP_TimeBonusModifier      = 3;
 }
 
 - (void)openWeaponOptions {
-    [self.weaponSelector openWeaponOptions];
     [self ensurePaused];
+    [self.weaponSelector openWeaponOptions];
+    [self.weaponSelector addWeaponOptionLayersToLayer:self.layer];
+
 }
 
 - (void)advanceLevel {
@@ -356,6 +358,7 @@ int const QP_TimeBonusModifier      = 3;
 }
 
 - (void)playerChoseWeapon:(Weapon *)weapon {
+    [self ensurePlaying];
     self.level++;
     [self scoreForAccuracy];
     [self scoreForSpeed];
@@ -366,9 +369,6 @@ int const QP_TimeBonusModifier      = 3;
 
 - (void)chooseWeapon:(NSInteger)choiceIndex {
     [self.weaponSelector chooseWeapon:choiceIndex];
-//    [self scoreForHealth];
-//    self.hits = 0;
-    [self ensurePlaying];
 }
 
 - (NSArray *)weaponChoices {
