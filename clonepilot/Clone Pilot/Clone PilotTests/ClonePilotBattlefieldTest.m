@@ -8,6 +8,7 @@
 #import "VRGeometry.h"
 #import "VRTouch.h"
 #import "QuantumPilotLayer.h"
+#import "QPWeaponOptionLayer.h"
 
 SPEC_BEGIN(ClonePilotBattlefieldTest)
 
@@ -809,11 +810,10 @@ describe(@"Clone Pilot Battlefield", ^{
             [[theValue([f playing]) should] beFalse];
         });
         
-        it(@"should stay at default time until weapon chosen", ^{
+        it(@"should stay paused until weapon chosen", ^{
             firstKill();
-            float time = [f time];
             [f tick];
-            [[theValue([f time]) should] equal:theValue(time)];
+            [[theValue([f playing]) should] beFalse];
         });
         
         it(@"should pass time again when weapon is chosen", ^{
@@ -834,9 +834,33 @@ describe(@"Clone Pilot Battlefield", ^{
         
         it(@"should remain paused until weapon is chosen", ^{
             firstKill();
-            [f addTouch:[f player].l];
-            [f moveTouch:ccp([f player].l.x - 50, [f player].l.y)];
             [[theValue([f playing]) should] beFalse];
+        });
+        
+        it(@"should select a weapon from a touch", ^{
+            [f startup];
+            [[f player] fire];
+            Weapon *oldWeapon = [[f player] weapon];
+            kill();
+            QPWeaponOptionLayer *l = [[[f weaponSelector] optionLayers] objectAtIndex:0];
+            Weapon *desiredWeapon = [l weapon];
+            [f addTouch:l.weaponSprite.position];
+            [[theValue([[f player] weapon] == oldWeapon) should] beFalse];
+            [[theValue([[f player] weapon]) should] equal:theValue(desiredWeapon)];
+        });
+        
+        it(@"should resume playing when choosing a weapon from a touch", ^{
+            firstKill();
+            QPWeaponOptionLayer *l = [[[f weaponSelector] optionLayers] objectAtIndex:0];
+            [f addTouch:l.weaponSprite.position];
+            [[theValue([f playing]) should] beTrue];
+        });
+        
+        it(@"should close weapon options after choosing a weapon from a touch", ^{
+            firstKill();
+            QPWeaponOptionLayer *l = [[[f weaponSelector] optionLayers] objectAtIndex:0];
+            [f addTouch:l.weaponSprite.position];
+            [[theValue([[f weaponSelector] presentingOptions]) should] beFalse];
         });
     
     });

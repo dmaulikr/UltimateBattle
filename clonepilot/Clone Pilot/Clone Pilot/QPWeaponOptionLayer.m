@@ -29,6 +29,13 @@
     [layer addChild:self.weaponText];
 }
 
+- (void)removeDisplay {
+    [self.weaponSprite removeFromParentAndCleanup:YES];
+    self.weaponSprite = nil;
+    [self.weaponText removeFromParentAndCleanup:YES];
+    self.weaponText = nil;
+}
+
 - (void)positionDisplayAroundLocation:(CGPoint)l {
     [self.weaponSprite setPosition:ccp(l.x,l.y + 40)];
     [self.weaponText setPosition:ccp(l.x,l.y - 40)];
@@ -36,9 +43,13 @@
 
 - (void)dealloc {
     [weapon release];
-    [weaponSprite removeFromParentAndCleanup:YES];
+    if ([weaponSprite parent]) {
+        [weaponSprite removeFromParentAndCleanup:YES];
+    }
     [weaponSprite release];
-    [weaponText removeFromParentAndCleanup:YES];
+    if ([weaponText parent]) {
+        [weaponText removeFromParentAndCleanup:YES];
+    }
     [weaponSprite release];
     [super dealloc];
 }

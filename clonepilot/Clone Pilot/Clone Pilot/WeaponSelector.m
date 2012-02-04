@@ -66,7 +66,7 @@
     }
     
     float screenWidth = 768;
-    float spacing = screenWidth / [self.optionLayers count] + 1;
+    float spacing = screenWidth / (possibleWeapons + 1);
     float x = spacing;
     for (QPWeaponOptionLayer *l in self.optionLayers) {
         [l positionDisplayAroundLocation:ccp(x,1024/2)];
@@ -100,6 +100,26 @@
 
 - (BOOL)presentingOptions {
     return [self.optionLayers count] > 0;
+}
+
+- (void)processWeaponSelectionFromLocationTapped:(CGPoint)l {
+    float distance = 10000;
+    Weapon *chosenWeapon = nil;
+    for (QPWeaponOptionLayer *ol in self.optionLayers) {
+        float layerDistance = ccpDistance(l, ol.weaponSprite.position);
+        if (layerDistance < distance) {
+            chosenWeapon = ol.weapon;
+            distance = layerDistance;
+        }
+    }
+    
+    [self chooseWeapon:[self.weaponChoices indexOfObject:chosenWeapon]];
+    
+    for (QPWeaponOptionLayer *ol in self.optionLayers) {
+        [ol removeDisplay];
+    }
+    
+    [self.optionLayers removeAllObjects];    
 }
 
 - (void)dealloc {

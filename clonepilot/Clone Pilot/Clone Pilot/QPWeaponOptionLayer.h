@@ -13,4 +13,6 @@
 
 - (void)positionDisplayAroundLocation:(CGPoint)l;
 
+- (void)removeDisplay;
+
 @end

@@ -45,9 +45,9 @@
 
 - (void)chooseWeapon:(NSInteger)choiceIndex;
 - (void)openWeaponOptions;
-
 - (void)addWeaponOptionLayersToLayer:(CCLayer *)layer;
-
 - (BOOL)presentingOptions;
+- (void)processWeaponSelectionFromLocationTapped:(CGPoint)l;
+
 
 @end
