@@ -63,7 +63,6 @@ extern int const QP_TimeBonusModifier;
 - (void)endTouch:(CGPoint)l;
 - (void)plusTouch:(UITouch *)t;
 - (void)varyTouch:(UITouch *)t;
-- (void)finishTouch:(UITouch *)t;
 
 - (BOOL)playing;
 - (void)togglePlaying;
