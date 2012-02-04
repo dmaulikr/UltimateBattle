@@ -276,6 +276,8 @@ int const QP_TimeBonusModifier      = 3;
     [self resetWall];
     
     [self startup];
+    
+    [self ensurePaused];
 }
 
 - (void)timeloop {

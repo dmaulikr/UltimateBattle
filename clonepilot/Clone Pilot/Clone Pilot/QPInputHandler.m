@@ -48,6 +48,7 @@
 
 - (void)addTouchPoint:(CGPoint)tp {
     if (self.moveActive) {
+        self.firePoint = tp;
         [self.delegate fireTapped];        
     } else {
         self.moveActive = YES;

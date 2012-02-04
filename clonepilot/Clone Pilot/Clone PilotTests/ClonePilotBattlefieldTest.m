@@ -568,13 +568,13 @@ describe(@"Clone Pilot Battlefield", ^{
             [[theValue([[f bullets] count]) should] equal:theValue(0)];
         });
         
-        it(@"should reset player moves", ^{
+        it(@"should reset player moves when player dies", ^{
             firstPilotDeath();
             [f tick];
             [[theValue([[[f player] currentMoves] count]) should] equal:theValue(1)];
         });
         
-        it(@"should reset player location", ^{
+        it(@"should reset player location when player dies", ^{
             [f startup];
             CGPoint startingPosition = [f player].l;
             [[f player] fire];
@@ -586,7 +586,7 @@ describe(@"Clone Pilot Battlefield", ^{
             [[theValue([f player].l) should] equal:theValue(startingPosition)];
         });
         
-        it(@"should reset player weapon", ^{
+        it(@"should reset player weapon when player dies", ^{
             [f startup];
             Weapon *startingWeapon = [[f player] weapon];
             NSString *weaponDescription = [startingWeapon description];
@@ -600,13 +600,13 @@ describe(@"Clone Pilot Battlefield", ^{
             [[theValue(result) should] equal:theValue(YES)];
         });
         
-        it(@"should reset level", ^{
+        it(@"should reset level when player dies", ^{
             firstPilotDeath();
             [f tick];
             [[theValue([f level]) should] equal:theValue(0)];
         });
         
-        it(@"should reset weapon choices", ^{
+        it(@"should reset weapon choices when player dies", ^{
             [f startup];
             NSString *chosenWeapons     = [[[f weaponSelector] chosenWeapons] description];
             [[f player] fire];
@@ -620,6 +620,12 @@ describe(@"Clone Pilot Battlefield", ^{
             BOOL availableResult    = resetAvailableWeapons == nil;
             [[theValue(chosenResult) should] beTrue];
             [[theValue(availableResult) should] beTrue];
+        });
+        
+        it(@"should pause when player dies", ^{
+            firstPilotDeath();
+            [f tick];
+            [[theValue([f playing]) should] beFalse];
         });
     });
     
@@ -636,8 +642,7 @@ describe(@"Clone Pilot Battlefield", ^{
             [[theValue([f moveActive]) should] beFalse];
             [[theValue([[f player] isFiring]) should] beFalse];
         });
-
-        });
+    });
     
     context(@"Moving", ^{
         it(@"should move less than its full speed if less than a speed's ticks away from target", ^{
