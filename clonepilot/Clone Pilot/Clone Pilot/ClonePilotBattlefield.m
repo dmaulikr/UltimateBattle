@@ -412,6 +412,7 @@ int const QP_TimeBonusModifier      = 3;
     if ([self.weaponSelector presentingOptions]) {
         return;
     }
+
     
     [self.inputHandler moveTouchPoint:l];
 }

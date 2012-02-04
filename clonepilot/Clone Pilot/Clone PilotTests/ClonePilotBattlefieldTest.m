@@ -369,7 +369,7 @@ describe(@"Clone Pilot Battlefield", ^{
         
         it(@"should reverse move index directions when it finishes moves", ^{
             firstKill();
-            [f chooseWeapon:0];
+            [f addTouch:[f player].l];
             ClonePilot *p = [f firstClone];
             NSInteger cloneMoves = [p.moves count];
             
