@@ -74,7 +74,6 @@
 - (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     UITouch *touch = [touches anyObject];
     [self.f addTouch:[touch locationInView:[touch view]]];
-//    [self.f addTouch:touch];
 }
 
 - (void)ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -89,13 +88,10 @@
     NSArray *touchArray = [touches allObjects];
     
     for (UITouch *touch in touchArray) {
-  //      CGPoint tliv = [touch locationInView:[touch view]];
-//        CGPoint tl = ccp(tliv.x, 1024-tliv.y);
         [self.f endTouch:[touch locationInView:[touch view]]];
     }
 }
 
-// on "dealloc" you need to release all your retained objects
 - (void) dealloc {
     [f release];	
     [dataLabel1 removeFromParentAndCleanup:YES];
