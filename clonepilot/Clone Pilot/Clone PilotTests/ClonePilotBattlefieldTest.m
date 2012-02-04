@@ -368,6 +368,7 @@ describe(@"Clone Pilot Battlefield", ^{
         
         it(@"should reverse move index directions when it finishes moves", ^{
             firstKill();
+            [f chooseWeapon:0];
             ClonePilot *p = [f firstClone];
             NSInteger cloneMoves = [p.moves count];
             
@@ -400,6 +401,7 @@ describe(@"Clone Pilot Battlefield", ^{
         
         it(@"should reverse velocity when reversing move direction", ^{
             firstKill();
+            [f chooseWeapon:0];
             ClonePilot *p = [f firstClone];
             Turn *t = [[p moves] objectAtIndex:1];
             NSInteger cloneMoves = [p.moves count];
@@ -805,6 +807,22 @@ describe(@"Clone Pilot Battlefield", ^{
         it(@"should pause between levels", ^{
             firstKill();
             [[theValue([f playing]) should] beFalse];
+        });
+        
+        it(@"should stay at default time until weapon chosen", ^{
+            firstKill();
+            float time = [f time];
+            [f tick];
+            [[theValue([f time]) should] equal:theValue(time)];
+        });
+        
+        it(@"should pass time again when weapon is chosen", ^{
+            firstKill();
+            float time = [f time];
+            [f tick];
+            [f chooseWeapon:0];
+            [f tick];
+            [[theValue([f time]) should] beGreaterThan:theValue(time)];
         });
     });
 

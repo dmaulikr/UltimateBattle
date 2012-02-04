@@ -2052,6 +2052,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
+				USER_HEADER_SEARCH_PATHS = "~/Kiwi/**";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
@@ -2075,6 +2076,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
+				USER_HEADER_SEARCH_PATHS = "~/Kiwi/**";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;

@@ -136,6 +136,11 @@ int const QP_TimeBonusModifier      = 3;
     }
 }
 
+- (void)openWeaponOptions {
+    [self.weaponSelector openWeaponOptions];
+    [self ensurePaused];
+}
+
 - (void)advanceLevel {
     _shouldAdvanceLevel = NO;
     [self clearBullets];
@@ -146,10 +151,8 @@ int const QP_TimeBonusModifier      = 3;
     [self activateAllClones];    
     [self resetPlayer];
     [self resetWall];
-    [self.weaponSelector openWeaponOptions];
+    [self openWeaponOptions];
     [self resetTime];
-    [self ensurePaused];
-
 }
 
 - (void)fired {
@@ -396,7 +399,7 @@ int const QP_TimeBonusModifier      = 3;
         [self.inputHandler addTouchPoint:l];
     } else {
         [self togglePlaying];
-        [self.inputHandler addTouchPoint:l];        
+        [self.inputHandler addTouchPoint:l];    
     }
 }
 
