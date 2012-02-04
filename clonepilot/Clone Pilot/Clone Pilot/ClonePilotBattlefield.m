@@ -124,6 +124,18 @@ int const QP_TimeBonusModifier      = 3;
     self.time = 0;
 }
 
+- (void)ensurePlaying {
+    if (![self playing]) {
+        [self togglePlaying];
+    }
+}
+
+- (void)ensurePaused {
+    if ([self playing]) {
+        [self togglePlaying];
+    }
+}
+
 - (void)advanceLevel {
     _shouldAdvanceLevel = NO;
     [self clearBullets];
@@ -135,8 +147,9 @@ int const QP_TimeBonusModifier      = 3;
     [self resetPlayer];
     [self resetWall];
     [self.weaponSelector openWeaponOptions];
-   // [self chooseWeapon:0];
     [self resetTime];
+    [self ensurePaused];
+
 }
 
 - (void)fired {
@@ -351,7 +364,8 @@ int const QP_TimeBonusModifier      = 3;
 - (void)chooseWeapon:(NSInteger)choiceIndex {
     [self.weaponSelector chooseWeapon:choiceIndex];
 //    [self scoreForHealth];
-//    self.hits = 0;    
+//    self.hits = 0;
+    [self ensurePlaying];
 }
 
 - (NSArray *)weaponChoices {
