@@ -15,7 +15,6 @@
 #import "BulletDelegateProtocol.h"
 
 @interface ClonePlayer : NSObject <VRGameObject> {
-    
 }
 
 @property (nonatomic, retain) NSMutableArray *currentMoves;

@@ -5,14 +5,13 @@
 SPEC_BEGIN(BulletHellBattleField)
 
 describe(@"Bullet Hell Battlefield", ^{
-    __block BulletHellBattleField *f;
-
+    __block BulletHellBattlefield *f;
+    
     beforeEach(^{
         f = [[[BulletHellBattlefield alloc] init] autorelease];        
     });
     
     context(@"Bullets", ^{
-        
         it(@"should move bullets", ^{
             Bullet *b = [Bullet sampleBullet];
             [f addBullet:b];
@@ -27,7 +26,7 @@ describe(@"Bullet Hell Battlefield", ^{
             for (int i = 0; i < 102; i++) {
                 [f tick];
             }
-            [[theValue([[f bullets] containsObject:b]) shouldNot] beTrue];
+            [[theValue([[f bullets] containsObject:b]) should] beFalse];
         });
     });
     
