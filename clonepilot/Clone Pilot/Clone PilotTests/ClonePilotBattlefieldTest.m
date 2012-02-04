@@ -831,6 +831,13 @@ describe(@"Clone Pilot Battlefield", ^{
             firstKill();
             [[theValue([[f weaponSelector] presentingOptions]) should] beTrue];
         });
+        
+        it(@"should remain paused until weapon is chosen", ^{
+            firstKill();
+            [f addTouch:[f player].l];
+            [f moveTouch:ccp([f player].l.x - 50, [f player].l.y)];
+            [[theValue([f playing]) should] beFalse];
+        });
     
     });
 
