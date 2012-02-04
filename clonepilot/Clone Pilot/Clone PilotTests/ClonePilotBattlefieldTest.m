@@ -60,13 +60,12 @@ describe(@"Clone Pilot Battlefield", ^{
     };
     
     ActionBlock playerDestinationReached = ^{
-        while (GetDistance([f player].l, [f player].t) > 0) { // > acceptableProximityToTarget) {
+        while (GetDistance([f player].l, [f player].t) > 0) {
             [f tick];
         }
     };
 
     beforeEach(^{
-        
         QuantumPilotLayer *quantumLayer = [[[QuantumPilotLayer alloc] init] autorelease];
         f = [[[ClonePilotBattlefield alloc] initWithLayer:quantumLayer] autorelease];
         startingTouch = CGPointMake(100, 100);
@@ -352,6 +351,7 @@ describe(@"Clone Pilot Battlefield", ^{
             }
                  
             kill();
+            f [choo
             
             ClonePilot *p = [[f clones] objectAtIndex:0];
             
@@ -366,8 +366,7 @@ describe(@"Clone Pilot Battlefield", ^{
                 NSLog(@"playerDist: %f", playerDist);
                 NSLog(@"cloneDist: %f", cloneDist);
                 
-                float distance = playerDist - cloneDist;
-                [[theValue(distance) should] beLessThan:theValue(.001)]; //it's close. everything seems fine but this precision.
+                [[[NSNumber numberWithFloat:playerDist] should] equal:cloneDist withDelta:.001];
                 [f tick];
             }
         });
@@ -417,8 +416,6 @@ describe(@"Clone Pilot Battlefield", ^{
             firstKill();
             ClonePilot *p = [f firstClone];
             NSInteger cloneMoves = [p.moves count];
-
-//            f.moveActive    = YES;
             
             [f addTouch:CGPointMake(384, 384)];
             [f moveTouch:CGPointMake(400, 384)];
@@ -847,6 +844,13 @@ describe(@"Clone Pilot Battlefield", ^{
             playerHit();
             [f tick];
             [[theValue([f wall].l) should] equal:theValue(wallStart)];            
+        });
+    });
+    
+    context(@"between levels", ^{
+        it(@"should pause between levels", ^{
+            firstKill();
+            [[theValue([f playing]) should] beFalse];
         });
     });
 
