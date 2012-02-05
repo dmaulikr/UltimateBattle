@@ -399,7 +399,6 @@ int const QP_TimeBonusModifier      = 3;
 - (void)addTouch:(CGPoint)l {
     if ([self.weaponSelector presentingOptions]) {
         [self.weaponSelector processWeaponSelectionFromLocationTapped:l];
-        return;
     }
     
     if (!_paused) {

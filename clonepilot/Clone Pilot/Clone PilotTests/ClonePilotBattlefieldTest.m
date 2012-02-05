@@ -369,14 +369,14 @@ describe(@"Clone Pilot Battlefield", ^{
         
         it(@"should reverse move index directions when it finishes moves", ^{
             firstKill();
-            [f addTouch:[f player].l];
             ClonePilot *p = [f firstClone];
             NSInteger cloneMoves = [p.moves count];
             
-            [f addTouch:CGPointMake(384, 384)];
+            QPWeaponOptionLayer *l = [[[f weaponSelector] optionLayers] objectAtIndex:0];
+            [f addTouch:l.weaponSprite.position];
             [f moveTouch:CGPointMake(400, 384)];
              
-            f.moveAngle     = CGPointMake(1, 0);
+            f.moveAngle     = CGPointMake(1, 1);
             f.moveActive = 1;
             while (1) {
                 if ([p moveIndex] == cloneMoves - 1) {
@@ -867,7 +867,6 @@ describe(@"Clone Pilot Battlefield", ^{
             [f addTouch:l.weaponSprite.position];
             [[theValue([[f weaponSelector] presentingOptions]) should] beFalse];
         });
-    
     });
 
 });
