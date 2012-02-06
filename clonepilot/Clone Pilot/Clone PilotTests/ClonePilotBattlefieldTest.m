@@ -402,11 +402,17 @@ describe(@"Clone Pilot Battlefield", ^{
         
         it(@"should reverse velocity when reversing move direction", ^{
             firstKill();
-            [f chooseWeapon:0];
+            QPWeaponOptionLayer *l = [[[f weaponSelector] optionLayers] objectAtIndex:0];            
+            [f addTouch:l.weaponSprite.position];
+            [f moveTouch:CGPointMake(400, 384)];
+            
+            f.moveAngle     = CGPointMake(1, 1);
+            f.moveActive = 1;
+            
             ClonePilot *p = [f firstClone];
             Turn *t = [[p moves] objectAtIndex:1];
             NSInteger cloneMoves = [p.moves count];
-            [f player].t = CGPointMake(800, 800);
+//            [f player].t = CGPointMake(800, 800);
             while (1) {
                 if ([p moveIndex] == cloneMoves - 1) {
                     break;

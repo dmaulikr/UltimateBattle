@@ -43,6 +43,7 @@ static int QP_PlayerYDirection = 1;
         [self assignDefaultWeapon];
         self.health = 1;
         self.speed = 5;
+        self.radius = 27;
     }
     return self;
 }

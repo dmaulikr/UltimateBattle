@@ -46,7 +46,7 @@
     if (self) {
         self.l = location;
         self.vel = velocity;
-        self.radius = 15;
+        self.radius = 4;
         self.sprite = [CCSprite spriteWithFile:@"ic_text_dot.png" rect:CGRectMake(0, 0, 16, 16)];
     }
     
