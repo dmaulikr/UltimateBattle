@@ -73,10 +73,20 @@
 }
 
 - (void)endTouchPoint:(CGPoint)tp {
-    if (GetDistance(tp, self.movePoint) < GetDistance(tp, self.firePoint)) {
+    float moveDistance = GetDistance(tp, self.movePoint);
+    float fireDistance = GetDistance(tp, self.firePoint);
+    if (moveDistance < fireDistance) {
         self.moveActive = NO;
         [self.delegate stopMoving];
+    } else {
+//        NSLog(@"move: %f  fire: %f", moveDistance, fireDistance);
     }
+    
+    self.firePoint = CGPointMake(384, -5000);    
+}
+
+- (void)endAllTouches {
+    self.moveActive = NO;
 }
 
 - (void)dealloc {

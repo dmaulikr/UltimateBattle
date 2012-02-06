@@ -131,9 +131,7 @@ int const QP_TimeBonusModifier      = 3;
 }
 
 - (void)ensurePaused {
-    if ([self playing]) {
-        [self togglePlaying];
-    }
+    [self stopMoving];
 }
 
 - (void)openWeaponOptions {
@@ -438,6 +436,7 @@ int const QP_TimeBonusModifier      = 3;
         self.moveActive = NO;
         self.player.t = self.player.l;
         self.moveAngle = CGPointZero;        
+        [self.inputHandler endAllTouches];
     }
 }
 
