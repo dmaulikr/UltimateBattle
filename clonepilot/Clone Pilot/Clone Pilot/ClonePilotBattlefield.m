@@ -32,6 +32,8 @@ int const QP_TimeBonusModifier      = 3;
         self.clones = [NSMutableArray array];
         self.weaponSelector = [[WeaponSelector alloc] initWithBattlefield:self];
         self.time = 0;
+        self.inputHandler = [[[QPInputHandler alloc] init] autorelease];
+        self.inputHandler.delegate = self;        
     }
     return self; 
 }
@@ -43,11 +45,7 @@ int const QP_TimeBonusModifier      = 3;
     self.layer      = quantumLayer;
     self.wall       = [[[BulletWall alloc] initWithLayer:quantumLayer] autorelease];
     self.rSprite    = [CCSprite spriteWithFile:@"sprite-7-1.png"];
-    [quantumLayer addChild:self.rSprite];
-    self.inputHandler = [[[QPInputHandler alloc] init] autorelease];
-    self.inputHandler.delegate = self;
-    self.rSprite.position = CGPointMake(self.inputHandler.movePoint.x, 1024-self.inputHandler.movePoint.y);
-        
+    [quantumLayer addChild:self.rSprite];        
     return self;
 }
 
@@ -55,6 +53,8 @@ int const QP_TimeBonusModifier      = 3;
     self = [self commonInit];
     self.player = [[[ClonePlayer alloc] init] autorelease];
     self.player.bulletDelegate = self;
+    self.rSprite.position = CGPointMake(self.inputHandler.movePoint.x, 1024-self.inputHandler.movePoint.y);
+
     return self;
 }
 
@@ -124,6 +124,23 @@ int const QP_TimeBonusModifier      = 3;
     self.time = 0;
 }
 
+- (void)ensurePlaying {
+    if (![self playing]) {
+        [self togglePlaying];
+    }
+}
+
+- (void)ensurePaused {
+    [self stopMoving];
+}
+
+- (void)openWeaponOptions {
+    [self ensurePaused];
+    [self.weaponSelector openWeaponOptions];
+    [self.weaponSelector addWeaponOptionLayersToLayer:self.layer];
+
+}
+
 - (void)advanceLevel {
     _shouldAdvanceLevel = NO;
     [self clearBullets];
@@ -134,9 +151,8 @@ int const QP_TimeBonusModifier      = 3;
     [self activateAllClones];    
     [self resetPlayer];
     [self resetWall];
-    [self.weaponSelector openWeaponOptions];
-    [self chooseWeapon:0];
-    [self resetTime];
+    [self openWeaponOptions];
+    [self resetTime];    
 }
 
 - (void)fired {
@@ -199,10 +215,28 @@ int const QP_TimeBonusModifier      = 3;
     }
 }
 
+- (void)checkForBulletCollision:(Bullet *)bullet {
+    for (Bullet *b in self.bullets) {
+        if (bullet.identifier != b.identifier) {
+            BOOL collision = NO;
+            if (GetDistance(bullet.l, b.l) < bullet.radius + b.radius) {
+                collision = YES;
+            }
+            
+            if (collision) {
+                b.finished = YES;
+                bullet.finished = YES;
+                break;
+            }
+        }
+    }
+}
+
 - (void)bulletLoop {
     for (Bullet *b in self.bullets) {
         [self checkForCloneCollision:b];
         [self checkForPlayerCollision:b];      
+        [self checkForBulletCollision:b];
     }
     
     [self checkToAdvanceLevel];
@@ -258,6 +292,11 @@ int const QP_TimeBonusModifier      = 3;
     [self resetWall];
     
     [self startup];
+    
+    [self ensurePaused];
+    
+    [self.inputHandler endAllTouches];
+    self.moveAngle = CGPointZero;
 }
 
 - (void)timeloop {
@@ -340,6 +379,7 @@ int const QP_TimeBonusModifier      = 3;
 }
 
 - (void)playerChoseWeapon:(Weapon *)weapon {
+    [self ensurePlaying];
     self.level++;
     [self scoreForAccuracy];
     [self scoreForSpeed];
@@ -350,8 +390,6 @@ int const QP_TimeBonusModifier      = 3;
 
 - (void)chooseWeapon:(NSInteger)choiceIndex {
     [self.weaponSelector chooseWeapon:choiceIndex];
-//    [self scoreForHealth];
-//    self.hits = 0;    
 }
 
 - (NSArray *)weaponChoices {
@@ -378,15 +416,24 @@ int const QP_TimeBonusModifier      = 3;
 }
 
 - (void)addTouch:(CGPoint)l {
+    if ([self.weaponSelector presentingOptions]) {
+        [self.weaponSelector processWeaponSelectionFromLocationTapped:l];
+    }
+    
     if (!_paused) {
         [self.inputHandler addTouchPoint:l];
     } else {
         [self togglePlaying];
-        [self.inputHandler addTouchPoint:l];        
+        [self.inputHandler addTouchPoint:l];    
     }
 }
 
-- (void)moveTouch:(CGPoint)l {
+- (void)moveTouch:(CGPoint)l {    
+    if ([self.weaponSelector presentingOptions]) {
+        return;
+    }
+
+    
     [self.inputHandler moveTouchPoint:l];
 }
 
@@ -410,6 +457,7 @@ int const QP_TimeBonusModifier      = 3;
         self.moveActive = NO;
         self.player.t = self.player.l;
         self.moveAngle = CGPointZero;        
+        [self.inputHandler endAllTouches];
     }
 }
 

@@ -20,5 +20,6 @@
 
 + (float)defaultSpeed;
 
+- (NSString *)weaponImagePath;
 
 @end

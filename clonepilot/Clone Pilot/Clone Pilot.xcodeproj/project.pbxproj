@@ -201,6 +201,9 @@
 		8D6EA34C1438F233002BD85E /* VRGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6EA34A1438F233002BD85E /* VRGeometry.m */; };
 		8D6EA3541438F72D002BD85E /* VRBoundaryFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6EA3531438F72D002BD85E /* VRBoundaryFrame.m */; };
 		8D6EA3551438F72D002BD85E /* VRBoundaryFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6EA3531438F72D002BD85E /* VRBoundaryFrame.m */; };
+		8DA0A0D314C38679008022D4 /* WideTriLaser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA0A0D214C38679008022D4 /* WideTriLaser.m */; };
+		8DA0A0D414C38679008022D4 /* WideTriLaser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA0A0D214C38679008022D4 /* WideTriLaser.m */; };
+		8DA0A0D914C3869A008022D4 /* WideTriLaser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA0A0D714C3869A008022D4 /* WideTriLaser.m */; };
 		8DA3376114522D1C00AA3744 /* TriLaser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA3376014522D1C00AA3744 /* TriLaser.m */; };
 		8DA3376214522D1C00AA3744 /* TriLaser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA3376014522D1C00AA3744 /* TriLaser.m */; };
 		8DA3376614522E5700AA3744 /* TriLaserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA3376414522E5700AA3744 /* TriLaserTest.m */; };
@@ -316,6 +319,8 @@
 		8DC7F9AD1438DA120016D718 /* BulletHellBattlefield.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F9AB1438DA120016D718 /* BulletHellBattlefield.m */; };
 		8DCBEDD314536E3900E6C566 /* WeaponSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DCBEDD214536E3900E6C566 /* WeaponSelector.m */; };
 		8DCBEDD414536E3900E6C566 /* WeaponSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DCBEDD214536E3900E6C566 /* WeaponSelector.m */; };
+		8DCC9CE614DD97AD007EF194 /* QPWeaponOptionLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DCC9CE514DD97AD007EF194 /* QPWeaponOptionLayer.m */; };
+		8DCC9CE714DD97AD007EF194 /* QPWeaponOptionLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DCC9CE514DD97AD007EF194 /* QPWeaponOptionLayer.m */; };
 		8DE424C01470352700FFC6A6 /* VRTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DE424BF1470352700FFC6A6 /* VRTouch.m */; };
 		8DE424C11470352700FFC6A6 /* VRTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DE424BF1470352700FFC6A6 /* VRTouch.m */; };
 		8DEB4769149057B6008E7FCF /* BulletWall.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DEB4768149057B6008E7FCF /* BulletWall.m */; };
@@ -546,6 +551,9 @@
 		8D6EA34A1438F233002BD85E /* VRGeometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VRGeometry.m; sourceTree = "<group>"; };
 		8D6EA3521438F72D002BD85E /* VRBoundaryFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VRBoundaryFrame.h; sourceTree = "<group>"; };
 		8D6EA3531438F72D002BD85E /* VRBoundaryFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VRBoundaryFrame.m; sourceTree = "<group>"; };
+		8DA0A0D114C38679008022D4 /* WideTriLaser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WideTriLaser.h; sourceTree = "<group>"; };
+		8DA0A0D214C38679008022D4 /* WideTriLaser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WideTriLaser.m; sourceTree = "<group>"; };
+		8DA0A0D714C3869A008022D4 /* WideTriLaser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WideTriLaser.m; sourceTree = "<group>"; };
 		8DA3375E14522A5200AA3744 /* ActionBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionBlock.h; sourceTree = "<group>"; };
 		8DA3375F14522D1C00AA3744 /* TriLaser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriLaser.h; sourceTree = "<group>"; };
 		8DA3376014522D1C00AA3744 /* TriLaser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TriLaser.m; sourceTree = "<group>"; };
@@ -750,6 +758,8 @@
 		8DC7F9AB1438DA120016D718 /* BulletHellBattlefield.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BulletHellBattlefield.m; sourceTree = "<group>"; };
 		8DCBEDD114536E3900E6C566 /* WeaponSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeaponSelector.h; sourceTree = "<group>"; };
 		8DCBEDD214536E3900E6C566 /* WeaponSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeaponSelector.m; sourceTree = "<group>"; };
+		8DCC9CE414DD97AD007EF194 /* QPWeaponOptionLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPWeaponOptionLayer.h; sourceTree = "<group>"; };
+		8DCC9CE514DD97AD007EF194 /* QPWeaponOptionLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPWeaponOptionLayer.m; sourceTree = "<group>"; };
 		8DE424BE1470352700FFC6A6 /* VRTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VRTouch.h; sourceTree = "<group>"; };
 		8DE424BF1470352700FFC6A6 /* VRTouch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VRTouch.m; sourceTree = "<group>"; };
 		8DEB4767149057B6008E7FCF /* BulletWall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BulletWall.h; sourceTree = "<group>"; };
@@ -1123,6 +1133,7 @@
 		8DB98B9E144A10C70089B94C /* Weapons */ = {
 			isa = PBXGroup;
 			children = (
+				8DCC9CE214DD9770007EF194 /* Weapon Selection */,
 				8DB98BA0144A10E20089B94C /* SingleLaser.h */,
 				8DB98BA1144A10E20089B94C /* SingleLaser.m */,
 				8DB98BA4144A11530089B94C /* Weapon.h */,
@@ -1133,12 +1144,12 @@
 				8DA3376814524BD600AA3744 /* QuadLaser.m */,
 				8DA337761452637300AA3744 /* SplitLaser.h */,
 				8DA337771452637300AA3744 /* SplitLaser.m */,
-				8DCBEDD114536E3900E6C566 /* WeaponSelector.h */,
-				8DCBEDD214536E3900E6C566 /* WeaponSelector.m */,
 				8DC03C6C146B534A003DCF2D /* SideLaser.h */,
 				8DC03C6D146B534A003DCF2D /* SideLaser.m */,
 				8DC03C70146B537F003DCF2D /* SideLaserBullet.h */,
 				8DC03C71146B537F003DCF2D /* SideLaserBullet.m */,
+				8DA0A0D114C38679008022D4 /* WideTriLaser.h */,
+				8DA0A0D214C38679008022D4 /* WideTriLaser.m */,
 			);
 			name = Weapons;
 			sourceTree = "<group>";
@@ -1152,6 +1163,7 @@
 				8DA3377014524CBA00AA3744 /* QuadLaserTest.m */,
 				8DA337741452627E00AA3744 /* SplitLaserTest.m */,
 				8DC03C69146B533F003DCF2D /* SideLaserTest.m */,
+				8DA0A0D714C3869A008022D4 /* WideTriLaser.m */,
 			);
 			name = "Weapon Tests";
 			sourceTree = "<group>";
@@ -1444,6 +1456,17 @@
 			name = Battlefields;
 			sourceTree = "<group>";
 		};
+		8DCC9CE214DD9770007EF194 /* Weapon Selection */ = {
+			isa = PBXGroup;
+			children = (
+				8DCC9CE414DD97AD007EF194 /* QPWeaponOptionLayer.h */,
+				8DCC9CE514DD97AD007EF194 /* QPWeaponOptionLayer.m */,
+				8DCBEDD114536E3900E6C566 /* WeaponSelector.h */,
+				8DCBEDD214536E3900E6C566 /* WeaponSelector.m */,
+			);
+			name = "Weapon Selection";
+			sourceTree = "<group>";
+		};
 		8DEB47661490579F008E7FCF /* BulletWall */ = {
 			isa = PBXGroup;
 			children = (
@@ -1716,6 +1739,8 @@
 				8DF772AC14C160FF00A8B2B7 /* NSLogWrapper.m in Sources */,
 				8DF772B614C1E15900A8B2B7 /* QPTouchPointInputLayerHandler.m in Sources */,
 				8DF772BA14C1FA5700A8B2B7 /* QPBlockKeeper.m in Sources */,
+				8DA0A0D314C38679008022D4 /* WideTriLaser.m in Sources */,
+				8DCC9CE614DD97AD007EF194 /* QPWeaponOptionLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1908,6 +1933,9 @@
 				8DF772B714C1E15900A8B2B7 /* QPTouchPointInputLayerHandler.m in Sources */,
 				8DF772BB14C1FA5700A8B2B7 /* QPBlockKeeper.m in Sources */,
 				8DF772BF14C1FB6500A8B2B7 /* QPBlockKeeperTest.m in Sources */,
+				8DA0A0D414C38679008022D4 /* WideTriLaser.m in Sources */,
+				8DA0A0D914C3869A008022D4 /* WideTriLaser.m in Sources */,
+				8DCC9CE714DD97AD007EF194 /* QPWeaponOptionLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2040,6 +2068,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
+				USER_HEADER_SEARCH_PATHS = "~/Kiwi/**";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
@@ -2063,6 +2092,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
+				USER_HEADER_SEARCH_PATHS = "~/Kiwi/**";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;

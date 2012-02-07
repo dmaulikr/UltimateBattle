@@ -23,7 +23,7 @@
 }
 
 - (float)defaultMovementThreshhold {
-    return 5;
+    return 20;
 }
 
 - (CGPoint)defaultFirePoint {
@@ -48,6 +48,7 @@
 
 - (void)addTouchPoint:(CGPoint)tp {
     if (self.moveActive) {
+        self.firePoint = tp;
         [self.delegate fireTapped];        
     } else {
         self.moveActive = YES;
@@ -65,15 +66,28 @@
             CGPoint angle = GetAngle(self.movePoint, tp);
             float ratio = distance / self.radius;
             [self.delegate movementAngle:angle distanceRatio:ratio];       
+        } else {
+            [self.delegate movementAngle:CGPointZero distanceRatio:1];
         }
     }
 }
 
 - (void)endTouchPoint:(CGPoint)tp {
-    if (GetDistance(tp, self.movePoint) < GetDistance(tp, self.firePoint)) {
+    float moveDistance = GetDistance(tp, self.movePoint);
+    float fireDistance = GetDistance(tp, self.firePoint);
+    if (moveDistance < fireDistance) {
         self.moveActive = NO;
         [self.delegate stopMoving];
+    } else {
+//        NSLog(@"move: %f  fire: %f", moveDistance, fireDistance);
     }
+    
+    self.firePoint = CGPointMake(384, -5000);    
+}
+
+- (void)endAllTouches {
+    self.moveActive = NO;
+    self.firePoint = CGPointMake(384, -5000);        
 }
 
 - (void)dealloc {

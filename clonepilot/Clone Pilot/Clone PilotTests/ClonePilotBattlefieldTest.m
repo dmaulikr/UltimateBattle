@@ -8,6 +8,7 @@
 #import "VRGeometry.h"
 #import "VRTouch.h"
 #import "QuantumPilotLayer.h"
+#import "QPWeaponOptionLayer.h"
 
 SPEC_BEGIN(ClonePilotBattlefieldTest)
 
@@ -60,13 +61,12 @@ describe(@"Clone Pilot Battlefield", ^{
     };
     
     ActionBlock playerDestinationReached = ^{
-        while (GetDistance([f player].l, [f player].t) > 0) { // > acceptableProximityToTarget) {
+        while (GetDistance([f player].l, [f player].t) > 0) {
             [f tick];
         }
     };
 
     beforeEach(^{
-        
         QuantumPilotLayer *quantumLayer = [[[QuantumPilotLayer alloc] init] autorelease];
         f = [[[ClonePilotBattlefield alloc] initWithLayer:quantumLayer] autorelease];
         startingTouch = CGPointMake(100, 100);
@@ -326,52 +326,6 @@ describe(@"Clone Pilot Battlefield", ^{
             }
         });
         
-        it(@"should invert vertical movement", ^{
-            [f startup];
-            
-            float originalY = [f player].l.y;
-            float originalCloneY = ((ClonePilot *)[[f clones] objectAtIndex:0]).l.y;
-            
-            [[f player] fire];
-            [f player].t = CGPointMake(500, 700);
-
-            NSMutableArray *playerLocations = [NSMutableArray array];
-            
-            int turnTotal = 5;
-            
-            for (int i = 0; i < turnTotal; i++) {
-                Turn *turn = [[f player] currentTurn];
-                NSLog(@"turn: %@",turn);
-                
-                float y = [f player].l.y;
-                float distance = y - originalY;
-                NSLog(@"distance: %f", distance);
-                [playerLocations addObject:[NSNumber numberWithFloat:y]];
-                NSLog(@"%f",[[NSNumber numberWithFloat:y] floatValue]);
-                [f tick];
-            }
-                 
-            kill();
-            
-            ClonePilot *p = [[f clones] objectAtIndex:0];
-            
-            for (int i = 0; i < turnTotal; i++) {
-                Turn *turn = [p currentTurn];
-                NSLog(@"turn: %@",turn);
-                float y = p.l.y;
-                float oy = [[playerLocations objectAtIndex:i] floatValue];
-                
-                float playerDist    = oy - originalY;
-                float cloneDist     = originalCloneY - y;
-                NSLog(@"playerDist: %f", playerDist);
-                NSLog(@"cloneDist: %f", cloneDist);
-                
-                float distance = playerDist - cloneDist;
-                [[theValue(distance) should] beLessThan:theValue(.001)]; //it's close. everything seems fine but this precision.
-                [f tick];
-            }
-        });
-        
         it(@"should fire when its turn fires", ^ {
             [f startup];
             [f tick];
@@ -417,10 +371,12 @@ describe(@"Clone Pilot Battlefield", ^{
             firstKill();
             ClonePilot *p = [f firstClone];
             NSInteger cloneMoves = [p.moves count];
-
-            f.moveActive    = YES;
-            f.moveAngle     = CGPointMake(1, 0);
             
+            QPWeaponOptionLayer *l = [[[f weaponSelector] optionLayers] objectAtIndex:0];
+            [f addTouch:l.weaponSprite.position];
+            [f moveTouch:CGPointMake(400, 384)];
+             
+            f.moveAngle     = CGPointMake(1, 1);
             f.moveActive = 1;
             while (1) {
                 if ([p moveIndex] == cloneMoves - 1) {
@@ -446,10 +402,17 @@ describe(@"Clone Pilot Battlefield", ^{
         
         it(@"should reverse velocity when reversing move direction", ^{
             firstKill();
+            QPWeaponOptionLayer *l = [[[f weaponSelector] optionLayers] objectAtIndex:0];            
+            [f addTouch:l.weaponSprite.position];
+            [f moveTouch:CGPointMake(400, 384)];
+            
+            f.moveAngle     = CGPointMake(1, 1);
+            f.moveActive = 1;
+            
             ClonePilot *p = [f firstClone];
             Turn *t = [[p moves] objectAtIndex:1];
             NSInteger cloneMoves = [p.moves count];
-            [f player].t = CGPointMake(800, 800);
+//            [f player].t = CGPointMake(800, 800);
             while (1) {
                 if ([p moveIndex] == cloneMoves - 1) {
                     break;
@@ -611,13 +574,13 @@ describe(@"Clone Pilot Battlefield", ^{
             [[theValue([[f bullets] count]) should] equal:theValue(0)];
         });
         
-        it(@"should reset player moves", ^{
+        it(@"should reset player moves when player dies", ^{
             firstPilotDeath();
             [f tick];
             [[theValue([[[f player] currentMoves] count]) should] equal:theValue(1)];
         });
         
-        it(@"should reset player location", ^{
+        it(@"should reset player location when player dies", ^{
             [f startup];
             CGPoint startingPosition = [f player].l;
             [[f player] fire];
@@ -629,7 +592,7 @@ describe(@"Clone Pilot Battlefield", ^{
             [[theValue([f player].l) should] equal:theValue(startingPosition)];
         });
         
-        it(@"should reset player weapon", ^{
+        it(@"should reset player weapon when player dies", ^{
             [f startup];
             Weapon *startingWeapon = [[f player] weapon];
             NSString *weaponDescription = [startingWeapon description];
@@ -643,13 +606,13 @@ describe(@"Clone Pilot Battlefield", ^{
             [[theValue(result) should] equal:theValue(YES)];
         });
         
-        it(@"should reset level", ^{
+        it(@"should reset level when player dies", ^{
             firstPilotDeath();
             [f tick];
             [[theValue([f level]) should] equal:theValue(0)];
         });
         
-        it(@"should reset weapon choices", ^{
+        it(@"should reset weapon choices when player dies", ^{
             [f startup];
             NSString *chosenWeapons     = [[[f weaponSelector] chosenWeapons] description];
             [[f player] fire];
@@ -663,6 +626,12 @@ describe(@"Clone Pilot Battlefield", ^{
             BOOL availableResult    = resetAvailableWeapons == nil;
             [[theValue(chosenResult) should] beTrue];
             [[theValue(availableResult) should] beTrue];
+        });
+        
+        it(@"should pause when player dies", ^{
+            firstPilotDeath();
+            [f tick];
+            [[theValue([f playing]) should] beFalse];
         });
     });
     
@@ -678,24 +647,6 @@ describe(@"Clone Pilot Battlefield", ^{
             [f tick];
             [[theValue([f moveActive]) should] beFalse];
             [[theValue([[f player] isFiring]) should] beFalse];
-        });
-
-        it(@"set a velocity angle when a touch lands within the move input circle", ^{
-            [f startup];
-            CGPoint movementCenter = [[f inputHandler] movePoint];
-            CGPoint movementTapPoint = CombinedPoint(movementCenter, CGPointMake(1, 1));
-            CGPoint movementAngle = GetAngle(movementCenter, movementTapPoint);
-            [f addTouch:movementTapPoint];
-            [f tick];
-            CGPoint yInvertedAngle = CGPointMake(movementAngle.x, -movementAngle.y);
-            CGPoint playerVectorAngle = GetAngle([f player].l, [f player].t);
-            [[theValue(yInvertedAngle) should] equal:theValue(playerVectorAngle)];
-        });
-        
-        it(@"should fire when a touch lands within the fire area", ^{
-            [f startup];
-            [f addTouch:[f inputHandler].firePoint];
-            [[theValue([[f player] isFiring]) should] beTrue];
         });
     });
     
@@ -861,6 +812,66 @@ describe(@"Clone Pilot Battlefield", ^{
             playerHit();
             [f tick];
             [[theValue([f wall].l) should] equal:theValue(wallStart)];            
+        });
+    });
+    
+    context(@"between levels", ^{
+        it(@"should pause between levels", ^{
+            firstKill();
+            [[theValue([f playing]) should] beFalse];
+        });
+        
+        it(@"should stay paused until weapon chosen", ^{
+            firstKill();
+            [f tick];
+            [[theValue([f playing]) should] beFalse];
+        });
+        
+        it(@"should pass time again when weapon is chosen", ^{
+            firstKill();
+            float time = [f time];
+            [f tick];
+            [f tick];            
+            [f tick];
+            [f chooseWeapon:0];
+            [f tick];
+            [[theValue([f time]) should] equal:theValue(time+1)];
+        });
+        
+        it(@"should have hitboxes on its weapon selector after a stage", ^{
+            firstKill();
+            [[theValue([[f weaponSelector] presentingOptions]) should] beTrue];
+        });
+        
+        it(@"should remain paused until weapon is chosen", ^{
+            firstKill();
+            [[theValue([f playing]) should] beFalse];
+        });
+        
+        it(@"should select a weapon from a touch", ^{
+            [f startup];
+            [[f player] fire];
+            Weapon *oldWeapon = [[f player] weapon];
+            kill();
+            QPWeaponOptionLayer *l = [[[f weaponSelector] optionLayers] objectAtIndex:0];
+            Weapon *desiredWeapon = [l weapon];
+            [f addTouch:l.weaponSprite.position];
+            [[theValue([[f player] weapon] == oldWeapon) should] beFalse];
+            [[theValue([[f player] weapon]) should] equal:theValue(desiredWeapon)];
+        });
+        
+        it(@"should resume playing when choosing a weapon from a touch", ^{
+            firstKill();
+            QPWeaponOptionLayer *l = [[[f weaponSelector] optionLayers] objectAtIndex:0];
+            [f addTouch:l.weaponSprite.position];
+            [[theValue([f playing]) should] beTrue];
+        });
+        
+        it(@"should close weapon options after choosing a weapon from a touch", ^{
+            firstKill();
+            QPWeaponOptionLayer *l = [[[f weaponSelector] optionLayers] objectAtIndex:0];
+            [f addTouch:l.weaponSprite.position];
+            [[theValue([[f weaponSelector] presentingOptions]) should] beFalse];
         });
     });
 

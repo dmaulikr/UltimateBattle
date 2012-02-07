@@ -13,6 +13,7 @@
 #import "TriLaser.h"
 #import "QuadLaser.h"
 #import "SideLaser.h"
+#import "WideTriLaser.h"
 
 @protocol WeaponSelectorDelegate <NSObject>
 
@@ -33,8 +34,10 @@
 @property (nonatomic, retain) TriLaser *triLaser;
 @property (nonatomic, retain) QuadLaser *quadLaser;
 @property (nonatomic, retain) SideLaser *sideLaser;
+@property (nonatomic, retain) WideTriLaser *wideTriLaser;
 
 @property (nonatomic, assign) id <WeaponSelectorDelegate> delegate;
+@property (nonatomic, retain) NSMutableArray *optionLayers;
 
 - (id)initWithBattlefield:(id)field;
 - (void)startup;
@@ -42,7 +45,9 @@
 
 - (void)chooseWeapon:(NSInteger)choiceIndex;
 - (void)openWeaponOptions;
-
+- (void)addWeaponOptionLayersToLayer:(CCLayer *)layer;
+- (BOOL)presentingOptions;
+- (void)processWeaponSelectionFromLocationTapped:(CGPoint)l;
 
 
 @end

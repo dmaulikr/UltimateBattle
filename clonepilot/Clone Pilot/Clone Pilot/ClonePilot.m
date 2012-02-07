@@ -92,7 +92,7 @@ static int QP_ClonePilotYDirection = -1;
         self.l = [ClonePilot defaultLocation];
         self.moves = [NSMutableArray array];
         self.living = YES;
-        self.radius = 15;
+        self.radius = 23;
         _moveDirection = 1;
     }
     
@@ -104,7 +104,9 @@ static int QP_ClonePilotYDirection = -1;
 }
 
 - (void)resetSpriteWithLayer:(CCLayer *)layer {
-    self.sprite = [[CCSprite spriteWithFile:@"sprite-7-1.png"] retain];
+    [self.sprite removeFromParentAndCleanup:YES];
+    self.sprite = nil;
+    self.sprite = [CCSprite spriteWithFile:@"sprite-7-1.png"];
     [layer addChild:self.sprite];
 }
 

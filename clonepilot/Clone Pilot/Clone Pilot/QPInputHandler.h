@@ -27,11 +27,10 @@
 @property (nonatomic, assign) BOOL moveActive;
 @property (nonatomic, assign) id <QPInputHandlerDelegate> delegate;
 
-
-
-
 - (void)addTouchPoint:(CGPoint)tp;
 - (void)moveTouchPoint:(CGPoint)tp;
 - (void)endTouchPoint:(CGPoint)tp;
+
+- (void)endAllTouches;
 
 @end
