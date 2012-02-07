@@ -46,8 +46,9 @@ static int QP_ClonePilotYDirection = -1;
     if (turn.firing) {
         NSArray *bullets = [self.weapon newBulletsForLocation:self.l direction:QP_ClonePilotYDirection];
         for (Bullet *b in bullets) {
+            CGPoint inertiaMod = CGPointMake(.75 * self.vel.x, 1);
             b.identifier = [ClonePilot identifier];
-            b.vel = CombinedPoint(self.vel, b.vel);
+            b.vel = CombinedPoint(b.vel, inertiaMod);
         }
         [self.bulletDelegate addBullets:bullets];
     }
