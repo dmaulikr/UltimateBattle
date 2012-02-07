@@ -87,6 +87,7 @@
 
 - (void)endAllTouches {
     self.moveActive = NO;
+    self.firePoint = CGPointMake(384, -5000);        
 }
 
 - (void)dealloc {

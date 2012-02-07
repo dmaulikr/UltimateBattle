@@ -152,7 +152,7 @@ int const QP_TimeBonusModifier      = 3;
     [self resetPlayer];
     [self resetWall];
     [self openWeaponOptions];
-    [self resetTime];
+    [self resetTime];    
 }
 
 - (void)fired {
@@ -218,7 +218,12 @@ int const QP_TimeBonusModifier      = 3;
 - (void)checkForBulletCollision:(Bullet *)bullet {
     for (Bullet *b in self.bullets) {
         if (bullet.identifier != b.identifier) {
+            BOOL collision = NO;
             if (GetDistance(bullet.l, b.l) < bullet.radius + b.radius) {
+                collision = YES;
+            }
+            
+            if (collision) {
                 b.finished = YES;
                 bullet.finished = YES;
                 break;
@@ -289,6 +294,9 @@ int const QP_TimeBonusModifier      = 3;
     [self startup];
     
     [self ensurePaused];
+    
+    [self.inputHandler endAllTouches];
+    self.moveAngle = CGPointZero;
 }
 
 - (void)timeloop {

@@ -91,7 +91,7 @@ static int QP_ClonePilotYDirection = -1;
         self.l = [ClonePilot defaultLocation];
         self.moves = [NSMutableArray array];
         self.living = YES;
-        self.radius = 27;
+        self.radius = 23;
         _moveDirection = 1;
     }
     
