@@ -12,7 +12,7 @@
 
 - (void)addBullets:(NSArray *)bullets ship:(QPShip *)ship {
     for (Bullet *b in bullets) {
-        b.vel = CombinedPoint(b.vel, CGPointMake(ship.vel.x * .5, 0));
+        b.vel = CombinedPoint(b.vel, CGPointMake(ship.vel.x * .75, 0));
     }
 }
 

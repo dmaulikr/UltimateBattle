@@ -348,6 +348,13 @@
 		8DF8D9D114E6445800DA6C4B /* QPShip.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF8D9CF14E6445800DA6C4B /* QPShip.m */; };
 		8DF8D9D414E645F700DA6C4B /* QPBattlefieldModifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF8D9D314E645F700DA6C4B /* QPBattlefieldModifier.m */; };
 		8DF8D9D514E645F700DA6C4B /* QPBattlefieldModifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF8D9D314E645F700DA6C4B /* QPBattlefieldModifier.m */; };
+		8DF8D9D814E6537800DA6C4B /* QPBulletIdentifierModifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF8D9D714E6537700DA6C4B /* QPBulletIdentifierModifier.m */; };
+		8DF8D9D914E6537800DA6C4B /* QPBulletIdentifierModifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF8D9D714E6537700DA6C4B /* QPBulletIdentifierModifier.m */; };
+		8DF8D9DD14E653C900DA6C4B /* QPBulletIdentifierModifierTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF8D9DB14E653C900DA6C4B /* QPBulletIdentifierModifierTest.m */; };
+		8DF8D9E014E657DC00DA6C4B /* QPClonePlayerShip.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF8D9DF14E657DB00DA6C4B /* QPClonePlayerShip.m */; };
+		8DF8D9E114E657DC00DA6C4B /* QPClonePlayerShip.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF8D9DF14E657DB00DA6C4B /* QPClonePlayerShip.m */; };
+		8DF8D9E414E6580D00DA6C4B /* QPCloneShip.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF8D9E314E6580C00DA6C4B /* QPCloneShip.m */; };
+		8DF8D9E514E6580D00DA6C4B /* QPCloneShip.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF8D9E314E6580C00DA6C4B /* QPCloneShip.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -795,6 +802,13 @@
 		8DF8D9CF14E6445800DA6C4B /* QPShip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPShip.m; sourceTree = "<group>"; };
 		8DF8D9D214E645F700DA6C4B /* QPBattlefieldModifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBattlefieldModifier.h; sourceTree = "<group>"; };
 		8DF8D9D314E645F700DA6C4B /* QPBattlefieldModifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBattlefieldModifier.m; sourceTree = "<group>"; };
+		8DF8D9D614E6537700DA6C4B /* QPBulletIdentifierModifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBulletIdentifierModifier.h; sourceTree = "<group>"; };
+		8DF8D9D714E6537700DA6C4B /* QPBulletIdentifierModifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBulletIdentifierModifier.m; sourceTree = "<group>"; };
+		8DF8D9DB14E653C900DA6C4B /* QPBulletIdentifierModifierTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBulletIdentifierModifierTest.m; sourceTree = "<group>"; };
+		8DF8D9DE14E657DB00DA6C4B /* QPClonePlayerShip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPClonePlayerShip.h; sourceTree = "<group>"; };
+		8DF8D9DF14E657DB00DA6C4B /* QPClonePlayerShip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPClonePlayerShip.m; sourceTree = "<group>"; };
+		8DF8D9E214E6580C00DA6C4B /* QPCloneShip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPCloneShip.h; sourceTree = "<group>"; };
+		8DF8D9E314E6580C00DA6C4B /* QPCloneShip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPCloneShip.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1286,8 +1300,6 @@
 				8DC7F9A51438D8FB0016D718 /* Battlefield Tests */,
 				8DC7F8CB1438D8E20016D718 /* Kiwi */,
 				8DC7F8B91438D8870016D718 /* Supporting Files */,
-				8DF8D9BF14E6408500DA6C4B /* QPMomentumModifier.h */,
-				8DF8D9C014E6408600DA6C4B /* QPMomentumModifier.m */,
 			);
 			path = "Clone PilotTests";
 			sourceTree = "<group>";
@@ -1541,10 +1553,14 @@
 		8DF8D9C414E6408900DA6C4B /* BattlefieldModifiers */ = {
 			isa = PBXGroup;
 			children = (
+				8DF8D9BF14E6408500DA6C4B /* QPMomentumModifier.h */,
+				8DF8D9C014E6408600DA6C4B /* QPMomentumModifier.m */,
 				8DF8D9C614E640CB00DA6C4B /* QPBattlefieldMomentumModifier.h */,
 				8DF8D9C714E640CB00DA6C4B /* QPBattlefieldMomentumModifier.m */,
 				8DF8D9D214E645F700DA6C4B /* QPBattlefieldModifier.h */,
 				8DF8D9D314E645F700DA6C4B /* QPBattlefieldModifier.m */,
+				8DF8D9D614E6537700DA6C4B /* QPBulletIdentifierModifier.h */,
+				8DF8D9D714E6537700DA6C4B /* QPBulletIdentifierModifier.m */,
 			);
 			name = BattlefieldModifiers;
 			path = "Clone PilotTests";
@@ -1554,6 +1570,7 @@
 			isa = PBXGroup;
 			children = (
 				8DF8D9CB14E643C900DA6C4B /* QPMomentumModifierTest.m */,
+				8DF8D9DB14E653C900DA6C4B /* QPBulletIdentifierModifierTest.m */,
 			);
 			name = "QPBattlefieldModifier Tests";
 			sourceTree = "<group>";
@@ -1563,6 +1580,10 @@
 			children = (
 				8DF8D9CE14E6445800DA6C4B /* QPShip.h */,
 				8DF8D9CF14E6445800DA6C4B /* QPShip.m */,
+				8DF8D9DE14E657DB00DA6C4B /* QPClonePlayerShip.h */,
+				8DF8D9DF14E657DB00DA6C4B /* QPClonePlayerShip.m */,
+				8DF8D9E214E6580C00DA6C4B /* QPCloneShip.h */,
+				8DF8D9E314E6580C00DA6C4B /* QPCloneShip.m */,
 			);
 			name = Ships;
 			sourceTree = "<group>";
@@ -1797,6 +1818,9 @@
 				8DF8D9C814E640CB00DA6C4B /* QPBattlefieldMomentumModifier.m in Sources */,
 				8DF8D9D014E6445800DA6C4B /* QPShip.m in Sources */,
 				8DF8D9D414E645F700DA6C4B /* QPBattlefieldModifier.m in Sources */,
+				8DF8D9D814E6537800DA6C4B /* QPBulletIdentifierModifier.m in Sources */,
+				8DF8D9E014E657DC00DA6C4B /* QPClonePlayerShip.m in Sources */,
+				8DF8D9E414E6580D00DA6C4B /* QPCloneShip.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1997,6 +2021,10 @@
 				8DF8D9CC14E643C900DA6C4B /* QPMomentumModifierTest.m in Sources */,
 				8DF8D9D114E6445800DA6C4B /* QPShip.m in Sources */,
 				8DF8D9D514E645F700DA6C4B /* QPBattlefieldModifier.m in Sources */,
+				8DF8D9D914E6537800DA6C4B /* QPBulletIdentifierModifier.m in Sources */,
+				8DF8D9DD14E653C900DA6C4B /* QPBulletIdentifierModifierTest.m in Sources */,
+				8DF8D9E114E657DC00DA6C4B /* QPClonePlayerShip.m in Sources */,
+				8DF8D9E514E6580D00DA6C4B /* QPCloneShip.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

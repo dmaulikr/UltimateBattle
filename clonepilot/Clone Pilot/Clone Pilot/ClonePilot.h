@@ -12,6 +12,7 @@
 #import "Turn.h"
 #import "BulletDelegateProtocol.h"
 #import "cocos2d.h"
+#import "QPShip.h"
 
 @interface ClonePilot : NSObject <VRGameObject> {
     NSInteger _moveDirection;
@@ -23,6 +24,7 @@
 @property (nonatomic, assign) NSInteger moveIndex;
 @property (nonatomic, assign) id <BulletDelegate> bulletDelegate;
 @property (nonatomic, retain) CCSprite *sprite;
+@property (nonatomic, retain) QPShip *ship;
 
 + (CGPoint)defaultLocation;
 + (NSInteger)identifier;

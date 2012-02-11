@@ -13,6 +13,7 @@
 #import "Bullet.h"
 #import "Weapon.h"
 #import "BulletDelegateProtocol.h"
+#import "QPShip.h"
 
 @interface ClonePlayer : NSObject <VRGameObject> {
 }
@@ -23,6 +24,7 @@
 @property (nonatomic, assign) NSInteger health;
 @property (nonatomic, retain) CCSprite *sprite;
 @property (nonatomic, assign) float speed;
+@property (nonatomic, retain) QPShip *ship;
 
 - (void)tick;
 

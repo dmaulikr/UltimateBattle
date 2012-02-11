@@ -1,13 +1,6 @@
-//
-//  ClonePilot.m
-//  Clone Pilot
-//
-//  Created by Anthony Broussard on 10/27/11.
-//  Copyright 2011 ChaiONE. All rights reserved.
-//
-
 #import "ClonePilot.h"
 #import "VRGeometry.h"
+#import "QPCloneShip.h"
 
 static int QP_ClonePilotYDirection = -1;
 
@@ -19,6 +12,7 @@ static int QP_ClonePilotYDirection = -1;
 @synthesize moveIndex;
 @synthesize bulletDelegate;
 @synthesize sprite;
+@synthesize ship;
 
 - (NSString *)description {
     return [NSString stringWithFormat:@"x:%f y:%f vx:%f vy:%f",self.l.x, self.l.y, self.vel.x, self.vel.y];
@@ -45,12 +39,7 @@ static int QP_ClonePilotYDirection = -1;
 - (void)manageFiringForTurn:(Turn *)turn {
     if (turn.firing) {
         NSArray *bullets = [self.weapon newBulletsForLocation:self.l direction:QP_ClonePilotYDirection];
-        for (Bullet *b in bullets) {
-            CGPoint inertiaMod = CGPointMake(.75 * self.vel.x, 1);
-            b.identifier = [ClonePilot identifier];
-            b.vel = CombinedPoint(b.vel, inertiaMod);
-        }
-        [self.bulletDelegate addBullets:bullets];
+        [self.bulletDelegate addBullets:bullets ship:self.ship];
     }
 }
 
@@ -95,6 +84,7 @@ static int QP_ClonePilotYDirection = -1;
         self.living = YES;
         self.radius = 23;
         _moveDirection = 1;
+        self.ship = [[[QPCloneShip alloc] init] autorelease];
     }
     
     return self;
@@ -123,6 +113,7 @@ static int QP_ClonePilotYDirection = -1;
     [weapon release];
     self.bulletDelegate = nil;
     [sprite release];
+    [ship release];
     [super dealloc];
 }
 

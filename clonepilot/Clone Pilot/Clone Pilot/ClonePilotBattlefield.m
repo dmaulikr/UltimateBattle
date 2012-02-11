@@ -1,5 +1,7 @@
 #import "ClonePilotBattlefield.h"
 #import "VRGeometry.h"
+#import "QPBattlefieldModifier.h"
+#import "QPBulletIdentifierModifier.h"
 
 #define CLONE_KILL_VALUE 1
 
@@ -20,11 +22,17 @@
 @synthesize rSprite;
 @synthesize inputHandler;
 @synthesize moveAngle;
+@synthesize battlefieldModifiers;
 
 int const QP_TouchTargetingYOffset  = 30;
 int const QP_AccuracyBonusModifier  = 100;
 int const QP_MaxTime                = 2000;
 int const QP_TimeBonusModifier      = 3;
+
+- (void)setupBattlefieldModifiers { 
+    QPBulletIdentifierModifier *m = [[[QPBulletIdentifierModifier alloc] init] autorelease];
+    self.battlefieldModifiers = [NSMutableArray arrayWithObject:m];
+}
 
 - (id)commonInit {
     self = [super init];
@@ -34,6 +42,8 @@ int const QP_TimeBonusModifier      = 3;
         self.time = 0;
         self.inputHandler = [[[QPInputHandler alloc] init] autorelease];
         self.inputHandler.delegate = self;        
+        self.battlefieldModifiers  = [NSMutableArray array];
+        [self setupBattlefieldModifiers];
     }
     return self; 
 }
@@ -360,6 +370,14 @@ int const QP_TimeBonusModifier      = 3;
     }
 }
 
+- (void)addBullets:(NSArray *)bullets ship:(QPShip *)ship {
+    for (QPBattlefieldModifier *m in self.battlefieldModifiers) {
+        [m addBullets:bullets ship:ship];
+    }
+    [self addBullets:bullets];
+}
+
+
 - (NSInteger)timeBonus {
     NSInteger bonusTime = (QP_MaxTime - self.time) * QP_TimeBonusModifier;
     return bonusTime > 0 ? bonusTime : 0;
@@ -469,7 +487,6 @@ int const QP_TimeBonusModifier      = 3;
     _paused = !_paused;
 }
 
-
 - (void)dealloc {
     [player release];
     [clones release];
@@ -477,6 +494,7 @@ int const QP_TimeBonusModifier      = 3;
     self.layer = nil;
     [wall release];
     [inputHandler release];
+    [battlefieldModifiers release];
     [super dealloc];
 }
 

@@ -9,6 +9,7 @@
 #import "ClonePlayer.h"
 #import "VRGeometry.h"
 #import "SingleLaser.h"
+#import "QPClonePlayerShip.h"
 
 static int QP_PlayerYDirection = 1;
 
@@ -20,6 +21,7 @@ static int QP_PlayerYDirection = 1;
 @synthesize health;
 @synthesize sprite;
 @synthesize speed;
+@synthesize ship;
 
 - (void)generateTurn {
     Turn *turn = [[Turn alloc] init];
@@ -44,6 +46,7 @@ static int QP_PlayerYDirection = 1;
         self.health = 1;
         self.speed = 5;
         self.radius = 20;
+        self.ship = [[[QPClonePlayerShip alloc] init] autorelease];
     }
     return self;
 }
@@ -88,12 +91,7 @@ static int QP_PlayerYDirection = 1;
 
 - (void)fireWeapon {
     NSArray *bullets = [self.weapon newBulletsForLocation:self.l direction:QP_PlayerYDirection];
-    for (Bullet *b in bullets) {
-        CGPoint inertiaMod = CGPointMake(.75 * self.vel.x, 1);
-        b.vel = CombinedPoint(inertiaMod, b.vel);
-        b.identifier = [self identifier];
-    }
-    [self.bulletDelegate addBullets:bullets];
+   [self.bulletDelegate addBullets:bullets ship:self.ship];
 }
 
 - (BOOL)firstTurn {
@@ -187,6 +185,7 @@ static int QP_PlayerYDirection = 1;
     [weapon release];
     [sprite removeFromParentAndCleanup:YES];
     self.sprite = nil;
+    [ship release];
     [super dealloc];
 }
 

@@ -20,6 +20,10 @@
     return self.health > 0;
 }
 
+- (NSInteger)identifier {
+    return 0;
+}
+
 - (void)dealloc {
     [moves release];
     [weapon release];

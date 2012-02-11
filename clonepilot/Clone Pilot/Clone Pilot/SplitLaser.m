@@ -1,11 +1,3 @@
-//
-//  SplitLaser.m
-//  Clone Pilot
-//
-//  Created by Anthony Broussard on 10/21/11.
-//  Copyright (c) 2011 ChaiONE. All rights reserved.
-//
-
 #import "SplitLaser.h"
 #import "Bullet.h"
 #import "VRGeometry.h"
