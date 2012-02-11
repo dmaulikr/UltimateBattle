@@ -23,8 +23,8 @@
 @property (nonatomic, retain) CCSprite *sprite;
 
 - (id)initWithLocation:(CGPoint)location velocity:(CGPoint)velocity;
-
 - (void)tick;
+- (BOOL)isColliding:(Bullet *)b;
 
 + (Bullet *)sampleBullet;
 

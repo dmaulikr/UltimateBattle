@@ -186,6 +186,13 @@
 		8D1DBF751480503E00C4CFEC /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D1DBF731480503800C4CFEC /* OpenGLES.framework */; };
 		8D1DBF771480505D00C4CFEC /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D1DBF761480505D00C4CFEC /* libz.dylib */; };
 		8D1DBF781480508400C4CFEC /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D1DBF761480505D00C4CFEC /* libz.dylib */; };
+		8D20A33614E6D73A00234995 /* QPBulletCollisionModifierTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D20A33414E6D72D00234995 /* QPBulletCollisionModifierTest.m */; };
+		8D20A33914E6D95000234995 /* QPBulletCollisionModifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D20A33814E6D95000234995 /* QPBulletCollisionModifier.m */; };
+		8D20A33A14E6D95000234995 /* QPBulletCollisionModifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D20A33814E6D95000234995 /* QPBulletCollisionModifier.m */; };
+		8D20A33D14E6E0BB00234995 /* BulletHellBattlefieldModifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D20A33C14E6E0BB00234995 /* BulletHellBattlefieldModifier.m */; };
+		8D20A33E14E6E0BB00234995 /* BulletHellBattlefieldModifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D20A33C14E6E0BB00234995 /* BulletHellBattlefieldModifier.m */; };
+		8D20A34114E6E5ED00234995 /* TriLaserBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D20A34014E6E5ED00234995 /* TriLaserBullet.m */; };
+		8D20A34214E6E5ED00234995 /* TriLaserBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D20A34014E6E5ED00234995 /* TriLaserBullet.m */; };
 		8D3E721F143BE6FE00D59706 /* Turn.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D3E721E143BE6FE00D59706 /* Turn.m */; };
 		8D3E7220143BE6FE00D59706 /* Turn.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D3E721E143BE6FE00D59706 /* Turn.m */; };
 		8D6156BF149ACD3B0060B788 /* QPControlLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6156BE149ACD3B0060B788 /* QPControlLayer.m */; };
@@ -341,8 +348,6 @@
 		8DF772E114C27D9500A8B2B7 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8DF772DF14C27D9400A8B2B7 /* Entitlements.plist */; };
 		8DF8D9C114E6408600DA6C4B /* QPMomentumModifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF8D9C014E6408600DA6C4B /* QPMomentumModifier.m */; };
 		8DF8D9C214E6408600DA6C4B /* QPMomentumModifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF8D9C014E6408600DA6C4B /* QPMomentumModifier.m */; };
-		8DF8D9C814E640CB00DA6C4B /* QPBattlefieldMomentumModifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF8D9C714E640CB00DA6C4B /* QPBattlefieldMomentumModifier.m */; };
-		8DF8D9C914E640CB00DA6C4B /* QPBattlefieldMomentumModifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF8D9C714E640CB00DA6C4B /* QPBattlefieldMomentumModifier.m */; };
 		8DF8D9CC14E643C900DA6C4B /* QPMomentumModifierTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF8D9CB14E643C900DA6C4B /* QPMomentumModifierTest.m */; };
 		8DF8D9D014E6445800DA6C4B /* QPShip.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF8D9CF14E6445800DA6C4B /* QPShip.m */; };
 		8DF8D9D114E6445800DA6C4B /* QPShip.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF8D9CF14E6445800DA6C4B /* QPShip.m */; };
@@ -552,6 +557,13 @@
 		8D1DBF6714804FCE00C4CFEC /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		8D1DBF731480503800C4CFEC /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		8D1DBF761480505D00C4CFEC /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		8D20A33414E6D72D00234995 /* QPBulletCollisionModifierTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBulletCollisionModifierTest.m; sourceTree = "<group>"; };
+		8D20A33714E6D95000234995 /* QPBulletCollisionModifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBulletCollisionModifier.h; sourceTree = "<group>"; };
+		8D20A33814E6D95000234995 /* QPBulletCollisionModifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBulletCollisionModifier.m; sourceTree = "<group>"; };
+		8D20A33B14E6E0BB00234995 /* BulletHellBattlefieldModifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BulletHellBattlefieldModifier.h; sourceTree = "<group>"; };
+		8D20A33C14E6E0BB00234995 /* BulletHellBattlefieldModifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BulletHellBattlefieldModifier.m; sourceTree = "<group>"; };
+		8D20A33F14E6E5ED00234995 /* TriLaserBullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriLaserBullet.h; sourceTree = "<group>"; };
+		8D20A34014E6E5ED00234995 /* TriLaserBullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TriLaserBullet.m; sourceTree = "<group>"; };
 		8D3E721D143BE6FE00D59706 /* Turn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Turn.h; sourceTree = "<group>"; };
 		8D3E721E143BE6FE00D59706 /* Turn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Turn.m; sourceTree = "<group>"; };
 		8D6156BD149ACD3B0060B788 /* QPControlLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPControlLayer.h; sourceTree = "<group>"; };
@@ -795,8 +807,6 @@
 		8DF772DF14C27D9400A8B2B7 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		8DF8D9BF14E6408500DA6C4B /* QPMomentumModifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPMomentumModifier.h; sourceTree = "<group>"; };
 		8DF8D9C014E6408600DA6C4B /* QPMomentumModifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPMomentumModifier.m; sourceTree = "<group>"; };
-		8DF8D9C614E640CB00DA6C4B /* QPBattlefieldMomentumModifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBattlefieldMomentumModifier.h; sourceTree = "<group>"; };
-		8DF8D9C714E640CB00DA6C4B /* QPBattlefieldMomentumModifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBattlefieldMomentumModifier.m; sourceTree = "<group>"; };
 		8DF8D9CB14E643C900DA6C4B /* QPMomentumModifierTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPMomentumModifierTest.m; sourceTree = "<group>"; };
 		8DF8D9CE14E6445800DA6C4B /* QPShip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPShip.h; sourceTree = "<group>"; };
 		8DF8D9CF14E6445800DA6C4B /* QPShip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPShip.m; sourceTree = "<group>"; };
@@ -1113,6 +1123,8 @@
 				8D6EA3431438DDFB002BD85E /* Bullet.h */,
 				8D6EA3441438DDFB002BD85E /* Bullet.m */,
 				8D10349F1464FA0E001FF342 /* BulletDelegateProtocol.h */,
+				8D20A33F14E6E5ED00234995 /* TriLaserBullet.h */,
+				8D20A34014E6E5ED00234995 /* TriLaserBullet.m */,
 			);
 			name = Bullets;
 			sourceTree = "<group>";
@@ -1555,12 +1567,14 @@
 			children = (
 				8DF8D9BF14E6408500DA6C4B /* QPMomentumModifier.h */,
 				8DF8D9C014E6408600DA6C4B /* QPMomentumModifier.m */,
-				8DF8D9C614E640CB00DA6C4B /* QPBattlefieldMomentumModifier.h */,
-				8DF8D9C714E640CB00DA6C4B /* QPBattlefieldMomentumModifier.m */,
 				8DF8D9D214E645F700DA6C4B /* QPBattlefieldModifier.h */,
 				8DF8D9D314E645F700DA6C4B /* QPBattlefieldModifier.m */,
 				8DF8D9D614E6537700DA6C4B /* QPBulletIdentifierModifier.h */,
 				8DF8D9D714E6537700DA6C4B /* QPBulletIdentifierModifier.m */,
+				8D20A33714E6D95000234995 /* QPBulletCollisionModifier.h */,
+				8D20A33814E6D95000234995 /* QPBulletCollisionModifier.m */,
+				8D20A33B14E6E0BB00234995 /* BulletHellBattlefieldModifier.h */,
+				8D20A33C14E6E0BB00234995 /* BulletHellBattlefieldModifier.m */,
 			);
 			name = BattlefieldModifiers;
 			path = "Clone PilotTests";
@@ -1571,6 +1585,7 @@
 			children = (
 				8DF8D9CB14E643C900DA6C4B /* QPMomentumModifierTest.m */,
 				8DF8D9DB14E653C900DA6C4B /* QPBulletIdentifierModifierTest.m */,
+				8D20A33414E6D72D00234995 /* QPBulletCollisionModifierTest.m */,
 			);
 			name = "QPBattlefieldModifier Tests";
 			sourceTree = "<group>";
@@ -1815,12 +1830,14 @@
 				8DA0A0D314C38679008022D4 /* WideTriLaser.m in Sources */,
 				8DCC9CE614DD97AD007EF194 /* QPWeaponOptionLayer.m in Sources */,
 				8DF8D9C114E6408600DA6C4B /* QPMomentumModifier.m in Sources */,
-				8DF8D9C814E640CB00DA6C4B /* QPBattlefieldMomentumModifier.m in Sources */,
 				8DF8D9D014E6445800DA6C4B /* QPShip.m in Sources */,
 				8DF8D9D414E645F700DA6C4B /* QPBattlefieldModifier.m in Sources */,
 				8DF8D9D814E6537800DA6C4B /* QPBulletIdentifierModifier.m in Sources */,
 				8DF8D9E014E657DC00DA6C4B /* QPClonePlayerShip.m in Sources */,
 				8DF8D9E414E6580D00DA6C4B /* QPCloneShip.m in Sources */,
+				8D20A33914E6D95000234995 /* QPBulletCollisionModifier.m in Sources */,
+				8D20A33D14E6E0BB00234995 /* BulletHellBattlefieldModifier.m in Sources */,
+				8D20A34114E6E5ED00234995 /* TriLaserBullet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2017,7 +2034,6 @@
 				8DA0A0D914C3869A008022D4 /* WideTriLaser.m in Sources */,
 				8DCC9CE714DD97AD007EF194 /* QPWeaponOptionLayer.m in Sources */,
 				8DF8D9C214E6408600DA6C4B /* QPMomentumModifier.m in Sources */,
-				8DF8D9C914E640CB00DA6C4B /* QPBattlefieldMomentumModifier.m in Sources */,
 				8DF8D9CC14E643C900DA6C4B /* QPMomentumModifierTest.m in Sources */,
 				8DF8D9D114E6445800DA6C4B /* QPShip.m in Sources */,
 				8DF8D9D514E645F700DA6C4B /* QPBattlefieldModifier.m in Sources */,
@@ -2025,6 +2041,10 @@
 				8DF8D9DD14E653C900DA6C4B /* QPBulletIdentifierModifierTest.m in Sources */,
 				8DF8D9E114E657DC00DA6C4B /* QPClonePlayerShip.m in Sources */,
 				8DF8D9E514E6580D00DA6C4B /* QPCloneShip.m in Sources */,
+				8D20A33614E6D73A00234995 /* QPBulletCollisionModifierTest.m in Sources */,
+				8D20A33A14E6D95000234995 /* QPBulletCollisionModifier.m in Sources */,
+				8D20A33E14E6E0BB00234995 /* BulletHellBattlefieldModifier.m in Sources */,
+				8D20A34214E6E5ED00234995 /* TriLaserBullet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

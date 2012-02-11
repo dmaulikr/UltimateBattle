@@ -67,6 +67,10 @@
     [self updateLocation];
 }
 
+- (BOOL)isColliding:(Bullet *)b {
+    return GetDistance(self.l, b.l) < self.radius + b.radius;
+}
+
 - (void)dealloc {
     [sprite removeFromParentAndCleanup:YES];
     self.sprite = nil;

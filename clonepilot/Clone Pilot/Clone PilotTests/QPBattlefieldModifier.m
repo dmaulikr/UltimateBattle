@@ -10,28 +10,11 @@
 
 @implementation QPBattlefieldModifier
 
-- (void)interceptBulletAdded:(Bullet *)b ship:(QPShip *)ship {
-    
+- (void)modifyClonePilotBattlefield:(ClonePilotBattlefield *)f {
 }
 
-- (void)fired {
-    
-}
-
-- (void)addBullet:(Bullet *)b {
-    
-}
-
-- (void)addBullet:(Bullet *)b ship:(QPShip *)ship {
-    
-}
-
-- (void)addBullets:(NSArray *)bullets {
-    
-}
-
-- (void)addBullets:(NSArray *)bullets ship:(QPShip *)ship {
-    
+- (void)modifyBattlefield:(BulletHellBattlefield *)f {
+    [self modifyClonePilotBattlefield:(ClonePilotBattlefield *)f];
 }
 
 @end

@@ -22,14 +22,14 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "Clone PilotTests/ClonePilotBattlefieldTest.m"
-         timestampString = "350639558.879472"
+         filePath = "Clone Pilot/BulletHellBattlefield.m"
+         timestampString = "350677132.969342"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "296"
-         endingLineNumber = "296"
-         landmarkName = "describe()"
-         landmarkType = "6">
+         startingLineNumber = "76"
+         endingLineNumber = "76"
+         landmarkName = "-modifierLoop"
+         landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>

@@ -36,7 +36,6 @@ extern int const QP_TimeBonusModifier;
 @property (nonatomic, retain) CCSprite *rSprite;
 @property (nonatomic, retain) QPInputHandler *inputHandler;
 @property (nonatomic, assign) CGPoint moveAngle;
-@property (nonatomic, retain) NSMutableArray *battlefieldModifiers;
 
 - (void)startup;
 - (NSInteger)livingClones;
@@ -70,6 +69,8 @@ extern int const QP_TimeBonusModifier;
 
 - (NSInteger)accuracyBonus;
 - (NSInteger)timeBonus;
+
+- (void)ensurePlaying;
 
 - (id)initWithLayer:(CCLayer *)quantumLayer;
 

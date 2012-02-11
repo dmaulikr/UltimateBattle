@@ -7,17 +7,25 @@
 //
 
 #import "BulletHellBattlefield.h"
+#import "QPBattlefieldModifier.h"
 
 @implementation BulletHellBattlefield
 
 @synthesize bullets;
 @synthesize level;
+@synthesize battlefieldModifiers;
+
+- (void)setupBattlefieldModifiers { 
+
+}
 
 - (id)init {
     self = [super init];
     if (self) {
         self.bullets = [NSMutableArray array];
         self.level = 0;
+        self.battlefieldModifiers = [NSMutableArray array];
+        [self setupBattlefieldModifiers];
     }
     
     return self;
@@ -46,16 +54,46 @@
     }
 }
 
+- (void)addBullets:(NSArray *)bullets_ {
+    for (Bullet *b in bullets_) {
+        [self.bullets addObject:b];
+    }
+}
+
+- (void)addBullets:(NSArray *)bullets_ ship:(QPShip *)ship {
+    for (QPBattlefieldModifier *m in self.battlefieldModifiers) {
+        [m addBullets:bullets_ ship:ship];
+    }
+    [self addBullets:bullets_];
+}
+
+- (void)fired {
+    
+}
+
+- (void)modifierLoop {
+    for (BulletHellBattlefieldModifier *m in self.battlefieldModifiers) {
+        [m modifyBattlefield:self];
+    }
+}
+
 - (void)tick {
+    [self modifierLoop];
     [self bulletLoop];
+
 }
 
 - (void)addBullet:(Bullet *)b {
     [self.bullets addObject:b];
 }
 
+- (void)addBattlefieldModifier:(BulletHellBattlefieldModifier *)m {
+    [self.battlefieldModifiers addObject:m];
+}
+
 - (void)dealloc {
     [bullets release];
+    [battlefieldModifiers release];    
     [super dealloc];
 }
 
