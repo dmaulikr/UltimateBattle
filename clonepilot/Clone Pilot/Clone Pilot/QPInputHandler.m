@@ -19,11 +19,11 @@
 @synthesize movementThreshhold;
 
 - (float)defaultRadius {
-    return 40;
+    return 60;
 }
 
 - (float)defaultMovementThreshhold {
-    return 20;
+    return 2;
 }
 
 - (CGPoint)defaultFirePoint {
@@ -64,7 +64,7 @@
         }
         if (distance > [self movementThreshhold]) {
             CGPoint angle = GetAngle(self.movePoint, tp);
-            float ratio = distance / self.radius;
+            float ratio = (distance - [self movementThreshhold]) / self.radius;
             [self.delegate movementAngle:angle distanceRatio:ratio];       
         } else {
             [self.delegate movementAngle:CGPointZero distanceRatio:1];

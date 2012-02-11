@@ -339,6 +339,15 @@
 		8DF772BF14C1FB6500A8B2B7 /* QPBlockKeeperTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF772BD14C1FB6500A8B2B7 /* QPBlockKeeperTest.m */; };
 		8DF772E014C27D9500A8B2B7 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8DF772DF14C27D9400A8B2B7 /* Entitlements.plist */; };
 		8DF772E114C27D9500A8B2B7 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8DF772DF14C27D9400A8B2B7 /* Entitlements.plist */; };
+		8DF8D9C114E6408600DA6C4B /* QPMomentumModifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF8D9C014E6408600DA6C4B /* QPMomentumModifier.m */; };
+		8DF8D9C214E6408600DA6C4B /* QPMomentumModifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF8D9C014E6408600DA6C4B /* QPMomentumModifier.m */; };
+		8DF8D9C814E640CB00DA6C4B /* QPBattlefieldMomentumModifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF8D9C714E640CB00DA6C4B /* QPBattlefieldMomentumModifier.m */; };
+		8DF8D9C914E640CB00DA6C4B /* QPBattlefieldMomentumModifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF8D9C714E640CB00DA6C4B /* QPBattlefieldMomentumModifier.m */; };
+		8DF8D9CC14E643C900DA6C4B /* QPMomentumModifierTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF8D9CB14E643C900DA6C4B /* QPMomentumModifierTest.m */; };
+		8DF8D9D014E6445800DA6C4B /* QPShip.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF8D9CF14E6445800DA6C4B /* QPShip.m */; };
+		8DF8D9D114E6445800DA6C4B /* QPShip.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF8D9CF14E6445800DA6C4B /* QPShip.m */; };
+		8DF8D9D414E645F700DA6C4B /* QPBattlefieldModifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF8D9D314E645F700DA6C4B /* QPBattlefieldModifier.m */; };
+		8DF8D9D514E645F700DA6C4B /* QPBattlefieldModifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF8D9D314E645F700DA6C4B /* QPBattlefieldModifier.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -777,6 +786,15 @@
 		8DF772B914C1FA5700A8B2B7 /* QPBlockKeeper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBlockKeeper.m; sourceTree = "<group>"; };
 		8DF772BD14C1FB6500A8B2B7 /* QPBlockKeeperTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBlockKeeperTest.m; sourceTree = "<group>"; };
 		8DF772DF14C27D9400A8B2B7 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
+		8DF8D9BF14E6408500DA6C4B /* QPMomentumModifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPMomentumModifier.h; sourceTree = "<group>"; };
+		8DF8D9C014E6408600DA6C4B /* QPMomentumModifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPMomentumModifier.m; sourceTree = "<group>"; };
+		8DF8D9C614E640CB00DA6C4B /* QPBattlefieldMomentumModifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBattlefieldMomentumModifier.h; sourceTree = "<group>"; };
+		8DF8D9C714E640CB00DA6C4B /* QPBattlefieldMomentumModifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBattlefieldMomentumModifier.m; sourceTree = "<group>"; };
+		8DF8D9CB14E643C900DA6C4B /* QPMomentumModifierTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPMomentumModifierTest.m; sourceTree = "<group>"; };
+		8DF8D9CE14E6445800DA6C4B /* QPShip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPShip.h; sourceTree = "<group>"; };
+		8DF8D9CF14E6445800DA6C4B /* QPShip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPShip.m; sourceTree = "<group>"; };
+		8DF8D9D214E645F700DA6C4B /* QPBattlefieldModifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBattlefieldModifier.h; sourceTree = "<group>"; };
+		8DF8D9D314E645F700DA6C4B /* QPBattlefieldModifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBattlefieldModifier.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1224,6 +1242,8 @@
 		8DC7F8981438D8870016D718 /* Clone Pilot */ = {
 			isa = PBXGroup;
 			children = (
+				8DF8D9CD14E6444C00DA6C4B /* Ships */,
+				8DF8D9C414E6408900DA6C4B /* BattlefieldModifiers */,
 				8DF772B314C1E13800A8B2B7 /* Handlers */,
 				8DF772A114C1506F00A8B2B7 /* InputLayers */,
 				8D677AE8148051AA004CA345 /* Cocos2D Implementation */,
@@ -1258,6 +1278,7 @@
 		8DC7F8B81438D8870016D718 /* Clone PilotTests */ = {
 			isa = PBXGroup;
 			children = (
+				8DF8D9C514E640A400DA6C4B /* QPBattlefieldModifier Tests */,
 				8DF772AE14C1E08C00A8B2B7 /* Handler Tests */,
 				8DB98BA8144A12A80089B94C /* Weapon Tests */,
 				8DABC64F1439075D009020E0 /* Clone Tests */,
@@ -1265,6 +1286,8 @@
 				8DC7F9A51438D8FB0016D718 /* Battlefield Tests */,
 				8DC7F8CB1438D8E20016D718 /* Kiwi */,
 				8DC7F8B91438D8870016D718 /* Supporting Files */,
+				8DF8D9BF14E6408500DA6C4B /* QPMomentumModifier.h */,
+				8DF8D9C014E6408600DA6C4B /* QPMomentumModifier.m */,
 			);
 			path = "Clone PilotTests";
 			sourceTree = "<group>";
@@ -1515,6 +1538,35 @@
 			name = Handlers;
 			sourceTree = "<group>";
 		};
+		8DF8D9C414E6408900DA6C4B /* BattlefieldModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				8DF8D9C614E640CB00DA6C4B /* QPBattlefieldMomentumModifier.h */,
+				8DF8D9C714E640CB00DA6C4B /* QPBattlefieldMomentumModifier.m */,
+				8DF8D9D214E645F700DA6C4B /* QPBattlefieldModifier.h */,
+				8DF8D9D314E645F700DA6C4B /* QPBattlefieldModifier.m */,
+			);
+			name = BattlefieldModifiers;
+			path = "Clone PilotTests";
+			sourceTree = SOURCE_ROOT;
+		};
+		8DF8D9C514E640A400DA6C4B /* QPBattlefieldModifier Tests */ = {
+			isa = PBXGroup;
+			children = (
+				8DF8D9CB14E643C900DA6C4B /* QPMomentumModifierTest.m */,
+			);
+			name = "QPBattlefieldModifier Tests";
+			sourceTree = "<group>";
+		};
+		8DF8D9CD14E6444C00DA6C4B /* Ships */ = {
+			isa = PBXGroup;
+			children = (
+				8DF8D9CE14E6445800DA6C4B /* QPShip.h */,
+				8DF8D9CF14E6445800DA6C4B /* QPShip.m */,
+			);
+			name = Ships;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1741,6 +1793,10 @@
 				8DF772BA14C1FA5700A8B2B7 /* QPBlockKeeper.m in Sources */,
 				8DA0A0D314C38679008022D4 /* WideTriLaser.m in Sources */,
 				8DCC9CE614DD97AD007EF194 /* QPWeaponOptionLayer.m in Sources */,
+				8DF8D9C114E6408600DA6C4B /* QPMomentumModifier.m in Sources */,
+				8DF8D9C814E640CB00DA6C4B /* QPBattlefieldMomentumModifier.m in Sources */,
+				8DF8D9D014E6445800DA6C4B /* QPShip.m in Sources */,
+				8DF8D9D414E645F700DA6C4B /* QPBattlefieldModifier.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1936,6 +1992,11 @@
 				8DA0A0D414C38679008022D4 /* WideTriLaser.m in Sources */,
 				8DA0A0D914C3869A008022D4 /* WideTriLaser.m in Sources */,
 				8DCC9CE714DD97AD007EF194 /* QPWeaponOptionLayer.m in Sources */,
+				8DF8D9C214E6408600DA6C4B /* QPMomentumModifier.m in Sources */,
+				8DF8D9C914E640CB00DA6C4B /* QPBattlefieldMomentumModifier.m in Sources */,
+				8DF8D9CC14E643C900DA6C4B /* QPMomentumModifierTest.m in Sources */,
+				8DF8D9D114E6445800DA6C4B /* QPShip.m in Sources */,
+				8DF8D9D514E645F700DA6C4B /* QPBattlefieldModifier.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
