@@ -1,22 +1,26 @@
-//
-//  BulletHellBattlefield.m
-//  Clone Pilot
-//
-//  Created by Anthony Broussard on 10/2/11.
-//  Copyright 2011 ChaiONE. All rights reserved.
-//
-
 #import "BulletHellBattlefield.h"
 #import "QPBattlefieldModifier.h"
+#import "QPBulletIdentifierModifier.h"
 
 @implementation BulletHellBattlefield
 
 @synthesize bullets;
 @synthesize level;
 @synthesize battlefieldModifiers;
+@synthesize battlefieldModifierController;
+//@synthesize potentialBattlefieldModifiers;
 
 - (void)setupBattlefieldModifiers { 
+    QPBulletIdentifierModifier *m = [[[QPBulletIdentifierModifier alloc] init] autorelease];
+    [self addBattlefieldModifier:m];
+}
 
+- (void)setupPotentialBattlefieldModifiers {
+    
+}
+
+- (void)createBattlefieldModifierController {
+    self.battlefieldModifierController = [[[BulletHellBattlefieldModifierController alloc] init] autorelease];
 }
 
 - (id)init {
@@ -26,6 +30,9 @@
         self.level = 0;
         self.battlefieldModifiers = [NSMutableArray array];
         [self setupBattlefieldModifiers];
+        [self createBattlefieldModifierController];
+//        self.potentialBattlefieldModifiers = [NSMutableArray array];        
+//        [self setupPotentialBattlefieldModifiers];
     }
     
     return self;
@@ -93,7 +100,9 @@
 
 - (void)dealloc {
     [bullets release];
-    [battlefieldModifiers release];    
+    [battlefieldModifiers release];
+    [battlefieldModifierController release];
+    //    [potentialBattlefieldModifiers release];
     [super dealloc];
 }
 

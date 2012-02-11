@@ -193,6 +193,10 @@
 		8D20A33E14E6E0BB00234995 /* BulletHellBattlefieldModifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D20A33C14E6E0BB00234995 /* BulletHellBattlefieldModifier.m */; };
 		8D20A34114E6E5ED00234995 /* TriLaserBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D20A34014E6E5ED00234995 /* TriLaserBullet.m */; };
 		8D20A34214E6E5ED00234995 /* TriLaserBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D20A34014E6E5ED00234995 /* TriLaserBullet.m */; };
+		8D20A34514E716EA00234995 /* BulletHellBattlefieldModifierController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D20A34414E716EA00234995 /* BulletHellBattlefieldModifierController.m */; };
+		8D20A34614E716EA00234995 /* BulletHellBattlefieldModifierController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D20A34414E716EA00234995 /* BulletHellBattlefieldModifierController.m */; };
+		8D20A34914E7197700234995 /* QPBattlefieldModifierController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D20A34814E7197700234995 /* QPBattlefieldModifierController.m */; };
+		8D20A34A14E7197700234995 /* QPBattlefieldModifierController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D20A34814E7197700234995 /* QPBattlefieldModifierController.m */; };
 		8D3E721F143BE6FE00D59706 /* Turn.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D3E721E143BE6FE00D59706 /* Turn.m */; };
 		8D3E7220143BE6FE00D59706 /* Turn.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D3E721E143BE6FE00D59706 /* Turn.m */; };
 		8D6156BF149ACD3B0060B788 /* QPControlLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6156BE149ACD3B0060B788 /* QPControlLayer.m */; };
@@ -564,6 +568,10 @@
 		8D20A33C14E6E0BB00234995 /* BulletHellBattlefieldModifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BulletHellBattlefieldModifier.m; sourceTree = "<group>"; };
 		8D20A33F14E6E5ED00234995 /* TriLaserBullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriLaserBullet.h; sourceTree = "<group>"; };
 		8D20A34014E6E5ED00234995 /* TriLaserBullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TriLaserBullet.m; sourceTree = "<group>"; };
+		8D20A34314E716E900234995 /* BulletHellBattlefieldModifierController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BulletHellBattlefieldModifierController.h; sourceTree = "<group>"; };
+		8D20A34414E716EA00234995 /* BulletHellBattlefieldModifierController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BulletHellBattlefieldModifierController.m; sourceTree = "<group>"; };
+		8D20A34714E7197600234995 /* QPBattlefieldModifierController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBattlefieldModifierController.h; sourceTree = "<group>"; };
+		8D20A34814E7197700234995 /* QPBattlefieldModifierController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBattlefieldModifierController.m; sourceTree = "<group>"; };
 		8D3E721D143BE6FE00D59706 /* Turn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Turn.h; sourceTree = "<group>"; };
 		8D3E721E143BE6FE00D59706 /* Turn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Turn.m; sourceTree = "<group>"; };
 		8D6156BD149ACD3B0060B788 /* QPControlLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPControlLayer.h; sourceTree = "<group>"; };
@@ -1575,6 +1583,10 @@
 				8D20A33814E6D95000234995 /* QPBulletCollisionModifier.m */,
 				8D20A33B14E6E0BB00234995 /* BulletHellBattlefieldModifier.h */,
 				8D20A33C14E6E0BB00234995 /* BulletHellBattlefieldModifier.m */,
+				8D20A34314E716E900234995 /* BulletHellBattlefieldModifierController.h */,
+				8D20A34414E716EA00234995 /* BulletHellBattlefieldModifierController.m */,
+				8D20A34714E7197600234995 /* QPBattlefieldModifierController.h */,
+				8D20A34814E7197700234995 /* QPBattlefieldModifierController.m */,
 			);
 			name = BattlefieldModifiers;
 			path = "Clone PilotTests";
@@ -1838,6 +1850,8 @@
 				8D20A33914E6D95000234995 /* QPBulletCollisionModifier.m in Sources */,
 				8D20A33D14E6E0BB00234995 /* BulletHellBattlefieldModifier.m in Sources */,
 				8D20A34114E6E5ED00234995 /* TriLaserBullet.m in Sources */,
+				8D20A34514E716EA00234995 /* BulletHellBattlefieldModifierController.m in Sources */,
+				8D20A34914E7197700234995 /* QPBattlefieldModifierController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2045,6 +2059,8 @@
 				8D20A33A14E6D95000234995 /* QPBulletCollisionModifier.m in Sources */,
 				8D20A33E14E6E0BB00234995 /* BulletHellBattlefieldModifier.m in Sources */,
 				8D20A34214E6E5ED00234995 /* TriLaserBullet.m in Sources */,
+				8D20A34614E716EA00234995 /* BulletHellBattlefieldModifierController.m in Sources */,
+				8D20A34A14E7197700234995 /* QPBattlefieldModifierController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

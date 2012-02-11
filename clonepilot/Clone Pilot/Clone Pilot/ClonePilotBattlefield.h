@@ -56,8 +56,6 @@ extern int const QP_TimeBonusModifier;
 - (NSInteger)cloneKillValue;
 - (NSInteger)fullHealthBonus;
 
-
-
 - (void)addTouch:(CGPoint)l;
 - (void)moveTouch:(CGPoint)l;
 - (void)endTouch:(CGPoint)l;

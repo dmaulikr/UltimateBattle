@@ -34,26 +34,11 @@ describe(@"Clone Pilot Battlefield", ^{
         [[f player] fire];
         kill();
     };
-    
-    ActionBlock oneCloneCycle = ^ {
-        ClonePilot *p = [[f clones] objectAtIndex:0];
-        NSInteger moveIndex = p.moveIndex;
-        [f tick];
-        while (moveIndex > 0) {
-            [f tick];
-        }
-    };
-    
     ActionBlock playerHit = ^{
         int playerHealth = [[f player] health];
         while ([[f player] health] == playerHealth) {
             [f tick];
         }
-    };
-    
-    ActionBlock firstTouch = ^{
-        [f startup];
-        [f addTouch:startingTouch];
     };
     
     ActionBlock firstPilotDeath = ^{
@@ -883,6 +868,11 @@ describe(@"Clone Pilot Battlefield", ^{
             [[theValue([[f battlefieldModifiers] count]) should] equal:theValue(1)];
             QPBattlefieldModifier *m = [[f battlefieldModifiers] objectAtIndex:0];
             [[theValue([m class]) should] equal:theValue([QPBulletIdentifierModifier class])];
+        });
+        
+        it(@"should have potential modifiers", ^{
+            [f startup];
+            [[theValue([[[f battlefieldModifierController] battlefieldModifiers] count]) should] beGreaterThan:theValue(0)];
         });
     });
 

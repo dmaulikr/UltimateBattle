@@ -1,6 +1,6 @@
 #import "ClonePilotBattlefield.h"
 #import "VRGeometry.h"
-#import "QPBulletIdentifierModifier.h"
+#import "QPBattlefieldModifierController.h"
 
 #define CLONE_KILL_VALUE 1
 
@@ -27,10 +27,12 @@ int const QP_AccuracyBonusModifier  = 100;
 int const QP_MaxTime                = 2000;
 int const QP_TimeBonusModifier      = 3;
 
+- (void)createBattlefieldModifierController {
+    self.battlefieldModifierController = [[[QPBattlefieldModifierController alloc] init] autorelease];
+}
+
 - (void)setupBattlefieldModifiers { 
     [super setupBattlefieldModifiers];
-    QPBulletIdentifierModifier *m = [[[QPBulletIdentifierModifier alloc] init] autorelease];
-    [self addBattlefieldModifier:m];
 }
 
 - (id)commonInit {
