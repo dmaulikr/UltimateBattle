@@ -222,33 +222,14 @@ int const QP_TimeBonusModifier      = 3;
     }
 }
 
-- (void)checkForBulletCollision:(Bullet *)bullet {
-    for (Bullet *b in self.bullets) {
-        if (bullet.identifier != b.identifier) {
-            BOOL collision = NO;
-            if (GetDistance(bullet.l, b.l) < bullet.radius + b.radius) {
-                collision = YES;
-            }
-            
-            if (collision) {
-                b.finished = YES;
-                bullet.finished = YES;
-                break;
-            }
-        }
-    }
-}
-
 - (void)bulletLoop {
     for (Bullet *b in self.bullets) {
         [self checkForCloneCollision:b];
         [self checkForPlayerCollision:b];      
-        [self checkForBulletCollision:b];
     }
     
     [self checkToAdvanceLevel];
 
-    
     [super bulletLoop];
 }
 

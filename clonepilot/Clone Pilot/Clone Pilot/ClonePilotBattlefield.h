@@ -15,7 +15,7 @@ extern int const QP_TimeBonusModifier;
 
 @class WeaponSelector;
 
-@interface ClonePilotBattlefield : BulletHellBattlefield <BulletDelegate, WeaponSelectorDelegate, QPInputHandlerDelegate> {
+@interface ClonePilotBattlefield : BulletHellBattlefield  <WeaponSelectorDelegate, QPInputHandlerDelegate> {
     BOOL _shouldAdvanceLevel;
     BOOL _battlefieldEnding;
     BOOL _paused;

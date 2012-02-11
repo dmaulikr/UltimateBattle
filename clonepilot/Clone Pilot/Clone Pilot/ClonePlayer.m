@@ -84,11 +84,6 @@ static int QP_PlayerYDirection = 1;
     return [[self currentMoves] count] > 0;
 }
 
-- (void)fireBullet {
-    Bullet *b = [self newBullet];
-    [self.bulletDelegate addBullet:b];
-}
-
 - (void)fireWeapon {
     NSArray *bullets = [self.weapon newBulletsForLocation:self.l direction:QP_PlayerYDirection];
    [self.bulletDelegate addBullets:bullets ship:self.ship];

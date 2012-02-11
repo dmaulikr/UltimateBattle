@@ -16,9 +16,6 @@
 
 +(CCScene *) scene;
 - (void)addTouch:(CGPoint)l;
-- (void)moveTouch:(CGPoint)l;
-- (void)endTouch:(CGPoint)l;
--(CGRect)controlRect;
 - (void)layerTapped;
 
 @end

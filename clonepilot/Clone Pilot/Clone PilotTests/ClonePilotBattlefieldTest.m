@@ -9,6 +9,8 @@
 #import "VRTouch.h"
 #import "QuantumPilotLayer.h"
 #import "QPWeaponOptionLayer.h"
+#import "QPBattlefieldModifier.h"
+#import "QPBulletIdentifierModifier.h"
 
 SPEC_BEGIN(ClonePilotBattlefieldTest)
 
@@ -872,6 +874,15 @@ describe(@"Clone Pilot Battlefield", ^{
             QPWeaponOptionLayer *l = [[[f weaponSelector] optionLayers] objectAtIndex:0];
             [f addTouch:l.weaponSprite.position];
             [[theValue([[f weaponSelector] presentingOptions]) should] beFalse];
+        });
+    });
+    
+    context(@"Battlefield modifiers", ^{
+        it(@"should startup with one identifier modifier", ^{
+            [f startup];
+            [[theValue([[f battlefieldModifiers] count]) should] equal:theValue(1)];
+            QPBattlefieldModifier *m = [[f battlefieldModifiers] objectAtIndex:0];
+            [[theValue([m class]) should] equal:theValue([QPBulletIdentifierModifier class])];
         });
     });
 
