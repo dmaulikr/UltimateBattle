@@ -70,6 +70,8 @@ extern int const QP_TimeBonusModifier;
 
 - (void)ensurePlaying;
 
+- (void)resetClones;
+
 - (id)initWithLayer:(CCLayer *)quantumLayer;
 
 @end

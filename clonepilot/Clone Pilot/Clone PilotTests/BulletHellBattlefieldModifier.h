@@ -6,5 +6,6 @@
 @interface BulletHellBattlefieldModifier : NSObject <BulletDelegate>
 
 - (void)modifyBattlefield:(BulletHellBattlefield *)f;
+- (void)levelGainedForBattlefield:(BulletHellBattlefield *)f;
 
 @end

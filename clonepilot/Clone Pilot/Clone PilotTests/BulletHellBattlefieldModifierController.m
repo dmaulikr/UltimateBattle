@@ -1,5 +1,6 @@
 #import "BulletHellBattlefieldModifierController.h"
 #import "BulletHellBattlefieldModifier.h"
+#import "BulletHellBattlefield.h"
 
 @implementation BulletHellBattlefieldModifierController
 @synthesize battlefieldModifiers;
@@ -29,6 +30,18 @@
     }
     
     return self;
+}
+
+- (void)levelGainedForBattlefield:(BulletHellBattlefield *)f {
+    if (f.level > 0 && f.level % 10 == 0) {
+        if ([self.battlefieldModifiers count] > 0) {
+            BulletHellBattlefieldModifier *m = [self.battlefieldModifiers objectAtIndex:0];
+            [self.chosenBattlefieldModifiers addObject:m];
+            [self.battlefieldModifiers removeObject:m];
+            [f addBattlefieldModifier:m];
+        }
+    }
+    
 }
 
 - (void)dealloc {

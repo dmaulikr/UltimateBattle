@@ -29,10 +29,17 @@ int const QP_TimeBonusModifier      = 3;
 
 - (void)createBattlefieldModifierController {
     self.battlefieldModifierController = [[[QPBattlefieldModifierController alloc] init] autorelease];
+    [self addBattlefieldModifier:self.battlefieldModifierController];
 }
-
+ 
 - (void)setupBattlefieldModifiers { 
     [super setupBattlefieldModifiers];
+}
+
+- (void)resetModifiers {
+    [self.battlefieldModifiers removeAllObjects];
+    [self setupBattlefieldModifiers];
+    [self createBattlefieldModifierController];
 }
 
 - (id)commonInit {
@@ -97,7 +104,19 @@ int const QP_TimeBonusModifier      = 3;
     [w release];
 }
 
-- (void)resetClones {
+- (void)removeClones {
+    for (ClonePilot *p in self.clones) {
+        [p.sprite removeFromParentAndCleanup:YES];
+    }
+    [self.clones removeAllObjects];
+}
+
+- (void)resetClones {    
+    if (self.level > 0 && self.level % 10 == 0) {
+        [self removeClones];
+        [self addClone];
+    }
+    
     for (ClonePilot *p in self.clones) {
         [p reset];
         if (p.sprite) {
@@ -258,16 +277,9 @@ int const QP_TimeBonusModifier      = 3;
 }
 
 - (void)resetBattlefield {
-    for (ClonePilot *p in self.clones) {
-        [p.sprite removeFromParentAndCleanup:YES];
-    }
-    
-    for (Bullet *b in self.bullets) {
-        [b.sprite removeFromParentAndCleanup:YES];
-    }
-    
-    [self.clones removeAllObjects];
-    [self.bullets removeAllObjects];
+    [self resetModifiers];
+    [self removeClones];
+    [self removeBullets];
     [self.player restart];
     self.level = 0;
     self.score = 0;
@@ -280,9 +292,7 @@ int const QP_TimeBonusModifier      = 3;
     self.weaponSelector = [[[WeaponSelector alloc] initWithBattlefield:self] autorelease];
     
     [self resetWall];
-    
     [self startup];
-    
     [self ensurePaused];
     
     [self.inputHandler endAllTouches];
@@ -369,6 +379,9 @@ int const QP_TimeBonusModifier      = 3;
 }
 
 - (void)playerChoseWeapon:(Weapon *)weapon {
+    for (BulletHellBattlefieldModifier *m in self.battlefieldModifiers) {
+        [m levelGainedForBattlefield:self];
+    }
     [self ensurePlaying];
     self.level++;
     [self scoreForAccuracy];

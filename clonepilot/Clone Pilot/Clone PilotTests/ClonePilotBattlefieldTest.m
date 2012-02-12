@@ -11,6 +11,7 @@
 #import "QPWeaponOptionLayer.h"
 #import "QPBattlefieldModifier.h"
 #import "QPBulletIdentifierModifier.h"
+#import "QPBattlefieldModifierController.h"
 
 SPEC_BEGIN(ClonePilotBattlefieldTest)
 
@@ -863,17 +864,54 @@ describe(@"Clone Pilot Battlefield", ^{
     });
     
     context(@"Battlefield modifiers", ^{
-        it(@"should startup with one identifier modifier", ^{
+        it(@"should startup with one identifier modifier and one modifier controller", ^{
             [f startup];
-            [[theValue([[f battlefieldModifiers] count]) should] equal:theValue(1)];
+            [[theValue([[f battlefieldModifiers] count]) should] equal:theValue(2)];
             QPBattlefieldModifier *m = [[f battlefieldModifiers] objectAtIndex:0];
             [[theValue([m class]) should] equal:theValue([QPBulletIdentifierModifier class])];
+            BulletHellBattlefieldModifierController *bmc = f.battlefieldModifierController;
+            [[theValue([bmc class]) should] equal:theValue([QPBattlefieldModifierController class])];
         });
         
         it(@"should have potential modifiers", ^{
             [f startup];
             [[theValue([[[f battlefieldModifierController] battlefieldModifiers] count]) should] beGreaterThan:theValue(0)];
         });
+        
+        it(@"should reset clones when level is 10", ^{
+            firstKill();
+            [f chooseWeapon:0];
+            f.level = 10;
+            [f resetClones];
+            [[theValue([[f clones] count]) should] equal:theValue(1)];
+        });
+        
+        it(@"should have an additional potential modifier taken from the potential modifiers", ^{
+            firstKill();
+            NSInteger modifierCount = [[f battlefieldModifiers] count];
+            f.level = 10;
+            BulletHellBattlefieldModifier *potentialModifier = [[[f battlefieldModifierController] battlefieldModifiers] objectAtIndex:0];
+            [f chooseWeapon:0];            
+            [[theValue([[f battlefieldModifiers] count]) should] equal:theValue(modifierCount+1)];
+            BulletHellBattlefieldModifier *latestModifier = [[f battlefieldModifiers] lastObject];
+            [[theValue(latestModifier) should] equal:theValue(potentialModifier)];
+            BOOL tracksChosenModifier = [[[f battlefieldModifierController] chosenBattlefieldModifiers] containsObject:latestModifier];
+            [[theValue(tracksChosenModifier) should] beTrue];
+        });
+        
+        it(@"should reset modifiers when player dies", ^{
+            [f startup];
+            NSInteger startingModifierCount = [[[f battlefieldModifierController] battlefieldModifiers] count];
+            [[f player] fire];
+            kill();
+            f.level = 10;
+            [f chooseWeapon:0];            
+            playerHit();
+            [f tick];
+            [[theValue([[f battlefieldModifiers] count]) should] equal:theValue(2)];
+            [[theValue([[[f battlefieldModifierController] battlefieldModifiers] count]) should] equal:theValue(startingModifierCount)];
+        });
+        
     });
 
 });

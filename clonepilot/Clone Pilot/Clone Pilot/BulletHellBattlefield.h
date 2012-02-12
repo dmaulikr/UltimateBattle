@@ -12,11 +12,11 @@
 @property (nonatomic, assign) NSInteger level;
 @property (nonatomic, retain) NSMutableArray *battlefieldModifiers;
 @property (nonatomic, retain) BulletHellBattlefieldModifierController *battlefieldModifierController;
-//@property (nonatomic, retain) NSMutableArray *potentialBattlefieldModifiers;
 
 - (void)tick;
 - (void)addBullet:(Bullet *)b;
 - (void)bulletLoop;
+- (void)removeBullets;
 - (void)setupBattlefieldModifiers;
 - (void)addBullets:(NSArray *)bullets;
 

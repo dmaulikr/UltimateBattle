@@ -20,10 +20,6 @@ describe(@"QPInputHandlerTests", ^{
             [h addHandler:ih];
             [[theValue([[h handlers] count]) should] equal:theValue(1)];
         });
-        
-        it(@"should be able to execute its handler completion blocks with params", ^{
-            QPMoveInputHandler *ih = [[[QPMoveInputHandler alloc] init] autorelease];
-        });
     });
 });
 

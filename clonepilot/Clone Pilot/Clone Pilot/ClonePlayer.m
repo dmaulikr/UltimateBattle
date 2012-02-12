@@ -86,6 +86,7 @@ static int QP_PlayerYDirection = 1;
 
 - (void)fireWeapon {
     NSArray *bullets = [self.weapon newBulletsForLocation:self.l direction:QP_PlayerYDirection];
+    self.ship.vel = self.vel;
    [self.bulletDelegate addBullets:bullets ship:self.ship];
 }
 

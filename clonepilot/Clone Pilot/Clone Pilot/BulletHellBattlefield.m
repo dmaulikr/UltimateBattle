@@ -8,7 +8,6 @@
 @synthesize level;
 @synthesize battlefieldModifiers;
 @synthesize battlefieldModifierController;
-//@synthesize potentialBattlefieldModifiers;
 
 - (void)setupBattlefieldModifiers { 
     QPBulletIdentifierModifier *m = [[[QPBulletIdentifierModifier alloc] init] autorelease];
@@ -31,8 +30,6 @@
         self.battlefieldModifiers = [NSMutableArray array];
         [self setupBattlefieldModifiers];
         [self createBattlefieldModifierController];
-//        self.potentialBattlefieldModifiers = [NSMutableArray array];        
-//        [self setupPotentialBattlefieldModifiers];
     }
     
     return self;
@@ -98,11 +95,18 @@
     [self.battlefieldModifiers addObject:m];
 }
 
+- (void)removeBullets {
+    for (Bullet *b in self.bullets) {
+        [b.sprite removeFromParentAndCleanup:YES];
+    }
+    
+    [self.bullets removeAllObjects];
+}
+
 - (void)dealloc {
     [bullets release];
     [battlefieldModifiers release];
     [battlefieldModifierController release];
-    //    [potentialBattlefieldModifiers release];
     [super dealloc];
 }
 

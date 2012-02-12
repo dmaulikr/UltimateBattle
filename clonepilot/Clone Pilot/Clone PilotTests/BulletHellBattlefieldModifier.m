@@ -14,5 +14,9 @@
     
 }
 
+- (void)levelGainedForBattlefield:(BulletHellBattlefield *)f {
+    
+}
+
 
 @end
