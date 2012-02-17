@@ -253,7 +253,7 @@ int const QP_TimeBonusModifier      = 3;
 - (void)cloneLoop {
     for (ClonePilot *p in self.clones) {
         if (![p living]) {
-            [p removeFromParentAndCleanup:YES];
+         //   [p removeFromParentAndCleanup:YES];
         }
         [p tick];
     }
