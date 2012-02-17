@@ -10,7 +10,7 @@
 
 @property (nonatomic, retain) NSMutableArray *moves;
 @property (nonatomic, retain) Weapon *weapon;
-@property (nonatomic, assign) NSInteger health;
+@property (nonatomic, assign) BOOL living;
 @property (nonatomic, assign) id <BulletDelegate> bulletDelegate;
 @property (nonatomic, retain) NSArray *lastBulletsFired;
 @property (nonatomic, assign) NSInteger weaponDirection;

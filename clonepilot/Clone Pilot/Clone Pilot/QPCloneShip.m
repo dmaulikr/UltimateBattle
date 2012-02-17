@@ -3,7 +3,7 @@
 @implementation QPCloneShip
 
 - (void)draw {
-    if (self.health > 0) {
+    if (self.living > 0) {
         if (self.weapon) {
             [self.weapon setDrawColor];
         } else {

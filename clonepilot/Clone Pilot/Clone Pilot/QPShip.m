@@ -4,7 +4,7 @@
 @synthesize l, vel, t, radius;
 @synthesize moves;
 @synthesize weapon;
-@synthesize health;
+@synthesize living;
 @synthesize bulletDelegate;
 @synthesize lastBulletsFired;
 @synthesize weaponDirection;
@@ -12,7 +12,7 @@
 - (id)init {
     self = [super init];
     if (self) {
-        self.health = 1;
+        self.living = 1;
     }
     
     return self;
@@ -23,10 +23,6 @@
     self.lastBulletsFired = nil;
     self.lastBulletsFired = [self.weapon newBulletsForLocation:self.l direction:self.weaponDirection];
     [self.bulletDelegate addBullets:self.lastBulletsFired ship:self];
-}
-
-- (BOOL)living {
-    return self.health > 0;
 }
 
 - (NSInteger)identifier {

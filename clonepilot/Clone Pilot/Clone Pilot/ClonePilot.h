@@ -13,18 +13,14 @@
 #import "BulletDelegateProtocol.h"
 #import "cocos2d.h"
 #import "QPShip.h"
+#import "QPCloneShip.h"
 
-@interface ClonePilot : NSObject <VRGameObject> {
+@interface ClonePilot : QPCloneShip {
     NSInteger _moveDirection;
 }
 
-@property (nonatomic, retain) NSMutableArray *moves;
-@property (nonatomic, assign) BOOL living;
-@property (nonatomic, retain) Weapon *weapon;
 @property (nonatomic, assign) NSInteger moveIndex;
 @property (nonatomic, assign) id <BulletDelegate> bulletDelegate;
-@property (nonatomic, retain) CCSprite *sprite;
-@property (nonatomic, retain) QPShip *ship;
 
 + (CGPoint)defaultLocation;
 + (NSInteger)identifier;
@@ -35,8 +31,6 @@
 - (Turn *)currentTurn;
 
 - (id)initWithLayer:(CCLayer *)layer;
-
-- (void)resetSpriteWithLayer:(CCLayer *)layer;
 
 - (void)ceaseLiving;
 

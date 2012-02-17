@@ -101,14 +101,12 @@ int const QP_TimeBonusModifier      = 3;
 - (void)copyPlayerWeaponToLatestClone {
     Weapon *w = [self.player.weapon copy];
     [self latestClone].weapon = w;
-    [self latestClone].ship.weapon = w;
     [w release];
 }
 
 - (void)removeClones {
     for (ClonePilot *p in self.clones) {
-        [p.sprite removeFromParentAndCleanup:YES];
-        [p.ship removeFromParentAndCleanup:YES];        
+        [p removeFromParentAndCleanup:YES];        
     }
     [self.clones removeAllObjects];
 }
@@ -121,10 +119,6 @@ int const QP_TimeBonusModifier      = 3;
     
     for (ClonePilot *p in self.clones) {
         [p reset];
-        if (p.sprite) {
-            [p.sprite removeFromParentAndCleanup:YES];
-        }
-        [p resetSpriteWithLayer:self.layer];
     }
 }
 
@@ -212,7 +206,7 @@ int const QP_TimeBonusModifier      = 3;
 - (void)checkForCloneCollision:(Bullet *)b {
     for (ClonePilot *p in self.clones) {
         if (!b.finished && p.living && b.identifier != [ClonePilot identifier]) {
-            if (GetDistance(b.l, p.l) <= b.radius + p.ship.radius) {
+            if (GetDistance(b.l, p.l) <= b.radius + p.radius) {
                 [self killClone:p];
                 self.hits++;
                 b.finished = YES;
@@ -259,10 +253,7 @@ int const QP_TimeBonusModifier      = 3;
 - (void)cloneLoop {
     for (ClonePilot *p in self.clones) {
         if (![p living]) {
-            if (p.sprite) {
-                [p.sprite removeFromParentAndCleanup:YES];
-                [p.ship removeFromParentAndCleanup:YES];
-            }
+            [p removeFromParentAndCleanup:YES];
         }
         [p tick];
     }
