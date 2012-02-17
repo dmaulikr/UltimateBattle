@@ -2,8 +2,11 @@
 #import "Weapon.h"
 #import "VRGameObject.h"
 #import "BulletDelegateProtocol.h"
+#import "VRDrawHelpers.h"
 
-@interface QPShip : NSObject <VRGameObject>
+@interface QPShip : CCNode <VRGameObject> {
+    
+}
 
 @property (nonatomic, retain) NSMutableArray *moves;
 @property (nonatomic, retain) Weapon *weapon;
@@ -11,6 +14,8 @@
 @property (nonatomic, assign) id <BulletDelegate> bulletDelegate;
 @property (nonatomic, retain) NSArray *lastBulletsFired;
 @property (nonatomic, assign) NSInteger weaponDirection;
+
+//- (CGPoint *)lines;
 
 - (NSInteger)identifier;
 

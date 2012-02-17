@@ -8,7 +8,6 @@ static int QP_ClonePilotYDirection = -1;
 @synthesize l, vel, t, radius;
 @synthesize moves;
 @synthesize living;
-@synthesize weapon;
 @synthesize moveIndex;
 @synthesize bulletDelegate;
 @synthesize sprite;
@@ -39,7 +38,6 @@ static int QP_ClonePilotYDirection = -1;
 - (void)manageFiringForTurn:(Turn *)turn {
     if (turn.firing) {
         NSArray *bullets = [self.weapon newBulletsForLocation:self.l direction:QP_ClonePilotYDirection];
-        self.ship.vel = self.vel;
         [self.bulletDelegate addBullets:bullets ship:self.ship];
     }
 }
@@ -68,6 +66,10 @@ static int QP_ClonePilotYDirection = -1;
         if (self.sprite) {
             self.sprite.position = self.l;
         }
+        
+        self.ship.vel = self.vel;
+        self.ship.l = self.l;            
+        
     }
 }
 
@@ -75,6 +77,7 @@ static int QP_ClonePilotYDirection = -1;
     self.l = [ClonePilot defaultLocation];
     self.moveIndex = 0;
     _moveDirection = 1;
+    self.ship.health = 1;
 }
 
 - (id)commonInit {
@@ -95,23 +98,40 @@ static int QP_ClonePilotYDirection = -1;
     return [self commonInit];
 }
 
+- (void)setWeapon:(Weapon *)weapon {
+    self.ship.weapon = weapon;
+}
+
+- (Weapon *)weapon {
+    return self.ship.weapon;
+}
+
 - (void)resetSpriteWithLayer:(CCLayer *)layer {
     [self.sprite removeFromParentAndCleanup:YES];
     self.sprite = nil;
-    self.sprite = [CCSprite spriteWithFile:@"sprite-7-1.png"];
-    [layer addChild:self.sprite];
+//  self.sprite = [CCSprite spriteWithFile:@"sprite-7-1.png"];
+//    [layer addChild:self.sprite];
+}
+
+- (void)draw {
+    [self.ship draw];
 }
 
 - (id)initWithLayer:(CCLayer *)layer {
     self = [self commonInit];
     [self resetSpriteWithLayer:layer];
+    [layer addChild:self.ship z:100];
     
     return self;
 }
 
+- (void)ceaseLiving {
+    self.living = NO;
+    self.ship.health = 0;
+}
+
 - (void)dealloc {
     [moves release];
-    [weapon release];
     self.bulletDelegate = nil;
     [sprite release];
     [ship release];

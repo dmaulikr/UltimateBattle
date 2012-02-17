@@ -22,4 +22,6 @@
 
 - (NSString *)weaponImagePath;
 
+- (void)setDrawColor;
+
 @end

@@ -101,12 +101,14 @@ int const QP_TimeBonusModifier      = 3;
 - (void)copyPlayerWeaponToLatestClone {
     Weapon *w = [self.player.weapon copy];
     [self latestClone].weapon = w;
+    [self latestClone].ship.weapon = w;
     [w release];
 }
 
 - (void)removeClones {
     for (ClonePilot *p in self.clones) {
         [p.sprite removeFromParentAndCleanup:YES];
+        [p.ship removeFromParentAndCleanup:YES];        
     }
     [self.clones removeAllObjects];
 }
@@ -200,7 +202,7 @@ int const QP_TimeBonusModifier      = 3;
 }
 
 - (void)killClone:(ClonePilot *)pilot {
-    pilot.living = NO;
+    [pilot ceaseLiving];
     [self advanceScoreForKillingClone];
     if ([self livingClones] == 0) {
         _shouldAdvanceLevel = YES;
@@ -210,7 +212,7 @@ int const QP_TimeBonusModifier      = 3;
 - (void)checkForCloneCollision:(Bullet *)b {
     for (ClonePilot *p in self.clones) {
         if (!b.finished && p.living && b.identifier != [ClonePilot identifier]) {
-            if (GetDistance(b.l, p.l) <= b.radius + p.radius) {
+            if (GetDistance(b.l, p.l) <= b.radius + p.ship.radius) {
                 [self killClone:p];
                 self.hits++;
                 b.finished = YES;
@@ -259,6 +261,7 @@ int const QP_TimeBonusModifier      = 3;
         if (![p living]) {
             if (p.sprite) {
                 [p.sprite removeFromParentAndCleanup:YES];
+                [p.ship removeFromParentAndCleanup:YES];
             }
         }
         [p tick];

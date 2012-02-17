@@ -9,6 +9,15 @@
 @synthesize lastBulletsFired;
 @synthesize weaponDirection;
 
+- (id)init {
+    self = [super init];
+    if (self) {
+        self.health = 1;
+    }
+    
+    return self;
+}
+
 - (void)fire {
     [lastBulletsFired release];
     self.lastBulletsFired = nil;
@@ -23,6 +32,11 @@
 - (NSInteger)identifier {
     return 0;
 }
+
+//- (CGPoint *)drawLines {
+//    return lines;
+//}
+
 
 - (void)dealloc {
     [moves release];

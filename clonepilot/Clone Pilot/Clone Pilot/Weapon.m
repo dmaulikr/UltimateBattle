@@ -7,6 +7,7 @@
 //
 
 #import "Weapon.h"
+#import "cocos2d.h"
 
 @implementation Weapon
 @synthesize speed;
@@ -47,6 +48,10 @@
     id another = [[[self class] alloc] init];
     ((Weapon *)another).speed = self.speed;
     return another;
+}
+
+- (void)setDrawColor {
+    glColor4f(1, 1, 1, 1.0);
 }
 
 @end

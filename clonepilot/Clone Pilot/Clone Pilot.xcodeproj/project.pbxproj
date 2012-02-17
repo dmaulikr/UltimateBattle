@@ -197,6 +197,8 @@
 		8D20A34614E716EA00234995 /* BulletHellBattlefieldModifierController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D20A34414E716EA00234995 /* BulletHellBattlefieldModifierController.m */; };
 		8D20A34914E7197700234995 /* QPBattlefieldModifierController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D20A34814E7197700234995 /* QPBattlefieldModifierController.m */; };
 		8D20A34A14E7197700234995 /* QPBattlefieldModifierController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D20A34814E7197700234995 /* QPBattlefieldModifierController.m */; };
+		8D3B126B14EE004F000093A4 /* VRDrawHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D3B126A14EE004F000093A4 /* VRDrawHelpers.m */; };
+		8D3B126C14EE004F000093A4 /* VRDrawHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D3B126A14EE004F000093A4 /* VRDrawHelpers.m */; };
 		8D3E721F143BE6FE00D59706 /* Turn.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D3E721E143BE6FE00D59706 /* Turn.m */; };
 		8D3E7220143BE6FE00D59706 /* Turn.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D3E721E143BE6FE00D59706 /* Turn.m */; };
 		8D6156BF149ACD3B0060B788 /* QPControlLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6156BE149ACD3B0060B788 /* QPControlLayer.m */; };
@@ -572,6 +574,8 @@
 		8D20A34414E716EA00234995 /* BulletHellBattlefieldModifierController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BulletHellBattlefieldModifierController.m; sourceTree = "<group>"; };
 		8D20A34714E7197600234995 /* QPBattlefieldModifierController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBattlefieldModifierController.h; sourceTree = "<group>"; };
 		8D20A34814E7197700234995 /* QPBattlefieldModifierController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBattlefieldModifierController.m; sourceTree = "<group>"; };
+		8D3B126914EE004F000093A4 /* VRDrawHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VRDrawHelpers.h; sourceTree = "<group>"; };
+		8D3B126A14EE004F000093A4 /* VRDrawHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VRDrawHelpers.m; sourceTree = "<group>"; };
 		8D3E721D143BE6FE00D59706 /* Turn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Turn.h; sourceTree = "<group>"; };
 		8D3E721E143BE6FE00D59706 /* Turn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Turn.m; sourceTree = "<group>"; };
 		8D6156BD149ACD3B0060B788 /* QPControlLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPControlLayer.h; sourceTree = "<group>"; };
@@ -1090,6 +1094,15 @@
 			path = Support;
 			sourceTree = "<group>";
 		};
+		8D3B126714EE0035000093A4 /* Drawing */ = {
+			isa = PBXGroup;
+			children = (
+				8D3B126914EE004F000093A4 /* VRDrawHelpers.h */,
+				8D3B126A14EE004F000093A4 /* VRDrawHelpers.m */,
+			);
+			name = Drawing;
+			sourceTree = "<group>";
+		};
 		8D3E721B143BE6ED00D59706 /* Turns */ = {
 			isa = PBXGroup;
 			children = (
@@ -1234,6 +1247,7 @@
 		8DC7F8831438D8870016D718 = {
 			isa = PBXGroup;
 			children = (
+				8D3B126714EE0035000093A4 /* Drawing */,
 				8DF772DF14C27D9400A8B2B7 /* Entitlements.plist */,
 				8DF772AA14C160FF00A8B2B7 /* NSLogWrapper.h */,
 				8DF772AB14C160FF00A8B2B7 /* NSLogWrapper.m */,
@@ -1852,6 +1866,7 @@
 				8D20A34114E6E5ED00234995 /* TriLaserBullet.m in Sources */,
 				8D20A34514E716EA00234995 /* BulletHellBattlefieldModifierController.m in Sources */,
 				8D20A34914E7197700234995 /* QPBattlefieldModifierController.m in Sources */,
+				8D3B126B14EE004F000093A4 /* VRDrawHelpers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2061,6 +2076,7 @@
 				8D20A34214E6E5ED00234995 /* TriLaserBullet.m in Sources */,
 				8D20A34614E716EA00234995 /* BulletHellBattlefieldModifierController.m in Sources */,
 				8D20A34A14E7197700234995 /* QPBattlefieldModifierController.m in Sources */,
+				8D3B126C14EE004F000093A4 /* VRDrawHelpers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

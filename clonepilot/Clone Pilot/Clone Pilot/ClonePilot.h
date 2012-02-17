@@ -38,4 +38,6 @@
 
 - (void)resetSpriteWithLayer:(CCLayer *)layer;
 
+- (void)ceaseLiving;
+
 @end

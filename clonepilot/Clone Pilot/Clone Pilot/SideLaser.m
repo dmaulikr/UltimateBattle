@@ -11,10 +11,6 @@
 
 @implementation SideLaser
 
-//+ (float)defaultSpeed {
-//    return 3;
-//}
-
 - (NSArray *)newBulletsForLocation:(CGPoint)location direction:(NSInteger)direction {
     SideLaserBullet *b = [[[SideLaserBullet alloc] initWithLocation:location velocity:CGPointMake(0, direction * self.speed)] autorelease];
     return [NSArray arrayWithObject:b];    

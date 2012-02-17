@@ -24,4 +24,9 @@
     return [NSArray arrayWithObjects:b, b2, b3, b4, nil];
 }
 
+- (void)setDrawColor {
+    glColor4f(.05, .05, .9, 1.0);
+}
+
+
 @end
