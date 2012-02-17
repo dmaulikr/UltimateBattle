@@ -118,7 +118,8 @@ describe(@"Clone Pilot Battlefield", ^{
         
         it(@"should reset wall between levels", ^ {
             firstKill();
-            [[theValue([f wall].l.y) should] equal:theValue(1024-[[f wall] speed])];
+            CGPoint wallLocation = ccp([[f wall] defaultLocation].x, [[f wall] defaultLocation].y-[[f wall] speed]);
+            [[theValue([f wall].l.y) should] equal:theValue(wallLocation.y)];
         });
         
     });
@@ -773,9 +774,9 @@ describe(@"Clone Pilot Battlefield", ^{
             [[theValue([f wall]) should] beNonNil];
         });
 
-        it(@"should start at the battlefield edge", ^{
+        it(@"should start out of the battlefield edge", ^{
             [f startup];
-            [[theValue([f wall].l.y) should] equal:theValue(1024)];
+            [[theValue([f wall].l.y) should] equal:theValue([[f wall] defaultLocation].y)];
         });
         
         it(@"should move each tick", ^{

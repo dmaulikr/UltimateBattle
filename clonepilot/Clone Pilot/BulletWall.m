@@ -5,7 +5,7 @@
 @synthesize l, vel, t, radius, speed;
 
 - (CGPoint)defaultLocation {
-    return CGPointMake(384, 1024);
+    return CGPointMake(384, 1050);
 }
 
 - (float)defaultSpeed {

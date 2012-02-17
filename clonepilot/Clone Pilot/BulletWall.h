@@ -19,4 +19,6 @@
 
 - (id)initWithLayer:(CCLayer *)layer;
 
+- (CGPoint)defaultLocation;
+
 @end

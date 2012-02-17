@@ -168,9 +168,9 @@ int const QP_TimeBonusModifier      = 3;
     [self resetClones];
     [self activateAllClones];    
     [self resetPlayer];
-    [self resetWall];
     [self openWeaponOptions];
-    [self resetTime];    
+    [self resetTime]; 
+    [self resetWall];    
 }
 
 - (void)fired {

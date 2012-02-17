@@ -26,10 +26,7 @@
 
 #pragma mark standard
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    // Override point for customization after application launch.
-    
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
     self.window.rootViewController = self.viewController;
     
     if( ! [CCDirector setDirectorType:kCCDirectorTypeDisplayLink] ) {
@@ -44,7 +41,6 @@
 								   depthFormat:0						// GL_DEPTH_COMPONENT16_OES
 						];
     
-	// attach the openglView to the director
 	[director setOpenGLView:glView];
     
 	[director setDeviceOrientation:kCCDeviceOrientationPortrait];
@@ -53,17 +49,13 @@
 	[director setDisplayFPS:YES];
 	[glView setMultipleTouchEnabled:TRUE];    
     [self.viewController setView:glView];
-    
-    // make the View Controller a child of the main window
-	//[window addSubview: viewController.view];
 	
     [self.window makeKeyAndVisible];
     
     [CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGBA8888];
-    
-    	[[CCDirector sharedDirector] runWithScene: [QuantumPilotLayer scene]];    
-    
-    
+    CCScene *scene = [CCScene node];
+    [scene addChild:[QuantumPilotLayer node]];
+    [[CCDirector sharedDirector] runWithScene:scene];    
     
     return YES;
 }
