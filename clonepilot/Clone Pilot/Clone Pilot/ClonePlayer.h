@@ -13,18 +13,15 @@
 #import "Bullet.h"
 #import "Weapon.h"
 #import "BulletDelegateProtocol.h"
-#import "QPShip.h"
+#import "QPClonePlayerShip.h"
 
-@interface ClonePlayer : NSObject <VRGameObject> {
+@interface ClonePlayer : QPClonePlayerShip {
 }
 
-@property (nonatomic, retain) NSMutableArray *currentMoves;
 @property (nonatomic, assign) id <BulletDelegate> bulletDelegate;
-@property (nonatomic, retain) Weapon *weapon;
-@property (nonatomic, assign) NSInteger health;
-@property (nonatomic, retain) CCSprite *sprite;
 @property (nonatomic, assign) float speed;
-@property (nonatomic, retain) QPShip *ship;
+
+- (NSMutableArray *)currentMoves;
 
 - (void)tick;
 

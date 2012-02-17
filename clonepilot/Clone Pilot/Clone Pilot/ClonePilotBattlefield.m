@@ -134,12 +134,6 @@ int const QP_TimeBonusModifier      = 3;
     [super bulletLoop];
 }
 
-- (void)scoreForHealth {
-    if (self.player.health == self.level) {
-        self.score += [self fullHealthBonus];
-    }
-}
-
 - (void)resetWall {
     [self.wall reset];
 }
@@ -220,7 +214,7 @@ int const QP_TimeBonusModifier      = 3;
 }
 
 - (void)checkForDeadPlayer {
-    if ([[self player] health] <= 0) {
+    if (![[self player] living]) {
         [self endBattle];
     }
 }
@@ -300,7 +294,7 @@ int const QP_TimeBonusModifier      = 3;
 - (void)wallLoop {
     [self.wall tick];
     if (self.wall.l.y <= self.player.l.y) {
-        self.player.health = -1;
+        self.player.living = 0;
     }
     [self checkForDeadPlayer];
 }

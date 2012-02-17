@@ -14,18 +14,12 @@
 static int QP_PlayerYDirection = 1;
 
 @implementation ClonePlayer
-@synthesize l, vel, t, radius;
-@synthesize currentMoves;
 @synthesize bulletDelegate;
-@synthesize weapon;
-@synthesize health;
-@synthesize sprite;
 @synthesize speed;
-@synthesize ship;
 
 - (void)generateTurn {
     Turn *turn = [[Turn alloc] init];
-    [self.currentMoves addObject:turn];    
+    [[self currentMoves] addObject:turn];    
     [turn release];
 }
 
@@ -40,13 +34,11 @@ static int QP_PlayerYDirection = 1;
     if (self) {
         self.l = [ClonePlayer defaultLocation];
         self.t = self.l;
-        self.currentMoves = [NSMutableArray array];
         [self generateTurn];
         [self assignDefaultWeapon];
-        self.health = 1;
+        self.living = 1;
         self.speed = 5;
         self.radius = 20;
-        self.ship = [[[QPClonePlayerShip alloc] init] autorelease];
     }
     return self;
 }
@@ -57,8 +49,6 @@ static int QP_PlayerYDirection = 1;
 
 - (id)initWithLayer:(CCLayer *)layer {
     self = [self commonInit];
-    self.sprite = [CCSprite spriteWithFile:@"sprite-7-1.png"];
-    [layer addChild:sprite];
     return self;
 }
 
@@ -86,8 +76,7 @@ static int QP_PlayerYDirection = 1;
 
 - (void)fireWeapon {
     NSArray *bullets = [self.weapon newBulletsForLocation:self.l direction:QP_PlayerYDirection];
-    self.ship.vel = self.vel;
-   [self.bulletDelegate addBullets:bullets ship:self.ship];
+   [self.bulletDelegate addBullets:bullets ship:self];
 }
 
 - (BOOL)firstTurn {
@@ -127,10 +116,6 @@ static int QP_PlayerYDirection = 1;
     
     [self generateTurn];
     self.currentTurn.vel = self.vel;
-    
-    if (self.sprite) {
-        self.sprite.position = self.l;
-    }
 }
 
 - (Turn *)currentTurn {
@@ -142,7 +127,7 @@ static int QP_PlayerYDirection = 1;
 
 - (void)hit:(Bullet *)b {
     if ([b identifier] != [self identifier]) {
-        self.health--;
+        self.living = 0;
         b.finished = YES;
     }
 }
@@ -161,8 +146,8 @@ static int QP_PlayerYDirection = 1;
 }
 
 - (void)reset {
-    self.currentMoves = nil;
-    self.currentMoves = [NSMutableArray array];
+    self.moves = nil;
+    self.moves = [NSMutableArray array];
     self.vel = CGPointZero;
     self.l = [ClonePlayer defaultLocation];
     self.t = self.l;
@@ -171,18 +156,17 @@ static int QP_PlayerYDirection = 1;
 - (void)restart {
     [self reset];
     [self assignDefaultWeapon];
-    self.health = 1;    
+    self.living = 1; 
 }
 
 
 - (void)dealloc {
     self.bulletDelegate = nil;
-    [currentMoves release];
-    [weapon release];
-    [sprite removeFromParentAndCleanup:YES];
-    self.sprite = nil;
-    [ship release];
     [super dealloc];
+}
+
+- (NSMutableArray *)currentMoves {
+    return self.moves;
 }
 
 - (NSString *)locationAndTargetingStatus {

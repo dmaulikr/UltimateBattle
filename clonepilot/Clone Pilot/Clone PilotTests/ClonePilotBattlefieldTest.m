@@ -36,8 +36,8 @@ describe(@"Clone Pilot Battlefield", ^{
         kill();
     };
     ActionBlock playerHit = ^{
-        int playerHealth = [[f player] health];
-        while ([[f player] health] == playerHealth) {
+        BOOL playerLiving = [[f player] living];
+        while ([[f player] living] == playerLiving) {
             [f tick];
         }
     };
@@ -521,15 +521,15 @@ describe(@"Clone Pilot Battlefield", ^{
     context(@"Player Health", ^{
         it(@"should start with one health", ^{
             [f startup];
-            [[theValue([[f player] health]) should] equal:theValue(1)];
+            [[theValue([[f player] living]) should] beTrue];
         });
         
         it(@"should hurt player when bullet hits", ^{
             firstKill();
             [f chooseWeapon:0];
-            NSInteger health = [[f player] health];
+//            BOOL living = [[f player] living];
             playerHit();
-            [[theValue([[f player] health]) should] beLessThan:theValue(health)];
+            [[theValue([[f player] living]) should] beFalse];
         });
                         
         it(@"should reset clones when player dies", ^{
@@ -789,7 +789,7 @@ describe(@"Clone Pilot Battlefield", ^{
             [f startup];
             [f player].t = CGPointMake(384, 0);
             playerHit();
-            [[theValue([[f player] health]) should] equal:theValue(-1)];      
+            [[theValue([[f player] living]) should] beFalse];
         });
         
         it(@"should reset when it kills the player", ^{ 

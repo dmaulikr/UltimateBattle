@@ -12,6 +12,7 @@
 - (id)init {
     self = [super init];
     if (self) {
+        self.moves = [NSMutableArray array];
         self.living = 1;
     }
     
