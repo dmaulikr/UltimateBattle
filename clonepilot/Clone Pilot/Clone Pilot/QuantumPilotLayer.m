@@ -12,7 +12,6 @@
 @synthesize f;
 @synthesize dataLabel1;
 @synthesize dataLabel2;
-@synthesize wallLabel;
 
 +(CCScene *) scene {
 	// 'scene' is an autorelease object.
@@ -37,27 +36,13 @@
         timer = [[NSTimer scheduledTimerWithTimeInterval:0.016 target:self selector:@selector(update) userInfo:nil repeats:YES] retain];
         [self setIsTouchEnabled:YES];
         self.dataLabel1 = [CCLabelTTF labelWithString:@"" fontName:@"Courier New" fontSize:23];
-        
-        // position the label on the center of the screen
         self.dataLabel1.position =  ccp(12,1024-50);
-        [self.dataLabel1 setAnchorPoint:ccp(0,0)];
-        
-        // add the label as a child to this Layer
+        [self.dataLabel1 setAnchorPoint:ccp(0,0)];        
         [self addChild:self.dataLabel1];
-        
         self.dataLabel2 = [CCLabelTTF labelWithString:@"" fontName:@"Courier New" fontSize:23];
-        
-        // position the label on the center of the screen
         self.dataLabel2.position =  ccp(12,1024-80);
-        [self.dataLabel2 setAnchorPoint:ccp(0,0)];
-        
-        // add the label as a child to this Layer
+        [self.dataLabel2 setAnchorPoint:ccp(0,0)];        
         [self addChild:self.dataLabel2];
-        
-        self.wallLabel = [CCLabelTTF labelWithString:@"Wall of Death" fontName:@"Courier New" fontSize:23];
-        self.wallLabel.position = ccp(0,0);
-        [self addChild:self.wallLabel];
-
 	}
 	return self;
 }
@@ -68,7 +53,6 @@
     self.dataLabel1.string = d1String;
     NSString *d2String = [NSString stringWithFormat:@"Score: %d",[self.f score]];
     self.dataLabel2.string = d2String; 
-    self.wallLabel.position = self.f.wall.l;
 }
 
 - (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -98,9 +82,7 @@
     [dataLabel1 release];
     [dataLabel2 removeFromParentAndCleanup:YES];
     [dataLabel2 release];
-    
 	[super dealloc];
 }
-
 
 @end

@@ -49,6 +49,7 @@ static int QP_PlayerYDirection = 1;
 
 - (id)initWithLayer:(CCLayer *)layer {
     self = [self commonInit];
+    [layer addChild:self];
     return self;
 }
 

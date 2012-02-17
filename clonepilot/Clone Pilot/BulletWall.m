@@ -1,11 +1,3 @@
-//
-//  BulletWall.m
-//  Clone Pilot
-//
-//  Created by Anthony Broussard on 12/7/11.
-//  Copyright (c) 2011 ChaiONE. All rights reserved.
-//
-
 #import "BulletWall.h"
 #import "VRGeometry.h"
 
@@ -23,11 +15,17 @@
 - (id)initWithLayer:(CCLayer *)layer {
     self = [super init];
     if (self){
+        [layer addChild:self];
         self.l = [self defaultLocation];
         self.speed = [self defaultSpeed];
         self.vel = CGPointMake(0, -self.speed);
     }
     return self;
+}
+
+- (void)draw {
+    glColor4f(1, 0, 0, 1.0);        
+    ccDrawLine(ccp(0,self.l.y),ccp(768,self.l.y));
 }
 
 - (void)reset {

@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "CCLayer.h"
+#import "cocos2d.h"
 #import "VRGameObject.h"
 
-@interface BulletWall : NSObject <VRGameObject>
+@interface BulletWall : CCNode <VRGameObject>
 
 @property (nonatomic, assign) float speed;
 
