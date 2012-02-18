@@ -15,8 +15,6 @@
 @property (nonatomic, retain) NSArray *lastBulletsFired;
 @property (nonatomic, assign) NSInteger weaponDirection;
 
-//- (CGPoint *)lines;
-
 - (NSInteger)identifier;
 
 - (void)fire;

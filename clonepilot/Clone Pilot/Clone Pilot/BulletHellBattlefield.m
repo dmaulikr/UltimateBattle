@@ -45,9 +45,7 @@
     }
 
     for (Bullet *b in removableBullets) {
-        if (b.sprite) {
-            [b.sprite removeFromParentAndCleanup:YES];
-        }
+        [b removeFromParentAndCleanup:YES];
     }
     
     [self.bullets removeObjectsInArray:removableBullets];
@@ -97,7 +95,7 @@
 
 - (void)removeBullets {
     for (Bullet *b in self.bullets) {
-        [b.sprite removeFromParentAndCleanup:YES];
+        [b removeFromParentAndCleanup:YES];
     }
     
     [self.bullets removeAllObjects];

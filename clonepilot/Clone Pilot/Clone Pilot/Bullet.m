@@ -17,7 +17,7 @@
 @synthesize radius;
 @synthesize identifier;
 @synthesize launchSpeed;
-@synthesize sprite;
+@synthesize showDefaultColor;
 
 -(id)copyWithZone:(NSZone *)zone {
     // We'll ignore the zone for now
@@ -28,6 +28,7 @@
     another.radius = self.radius;
     another.identifier = self.identifier;
     another.launchSpeed = self.launchSpeed;
+    another.showDefaultColor = NO;
     
     return another;
 }
@@ -46,8 +47,7 @@
     if (self) {
         self.l = location;
         self.vel = velocity;
-        self.radius = 4;
-        self.sprite = [CCSprite spriteWithFile:@"ic_text_dot.png" rect:CGRectMake(0, 0, 16, 16)];
+        self.radius = 3;
     }
     
     return self;
@@ -58,9 +58,23 @@
     if (!CGRectContainsPoint([self boundaryFrame], self.l)) {
         self.finished = YES;
     }
-    if (self.sprite) {
-        self.sprite.position = self.l;
+}
+
+- (void)showCustomColor {
+    
+}
+
+- (void)setDrawingColor {
+    if (self.showDefaultColor) {
+        glColor4f(1, 1, 1, 1.0);
+    } else {
+        [self showCustomColor];
     }
+}
+
+- (void)draw {
+    [self setDrawingColor];
+    ccDrawLine(self.l, CombinedPoint(self.l, self.vel));
 }
 
 - (void)tick {
@@ -72,8 +86,6 @@
 }
 
 - (void)dealloc {
-    [sprite removeFromParentAndCleanup:YES];
-    self.sprite = nil;
     [super dealloc];
 }
 

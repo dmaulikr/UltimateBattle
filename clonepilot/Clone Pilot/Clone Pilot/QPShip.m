@@ -30,11 +30,6 @@
     return 0;
 }
 
-//- (CGPoint *)drawLines {
-//    return lines;
-//}
-
-
 - (void)dealloc {
     [moves release];
     [weapon release];

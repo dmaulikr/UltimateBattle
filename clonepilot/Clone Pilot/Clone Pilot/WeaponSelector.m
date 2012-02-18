@@ -30,7 +30,6 @@
         self.splitLaser     = [[[SplitLaser alloc] init] autorelease];
         self.triLaser       = [[[TriLaser alloc] init] autorelease];
         self.quadLaser      = [[[QuadLaser alloc] init] autorelease];
-        self.sideLaser      = [[[SideLaser alloc] init] autorelease];
         self.wideTriLaser   = [[[WideTriLaser alloc] init] autorelease];
         self.chosenWeapons  = [NSMutableArray array];
         self.optionLayers   = [NSMutableArray array];
@@ -76,7 +75,7 @@
 
 - (void)openWeaponOptions {
     if (!self.weaponChoices) {
-        self.weaponChoices = [NSArray arrayWithObjects:self.triLaser, self.splitLaser, self.wideTriLaser, self.sideLaser, nil];
+        self.weaponChoices = [NSArray arrayWithObjects:self.triLaser, self.splitLaser, self.wideTriLaser, nil];
     }
     
     [self displayOptionLayersForWeaponChoices];

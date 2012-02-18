@@ -214,6 +214,12 @@
 		8D6EA34C1438F233002BD85E /* VRGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6EA34A1438F233002BD85E /* VRGeometry.m */; };
 		8D6EA3541438F72D002BD85E /* VRBoundaryFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6EA3531438F72D002BD85E /* VRBoundaryFrame.m */; };
 		8D6EA3551438F72D002BD85E /* VRBoundaryFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6EA3531438F72D002BD85E /* VRBoundaryFrame.m */; };
+		8D8EAC5814EF20C700976715 /* SplitLaserBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D8EAC5714EF20C700976715 /* SplitLaserBullet.m */; };
+		8D8EAC5914EF20C700976715 /* SplitLaserBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D8EAC5714EF20C700976715 /* SplitLaserBullet.m */; };
+		8D8EAC5D14EF210A00976715 /* QuadLaserBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D8EAC5C14EF210A00976715 /* QuadLaserBullet.m */; };
+		8D8EAC5E14EF210A00976715 /* QuadLaserBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D8EAC5C14EF210A00976715 /* QuadLaserBullet.m */; };
+		8D8EAC6114EF21D100976715 /* SingleLaserBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D8EAC6014EF21D000976715 /* SingleLaserBullet.m */; };
+		8D8EAC6214EF21D100976715 /* SingleLaserBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D8EAC6014EF21D000976715 /* SingleLaserBullet.m */; };
 		8DA0A0D314C38679008022D4 /* WideTriLaser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA0A0D214C38679008022D4 /* WideTriLaser.m */; };
 		8DA0A0D414C38679008022D4 /* WideTriLaser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA0A0D214C38679008022D4 /* WideTriLaser.m */; };
 		8DA0A0D914C3869A008022D4 /* WideTriLaser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA0A0D714C3869A008022D4 /* WideTriLaser.m */; };
@@ -591,6 +597,12 @@
 		8D6EA34A1438F233002BD85E /* VRGeometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VRGeometry.m; sourceTree = "<group>"; };
 		8D6EA3521438F72D002BD85E /* VRBoundaryFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VRBoundaryFrame.h; sourceTree = "<group>"; };
 		8D6EA3531438F72D002BD85E /* VRBoundaryFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VRBoundaryFrame.m; sourceTree = "<group>"; };
+		8D8EAC5614EF20C700976715 /* SplitLaserBullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplitLaserBullet.h; sourceTree = "<group>"; };
+		8D8EAC5714EF20C700976715 /* SplitLaserBullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplitLaserBullet.m; sourceTree = "<group>"; };
+		8D8EAC5B14EF210A00976715 /* QuadLaserBullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuadLaserBullet.h; sourceTree = "<group>"; };
+		8D8EAC5C14EF210A00976715 /* QuadLaserBullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuadLaserBullet.m; sourceTree = "<group>"; };
+		8D8EAC5F14EF21D000976715 /* SingleLaserBullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleLaserBullet.h; sourceTree = "<group>"; };
+		8D8EAC6014EF21D000976715 /* SingleLaserBullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleLaserBullet.m; sourceTree = "<group>"; };
 		8DA0A0D114C38679008022D4 /* WideTriLaser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WideTriLaser.h; sourceTree = "<group>"; };
 		8DA0A0D214C38679008022D4 /* WideTriLaser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WideTriLaser.m; sourceTree = "<group>"; };
 		8DA0A0D714C3869A008022D4 /* WideTriLaser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WideTriLaser.m; sourceTree = "<group>"; };
@@ -1146,6 +1158,12 @@
 				8D10349F1464FA0E001FF342 /* BulletDelegateProtocol.h */,
 				8D20A33F14E6E5ED00234995 /* TriLaserBullet.h */,
 				8D20A34014E6E5ED00234995 /* TriLaserBullet.m */,
+				8D8EAC5614EF20C700976715 /* SplitLaserBullet.h */,
+				8D8EAC5714EF20C700976715 /* SplitLaserBullet.m */,
+				8D8EAC5B14EF210A00976715 /* QuadLaserBullet.h */,
+				8D8EAC5C14EF210A00976715 /* QuadLaserBullet.m */,
+				8D8EAC5F14EF21D000976715 /* SingleLaserBullet.h */,
+				8D8EAC6014EF21D000976715 /* SingleLaserBullet.m */,
 			);
 			name = Bullets;
 			sourceTree = "<group>";
@@ -1867,6 +1885,9 @@
 				8D20A34514E716EA00234995 /* BulletHellBattlefieldModifierController.m in Sources */,
 				8D20A34914E7197700234995 /* QPBattlefieldModifierController.m in Sources */,
 				8D3B126B14EE004F000093A4 /* VRDrawHelpers.m in Sources */,
+				8D8EAC5814EF20C700976715 /* SplitLaserBullet.m in Sources */,
+				8D8EAC5D14EF210A00976715 /* QuadLaserBullet.m in Sources */,
+				8D8EAC6114EF21D100976715 /* SingleLaserBullet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2077,6 +2098,9 @@
 				8D20A34614E716EA00234995 /* BulletHellBattlefieldModifierController.m in Sources */,
 				8D20A34A14E7197700234995 /* QPBattlefieldModifierController.m in Sources */,
 				8D3B126C14EE004F000093A4 /* VRDrawHelpers.m in Sources */,
+				8D8EAC5914EF20C700976715 /* SplitLaserBullet.m in Sources */,
+				8D8EAC5E14EF210A00976715 /* QuadLaserBullet.m in Sources */,
+				8D8EAC6214EF21D100976715 /* SingleLaserBullet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

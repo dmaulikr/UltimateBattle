@@ -76,7 +76,10 @@ static int QP_PlayerYDirection = 1;
 }
 
 - (void)fireWeapon {
-    NSArray *bullets = [self.weapon newBulletsForLocation:self.l direction:QP_PlayerYDirection];
+    NSArray *bullets = [self.weapon newBulletsForLocation:CombinedPoint(self.l, ccp(0,QP_PlayerYDirection * 10)) direction:QP_PlayerYDirection];
+    for (Bullet *b in bullets) {
+        b.showDefaultColor = YES;
+    }
    [self.bulletDelegate addBullets:bullets ship:self];
 }
 

@@ -344,7 +344,7 @@ int const QP_TimeBonusModifier      = 3;
 - (void)addBullets:(NSArray *)bullets {
     [super addBullets:bullets];
     for (Bullet *b in bullets) {
-        [self.layer addChild:b.sprite];
+        [self.layer addChild:b];
     }
 }
 

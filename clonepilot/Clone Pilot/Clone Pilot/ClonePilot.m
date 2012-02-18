@@ -35,7 +35,7 @@ static int QP_ClonePilotYDirection = -1;
 
 - (void)manageFiringForTurn:(Turn *)turn {
     if (turn.firing) {
-        NSArray *bullets = [self.weapon newBulletsForLocation:self.l direction:QP_ClonePilotYDirection];
+        NSArray *bullets = [self.weapon newBulletsForLocation:CombinedPoint(self.l, ccp(0,QP_ClonePilotYDirection * 10)) direction:QP_ClonePilotYDirection];
         [self.bulletDelegate addBullets:bullets ship:self];
     }
 }

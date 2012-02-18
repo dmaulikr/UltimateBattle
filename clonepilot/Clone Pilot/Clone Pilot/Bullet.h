@@ -10,7 +10,7 @@
 #import "VRBoundaryFrame.h"
 #import "cocos2d.h"
 
-@interface Bullet : NSObject <NSCopying> {
+@interface Bullet : CCNode <NSCopying> {
     
 }
 
@@ -20,12 +20,15 @@
 @property (nonatomic, assign) double radius;
 @property (nonatomic, assign) NSInteger identifier;
 @property (nonatomic, assign) float launchSpeed;
-@property (nonatomic, retain) CCSprite *sprite;
+@property (nonatomic, assign) BOOL showDefaultColor;
 
 - (id)initWithLocation:(CGPoint)location velocity:(CGPoint)velocity;
 - (void)tick;
 - (BOOL)isColliding:(Bullet *)b;
 
 + (Bullet *)sampleBullet;
+
+- (void)setDrawingColor;
+- (void)showCustomColor;
 
 @end
