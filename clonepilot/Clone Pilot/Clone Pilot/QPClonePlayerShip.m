@@ -4,7 +4,8 @@
 @implementation QPClonePlayerShip
 
 - (BOOL)shipHitByBullet:(Bullet *)b {
-    return shapeOfSizeContainsPoint(lines, 4, b.l);
+    CGPoint *shipLines = basicDiamondShipLines(self.l, 1);    
+    return shapeOfSizeContainsPoint(shipLines, 4, b.l);
 }
 
 - (NSInteger)identifier {

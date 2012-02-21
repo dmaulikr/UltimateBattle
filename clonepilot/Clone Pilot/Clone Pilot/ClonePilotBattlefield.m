@@ -199,8 +199,8 @@ int const QP_TimeBonusModifier      = 3;
 
 - (void)checkForCloneCollision:(Bullet *)b {
     for (ClonePilot *p in self.clones) {
-        if ([p shipHitByBullet:b]) {
-            if (GetDistance(b.l, p.l) <= b.radius + p.radius) {
+        if (!b.finished && p.living && b.identifier != [ClonePilot identifier]) {
+            if ([p shipHitByBullet:b]) {
                 [self killClone:p];
                 self.hits++;
                 b.finished = YES;
