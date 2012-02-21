@@ -12,6 +12,7 @@
 #import "QPBattlefieldModifier.h"
 #import "QPBulletIdentifierModifier.h"
 #import "QPBattlefieldModifierController.h"
+#import "QPDrawing.h"
 
 SPEC_BEGIN(ClonePilotBattlefieldTest)
 
@@ -912,7 +913,21 @@ describe(@"Clone Pilot Battlefield", ^{
             [[theValue([[f battlefieldModifiers] count]) should] equal:theValue(2)];
             [[theValue([[[f battlefieldModifierController] battlefieldModifiers] count]) should] equal:theValue(startingModifierCount)];
         });
+    });
+    
+    context(@"it should detect pixel perfect collision", ^{
+        it(@"should not detect a point outside the shape", ^{
+            CGPoint *lines = basicDiamondShipLines([ClonePlayer defaultLocation], -1);
+            BOOL result = shapeOfSizeContainsPoint(lines, 4, ccp(10,10));
+            [[theValue(result) should] beFalse];            
+        });
         
+        it(@"should detect a point within a shape", ^{
+            CGPoint l = [ClonePlayer defaultLocation];
+            CGPoint *lines = basicDiamondShipLines(l, -1);
+            BOOL result = shapeOfSizeContainsPoint(lines, 4, l);
+            [[theValue(result) should] beTrue];
+        });
     });
 
 });

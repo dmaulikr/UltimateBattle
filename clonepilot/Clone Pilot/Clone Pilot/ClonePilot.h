@@ -34,4 +34,6 @@
 
 - (void)ceaseLiving;
 
+- (NSInteger)yDirection;
+
 @end

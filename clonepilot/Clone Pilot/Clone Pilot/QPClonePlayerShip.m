@@ -1,4 +1,5 @@
 #import "QPClonePlayerShip.h"
+#import "QPDrawing.h"
 
 @implementation QPClonePlayerShip
 
@@ -13,12 +14,7 @@
 - (void)draw {
     if (self.living) {
         glColor4f(1, 1, 1, 1.0);
-        lines[0] = ccp(self.l.x-16,self.l.y);
-        lines[1] = ccp(self.l.x,self.l.y+37);
-        lines[2] = ccp(self.l.x+16,self.l.y);
-        lines[3] = ccp(self.l.x,self.l.y-10);
-        
-        drawShapeFromLines(lines, 0, 4);
+        drawBasicDiamondShip(self.l, -1);
     }
 }
 

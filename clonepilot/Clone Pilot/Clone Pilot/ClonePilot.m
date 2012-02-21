@@ -40,6 +40,10 @@ static int QP_ClonePilotYDirection = -1;
     }
 }
 
+- (NSInteger)yDirection {
+    return QP_ClonePilotYDirection;
+}
+
 - (void)manageMoveIndexBoundary {
     if (self.moveIndex >= [self.moves count] || self.moveIndex < 0){
         _moveDirection = -_moveDirection;
@@ -58,7 +62,6 @@ static int QP_ClonePilotYDirection = -1;
             
             self.moveIndex +=_moveDirection;
             [self manageMoveIndexBoundary];
-            
         }
         
     }
