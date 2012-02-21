@@ -200,6 +200,7 @@ int const QP_TimeBonusModifier      = 3;
 - (void)checkForCloneCollision:(Bullet *)b {
     for (ClonePilot *p in self.clones) {
         if (!b.finished && p.living && b.identifier != [ClonePilot identifier]) {
+//            if ([p shipHitByBullet:b]) {
             if (GetDistance(b.l, p.l) <= b.radius + p.radius) {
                 [self killClone:p];
                 self.hits++;
@@ -220,7 +221,8 @@ int const QP_TimeBonusModifier      = 3;
 }
 
 - (void)checkForPlayerCollision:(Bullet *)b {
-    if (!b.finished && GetDistance(b.l, [self player].l) <= b.radius + [[self player] radius]) {
+    if (!b.finished && [[self player] shipHitByBullet:b]) {
+        //GetDistance(b.l, [self player].l) <= b.radius + [[self player] radius]) {
         [[self player] hit:b];
     }
     
