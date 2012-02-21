@@ -1,5 +1,9 @@
 #import "QPShip.h"
 
-@interface QPCloneShip : QPShip
+@interface QPCloneShip : QPShip {
+    CGPoint lines[4];
+}
+
+- (BOOL)shipHitByBullet:(Bullet *)b;
 
 @end
