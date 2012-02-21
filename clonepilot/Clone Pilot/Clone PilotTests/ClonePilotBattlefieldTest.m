@@ -24,7 +24,7 @@ describe(@"Clone Pilot Battlefield", ^{
         int livingClones = [f livingClones];
         
         while ([f livingClones] >= 1) {
-            if ([f livingClones] > livingClones) {
+            if ([f livingClones] != livingClones) {
                 break;
             }
             [f tick];
@@ -882,8 +882,8 @@ describe(@"Clone Pilot Battlefield", ^{
         
         it(@"should reset clones when level is 10", ^{
             firstKill();
+            f.level = 9;
             [f chooseWeapon:0];
-            f.level = 10;
             [f resetClones];
             [[theValue([[f clones] count]) should] equal:theValue(1)];
         });
