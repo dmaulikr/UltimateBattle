@@ -1,7 +1,6 @@
 #import "ClonePilot.h"
 
 int QP_ClonePilotYDirection = -1;
-int historicalTurnsCount = 50;
 
 @implementation ClonePilot
 @synthesize l, vel, t, radius;
@@ -16,6 +15,10 @@ int historicalTurnsCount = 50;
 
 + (CGPoint)defaultLocation {
     return CGPointMake(384, 724);
+}
+
+- (CGPoint)defaultLocation {
+    return [ClonePilot defaultLocation];
 }
 
 + (NSInteger)identifier {
@@ -54,17 +57,10 @@ int historicalTurnsCount = 50;
     }
 }
 
-- (void)updateHistoricalPoints {
-    historicalPoints[historicalTurnsCount] = self.l;
-    for (int i = 0; i < historicalTurnsCount; i++) {
-        historicalPoints[i] = historicalPoints[i+1];
-    }
-}
-
 - (void)tick {
+    [super tick];
     if ([self living]) {
         if ([self.moves count] > 0) {
-            [self updateHistoricalPoints];            
             Turn *turn = [self.moves objectAtIndex:self.moveIndex];
             self.vel = turn.vel;
             self.vel = CGPointMake(self.vel.x * _moveDirection, self.vel.y * _moveDirection);
@@ -75,12 +71,6 @@ int historicalTurnsCount = 50;
             [self manageMoveIndexBoundary];
         }
     
-    }
-}
-
-- (void)clearHistoricalPoints {
-    for (int i = 0; i < historicalTurnsCount; i++) {
-        historicalPoints[i] = [ClonePilot defaultLocation];
     }
 }
 
@@ -100,7 +90,6 @@ int historicalTurnsCount = 50;
         self.living = YES;
         self.radius = 23;
         _moveDirection = 1;
-        [self clearHistoricalPoints];
     }
     
     return self;
@@ -126,17 +115,18 @@ int historicalTurnsCount = 50;
     return shapeOfSizeContainsPoint(shipLines, 4, b.l);
 }
 
-- (void)draw {
-    if (self.living) {
-        if (self.weapon) {
-            [self.weapon setDrawColor];
-        } else {
-            glColor4f(1, 1, 1, 1.0);
-        }
-        
-        drawBasicDiamondShip(self.l, QP_ClonePilotYDirection);
+- (void)setDrawingColor {
+    if (self.weapon) {
+        [self.weapon setDrawColor];
+    } else {
+        glColor4f(1, 1, 1, 1.0);
+    }
+}
 
-        ccDrawPoly(historicalPoints, historicalTurnsCount, NO);
+- (void)draw {
+    [super draw];
+    if (self.living) {
+        drawBasicDiamondShip(self.l, QP_ClonePilotYDirection);
     }
 }
 

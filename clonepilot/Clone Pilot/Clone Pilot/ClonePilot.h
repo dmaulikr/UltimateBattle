@@ -15,11 +15,9 @@
 #import "QPShip.h"
 
 extern int QP_ClonePilotYDirection;
-extern int historicalTurnsCount;
 
 @interface ClonePilot : QPShip {
     CGPoint lines[4];
-    CGPoint historicalPoints[51];
     NSInteger _moveDirection;
 }
 

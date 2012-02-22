@@ -1,5 +1,7 @@
 #import "QPShip.h"
 
+int historicalTurnsCount = 50;
+
 @implementation QPShip
 @synthesize l, vel, t, radius;
 @synthesize moves;
@@ -14,6 +16,7 @@
     if (self) {
         self.moves = [NSMutableArray array];
         self.living = 1;
+        [self clearHistoricalPoints];        
     }
     
     return self;
@@ -27,6 +30,43 @@
 }
 
 - (NSInteger)identifier {
+    return 0;
+}
+
+- (CGPoint)defaultLocation {
+    return ccp(384,512);
+}
+
+- (void)clearHistoricalPoints {
+    for (int i = 0; i < historicalTurnsCount; i++) {
+        historicalPoints[i] = [self defaultLocation];
+    }
+}
+
+- (void)updateHistoricalPoints {
+    historicalPoints[historicalTurnsCount] = self.l;
+    for (int i = 0; i < historicalTurnsCount; i++) {
+        historicalPoints[i] = historicalPoints[i+1];
+        historicalPoints[i] = ccp(historicalPoints[i].x,historicalPoints[i].y-[self yDirection]);
+    }
+}
+
+- (void)setDrawingColor {
+    
+}
+
+- (void)draw {
+    if (self.living) {
+        [self setDrawingColor];
+        ccDrawPoly(historicalPoints, historicalTurnsCount, NO);
+    }
+}
+
+- (void)tick {
+    [self updateHistoricalPoints];
+}
+
+- (NSInteger)yDirection {
     return 0;
 }
 

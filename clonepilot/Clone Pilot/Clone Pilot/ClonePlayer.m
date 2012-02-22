@@ -149,12 +149,17 @@ int QP_PlayerYDirection = 1;
     return NO;
 }
 
+- (CGPoint)defaultLocation {
+    return [ClonePlayer defaultLocation];
+}
+
 - (void)reset {
     self.moves = nil;
     self.moves = [NSMutableArray array];
     self.vel = CGPointZero;
-    self.l = [ClonePlayer defaultLocation];
+    self.l = [self defaultLocation];
     self.t = self.l;
+    [self clearHistoricalPoints];    
 }
 
 - (void)restart {
@@ -182,9 +187,16 @@ int QP_PlayerYDirection = 1;
     return shapeOfSizeContainsPoint(shipLines, 4, b.l);
 }
 
+- (NSInteger)yDirection  {
+    return QP_PlayerYDirection;
+}
+
+- (void)setDrawingColor {
+    glColor4f(1, 1, 1, 1.0);
+}
+
 - (void)draw {
     if (self.living) {
-        glColor4f(1, 1, 1, 1.0);
         drawBasicDiamondShip(self.l, QP_PlayerYDirection);
     }
 }
