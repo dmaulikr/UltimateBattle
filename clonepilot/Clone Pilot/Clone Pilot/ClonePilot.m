@@ -1,6 +1,7 @@
 #import "ClonePilot.h"
 
 int QP_ClonePilotYDirection = -1;
+int historicalTurnsCount = 50;
 
 @implementation ClonePilot
 @synthesize l, vel, t, radius;
@@ -53,9 +54,17 @@ int QP_ClonePilotYDirection = -1;
     }
 }
 
+- (void)updateHistoricalPoints {
+    historicalPoints[historicalTurnsCount] = self.l;
+    for (int i = 0; i < historicalTurnsCount; i++) {
+        historicalPoints[i] = historicalPoints[i+1];
+    }
+}
+
 - (void)tick {
     if ([self living]) {
         if ([self.moves count] > 0) {
+            [self updateHistoricalPoints];            
             Turn *turn = [self.moves objectAtIndex:self.moveIndex];
             self.vel = turn.vel;
             self.vel = CGPointMake(self.vel.x * _moveDirection, self.vel.y * _moveDirection);
@@ -65,12 +74,19 @@ int QP_ClonePilotYDirection = -1;
             self.moveIndex +=_moveDirection;
             [self manageMoveIndexBoundary];
         }
-        
+    
+    }
+}
+
+- (void)clearHistoricalPoints {
+    for (int i = 0; i < historicalTurnsCount; i++) {
+        historicalPoints[i] = [ClonePilot defaultLocation];
     }
 }
 
 - (void)reset {
     self.l = [ClonePilot defaultLocation];
+    [self clearHistoricalPoints];
     self.moveIndex = 0;
     _moveDirection = 1;
     self.living = YES;
@@ -84,6 +100,7 @@ int QP_ClonePilotYDirection = -1;
         self.living = YES;
         self.radius = 23;
         _moveDirection = 1;
+        [self clearHistoricalPoints];
     }
     
     return self;
@@ -118,6 +135,8 @@ int QP_ClonePilotYDirection = -1;
         }
         
         drawBasicDiamondShip(self.l, QP_ClonePilotYDirection);
+
+        ccDrawPoly(historicalPoints, historicalTurnsCount, NO);
     }
 }
 

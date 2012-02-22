@@ -61,7 +61,7 @@ int const QP_TimeBonusModifier      = 3;
     self.layer      = quantumLayer;
     self.wall       = [[[BulletWall alloc] initWithLayer:quantumLayer] autorelease];
     self.rSprite    = [CCSprite spriteWithFile:@"sprite-7-1.png"];
-    [quantumLayer addChild:self.rSprite];        
+//    [quantumLayer addChild:self.rSprite];        
     return self;
 }
 
@@ -69,7 +69,7 @@ int const QP_TimeBonusModifier      = 3;
     self = [self commonInit];
     self.player = [[[ClonePlayer alloc] init] autorelease];
     self.player.bulletDelegate = self;
-    self.rSprite.position = CGPointMake(self.inputHandler.movePoint.x, 1024-self.inputHandler.movePoint.y);
+//    self.rSprite.position = CGPointMake(self.inputHandler.movePoint.x, 1024-self.inputHandler.movePoint.y);
 
     return self;
 }
