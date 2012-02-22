@@ -197,6 +197,7 @@ int QP_PlayerYDirection = 1;
 
 - (void)draw {
     if (self.living) {
+        [self setDrawingColor];        
         drawBasicDiamondShip(self.l, QP_PlayerYDirection);
     }
 }
