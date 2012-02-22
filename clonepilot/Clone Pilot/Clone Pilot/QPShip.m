@@ -47,7 +47,7 @@ int historicalTurnsCount = 50;
     historicalPoints[historicalTurnsCount] = self.l;
     for (int i = 0; i < historicalTurnsCount; i++) {
         historicalPoints[i] = historicalPoints[i+1];
-        historicalPoints[i] = ccp(historicalPoints[i].x,historicalPoints[i].y-[self yDirection]);
+        historicalPoints[i] = ccp(historicalPoints[i].x,historicalPoints[i].y-(.5 *[self yDirection]));
     }
 }
 
