@@ -3,6 +3,8 @@
 #import "VRGameObject.h"
 #import "BulletDelegateProtocol.h"
 #import "VRDrawHelpers.h"
+#import "QPDrawing.h"
+#import "VRGeometry.h"
 
 @interface QPShip : CCNode <VRGameObject> {
     

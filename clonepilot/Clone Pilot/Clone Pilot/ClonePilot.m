@@ -1,8 +1,6 @@
 #import "ClonePilot.h"
-#import "VRGeometry.h"
-#import "QPCloneShip.h"
 
-static int QP_ClonePilotYDirection = -1;
+int QP_ClonePilotYDirection = -1;
 
 @implementation ClonePilot
 @synthesize l, vel, t, radius;
@@ -21,6 +19,10 @@ static int QP_ClonePilotYDirection = -1;
 
 + (NSInteger)identifier {
     return 1;
+}
+
+- (NSInteger)identifier {
+    return [ClonePilot identifier];   
 }
 
 - (Turn *)currentTurn {
@@ -101,6 +103,24 @@ static int QP_ClonePilotYDirection = -1;
 - (void)ceaseLiving {
     self.living = NO;
 }
+
+- (BOOL)shipHitByBullet:(Bullet *)b {
+    CGPoint *shipLines = basicDiamondShipLines(self.l, QP_ClonePilotYDirection);
+    return shapeOfSizeContainsPoint(shipLines, 4, b.l);
+}
+
+- (void)draw {
+    if (self.living) {
+        if (self.weapon) {
+            [self.weapon setDrawColor];
+        } else {
+            glColor4f(1, 1, 1, 1.0);
+        }
+        
+        drawBasicDiamondShip(self.l, QP_ClonePilotYDirection);
+    }
+}
+
 
 - (void)dealloc {
     [moves release];

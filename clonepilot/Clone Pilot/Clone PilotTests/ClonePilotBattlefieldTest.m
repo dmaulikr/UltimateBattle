@@ -924,7 +924,7 @@ describe(@"Clone Pilot Battlefield", ^{
         
         it(@"should detect a point within a shape", ^{
             CGPoint l = [ClonePlayer defaultLocation];
-            CGPoint *lines = basicDiamondShipLines(l, -1);
+            CGPoint *lines = basicDiamondShipLines(l, QP_PlayerYDirection);
             BOOL result = shapeOfSizeContainsPoint(lines, 4, l);
             [[theValue(result) should] beTrue];
         });

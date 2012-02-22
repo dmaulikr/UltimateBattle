@@ -370,10 +370,6 @@
 		8DF8D9D814E6537800DA6C4B /* QPBulletIdentifierModifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF8D9D714E6537700DA6C4B /* QPBulletIdentifierModifier.m */; };
 		8DF8D9D914E6537800DA6C4B /* QPBulletIdentifierModifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF8D9D714E6537700DA6C4B /* QPBulletIdentifierModifier.m */; };
 		8DF8D9DD14E653C900DA6C4B /* QPBulletIdentifierModifierTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF8D9DB14E653C900DA6C4B /* QPBulletIdentifierModifierTest.m */; };
-		8DF8D9E014E657DC00DA6C4B /* QPClonePlayerShip.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF8D9DF14E657DB00DA6C4B /* QPClonePlayerShip.m */; };
-		8DF8D9E114E657DC00DA6C4B /* QPClonePlayerShip.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF8D9DF14E657DB00DA6C4B /* QPClonePlayerShip.m */; };
-		8DF8D9E414E6580D00DA6C4B /* QPCloneShip.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF8D9E314E6580C00DA6C4B /* QPCloneShip.m */; };
-		8DF8D9E514E6580D00DA6C4B /* QPCloneShip.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF8D9E314E6580C00DA6C4B /* QPCloneShip.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -843,10 +839,6 @@
 		8DF8D9D614E6537700DA6C4B /* QPBulletIdentifierModifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBulletIdentifierModifier.h; sourceTree = "<group>"; };
 		8DF8D9D714E6537700DA6C4B /* QPBulletIdentifierModifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBulletIdentifierModifier.m; sourceTree = "<group>"; };
 		8DF8D9DB14E653C900DA6C4B /* QPBulletIdentifierModifierTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBulletIdentifierModifierTest.m; sourceTree = "<group>"; };
-		8DF8D9DE14E657DB00DA6C4B /* QPClonePlayerShip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPClonePlayerShip.h; sourceTree = "<group>"; };
-		8DF8D9DF14E657DB00DA6C4B /* QPClonePlayerShip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPClonePlayerShip.m; sourceTree = "<group>"; };
-		8DF8D9E214E6580C00DA6C4B /* QPCloneShip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPCloneShip.h; sourceTree = "<group>"; };
-		8DF8D9E314E6580C00DA6C4B /* QPCloneShip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPCloneShip.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1645,10 +1637,6 @@
 			children = (
 				8DF8D9CE14E6445800DA6C4B /* QPShip.h */,
 				8DF8D9CF14E6445800DA6C4B /* QPShip.m */,
-				8DF8D9DE14E657DB00DA6C4B /* QPClonePlayerShip.h */,
-				8DF8D9DF14E657DB00DA6C4B /* QPClonePlayerShip.m */,
-				8DF8D9E214E6580C00DA6C4B /* QPCloneShip.h */,
-				8DF8D9E314E6580C00DA6C4B /* QPCloneShip.m */,
 			);
 			name = Ships;
 			sourceTree = "<group>";
@@ -1883,8 +1871,6 @@
 				8DF8D9D014E6445800DA6C4B /* QPShip.m in Sources */,
 				8DF8D9D414E645F700DA6C4B /* QPBattlefieldModifier.m in Sources */,
 				8DF8D9D814E6537800DA6C4B /* QPBulletIdentifierModifier.m in Sources */,
-				8DF8D9E014E657DC00DA6C4B /* QPClonePlayerShip.m in Sources */,
-				8DF8D9E414E6580D00DA6C4B /* QPCloneShip.m in Sources */,
 				8D20A33914E6D95000234995 /* QPBulletCollisionModifier.m in Sources */,
 				8D20A33D14E6E0BB00234995 /* BulletHellBattlefieldModifier.m in Sources */,
 				8D20A34114E6E5ED00234995 /* TriLaserBullet.m in Sources */,
@@ -2096,8 +2082,6 @@
 				8DF8D9D514E645F700DA6C4B /* QPBattlefieldModifier.m in Sources */,
 				8DF8D9D914E6537800DA6C4B /* QPBulletIdentifierModifier.m in Sources */,
 				8DF8D9DD14E653C900DA6C4B /* QPBulletIdentifierModifierTest.m in Sources */,
-				8DF8D9E114E657DC00DA6C4B /* QPClonePlayerShip.m in Sources */,
-				8DF8D9E514E6580D00DA6C4B /* QPCloneShip.m in Sources */,
 				8D20A33614E6D73A00234995 /* QPBulletCollisionModifierTest.m in Sources */,
 				8D20A33A14E6D95000234995 /* QPBulletCollisionModifier.m in Sources */,
 				8D20A33E14E6E0BB00234995 /* BulletHellBattlefieldModifier.m in Sources */,

@@ -13,9 +13,11 @@
 #import "BulletDelegateProtocol.h"
 #import "cocos2d.h"
 #import "QPShip.h"
-#import "QPCloneShip.h"
 
-@interface ClonePilot : QPCloneShip {
+extern int QP_ClonePilotYDirection;
+
+@interface ClonePilot : QPShip {
+    CGPoint lines[4];
     NSInteger _moveDirection;
 }
 
@@ -34,6 +36,6 @@
 
 - (void)ceaseLiving;
 
-- (NSInteger)yDirection;
+- (BOOL)shipHitByBullet:(Bullet *)b;
 
 @end

@@ -9,9 +9,9 @@
 #import "ClonePlayer.h"
 #import "VRGeometry.h"
 #import "SingleLaser.h"
-#import "QPClonePlayerShip.h"
+#import "QPDrawing.h"
 
-static int QP_PlayerYDirection = 1;
+int QP_PlayerYDirection = 1;
 
 @implementation ClonePlayer
 @synthesize bulletDelegate;
@@ -176,5 +176,18 @@ static int QP_PlayerYDirection = 1;
 - (NSString *)locationAndTargetingStatus {
     return [NSString stringWithFormat:@"Location x/y: %f,%f     Target x/y: %f %f", self.l.x,self.l.y, self.t.x,self.t.y];
 }
+
+- (BOOL)shipHitByBullet:(Bullet *)b {
+    CGPoint *shipLines = basicDiamondShipLines(self.l, QP_PlayerYDirection);    
+    return shapeOfSizeContainsPoint(shipLines, 4, b.l);
+}
+
+- (void)draw {
+    if (self.living) {
+        glColor4f(1, 1, 1, 1.0);
+        drawBasicDiamondShip(self.l, QP_PlayerYDirection);
+    }
+}
+
 
 @end

@@ -13,9 +13,12 @@
 #import "Bullet.h"
 #import "Weapon.h"
 #import "BulletDelegateProtocol.h"
-#import "QPClonePlayerShip.h"
+#import "QPShip.h"
 
-@interface ClonePlayer : QPClonePlayerShip {
+extern int QP_PlayerYDirection;
+
+@interface ClonePlayer : QPShip {
+    CGPoint lines[4];
 }
 
 @property (nonatomic, assign) id <BulletDelegate> bulletDelegate;
@@ -41,5 +44,7 @@
 - (id)initWithLayer:(CCLayer *)layer;
 
 - (NSString *)locationAndTargetingStatus;
+
+- (BOOL)shipHitByBullet:(Bullet *)b;
 
 @end
