@@ -214,6 +214,8 @@
 		8D6EA34C1438F233002BD85E /* VRGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6EA34A1438F233002BD85E /* VRGeometry.m */; };
 		8D6EA3541438F72D002BD85E /* VRBoundaryFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6EA3531438F72D002BD85E /* VRBoundaryFrame.m */; };
 		8D6EA3551438F72D002BD85E /* VRBoundaryFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6EA3531438F72D002BD85E /* VRBoundaryFrame.m */; };
+		8D6EDFD414F5C56000606A1B /* QPScoreDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6EDFD314F5C56000606A1B /* QPScoreDisplay.m */; };
+		8D6EDFD514F5C56000606A1B /* QPScoreDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6EDFD314F5C56000606A1B /* QPScoreDisplay.m */; };
 		8D75ECB914F4044D0073C3DE /* QPDrawing.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D75ECB814F4044D0073C3DE /* QPDrawing.m */; };
 		8D75ECBB14F404530073C3DE /* QPDrawing.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D75ECB814F4044D0073C3DE /* QPDrawing.m */; };
 		8D8EAC5814EF20C700976715 /* SplitLaserBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D8EAC5714EF20C700976715 /* SplitLaserBullet.m */; };
@@ -595,6 +597,8 @@
 		8D6EA34A1438F233002BD85E /* VRGeometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VRGeometry.m; sourceTree = "<group>"; };
 		8D6EA3521438F72D002BD85E /* VRBoundaryFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VRBoundaryFrame.h; sourceTree = "<group>"; };
 		8D6EA3531438F72D002BD85E /* VRBoundaryFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VRBoundaryFrame.m; sourceTree = "<group>"; };
+		8D6EDFD214F5C56000606A1B /* QPScoreDisplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPScoreDisplay.h; sourceTree = "<group>"; };
+		8D6EDFD314F5C56000606A1B /* QPScoreDisplay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPScoreDisplay.m; sourceTree = "<group>"; };
 		8D75ECB714F4044D0073C3DE /* QPDrawing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPDrawing.h; sourceTree = "<group>"; };
 		8D75ECB814F4044D0073C3DE /* QPDrawing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPDrawing.m; sourceTree = "<group>"; };
 		8D8EAC5614EF20C700976715 /* SplitLaserBullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplitLaserBullet.h; sourceTree = "<group>"; };
@@ -1203,6 +1207,15 @@
 			name = Interfaces;
 			sourceTree = "<group>";
 		};
+		8D6EDFD014F5C4F400606A1B /* Scoring */ = {
+			isa = PBXGroup;
+			children = (
+				8D6EDFD214F5C56000606A1B /* QPScoreDisplay.h */,
+				8D6EDFD314F5C56000606A1B /* QPScoreDisplay.m */,
+			);
+			name = Scoring;
+			sourceTree = "<group>";
+		};
 		8DABC64F1439075D009020E0 /* Clone Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -1306,6 +1319,7 @@
 		8DC7F8981438D8870016D718 /* Clone Pilot */ = {
 			isa = PBXGroup;
 			children = (
+				8D6EDFD014F5C4F400606A1B /* Scoring */,
 				8DF8D9CD14E6444C00DA6C4B /* Ships */,
 				8DF8D9C414E6408900DA6C4B /* BattlefieldModifiers */,
 				8DF772B314C1E13800A8B2B7 /* Handlers */,
@@ -1881,6 +1895,7 @@
 				8D8EAC5D14EF210A00976715 /* QuadLaserBullet.m in Sources */,
 				8D8EAC6114EF21D100976715 /* SingleLaserBullet.m in Sources */,
 				8D75ECB914F4044D0073C3DE /* QPDrawing.m in Sources */,
+				8D6EDFD414F5C56000606A1B /* QPScoreDisplay.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2093,6 +2108,7 @@
 				8D8EAC5E14EF210A00976715 /* QuadLaserBullet.m in Sources */,
 				8D8EAC6214EF21D100976715 /* SingleLaserBullet.m in Sources */,
 				8D75ECBB14F404530073C3DE /* QPDrawing.m in Sources */,
+				8D6EDFD514F5C56000606A1B /* QPScoreDisplay.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
