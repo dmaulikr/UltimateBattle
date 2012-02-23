@@ -8,6 +8,9 @@
 @property (nonatomic, retain) CCLabelTTF *timeLabel;
 @property (nonatomic, retain) CCLabelTTF *accuracyLabel;
 @property (nonatomic, retain) CCLabelTTF *modifierLabel;
+@property (nonatomic, retain) CCLabelTTF *timeScoreLabel;
+@property (nonatomic, retain) CCLabelTTF *accuracyScoreLabel;
+@property (nonatomic, retain) CCLabelTTF *modifierScoreLabel;
 
 - (id)initWithTime:(NSInteger)t accuracy:(float)a modifierTotal:(NSInteger)mt;
 
