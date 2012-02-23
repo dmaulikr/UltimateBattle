@@ -169,6 +169,14 @@ int const QP_TimeBonusModifier      = 3;
     [self activateAllClones];    
     [self resetPlayer];
     [self openWeaponOptions];
+    NSInteger bonusTime = (QP_MaxTime - self.time) * QP_TimeBonusModifier;
+    bonusTime =  bonusTime > 0 ? bonusTime : 0;
+
+    float accuracy = [self hits] / [self shotsFired];
+    accuracy = floor(QP_AccuracyBonusModifier * accuracy * 100);
+
+    _scoreDisplay = [[QPScoreDisplay alloc] initWithTime:bonusTime accuracy:accuracy modifierTotal:0 layer:self.layer];
+    [self.layer addChild:_scoreDisplay];
     [self resetTime]; 
     [self resetWall];    
 }
@@ -366,7 +374,14 @@ int const QP_TimeBonusModifier      = 3;
     self.score += [self timeBonus];
 }
 
+- (void)removeScoreDisplay {
+    [_scoreDisplay removeFromParentAndCleanup:YES];
+    [_scoreDisplay release];
+    _scoreDisplay = nil;
+}
+
 - (void)playerChoseWeapon:(Weapon *)weapon {
+    [self removeScoreDisplay];
     for (BulletHellBattlefieldModifier *m in self.battlefieldModifiers) {
         [m levelGainedForBattlefield:self];
     }

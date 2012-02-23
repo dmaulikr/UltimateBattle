@@ -7,6 +7,7 @@
 #import "CCLayer.h"
 #import "BulletWall.h"
 #import "QPInputHandler.h"
+#import "QPScoreDisplay.h"
 
 extern int const QP_TouchTargetingYOffset; 
 extern int const QP_AccuracyBonusModifier;
@@ -19,6 +20,7 @@ extern int const QP_TimeBonusModifier;
     BOOL _shouldAdvanceLevel;
     BOOL _battlefieldEnding;
     BOOL _paused;
+    QPScoreDisplay *_scoreDisplay;
 }
 
 @property (nonatomic, retain) ClonePlayer *player;

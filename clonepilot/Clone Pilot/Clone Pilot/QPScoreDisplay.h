@@ -12,6 +12,6 @@
 @property (nonatomic, retain) CCLabelTTF *accuracyScoreLabel;
 @property (nonatomic, retain) CCLabelTTF *modifierScoreLabel;
 
-- (id)initWithTime:(NSInteger)t accuracy:(float)a modifierTotal:(NSInteger)mt;
+- (id)initWithTime:(NSInteger)t accuracy:(float)a modifierTotal:(NSInteger)mt layer:(CCLayer *)layer;
 
 @end
