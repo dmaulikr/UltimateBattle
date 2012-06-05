@@ -28,3 +28,4 @@ accuracy
 weapon modifier
 physics modifiers
 battlefield modifiers
+course corrections (number of enemy ships - number of corrections) * bonus
