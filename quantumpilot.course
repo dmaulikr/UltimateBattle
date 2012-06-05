@@ -1,0 +1,17 @@
+single laser consecutively makes for boring/easy games. solve with 'freshness'..
+freshness introduces foreign concept, exists for design w/out in-game value.......
+
+earn and lose modifiers?
+
+bullet modifiers
+momentum
+collision
+side bouncing (w/ collision off vertical shots pass)
+tracking (bullets move in x with ship)
+
+battlefield modifiers
+center pulls bullets x that have not crossed threshhold
+h wrapping
+everyshot is answered by an accel rocket from opposite center (player only)
+everyshot deploys a mine (player only) that activates in X seconds
+
