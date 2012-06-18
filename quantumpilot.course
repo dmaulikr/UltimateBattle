@@ -17,11 +17,16 @@ everyshot deploys a mine (player only) that activates in X seconds
 
 
 weapons: normal (single, split, rotates)
-weapons: special (1 special available at a time, costs $, keep until hit. if purchase new special then old weapon is 'stored' - free in same battle - lose ALL special weapons when hit. slightly expensive.. finish a whole game or two to pay for one.)
-
+weapons: special (1 special available at a time, costs $, keep until hit with that weapon. if purchase new special then old weapon is 'stored' - free in same battle - lose ALL special weapons when hit?
 shield: protects from a single hit
 
 weapon modifier: earn more from using special weapons per weapon difficulty (tight tri, quad, bouncer)
+
+weapon cost: 100 debris for no special > wide tri. 
+only lose special if hit, pay debris for upgrading special
+RESOLVE^
+
+bombs: costs # enemies * 10 debris. shoot out until hits wall of death. detonates sends one weapon at each enemy
 
 time
 accuracy
@@ -39,3 +44,13 @@ physics pack
 battlefield pack
 quantum plurality multiplayer pack
 code -LOCAL- first, sub in online later.
+
+opengl
+triangles
+glows
+trails
+opacity oscillations
+drawing sin wave oscillations (subset of drawing, not position)
+
+plurality:
+30s timed, your movements get played that round (double blind) then copied against you for future
