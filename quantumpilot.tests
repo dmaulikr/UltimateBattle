@@ -1,0 +1,45 @@
+qpbf {
+it should {
+  have 7 possible states: title, drawing, fighting, paused, scoring, weapon selection
+  begin in title state
+  not change state with an empty press
+  change into drawing state when tapping on ship
+ 
+drawing state {
+  set offset from ship on press
+  maintain in drawing state on a tick forward with no let up
+  revert to paused state on tick forward with let up
+ 
+use c arrays for delta x, delta y, delta fire.. less memory than objects
+  store a delta of movement zero when touch doesnt move on tick
+  store a delta x,y when point changes on next tick
+  cap deltax,y*speedratio to 1 when point moves past speedratio distance
+  store deltax,y * speedratio < 1 when point moves less than speedratio distance
+  store weapon fires when weapon fired
+  stop storing deltas when deltastack total exceeds max
+  enter fighting state on let up
+
+fighting state {
+  apply movement deltas on tick
+  apply firing deltas on tick
+  increase current iteration tick on tick
+  enter paused state when current iteration reaches max movement deltas
+
+paused state {
+  delta stores should shift down to zero with difference equal to iteration
+  erase deltastack and change into drawing state when tapping on ship
+  maintain deltastack and change into drawing state when tapping on latest expected point
+  set offset from ship on change into drawing state
+  reset pathiterations when changing to drawing state from shig
+  maintain pathiterations when changing to drawing state from latest pathpoint
+  track total pauses used
+
+fighting state {
+  enter scoring state on zero clones
+  calculate time bonus
+  calculate 10-paths used for multiplier pause bonus
+   
+
+
+
+
