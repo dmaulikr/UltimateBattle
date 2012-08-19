@@ -1,3 +1,5 @@
+new classes for battlefield, ships, bullets, etc.
+
 qpbf {
 it should {
   have 7 possible states: title, drawing, fighting, paused, scoring, weapon selection
@@ -18,6 +20,7 @@ use c arrays for delta x, delta y, delta fire.. less memory than objects
   store weapon fires when weapon fired
   stop storing deltas when deltastack total exceeds max
   enter fighting state on let up
+  enter fighting state when deltastack total exceeds max
 
 fighting state {
   apply movement deltas on tick
@@ -28,9 +31,9 @@ fighting state {
 paused state {
   delta stores should shift down to zero with difference equal to iteration
   erase deltastack and change into drawing state when tapping on ship
-  maintain deltastack and change into drawing state when tapping on latest expected point
+  maintain deltastack and change into drawing state when tapping on latest expected point (use pointer for latestx/y)
   set offset from ship on change into drawing state
-  reset pathiterations when changing to drawing state from shig
+  reset pathiterations when changing to drawing state from ship
   maintain pathiterations when changing to drawing state from latest pathpoint
   track total pauses used
 
@@ -39,6 +42,10 @@ fighting state {
   calculate time bonus
   calculate 10-paths used for multiplier pause bonus
    
+fractals {
+  bullets should draw fractally
+  ships should draw fractally
+  explosions should occur fractally
 
 
 
