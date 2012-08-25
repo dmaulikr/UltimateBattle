@@ -29,7 +29,7 @@ fighting state {
   enter paused state when current iteration reaches max movement deltas
 
 paused state {
-  delta stores should shift down to zero with difference equal to iteration
+  delta stores should shift down to zero with difference equal to iteration difference
   erase deltastack and change into drawing state when tapping on ship
   maintain deltastack and change into drawing state when tapping on latest expected point (use pointer for latestx/y)
   set offset from ship on change into drawing state
