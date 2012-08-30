@@ -372,10 +372,232 @@
 		8DF8D9D814E6537800DA6C4B /* QPBulletIdentifierModifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF8D9D714E6537700DA6C4B /* QPBulletIdentifierModifier.m */; };
 		8DF8D9D914E6537800DA6C4B /* QPBulletIdentifierModifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF8D9D714E6537700DA6C4B /* QPBulletIdentifierModifier.m */; };
 		8DF8D9DD14E653C900DA6C4B /* QPBulletIdentifierModifierTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF8D9DB14E653C900DA6C4B /* QPBulletIdentifierModifierTest.m */; };
+		BFE7334315EF0B010010FB9E /* QPBattlefield.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE7334215EF0B010010FB9E /* QPBattlefield.m */; };
+		BFE7334415EF0B010010FB9E /* QPBattlefield.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE7334215EF0B010010FB9E /* QPBattlefield.m */; };
+		BFE7334715EF0C410010FB9E /* QPBFState.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE7334615EF0C410010FB9E /* QPBFState.m */; };
+		BFE7334815EF0C410010FB9E /* QPBFState.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE7334615EF0C410010FB9E /* QPBFState.m */; };
+		BFE7334B15EF0D300010FB9E /* QPBFTitleState.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE7334A15EF0D300010FB9E /* QPBFTitleState.m */; };
+		BFE7334C15EF0D300010FB9E /* QPBFTitleState.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE7334A15EF0D300010FB9E /* QPBFTitleState.m */; };
+		BFE7345815EF0F000010FB9E /* KWAfterAllNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F8D21438D8E20016D718 /* KWAfterAllNode.m */; };
+		BFE7345915EF0F000010FB9E /* KWAfterEachNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F8D41438D8E20016D718 /* KWAfterEachNode.m */; };
+		BFE7345A15EF0F000010FB9E /* KWAsyncVerifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F8D61438D8E20016D718 /* KWAsyncVerifier.m */; };
+		BFE7345B15EF0F000010FB9E /* KWBeBetweenMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F8D81438D8E20016D718 /* KWBeBetweenMatcher.m */; };
+		BFE7345C15EF0F000010FB9E /* KWBeEmptyMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F8DA1438D8E20016D718 /* KWBeEmptyMatcher.m */; };
+		BFE7345D15EF0F000010FB9E /* KWBeforeAllNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F8DC1438D8E20016D718 /* KWBeforeAllNode.m */; };
+		BFE7345E15EF0F000010FB9E /* KWBeforeEachNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F8DE1438D8E20016D718 /* KWBeforeEachNode.m */; };
+		BFE7345F15EF0F000010FB9E /* KWBeIdenticalToMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F8E01438D8E20016D718 /* KWBeIdenticalToMatcher.m */; };
+		BFE7346015EF0F000010FB9E /* KWBeKindOfClassMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F8E21438D8E20016D718 /* KWBeKindOfClassMatcher.m */; };
+		BFE7346115EF0F000010FB9E /* KWBeMemberOfClassMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F8E41438D8E20016D718 /* KWBeMemberOfClassMatcher.m */; };
+		BFE7346215EF0F000010FB9E /* KWBeNilMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F8E61438D8E20016D718 /* KWBeNilMatcher.m */; };
+		BFE7346315EF0F000010FB9E /* KWBeNonNilMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F8E81438D8E30016D718 /* KWBeNonNilMatcher.m */; };
+		BFE7346415EF0F000010FB9E /* KWBeTrueMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F8EA1438D8E30016D718 /* KWBeTrueMatcher.m */; };
+		BFE7346515EF0F000010FB9E /* KWBeWithinMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F8EC1438D8E30016D718 /* KWBeWithinMatcher.m */; };
+		BFE7346615EF0F000010FB9E /* KWBeZeroMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F8EE1438D8E30016D718 /* KWBeZeroMatcher.m */; };
+		BFE7346715EF0F000010FB9E /* KWBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F8F01438D8E30016D718 /* KWBlock.m */; };
+		BFE7346815EF0F000010FB9E /* KWBlockNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F8F21438D8E30016D718 /* KWBlockNode.m */; };
+		BFE7346915EF0F000010FB9E /* KWBlockRaiseMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F8F41438D8E30016D718 /* KWBlockRaiseMatcher.m */; };
+		BFE7346A15EF0F000010FB9E /* KWCallSite.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F8F61438D8E30016D718 /* KWCallSite.m */; };
+		BFE7346B15EF0F000010FB9E /* KWConformToProtocolMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F8F81438D8E30016D718 /* KWConformToProtocolMatcher.m */; };
+		BFE7346C15EF0F000010FB9E /* KWContainMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F8FA1438D8E30016D718 /* KWContainMatcher.m */; };
+		BFE7346D15EF0F000010FB9E /* KWContextNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F8FC1438D8E30016D718 /* KWContextNode.m */; };
+		BFE7346E15EF0F000010FB9E /* KWDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F8FF1438D8E30016D718 /* KWDeviceInfo.m */; };
+		BFE7346F15EF0F000010FB9E /* KWEqualMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F9011438D8E30016D718 /* KWEqualMatcher.m */; };
+		BFE7347015EF0F000010FB9E /* KWExampleGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F9031438D8E30016D718 /* KWExampleGroup.m */; };
+		BFE7347115EF0F000010FB9E /* KWExampleGroupBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F9051438D8E30016D718 /* KWExampleGroupBuilder.m */; };
+		BFE7347215EF0F000010FB9E /* KWExistVerifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F90A1438D8E30016D718 /* KWExistVerifier.m */; };
+		BFE7347315EF0F000010FB9E /* KWFailure.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F90D1438D8E30016D718 /* KWFailure.m */; };
+		BFE7347415EF0F000010FB9E /* KWFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F90F1438D8E30016D718 /* KWFormatter.m */; };
+		BFE7347515EF0F000010FB9E /* KWFutureObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F9111438D8E30016D718 /* KWFutureObject.m */; };
+		BFE7347615EF0F000010FB9E /* KWHamcrestMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F9131438D8E30016D718 /* KWHamcrestMatcher.m */; };
+		BFE7347715EF0F000010FB9E /* KWHamrestMatchingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F9151438D8E30016D718 /* KWHamrestMatchingAdditions.m */; };
+		BFE7347815EF0F000010FB9E /* KWHaveMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F9171438D8E30016D718 /* KWHaveMatcher.m */; };
+		BFE7347915EF0F000010FB9E /* KWHaveValueMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F9191438D8E30016D718 /* KWHaveValueMatcher.m */; };
+		BFE7347A15EF0F000010FB9E /* KWInequalityMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F91C1438D8E30016D718 /* KWInequalityMatcher.m */; };
+		BFE7347B15EF0F000010FB9E /* KWIntercept.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F91E1438D8E30016D718 /* KWIntercept.m */; };
+		BFE7347C15EF0F000010FB9E /* KWInvocationCapturer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F9201438D8E30016D718 /* KWInvocationCapturer.m */; };
+		BFE7347D15EF0F000010FB9E /* KWItNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F9221438D8E30016D718 /* KWItNode.m */; };
+		BFE7347E15EF0F000010FB9E /* KWMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F9241438D8E30016D718 /* KWMatcher.m */; };
+		BFE7347F15EF0F000010FB9E /* KWMatcherFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F9261438D8E30016D718 /* KWMatcherFactory.m */; };
+		BFE7348015EF0F000010FB9E /* KWMatchers.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F9281438D8E30016D718 /* KWMatchers.m */; };
+		BFE7348115EF0F000010FB9E /* KWMatchVerifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F92B1438D8E30016D718 /* KWMatchVerifier.m */; };
+		BFE7348215EF0F000010FB9E /* KWMessagePattern.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F92D1438D8E30016D718 /* KWMessagePattern.m */; };
+		BFE7348315EF0F000010FB9E /* KWMessageTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F9301438D8E30016D718 /* KWMessageTracker.m */; };
+		BFE7348415EF0F000010FB9E /* KWMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F9321438D8E30016D718 /* KWMock.m */; };
+		BFE7348515EF0F000010FB9E /* KWNull.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F9341438D8E30016D718 /* KWNull.m */; };
+		BFE7348615EF0F000010FB9E /* KWObjCUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F9361438D8E30016D718 /* KWObjCUtilities.m */; };
+		BFE7348715EF0F000010FB9E /* KWPendingNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F9381438D8E30016D718 /* KWPendingNode.m */; };
+		BFE7348815EF0F000010FB9E /* KWProbePoller.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F93B1438D8E30016D718 /* KWProbePoller.m */; };
+		BFE7348915EF0F000010FB9E /* KWRaiseMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F93D1438D8E30016D718 /* KWRaiseMatcher.m */; };
+		BFE7348A15EF0F000010FB9E /* KWReceiveMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F93F1438D8E30016D718 /* KWReceiveMatcher.m */; };
+		BFE7348B15EF0F000010FB9E /* KWRegisterMatchersNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F9411438D8E30016D718 /* KWRegisterMatchersNode.m */; };
+		BFE7348C15EF0F000010FB9E /* KWRespondToSelectorMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F9441438D8E30016D718 /* KWRespondToSelectorMatcher.m */; };
+		BFE7348D15EF0F000010FB9E /* KWSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F9461438D8E30016D718 /* KWSpec.m */; };
+		BFE7348E15EF0F000010FB9E /* KWStringUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F9481438D8E30016D718 /* KWStringUtilities.m */; };
+		BFE7348F15EF0F000010FB9E /* KWStub.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F94A1438D8E30016D718 /* KWStub.m */; };
+		BFE7349015EF0F000010FB9E /* KWTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F94C1438D8E30016D718 /* KWTestCase.m */; };
+		BFE7349115EF0F000010FB9E /* KWUserDefinedMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F94E1438D8E30016D718 /* KWUserDefinedMatcher.m */; };
+		BFE7349215EF0F000010FB9E /* KWValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F9501438D8E30016D718 /* KWValue.m */; };
+		BFE7349315EF0F000010FB9E /* KWWorkarounds.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F9531438D8E30016D718 /* KWWorkarounds.m */; };
+		BFE7349415EF0F000010FB9E /* NSInvocation+KiwiAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F9551438D8E30016D718 /* NSInvocation+KiwiAdditions.m */; };
+		BFE7349515EF0F000010FB9E /* NSMethodSignature+KiwiAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F9571438D8E30016D718 /* NSMethodSignature+KiwiAdditions.m */; };
+		BFE7349615EF0F000010FB9E /* NSNumber+KiwiAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F9591438D8E30016D718 /* NSNumber+KiwiAdditions.m */; };
+		BFE7349715EF0F000010FB9E /* NSObject+KiwiMockAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F95B1438D8E30016D718 /* NSObject+KiwiMockAdditions.m */; };
+		BFE7349815EF0F000010FB9E /* NSObject+KiwiStubAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F95D1438D8E30016D718 /* NSObject+KiwiStubAdditions.m */; };
+		BFE7349915EF0F000010FB9E /* NSObject+KiwiVerifierAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F95F1438D8E30016D718 /* NSObject+KiwiVerifierAdditions.m */; };
+		BFE7349A15EF0F000010FB9E /* NSValue+KiwiAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F9611438D8E30016D718 /* NSValue+KiwiAdditions.m */; };
+		BFE7349C15EF0F000010FB9E /* BulletHellBattlefield.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F9AB1438DA120016D718 /* BulletHellBattlefield.m */; };
+		BFE7349E15EF0F000010FB9E /* Bullet.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6EA3441438DDFB002BD85E /* Bullet.m */; };
+		BFE7349F15EF0F000010FB9E /* VRGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6EA34A1438F233002BD85E /* VRGeometry.m */; };
+		BFE734A015EF0F000010FB9E /* VRBoundaryFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6EA3531438F72D002BD85E /* VRBoundaryFrame.m */; };
+		BFE734A215EF0F000010FB9E /* ClonePilotBattlefield.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DABC63F1438FFBC009020E0 /* ClonePilotBattlefield.m */; };
+		BFE734A315EF0F000010FB9E /* ClonePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DABC64814390225009020E0 /* ClonePlayer.m */; };
+		BFE734A415EF0F000010FB9E /* VRGameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DABC64C1439054D009020E0 /* VRGameObject.m */; };
+		BFE734A615EF0F000010FB9E /* Turn.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D3E721E143BE6FE00D59706 /* Turn.m */; };
+		BFE734A715EF0F000010FB9E /* ClonePilot.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBD92E2145A44BD00349A7D /* ClonePilot.m */; };
+		BFE734A815EF0F000010FB9E /* SingleLaser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DB98BA1144A10E20089B94C /* SingleLaser.m */; };
+		BFE734A915EF0F000010FB9E /* Weapon.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DB98BA5144A11530089B94C /* Weapon.m */; };
+		BFE734AC15EF0F000010FB9E /* TriLaser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA3376014522D1C00AA3744 /* TriLaser.m */; };
+		BFE734AE15EF0F000010FB9E /* QuadLaser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA3376814524BD600AA3744 /* QuadLaser.m */; };
+		BFE734B115EF0F000010FB9E /* SplitLaser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA337771452637300AA3744 /* SplitLaser.m */; };
+		BFE734B215EF0F000010FB9E /* WeaponSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DCBEDD214536E3900E6C566 /* WeaponSelector.m */; };
+		BFE734B415EF0F000010FB9E /* SideLaser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC03C6D146B534A003DCF2D /* SideLaser.m */; };
+		BFE734B515EF0F000010FB9E /* SideLaserBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC03C71146B537F003DCF2D /* SideLaserBullet.m */; };
+		BFE734B615EF0F000010FB9E /* VRTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DE424BF1470352700FFC6A6 /* VRTouch.m */; };
+		BFE734B715EF0F000010FB9E /* FontLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBB1514804B5500C4CFEC /* FontLabel.m */; };
+		BFE734B815EF0F000010FB9E /* FontLabelStringDrawing.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBB1714804B5500C4CFEC /* FontLabelStringDrawing.m */; };
+		BFE734B915EF0F000010FB9E /* FontManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBB1914804B5500C4CFEC /* FontManager.m */; };
+		BFE734BA15EF0F000010FB9E /* ZAttributedString.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBB1B14804B5500C4CFEC /* ZAttributedString.m */; };
+		BFE734BB15EF0F000010FB9E /* ZFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBB1E14804B5500C4CFEC /* ZFont.m */; };
+		BFE734BC15EF0F000010FB9E /* Clone_PilotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7F8A81438D8870016D718 /* Clone_PilotViewController.m */; };
+		BFE734BD15EF0F000010FB9E /* CCAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBE2014804F4800C4CFEC /* CCAction.m */; };
+		BFE734BE15EF0F000010FB9E /* CCActionCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBE2214804F4800C4CFEC /* CCActionCamera.m */; };
+		BFE734BF15EF0F000010FB9E /* CCActionEase.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBE2414804F4800C4CFEC /* CCActionEase.m */; };
+		BFE734C015EF0F000010FB9E /* CCActionGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBE2614804F4800C4CFEC /* CCActionGrid.m */; };
+		BFE734C115EF0F000010FB9E /* CCActionGrid3D.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBE2814804F4800C4CFEC /* CCActionGrid3D.m */; };
+		BFE734C215EF0F000010FB9E /* CCActionInstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBE2A14804F4800C4CFEC /* CCActionInstant.m */; };
+		BFE734C315EF0F000010FB9E /* CCActionInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBE2C14804F4800C4CFEC /* CCActionInterval.m */; };
+		BFE734C415EF0F000010FB9E /* CCActionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBE2E14804F4800C4CFEC /* CCActionManager.m */; };
+		BFE734C515EF0F000010FB9E /* CCActionPageTurn3D.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBE3014804F4800C4CFEC /* CCActionPageTurn3D.m */; };
+		BFE734C615EF0F000010FB9E /* CCActionProgressTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBE3214804F4800C4CFEC /* CCActionProgressTimer.m */; };
+		BFE734C715EF0F000010FB9E /* CCActionTiledGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBE3414804F4800C4CFEC /* CCActionTiledGrid.m */; };
+		BFE734C815EF0F000010FB9E /* CCActionTween.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBE3614804F4800C4CFEC /* CCActionTween.m */; };
+		BFE734C915EF0F000010FB9E /* CCAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBE3814804F4800C4CFEC /* CCAnimation.m */; };
+		BFE734CA15EF0F000010FB9E /* CCAnimationCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBE3A14804F4800C4CFEC /* CCAnimationCache.m */; };
+		BFE734CB15EF0F000010FB9E /* CCAtlasNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBE3C14804F4800C4CFEC /* CCAtlasNode.m */; };
+		BFE734CC15EF0F000010FB9E /* CCBlockSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBE3E14804F4800C4CFEC /* CCBlockSupport.m */; };
+		BFE734CD15EF0F000010FB9E /* CCCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBE4014804F4800C4CFEC /* CCCamera.m */; };
+		BFE734CE15EF0F000010FB9E /* CCConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBE4314804F4800C4CFEC /* CCConfiguration.m */; };
+		BFE734CF15EF0F000010FB9E /* CCDirector.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBE4514804F4800C4CFEC /* CCDirector.m */; };
+		BFE734D015EF0F000010FB9E /* CCDrawingPrimitives.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBE4714804F4800C4CFEC /* CCDrawingPrimitives.m */; };
+		BFE734D115EF0F000010FB9E /* CCGrabber.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBE4914804F4800C4CFEC /* CCGrabber.m */; };
+		BFE734D215EF0F000010FB9E /* CCGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBE4B14804F4800C4CFEC /* CCGrid.m */; };
+		BFE734D315EF0F000010FB9E /* CCLabelAtlas.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBE4D14804F4800C4CFEC /* CCLabelAtlas.m */; };
+		BFE734D415EF0F000010FB9E /* CCLabelBMFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBE4F14804F4800C4CFEC /* CCLabelBMFont.m */; };
+		BFE734D515EF0F000010FB9E /* CCLabelTTF.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBE5114804F4800C4CFEC /* CCLabelTTF.m */; };
+		BFE734D615EF0F000010FB9E /* CCLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBE5314804F4800C4CFEC /* CCLayer.m */; };
+		BFE734D715EF0F000010FB9E /* CCMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBE5614804F4800C4CFEC /* CCMenu.m */; };
+		BFE734D815EF0F000010FB9E /* CCMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBE5814804F4800C4CFEC /* CCMenuItem.m */; };
+		BFE734D915EF0F000010FB9E /* CCMotionStreak.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBE5A14804F4800C4CFEC /* CCMotionStreak.m */; };
+		BFE734DA15EF0F000010FB9E /* CCNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBE5C14804F4800C4CFEC /* CCNode.m */; };
+		BFE734DB15EF0F000010FB9E /* CCParallaxNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBE5E14804F4800C4CFEC /* CCParallaxNode.m */; };
+		BFE734DC15EF0F000010FB9E /* CCParticleExamples.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBE6014804F4800C4CFEC /* CCParticleExamples.m */; };
+		BFE734DD15EF0F000010FB9E /* CCParticleSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBE6214804F4800C4CFEC /* CCParticleSystem.m */; };
+		BFE734DE15EF0F000010FB9E /* CCParticleSystemPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBE6414804F4800C4CFEC /* CCParticleSystemPoint.m */; };
+		BFE734DF15EF0F000010FB9E /* CCParticleSystemQuad.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBE6614804F4800C4CFEC /* CCParticleSystemQuad.m */; };
+		BFE734E015EF0F000010FB9E /* CCProgressTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBE6814804F4800C4CFEC /* CCProgressTimer.m */; };
+		BFE734E115EF0F000010FB9E /* CCRenderTexture.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBE6B14804F4800C4CFEC /* CCRenderTexture.m */; };
+		BFE734E215EF0F000010FB9E /* CCRibbon.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBE6D14804F4800C4CFEC /* CCRibbon.m */; };
+		BFE734E315EF0F000010FB9E /* CCScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBE6F14804F4800C4CFEC /* CCScene.m */; };
+		BFE734E415EF0F000010FB9E /* CCScheduler.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBE7114804F4800C4CFEC /* CCScheduler.m */; };
+		BFE734E515EF0F000010FB9E /* CCSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBE7314804F4800C4CFEC /* CCSprite.m */; };
+		BFE734E615EF0F000010FB9E /* CCSpriteBatchNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBE7514804F4800C4CFEC /* CCSpriteBatchNode.m */; };
+		BFE734E715EF0F000010FB9E /* CCSpriteFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBE7714804F4800C4CFEC /* CCSpriteFrame.m */; };
+		BFE734E815EF0F000010FB9E /* CCSpriteFrameCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBE7914804F4800C4CFEC /* CCSpriteFrameCache.m */; };
+		BFE734E915EF0F000010FB9E /* CCTexture2D.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBE7B14804F4800C4CFEC /* CCTexture2D.m */; };
+		BFE734EA15EF0F000010FB9E /* CCTextureAtlas.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBE7D14804F4800C4CFEC /* CCTextureAtlas.m */; };
+		BFE734EB15EF0F000010FB9E /* CCTextureCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBE7F14804F4800C4CFEC /* CCTextureCache.m */; };
+		BFE734EC15EF0F000010FB9E /* CCTexturePVR.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBE8114804F4800C4CFEC /* CCTexturePVR.m */; };
+		BFE734ED15EF0F000010FB9E /* CCTileMapAtlas.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBE8314804F4800C4CFEC /* CCTileMapAtlas.m */; };
+		BFE734EE15EF0F000010FB9E /* CCTMXLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBE8514804F4800C4CFEC /* CCTMXLayer.m */; };
+		BFE734EF15EF0F000010FB9E /* CCTMXObjectGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBE8714804F4800C4CFEC /* CCTMXObjectGroup.m */; };
+		BFE734F015EF0F000010FB9E /* CCTMXTiledMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBE8914804F4800C4CFEC /* CCTMXTiledMap.m */; };
+		BFE734F115EF0F000010FB9E /* CCTMXXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBE8B14804F4800C4CFEC /* CCTMXXMLParser.m */; };
+		BFE734F215EF0F000010FB9E /* CCTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBE8D14804F4800C4CFEC /* CCTransition.m */; };
+		BFE734F315EF0F000010FB9E /* CCTransitionPageTurn.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBE8F14804F4800C4CFEC /* CCTransitionPageTurn.m */; };
+		BFE734F415EF0F000010FB9E /* CCTransitionRadial.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBE9114804F4800C4CFEC /* CCTransitionRadial.m */; };
+		BFE734F515EF0F000010FB9E /* cocos2d.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBE9414804F4800C4CFEC /* cocos2d.m */; };
+		BFE734F615EF0F000010FB9E /* CCDirectorIOS.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBE9A14804F4800C4CFEC /* CCDirectorIOS.m */; };
+		BFE734F715EF0F000010FB9E /* CCTouchDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBE9D14804F4800C4CFEC /* CCTouchDispatcher.m */; };
+		BFE734F815EF0F000010FB9E /* CCTouchHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBE9F14804F4800C4CFEC /* CCTouchHandler.m */; };
+		BFE734F915EF0F000010FB9E /* EAGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBEA114804F4800C4CFEC /* EAGLView.m */; };
+		BFE734FA15EF0F000010FB9E /* ES1Renderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBEA314804F4800C4CFEC /* ES1Renderer.m */; };
+		BFE734FB15EF0F000010FB9E /* glu.c in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBEA514804F4800C4CFEC /* glu.c */; };
+		BFE734FC15EF0F000010FB9E /* CCDirectorMac.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBEA914804F4800C4CFEC /* CCDirectorMac.m */; };
+		BFE734FD15EF0F000010FB9E /* CCEventDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBEAB14804F4800C4CFEC /* CCEventDispatcher.m */; };
+		BFE734FE15EF0F000010FB9E /* MacGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBEAD14804F4800C4CFEC /* MacGLView.m */; };
+		BFE734FF15EF0F000010FB9E /* MacWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBEAF14804F4800C4CFEC /* MacWindow.m */; };
+		BFE7350015EF0F000010FB9E /* base64.c in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBEB114804F4800C4CFEC /* base64.c */; };
+		BFE7350115EF0F000010FB9E /* CCArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBEB414804F4800C4CFEC /* CCArray.m */; };
+		BFE7350215EF0F000010FB9E /* CCFileUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBEB714804F4800C4CFEC /* CCFileUtils.m */; };
+		BFE7350315EF0F000010FB9E /* CCProfiling.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBEB914804F4800C4CFEC /* CCProfiling.m */; };
+		BFE7350415EF0F000010FB9E /* ccUtils.c in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBEBA14804F4800C4CFEC /* ccUtils.c */; };
+		BFE7350515EF0F000010FB9E /* CGPointExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBEBD14804F4800C4CFEC /* CGPointExtension.m */; };
+		BFE7350615EF0F000010FB9E /* TGAlib.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBEC014804F4800C4CFEC /* TGAlib.m */; };
+		BFE7350715EF0F000010FB9E /* TransformUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBEC214804F4800C4CFEC /* TransformUtils.m */; };
+		BFE7350815EF0F000010FB9E /* ZipUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBEC614804F4800C4CFEC /* ZipUtils.m */; };
+		BFE7350915EF0F000010FB9E /* BulletWall.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DEB4768149057B6008E7FCF /* BulletWall.m */; };
+		BFE7350A15EF0F000010FB9E /* QPInputHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF772A314C1508800A8B2B7 /* QPInputHandler.m */; };
+		BFE7350B15EF0F000010FB9E /* QPMoveInputHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF772A714C1526000A8B2B7 /* QPMoveInputHandler.m */; };
+		BFE7350C15EF0F000010FB9E /* NSLogWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF772AB14C160FF00A8B2B7 /* NSLogWrapper.m */; };
+		BFE7350E15EF0F000010FB9E /* QPTouchPointInputLayerHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF772B514C1E15800A8B2B7 /* QPTouchPointInputLayerHandler.m */; };
+		BFE7350F15EF0F000010FB9E /* QPBlockKeeper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF772B914C1FA5700A8B2B7 /* QPBlockKeeper.m */; };
+		BFE7351115EF0F000010FB9E /* WideTriLaser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA0A0D214C38679008022D4 /* WideTriLaser.m */; };
+		BFE7351315EF0F000010FB9E /* QPWeaponOptionLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DCC9CE514DD97AD007EF194 /* QPWeaponOptionLayer.m */; };
+		BFE7351415EF0F000010FB9E /* QPMomentumModifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF8D9C014E6408600DA6C4B /* QPMomentumModifier.m */; };
+		BFE7351615EF0F000010FB9E /* QPShip.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF8D9CF14E6445800DA6C4B /* QPShip.m */; };
+		BFE7351715EF0F000010FB9E /* QPBattlefieldModifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF8D9D314E645F700DA6C4B /* QPBattlefieldModifier.m */; };
+		BFE7351815EF0F000010FB9E /* QPBulletIdentifierModifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF8D9D714E6537700DA6C4B /* QPBulletIdentifierModifier.m */; };
+		BFE7351B15EF0F000010FB9E /* QPBulletCollisionModifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D20A33814E6D95000234995 /* QPBulletCollisionModifier.m */; };
+		BFE7351C15EF0F000010FB9E /* BulletHellBattlefieldModifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D20A33C14E6E0BB00234995 /* BulletHellBattlefieldModifier.m */; };
+		BFE7351D15EF0F000010FB9E /* TriLaserBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D20A34014E6E5ED00234995 /* TriLaserBullet.m */; };
+		BFE7351E15EF0F000010FB9E /* BulletHellBattlefieldModifierController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D20A34414E716EA00234995 /* BulletHellBattlefieldModifierController.m */; };
+		BFE7351F15EF0F000010FB9E /* QPBattlefieldModifierController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D20A34814E7197700234995 /* QPBattlefieldModifierController.m */; };
+		BFE7352015EF0F000010FB9E /* VRDrawHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D3B126A14EE004F000093A4 /* VRDrawHelpers.m */; };
+		BFE7352115EF0F000010FB9E /* SplitLaserBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D8EAC5714EF20C700976715 /* SplitLaserBullet.m */; };
+		BFE7352215EF0F000010FB9E /* QuadLaserBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D8EAC5C14EF210A00976715 /* QuadLaserBullet.m */; };
+		BFE7352315EF0F000010FB9E /* SingleLaserBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D8EAC6014EF21D000976715 /* SingleLaserBullet.m */; };
+		BFE7352415EF0F000010FB9E /* QPDrawing.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D75ECB814F4044D0073C3DE /* QPDrawing.m */; };
+		BFE7352515EF0F000010FB9E /* QPScoreDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6EDFD314F5C56000606A1B /* QPScoreDisplay.m */; };
+		BFE7352615EF0F000010FB9E /* QPBattlefield.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE7334215EF0B010010FB9E /* QPBattlefield.m */; };
+		BFE7352715EF0F000010FB9E /* QPBFState.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE7334615EF0C410010FB9E /* QPBFState.m */; };
+		BFE7352815EF0F000010FB9E /* QPBFTitleState.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE7334A15EF0D300010FB9E /* QPBFTitleState.m */; };
+		BFE7352A15EF0F000010FB9E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D1DBF761480505D00C4CFEC /* libz.dylib */; };
+		BFE7352B15EF0F000010FB9E /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D1DBF731480503800C4CFEC /* OpenGLES.framework */; };
+		BFE7352C15EF0F000010FB9E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC7F8921438D8870016D718 /* UIKit.framework */; };
+		BFE7352D15EF0F000010FB9E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC7F8941438D8870016D718 /* Foundation.framework */; };
+		BFE7352E15EF0F000010FB9E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC7F8961438D8870016D718 /* CoreGraphics.framework */; };
+		BFE7352F15EF0F000010FB9E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D1DBF6714804FCE00C4CFEC /* QuartzCore.framework */; };
+		BFE7353015EF0F000010FB9E /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D1DBF6514804FB100C4CFEC /* OpenAL.framework */; };
+		BFE7353115EF0F000010FB9E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D1DBF6314804FAC00C4CFEC /* AVFoundation.framework */; };
+		BFE7353215EF0F000010FB9E /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D1DBF6114804F9F00C4CFEC /* CoreAudio.framework */; };
+		BFE7353315EF0F000010FB9E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D1DBF5F14804F9700C4CFEC /* AudioToolbox.framework */; };
+		BFE7353415EF0F000010FB9E /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D1DBB2914804B6C00C4CFEC /* CoreText.framework */; };
+		BFE7353615EF0F000010FB9E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8DC7F8BB1438D8870016D718 /* InfoPlist.strings */; };
+		BFE7353715EF0F000010FB9E /* sprite-7-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D677AEF148053CA004CA345 /* sprite-7-1.png */; };
+		BFE7353815EF0F000010FB9E /* ic_text_dot.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D677AF214805DCD004CA345 /* ic_text_dot.png */; };
+		BFE7353915EF0F000010FB9E /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8DF772DF14C27D9400A8B2B7 /* Entitlements.plist */; };
+		BFE7354015EF0F5B0010FB9E /* QPBattlefieldStartingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE7333E15EF09FC0010FB9E /* QPBattlefieldStartingTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		8DC7F8B61438D8870016D718 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8DC7F8851438D8870016D718 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DC7F88D1438D8870016D718;
+			remoteInfo = "Clone Pilot";
+		};
+		BFE7345615EF0F000010FB9E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8DC7F8851438D8870016D718 /* Project object */;
 			proxyType = 1;
@@ -843,6 +1065,22 @@
 		8DF8D9D614E6537700DA6C4B /* QPBulletIdentifierModifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBulletIdentifierModifier.h; sourceTree = "<group>"; };
 		8DF8D9D714E6537700DA6C4B /* QPBulletIdentifierModifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBulletIdentifierModifier.m; sourceTree = "<group>"; };
 		8DF8D9DB14E653C900DA6C4B /* QPBulletIdentifierModifierTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBulletIdentifierModifierTest.m; sourceTree = "<group>"; };
+		BFE7333E15EF09FC0010FB9E /* QPBattlefieldStartingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBattlefieldStartingTests.m; sourceTree = "<group>"; };
+		BFE7334115EF0B010010FB9E /* QPBattlefield.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBattlefield.h; sourceTree = "<group>"; };
+		BFE7334215EF0B010010FB9E /* QPBattlefield.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBattlefield.m; sourceTree = "<group>"; };
+		BFE7334515EF0C410010FB9E /* QPBFState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBFState.h; sourceTree = "<group>"; };
+		BFE7334615EF0C410010FB9E /* QPBFState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBFState.m; sourceTree = "<group>"; };
+		BFE7334915EF0D300010FB9E /* QPBFTitleState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBFTitleState.h; sourceTree = "<group>"; };
+		BFE7334A15EF0D300010FB9E /* QPBFTitleState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBFTitleState.m; sourceTree = "<group>"; };
+		BFE7343B15EF0DF50010FB9E /* Clone PilotTests copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Clone PilotTests copy-Info.plist"; path = "/Users/cmp/ultimatebattle/clonepilot/Clone Pilot/Clone PilotTests copy-Info.plist"; sourceTree = "<absolute>"; };
+		BFE7344215EF0EBB0010FB9E /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		BFE7344815EF0EBB0010FB9E /* quantumpilottests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "quantumpilottests-Info.plist"; sourceTree = "<group>"; };
+		BFE7344A15EF0EBB0010FB9E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BFE7344C15EF0EBB0010FB9E /* quantumpilottests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = quantumpilottests.h; sourceTree = "<group>"; };
+		BFE7344D15EF0EBB0010FB9E /* quantumpilottests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = quantumpilottests.m; sourceTree = "<group>"; };
+		BFE7344F15EF0EBB0010FB9E /* quantumpilottests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "quantumpilottests-Prefix.pch"; sourceTree = "<group>"; };
+		BFE7353E15EF0F000010FB9E /* Clone PilotTests copy.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Clone PilotTests copy.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFE7353F15EF0F000010FB9E /* Clone PilotTests copy2-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Clone PilotTests copy2-Info.plist"; path = "/Users/cmp/ultimatebattle/clonepilot/Clone Pilot/Clone PilotTests copy2-Info.plist"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -879,6 +1117,24 @@
 				8D1DBF711480500400C4CFEC /* CoreAudio.framework in Frameworks */,
 				8D1DBF721480500400C4CFEC /* AudioToolbox.framework in Frameworks */,
 				8D1DBB2B14804C0100C4CFEC /* CoreText.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BFE7352915EF0F000010FB9E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BFE7352A15EF0F000010FB9E /* libz.dylib in Frameworks */,
+				BFE7352B15EF0F000010FB9E /* OpenGLES.framework in Frameworks */,
+				BFE7352C15EF0F000010FB9E /* UIKit.framework in Frameworks */,
+				BFE7352D15EF0F000010FB9E /* Foundation.framework in Frameworks */,
+				BFE7352E15EF0F000010FB9E /* CoreGraphics.framework in Frameworks */,
+				BFE7352F15EF0F000010FB9E /* QuartzCore.framework in Frameworks */,
+				BFE7353015EF0F000010FB9E /* OpenAL.framework in Frameworks */,
+				BFE7353115EF0F000010FB9E /* AVFoundation.framework in Frameworks */,
+				BFE7353215EF0F000010FB9E /* CoreAudio.framework in Frameworks */,
+				BFE7353315EF0F000010FB9E /* AudioToolbox.framework in Frameworks */,
+				BFE7353415EF0F000010FB9E /* CoreText.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1276,6 +1532,8 @@
 		8DC7F8831438D8870016D718 = {
 			isa = PBXGroup;
 			children = (
+				BFE7334015EF0AE60010FB9E /* Quantum Pilot */,
+				BFE7333A15EF09860010FB9E /* Quantum Pilot Tests */,
 				8D3B126714EE0035000093A4 /* Drawing */,
 				8DF772DF14C27D9400A8B2B7 /* Entitlements.plist */,
 				8DF772AA14C160FF00A8B2B7 /* NSLogWrapper.h */,
@@ -1284,8 +1542,11 @@
 				8D6EA3471438E0C8002BD85E /* Resources */,
 				8DC7F8981438D8870016D718 /* Clone Pilot */,
 				8DC7F8B81438D8870016D718 /* Clone PilotTests */,
+				BFE7344615EF0EBB0010FB9E /* quantumpilottests */,
 				8DC7F8911438D8870016D718 /* Frameworks */,
 				8DC7F88F1438D8870016D718 /* Products */,
+				BFE7343B15EF0DF50010FB9E /* Clone PilotTests copy-Info.plist */,
+				BFE7353F15EF0F000010FB9E /* Clone PilotTests copy2-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1294,6 +1555,7 @@
 			children = (
 				8DC7F88E1438D8870016D718 /* Clone Pilot.app */,
 				8DC7F8B21438D8870016D718 /* Clone PilotTests.octest */,
+				BFE7353E15EF0F000010FB9E /* Clone PilotTests copy.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1312,6 +1574,7 @@
 				8DC7F8921438D8870016D718 /* UIKit.framework */,
 				8DC7F8941438D8870016D718 /* Foundation.framework */,
 				8DC7F8961438D8870016D718 /* CoreGraphics.framework */,
+				BFE7344215EF0EBB0010FB9E /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1655,6 +1918,71 @@
 			name = Ships;
 			sourceTree = "<group>";
 		};
+		BFE7333A15EF09860010FB9E /* Quantum Pilot Tests */ = {
+			isa = PBXGroup;
+			children = (
+				BFE7333C15EF09CA0010FB9E /* QPBattlefield Tests */,
+			);
+			name = "Quantum Pilot Tests";
+			sourceTree = "<group>";
+		};
+		BFE7333C15EF09CA0010FB9E /* QPBattlefield Tests */ = {
+			isa = PBXGroup;
+			children = (
+				BFE7333E15EF09FC0010FB9E /* QPBattlefieldStartingTests.m */,
+			);
+			name = "QPBattlefield Tests";
+			sourceTree = "<group>";
+		};
+		BFE7334015EF0AE60010FB9E /* Quantum Pilot */ = {
+			isa = PBXGroup;
+			children = (
+				BFE7334D15EF0DCC0010FB9E /* Battlefield */,
+			);
+			name = "Quantum Pilot";
+			sourceTree = "<group>";
+		};
+		BFE7334D15EF0DCC0010FB9E /* Battlefield */ = {
+			isa = PBXGroup;
+			children = (
+				BFE7334115EF0B010010FB9E /* QPBattlefield.h */,
+				BFE7334215EF0B010010FB9E /* QPBattlefield.m */,
+				BFE7334E15EF0DD50010FB9E /* States */,
+			);
+			name = Battlefield;
+			sourceTree = "<group>";
+		};
+		BFE7334E15EF0DD50010FB9E /* States */ = {
+			isa = PBXGroup;
+			children = (
+				BFE7334515EF0C410010FB9E /* QPBFState.h */,
+				BFE7334615EF0C410010FB9E /* QPBFState.m */,
+				BFE7334915EF0D300010FB9E /* QPBFTitleState.h */,
+				BFE7334A15EF0D300010FB9E /* QPBFTitleState.m */,
+			);
+			name = States;
+			sourceTree = "<group>";
+		};
+		BFE7344615EF0EBB0010FB9E /* quantumpilottests */ = {
+			isa = PBXGroup;
+			children = (
+				BFE7344C15EF0EBB0010FB9E /* quantumpilottests.h */,
+				BFE7344D15EF0EBB0010FB9E /* quantumpilottests.m */,
+				BFE7344715EF0EBB0010FB9E /* Supporting Files */,
+			);
+			path = quantumpilottests;
+			sourceTree = "<group>";
+		};
+		BFE7344715EF0EBB0010FB9E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BFE7344815EF0EBB0010FB9E /* quantumpilottests-Info.plist */,
+				BFE7344915EF0EBB0010FB9E /* InfoPlist.strings */,
+				BFE7344F15EF0EBB0010FB9E /* quantumpilottests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1694,6 +2022,25 @@
 			productReference = 8DC7F8B21438D8870016D718 /* Clone PilotTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
+		BFE7345415EF0F000010FB9E /* QuantumPilotTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BFE7353B15EF0F000010FB9E /* Build configuration list for PBXNativeTarget "QuantumPilotTests" */;
+			buildPhases = (
+				BFE7345715EF0F000010FB9E /* Sources */,
+				BFE7352915EF0F000010FB9E /* Frameworks */,
+				BFE7353515EF0F000010FB9E /* Resources */,
+				BFE7353A15EF0F000010FB9E /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BFE7345515EF0F000010FB9E /* PBXTargetDependency */,
+			);
+			name = QuantumPilotTests;
+			productName = "Clone PilotTests";
+			productReference = BFE7353E15EF0F000010FB9E /* Clone PilotTests copy.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1701,7 +2048,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0420;
-				ORGANIZATIONNAME = ChaiONE;
+				ORGANIZATIONNAME = QuantumPotatoSoftware;
 			};
 			buildConfigurationList = 8DC7F8881438D8870016D718 /* Build configuration list for PBXProject "Clone Pilot" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1717,6 +2064,7 @@
 			targets = (
 				8DC7F88D1438D8870016D718 /* Clone Pilot */,
 				8DC7F8B11438D8870016D718 /* Clone PilotTests */,
+				BFE7345415EF0F000010FB9E /* QuantumPilotTests */,
 			);
 		};
 /* End PBXProject section */
@@ -1746,10 +2094,34 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BFE7353515EF0F000010FB9E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BFE7353615EF0F000010FB9E /* InfoPlist.strings in Resources */,
+				BFE7353715EF0F000010FB9E /* sprite-7-1.png in Resources */,
+				BFE7353815EF0F000010FB9E /* ic_text_dot.png in Resources */,
+				BFE7353915EF0F000010FB9E /* Entitlements.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
 		8DC7F8B01438D8870016D718 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+		BFE7353A15EF0F000010FB9E /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1896,6 +2268,9 @@
 				8D8EAC6114EF21D100976715 /* SingleLaserBullet.m in Sources */,
 				8D75ECB914F4044D0073C3DE /* QPDrawing.m in Sources */,
 				8D6EDFD414F5C56000606A1B /* QPScoreDisplay.m in Sources */,
+				BFE7334315EF0B010010FB9E /* QPBattlefield.m in Sources */,
+				BFE7334715EF0C410010FB9E /* QPBFState.m in Sources */,
+				BFE7334B15EF0D300010FB9E /* QPBFTitleState.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2109,6 +2484,210 @@
 				8D8EAC6214EF21D100976715 /* SingleLaserBullet.m in Sources */,
 				8D75ECBB14F404530073C3DE /* QPDrawing.m in Sources */,
 				8D6EDFD514F5C56000606A1B /* QPScoreDisplay.m in Sources */,
+				BFE7334415EF0B010010FB9E /* QPBattlefield.m in Sources */,
+				BFE7334815EF0C410010FB9E /* QPBFState.m in Sources */,
+				BFE7334C15EF0D300010FB9E /* QPBFTitleState.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BFE7345715EF0F000010FB9E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BFE7345815EF0F000010FB9E /* KWAfterAllNode.m in Sources */,
+				BFE7345915EF0F000010FB9E /* KWAfterEachNode.m in Sources */,
+				BFE7345A15EF0F000010FB9E /* KWAsyncVerifier.m in Sources */,
+				BFE7345B15EF0F000010FB9E /* KWBeBetweenMatcher.m in Sources */,
+				BFE7345C15EF0F000010FB9E /* KWBeEmptyMatcher.m in Sources */,
+				BFE7345D15EF0F000010FB9E /* KWBeforeAllNode.m in Sources */,
+				BFE7345E15EF0F000010FB9E /* KWBeforeEachNode.m in Sources */,
+				BFE7345F15EF0F000010FB9E /* KWBeIdenticalToMatcher.m in Sources */,
+				BFE7346015EF0F000010FB9E /* KWBeKindOfClassMatcher.m in Sources */,
+				BFE7346115EF0F000010FB9E /* KWBeMemberOfClassMatcher.m in Sources */,
+				BFE7346215EF0F000010FB9E /* KWBeNilMatcher.m in Sources */,
+				BFE7346315EF0F000010FB9E /* KWBeNonNilMatcher.m in Sources */,
+				BFE7346415EF0F000010FB9E /* KWBeTrueMatcher.m in Sources */,
+				BFE7346515EF0F000010FB9E /* KWBeWithinMatcher.m in Sources */,
+				BFE7346615EF0F000010FB9E /* KWBeZeroMatcher.m in Sources */,
+				BFE7346715EF0F000010FB9E /* KWBlock.m in Sources */,
+				BFE7346815EF0F000010FB9E /* KWBlockNode.m in Sources */,
+				BFE7346915EF0F000010FB9E /* KWBlockRaiseMatcher.m in Sources */,
+				BFE7346A15EF0F000010FB9E /* KWCallSite.m in Sources */,
+				BFE7346B15EF0F000010FB9E /* KWConformToProtocolMatcher.m in Sources */,
+				BFE7346C15EF0F000010FB9E /* KWContainMatcher.m in Sources */,
+				BFE7346D15EF0F000010FB9E /* KWContextNode.m in Sources */,
+				BFE7346E15EF0F000010FB9E /* KWDeviceInfo.m in Sources */,
+				BFE7346F15EF0F000010FB9E /* KWEqualMatcher.m in Sources */,
+				BFE7347015EF0F000010FB9E /* KWExampleGroup.m in Sources */,
+				BFE7347115EF0F000010FB9E /* KWExampleGroupBuilder.m in Sources */,
+				BFE7347215EF0F000010FB9E /* KWExistVerifier.m in Sources */,
+				BFE7347315EF0F000010FB9E /* KWFailure.m in Sources */,
+				BFE7347415EF0F000010FB9E /* KWFormatter.m in Sources */,
+				BFE7347515EF0F000010FB9E /* KWFutureObject.m in Sources */,
+				BFE7347615EF0F000010FB9E /* KWHamcrestMatcher.m in Sources */,
+				BFE7347715EF0F000010FB9E /* KWHamrestMatchingAdditions.m in Sources */,
+				BFE7347815EF0F000010FB9E /* KWHaveMatcher.m in Sources */,
+				BFE7347915EF0F000010FB9E /* KWHaveValueMatcher.m in Sources */,
+				BFE7347A15EF0F000010FB9E /* KWInequalityMatcher.m in Sources */,
+				BFE7347B15EF0F000010FB9E /* KWIntercept.m in Sources */,
+				BFE7347C15EF0F000010FB9E /* KWInvocationCapturer.m in Sources */,
+				BFE7347D15EF0F000010FB9E /* KWItNode.m in Sources */,
+				BFE7347E15EF0F000010FB9E /* KWMatcher.m in Sources */,
+				BFE7347F15EF0F000010FB9E /* KWMatcherFactory.m in Sources */,
+				BFE7348015EF0F000010FB9E /* KWMatchers.m in Sources */,
+				BFE7348115EF0F000010FB9E /* KWMatchVerifier.m in Sources */,
+				BFE7348215EF0F000010FB9E /* KWMessagePattern.m in Sources */,
+				BFE7348315EF0F000010FB9E /* KWMessageTracker.m in Sources */,
+				BFE7348415EF0F000010FB9E /* KWMock.m in Sources */,
+				BFE7348515EF0F000010FB9E /* KWNull.m in Sources */,
+				BFE7348615EF0F000010FB9E /* KWObjCUtilities.m in Sources */,
+				BFE7348715EF0F000010FB9E /* KWPendingNode.m in Sources */,
+				BFE7348815EF0F000010FB9E /* KWProbePoller.m in Sources */,
+				BFE7348915EF0F000010FB9E /* KWRaiseMatcher.m in Sources */,
+				BFE7348A15EF0F000010FB9E /* KWReceiveMatcher.m in Sources */,
+				BFE7348B15EF0F000010FB9E /* KWRegisterMatchersNode.m in Sources */,
+				BFE7348C15EF0F000010FB9E /* KWRespondToSelectorMatcher.m in Sources */,
+				BFE7348D15EF0F000010FB9E /* KWSpec.m in Sources */,
+				BFE7348E15EF0F000010FB9E /* KWStringUtilities.m in Sources */,
+				BFE7348F15EF0F000010FB9E /* KWStub.m in Sources */,
+				BFE7349015EF0F000010FB9E /* KWTestCase.m in Sources */,
+				BFE7349115EF0F000010FB9E /* KWUserDefinedMatcher.m in Sources */,
+				BFE7349215EF0F000010FB9E /* KWValue.m in Sources */,
+				BFE7349315EF0F000010FB9E /* KWWorkarounds.m in Sources */,
+				BFE7349415EF0F000010FB9E /* NSInvocation+KiwiAdditions.m in Sources */,
+				BFE7349515EF0F000010FB9E /* NSMethodSignature+KiwiAdditions.m in Sources */,
+				BFE7349615EF0F000010FB9E /* NSNumber+KiwiAdditions.m in Sources */,
+				BFE7349715EF0F000010FB9E /* NSObject+KiwiMockAdditions.m in Sources */,
+				BFE7349815EF0F000010FB9E /* NSObject+KiwiStubAdditions.m in Sources */,
+				BFE7349915EF0F000010FB9E /* NSObject+KiwiVerifierAdditions.m in Sources */,
+				BFE7349A15EF0F000010FB9E /* NSValue+KiwiAdditions.m in Sources */,
+				BFE7349C15EF0F000010FB9E /* BulletHellBattlefield.m in Sources */,
+				BFE7349E15EF0F000010FB9E /* Bullet.m in Sources */,
+				BFE7349F15EF0F000010FB9E /* VRGeometry.m in Sources */,
+				BFE734A015EF0F000010FB9E /* VRBoundaryFrame.m in Sources */,
+				BFE734A215EF0F000010FB9E /* ClonePilotBattlefield.m in Sources */,
+				BFE734A315EF0F000010FB9E /* ClonePlayer.m in Sources */,
+				BFE734A415EF0F000010FB9E /* VRGameObject.m in Sources */,
+				BFE734A615EF0F000010FB9E /* Turn.m in Sources */,
+				BFE734A715EF0F000010FB9E /* ClonePilot.m in Sources */,
+				BFE734A815EF0F000010FB9E /* SingleLaser.m in Sources */,
+				BFE734A915EF0F000010FB9E /* Weapon.m in Sources */,
+				BFE734AC15EF0F000010FB9E /* TriLaser.m in Sources */,
+				BFE734AE15EF0F000010FB9E /* QuadLaser.m in Sources */,
+				BFE734B115EF0F000010FB9E /* SplitLaser.m in Sources */,
+				BFE734B215EF0F000010FB9E /* WeaponSelector.m in Sources */,
+				BFE734B415EF0F000010FB9E /* SideLaser.m in Sources */,
+				BFE734B515EF0F000010FB9E /* SideLaserBullet.m in Sources */,
+				BFE734B615EF0F000010FB9E /* VRTouch.m in Sources */,
+				BFE734B715EF0F000010FB9E /* FontLabel.m in Sources */,
+				BFE734B815EF0F000010FB9E /* FontLabelStringDrawing.m in Sources */,
+				BFE734B915EF0F000010FB9E /* FontManager.m in Sources */,
+				BFE734BA15EF0F000010FB9E /* ZAttributedString.m in Sources */,
+				BFE734BB15EF0F000010FB9E /* ZFont.m in Sources */,
+				BFE734BC15EF0F000010FB9E /* Clone_PilotViewController.m in Sources */,
+				BFE734BD15EF0F000010FB9E /* CCAction.m in Sources */,
+				BFE734BE15EF0F000010FB9E /* CCActionCamera.m in Sources */,
+				BFE734BF15EF0F000010FB9E /* CCActionEase.m in Sources */,
+				BFE734C015EF0F000010FB9E /* CCActionGrid.m in Sources */,
+				BFE734C115EF0F000010FB9E /* CCActionGrid3D.m in Sources */,
+				BFE734C215EF0F000010FB9E /* CCActionInstant.m in Sources */,
+				BFE734C315EF0F000010FB9E /* CCActionInterval.m in Sources */,
+				BFE734C415EF0F000010FB9E /* CCActionManager.m in Sources */,
+				BFE734C515EF0F000010FB9E /* CCActionPageTurn3D.m in Sources */,
+				BFE734C615EF0F000010FB9E /* CCActionProgressTimer.m in Sources */,
+				BFE734C715EF0F000010FB9E /* CCActionTiledGrid.m in Sources */,
+				BFE734C815EF0F000010FB9E /* CCActionTween.m in Sources */,
+				BFE734C915EF0F000010FB9E /* CCAnimation.m in Sources */,
+				BFE734CA15EF0F000010FB9E /* CCAnimationCache.m in Sources */,
+				BFE734CB15EF0F000010FB9E /* CCAtlasNode.m in Sources */,
+				BFE734CC15EF0F000010FB9E /* CCBlockSupport.m in Sources */,
+				BFE734CD15EF0F000010FB9E /* CCCamera.m in Sources */,
+				BFE734CE15EF0F000010FB9E /* CCConfiguration.m in Sources */,
+				BFE734CF15EF0F000010FB9E /* CCDirector.m in Sources */,
+				BFE734D015EF0F000010FB9E /* CCDrawingPrimitives.m in Sources */,
+				BFE734D115EF0F000010FB9E /* CCGrabber.m in Sources */,
+				BFE734D215EF0F000010FB9E /* CCGrid.m in Sources */,
+				BFE734D315EF0F000010FB9E /* CCLabelAtlas.m in Sources */,
+				BFE734D415EF0F000010FB9E /* CCLabelBMFont.m in Sources */,
+				BFE734D515EF0F000010FB9E /* CCLabelTTF.m in Sources */,
+				BFE734D615EF0F000010FB9E /* CCLayer.m in Sources */,
+				BFE734D715EF0F000010FB9E /* CCMenu.m in Sources */,
+				BFE734D815EF0F000010FB9E /* CCMenuItem.m in Sources */,
+				BFE734D915EF0F000010FB9E /* CCMotionStreak.m in Sources */,
+				BFE734DA15EF0F000010FB9E /* CCNode.m in Sources */,
+				BFE734DB15EF0F000010FB9E /* CCParallaxNode.m in Sources */,
+				BFE734DC15EF0F000010FB9E /* CCParticleExamples.m in Sources */,
+				BFE734DD15EF0F000010FB9E /* CCParticleSystem.m in Sources */,
+				BFE734DE15EF0F000010FB9E /* CCParticleSystemPoint.m in Sources */,
+				BFE734DF15EF0F000010FB9E /* CCParticleSystemQuad.m in Sources */,
+				BFE734E015EF0F000010FB9E /* CCProgressTimer.m in Sources */,
+				BFE734E115EF0F000010FB9E /* CCRenderTexture.m in Sources */,
+				BFE734E215EF0F000010FB9E /* CCRibbon.m in Sources */,
+				BFE734E315EF0F000010FB9E /* CCScene.m in Sources */,
+				BFE734E415EF0F000010FB9E /* CCScheduler.m in Sources */,
+				BFE734E515EF0F000010FB9E /* CCSprite.m in Sources */,
+				BFE734E615EF0F000010FB9E /* CCSpriteBatchNode.m in Sources */,
+				BFE734E715EF0F000010FB9E /* CCSpriteFrame.m in Sources */,
+				BFE734E815EF0F000010FB9E /* CCSpriteFrameCache.m in Sources */,
+				BFE734E915EF0F000010FB9E /* CCTexture2D.m in Sources */,
+				BFE734EA15EF0F000010FB9E /* CCTextureAtlas.m in Sources */,
+				BFE734EB15EF0F000010FB9E /* CCTextureCache.m in Sources */,
+				BFE734EC15EF0F000010FB9E /* CCTexturePVR.m in Sources */,
+				BFE734ED15EF0F000010FB9E /* CCTileMapAtlas.m in Sources */,
+				BFE734EE15EF0F000010FB9E /* CCTMXLayer.m in Sources */,
+				BFE734EF15EF0F000010FB9E /* CCTMXObjectGroup.m in Sources */,
+				BFE734F015EF0F000010FB9E /* CCTMXTiledMap.m in Sources */,
+				BFE734F115EF0F000010FB9E /* CCTMXXMLParser.m in Sources */,
+				BFE734F215EF0F000010FB9E /* CCTransition.m in Sources */,
+				BFE734F315EF0F000010FB9E /* CCTransitionPageTurn.m in Sources */,
+				BFE734F415EF0F000010FB9E /* CCTransitionRadial.m in Sources */,
+				BFE734F515EF0F000010FB9E /* cocos2d.m in Sources */,
+				BFE734F615EF0F000010FB9E /* CCDirectorIOS.m in Sources */,
+				BFE734F715EF0F000010FB9E /* CCTouchDispatcher.m in Sources */,
+				BFE734F815EF0F000010FB9E /* CCTouchHandler.m in Sources */,
+				BFE734F915EF0F000010FB9E /* EAGLView.m in Sources */,
+				BFE734FA15EF0F000010FB9E /* ES1Renderer.m in Sources */,
+				BFE734FB15EF0F000010FB9E /* glu.c in Sources */,
+				BFE734FC15EF0F000010FB9E /* CCDirectorMac.m in Sources */,
+				BFE734FD15EF0F000010FB9E /* CCEventDispatcher.m in Sources */,
+				BFE734FE15EF0F000010FB9E /* MacGLView.m in Sources */,
+				BFE734FF15EF0F000010FB9E /* MacWindow.m in Sources */,
+				BFE7350015EF0F000010FB9E /* base64.c in Sources */,
+				BFE7350115EF0F000010FB9E /* CCArray.m in Sources */,
+				BFE7350215EF0F000010FB9E /* CCFileUtils.m in Sources */,
+				BFE7350315EF0F000010FB9E /* CCProfiling.m in Sources */,
+				BFE7350415EF0F000010FB9E /* ccUtils.c in Sources */,
+				BFE7350515EF0F000010FB9E /* CGPointExtension.m in Sources */,
+				BFE7350615EF0F000010FB9E /* TGAlib.m in Sources */,
+				BFE7350715EF0F000010FB9E /* TransformUtils.m in Sources */,
+				BFE7350815EF0F000010FB9E /* ZipUtils.m in Sources */,
+				BFE7350915EF0F000010FB9E /* BulletWall.m in Sources */,
+				BFE7350A15EF0F000010FB9E /* QPInputHandler.m in Sources */,
+				BFE7350B15EF0F000010FB9E /* QPMoveInputHandler.m in Sources */,
+				BFE7350C15EF0F000010FB9E /* NSLogWrapper.m in Sources */,
+				BFE7350E15EF0F000010FB9E /* QPTouchPointInputLayerHandler.m in Sources */,
+				BFE7350F15EF0F000010FB9E /* QPBlockKeeper.m in Sources */,
+				BFE7351115EF0F000010FB9E /* WideTriLaser.m in Sources */,
+				BFE7351315EF0F000010FB9E /* QPWeaponOptionLayer.m in Sources */,
+				BFE7351415EF0F000010FB9E /* QPMomentumModifier.m in Sources */,
+				BFE7351615EF0F000010FB9E /* QPShip.m in Sources */,
+				BFE7351715EF0F000010FB9E /* QPBattlefieldModifier.m in Sources */,
+				BFE7351815EF0F000010FB9E /* QPBulletIdentifierModifier.m in Sources */,
+				BFE7351B15EF0F000010FB9E /* QPBulletCollisionModifier.m in Sources */,
+				BFE7351C15EF0F000010FB9E /* BulletHellBattlefieldModifier.m in Sources */,
+				BFE7351D15EF0F000010FB9E /* TriLaserBullet.m in Sources */,
+				BFE7351E15EF0F000010FB9E /* BulletHellBattlefieldModifierController.m in Sources */,
+				BFE7351F15EF0F000010FB9E /* QPBattlefieldModifierController.m in Sources */,
+				BFE7352015EF0F000010FB9E /* VRDrawHelpers.m in Sources */,
+				BFE7352115EF0F000010FB9E /* SplitLaserBullet.m in Sources */,
+				BFE7352215EF0F000010FB9E /* QuadLaserBullet.m in Sources */,
+				BFE7352315EF0F000010FB9E /* SingleLaserBullet.m in Sources */,
+				BFE7352415EF0F000010FB9E /* QPDrawing.m in Sources */,
+				BFE7352515EF0F000010FB9E /* QPScoreDisplay.m in Sources */,
+				BFE7352615EF0F000010FB9E /* QPBattlefield.m in Sources */,
+				BFE7352715EF0F000010FB9E /* QPBFState.m in Sources */,
+				BFE7352815EF0F000010FB9E /* QPBFTitleState.m in Sources */,
+				BFE7354015EF0F5B0010FB9E /* QPBattlefieldStartingTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2119,6 +2698,11 @@
 			isa = PBXTargetDependency;
 			target = 8DC7F88D1438D8870016D718 /* Clone Pilot */;
 			targetProxy = 8DC7F8B61438D8870016D718 /* PBXContainerItemProxy */;
+		};
+		BFE7345515EF0F000010FB9E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8DC7F88D1438D8870016D718 /* Clone Pilot */;
+			targetProxy = BFE7345615EF0F000010FB9E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -2151,6 +2735,14 @@
 			isa = PBXVariantGroup;
 			children = (
 				8DC7F8BC1438D8870016D718 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		BFE7344915EF0EBB0010FB9E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BFE7344A15EF0EBB0010FB9E /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -2270,6 +2862,54 @@
 			};
 			name = Release;
 		};
+		BFE7353C15EF0F000010FB9E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Clone Pilot.app/Clone Pilot";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Clone PilotTests/Clone PilotTests-Prefix.pch";
+				INFOPLIST_FILE = "Clone PilotTests copy2-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "Clone PilotTests copy";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				USER_HEADER_SEARCH_PATHS = "~/Kiwi/**";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		BFE7353D15EF0F000010FB9E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Clone Pilot.app/Clone Pilot";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Clone PilotTests/Clone PilotTests-Prefix.pch";
+				INFOPLIST_FILE = "Clone PilotTests copy2-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "Clone PilotTests copy";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				USER_HEADER_SEARCH_PATHS = "~/Kiwi/**";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -2296,6 +2936,15 @@
 			buildConfigurations = (
 				8DC7F8C91438D8870016D718 /* Debug */,
 				8DC7F8CA1438D8870016D718 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BFE7353B15EF0F000010FB9E /* Build configuration list for PBXNativeTarget "QuantumPilotTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BFE7353C15EF0F000010FB9E /* Debug */,
+				BFE7353D15EF0F000010FB9E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

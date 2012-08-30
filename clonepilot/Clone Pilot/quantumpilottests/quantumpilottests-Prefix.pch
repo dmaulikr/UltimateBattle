@@ -1,0 +1,8 @@
+//
+// Prefix header for all source files of the 'quantumpilottests' target in the 'quantumpilottests' project
+//
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+#endif
