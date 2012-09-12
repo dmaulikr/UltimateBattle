@@ -372,6 +372,10 @@
 		8DF8D9D814E6537800DA6C4B /* QPBulletIdentifierModifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF8D9D714E6537700DA6C4B /* QPBulletIdentifierModifier.m */; };
 		8DF8D9D914E6537800DA6C4B /* QPBulletIdentifierModifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF8D9D714E6537700DA6C4B /* QPBulletIdentifierModifier.m */; };
 		8DF8D9DD14E653C900DA6C4B /* QPBulletIdentifierModifierTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF8D9DB14E653C900DA6C4B /* QPBulletIdentifierModifierTest.m */; };
+		BF2628A71601316C0073F16B /* QPBFDrawingState.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2628A61601316C0073F16B /* QPBFDrawingState.m */; };
+		BF2628A81601316C0073F16B /* QPBFDrawingState.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2628A61601316C0073F16B /* QPBFDrawingState.m */; };
+		BF3E6440160132F3002049FA /* QPBFInputConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = BF3E643F160132F3002049FA /* QPBFInputConstants.m */; };
+		BF3E6441160132F3002049FA /* QPBFInputConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = BF3E643F160132F3002049FA /* QPBFInputConstants.m */; };
 		BFE7334315EF0B010010FB9E /* QPBattlefield.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE7334215EF0B010010FB9E /* QPBattlefield.m */; };
 		BFE7334415EF0B010010FB9E /* QPBattlefield.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE7334215EF0B010010FB9E /* QPBattlefield.m */; };
 		BFE7334715EF0C410010FB9E /* QPBFState.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE7334615EF0C410010FB9E /* QPBFState.m */; };
@@ -1065,6 +1069,10 @@
 		8DF8D9D614E6537700DA6C4B /* QPBulletIdentifierModifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBulletIdentifierModifier.h; sourceTree = "<group>"; };
 		8DF8D9D714E6537700DA6C4B /* QPBulletIdentifierModifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBulletIdentifierModifier.m; sourceTree = "<group>"; };
 		8DF8D9DB14E653C900DA6C4B /* QPBulletIdentifierModifierTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBulletIdentifierModifierTest.m; sourceTree = "<group>"; };
+		BF2628A51601316C0073F16B /* QPBFDrawingState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBFDrawingState.h; sourceTree = "<group>"; };
+		BF2628A61601316C0073F16B /* QPBFDrawingState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBFDrawingState.m; sourceTree = "<group>"; };
+		BF3E643E160132F3002049FA /* QPBFInputConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBFInputConstants.h; sourceTree = "<group>"; };
+		BF3E643F160132F3002049FA /* QPBFInputConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBFInputConstants.m; sourceTree = "<group>"; };
 		BFE7333E15EF09FC0010FB9E /* QPBattlefieldStartingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBattlefieldStartingTests.m; sourceTree = "<group>"; };
 		BFE7334115EF0B010010FB9E /* QPBattlefield.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBattlefield.h; sourceTree = "<group>"; };
 		BFE7334215EF0B010010FB9E /* QPBattlefield.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBattlefield.m; sourceTree = "<group>"; };
@@ -1918,6 +1926,15 @@
 			name = Ships;
 			sourceTree = "<group>";
 		};
+		BF3E6442160132FB002049FA /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				BF3E643E160132F3002049FA /* QPBFInputConstants.h */,
+				BF3E643F160132F3002049FA /* QPBFInputConstants.m */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
 		BFE7333A15EF09860010FB9E /* Quantum Pilot Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -1937,6 +1954,7 @@
 		BFE7334015EF0AE60010FB9E /* Quantum Pilot */ = {
 			isa = PBXGroup;
 			children = (
+				BF3E6442160132FB002049FA /* Settings */,
 				BFE7334D15EF0DCC0010FB9E /* Battlefield */,
 			);
 			name = "Quantum Pilot";
@@ -1959,6 +1977,8 @@
 				BFE7334615EF0C410010FB9E /* QPBFState.m */,
 				BFE7334915EF0D300010FB9E /* QPBFTitleState.h */,
 				BFE7334A15EF0D300010FB9E /* QPBFTitleState.m */,
+				BF2628A51601316C0073F16B /* QPBFDrawingState.h */,
+				BF2628A61601316C0073F16B /* QPBFDrawingState.m */,
 			);
 			name = States;
 			sourceTree = "<group>";
@@ -2271,6 +2291,8 @@
 				BFE7334315EF0B010010FB9E /* QPBattlefield.m in Sources */,
 				BFE7334715EF0C410010FB9E /* QPBFState.m in Sources */,
 				BFE7334B15EF0D300010FB9E /* QPBFTitleState.m in Sources */,
+				BF2628A71601316C0073F16B /* QPBFDrawingState.m in Sources */,
+				BF3E6440160132F3002049FA /* QPBFInputConstants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2688,6 +2710,8 @@
 				BFE7352715EF0F000010FB9E /* QPBFState.m in Sources */,
 				BFE7352815EF0F000010FB9E /* QPBFTitleState.m in Sources */,
 				BFE7354015EF0F5B0010FB9E /* QPBattlefieldStartingTests.m in Sources */,
+				BF2628A81601316C0073F16B /* QPBFDrawingState.m in Sources */,
+				BF3E6441160132F3002049FA /* QPBFInputConstants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

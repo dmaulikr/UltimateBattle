@@ -1,0 +1,1 @@
+extern float const QPBF_PLAYER_TAP_RANGE;

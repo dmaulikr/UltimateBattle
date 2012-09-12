@@ -3,10 +3,12 @@
 @implementation QPBattlefield
 @synthesize currentState = _currentState;
 @synthesize titleState = _titleState;
+@synthesize drawingState = _drawingState;
 
 - (void)setupStates {
-    self.currentState = [[[QPBFState alloc] init] autorelease];
-    self.titleState = [[[QPBFTitleState alloc] init] autorelease];
+    self.currentState = [[[QPBFState alloc] initWithBattlefield:self] autorelease];
+    self.titleState = [[[QPBFTitleState alloc] initWithBattlefield:self] autorelease];
+    self.drawingState = [[[QPBFDrawingState alloc] initWithBattlefield:self] autorelease];
     self.currentState = self.titleState;
 }
 
@@ -16,9 +18,18 @@
     return self;
 }
 
+- (void)addTouch:(CGPoint)l {
+    [self.currentState addTouch:l];
+}
+
+- (void)changeState:(QPBFState *)state {
+    self.currentState = state;
+}
+
 - (void)dealloc {
     [_currentState release];
     [_titleState release];
+    [_drawingState release];
     [super dealloc];
 }
 
