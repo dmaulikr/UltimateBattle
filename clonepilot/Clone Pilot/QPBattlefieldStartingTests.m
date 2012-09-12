@@ -4,7 +4,7 @@
 
 SPEC_BEGIN(QPBattlefieldStartingTests)
 
-describe(@"Quantum Pilot Battlefield", ^{
+describe(@"Quantum Pilot Battlefield Starting Tests", ^{
     __block QPBattlefield *f;
     
     beforeEach(^{

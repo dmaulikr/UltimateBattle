@@ -4,6 +4,7 @@
 @synthesize currentState = _currentState;
 @synthesize titleState = _titleState;
 @synthesize drawingState = _drawingState;
+@synthesize touchPlayerOffset = _touchPlayerOffset;
 
 - (void)setupStates {
     self.currentState = [[[QPBFState alloc] initWithBattlefield:self] autorelease];
@@ -24,6 +25,11 @@
 
 - (void)changeState:(QPBFState *)state {
     self.currentState = state;
+}
+
+- (void)changeState:(QPBFState *)state withTouch:(CGPoint)l {
+    [self changeState:state];
+    [self.currentState addTouch:l];
 }
 
 - (void)dealloc {
