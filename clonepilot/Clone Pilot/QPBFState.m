@@ -17,6 +17,10 @@
 
 }
 
+- (void)endTouch:(CGPoint)l {
+    
+}
+
 - (void)dealloc {
     [_f release];
     [super dealloc];

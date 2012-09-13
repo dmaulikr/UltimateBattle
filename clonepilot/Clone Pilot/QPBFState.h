@@ -7,6 +7,7 @@
 @property (nonatomic, retain) QPBattlefield *f;
 
 - (void)addTouch:(CGPoint)l;
+- (void)endTouch:(CGPoint)l;
 
 - (id)initWithBattlefield:(QPBattlefield *)field;
 

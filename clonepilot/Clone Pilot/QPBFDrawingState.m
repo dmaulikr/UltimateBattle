@@ -9,4 +9,8 @@
     self.f.touchPlayerOffset = ccp(xOffset, yOffset);
 }
 
+- (void)endTouch:(CGPoint)l {
+    [self.f changeState:self.f.pausedState];
+}
+
 @end

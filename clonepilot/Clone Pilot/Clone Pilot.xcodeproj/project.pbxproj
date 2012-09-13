@@ -377,6 +377,8 @@
 		BF3E6440160132F3002049FA /* QPBFInputConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = BF3E643F160132F3002049FA /* QPBFInputConstants.m */; };
 		BF3E6441160132F3002049FA /* QPBFInputConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = BF3E643F160132F3002049FA /* QPBFInputConstants.m */; };
 		BF3E644616013C7B002049FA /* QPBattlefieldDrawingStateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF3E644416013C7B002049FA /* QPBattlefieldDrawingStateTests.m */; };
+		BFD580BE16017B2000831E84 /* QPBFPausedState.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD580BD16017B2000831E84 /* QPBFPausedState.m */; };
+		BFD580BF16017B2000831E84 /* QPBFPausedState.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD580BD16017B2000831E84 /* QPBFPausedState.m */; };
 		BFE7334315EF0B010010FB9E /* QPBattlefield.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE7334215EF0B010010FB9E /* QPBattlefield.m */; };
 		BFE7334415EF0B010010FB9E /* QPBattlefield.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE7334215EF0B010010FB9E /* QPBattlefield.m */; };
 		BFE7334715EF0C410010FB9E /* QPBFState.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE7334615EF0C410010FB9E /* QPBFState.m */; };
@@ -1075,6 +1077,8 @@
 		BF3E643E160132F3002049FA /* QPBFInputConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBFInputConstants.h; sourceTree = "<group>"; };
 		BF3E643F160132F3002049FA /* QPBFInputConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBFInputConstants.m; sourceTree = "<group>"; };
 		BF3E644416013C7B002049FA /* QPBattlefieldDrawingStateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBattlefieldDrawingStateTests.m; sourceTree = "<group>"; };
+		BFD580BC16017B2000831E84 /* QPBFPausedState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBFPausedState.h; sourceTree = "<group>"; };
+		BFD580BD16017B2000831E84 /* QPBFPausedState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBFPausedState.m; sourceTree = "<group>"; };
 		BFE7333E15EF09FC0010FB9E /* QPBattlefieldStartingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBattlefieldStartingTests.m; sourceTree = "<group>"; };
 		BFE7334115EF0B010010FB9E /* QPBattlefield.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBattlefield.h; sourceTree = "<group>"; };
 		BFE7334215EF0B010010FB9E /* QPBattlefield.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBattlefield.m; sourceTree = "<group>"; };
@@ -1982,6 +1986,8 @@
 				BFE7334A15EF0D300010FB9E /* QPBFTitleState.m */,
 				BF2628A51601316C0073F16B /* QPBFDrawingState.h */,
 				BF2628A61601316C0073F16B /* QPBFDrawingState.m */,
+				BFD580BC16017B2000831E84 /* QPBFPausedState.h */,
+				BFD580BD16017B2000831E84 /* QPBFPausedState.m */,
 			);
 			name = States;
 			sourceTree = "<group>";
@@ -2296,6 +2302,7 @@
 				BFE7334B15EF0D300010FB9E /* QPBFTitleState.m in Sources */,
 				BF2628A71601316C0073F16B /* QPBFDrawingState.m in Sources */,
 				BF3E6440160132F3002049FA /* QPBFInputConstants.m in Sources */,
+				BFD580BE16017B2000831E84 /* QPBFPausedState.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2716,6 +2723,7 @@
 				BF2628A81601316C0073F16B /* QPBFDrawingState.m in Sources */,
 				BF3E6441160132F3002049FA /* QPBFInputConstants.m in Sources */,
 				BF3E644616013C7B002049FA /* QPBattlefieldDrawingStateTests.m in Sources */,
+				BFD580BF16017B2000831E84 /* QPBFPausedState.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
