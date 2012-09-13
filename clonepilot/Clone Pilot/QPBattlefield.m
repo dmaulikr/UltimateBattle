@@ -5,9 +5,10 @@
 @synthesize titleState = _titleState;
 @synthesize drawingState = _drawingState;
 @synthesize playerTouch = _playerTouch;
+@synthesize lastPlayerTouch = _lastPlayerTouch;
 @synthesize touchPlayerOffset = _touchPlayerOffset;
 @synthesize pausedState = _pausedState;
-
+@synthesize drawingIteration = _drawingIteration;
 
 - (void)setupStates {
     self.currentState = [[[QPBFState alloc] initWithBattlefield:self] autorelease];
@@ -22,6 +23,11 @@
     self = [super initWithLayer:quantumLayer];
     [self setupStates];
     return self;
+}
+
+- (void)tick {
+    [self.currentState tick];
+    self.lastPlayerTouch = self.playerTouch;
 }
 
 - (void)addTouch:(CGPoint)l {
@@ -51,6 +57,14 @@
 
 - (float)yDelta:(NSInteger)index {
     return _yDelta[index];
+}
+
+- (void)addXDelta:(float)delta {
+    _xDelta[self.drawingIteration] = delta;
+}
+
+- (void)addYDelta:(float)delta {
+    _yDelta[self.drawingIteration] = delta;
 }
 
 - (BOOL)touchingPlayer:(CGPoint)l {

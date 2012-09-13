@@ -16,13 +16,18 @@
 @property (nonatomic, retain) QPBFPausedState *pausedState;
 
 @property (nonatomic, assign) CGPoint playerTouch;
+@property (nonatomic, assign) CGPoint lastPlayerTouch;
 @property (nonatomic, assign) CGPoint touchPlayerOffset;
+
+@property (nonatomic, assign) NSInteger drawingIteration;
 
 - (float)xDelta:(NSInteger)index;
 - (float)yDelta:(NSInteger)index;
 
-- (BOOL)touchingPlayer:(CGPoint)l;
+- (void)addXDelta:(float)delta;
+- (void)addYDelta:(float)delta;
 
+- (BOOL)touchingPlayer:(CGPoint)l;
 - (void)changeState:(QPBFState *)state;
 - (void)changeState:(QPBFState *)state withTouch:(CGPoint)l;
 

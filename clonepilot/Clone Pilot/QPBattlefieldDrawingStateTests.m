@@ -27,8 +27,7 @@ describe(@"Quantum Pilot Battlefield Drawing State Tests", ^{
         [[theValue([f touchPlayerOffset].y) should] equal:theValue(yTouchOffset)];  
     });
     
-    it(@"should maintain in drawing state on tick forward with no let up", ^{
-       
+    it(@"should maintain in drawing state on tick forward with no let up", ^{       
         QPBFState *s = f.currentState;
         [f tick];
         [[theValue([f currentState]) should] equal:theValue(s)];
@@ -57,9 +56,20 @@ describe(@"Quantum Pilot Battlefield Drawing State Tests", ^{
         [[theValue([f playerTouch].y) should] equal:theValue([f player].l.y + yTouchOffset)];        
     });
     
+    it(@"should increase drawing iteration on tick", ^{
+        tapCloseToPlayer();
+        NSInteger i = f.drawingIteration; 
+        [f tick];
+        [[theValue(f.drawingIteration) should] equal:theValue(i+1)];
+    });
+    
     it(@"should store delta x/y when touch changes location on tick", ^{
         tapCloseToPlayer();
-        //[f mov
+        [f tick];
+        [f moveTouch:ccp(f.playerTouch.x + 5, f.playerTouch.y - 6)];
+        [f tick];
+        [[theValue([f xDelta:1]) should] equal:theValue(5)];
+        [[theValue([f yDelta:1]) should] equal:theValue(-6)];        
     });
     
 });

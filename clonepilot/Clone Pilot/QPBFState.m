@@ -13,6 +13,10 @@
     return self;
 }
 
+- (void)tick {
+    
+}
+
 - (void)addTouch:(CGPoint)l {
 
 }
