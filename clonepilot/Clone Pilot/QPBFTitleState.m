@@ -4,7 +4,7 @@
 @implementation QPBFTitleState
 
 - (void)addTouch:(CGPoint)l {
-    if (GetDistance(l, self.f.player.l) <= QPBF_PLAYER_TAP_RANGE) {
+    if ([self.f touchingPlayer:l]) {
         [self.f changeState:self.f.drawingState withTouch:l];
     }
 }

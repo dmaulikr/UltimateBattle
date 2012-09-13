@@ -4,8 +4,10 @@
 @synthesize currentState = _currentState;
 @synthesize titleState = _titleState;
 @synthesize drawingState = _drawingState;
+@synthesize playerTouch = _playerTouch;
 @synthesize touchPlayerOffset = _touchPlayerOffset;
 @synthesize pausedState = _pausedState;
+
 
 - (void)setupStates {
     self.currentState = [[[QPBFState alloc] initWithBattlefield:self] autorelease];
@@ -30,6 +32,10 @@
     [self.currentState endTouch:l];
 }
 
+- (void)moveTouch:(CGPoint)l {
+    [self.currentState moveTouch:l];
+}
+
 - (void)changeState:(QPBFState *)state {
     self.currentState = state;
 }
@@ -37,6 +43,18 @@
 - (void)changeState:(QPBFState *)state withTouch:(CGPoint)l {
     [self changeState:state];
     [self.currentState addTouch:l];
+}
+
+- (float)xDelta:(NSInteger)index {
+    return _xDelta[index];
+}
+
+- (float)yDelta:(NSInteger)index {
+    return _yDelta[index];
+}
+
+- (BOOL)touchingPlayer:(CGPoint)l {
+    return GetDistance(l, self.player.l) <= QPBF_PLAYER_TAP_RANGE;
 }
 
 - (void)dealloc {

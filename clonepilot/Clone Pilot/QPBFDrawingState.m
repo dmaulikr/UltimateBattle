@@ -7,10 +7,17 @@
     float xOffset = l.x - self.f.player.l.x;
     float yOffset = l.y - self.f.player.l.y;
     self.f.touchPlayerOffset = ccp(xOffset, yOffset);
+    self.f.playerTouch = l;
 }
 
 - (void)endTouch:(CGPoint)l {
     [self.f changeState:self.f.pausedState];
+}
+
+- (void)moveTouch:(CGPoint)l {
+    if ([self.f touchingPlayer:l]) {
+        
+    }
 }
 
 @end

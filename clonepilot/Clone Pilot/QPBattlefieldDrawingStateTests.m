@@ -7,9 +7,12 @@ SPEC_BEGIN(QPBattlefieldDrawingStateTests)
 
 describe(@"Quantum Pilot Battlefield Drawing State Tests", ^{
     __block QPBattlefield *f;
+
+    float xTouchOffset = 15;
+    float yTouchOffset = -13;
     
     ActionBlock tapCloseToPlayer = ^{
-        [f addTouch:ccp(f.player.l.x + 15, f.player.l.y - 13)];
+        [f addTouch:ccp(f.player.l.x + xTouchOffset, f.player.l.y + yTouchOffset)];
     };
     
     beforeEach(^{
@@ -19,12 +22,9 @@ describe(@"Quantum Pilot Battlefield Drawing State Tests", ^{
     }); 
     
     it(@"should set offset from a ship on press", ^{
-        float xOffset = 15;
-        float yOffset = -13;
-        CGPoint closeToPlayer = ccp(f.player.l.x + xOffset, f.player.l.y + yOffset);
-        [f addTouch:closeToPlayer];
-        [[theValue([f touchPlayerOffset].x) should] equal:theValue(xOffset)];
-        [[theValue([f touchPlayerOffset].y) should] equal:theValue(yOffset)];  
+        tapCloseToPlayer();
+        [[theValue([f touchPlayerOffset].x) should] equal:theValue(xTouchOffset)];
+        [[theValue([f touchPlayerOffset].y) should] equal:theValue(yTouchOffset)];  
     });
     
     it(@"should maintain in drawing state on tick forward with no let up", ^{
@@ -42,7 +42,24 @@ describe(@"Quantum Pilot Battlefield Drawing State Tests", ^{
     });
     
     it(@"should store a delta of movement zero when touch does not move on tick", ^{
-//       [f  
+        tapCloseToPlayer();
+        [f tick];
+        [[theValue([f xDelta:0]) should] equal:theValue(0)];
+        [[theValue([f yDelta:0]) should] equal:theValue(0)];        
+        [f tick];
+        [[theValue([f xDelta:1]) should] equal:theValue(0)];
+        [[theValue([f yDelta:1]) should] equal:theValue(0)];        
+    });
+    
+    it(@"should track current player touch", ^{
+        tapCloseToPlayer();
+        [[theValue([f playerTouch].x) should] equal:theValue([f player].l.x + xTouchOffset)];
+        [[theValue([f playerTouch].y) should] equal:theValue([f player].l.y + yTouchOffset)];        
+    });
+    
+    it(@"should store delta x/y when touch changes location on tick", ^{
+        tapCloseToPlayer();
+        //[f mov
     });
     
 });

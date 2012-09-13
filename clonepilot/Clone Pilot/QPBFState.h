@@ -8,6 +8,7 @@
 
 - (void)addTouch:(CGPoint)l;
 - (void)endTouch:(CGPoint)l;
+- (void)moveTouch:(CGPoint)l;
 
 - (id)initWithBattlefield:(QPBattlefield *)field;
 
