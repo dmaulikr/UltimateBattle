@@ -28,7 +28,7 @@
 }
 
 - (void)changeState:(QPBFState *)state withTouch:(CGPoint)l {
-    [self changeState:state];
+    [self changeState:state];-
     [self.currentState addTouch:l];
 }
 
