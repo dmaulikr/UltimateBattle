@@ -15,6 +15,7 @@ describe(@"Quantum Pilot Battlefield Drawing State Tests", ^{
     beforeEach(^{
         QuantumPilotLayer *quantumLayer = [[[QuantumPilotLayer alloc] init] autorelease];
         f = [[[QPBattlefield alloc] initWithLayer:quantumLayer] autorelease];
+        [f startup];
     }); 
     
     it(@"should set offset from a ship on press", ^{
@@ -38,6 +39,10 @@ describe(@"Quantum Pilot Battlefield Drawing State Tests", ^{
         [f tick];
         [f endTouch:f.player.l];
         [[theValue([f currentState]) should] equal:theValue([f pausedState])];
+    });
+    
+    it(@"should store a delta of movement zero when touch does not move on tick", ^{
+//       [f  
     });
     
 });

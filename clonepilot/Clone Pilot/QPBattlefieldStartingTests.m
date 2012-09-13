@@ -10,6 +10,7 @@ describe(@"Quantum Pilot Battlefield Starting Tests", ^{
     beforeEach(^{
         QuantumPilotLayer *quantumLayer = [[[QuantumPilotLayer alloc] init] autorelease];
         f = [[[QPBattlefield alloc] initWithLayer:quantumLayer] autorelease];
+        [f startup];
     });
     
     it(@"should begin in title state", ^{
