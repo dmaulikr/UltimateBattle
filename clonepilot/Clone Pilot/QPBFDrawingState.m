@@ -18,7 +18,7 @@
 }
 
 - (void)endTouch:(CGPoint)l {
-    [self.f changeState:self.f.pausedState];
+    [self.f changeState:self.f.fightingState];
 }
 
 - (void)moveTouch:(CGPoint)l {

@@ -9,12 +9,15 @@
 @synthesize touchPlayerOffset = _touchPlayerOffset;
 @synthesize pausedState = _pausedState;
 @synthesize drawingIteration = _drawingIteration;
+@synthesize fightingIteration = _fightingIteration;
+@synthesize fightingState =_fightingState;
 
 - (void)setupStates {
     self.currentState = [[[QPBFState alloc] initWithBattlefield:self] autorelease];
     self.titleState = [[[QPBFTitleState alloc] initWithBattlefield:self] autorelease];
     self.drawingState = [[[QPBFDrawingState alloc] initWithBattlefield:self] autorelease];
     self.pausedState = [[[QPBFPausedState alloc] initWithBattlefield:self] autorelease];
+    self.fightingState = [[[QPBFFightingState alloc] initWithBattlefield:self] autorelease];
     
     self.currentState = self.titleState;
 }
@@ -76,6 +79,8 @@
     [_titleState release];
     [_drawingState release];
     [_pausedState release];
+    [_fightingState release];
+    
     [super dealloc];
 }
 

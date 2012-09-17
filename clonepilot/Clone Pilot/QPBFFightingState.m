@@ -1,13 +1,10 @@
-//
-//  QPBFFightingState.m
-//  Clone Pilot
-//
-//  Created by Anthony Broussard on 9/17/12.
-//  Copyright (c) 2012 QuantumPotatoSoftware. All rights reserved.
-//
-
 #import "QPBFFightingState.h"
+#import "QPBattlefield.h"
 
 @implementation QPBFFightingState
+
+- (void)tick {
+    self.f.fightingIteration++;
+}
 
 @end

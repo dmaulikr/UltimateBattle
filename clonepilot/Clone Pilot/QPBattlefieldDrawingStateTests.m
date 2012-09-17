@@ -33,13 +33,7 @@ describe(@"Quantum Pilot Battlefield Drawing State Tests", ^{
         [[theValue([f currentState]) should] equal:theValue(s)];
     });
     
-    it(@"should revert to paused state on tick forward with let up", ^{
-        tapCloseToPlayer();
-        [f tick];
-        [f endTouch:f.player.l];
-        [[theValue([f currentState]) should] equal:theValue([f pausedState])];
-    });
-    
+  
     it(@"should store a delta of movement zero when touch does not move on tick", ^{
         tapCloseToPlayer();
         [f tick];
@@ -71,6 +65,24 @@ describe(@"Quantum Pilot Battlefield Drawing State Tests", ^{
         [[theValue([f xDelta:1]) should] equal:theValue(5)];
         [[theValue([f yDelta:1]) should] equal:theValue(-6)];        
     });
+    
+    it(@"should enter fighting state on let up", ^{
+        tapCloseToPlayer();
+        [f tick];
+        [f moveTouch:ccp(f.playerTouch.x + 5, f.playerTouch.y - 6)];
+        [f tick];
+        [f endTouch:f.playerTouch];
+        [[theValue([f currentState]) should] equal:theValue([f fightingState])];
+    });
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
 });
 

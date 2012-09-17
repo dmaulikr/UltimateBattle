@@ -4,6 +4,7 @@
 #import "QPBFDrawingState.h"
 #import "QPBFInputConstants.h"
 #import "QPBFPausedState.h"
+#import "QPBFFightingState.h"
 
 @interface QPBattlefield : ClonePilotBattlefield {
     float _xDelta[100];
@@ -14,12 +15,14 @@
 @property (nonatomic, retain) QPBFTitleState *titleState;
 @property (nonatomic, retain) QPBFDrawingState *drawingState;
 @property (nonatomic, retain) QPBFPausedState *pausedState;
+@property (nonatomic, retain) QPBFFightingState *fightingState;
 
 @property (nonatomic, assign) CGPoint playerTouch;
 @property (nonatomic, assign) CGPoint lastPlayerTouch;
 @property (nonatomic, assign) CGPoint touchPlayerOffset;
 
 @property (nonatomic, assign) NSInteger drawingIteration;
+@property (nonatomic, assign) NSInteger fightingIteration;
 
 - (float)xDelta:(NSInteger)index;
 - (float)yDelta:(NSInteger)index;
