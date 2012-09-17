@@ -15,16 +15,13 @@ drawing state {
 use c arrays for delta x, delta y, delta fire.. less memory than objects
   store a delta of movement zero when touch doesnt move on tick
   store a delta x,y when point changes on next tick
-  cap deltax,y*speedratio to 1 when point moves past speedratio distance
-  store deltax,y * speedratio < 1 when point moves less than speedratio distance
-  store weapon fires when weapon fired
   stop storing deltas when deltastack total exceeds max
   enter fighting state on let up
   enter fighting state when deltastack total exceeds max
 
 fighting state {
-  apply movement deltas on tick
-  apply firing deltas on tick
+  calculate speed with max speed cap and apply movement deltas on tick
+  fire weapon on tap
   increase current iteration tick on tick
   enter paused state when current iteration reaches max movement deltas
 
