@@ -33,6 +33,10 @@ describe(@"Quantum Pilot Battlefield Fighting State Tests", ^{
         [f moveTouch:ccp(f.playerTouch.x - 5, f.playerTouch.y + 5)];
         [f tick];
         [f endTouch:f.playerTouch];
+        [f tick];
+        [[theValue([[f player] vel].x) should] equal:theValue(0)];
+        [f tick];
+        [[theValue([[f player] vel].x) should] beLessThan:theValue(0)];
         
         
     });
