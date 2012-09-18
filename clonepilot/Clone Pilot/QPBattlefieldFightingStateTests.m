@@ -39,8 +39,16 @@ describe(@"Quantum Pilot Battlefield Fighting State Tests", ^{
         [f tick];
         CGPoint direction = GetAngle([f player].l, movePoint);
         [[theValue([[f player] vel].x) should] equal:theValue(direction.x * [f player].speed)];
-        
-        
+    });
+    
+    it(@"should enter fighting state when drawing iterations exceeds max", ^{
+        [f addTouch:ccp(f.player.l.x, f.player.l.y)]; 
+        [f tick];
+        while (f.drawingIteration < QPBF_MAX_DRAWING_FRAMES) {
+            [f tick];
+        }
+        [f tick];
+        [[theValue([f currentState]) should] equal:theValue([f fightingState])];
     });
     
     
