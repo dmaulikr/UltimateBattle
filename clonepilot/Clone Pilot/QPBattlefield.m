@@ -31,6 +31,7 @@
 - (void)tick {
     [self.currentState tick];
     self.lastPlayerTouch = self.playerTouch;
+    [self.player tick];
 }
 
 - (void)addTouch:(CGPoint)l {

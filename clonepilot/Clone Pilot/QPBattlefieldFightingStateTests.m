@@ -30,13 +30,15 @@ describe(@"Quantum Pilot Battlefield Fighting State Tests", ^{
     it(@"should set velocity and move by delta x and delta y", ^{
         [f addTouch:ccp(f.player.l.x, f.player.l.y)]; 
         [f tick];
-        [f moveTouch:ccp(f.playerTouch.x - 5, f.playerTouch.y + 5)];
+        CGPoint movePoint = ccp(f.playerTouch.x - 50, f.playerTouch.y + 53);
+        [f moveTouch:movePoint];
         [f tick];
         [f endTouch:f.playerTouch];
         [f tick];
         [[theValue([[f player] vel].x) should] equal:theValue(0)];
         [f tick];
-        [[theValue([[f player] vel].x) should] beLessThan:theValue(0)];
+        CGPoint direction = GetAngle([f player].l, movePoint);
+        [[theValue([[f player] vel].x) should] equal:theValue(direction.x * [f player].speed)];
         
         
     });
