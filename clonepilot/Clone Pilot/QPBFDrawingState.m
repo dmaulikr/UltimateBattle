@@ -6,10 +6,10 @@
 - (void)tick {
     [self.f addXDelta:self.f.playerTouch.x - self.f.lastPlayerTouch.x];
     [self.f addYDelta:self.f.playerTouch.y - self.f.lastPlayerTouch.y];
-    if (self.f.drawingIteration == 99) {
-        NSLog(@"here");
-    }
     self.f.drawingIteration++;
+    if (self.f.drawingIteration == QPBF_MAX_DRAWING_FRAMES) {
+        [self.f changeState:self.f.fightingState];
+    }
 }
 
 - (void)addTouch:(CGPoint)l {
