@@ -7,8 +7,8 @@
 #import "QPBFFightingState.h"
 
 @interface QPBattlefield : ClonePilotBattlefield {
-    float _xDelta[100];
-    float _yDelta[100];
+    float _xDelta[1000];
+    float _yDelta[1000];
 }
 
 @property (nonatomic, retain) QPBFState *currentState;

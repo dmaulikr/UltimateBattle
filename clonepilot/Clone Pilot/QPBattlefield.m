@@ -64,11 +64,15 @@
 }
 
 - (void)addXDelta:(float)delta {
-    _xDelta[self.drawingIteration] = delta;
+    if (self.drawingIteration < QPBF_MAX_DRAWING_FRAMES) {
+        _xDelta[self.drawingIteration] = delta;
+    }
 }
 
 - (void)addYDelta:(float)delta {
-    _yDelta[self.drawingIteration] = delta;
+    if (self.drawingIteration < QPBF_MAX_DRAWING_FRAMES) {    
+        _yDelta[self.drawingIteration] = delta;
+    }
 }
 
 - (BOOL)touchingPlayer:(CGPoint)l {

@@ -5,7 +5,10 @@
 
 - (void)tick {
     [self.f addXDelta:self.f.playerTouch.x - self.f.lastPlayerTouch.x];
-    [self.f addYDelta:self.f.playerTouch.y - self.f.lastPlayerTouch.y];    
+    [self.f addYDelta:self.f.playerTouch.y - self.f.lastPlayerTouch.y];
+    if (self.f.drawingIteration == 99) {
+        NSLog(@"here");
+    }
     self.f.drawingIteration++;
 }
 
