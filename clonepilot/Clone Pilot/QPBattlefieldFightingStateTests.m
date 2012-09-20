@@ -1,7 +1,3 @@
-#import "Kiwi.h"
-#import "QPBattlefield.h"
-#import "QuantumPilotLayer.h"
-#import "ActionBlock.h"
 #import "QuantumKiwi.h"
 
 SPEC_BEGIN(QPBattlefieldFightingStateTests)
