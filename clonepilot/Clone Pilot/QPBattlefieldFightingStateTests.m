@@ -2,6 +2,7 @@
 #import "QPBattlefield.h"
 #import "QuantumPilotLayer.h"
 #import "ActionBlock.h"
+#import "QuantumKiwi.h"
 
 SPEC_BEGIN(QPBattlefieldFightingStateTests)
 
@@ -23,8 +24,6 @@ describe(@"Quantum Pilot Battlefield Fighting State Tests", ^{
         [[theValue([f fightingIteration]) should] equal:theValue(0)];
         [f tick];
         [[theValue([f fightingIteration]) should] equal:theValue(1)];
-        
-        
     });
     
     it(@"should set velocity and move by delta x and delta y", ^{
@@ -50,8 +49,19 @@ describe(@"Quantum Pilot Battlefield Fighting State Tests", ^{
         [f tick];
         [[theValue([f currentState]) should] equal:theValue([f fightingState])];
     });
-    
-    
+
+    it(@"should enter paused state when current iteration reaches max deltas", ^{
+        [f addTouch:ccp(f.player.l.x, f.player.l.y)]; 
+        [f tick];
+        [f tick];
+        [f tick];
+        [f endTouch:f.playerTouch];
+        [f tick];
+        [f tick];
+        [f tick];
+        ve([f currentState], [f pausedState])
+    });
+
 });
 
 SPEC_END
