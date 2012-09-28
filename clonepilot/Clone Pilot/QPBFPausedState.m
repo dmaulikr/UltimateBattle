@@ -9,7 +9,9 @@
     }
     
     //How many times do we loop?
-    for (int i = 0; i < self.f.fightingIteration-1; i++) {
+    [self.f setXDelta:0 atIndex:self.f.fightingIteration];
+    [self.f setYDelta:0 atIndex:self.f.fightingIteration];
+    for (int i = 0; i < self.f.fightingIteration; i++) {
         for (int j = 0; j < self.f.fightingIteration; j++) {
             CGPoint delta = ccp([self.f xDelta:j+1], [self.f yDelta:j+1]);
             [self.f setXDelta:delta.x atIndex:j];
