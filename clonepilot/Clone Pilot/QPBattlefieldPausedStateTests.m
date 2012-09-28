@@ -42,6 +42,8 @@ describe(@"Quantum Pilot Battlefield Paused State Tests", ^{
             NSLog(@"%d: xDelta: %f", i, [f xDelta:i]);
             NSLog(@"%d: yDelta: %f", i, [f yDelta:i]);
         }
+        [f tick];
+        [f tick];
         CGPoint pausedZeroIndex = ccp([f xDelta:0], [f yDelta:0]);
         CGPoint pausedOneIndex = ccp([f xDelta:1], [f yDelta:1]);
         ve(pausedZeroIndex.x, oneIndex.x);
