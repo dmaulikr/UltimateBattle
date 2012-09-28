@@ -30,6 +30,9 @@
 - (void)addXDelta:(float)delta;
 - (void)addYDelta:(float)delta;
 
+- (void)setXDelta:(float)delta atIndex:(NSInteger)index;
+- (void)setYDelta:(float)delta atIndex:(NSInteger)index;
+
 - (BOOL)touchingPlayer:(CGPoint)l;
 - (void)changeState:(QPBFState *)state;
 - (void)changeState:(QPBFState *)state withTouch:(CGPoint)l;

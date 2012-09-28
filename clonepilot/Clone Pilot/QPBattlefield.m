@@ -75,6 +75,18 @@
     }
 }
 
+- (void)setXDelta:(float)delta atIndex:(NSInteger)index {
+    if (index < self.fightingIteration) {
+        _xDelta[index] = delta;
+    }
+}
+
+- (void)setYDelta:(float)delta atIndex:(NSInteger)index {
+    if (index < self.fightingIteration) {
+        _yDelta[index] = delta;
+    }
+}
+
 - (BOOL)touchingPlayer:(CGPoint)l {
     return GetDistance(l, self.player.l) <= QPBF_PLAYER_TAP_RANGE;
 }

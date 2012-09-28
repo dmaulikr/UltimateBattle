@@ -380,9 +380,9 @@
 		BF3E6440160132F3002049FA /* QPBFInputConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = BF3E643F160132F3002049FA /* QPBFInputConstants.m */; };
 		BF3E6441160132F3002049FA /* QPBFInputConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = BF3E643F160132F3002049FA /* QPBFInputConstants.m */; };
 		BF3E644616013C7B002049FA /* QPBattlefieldDrawingStateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF3E644416013C7B002049FA /* QPBattlefieldDrawingStateTests.m */; };
+		BF8299191615F8D400112338 /* QPBattlefieldPausedStateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE04A5E160B27F000401C3D /* QPBattlefieldPausedStateTests.m */; };
 		BFD580BE16017B2000831E84 /* QPBFPausedState.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD580BD16017B2000831E84 /* QPBFPausedState.m */; };
 		BFD580BF16017B2000831E84 /* QPBFPausedState.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD580BD16017B2000831E84 /* QPBFPausedState.m */; };
-		BFE04A5F160B27F000401C3D /* QPBattlefieldPausedStateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE04A5E160B27F000401C3D /* QPBattlefieldPausedStateTests.m */; };
 		BFE7334315EF0B010010FB9E /* QPBattlefield.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE7334215EF0B010010FB9E /* QPBattlefield.m */; };
 		BFE7334415EF0B010010FB9E /* QPBattlefield.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE7334215EF0B010010FB9E /* QPBattlefield.m */; };
 		BFE7334715EF0C410010FB9E /* QPBFState.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE7334615EF0C410010FB9E /* QPBFState.m */; };
@@ -2534,7 +2534,6 @@
 				BFE7334415EF0B010010FB9E /* QPBattlefield.m in Sources */,
 				BFE7334815EF0C410010FB9E /* QPBFState.m in Sources */,
 				BFE7334C15EF0D300010FB9E /* QPBFTitleState.m in Sources */,
-				BFE04A5F160B27F000401C3D /* QPBattlefieldPausedStateTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2742,6 +2741,7 @@
 				BFD580BF16017B2000831E84 /* QPBFPausedState.m in Sources */,
 				BF18F4851607480E00DA3CCC /* QPBFFightingState.m in Sources */,
 				BF18F4881607492F00DA3CCC /* QPBattlefieldFightingStateTests.m in Sources */,
+				BF8299191615F8D400112338 /* QPBattlefieldPausedStateTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
