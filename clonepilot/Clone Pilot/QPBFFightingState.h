@@ -1,5 +1,7 @@
 #import "QPBFState.h"
 
-@interface QPBFFightingState : QPBFState
+@interface QPBFFightingState : QPBFState {
+    BOOL _shiftingToDrawing;
+}
 
 @end

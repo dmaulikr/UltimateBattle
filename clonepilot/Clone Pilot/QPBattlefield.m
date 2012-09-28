@@ -34,6 +34,19 @@
     [self.player tick];
 }
 
+- (void)clearUsedDeltas {
+//    [self setXDelta:0 atIndex:self.fightingIteration];
+  //  [self setYDelta:0 atIndex:self.fightingIteration];
+    for (int i = 0; i < self.fightingIteration; i++) {
+        for (int j = 0; j < self.fightingIteration; j++) {
+            CGPoint delta = ccp([self xDelta:j+1], [self yDelta:j+1]);
+            [self setXDelta:delta.x atIndex:j];
+            [self setYDelta:delta.y atIndex:j];
+        }
+    }
+    self.fightingIteration = 0;
+}
+
 - (void)addTouch:(CGPoint)l {
     [self.currentState addTouch:l];
 }

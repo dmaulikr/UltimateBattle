@@ -3,6 +3,12 @@
 
 @implementation QPBFFightingState
 
+- (void)shiftToDrawingState {
+    [self.f clearUsedDeltas];
+    _shiftingToDrawing = NO;
+    [self.f changeState:self.f.drawingState];
+}
+
 - (void)tick {
     CGPoint deltaTarget = ccp(self.f.player.l.x + [self.f xDelta:self.f.fightingIteration],
                               self.f.player.l.y + [self.f yDelta:self.f.fightingIteration]);
@@ -12,6 +18,14 @@
     if (self.f.fightingIteration == self.f.drawingIteration) {
         [self.f changeState:self.f.pausedState];
     }
+    
+    if (_shiftingToDrawing) {
+        [self shiftToDrawingState];
+    }
+}
+
+- (void)addTouch:(CGPoint)l {
+    _shiftingToDrawing = YES;
 }
 
 @end
