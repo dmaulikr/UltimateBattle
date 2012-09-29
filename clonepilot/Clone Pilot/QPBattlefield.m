@@ -35,10 +35,8 @@
 }
 
 - (void)clearUsedDeltas {
-//    [self setXDelta:0 atIndex:self.fightingIteration];
-  //  [self setYDelta:0 atIndex:self.fightingIteration];
     for (int i = 0; i < self.fightingIteration; i++) {
-        for (int j = 0; j < self.fightingIteration; j++) {
+        for (int j = 0; j < self.drawingIteration; j++) {
             CGPoint delta = ccp([self xDelta:j+1], [self yDelta:j+1]);
             [self setXDelta:delta.x atIndex:j];
             [self setYDelta:delta.y atIndex:j];
@@ -89,13 +87,13 @@
 }
 
 - (void)setXDelta:(float)delta atIndex:(NSInteger)index {
-    if (index <= self.fightingIteration) {
+    if (index <= self.drawingIteration) {
         _xDelta[index] = delta;
     }
 }
 
 - (void)setYDelta:(float)delta atIndex:(NSInteger)index {
-    if (index <= self.fightingIteration) {
+    if (index <= self.drawingIteration) {
         _yDelta[index] = delta;
     }
 }

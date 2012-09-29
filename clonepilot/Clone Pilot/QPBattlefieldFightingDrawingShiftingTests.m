@@ -42,18 +42,15 @@ describe(@"Quantum Pilot Battlefield Fighting Drawing Shifting State Tests", ^{
         [f endTouch:f.playerTouch];
 
         [f tick];
-        [f tick];
         
-        CGPoint zeroDelta   = ccp([f xDelta:0], [f yDelta:0]);
-        CGPoint oneDelta    = ccp([f xDelta:1], [f yDelta:1]);
         CGPoint twoDelta    = ccp([f xDelta:2], [f yDelta:2]);
         CGPoint threeDelta  = ccp([f xDelta:3], [f yDelta:3]);
-        
+        CGPoint fourDelta   = ccp([f xDelta:4], [f yDelta:4]);
+        CGPoint fiveDelta   = ccp([f xDelta:5], [f yDelta:5]);
         [f addTouch:f.player.l];
-        //tick into drawing state
-        NSLog(@"FIGHTING ITERATION :%d", [f fightingIteration]);
+        
+        //tick into drawing state from touch
         [f tick];
-        NSLog(@"FIGHTING ITERATION :%d", [f fightingIteration]);
         ve([f currentState], [f drawingState]);
         
         CGPoint pausedZeroDelta     = ccp([f xDelta:0], [f yDelta:0]);
@@ -65,15 +62,10 @@ describe(@"Quantum Pilot Battlefield Fighting Drawing Shifting State Tests", ^{
         ve(pausedZeroDelta.y, twoDelta.y);
         ve(pausedOneDelta.x, threeDelta.x);
         ve(pausedOneDelta.y, threeDelta.y);
-        ve(pausedTwoDelta.x, 0);
-        ve(pausedTwoDelta.y, 0);
-        ve(pausedThreeDelta.x, 0);
-        ve(pausedThreeDelta.y, 0);
-        
-        
-        
-        
-        
+        ve(pausedTwoDelta.x, fourDelta.x);
+        ve(pausedTwoDelta.y, fourDelta.y);
+        ve(pausedThreeDelta.x, fiveDelta.x);
+        ve(pausedThreeDelta.y, fiveDelta.y);
     });
 
     
