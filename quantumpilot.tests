@@ -35,7 +35,9 @@ paused state {
   track total pauses used
 
 fighting state{
+  classes {quantumplayer, quantumclone)
   player fires weapon, bullets spawn
+  clones copy deltas on kill
 
 fighting state {
   enter scoring state on zero clones
