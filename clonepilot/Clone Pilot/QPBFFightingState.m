@@ -6,7 +6,7 @@
 - (void)shiftToDrawingState {
     [self.f clearUsedDeltas];
     _shiftingToDrawing = NO;
-    [self.f changeState:self.f.drawingState];
+    [self.f changeState:self.f.drawingState withTouch:_shiftToDrawingTouch];
 }
 
 - (void)tick {
@@ -26,6 +26,7 @@
 
 - (void)addTouch:(CGPoint)l {
     _shiftingToDrawing = YES;
+    _shiftToDrawingTouch = l;
 }
 
 @end

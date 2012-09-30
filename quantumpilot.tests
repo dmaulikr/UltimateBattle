@@ -28,7 +28,7 @@ fighting state {
 paused state {
   delta stores should shift down to zero with difference equal to iteration difference
   erase deltastack and change into drawing state when tapping on ship
-  maintain deltastack and change into drawing state when tapping on latest expected point (use pointer for latestx/y)
+  maintain deltastack and change into drawing state when tapping on latest expected point (use function for latestx/y)
   set offset from ship on change into drawing state
   reset pathiterations when changing to drawing state from ship
   maintain pathiterations when changing to drawing state from latest pathpoint

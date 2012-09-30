@@ -28,6 +28,26 @@ describe(@"Quantum Pilot Battlefield Fighting Drawing Shifting State Tests", ^{
         ve([f currentState], [f drawingState]);
     });
     
+    it(@"should set offset when shifting back into drawing state", ^{
+        [f addTouch:ccp(f.player.l.x, f.player.l.y)];
+        [f tick];
+        [f moveTouch:ccp(f.playerTouch.x - 5, f.playerTouch.y + 5)];
+        [f tick];
+        [f moveTouch:ccp(f.playerTouch.x + 2, f.playerTouch.y + 8)];
+        [f tick];
+        [f endTouch:f.playerTouch];
+        
+        [f tick];
+        [f tick];
+        
+        CGPoint offset = ccp(f.player.l.x + 10, f.player.l.y - 15);
+        [f addTouch:offset];
+        [f tick];
+        
+        ve([f touchPlayerOffset].x, 10);
+        ve([f touchPlayerOffset].y, -15);
+    });
+    
     it(@"should remove deltas fought through and shift remaining deltas", ^{
         [f addTouch:ccp(f.player.l.x, f.player.l.y)];
         [f tick];
