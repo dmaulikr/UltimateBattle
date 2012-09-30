@@ -54,10 +54,14 @@ int const QP_TimeBonusModifier      = 3;
     return self; 
 }
 
-- (id)initWithLayer:(CCLayer *)quantumLayer {
-    self            = [self commonInit];
+- (void)setupPlayerWithLayer:(CCLayer *)quantumLayer {
     self.player     = [[[ClonePlayer alloc] initWithLayer:quantumLayer] autorelease];
     self.player.bulletDelegate = self;
+}
+
+- (id)initWithLayer:(CCLayer *)quantumLayer {
+    self            = [self commonInit];
+    [self setupPlayerWithLayer:quantumLayer];
     self.layer      = quantumLayer;
     self.wall       = [[[BulletWall alloc] initWithLayer:quantumLayer] autorelease];
     self.rSprite    = [CCSprite spriteWithFile:@"sprite-7-1.png"];

@@ -1,4 +1,5 @@
 #import "QPBattlefield.h"
+#import "QuantumPilot.h"
 
 @implementation QPBattlefield
 @synthesize currentState = _currentState;
@@ -23,6 +24,10 @@
     self.fightingState = [[[QPBFFightingState alloc] initWithBattlefield:self] autorelease];
     
     self.currentState = self.titleState;
+}
+
+- (void)setupPlayerWithLayer:(CCLayer *)quantumLayer {
+    self.player = [[[QuantumPilot alloc] initWithLayer:quantumLayer] autorelease];
 }
 
 - (id)initWithLayer:(CCLayer *)quantumLayer {
