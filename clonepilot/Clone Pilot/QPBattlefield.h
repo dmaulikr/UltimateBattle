@@ -5,6 +5,7 @@
 #import "QPBFInputConstants.h"
 #import "QPBFPausedState.h"
 #import "QPBFFightingState.h"
+#import "QuantumPilot.h"
 
 @interface QPBattlefield : ClonePilotBattlefield {
     float _xDelta[1001];
@@ -47,5 +48,7 @@
 - (BOOL)touchingPlayer:(CGPoint)l;
 - (void)changeState:(QPBFState *)state;
 - (void)changeState:(QPBFState *)state withTouch:(CGPoint)l;
+
+- (QuantumPilot *)pilot;
 
 @end

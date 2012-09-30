@@ -86,7 +86,7 @@ describe(@"Quantum Pilot Battlefield Fighting Drawing Shifting State Tests", ^{
         ve(pausedThreeDelta.x, fiveDelta.x);
         ve(pausedThreeDelta.y, fiveDelta.y);
         
-        ve([f playerIsFiring], NO);
+        ve([f.player isFiring], NO);
     });
     
     it(@"should clear delta stack when tapping on ship and not fire", ^{

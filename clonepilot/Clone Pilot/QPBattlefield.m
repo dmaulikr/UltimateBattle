@@ -1,5 +1,4 @@
 #import "QPBattlefield.h"
-#import "QuantumPilot.h"
 
 @implementation QPBattlefield
 @synthesize currentState = _currentState;
@@ -121,6 +120,10 @@
 
 - (BOOL)touchingPlayer:(CGPoint)l {
     return GetDistance(l, self.player.l) <= QPBF_PLAYER_TAP_RANGE;
+}
+
+- (QuantumPilot *)pilot {
+    return (QuantumPilot *)self.player;
 }
 
 - (void)dealloc {

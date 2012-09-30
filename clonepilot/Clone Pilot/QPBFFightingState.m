@@ -27,7 +27,7 @@
         [self shiftToDrawingState];
     }
     
-    self.f.playerIsFiring = NO;
+    self.f.pilot.firing = NO;
 }
 
 - (void)addTouch:(CGPoint)l {
@@ -38,7 +38,7 @@
     BOOL closeToPathPoint   = distToLatestPathPoint <= QPBF_PLAYER_TAP_RANGE;
     
     if (!closeToPlayer && !closeToPathPoint) {
-        self.f.playerIsFiring = YES;
+        [self.f.player fire];
         return;
     }
 

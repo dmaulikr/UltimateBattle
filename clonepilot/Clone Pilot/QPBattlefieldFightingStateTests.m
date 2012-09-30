@@ -73,9 +73,9 @@ describe(@"Quantum Pilot Battlefield Fighting State Tests", ^{
 
         
         [f addTouch:ccp(f.player.l.x + 100, f.player.l.y - 100)];
-        ve([f playerIsFiring], YES);
+        ve([f.player isFiring], YES);
         [f tick];
-        ve([f playerIsFiring], NO);
+        ve([f.player isFiring], NO);
         
         CGPoint zeroDelta = ccp([f xDelta:0], [f yDelta:0]);
         CGPoint oneDelta = ccp([f xDelta:1], [f yDelta:1]);
