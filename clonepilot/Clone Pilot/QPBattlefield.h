@@ -10,6 +10,7 @@
 @interface QPBattlefield : ClonePilotBattlefield {
     float _xDelta[1001];
     float _yDelta[1001];
+    BOOL _fireDelta[1001];
 }
 
 @property (nonatomic, retain) QPBFState *currentState;
@@ -28,11 +29,10 @@
 @property (nonatomic, assign) NSInteger drawingIteration;
 @property (nonatomic, assign) NSInteger fightingIteration;
 
-@property (nonatomic, assign) BOOL playerIsFiring;
-
 
 - (float)xDelta:(NSInteger)index;
 - (float)yDelta:(NSInteger)index;
+- (BOOL)fireDeltaAtIndex:(NSInteger)index;
 
 - (void)addXDelta:(float)delta;
 - (void)addYDelta:(float)delta;
@@ -48,6 +48,8 @@
 - (BOOL)touchingPlayer:(CGPoint)l;
 - (void)changeState:(QPBFState *)state;
 - (void)changeState:(QPBFState *)state withTouch:(CGPoint)l;
+
+- (void)pilotFires;
 
 - (QuantumPilot *)pilot;
 

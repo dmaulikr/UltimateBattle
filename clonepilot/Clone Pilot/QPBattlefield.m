@@ -11,7 +11,6 @@
 @synthesize drawingIteration = _drawingIteration;
 @synthesize fightingIteration = _fightingIteration;
 @synthesize fightingState =_fightingState;
-@synthesize playerIsFiring = _playerIsFiring;
 @synthesize latestExpectedX = _latestExpectedX;
 @synthesize latestExpectedY = _latestExpectedY;
 
@@ -114,6 +113,14 @@
     }
 }
 
+- (BOOL)fireDeltaAtIndex:(NSInteger)index {
+    return _fireDelta[index];
+}
+
+- (void)addFireDelta {
+    _fireDelta[self.fightingIteration] = YES;
+}
+
 - (CGPoint)latestExpectedPathPoint {
     return ccp(self.latestExpectedX, self.latestExpectedY);
 }
@@ -124,6 +131,11 @@
 
 - (QuantumPilot *)pilot {
     return (QuantumPilot *)self.player;
+}
+
+- (void)pilotFires {
+    [self.player fire];
+    [self addFireDelta];
 }
 
 - (void)dealloc {

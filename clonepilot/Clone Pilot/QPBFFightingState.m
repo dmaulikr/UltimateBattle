@@ -38,7 +38,7 @@
     BOOL closeToPathPoint   = distToLatestPathPoint <= QPBF_PLAYER_TAP_RANGE;
     
     if (!closeToPlayer && !closeToPathPoint) {
-        [self.f.player fire];
+        [self.f pilotFires];
         return;
     }
 

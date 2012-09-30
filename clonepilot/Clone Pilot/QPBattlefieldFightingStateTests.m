@@ -11,12 +11,16 @@ describe(@"Quantum Pilot Battlefield Fighting State Tests", ^{
         [f startup];
     }); 
 
-    it(@"should track fighting iterations", ^{
-        [f addTouch:ccp(f.player.l.x, f.player.l.y)]; 
+    ActionBlock beginFightingState = ^{
+        [f addTouch:ccp(f.player.l.x, f.player.l.y)];
         [f tick];
         [f moveTouch:ccp(f.playerTouch.x - 5, f.playerTouch.y + 5)];
         [f tick];
         [f endTouch:f.playerTouch];
+    };
+    
+    it(@"should track fighting iterations", ^{
+        beginFightingState();
         [[theValue([f fightingIteration]) should] equal:theValue(0)];
         [f tick];
         [[theValue([f fightingIteration]) should] equal:theValue(1)];
@@ -89,6 +93,15 @@ describe(@"Quantum Pilot Battlefield Fighting State Tests", ^{
         ve(twoDelta.y, oldTwoDelta.y);
     });
 
+    it(@"should store firing deltas", ^{
+        beginFightingState();
+        [f tick];
+        [f addTouch:ccp(f.playerTouch.x + 200, f.playerTouch.y + 200)];
+        [f tick];
+        ve([f fireDeltaAtIndex:0], NO);
+        ve([f fireDeltaAtIndex:1], YES);
+        
+    });
     //player state, bullets
     
 });

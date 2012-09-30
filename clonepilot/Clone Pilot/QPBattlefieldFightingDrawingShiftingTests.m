@@ -126,7 +126,7 @@ describe(@"Quantum Pilot Battlefield Fighting Drawing Shifting State Tests", ^{
         ve(fiveDelta.x, 0);
         ve(fiveDelta.y, 0);
         
-        ve([f playerIsFiring], NO);
+        ve([f.pilot firing], NO);
         
     });
     
