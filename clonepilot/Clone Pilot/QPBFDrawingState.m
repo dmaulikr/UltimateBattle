@@ -18,6 +18,8 @@
     self.f.touchPlayerOffset = ccp(xOffset, yOffset);
     self.f.playerTouch = l;
     self.f.lastPlayerTouch = l;
+    self.f.latestExpectedX = self.f.player.l.x;
+    self.f.latestExpectedY = self.f.player.l.y;
 }
 
 - (void)endTouch:(CGPoint)l {

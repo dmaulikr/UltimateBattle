@@ -34,6 +34,9 @@ paused state {
   maintain pathiterations when changing to drawing state from latest pathpoint
   track total pauses used
 
+fighting state{
+  player fires weapon, bullets spawn
+
 fighting state {
   enter scoring state on zero clones
   calculate time bonus

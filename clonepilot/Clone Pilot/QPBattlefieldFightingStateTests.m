@@ -57,7 +57,39 @@ describe(@"Quantum Pilot Battlefield Fighting State Tests", ^{
         [f tick];
         ve([f currentState], [f pausedState])
     });
+    
+    it(@"should set firing mode when pressing away from ship and leave deltas unchanged", ^{
+        [f addTouch:ccp(f.player.l.x, f.player.l.y)];
+        [f tick];
+        [f tick];
+        [f tick];
+        [f endTouch:f.playerTouch];
+        [f tick];
+        
+        CGPoint oldZeroDelta = ccp([f xDelta:0], [f yDelta:0]);
+        CGPoint oldOneDelta = ccp([f xDelta:1], [f yDelta:1]);
+        CGPoint oldTwoDelta = ccp([f xDelta:2], [f yDelta:2]);
 
+        
+        [f addTouch:ccp(f.player.l.x + 100, f.player.l.y - 100)];
+        ve([f playerIsFiring], YES);
+        [f tick];
+        ve([f playerIsFiring], NO);
+        
+        CGPoint zeroDelta = ccp([f xDelta:0], [f yDelta:0]);
+        CGPoint oneDelta = ccp([f xDelta:1], [f yDelta:1]);
+        CGPoint twoDelta = ccp([f xDelta:2], [f yDelta:2]);
+        
+        ve(zeroDelta.x, oldZeroDelta.x);
+        ve(zeroDelta.y, oldZeroDelta.y);
+        ve(oneDelta.x, oldOneDelta.x);
+        ve(oneDelta.y, oldOneDelta.y);
+        ve(twoDelta.x, oldTwoDelta.x);
+        ve(twoDelta.y, oldTwoDelta.y);
+    });
+
+    //player state, bullets
+    
 });
 
 SPEC_END

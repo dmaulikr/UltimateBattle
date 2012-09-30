@@ -21,8 +21,14 @@
 @property (nonatomic, assign) CGPoint lastPlayerTouch;
 @property (nonatomic, assign) CGPoint touchPlayerOffset;
 
+@property (nonatomic, assign) float latestExpectedX;
+@property (nonatomic, assign) float latestExpectedY;
+
 @property (nonatomic, assign) NSInteger drawingIteration;
 @property (nonatomic, assign) NSInteger fightingIteration;
+
+@property (nonatomic, assign) BOOL playerIsFiring;
+
 
 - (float)xDelta:(NSInteger)index;
 - (float)yDelta:(NSInteger)index;
@@ -33,7 +39,10 @@
 - (void)setXDelta:(float)delta atIndex:(NSInteger)index;
 - (void)setYDelta:(float)delta atIndex:(NSInteger)index;
 
+- (CGPoint)latestExpectedPathPoint;
+
 - (void)clearUsedDeltas;
+- (void)clearAllDeltas;
 
 - (BOOL)touchingPlayer:(CGPoint)l;
 - (void)changeState:(QPBFState *)state;

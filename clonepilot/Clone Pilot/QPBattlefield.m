@@ -11,6 +11,9 @@
 @synthesize drawingIteration = _drawingIteration;
 @synthesize fightingIteration = _fightingIteration;
 @synthesize fightingState =_fightingState;
+@synthesize playerIsFiring = _playerIsFiring;
+@synthesize latestExpectedX = _latestExpectedX;
+@synthesize latestExpectedY = _latestExpectedY;
 
 - (void)setupStates {
     self.currentState = [[[QPBFState alloc] initWithBattlefield:self] autorelease];
@@ -45,6 +48,13 @@
     self.fightingIteration = 0;
 }
 
+- (void)clearAllDeltas {
+    for (int i = 0; i < self.drawingIteration; i++) {
+        [self setXDelta:0 atIndex:i];
+        [self setYDelta:0 atIndex:i];
+    }
+}
+
 - (void)addTouch:(CGPoint)l {
     [self.currentState addTouch:l];
 }
@@ -77,12 +87,14 @@
 - (void)addXDelta:(float)delta {
     if (self.drawingIteration < QPBF_MAX_DRAWING_FRAMES) {
         _xDelta[self.drawingIteration] = delta;
+        self.latestExpectedX += delta;
     }
 }
 
 - (void)addYDelta:(float)delta {
     if (self.drawingIteration < QPBF_MAX_DRAWING_FRAMES) {    
         _yDelta[self.drawingIteration] = delta;
+        self.latestExpectedY += delta;
     }
 }
 
@@ -98,6 +110,9 @@
     }
 }
 
+- (CGPoint)latestExpectedPathPoint {
+    return ccp(self.latestExpectedX, self.latestExpectedY);
+}
 
 - (BOOL)touchingPlayer:(CGPoint)l {
     return GetDistance(l, self.player.l) <= QPBF_PLAYER_TAP_RANGE;

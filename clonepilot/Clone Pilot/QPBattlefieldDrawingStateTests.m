@@ -1,7 +1,4 @@
-#import "Kiwi.h"
-#import "QPBattlefield.h"
-#import "QuantumPilotLayer.h"
-#import "ActionBlock.h"
+#import "QuantumKiwi.h"
 
 SPEC_BEGIN(QPBattlefieldDrawingStateTests)
 
@@ -73,6 +70,19 @@ describe(@"Quantum Pilot Battlefield Drawing State Tests", ^{
         [f tick];
         [f endTouch:f.playerTouch];
         [[theValue([f currentState]) should] equal:theValue([f fightingState])];
+    });
+    
+    it(@"should know latest expected path point", ^{
+        [f addTouch:f.player.l];
+        [f tick];
+        [f moveTouch:ccp(f.playerTouch.x + 5, f.playerTouch.y + 6)];
+        [f tick];
+        ve(f.latestExpectedX, f.player.l.x + 5);
+        ve(f.latestExpectedY, f.player.l.y + 6);
+        [f moveTouch:ccp(f.playerTouch.x + 7, f.playerTouch.y - 3)];
+        [f tick];
+        ve(f.latestExpectedX, f.player.l.x + 12);
+        ve(f.latestExpectedY, f.player.l.y + 3);
     });
     
     
