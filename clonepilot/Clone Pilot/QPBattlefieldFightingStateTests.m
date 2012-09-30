@@ -102,7 +102,11 @@ describe(@"Quantum Pilot Battlefield Fighting State Tests", ^{
         ve([f fireDeltaAtIndex:1], YES);
         
     });
-    //player state, bullets
+    
+    //bullets fired
+    //kill enemy
+    //cloning
+    //score
     
 });
 
