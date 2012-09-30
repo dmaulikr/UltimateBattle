@@ -31,6 +31,7 @@ describe(@"Quantum Pilot Battlefield Fighting State Tests", ^{
         [f endTouch:f.playerTouch];
         [f tick];
         [[theValue([[f player] vel].x) should] equal:theValue(0)];
+        [[theValue([[f player] vel].y) should] equal:theValue(0)];
         [f tick];
         CGPoint direction = GetAngle([f player].l, movePoint);
         [[theValue([[f player] vel].x) should] equal:theValue(direction.x * [f player].speed)];

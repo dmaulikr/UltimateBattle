@@ -25,6 +25,7 @@ describe(@"Quantum Pilot Battlefield Drawing State Tests", ^{
     });
     
     it(@"should maintain in drawing state on tick forward with no let up", ^{       
+        tapCloseToPlayer();
         QPBFState *s = f.currentState;
         [f tick];
         [[theValue([f currentState]) should] equal:theValue(s)];
@@ -84,16 +85,6 @@ describe(@"Quantum Pilot Battlefield Drawing State Tests", ^{
         ve(f.latestExpectedX, f.player.l.x + 12);
         ve(f.latestExpectedY, f.player.l.y + 3);
     });
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 });
 
 SPEC_END
