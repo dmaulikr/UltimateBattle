@@ -12,14 +12,18 @@
     }
 }
 
-- (void)addTouch:(CGPoint)l {
-    float xOffset = l.x - self.f.player.l.x;
-    float yOffset = l.y - self.f.player.l.y;
-    self.f.touchPlayerOffset = ccp(xOffset, yOffset);
+- (void)setPlayerTouch:(CGPoint)l {
     self.f.playerTouch = l;
     self.f.lastPlayerTouch = l;
     self.f.latestExpectedX = self.f.player.l.x;
     self.f.latestExpectedY = self.f.player.l.y;
+}
+
+- (void)addTouch:(CGPoint)l {
+    float xOffset = l.x - self.f.player.l.x;
+    float yOffset = l.y - self.f.player.l.y;
+    self.f.touchPlayerOffset = ccp(xOffset, yOffset);
+    [self setPlayerTouch:l];
 }
 
 - (void)endTouch:(CGPoint)l {

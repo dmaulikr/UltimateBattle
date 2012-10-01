@@ -47,4 +47,8 @@ extern int QP_PlayerYDirection;
 
 - (BOOL)shipHitByBullet:(Bullet *)b;
 
+- (void)fireWeapon;
+- (void)updateLocationWithVelocity;
+- (void)assignVelocityForTarget;
+
 @end

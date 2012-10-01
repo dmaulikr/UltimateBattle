@@ -4,11 +4,10 @@
 @implementation QPBFFightingState
 
 - (void)shiftToDrawingState {
-    [self.f clearUsedDeltas];
     _shiftingToDrawing = NO;
     [self.f changeState:self.f.drawingState withTouch:_shiftToDrawingTouch];
     if (_interruptDrawingPath) {
-        [self.f clearAllDeltas];
+        [self.f resetDrawingIterationToFighting];
         _interruptDrawingPath = NO;
     }
 }

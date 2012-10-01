@@ -8,9 +8,9 @@
 #import "QuantumPilot.h"
 
 @interface QPBattlefield : ClonePilotBattlefield {
-    float _xDelta[1001];
-    float _yDelta[1001];
-    BOOL _fireDelta[1001];
+    float _xDelta[4001];
+    float _yDelta[4001];
+    BOOL _fireDelta[4001];
 }
 
 @property (nonatomic, retain) QPBFState *currentState;
@@ -42,7 +42,7 @@
 
 - (CGPoint)latestExpectedPathPoint;
 
-- (void)clearUsedDeltas;
+- (void)resetDrawingIterationToFighting;
 - (void)clearAllDeltas;
 
 - (BOOL)touchingPlayer:(CGPoint)l;

@@ -85,6 +85,18 @@ describe(@"Quantum Pilot Battlefield Drawing State Tests", ^{
         ve(f.latestExpectedX, f.player.l.x + 12);
         ve(f.latestExpectedY, f.player.l.y + 3);
     });
+    
+    it(@"should reset last player touch", ^{
+        [f addTouch:f.player.l];
+        [f tick];
+        [f moveTouch:ccp(f.playerTouch.x + 5, f.playerTouch.y + 6)];
+        [f tick];
+        CGPoint newTouch = ccp(f.playerTouch.x + 7, f.playerTouch.y + 7);
+        [f moveTouch:newTouch];
+        [f tick];
+        ve(f.lastPlayerTouch, newTouch);
+        
+    });
 });
 
 SPEC_END

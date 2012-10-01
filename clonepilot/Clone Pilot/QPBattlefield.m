@@ -40,15 +40,10 @@
     [self.player tick];
 }
 
-- (void)clearUsedDeltas {
-    for (int i = 0; i < self.fightingIteration; i++) {
-        for (int j = 0; j < self.drawingIteration; j++) {
-            CGPoint delta = ccp([self xDelta:j+1], [self yDelta:j+1]);
-            [self setXDelta:delta.x atIndex:j];
-            [self setYDelta:delta.y atIndex:j];
-        }
-    }
-    self.fightingIteration = 0;
+- (void)resetDrawingIterationToFighting {
+    self.latestExpectedX = self.player.l.x;
+    self.latestExpectedY = self.player.l.y;
+    self.drawingIteration = self.fightingIteration;
 }
 
 - (void)clearAllDeltas {
