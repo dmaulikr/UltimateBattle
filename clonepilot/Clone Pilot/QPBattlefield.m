@@ -37,12 +37,13 @@
 - (void)tick {
     [self.currentState tick];
     self.lastPlayerTouch = self.playerTouch;
-    [self.player tick];
+    [self.pilot tick];
 }
 
 - (void)resetDrawingIterationToFighting {
     self.latestExpectedX = self.player.l.x;
     self.latestExpectedY = self.player.l.y;
+    self.player.t = self.player.l;
     self.drawingIteration = self.fightingIteration;
 }
 
