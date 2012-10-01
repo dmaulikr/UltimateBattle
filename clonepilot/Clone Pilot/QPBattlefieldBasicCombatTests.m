@@ -14,7 +14,6 @@ describe(@"Quantum Pilot Battlefield Basic Combat Tests", ^{
 
     it(@"should have a quantum pilot as its player", ^{
         [[theValue([[[f player] class] isSubclassOfClass:[QuantumPilot class]]) should] beTrue];
-
     });
     
 

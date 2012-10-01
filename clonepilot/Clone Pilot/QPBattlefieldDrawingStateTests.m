@@ -44,8 +44,11 @@ describe(@"Quantum Pilot Battlefield Drawing State Tests", ^{
     
     it(@"should track current player touch", ^{
         tapCloseToPlayer();
-        [[theValue([f playerTouch].x) should] equal:theValue([f player].l.x + xTouchOffset)];
-        [[theValue([f playerTouch].y) should] equal:theValue([f player].l.y + yTouchOffset)];        
+        [f tick];
+        [f moveTouch:ccp(f.playerTouch.x + 10, f.playerTouch.y + 5)];
+        [f tick];
+        [[theValue([f playerTouch].x) should] equal:theValue([f player].l.x + xTouchOffset + 10)];
+        [[theValue([f playerTouch].y) should] equal:theValue([f player].l.y + yTouchOffset + 5)];
     });
     
     it(@"should increase drawing iteration on tick", ^{
@@ -60,6 +63,8 @@ describe(@"Quantum Pilot Battlefield Drawing State Tests", ^{
         [f tick];
         [f moveTouch:ccp(f.playerTouch.x + 5, f.playerTouch.y - 6)];
         [f tick];
+        ve([f xDelta:0], 0);
+        ve([f yDelta:0], 0);
         [[theValue([f xDelta:1]) should] equal:theValue(5)];
         [[theValue([f yDelta:1]) should] equal:theValue(-6)];        
     });
@@ -86,7 +91,7 @@ describe(@"Quantum Pilot Battlefield Drawing State Tests", ^{
         ve(f.latestExpectedY, f.player.l.y + 3);
     });
     
-    it(@"should reset last player touch", ^{
+    it(@"should reset last player touch when touch moves", ^{
         [f addTouch:f.player.l];
         [f tick];
         [f moveTouch:ccp(f.playerTouch.x + 5, f.playerTouch.y + 6)];
@@ -95,7 +100,6 @@ describe(@"Quantum Pilot Battlefield Drawing State Tests", ^{
         [f moveTouch:newTouch];
         [f tick];
         ve(f.lastPlayerTouch, newTouch);
-        
     });
 });
 

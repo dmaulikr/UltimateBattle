@@ -12,7 +12,26 @@ describe(@"Quantum Pilot Battlefield Paused State Tests", ^{
     }); 
     
     it(@"should stop adding deltas when fighting as long as drawing", ^{
-        ve(FALSE, TRUE);
+        [f addTouch:ccp(f.player.l.x, f.player.l.y)];
+        [f tick];
+        [f moveTouch:ccp(f.playerTouch.x - 5, f.playerTouch.y + 5)];
+        [f tick];
+        [f moveTouch:ccp(f.playerTouch.x + 2, f.playerTouch.y + 8)];
+        [f tick];
+        [f endTouch:f.playerTouch];
+        [f tick];
+        
+        [f tick];
+        [f tick];
+        [f tick];
+        
+        ve(f.fightingIteration, 3);
+        ve([f xDelta:4], 0);
+        ve([f yDelta:4], 0);
+        [f tick];
+        ve(f.fightingIteration, 3);
+        ve([f xDelta:4], 0);
+        ve([f yDelta:4], 0);
     });
     
     it(@"should shift to drawing state and apply touch on touch ship", ^{
