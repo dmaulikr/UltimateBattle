@@ -17,6 +17,10 @@
     
 }
 
+- (void)postTick {
+    
+}
+
 - (void)addTouch:(CGPoint)l {
 
 }

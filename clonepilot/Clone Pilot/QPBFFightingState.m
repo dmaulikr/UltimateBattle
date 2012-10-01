@@ -25,7 +25,9 @@
     if (_shiftingToDrawing) {
         [self shiftToDrawingState];
     }
-    
+}
+
+- (void)postTick {
     self.f.pilot.firing = NO;
 }
 

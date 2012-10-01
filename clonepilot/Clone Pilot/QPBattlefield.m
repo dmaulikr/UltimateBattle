@@ -26,6 +26,7 @@
 
 - (void)setupPlayerWithLayer:(CCLayer *)quantumLayer {
     self.player = [[[QuantumPilot alloc] initWithLayer:quantumLayer] autorelease];
+    self.player.bulletDelegate = self;
 }
 
 - (id)initWithLayer:(CCLayer *)quantumLayer {
@@ -37,7 +38,8 @@
 - (void)tick {
     [self.currentState tick];
     self.lastPlayerTouch = self.playerTouch;
-    [self.pilot tick];
+    [self.pilot tick];  
+    [self.currentState postTick];
 }
 
 - (void)resetDrawingIterationToFighting {

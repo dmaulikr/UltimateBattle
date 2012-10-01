@@ -103,11 +103,6 @@ describe(@"Quantum Pilot Battlefield Fighting State Tests", ^{
         
     });
     
-    //bullets fired
-    //kill enemy
-    //cloning
-    //score
-    
 });
 
 SPEC_END

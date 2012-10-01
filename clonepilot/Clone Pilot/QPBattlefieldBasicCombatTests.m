@@ -16,7 +16,25 @@ describe(@"Quantum Pilot Battlefield Basic Combat Tests", ^{
         [[theValue([[[f player] class] isSubclassOfClass:[QuantumPilot class]]) should] beTrue];
     });
     
+    it(@"should add a bullet when firing", ^{
+        [f addTouch:ccp(f.player.l.x, f.player.l.y)];
+        [f tick];
+        [f moveTouch:ccp(f.playerTouch.x - 5, f.playerTouch.y + 5)];
+        [f tick];
+        [f moveTouch:ccp(f.playerTouch.x + 2, f.playerTouch.y + 8)];
+        [f endTouch:f.playerTouch];
+        [f tick];
+        ve([f currentState], [f fightingState]);
+        ve(f.bullets.count, 0);
+        [f addTouch:ccp(500,500)];
+        [f tick];
+        ve(f.bullets.count, 1);
+    });
 
+    //bullets fired
+    //kill enemy
+    //cloning
+    //score
     
 });
 
