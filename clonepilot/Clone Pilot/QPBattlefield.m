@@ -171,6 +171,18 @@
     return (QuantumPilot *)self.player;
 }
 
+- (QuantumClone *)newestClone {
+    return (QuantumClone *)[self.clones lastObject];
+}
+
+- (void)addClone {
+    QuantumClone *c = [[QuantumClone alloc] initWithLayer:self.layer];
+    [self.clones addObject:c];
+    c.bulletDelegate = self;
+    [c release];
+}
+
+
 - (void)pilotFires {
     [self.player fire];
     [self addFireDelta];

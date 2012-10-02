@@ -390,6 +390,8 @@
 		BFD444A6161AC3CE0079F80A /* QPBFScoringState.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD444A4161AC3CE0079F80A /* QPBFScoringState.m */; };
 		BFD444A9161AC9220079F80A /* QPBFCloningState.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD444A8161AC9220079F80A /* QPBFCloningState.m */; };
 		BFD444AA161AC9220079F80A /* QPBFCloningState.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD444A8161AC9220079F80A /* QPBFCloningState.m */; };
+		BFD444AD161ACA490079F80A /* QuantumClone.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD444AC161ACA490079F80A /* QuantumClone.m */; };
+		BFD444AE161ACA490079F80A /* QuantumClone.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD444AC161ACA490079F80A /* QuantumClone.m */; };
 		BFD580BE16017B2000831E84 /* QPBFPausedState.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD580BD16017B2000831E84 /* QPBFPausedState.m */; };
 		BFD580BF16017B2000831E84 /* QPBFPausedState.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD580BD16017B2000831E84 /* QPBFPausedState.m */; };
 		BFE7334415EF0B010010FB9E /* QPBattlefield.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE7334215EF0B010010FB9E /* QPBattlefield.m */; };
@@ -1102,6 +1104,8 @@
 		BFD444A4161AC3CE0079F80A /* QPBFScoringState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBFScoringState.m; sourceTree = "<group>"; };
 		BFD444A7161AC9220079F80A /* QPBFCloningState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBFCloningState.h; sourceTree = "<group>"; };
 		BFD444A8161AC9220079F80A /* QPBFCloningState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBFCloningState.m; sourceTree = "<group>"; };
+		BFD444AB161ACA490079F80A /* QuantumClone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuantumClone.h; sourceTree = "<group>"; };
+		BFD444AC161ACA490079F80A /* QuantumClone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuantumClone.m; sourceTree = "<group>"; };
 		BFD580BC16017B2000831E84 /* QPBFPausedState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBFPausedState.h; sourceTree = "<group>"; };
 		BFD580BD16017B2000831E84 /* QPBFPausedState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBFPausedState.m; sourceTree = "<group>"; };
 		BFE04A5E160B27F000401C3D /* QPBattlefieldPausedStateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBattlefieldPausedStateTests.m; sourceTree = "<group>"; };
@@ -1963,6 +1967,8 @@
 			children = (
 				BF227F111618AB3D00E07233 /* QuantumPilot.h */,
 				BF227F121618AB3D00E07233 /* QuantumPilot.m */,
+				BFD444AB161ACA490079F80A /* QuantumClone.h */,
+				BFD444AC161ACA490079F80A /* QuantumClone.m */,
 			);
 			name = Ships;
 			sourceTree = "<group>";
@@ -2353,6 +2359,7 @@
 				BF18F4841607480E00DA3CCC /* QPBFFightingState.m in Sources */,
 				BFD444A5161AC3CE0079F80A /* QPBFScoringState.m in Sources */,
 				BFD444A9161AC9220079F80A /* QPBFCloningState.m in Sources */,
+				BFD444AD161ACA490079F80A /* QuantumClone.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2784,6 +2791,7 @@
 				BF2C9AF5161A889D005BF383 /* QPBattlefieldInitTests.m in Sources */,
 				BFD444A6161AC3CE0079F80A /* QPBFScoringState.m in Sources */,
 				BFD444AA161AC9220079F80A /* QPBFCloningState.m in Sources */,
+				BFD444AE161ACA490079F80A /* QuantumClone.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

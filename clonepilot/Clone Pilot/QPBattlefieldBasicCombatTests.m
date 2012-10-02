@@ -12,10 +12,9 @@ describe(@"Quantum Pilot Battlefield Basic Combat Tests", ^{
         [f moveTouch:ccp(f.playerTouch.x - 5, f.playerTouch.y + 5)];
         [f tick];
         [f moveTouch:ccp(f.playerTouch.x + 2, f.playerTouch.y + 8)];
+        [f tick];
         [f endTouch:f.playerTouch];
         [f tick];
-        ve([f currentState], [f fightingState]);
-        ve(f.bullets.count, 0);
         [f addTouch:ccp(500,500)];
         [f tick];
     };
@@ -56,17 +55,28 @@ describe(@"Quantum Pilot Battlefield Basic Combat Tests", ^{
         ve([f livingClones], 0);
     });
     
-    it(@"should shift to cloning state when bullet hits", ^{
-        fireFirstBullet();
-        waitForFirstCloneKill();
-        ve([f currentState], [f cloningState]);
+    describe(@"Quantum Pilot Battlefield Cloning State", ^{
+        it(@"should shift to scoring state after tick", ^{
+            fireFirstBullet();
+            waitForFirstCloneKill();
+            [f tick];
+            ve([f currentState], [f scoringState]);
+        });
+        
+        it(@"should clone deltas", ^{
+            fireFirstBullet();
+            waitForFirstCloneKill();
+            [f tick];
+            QuantumClone *c = [f newestClone];
+            
+            for (int i = 0; i < f.fightingIteration; i++) {
+                ve([c xDelta:i], [f xDelta:i]);
+                ve([c yDelta:i], [f yDelta:i]);
+                ve([c fireDeltaAtIndex:i], [f fireDeltaAtIndex:i]);
+            }
+        });
+        
     });
-    
-    
-    //bullets fired
-    //kill enemy
-    //cloning
-    //score
     
 });
 

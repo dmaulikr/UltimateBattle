@@ -8,6 +8,7 @@
 #import "QPBFCloningState.h"
 #import "QPBFScoringState.h"
 #import "QuantumPilot.h"
+#import "QuantumClone.h"
 
 @interface QPBattlefield : ClonePilotBattlefield {
     float _xDelta[4001];
@@ -57,5 +58,6 @@
 - (void)pilotFires;
 
 - (QuantumPilot *)pilot;
+- (QuantumClone *)newestClone;
 
 @end
