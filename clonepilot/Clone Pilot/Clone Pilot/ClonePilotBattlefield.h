@@ -76,5 +76,8 @@ extern int const QP_TimeBonusModifier;
 
 - (id)initWithLayer:(CCLayer *)quantumLayer;
 - (void)setupPlayerWithLayer:(CCLayer *)quantumLayer;
+- (void)setupWeaponSelector;
+- (void)setupTime;
+- (void)setupInputHandler;
 
 @end

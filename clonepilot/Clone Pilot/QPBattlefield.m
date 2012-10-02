@@ -13,6 +13,7 @@
 @synthesize fightingState =_fightingState;
 @synthesize latestExpectedX = _latestExpectedX;
 @synthesize latestExpectedY = _latestExpectedY;
+@synthesize pauses = _pauses;
 
 - (void)setupStates {
     self.currentState = [[[QPBFState alloc] initWithBattlefield:self] autorelease];
@@ -29,16 +30,50 @@
     self.player.bulletDelegate = self;
 }
 
+- (void)setupWeaponSelector {
+    
+}
+- (void)setupTime {
+    
+}
+- (void)setupInputHandler {
+    
+}
+
 - (id)initWithLayer:(CCLayer *)quantumLayer {
     self = [super initWithLayer:quantumLayer];
     [self setupStates];
     return self;
 }
 
+- (void)killClone:(ClonePilot *)clone {
+    [clone ceaseLiving];
+}
+
+- (void)checkForCloneCollision:(Bullet *)b {
+    for (ClonePilot *p in self.clones) {
+        if (!b.finished && p.living && b.identifier != [ClonePilot identifier]) {
+            if ([p shipHitByBullet:b]) {
+                [self killClone:p];
+                self.hits++;
+                b.finished = YES;
+            }
+        }
+    }
+}
+
+- (void)bulletLoop {
+    for (Bullet *b in self.bullets) {
+        [self checkForCloneCollision:b];
+    }
+    [Bullet bulletLoop:self.bullets];
+}
+
 - (void)tick {
     [self.currentState tick];
     self.lastPlayerTouch = self.playerTouch;
-    [self.pilot tick];  
+    [self.pilot tick];
+    [self bulletLoop];
     [self.currentState postTick];
 }
 

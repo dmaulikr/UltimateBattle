@@ -31,4 +31,6 @@
 - (void)setDrawingColor;
 - (void)showCustomColor;
 
++ (void)bulletLoop:(NSMutableArray *)bullets;
+
 @end

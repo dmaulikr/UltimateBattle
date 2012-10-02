@@ -42,14 +42,26 @@ int const QP_TimeBonusModifier      = 3;
     [self createBattlefieldModifierController];
 }
 
+- (void)setupWeaponSelector {
+    self.weaponSelector = [[WeaponSelector alloc] initWithBattlefield:self];
+}
+
+- (void)setupTime {
+    self.time = 0;
+}
+
+- (void)setupInputHandler {
+    self.inputHandler = [[[QPInputHandler alloc] init] autorelease];
+    self.inputHandler.delegate = self;
+}
+
 - (id)commonInit {
     self = [super init];
     if (self) {
         self.clones = [NSMutableArray array];
-        self.weaponSelector = [[WeaponSelector alloc] initWithBattlefield:self];
-        self.time = 0;
-        self.inputHandler = [[[QPInputHandler alloc] init] autorelease];
-        self.inputHandler.delegate = self;        
+        [self setupWeaponSelector];
+        [self setupTime];
+        [self setupInputHandler];
     }
     return self; 
 }
@@ -160,7 +172,6 @@ int const QP_TimeBonusModifier      = 3;
     [self ensurePaused];
     [self.weaponSelector openWeaponOptions];
     [self.weaponSelector addWeaponOptionLayersToLayer:self.layer];
-
 }
 
 - (void)advanceLevel {

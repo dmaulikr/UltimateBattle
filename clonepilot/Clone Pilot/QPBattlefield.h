@@ -29,6 +29,7 @@
 @property (nonatomic, assign) NSInteger drawingIteration;
 @property (nonatomic, assign) NSInteger fightingIteration;
 
+@property (nonatomic, assign) NSInteger pauses;
 
 - (float)xDelta:(NSInteger)index;
 - (float)yDelta:(NSInteger)index;

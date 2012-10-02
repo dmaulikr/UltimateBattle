@@ -20,7 +20,6 @@
 @synthesize showDefaultColor;
 
 -(id)copyWithZone:(NSZone *)zone {
-    // We'll ignore the zone for now
     Bullet *another = [[Bullet alloc] init];
     another.vel = self.vel;
     another.l = self.l;
@@ -33,6 +32,25 @@
     return another;
 }
 
++ (void)bulletLoop:(NSMutableArray *)bullets {
+    NSMutableArray *removableBullets = [NSMutableArray array];
+    
+    for (Bullet *b in bullets) {
+        if (b.finished) {
+            [removableBullets addObject:b];
+        }
+    }
+    
+    for (Bullet *b in removableBullets) {
+        [b removeFromParentAndCleanup:YES];
+    }
+    
+    [bullets removeObjectsInArray:removableBullets];
+    
+    for (Bullet *b in bullets) {
+        [b tick];
+    }
+}
 
 + (Bullet *)sampleBullet {
     return [[[Bullet alloc] initWithLocation:CGPointMake(100,100) velocity:CGPointMake(0,-3)] autorelease];
