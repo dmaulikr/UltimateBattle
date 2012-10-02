@@ -382,6 +382,8 @@
 		BF2628A81601316C0073F16B /* QPBFDrawingState.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2628A61601316C0073F16B /* QPBFDrawingState.m */; };
 		BF2C9AF5161A889D005BF383 /* QPBattlefieldInitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2C9AF4161A889D005BF383 /* QPBattlefieldInitTests.m */; };
 		BF3A11B9161B7F2D00A6BD9D /* QPBFSCoringStateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF3A11B8161B7F2D00A6BD9D /* QPBFSCoringStateTests.m */; };
+		BF3A11BC161B8CAC00A6BD9D /* QPBFScoringConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = BF3A11BB161B8CAC00A6BD9D /* QPBFScoringConstants.m */; };
+		BF3A11BD161B8CAC00A6BD9D /* QPBFScoringConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = BF3A11BB161B8CAC00A6BD9D /* QPBFScoringConstants.m */; };
 		BF3E6440160132F3002049FA /* QPBFInputConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = BF3E643F160132F3002049FA /* QPBFInputConstants.m */; };
 		BF3E6441160132F3002049FA /* QPBFInputConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = BF3E643F160132F3002049FA /* QPBFInputConstants.m */; };
 		BF3E644616013C7B002049FA /* QPBattlefieldDrawingStateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF3E644416013C7B002049FA /* QPBattlefieldDrawingStateTests.m */; };
@@ -1098,6 +1100,8 @@
 		BF2C9AF4161A889D005BF383 /* QPBattlefieldInitTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBattlefieldInitTests.m; sourceTree = "<group>"; };
 		BF3A11B7161B7F2D00A6BD9D /* QPBFSCoringStateTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBFSCoringStateTests.h; sourceTree = "<group>"; };
 		BF3A11B8161B7F2D00A6BD9D /* QPBFSCoringStateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBFSCoringStateTests.m; sourceTree = "<group>"; };
+		BF3A11BA161B8CAC00A6BD9D /* QPBFScoringConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBFScoringConstants.h; sourceTree = "<group>"; };
+		BF3A11BB161B8CAC00A6BD9D /* QPBFScoringConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBFScoringConstants.m; sourceTree = "<group>"; };
 		BF3E643E160132F3002049FA /* QPBFInputConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBFInputConstants.h; sourceTree = "<group>"; };
 		BF3E643F160132F3002049FA /* QPBFInputConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBFInputConstants.m; sourceTree = "<group>"; };
 		BF3E644416013C7B002049FA /* QPBattlefieldDrawingStateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBattlefieldDrawingStateTests.m; sourceTree = "<group>"; };
@@ -1981,6 +1985,8 @@
 			children = (
 				BF3E643E160132F3002049FA /* QPBFInputConstants.h */,
 				BF3E643F160132F3002049FA /* QPBFInputConstants.m */,
+				BF3A11BA161B8CAC00A6BD9D /* QPBFScoringConstants.h */,
+				BF3A11BB161B8CAC00A6BD9D /* QPBFScoringConstants.m */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -2365,6 +2371,7 @@
 				BFD444A5161AC3CE0079F80A /* QPBFScoringState.m in Sources */,
 				BFD444A9161AC9220079F80A /* QPBFCloningState.m in Sources */,
 				BFD444AD161ACA490079F80A /* QuantumClone.m in Sources */,
+				BF3A11BC161B8CAC00A6BD9D /* QPBFScoringConstants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2798,6 +2805,7 @@
 				BFD444AA161AC9220079F80A /* QPBFCloningState.m in Sources */,
 				BFD444AE161ACA490079F80A /* QuantumClone.m in Sources */,
 				BF3A11B9161B7F2D00A6BD9D /* QPBFSCoringStateTests.m in Sources */,
+				BF3A11BD161B8CAC00A6BD9D /* QPBFScoringConstants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

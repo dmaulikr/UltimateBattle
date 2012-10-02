@@ -44,7 +44,11 @@ describe(@"Quantum Pilot Battlefield Scoring State Tests", ^{
     });
 
     it(@"should calculate time bonus", ^{
-        
+        fireFirstBullet();
+        waitForFirstCloneKill();
+        QPBFScoringState *scoringState = (QPBFScoringState *)[f currentState];
+        NSInteger expectedTimeBonus = (QPBF_MAX_TIME - f.time) * QPBF_TIME_BONUS_MODIFIER;
+        ve([scoringState timeBonus], expectedTimeBonus);
     });
 
 });
