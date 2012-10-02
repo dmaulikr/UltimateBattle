@@ -5,6 +5,7 @@
 #import "QPBFInputConstants.h"
 #import "QPBFPausedState.h"
 #import "QPBFFightingState.h"
+#import "QPBFScoringState.h"
 #import "QuantumPilot.h"
 
 @interface QPBattlefield : ClonePilotBattlefield {
@@ -18,6 +19,7 @@
 @property (nonatomic, retain) QPBFDrawingState *drawingState;
 @property (nonatomic, retain) QPBFPausedState *pausedState;
 @property (nonatomic, retain) QPBFFightingState *fightingState;
+@property (nonatomic, retain) QPBFScoringState *scoringState;
 
 @property (nonatomic, assign) CGPoint playerTouch;
 @property (nonatomic, assign) CGPoint lastPlayerTouch;

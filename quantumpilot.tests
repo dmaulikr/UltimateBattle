@@ -43,6 +43,10 @@ fighting state {
   enter scoring state on zero clones
   calculate time bonus
   calculate 10-paths used for multiplier pause bonus
+
+scoring state {
+..
+}
    
 fractals {
   bullets should draw fractally

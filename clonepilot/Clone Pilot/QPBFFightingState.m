@@ -24,6 +24,11 @@
     
     if (_shiftingToDrawing) {
         [self shiftToDrawingState];
+        return;
+    }
+    
+    if ([self.f livingClones] == 0) {
+        [self.f changeState:[self.f scoringState]];
     }
 }
 

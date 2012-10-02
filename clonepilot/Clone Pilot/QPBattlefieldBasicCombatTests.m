@@ -20,19 +20,7 @@ describe(@"Quantum Pilot Battlefield Basic Combat Tests", ^{
         [f tick];
     };
     
-    beforeEach(^{
-        QuantumPilotLayer *quantumLayer = [[[QuantumPilotLayer alloc] init] autorelease];
-        f = [[[QPBattlefield alloc] initWithLayer:quantumLayer] autorelease];
-        [f startup];
-    });
-    
-    it(@"should add a bullet when firing", ^{
-        fireFirstBullet();
-        ve(f.bullets.count, 1);
-    });
-    
-    it(@"should kill the enemy when bullet hits", ^{
-        fireFirstBullet();
+    ActionBlock waitForFirstCloneKill = ^{
         Bullet *firstBullet = (Bullet *)[f.bullets objectAtIndex:0];
         float bulletSpeed = firstBullet.vel.y;
         float distance = fabsf([f firstClone].l.y -  firstBullet.l.y);
@@ -49,13 +37,31 @@ describe(@"Quantum Pilot Battlefield Basic Combat Tests", ^{
         for (int i = 0; i < expectedTicks; i++) {
             [f tick];
         }
-        
-        ve([f livingClones], 0);
-        
-           //spawn bullet, calculate speed
-        //expect 0 clones
-        //expect state
+    };
+    
+    beforeEach(^{
+        QuantumPilotLayer *quantumLayer = [[[QuantumPilotLayer alloc] init] autorelease];
+        f = [[[QPBattlefield alloc] initWithLayer:quantumLayer] autorelease];
+        [f startup];
     });
+    
+    it(@"should add a bullet when firing", ^{
+        fireFirstBullet();
+        ve(f.bullets.count, 1);
+    });
+    
+    it(@"should kill the enemy when bullet hits", ^{
+        fireFirstBullet();
+        waitForFirstCloneKill();
+        ve([f livingClones], 0);
+    });
+    
+    it(@"should shift to scoring state when bullet hits", ^{
+        fireFirstBullet();
+        waitForFirstCloneKill();
+        ve([f currentState], [f scoringState]);
+    });
+    
     
     //bullets fired
     //kill enemy

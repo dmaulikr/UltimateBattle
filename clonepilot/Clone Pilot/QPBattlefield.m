@@ -4,23 +4,25 @@
 @synthesize currentState = _currentState;
 @synthesize titleState = _titleState;
 @synthesize drawingState = _drawingState;
+@synthesize fightingState =_fightingState;
+@synthesize scoringState = _scoringState;
 @synthesize playerTouch = _playerTouch;
 @synthesize lastPlayerTouch = _lastPlayerTouch;
 @synthesize touchPlayerOffset = _touchPlayerOffset;
 @synthesize pausedState = _pausedState;
 @synthesize drawingIteration = _drawingIteration;
 @synthesize fightingIteration = _fightingIteration;
-@synthesize fightingState =_fightingState;
 @synthesize latestExpectedX = _latestExpectedX;
 @synthesize latestExpectedY = _latestExpectedY;
 @synthesize pauses = _pauses;
 
 - (void)setupStates {
-    self.currentState = [[[QPBFState alloc] initWithBattlefield:self] autorelease];
-    self.titleState = [[[QPBFTitleState alloc] initWithBattlefield:self] autorelease];
-    self.drawingState = [[[QPBFDrawingState alloc] initWithBattlefield:self] autorelease];
-    self.pausedState = [[[QPBFPausedState alloc] initWithBattlefield:self] autorelease];
-    self.fightingState = [[[QPBFFightingState alloc] initWithBattlefield:self] autorelease];
+    self.currentState   = [[[QPBFState alloc] initWithBattlefield:self] autorelease];
+    self.titleState     = [[[QPBFTitleState alloc] initWithBattlefield:self] autorelease];
+    self.drawingState   = [[[QPBFDrawingState alloc] initWithBattlefield:self] autorelease];
+    self.pausedState    = [[[QPBFPausedState alloc] initWithBattlefield:self] autorelease];
+    self.fightingState  = [[[QPBFFightingState alloc] initWithBattlefield:self] autorelease];
+    self.scoringState   = [[[QPBFScoringState alloc] initWithBattlefield:self] autorelease];
     
     self.currentState = self.titleState;
 }
@@ -177,6 +179,7 @@
     [_drawingState release];
     [_pausedState release];
     [_fightingState release];
+    [_scoringState release];
     
     [super dealloc];
 }
