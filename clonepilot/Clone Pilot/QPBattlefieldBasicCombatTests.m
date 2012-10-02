@@ -74,6 +74,7 @@ describe(@"Quantum Pilot Battlefield Basic Combat Tests", ^{
                 ve([c yDelta:i], [f yDelta:i]);
                 ve([c fireDeltaAtIndex:i], [f fireDeltaAtIndex:i]);
             }
+                ve([[c weapon] class], [[[f pilot] weapon] class]);
         });
         
         it(@"should have a new clone", ^{

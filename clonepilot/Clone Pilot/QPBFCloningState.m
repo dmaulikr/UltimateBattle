@@ -13,6 +13,11 @@
         [c setFireDelta:[self.f fireDeltaAtIndex:i] atIndex:i];
     }
     
+    Class weaponClass = [self.f.pilot.weapon class];
+    id cloneWeapon = [[weaponClass alloc] init];
+    c.weapon = cloneWeapon;
+    [cloneWeapon release];
+    
     [self.f changeState:self.f.scoringState];
 }
 
