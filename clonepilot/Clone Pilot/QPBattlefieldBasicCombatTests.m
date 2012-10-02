@@ -56,7 +56,7 @@ describe(@"Quantum Pilot Battlefield Basic Combat Tests", ^{
     });
     
     describe(@"Quantum Pilot Battlefield Cloning State", ^{
-        it(@"should shift to scoring state after tick", ^{
+        it(@"should shift to scoring state after cloning", ^{
             fireFirstBullet();
             waitForFirstCloneKill();
             [f tick];
@@ -74,6 +74,13 @@ describe(@"Quantum Pilot Battlefield Basic Combat Tests", ^{
                 ve([c yDelta:i], [f yDelta:i]);
                 ve([c fireDeltaAtIndex:i], [f fireDeltaAtIndex:i]);
             }
+        });
+        
+        it(@"should have a new clone", ^{
+            NSInteger clones = f.clones.count;
+            fireFirstBullet();
+            waitForFirstCloneKill();
+            ve(f.clones.count, clones+1);
         });
         
     });
