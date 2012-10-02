@@ -28,7 +28,7 @@
     }
     
     if ([self.f livingClones] == 0) {
-        [self.f changeState:[self.f scoringState]];
+        [self.f changeState:[self.f cloningState]];
     }
 }
 

@@ -56,10 +56,10 @@ describe(@"Quantum Pilot Battlefield Basic Combat Tests", ^{
         ve([f livingClones], 0);
     });
     
-    it(@"should shift to scoring state when bullet hits", ^{
+    it(@"should shift to cloning state when bullet hits", ^{
         fireFirstBullet();
         waitForFirstCloneKill();
-        ve([f currentState], [f scoringState]);
+        ve([f currentState], [f cloningState]);
     });
     
     

@@ -388,6 +388,8 @@
 		BF9DFA791616463C008026C9 /* QPBattlefieldFightingDrawingShiftingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9DFA781616463C008026C9 /* QPBattlefieldFightingDrawingShiftingTests.m */; };
 		BFD444A5161AC3CE0079F80A /* QPBFScoringState.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD444A4161AC3CE0079F80A /* QPBFScoringState.m */; };
 		BFD444A6161AC3CE0079F80A /* QPBFScoringState.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD444A4161AC3CE0079F80A /* QPBFScoringState.m */; };
+		BFD444A9161AC9220079F80A /* QPBFCloningState.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD444A8161AC9220079F80A /* QPBFCloningState.m */; };
+		BFD444AA161AC9220079F80A /* QPBFCloningState.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD444A8161AC9220079F80A /* QPBFCloningState.m */; };
 		BFD580BE16017B2000831E84 /* QPBFPausedState.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD580BD16017B2000831E84 /* QPBFPausedState.m */; };
 		BFD580BF16017B2000831E84 /* QPBFPausedState.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD580BD16017B2000831E84 /* QPBFPausedState.m */; };
 		BFE7334415EF0B010010FB9E /* QPBattlefield.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE7334215EF0B010010FB9E /* QPBattlefield.m */; };
@@ -1098,6 +1100,8 @@
 		BF9DFA781616463C008026C9 /* QPBattlefieldFightingDrawingShiftingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBattlefieldFightingDrawingShiftingTests.m; sourceTree = "<group>"; };
 		BFD444A3161AC3CE0079F80A /* QPBFScoringState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBFScoringState.h; sourceTree = "<group>"; };
 		BFD444A4161AC3CE0079F80A /* QPBFScoringState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBFScoringState.m; sourceTree = "<group>"; };
+		BFD444A7161AC9220079F80A /* QPBFCloningState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBFCloningState.h; sourceTree = "<group>"; };
+		BFD444A8161AC9220079F80A /* QPBFCloningState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBFCloningState.m; sourceTree = "<group>"; };
 		BFD580BC16017B2000831E84 /* QPBFPausedState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBFPausedState.h; sourceTree = "<group>"; };
 		BFD580BD16017B2000831E84 /* QPBFPausedState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBFPausedState.m; sourceTree = "<group>"; };
 		BFE04A5E160B27F000401C3D /* QPBattlefieldPausedStateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBattlefieldPausedStateTests.m; sourceTree = "<group>"; };
@@ -2022,6 +2026,8 @@
 				BFE7334615EF0C410010FB9E /* QPBFState.m */,
 				BFD444A3161AC3CE0079F80A /* QPBFScoringState.h */,
 				BFD444A4161AC3CE0079F80A /* QPBFScoringState.m */,
+				BFD444A7161AC9220079F80A /* QPBFCloningState.h */,
+				BFD444A8161AC9220079F80A /* QPBFCloningState.m */,
 				BFE7334915EF0D300010FB9E /* QPBFTitleState.h */,
 				BFE7334A15EF0D300010FB9E /* QPBFTitleState.m */,
 				BF2628A51601316C0073F16B /* QPBFDrawingState.h */,
@@ -2346,6 +2352,7 @@
 				BFD580BE16017B2000831E84 /* QPBFPausedState.m in Sources */,
 				BF18F4841607480E00DA3CCC /* QPBFFightingState.m in Sources */,
 				BFD444A5161AC3CE0079F80A /* QPBFScoringState.m in Sources */,
+				BFD444A9161AC9220079F80A /* QPBFCloningState.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2776,6 +2783,7 @@
 				BF227F141618AB3D00E07233 /* QuantumPilot.m in Sources */,
 				BF2C9AF5161A889D005BF383 /* QPBattlefieldInitTests.m in Sources */,
 				BFD444A6161AC3CE0079F80A /* QPBFScoringState.m in Sources */,
+				BFD444AA161AC9220079F80A /* QPBFCloningState.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,20 +1,22 @@
 #import "QPBattlefield.h"
 
 @implementation QPBattlefield
-@synthesize currentState = _currentState;
-@synthesize titleState = _titleState;
-@synthesize drawingState = _drawingState;
-@synthesize fightingState =_fightingState;
-@synthesize scoringState = _scoringState;
-@synthesize playerTouch = _playerTouch;
-@synthesize lastPlayerTouch = _lastPlayerTouch;
-@synthesize touchPlayerOffset = _touchPlayerOffset;
-@synthesize pausedState = _pausedState;
-@synthesize drawingIteration = _drawingIteration;
-@synthesize fightingIteration = _fightingIteration;
-@synthesize latestExpectedX = _latestExpectedX;
-@synthesize latestExpectedY = _latestExpectedY;
-@synthesize pauses = _pauses;
+@synthesize currentState        = _currentState;
+@synthesize titleState          = _titleState;
+@synthesize drawingState        = _drawingState;
+@synthesize fightingState       =_fightingState;
+@synthesize cloningState        = _cloningState;
+@synthesize scoringState        = _scoringState;
+@synthesize playerTouch         = _playerTouch;
+@synthesize lastPlayerTouch     = _lastPlayerTouch;
+@synthesize touchPlayerOffset   = _touchPlayerOffset;
+@synthesize pausedState         = _pausedState;
+@synthesize drawingIteration    = _drawingIteration;
+@synthesize fightingIteration   = _fightingIteration;
+@synthesize latestExpectedX     = _latestExpectedX;
+@synthesize latestExpectedY     = _latestExpectedY;
+@synthesize pauses              = _pauses;
+
 
 - (void)setupStates {
     self.currentState   = [[[QPBFState alloc] initWithBattlefield:self] autorelease];
@@ -22,6 +24,7 @@
     self.drawingState   = [[[QPBFDrawingState alloc] initWithBattlefield:self] autorelease];
     self.pausedState    = [[[QPBFPausedState alloc] initWithBattlefield:self] autorelease];
     self.fightingState  = [[[QPBFFightingState alloc] initWithBattlefield:self] autorelease];
+    self.cloningState   = [[[QPBFCloningState alloc] initWithBattlefield:self] autorelease];
     self.scoringState   = [[[QPBFScoringState alloc] initWithBattlefield:self] autorelease];
     
     self.currentState = self.titleState;
