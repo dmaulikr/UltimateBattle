@@ -30,6 +30,8 @@
     if ([self.f livingClones] == 0) {
         [self.f changeState:[self.f cloningState]];
     }
+    
+    self.f.time++;    
 }
 
 - (void)postTick {

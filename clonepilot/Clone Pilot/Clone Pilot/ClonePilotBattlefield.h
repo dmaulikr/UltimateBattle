@@ -32,7 +32,7 @@ extern int const QP_TimeBonusModifier;
 @property (nonatomic, assign) BOOL moveActive;
 @property (nonatomic, assign) CGPoint currentTarget;
 @property (nonatomic, assign) CCLayer *layer;
-@property (nonatomic, assign) double time;
+@property (nonatomic, assign) NSInteger time;
 @property (nonatomic, retain) BulletWall *wall;
 @property (nonatomic, assign) CGPoint lastMove;
 @property (nonatomic, retain) CCSprite *rSprite;

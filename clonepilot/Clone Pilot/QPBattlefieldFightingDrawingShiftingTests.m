@@ -94,6 +94,29 @@ describe(@"Quantum Pilot Battlefield Fighting Drawing Shifting State Tests", ^{
         ve(f.latestExpectedY, f.player.l.y);
     });
     
+    it(@"should track time when fighting and not drawing", ^{
+        ve(f.time, 0);
+        [f addTouch:ccp(f.player.l.x, f.player.l.y)];
+        [f tick];
+        [f moveTouch:ccp(f.playerTouch.x - 5, f.playerTouch.y + 5)];
+        [f tick];
+        ve(f.time, 0);
+        [f moveTouch:ccp(f.playerTouch.x - 5, f.playerTouch.y + 5)];
+        [f tick];
+        [f endTouch:f.playerTouch];
+        [f tick];
+        ve(f.time, 1);
+        [f tick];
+        ve(f.time, 2);
+        [f addTouch:f.player.l];
+        [f tick];
+        [f tick];
+        ve(f.time, 2);
+        [f endTouch:f.playerTouch];
+        [f tick];
+        ve(f.time, 3);
+    });
+    
 });
 
 SPEC_END

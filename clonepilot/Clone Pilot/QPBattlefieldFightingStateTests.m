@@ -100,7 +100,6 @@ describe(@"Quantum Pilot Battlefield Fighting State Tests", ^{
         [f tick];
         ve([f fireDeltaAtIndex:0], NO);
         ve([f fireDeltaAtIndex:1], YES);
-        
     });
     
 });
