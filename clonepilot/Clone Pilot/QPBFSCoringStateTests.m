@@ -51,8 +51,36 @@ describe(@"Quantum Pilot Battlefield Scoring State Tests", ^{
         ve([scoringState timeBonus], expectedTimeBonus);
     });
     
-    it(@"should calculate accuracy bonus", ^{
-        ve(false, true);
+    it(@"should calculate accuracy bonus from shots fired and hits with perfect accuracy", ^{
+        fireFirstBullet();
+        waitForFirstCloneKill();
+        
+        ve([f shotsFired], 1);
+        ve([f hits], 1);
+        
+        float accuracy = [f hits] / [f shotsFired];
+        NSInteger expectedAccuracyBonus = QPBF_ACCURACY_BONUS_MODIFIER * accuracy;
+        expectedAccuracyBonus = ceilf(expectedAccuracyBonus) * QPBF_ACCURACY_PERFECT_BONUS_MULTIPLIER;
+        
+        QPBFScoringState *scoringState = (QPBFScoringState *)[f currentState];
+        ve([scoringState accuracyBonus], expectedAccuracyBonus);
+    });
+    
+    it(@"should calculate accuracy bonus from shots fired and hits with imperfect accuracy", ^{
+        fireFirstBullet();
+        [f addTouch:ccp(500,500)];
+        [f tick];
+        waitForFirstCloneKill();
+        
+        ve([f shotsFired], 2);
+        ve([f hits], 1);
+        
+        float accuracy = [f hits] / [f shotsFired];
+        NSInteger expectedAccuracyBonus = QPBF_ACCURACY_BONUS_MODIFIER * accuracy;
+        
+        QPBFScoringState *scoringState = (QPBFScoringState *)[f currentState];
+        ve([scoringState accuracyBonus], expectedAccuracyBonus);
+        
     });
 
 });

@@ -1,2 +1,4 @@
 extern int const QPBF_MAX_TIME;
 extern int const QPBF_TIME_BONUS_MODIFIER;
+extern float const QPBF_ACCURACY_BONUS_MODIFIER;
+extern int const QPBF_ACCURACY_PERFECT_BONUS_MULTIPLIER;

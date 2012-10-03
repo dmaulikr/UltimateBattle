@@ -4,5 +4,6 @@
 @interface QPBFScoringState : QPBFState
 
 - (NSInteger)timeBonus;
+- (NSInteger)accuracyBonus;
 
 @end
