@@ -190,7 +190,7 @@ int const QP_TimeBonusModifier      = 3;
     float accuracy = [self hits] / [self shotsFired];
     accuracy = floor(QP_AccuracyBonusModifier * accuracy * 100);
 
-    _scoreDisplay = [[QPScoreDisplay alloc] initWithTime:bonusTime accuracy:accuracy modifierTotal:0 layer:self.layer];
+    _scoreDisplay = [[QPScoreDisplay alloc] initWithTimeBonus:0 accuracyBonus:0 layer:self.layer];
     [self.layer addChild:_scoreDisplay];
     [self resetTime]; 
     [self resetWall];    

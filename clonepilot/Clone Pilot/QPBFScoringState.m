@@ -1,7 +1,25 @@
 #import "QPBFScoringState.h"
 #import "QPBattlefield.h"
 
+@interface QPBFScoringState()
+
+- (void)removeScoreDisplay;
+
+@end
+
 @implementation QPBFScoringState
+
+@synthesize scoringStateTime = _scoringStateTime;
+@synthesize scoreDisplay = _scoreDisplay;
+
+- (void)tick {
+    if (!self.scoreDisplay) {
+        self.scoreDisplay = [[[QPScoreDisplay alloc] initWithTimeBonus:[self timeBonus]
+                                                         accuracyBonus:[self accuracyBonus]
+                                                                 layer:self.f.layer] autorelease];
+    }
+    self.scoringStateTime++;
+}
 
 - (NSInteger)timeBonus {
     return (QPBF_MAX_TIME - self.f.time) * QPBF_TIME_BONUS_MODIFIER;
@@ -16,6 +34,19 @@
     }
     
     return ceilf(accuracyScore);
+}
+
+- (void)removeScoreDisplay {
+    if (self.scoreDisplay) {
+        [_scoreDisplay removeFromParentAndCleanup:YES];
+        [_scoreDisplay release];
+        _scoreDisplay = nil;
+    }
+}
+
+- (void)dealloc {
+    [self removeScoreDisplay];
+    [super dealloc];
 }
 
 @end

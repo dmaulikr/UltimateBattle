@@ -81,6 +81,24 @@ describe(@"Quantum Pilot Battlefield Scoring State Tests", ^{
         QPBFScoringState *scoringState = (QPBFScoringState *)[f currentState];
         ve([scoringState accuracyBonus], expectedAccuracyBonus);
     });
+    
+    it(@"should track time spent in scoring state", ^{
+        fireFirstBullet();
+        waitForFirstCloneKill();
+        QPBFScoringState *scoringState = (QPBFScoringState *)[f currentState];
+        NSInteger scoringTime = scoringState.scoringStateTime;
+        [f tick];
+        ve(scoringState.scoringStateTime, scoringTime + 1);
+    });
+    
+    it(@"should show scoring labels", ^{
+        fireFirstBullet();
+        waitForFirstCloneKill();
+        QPBFScoringState *scoringState = (QPBFScoringState *)[f currentState];
+        ve([[scoringState scoreDisplay] class], [QPScoreDisplay class]);
+        
+        
+    });
 
 });
 
