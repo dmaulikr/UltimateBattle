@@ -80,7 +80,6 @@ describe(@"Quantum Pilot Battlefield Scoring State Tests", ^{
         
         QPBFScoringState *scoringState = (QPBFScoringState *)[f currentState];
         ve([scoringState accuracyBonus], expectedAccuracyBonus);
-        
     });
 
 });
