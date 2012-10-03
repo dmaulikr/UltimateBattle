@@ -50,6 +50,10 @@ describe(@"Quantum Pilot Battlefield Scoring State Tests", ^{
         NSInteger expectedTimeBonus = (QPBF_MAX_TIME - f.time) * QPBF_TIME_BONUS_MODIFIER;
         ve([scoringState timeBonus], expectedTimeBonus);
     });
+    
+    it(@"should calculate accuracy bonus", ^{
+        ve(false, true);
+    });
 
 });
 

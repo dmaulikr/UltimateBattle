@@ -31,6 +31,8 @@
         [self.f changeState:[self.f cloningState]];
     }
     
+    [self.f bulletLoop];
+    
     self.f.time++;    
 }
 

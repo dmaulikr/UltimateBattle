@@ -78,7 +78,6 @@
     [self.currentState tick];
     self.lastPlayerTouch = self.playerTouch;
     [self.pilot tick];
-    [self bulletLoop];
     [self.currentState postTick];
 }
 
