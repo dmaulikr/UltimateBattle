@@ -91,13 +91,12 @@ describe(@"Quantum Pilot Battlefield Scoring State Tests", ^{
         ve(scoringState.scoringStateTime, scoringTime + 1);
     });
     
-    it(@"should show scoring labels", ^{
+    it(@"should show scoring labels in the Quantum Pilot Battlefield Layer", ^{
         fireFirstBullet();
         waitForFirstCloneKill();
         QPBFScoringState *scoringState = (QPBFScoringState *)[f currentState];
         ve([[scoringState scoreDisplay] class], [QPScoreDisplay class]);
-        
-        
+        ve(scoringState.scoreDisplay.parent == f.layer, TRUE);
     });
 
 });

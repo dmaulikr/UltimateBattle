@@ -60,6 +60,7 @@
     if (self) {
         [self generateLabelsWithTimeBonus:timeBonus accuracyBonus:accuracyBonus];
         [self addLabelsToLayer:layer];
+        [layer addChild:self];
     }
     
     return self;
