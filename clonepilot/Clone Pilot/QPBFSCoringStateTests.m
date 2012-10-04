@@ -98,6 +98,11 @@ describe(@"Quantum Pilot Battlefield Scoring State Tests", ^{
         ve([[scoringState scoreDisplay] class], [QPScoreDisplay class]);
         ve(scoringState.scoreDisplay.parent == f.layer, TRUE);
     });
+    
+    //time spent without option
+    //tap does nothing
+    //time spent shows option
+    //tap changes to weapon state
 
 });
 
