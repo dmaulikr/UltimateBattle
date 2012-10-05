@@ -4,7 +4,7 @@
 
 @interface QPBFState : NSObject
 
-@property (nonatomic, retain) QPBattlefield *f;
+@property (nonatomic, assign) QPBattlefield *f;
 
 - (void)tick;
 - (void)postTick;

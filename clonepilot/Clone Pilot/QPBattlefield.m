@@ -7,6 +7,7 @@
 @synthesize fightingState       =_fightingState;
 @synthesize cloningState        = _cloningState;
 @synthesize scoringState        = _scoringState;
+@synthesize weaponSelectionState = _weaponSelectionState;
 @synthesize playerTouch         = _playerTouch;
 @synthesize lastPlayerTouch     = _lastPlayerTouch;
 @synthesize touchPlayerOffset   = _touchPlayerOffset;
@@ -26,6 +27,7 @@
     self.fightingState  = [[[QPBFFightingState alloc] initWithBattlefield:self] autorelease];
     self.cloningState   = [[[QPBFCloningState alloc] initWithBattlefield:self] autorelease];
     self.scoringState   = [[[QPBFScoringState alloc] initWithBattlefield:self] autorelease];
+    self.weaponSelectionState = [[[QPBFWeaponSelectionState alloc] initWithBattlefield:self] autorelease];
     
     self.currentState = self.titleState;
 }
@@ -194,6 +196,7 @@
     [_pausedState release];
     [_fightingState release];
     [_scoringState release];
+    [_weaponSelectionState release];
     
     [super dealloc];
 }

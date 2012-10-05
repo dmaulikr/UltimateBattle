@@ -49,6 +49,13 @@
     }
 }
 
+- (void)addTouch:(CGPoint)l {
+    if (self.scoringStateTime >= QPBF_SCORING_CONTINUE_DELAY) {
+        [self removeScoreDisplay];
+        [self.f changeState:self.f.weaponSelectionState];
+    }
+}
+
 - (void)dealloc {
     [self removeScoreDisplay];
     [super dealloc];

@@ -392,6 +392,8 @@
 		BF9DFA791616463C008026C9 /* QPBattlefieldFightingDrawingShiftingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9DFA781616463C008026C9 /* QPBattlefieldFightingDrawingShiftingTests.m */; };
 		BFCE9C6B161E93C1004CFFFB /* QPBFDisplayConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = BFCE9C6A161E93C1004CFFFB /* QPBFDisplayConstants.m */; };
 		BFCE9C6C161E93C1004CFFFB /* QPBFDisplayConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = BFCE9C6A161E93C1004CFFFB /* QPBFDisplayConstants.m */; };
+		BFCE9C6F161E9944004CFFFB /* QPBFWeaponSelectionState.m in Sources */ = {isa = PBXBuildFile; fileRef = BFCE9C6E161E9944004CFFFB /* QPBFWeaponSelectionState.m */; };
+		BFCE9C70161E9944004CFFFB /* QPBFWeaponSelectionState.m in Sources */ = {isa = PBXBuildFile; fileRef = BFCE9C6E161E9944004CFFFB /* QPBFWeaponSelectionState.m */; };
 		BFD444A5161AC3CE0079F80A /* QPBFScoringState.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD444A4161AC3CE0079F80A /* QPBFScoringState.m */; };
 		BFD444A6161AC3CE0079F80A /* QPBFScoringState.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD444A4161AC3CE0079F80A /* QPBFScoringState.m */; };
 		BFD444A9161AC9220079F80A /* QPBFCloningState.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD444A8161AC9220079F80A /* QPBFCloningState.m */; };
@@ -1111,6 +1113,8 @@
 		BF9DFA781616463C008026C9 /* QPBattlefieldFightingDrawingShiftingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBattlefieldFightingDrawingShiftingTests.m; sourceTree = "<group>"; };
 		BFCE9C69161E93C1004CFFFB /* QPBFDisplayConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBFDisplayConstants.h; sourceTree = "<group>"; };
 		BFCE9C6A161E93C1004CFFFB /* QPBFDisplayConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBFDisplayConstants.m; sourceTree = "<group>"; };
+		BFCE9C6D161E9944004CFFFB /* QPBFWeaponSelectionState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBFWeaponSelectionState.h; sourceTree = "<group>"; };
+		BFCE9C6E161E9944004CFFFB /* QPBFWeaponSelectionState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBFWeaponSelectionState.m; sourceTree = "<group>"; };
 		BFD444A3161AC3CE0079F80A /* QPBFScoringState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBFScoringState.h; sourceTree = "<group>"; };
 		BFD444A4161AC3CE0079F80A /* QPBFScoringState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBFScoringState.m; sourceTree = "<group>"; };
 		BFD444A7161AC9220079F80A /* QPBFCloningState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBFCloningState.h; sourceTree = "<group>"; };
@@ -2059,6 +2063,8 @@
 				BFD580BD16017B2000831E84 /* QPBFPausedState.m */,
 				BF18F4821607480E00DA3CCC /* QPBFFightingState.h */,
 				BF18F4831607480E00DA3CCC /* QPBFFightingState.m */,
+				BFCE9C6D161E9944004CFFFB /* QPBFWeaponSelectionState.h */,
+				BFCE9C6E161E9944004CFFFB /* QPBFWeaponSelectionState.m */,
 			);
 			name = States;
 			sourceTree = "<group>";
@@ -2381,6 +2387,7 @@
 				BF6FD4C3161CE8AD0007AECE /* QPBattlefield.m in Sources */,
 				BF6FD4C4161CE9620007AECE /* QuantumPilot.m in Sources */,
 				BFCE9C6B161E93C1004CFFFB /* QPBFDisplayConstants.m in Sources */,
+				BFCE9C6F161E9944004CFFFB /* QPBFWeaponSelectionState.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2814,6 +2821,7 @@
 				BF3A11B9161B7F2D00A6BD9D /* QPBFSCoringStateTests.m in Sources */,
 				BF3A11BD161B8CAC00A6BD9D /* QPBFScoringConstants.m in Sources */,
 				BFCE9C6C161E93C1004CFFFB /* QPBFDisplayConstants.m in Sources */,
+				BFCE9C70161E9944004CFFFB /* QPBFWeaponSelectionState.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

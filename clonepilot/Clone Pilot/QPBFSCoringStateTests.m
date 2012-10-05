@@ -100,7 +100,7 @@ describe(@"Quantum Pilot Battlefield Scoring State Tests", ^{
         ve(scoringState.scoreDisplay.parent == f.layer, TRUE);
     });
     
-    it(@"should not maintain scoring state through taps and not show continue label for time", ^{
+    it(@"should manage continue label by timing and shift into weapon selection state on tap when ready to continue", ^{
         fireFirstBullet();
         waitForFirstCloneKill();
         QPBFScoringState *scoringState = (QPBFScoringState *)[f currentState];
@@ -113,8 +113,14 @@ describe(@"Quantum Pilot Battlefield Scoring State Tests", ^{
         ve(!scoringState.scoreDisplay.continueLabel, TRUE);
         [f tick];
         
+        ve([f currentState], [f scoringState]);        
         ve(!scoringState.scoreDisplay.continueLabel, FALSE);
         ve(scoringState.scoreDisplay.continueLabel.parent == scoringState.scoreDisplay, TRUE);
+        
+        [f addTouch:f.player.l];
+        [f tick];
+        ve(!scoringState.scoreDisplay, TRUE);
+        ve([f currentState], [f weaponSelectionState]);
         
     });
     //time spent without option

@@ -34,7 +34,7 @@
 }
 
 - (void)dealloc {
-    [_f release];
+    self.f = nil;
     [super dealloc];
 }
 
