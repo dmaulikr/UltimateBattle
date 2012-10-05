@@ -12,6 +12,10 @@
 @property (nonatomic, retain) CCLabelTTF *accuracyScoreLabel;
 @property (nonatomic, retain) CCLabelTTF *modifierScoreLabel;
 
+@property (nonatomic, retain) CCLabelTTF *continueLabel;
+
 - (id)initWithTimeBonus:(NSInteger)timeBonus accuracyBonus:(NSInteger)accuracyBonus layer:(CCLayer *)layer;
+
+- (void)showContinueLabel;
 
 @end

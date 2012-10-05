@@ -1,5 +1,6 @@
 #import "QPBFScoringState.h"
 #import "QPBattlefield.h"
+#import "QPBFDisplayConstants.h"
 
 @interface QPBFScoringState()
 
@@ -19,6 +20,10 @@
                                                                  layer:self.f.layer] autorelease];
     }
     self.scoringStateTime++;
+    
+    if (self.scoringStateTime == QPBF_SCORING_CONTINUE_DELAY && !self.scoreDisplay.continueLabel) {
+        [self.scoreDisplay showContinueLabel];
+    }
 }
 
 - (NSInteger)timeBonus {

@@ -1,4 +1,5 @@
 #import "QuantumKiwi.h"
+#import "QPBFDisplayConstants.h"
 
 SPEC_BEGIN(QPBattlefieldScoringStateTests)
 
@@ -99,6 +100,23 @@ describe(@"Quantum Pilot Battlefield Scoring State Tests", ^{
         ve(scoringState.scoreDisplay.parent == f.layer, TRUE);
     });
     
+    it(@"should not maintain scoring state through taps and not show continue label for time", ^{
+        fireFirstBullet();
+        waitForFirstCloneKill();
+        QPBFScoringState *scoringState = (QPBFScoringState *)[f currentState];
+        
+        while (scoringState.scoringStateTime < QPBF_SCORING_CONTINUE_DELAY-1) {
+            [f addTouch:f.player.l];
+            [f tick];
+            [f endTouch:f.player.l];
+        }
+        ve(!scoringState.scoreDisplay.continueLabel, TRUE);
+        [f tick];
+        
+        ve(!scoringState.scoreDisplay.continueLabel, FALSE);
+        ve(scoringState.scoreDisplay.continueLabel.parent == scoringState.scoreDisplay, TRUE);
+        
+    });
     //time spent without option
     //tap does nothing
     //time spent shows option

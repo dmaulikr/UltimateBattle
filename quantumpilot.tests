@@ -45,7 +45,7 @@ fighting state {
   calculate 10-paths used for multiplier pause bonus
 
 scoring state {
-..
+..t com
 }
    
 fractals {

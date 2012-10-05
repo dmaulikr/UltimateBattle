@@ -4,6 +4,7 @@
 @synthesize time, accuracy, modifierTotal;
 @synthesize timeLabel, accuracyLabel, modifierLabel;
 @synthesize timeScoreLabel, accuracyScoreLabel, modifierScoreLabel;
+@synthesize continueLabel = _continueLabel;
 
 - (NSInteger)timeScoreModifier {
     return 3;
@@ -40,6 +41,14 @@
     self.modifierScoreLabel.position = ccp(384,620);
 
 
+}
+
+- (void)showContinueLabel {
+    self.continueLabel = [CCLabelTTF labelWithString:@"Tap to Continue"
+                                                fontName:@"Courier New"
+                                                fontSize:23];
+    self.continueLabel.position = ccp(384, 760);
+    [self addChild:self.continueLabel];
 }
 
 - (void)populateDefaultLabelText {
@@ -80,6 +89,9 @@
     self.accuracyScoreLabel = nil;
     [self.modifierScoreLabel removeFromParentAndCleanup:YES];
     self.modifierScoreLabel = nil;
+
+    [self.continueLabel removeFromParentAndCleanup:YES];
+    self.continueLabel = nil;
     [super dealloc];
 }
 
