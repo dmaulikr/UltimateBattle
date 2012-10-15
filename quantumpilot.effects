@@ -1,0 +1,11 @@
+ship sparks out of back: red/orange/weapon color
+
+single: pulsing bar (a rectangle with the corners expanding and contracting)
+split: zig zag. 4 points across X axis 1,2,3,4. each shifts to right or left (direction of travel) overflowing/cycling back to 1 from 4 or 4 from 1. draw line through ABCD.
+wide tri: orbs
+tri: lower left, top mid, lower right. each point has a paired point that descends in y then back up
+quad: spinning diamond
+ 
+explosion: circles and lines sending away
+wreckage: circle with lines radiating
+

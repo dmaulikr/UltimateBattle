@@ -47,12 +47,10 @@ fighting state {
 scoring state {
 ..t com
 }
+
+weapon selection state {
+alternate between single and split
+advance to next level
+}
    
-fractals {
-  bullets should draw fractally
-  ships should draw fractally
-  explosions should occur fractally
-
-
-
 

@@ -1,0 +1,7 @@
+default
+bullets-collide
+momentum carries
+same type bullets-bounce (? not if this slows down)
+bullet leans with shooter x (.5 distance)
+dying clones spray bullets to other clones X, player Y
+
