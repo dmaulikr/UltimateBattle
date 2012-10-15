@@ -123,10 +123,6 @@ describe(@"Quantum Pilot Battlefield Scoring State Tests", ^{
         ve([f currentState], [f weaponSelectionState]);
         
     });
-    //time spent without option
-    //tap does nothing
-    //time spent shows option
-    //tap changes to weapon state
 
 });
 
