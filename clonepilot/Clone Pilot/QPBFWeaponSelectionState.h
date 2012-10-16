@@ -1,7 +1,7 @@
 #import "QPBFState.h"
 #import "Weapon.h"
 #import "SplitLaser.h"
-#import "QPWeaponSelectionDisplay.m"
+#import "QPWeaponSelectionDisplay.h"
 
 @interface QPBFWeaponSelectionState : QPBFState
 

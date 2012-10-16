@@ -70,7 +70,7 @@ describe(@"Quantum Pilot Battlefield Weapon Selection State Tests", ^{
     it(@"should show weapon selection display in Quantum Pilot layer", ^{
         enterWeaponSelectionState();
         QPBFWeaponSelectionState *s = (QPBFWeaponSelectionState *)[f currentState];
-        ve(s.display, TRUE);
+        ve([s.display class] == [QPWeaponSelectionDisplay class], TRUE);
         ve(s.display.parent == f.layer, TRUE);
     });
     

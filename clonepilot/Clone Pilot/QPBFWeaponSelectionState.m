@@ -1,4 +1,5 @@
 #import "QPBFWeaponSelectionState.h"
+#import "QPBattlefield.h"
 
 @implementation QPBFWeaponSelectionState
 @synthesize basicWeapon = _basicWeapon;
@@ -6,9 +7,11 @@
 @synthesize display = _display;
 
 - (id)initWithBattlefield:(QPBattlefield *)field {
-    self = [super init];
+    self = [super initWithBattlefield:field];
     self.splitLaser = [[[SplitLaser alloc] init] autorelease];
     self.basicWeapon = self.splitLaser;
+    self.display = [[[QPWeaponSelectionDisplay alloc] init] autorelease];
+    [self.f.layer addChild:self.display];
     return self;
 }
 
