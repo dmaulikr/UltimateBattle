@@ -80,10 +80,16 @@ describe(@"Quantum Pilot Battlefield Weapon Selection State Tests", ^{
         QPWeaponSelectionDisplay *d = s.display;
         ve(d.basicWeaponLabel.parent == d, TRUE);
         ve([d.basicWeaponLabel.string isEqualToString:[s.basicWeapon description]], TRUE);
-        
-        
-        
-        
+    });
+    
+    it(@"should swap basic weapons and continue game", ^{
+        enterWeaponSelectionState();
+        QPBFWeaponSelectionState *s = (QPBFWeaponSelectionState *)[f currentState];
+        QPWeaponSelectionDisplay *d = s.display;
+        [f addTouch:d.basicWeaponLabel.position];
+        ve(s.basicWeapon.class == [SingleLaser class], TRUE);
+        ve(f.player.weapon.class == [SplitLaser class], TRUE);
+        ve(f.currentState == f.pausedState, TRUE);
     });
     
 });
