@@ -4,8 +4,9 @@
 @implementation QPBFDrawingState
 
 - (void)tick {
-    [self.f addXDelta:self.f.playerTouch.x];
-    [self.f addYDelta:self.f.playerTouch.y];
+//    [self.f addXDelta:self.f.playerTouch.x];
+//    [self.f addYDelta:self.f.playerTouch.y];
+    [self.f addDelta:self.f.playerTouch];
 //    [self.f addXDelta:self.f.playerTouch.x - self.f.lastPlayerTouch.x];
 //    [self.f addYDelta:self.f.playerTouch.y - self.f.lastPlayerTouch.y];
     self.f.drawingIteration++;

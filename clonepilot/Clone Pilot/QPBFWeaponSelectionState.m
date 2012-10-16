@@ -25,7 +25,6 @@
         self.basicWeapon = self.singleLaser;
     }
     [self.f changeState:self.f.pausedState];
-    
 }
 
 - (void)dealloc {

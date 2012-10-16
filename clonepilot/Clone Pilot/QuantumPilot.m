@@ -19,6 +19,10 @@
     self.t = self.l;
 }
 
+- (void)draw {
+    [super draw];
+}
+
 - (BOOL)isFiring {
     return self.firing;
 }

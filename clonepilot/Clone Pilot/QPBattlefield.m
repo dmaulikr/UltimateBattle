@@ -50,7 +50,20 @@
 - (id)initWithLayer:(CCLayer *)quantumLayer {
     self = [super initWithLayer:quantumLayer];
     [self setupStates];
+    [quantumLayer addChild:self];
     return self;
+}
+
+- (void)draw {
+    glColor4f(1, 1, 1, 1.0);
+    CGPoint drawingDeltas[4001];
+    if (self.currentState == self.fightingState) {
+    for (int i = self.fightingIteration; i < self.drawingIteration; i++) {
+        drawingDeltas[i] = _deltas[i];
+    }
+    ccDrawPoly(drawingDeltas, self.drawingIteration, NO);
+    //        ccDrawPoly(historicalPoints, historicalTurnsCount, NO);
+    }
 }
 
 - (void)killClone:(ClonePilot *)clone {
@@ -92,8 +105,9 @@
 
 - (void)clearAllDeltas {
     for (int i = 0; i < self.drawingIteration; i++) {
-        [self setXDelta:0 atIndex:i];
-        [self setYDelta:0 atIndex:i];
+//        [self setXDelta:0 atIndex:i];
+//        [self setYDelta:0 atIndex:i];
+        [self setDeltaPoint:self.player.l index:i];
     }
 }
 
@@ -116,6 +130,22 @@
 - (void)changeState:(QPBFState *)state withTouch:(CGPoint)l {
     [self changeState:state];
     [self.currentState addTouch:l];
+}
+
+- (void)setDeltaPoint:(CGPoint)delta index:(NSInteger)index {
+    _deltas[index] = delta;
+}
+
+- (CGPoint)deltaPoint:(NSInteger)index {
+    return _deltas[index];
+}
+
+- (void)addDelta:(CGPoint)delta {
+    if (self.drawingIteration < QPBF_MAX_DRAWING_FRAMES) {
+        _deltas[self.drawingIteration] = delta;
+        self.latestExpectedX = delta.x;
+        self.latestExpectedY = delta.y;
+    }
 }
 
 - (float)xDelta:(NSInteger)index {

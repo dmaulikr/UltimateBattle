@@ -56,10 +56,10 @@ int historicalTurnsCount = 50;
 }
 
 - (void)draw {
-    if (self.living) {
-        [self setDrawingColor];
-        ccDrawPoly(historicalPoints, historicalTurnsCount, NO);
-    }
+//    if (self.living) {
+//        [self setDrawingColor];
+//        ccDrawPoly(historicalPoints, historicalTurnsCount, NO);
+//    }
 }
 
 - (void)tick {

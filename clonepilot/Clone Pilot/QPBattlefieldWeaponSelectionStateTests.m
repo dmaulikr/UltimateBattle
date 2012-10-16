@@ -92,6 +92,10 @@ describe(@"Quantum Pilot Battlefield Weapon Selection State Tests", ^{
         ve(f.currentState == f.pausedState, TRUE);
     });
     
+    it(@"should clone player moves and firing", ^{
+        
+    });
+    
 });
 
 SPEC_END

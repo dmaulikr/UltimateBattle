@@ -4,7 +4,7 @@
 #import "BulletHellBattlefieldModifier.h"
 #import "BulletHellBattlefieldModifierController.h"
 
-@interface BulletHellBattlefield : NSObject <BulletDelegate> {
+@interface BulletHellBattlefield : CCNode <BulletDelegate> {
 
 }
 
