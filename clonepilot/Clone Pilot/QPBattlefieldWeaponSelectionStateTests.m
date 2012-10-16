@@ -74,6 +74,37 @@ describe(@"Quantum Pilot Battlefield Weapon Selection State Tests", ^{
         ve(s.display.parent == f.layer, TRUE);
     });
     
+    it(@"should display basic weapon option", ^{
+        enterWeaponSelectionState();
+        QPBFWeaponSelectionState *s = (QPBFWeaponSelectionState *)[f currentState];
+        QPWeaponSelectionDisplay *d = s.display;
+        ve(d.basicWeaponLabel.parent == d, TRUE);
+        ve([d.basicWeaponLabel.string isEqualToString:[s.basicWeapon description]], TRUE);
+        
+        
+        
+        
+    });
+    
 });
 
 SPEC_END
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -10,8 +10,7 @@
     self = [super initWithBattlefield:field];
     self.splitLaser = [[[SplitLaser alloc] init] autorelease];
     self.basicWeapon = self.splitLaser;
-    self.display = [[[QPWeaponSelectionDisplay alloc] init] autorelease];
-    [self.f.layer addChild:self.display];
+    self.display = [[[QPWeaponSelectionDisplay alloc] initWithBasicWeapon:self.basicWeapon layer:self.f.layer] autorelease];
     return self;
 }
 
