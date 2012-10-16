@@ -44,7 +44,7 @@ describe(@"Clone Pilot Battlefield", ^{
     };
     
     ActionBlock firstPilotDeath = ^{
-        firstKill();1
+        firstKill();
         [f chooseWeapon:0];
         playerHit();
     };

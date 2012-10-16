@@ -8,13 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
-#import "ClonePilotBattlefield.h"
+//#import "ClonePilotBattlefield.h"
+#import "QPBattlefield.h"
 
 @interface QuantumPilotLayer : CCLayer {
     NSTimer *timer;
 }
 
-@property (nonatomic, retain) ClonePilotBattlefield *f;
+@property (nonatomic, retain) QPBattlefield *f;
 @property (nonatomic, retain) CCLabelTTF *dataLabel1;
 @property (nonatomic, retain) CCLabelTTF *dataLabel2;
 

@@ -22,7 +22,7 @@
 
 -(id) init {
 	if( (self=[super init])) {       
-        self.f = [[[ClonePilotBattlefield alloc] initWithLayer:self] autorelease];
+        self.f = [[[QPBattlefield alloc] initWithLayer:self] autorelease];
         [self.f startup];
         timer = [[NSTimer scheduledTimerWithTimeInterval:0.016 target:self selector:@selector(update) userInfo:nil repeats:YES] retain];
         [self setIsTouchEnabled:YES];
@@ -48,14 +48,16 @@
 
 - (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     UITouch *touch = [touches anyObject];
-    [self.f addTouch:[touch locationInView:[touch view]]];
+    CGPoint l = [touch locationInView:[touch view]];
+    [self.f addTouch:ccp(l.x, 1024-l.y)];
 }
 
 - (void)ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
 	NSArray *touchArray = [touches allObjects];
     
     for (UITouch *touch in touchArray) {
-        [self.f moveTouch:[touch locationInView:[touch view]]];
+        CGPoint l = [touch locationInView:[touch view]];
+        [self.f moveTouch:ccp(l.x, 1024-l.y)];
     }    
 }
 
@@ -63,7 +65,8 @@
     NSArray *touchArray = [touches allObjects];
     
     for (UITouch *touch in touchArray) {
-        [self.f endTouch:[touch locationInView:[touch view]]];
+        CGPoint l = [touch locationInView:[touch view]];
+        [self.f endTouch:ccp(l.x, 1024-l.y)];
     }
 }
 
