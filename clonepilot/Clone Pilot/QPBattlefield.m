@@ -83,7 +83,7 @@
     CGPoint drawingDeltas[4001];
     NSInteger index = 0;
     for (int i = self.fightingIteration; i < self.drawingIteration; i++) {
-            drawingDeltas[index] = _deltas[i];
+        drawingDeltas[index] = _deltas[i];
         index++;
     }
     ccDrawPoly(drawingDeltas, self.drawingIteration - self.fightingIteration, NO);
