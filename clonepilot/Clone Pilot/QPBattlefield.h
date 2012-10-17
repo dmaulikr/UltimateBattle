@@ -16,6 +16,7 @@
     float _yDelta[4001];
     BOOL _fireDelta[4001];
     CGPoint _deltas[4001];
+    BOOL _active[4001];
 }
 
 @property (nonatomic, retain) QPBFState                 *currentState;
@@ -27,6 +28,7 @@
 @property (nonatomic, retain) QPBFScoringState          *scoringState;
 @property (nonatomic, retain) QPBFWeaponSelectionState  *weaponSelectionState;
 
+@property (nonatomic, assign) NSInteger drawFrame;
 
 @property (nonatomic, assign) CGPoint playerTouch;
 @property (nonatomic, assign) CGPoint lastPlayerTouch;
@@ -67,5 +69,8 @@
 - (CGPoint)deltaPoint:(NSInteger)index;
 - (void)addDelta:(CGPoint)l;
 - (void)setDeltaPoint:(CGPoint)delta index:(NSInteger)index;
+
+- (void)clearFrames;
+- (void)addActive;
 
 @end

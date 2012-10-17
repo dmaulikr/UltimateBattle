@@ -17,7 +17,7 @@
 @synthesize latestExpectedX     = _latestExpectedX;
 @synthesize latestExpectedY     = _latestExpectedY;
 @synthesize pauses              = _pauses;
-
+@synthesize drawFrame           = _drawingFrame;
 
 - (void)setupStates {
     self.currentState   = [[[QPBFState alloc] initWithBattlefield:self] autorelease];
@@ -54,17 +54,6 @@
     return self;
 }
 
-- (void)draw {
-    glColor4f(1, 1, 1, 1.0);
-    CGPoint drawingDeltas[4001];
-    if (self.currentState == self.fightingState) {
-    for (int i = self.fightingIteration; i < self.drawingIteration; i++) {
-        drawingDeltas[i] = _deltas[i];
-    }
-    ccDrawPoly(drawingDeltas, self.drawingIteration, NO);
-    //        ccDrawPoly(historicalPoints, historicalTurnsCount, NO);
-    }
-}
 
 - (void)killClone:(ClonePilot *)clone {
     [clone ceaseLiving];
@@ -87,6 +76,36 @@
         [self checkForCloneCollision:b];
     }
     [Bullet bulletLoop:self.bullets];
+}
+
+- (void)draw {
+    glColor4f(1, 1, 1, 1.0);
+    CGPoint drawingDeltas[4001];
+//    if (self.currentState == self.fightingState) {
+//    NSLog(@"fighting/drawing: %d %d", self.fightingIteration, self.drawingIteration);
+    NSInteger index = 0;
+    for (int i = self.fightingIteration; i < self.drawingIteration; i++) {
+            drawingDeltas[index] = _deltas[i];
+        index++;
+  //      CGPoint p = drawingDeltas[i];
+     //   NSLog(@"i and x : %d %f", i, p.x);
+        }
+    //CGPoint zeroDrawing = drawingDeltas[0];
+   // CGPoint fightingIterationDrawing = drawingDeltas[self.fightingIteration];
+  //  NSLog(@"%f %f", zeroDrawing.x, zeroDrawing.y);
+//    NSLog(@"%f %f %d", fightingIterationDrawing.x, fightingIterationDrawing.y, self.fightingIteration);
+        ccDrawPoly(drawingDeltas, self.drawingIteration - self.fightingIteration, NO);
+  //  }
+}
+
+- (void)clearFrames {
+    for (int i = 0; i < 4001; i++) {
+        _active[i] = NO;
+    }
+}
+
+- (void)addActive {
+    _active[self.drawFrame] = YES;
 }
 
 - (void)tick {

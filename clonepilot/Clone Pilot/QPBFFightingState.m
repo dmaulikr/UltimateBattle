@@ -13,17 +13,16 @@
 }
 
 - (void)tick {
-//    CGPoint deltaTarget = ccp(self.f.player.l.x + [self.f xDelta:self.f.fightingIteration],
-//                              self.f.player.l.y + [self.f yDelta:self.f.fightingIteration]);
     CGPoint deltaTarget = [self.f deltaPoint:self.f.fightingIteration];
-    //ccp([self.f xDelta:self.f.fightingIteration], [self.f yDelta:self.f.fightingIteration]);
     self.f.player.t = deltaTarget;
     if (GetDistance(self.f.player.l, self.f.player.t) < 2) {
         self.f.fightingIteration++;
+        [self.f addActive];
     }
     
     if (self.f.fightingIteration == self.f.drawingIteration) {
         [self.f changeState:self.f.pausedState];
+        [self.f clearFrames];
     }
     
     if (_shiftingToDrawing) {
