@@ -212,13 +212,14 @@
     QuantumClone *c = [self.freshClone copy];
     c.bulletDelegate = self;
     c.turnCount = self.time;
+    c.living = YES;
     [self.clones addObject:c];
     [self.layer addChild:c];
 }
 
 - (void)repairClones {
     for (QuantumClone *c in self.clones) {
-        
+        [c reset];
     }
 }
 

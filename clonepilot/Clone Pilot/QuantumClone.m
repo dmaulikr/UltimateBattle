@@ -1,4 +1,5 @@
 #import "QuantumClone.h"
+#import "QPDrawing.h"
 
 @implementation QuantumClone
 @synthesize bulletDelegate;
@@ -6,6 +7,8 @@
 @synthesize timeIndex = _timeIndex;
 @synthesize l = _l;
 @synthesize vel = _vel;
+@synthesize living = _living;
+@synthesize timeDirection = _timeDirection;
 
 - (id)copyWithZone:(NSZone *)zone {
     QuantumClone *c = [[QuantumClone alloc] init];
@@ -18,20 +21,60 @@
     return c;
 }
 
++ (CGPoint)defaultLocation {
+    return CGPointMake(384, 724);
+}
+
+- (void)reset {
+    self.living = YES;
+    self.timeDirection = 1;
+    self.timeIndex = 0;
+    self.l = [QuantumClone defaultLocation];
+}
+
+- (id)init {
+    self = [super init];
+    if (self) {
+        [self reset];
+    }
+    return self;
+}
+
++ (NSInteger)identifier {
+    return 1;
+}
+
+- (NSInteger)identifier {
+    return [QuantumClone identifier];
+}
+
+- (void)ceaseLiving {
+    self.living = NO;
+}
+
+- (BOOL)shipHitByBullet:(Bullet *)b {
+    CGPoint *shipLines = basicDiamondShipLines(self.l, QP_ClonePilotYDirection);
+    return shapeOfSizeContainsPoint(shipLines, 4, b.l);
+}
+
 - (BOOL)fireDeltaAtIndex:(NSInteger)index {
     return _fireDelta[index];
 }
 
 - (void)tick {
-    1/0;
-    NSLog(@"Attend to CliqUps, hold space.");
-    NSLog(@"We're doing this, QP.");
-    NSLog(@"Foods in a fridge. Go get it or leave it.");
-    self.l = CombinedPoint(self.l, _deltas[self.timeIndex]);
+    if (self.living) {
+        self.l = CombinedPoint(self.l, _deltas[self.timeIndex]);
+    }
+
+    self.timeDirection+= self.timeDirection;
+    if (self.timeDirection > self.turnCount || self.timeDirection < 0) {
+        self.timeDirection = self.timeDirection * -1;
+    }
+    
 }
 
 - (void)draw {
-    
+    drawBasicDiamondShip(self.l, -1);
 }
 
 - (void)addDeltas:(CGPoint)l firing:(BOOL)firing index:(NSInteger)index {
