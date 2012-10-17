@@ -7,7 +7,7 @@
     _shiftingToDrawing = NO;
     [self.f changeState:self.f.drawingState withTouch:_shiftToDrawingTouch];
     if (_interruptDrawingPath) {
-        [self.f resetDrawingIterationToFighting];
+        [self.f resetIterations];
         _interruptDrawingPath = NO;
     }
 }
@@ -17,12 +17,11 @@
     self.f.player.t = deltaTarget;
     if (GetDistance(self.f.player.l, self.f.player.t) < 2) {
         self.f.fightingIteration++;
-        [self.f addActive];
     }
     
     if (self.f.fightingIteration == self.f.drawingIteration) {
         [self.f changeState:self.f.pausedState];
-        [self.f clearFrames];
+        [self.f resetIterations];
     }
     
     if (_shiftingToDrawing) {

@@ -89,16 +89,6 @@
     ccDrawPoly(drawingDeltas, self.drawingIteration - self.fightingIteration, NO);
 }
 
-- (void)clearFrames {
-    for (int i = 0; i < 4001; i++) {
-        _active[i] = NO;
-    }
-}
-
-- (void)addActive {
-    _active[self.drawFrame] = YES;
-}
-
 - (void)tick {
     [self.currentState tick];
     self.lastPlayerTouch = self.playerTouch;
@@ -106,17 +96,13 @@
     [self.currentState postTick];
 }
 
-- (void)resetDrawingIterationToFighting {
-    self.latestExpectedX = self.player.l.x;
-    self.latestExpectedY = self.player.l.y;
-    self.player.t = self.player.l;
-    self.drawingIteration = self.fightingIteration;
+- (void)resetIterations {
+    self.drawingIteration = 0;
+    self.fightingIteration = 0;
 }
 
 - (void)clearAllDeltas {
     for (int i = 0; i < self.drawingIteration; i++) {
-//        [self setXDelta:0 atIndex:i];
-//        [self setYDelta:0 atIndex:i];
         [self setDeltaPoint:self.player.l index:i];
     }
 }
@@ -158,39 +144,6 @@
     }
 }
 
-- (float)xDelta:(NSInteger)index {
-    return _xDelta[index];
-}
-
-- (float)yDelta:(NSInteger)index {
-    return _yDelta[index];
-}
-
-- (void)addXDelta:(float)delta {
-    if (self.drawingIteration < QPBF_MAX_DRAWING_FRAMES) {
-        _xDelta[self.drawingIteration] = delta;
-        self.latestExpectedX += delta;
-    }
-}
-
-- (void)addYDelta:(float)delta {
-    if (self.drawingIteration < QPBF_MAX_DRAWING_FRAMES) {    
-        _yDelta[self.drawingIteration] = delta;
-        self.latestExpectedY += delta;
-    }
-}
-
-- (void)setXDelta:(float)delta atIndex:(NSInteger)index {
-    if (index <= self.drawingIteration) {
-        _xDelta[index] = delta;
-    }
-}
-
-- (void)setYDelta:(float)delta atIndex:(NSInteger)index {
-    if (index <= self.drawingIteration) {
-        _yDelta[index] = delta;
-    }
-}
 
 - (BOOL)fireDeltaAtIndex:(NSInteger)index {
     return _fireDelta[index];
