@@ -4,17 +4,11 @@
 @implementation QPBFDrawingState
 
 - (void)tick {
-//    [self.f addXDelta:self.f.playerTouch.x];
-//    [self.f addYDelta:self.f.playerTouch.y];
     [self.f addDelta:self.f.playerTouch];
-//    [self.f addXDelta:self.f.playerTouch.x - self.f.lastPlayerTouch.x];
-//    [self.f addYDelta:self.f.playerTouch.y - self.f.lastPlayerTouch.y];
     self.f.drawingIteration++;
     if (self.f.drawingIteration == QPBF_MAX_DRAWING_FRAMES) {
         [self.f changeState:self.f.fightingState];
     }
-//    self.f.lastPlayerTouch = self.f.playerTouch;
-//    [self setPlayerTouch:self.f.playerTouch];
 }
 
 - (void)setPlayerTouch:(CGPoint)l {
@@ -36,10 +30,7 @@
 }
 
 - (void)moveTouch:(CGPoint)l {
-//    [self setPlayerTouch:l];
-//    if ([self.f touchingPlayer:l]) {
-        self.f.playerTouch = l;
-  //  }
+    self.f.playerTouch = l;
 }
 
 @end

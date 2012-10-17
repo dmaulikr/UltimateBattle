@@ -81,21 +81,12 @@
 - (void)draw {
     glColor4f(1, 1, 1, 1.0);
     CGPoint drawingDeltas[4001];
-//    if (self.currentState == self.fightingState) {
-//    NSLog(@"fighting/drawing: %d %d", self.fightingIteration, self.drawingIteration);
     NSInteger index = 0;
     for (int i = self.fightingIteration; i < self.drawingIteration; i++) {
             drawingDeltas[index] = _deltas[i];
         index++;
-  //      CGPoint p = drawingDeltas[i];
-     //   NSLog(@"i and x : %d %f", i, p.x);
-        }
-    //CGPoint zeroDrawing = drawingDeltas[0];
-   // CGPoint fightingIterationDrawing = drawingDeltas[self.fightingIteration];
-  //  NSLog(@"%f %f", zeroDrawing.x, zeroDrawing.y);
-//    NSLog(@"%f %f %d", fightingIterationDrawing.x, fightingIterationDrawing.y, self.fightingIteration);
-        ccDrawPoly(drawingDeltas, self.drawingIteration - self.fightingIteration, NO);
-  //  }
+    }
+    ccDrawPoly(drawingDeltas, self.drawingIteration - self.fightingIteration, NO);
 }
 
 - (void)clearFrames {
