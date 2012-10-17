@@ -40,6 +40,7 @@
 
 - (void)makeNewClone {
     self.freshClone = [[[QuantumClone alloc] init] autorelease];
+    [self activateFreshClone];
 }
 
 - (void)addClone {

@@ -30,6 +30,10 @@
         [self shiftToDrawingState];
         return;
     }
+
+    for (QuantumClone *c in self.f.clones) {
+        [c tick];
+    }
     
     if ([self.f livingClones] == 0) {
         [self.f changeState:[self.f cloningState]];

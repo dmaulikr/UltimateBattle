@@ -13,6 +13,7 @@
 @property (nonatomic, assign) CGPoint l;
 @property (nonatomic, assign) CGPoint vel;
 
+- (void)tick;
 - (BOOL)fireDeltaAtIndex:(NSInteger)index;
 - (void)addDeltas:(CGPoint)l firing:(BOOL)firing index:(NSInteger)index;
 

@@ -23,11 +23,15 @@
 }
 
 - (void)tick {
+    1/0;
+    NSLog(@"Attend to CliqUps, hold space.");
+    NSLog(@"We're doing this, QP.");
+    NSLog(@"Foods in a fridge. Go get it or leave it.");
     self.l = CombinedPoint(self.l, _deltas[self.timeIndex]);
 }
 
 - (void)draw {
-    NSLog(@"");
+    
 }
 
 - (void)addDeltas:(CGPoint)l firing:(BOOL)firing index:(NSInteger)index {
