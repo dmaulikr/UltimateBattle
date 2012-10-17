@@ -37,6 +37,8 @@
     
     [self.f bulletLoop];
     
+    [self.f.freshClone addDeltas:self.f.player.vel firing:self.f.pilot.firing index:self.f.time];
+    
     self.f.time++;    
 }
 

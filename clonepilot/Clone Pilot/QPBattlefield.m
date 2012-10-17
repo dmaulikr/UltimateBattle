@@ -38,6 +38,14 @@
     self.player.bulletDelegate = self;
 }
 
+- (void)makeNewClone {
+    self.freshClone = [[[QuantumClone alloc] init] autorelease];
+}
+
+- (void)addClone {
+    [self makeNewClone];
+}
+
 - (void)setupWeaponSelector {
     
 }
@@ -49,7 +57,8 @@
 }
 
 - (void)setupClone {
-//    self.newClone = [[QuantumClone alloc] initWithLayer:]
+    self.clones = [NSMutableArray array];
+    [self makeNewClone];
 }
 
 - (id)initWithLayer:(CCLayer *)quantumLayer {
@@ -174,7 +183,7 @@
 }
 
 - (void)addFireDelta {
-    _fireDelta[self.fightingIteration] = YES;
+    _fireDelta[self.time] = YES;
 }
 
 - (CGPoint)latestExpectedPathPoint {
@@ -193,24 +202,35 @@
     return (QuantumClone *)[self.clones lastObject];
 }
 
-- (void)addClone {
-    QuantumClone *c = [[QuantumClone alloc] initWithLayer:self.layer];
-    [self.clones addObject:c];
-    c.bulletDelegate = self;
-    [c release];
-}
-
-- (void)advanceLevel {
-    //spawn clone
-}
-
-
 - (void)pilotFires {
     [self.player fire];
     [self addFireDelta];
 }
 
 - (void)activateFreshClone {
+    QuantumClone *c = [self.freshClone copy];
+    c.bulletDelegate = self;
+    c.turnCount = self.time;
+    [self.clones addObject:c];
+    [self.layer addChild:c];
+}
+
+- (void)repairClones {
+    for (QuantumClone *c in self.clones) {
+        
+    }
+}
+
+- (void)advanceLevel {
+    [self changeState:self.pausedState];
+    [self resetIterations];
+    [self activateFreshClone];
+    [self repairClones];
+    self.time = 0;
+    [self makeNewClone];
+}
+
+- (void)storeHistory {
     
 }
 

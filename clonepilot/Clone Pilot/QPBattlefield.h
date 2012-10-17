@@ -62,6 +62,8 @@
 - (void)resetIterations;
 - (void)resetPassedIterations;
 
-- (void)activateNewClone;
+- (void)activateFreshClone;
+
+- (void)storeHistory;
 
 @end

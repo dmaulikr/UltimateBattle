@@ -4,7 +4,7 @@
 @implementation QPBFCloningState
 
 - (void)tick {
-    [self.f activateNewClone];
+    [self.f activateFreshClone];
     [self.f changeState:self.f.scoringState];
 }
 
