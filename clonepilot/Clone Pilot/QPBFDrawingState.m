@@ -6,7 +6,7 @@
 - (void)tick {
     [self.f addDelta:self.f.playerTouch];
     self.f.drawingIteration++;
-    if (self.f.drawingIteration == QPBF_MAX_DRAWING_FRAMES) {
+    if (self.f.drawingIteration >= QPBF_MAX_DRAWING_FRAMES) {
         [self.f changeState:self.f.fightingState];
     }
 }

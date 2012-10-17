@@ -9,6 +9,8 @@
     if (_interruptDrawingPath) {
         [self.f resetIterations];
         _interruptDrawingPath = NO;
+    } else {
+        [self.f resetPassedIterations];
     }
 }
 
@@ -19,7 +21,7 @@
         self.f.fightingIteration++;
     }
     
-    if (self.f.fightingIteration == self.f.drawingIteration) {
+    if (self.f.time < QPBF_MAX_DRAWING_FRAMES && self.f.fightingIteration == self.f.drawingIteration) {
         [self.f changeState:self.f.pausedState];
         [self.f resetIterations];
     }
@@ -54,12 +56,14 @@
         return;
     }
 
+    if (self.f.time < QPBF_MAX_DRAWING_FRAMES) {
     _shiftingToDrawing = YES;
     _shiftToDrawingTouch = l;
 
     if (closeToPlayer && distToPlayer <= distToLatestPathPoint) {
         _interruptDrawingPath = YES;
     }
+}
 }
 
 @end

@@ -38,16 +38,9 @@
 @property (nonatomic, assign) NSInteger fightingIteration;
 
 @property (nonatomic, assign) NSInteger pauses;
+@property (nonatomic, retain) QuantumClone *freshClone;
 
-- (float)xDelta:(NSInteger)index;
-- (float)yDelta:(NSInteger)index;
 - (BOOL)fireDeltaAtIndex:(NSInteger)index;
-
-- (void)addXDelta:(float)delta;
-- (void)addYDelta:(float)delta;
-
-- (void)setXDelta:(float)delta atIndex:(NSInteger)index;
-- (void)setYDelta:(float)delta atIndex:(NSInteger)index;
 
 - (CGPoint)latestExpectedPathPoint;
 
@@ -67,5 +60,8 @@
 - (void)setDeltaPoint:(CGPoint)delta index:(NSInteger)index;
 
 - (void)resetIterations;
+- (void)resetPassedIterations;
+
+- (void)activateNewClone;
 
 @end

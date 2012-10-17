@@ -1,17 +1,12 @@
 #import "ClonePilot.h"
+#import "cocos2d.h"
 
-@interface QuantumClone : ClonePilot {
-    float _xDelta[4001];
-    float _yDelta[4001];
+@interface QuantumClone : CCNode {
     BOOL _fireDelta[4001];
+    CGPoint _deltas[4001];
 }
 
-- (float)xDelta:(NSInteger)index;
-- (float)yDelta:(NSInteger)index;
 - (BOOL)fireDeltaAtIndex:(NSInteger)index;
-
-- (void)setXDelta:(float)delta atIndex:(NSInteger)index;
-- (void)setYDelta:(float)delta atIndex:(NSInteger)index;
-- (void)setFireDelta:(BOOL)delta atIndex:(NSInteger)index;
+- (void)addDeltas:(CGPoint)l firing:(BOOL)firing index:(NSInteger)index;
 
 @end

@@ -18,6 +18,7 @@
 @synthesize latestExpectedY     = _latestExpectedY;
 @synthesize pauses              = _pauses;
 @synthesize drawFrame           = _drawingFrame;
+@synthesize freshClone          = _freshClone;
 
 - (void)setupStates {
     self.currentState   = [[[QPBFState alloc] initWithBattlefield:self] autorelease];
@@ -47,9 +48,14 @@
     
 }
 
+- (void)setupClone {
+//    self.newClone = [[QuantumClone alloc] initWithLayer:]
+}
+
 - (id)initWithLayer:(CCLayer *)quantumLayer {
     self = [super initWithLayer:quantumLayer];
     [self setupStates];
+    [self setupClone];
     [quantumLayer addChild:self];
     return self;
 }
@@ -79,6 +85,7 @@
 }
 
 - (void)draw {
+    NSLog(@"%d", self.drawingIteration);
     glColor4f(1, 1, 1, 1.0);
     CGPoint drawingDeltas[4001];
     NSInteger index = 0;
@@ -86,7 +93,11 @@
         drawingDeltas[index] = _deltas[i];
         index++;
     }
-    ccDrawPoly(drawingDeltas, self.drawingIteration - self.fightingIteration, NO);
+    NSInteger drawFrameTotal = self.drawingIteration - self.fightingIteration;
+    if (drawFrameTotal < 0) {
+        drawFrameTotal = 0;
+    }
+    ccDrawPoly(drawingDeltas, drawFrameTotal, NO);
 }
 
 - (void)tick {
@@ -100,6 +111,20 @@
     self.drawingIteration = 0;
     self.fightingIteration = 0;
 }
+
+- (void)resetPassedIterations {
+    //shift each iteration down..
+//    NSInteger iteration = self.fightingIteration;
+//    for (int j = self.fightingIteration; j  < self.drawingIteration; j++) {
+//    for (int i = self.fightingIteration; i < self.drawingIteration; i++) {
+//        _deltas[i] = _deltas[i++];
+//    }
+//    }
+//    
+//    [self resetIterations];
+//    self.drawingIteration = iteration;
+}
+
 
 - (void)clearAllDeltas {
     for (int i = 0; i < self.drawingIteration; i++) {
@@ -137,13 +162,12 @@
 }
 
 - (void)addDelta:(CGPoint)delta {
-    if (self.drawingIteration < QPBF_MAX_DRAWING_FRAMES) {
+    if (self.time < QPBF_MAX_DRAWING_FRAMES) {
         _deltas[self.drawingIteration] = delta;
         self.latestExpectedX = delta.x;
         self.latestExpectedY = delta.y;
     }
 }
-
 
 - (BOOL)fireDeltaAtIndex:(NSInteger)index {
     return _fireDelta[index];
@@ -176,10 +200,18 @@
     [c release];
 }
 
+- (void)advanceLevel {
+    //spawn clone
+}
+
 
 - (void)pilotFires {
     [self.player fire];
     [self addFireDelta];
+}
+
+- (void)activateFreshClone {
+    
 }
 
 - (void)dealloc {
