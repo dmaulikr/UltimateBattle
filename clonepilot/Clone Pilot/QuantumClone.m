@@ -62,11 +62,13 @@
 }
 
 - (void)tick {
+//    CGPoint delta = _deltas[self.timeIndex];
+//    NSLog(@"delta: %f %f",delta.x,delta.y);
     if (self.living) {
         self.l = CombinedPoint(self.l, _deltas[self.timeIndex]);
     }
 
-    self.timeDirection+= self.timeDirection;
+    self.timeIndex+= self.timeDirection;
     if (self.timeDirection > self.turnCount || self.timeDirection < 0) {
         self.timeDirection = self.timeDirection * -1;
     }

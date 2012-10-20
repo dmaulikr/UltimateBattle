@@ -4,7 +4,7 @@ int historicalTurnsCount = 50;
 
 @implementation QPShip
 @synthesize l, vel, t, radius;
-@synthesize moves;
+@synthesize moves; 
 @synthesize weapon;
 @synthesize living;
 @synthesize bulletDelegate;

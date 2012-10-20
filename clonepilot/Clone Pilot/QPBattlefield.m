@@ -41,6 +41,7 @@
 - (void)makeNewClone {
     self.freshClone = [[[QuantumClone alloc] init] autorelease];
     [self activateFreshClone];
+    NSLog(@"made new clone.");
 }
 
 - (void)addClone {
@@ -57,15 +58,14 @@
     
 }
 
-- (void)setupClone {
+- (void)setupClones {
     self.clones = [NSMutableArray array];
-    [self makeNewClone];
 }
 
 - (id)initWithLayer:(CCLayer *)quantumLayer {
     self = [super initWithLayer:quantumLayer];
     [self setupStates];
-    [self setupClone];
+    [self setupClones];
     [quantumLayer addChild:self];
     return self;
 }
@@ -95,7 +95,6 @@
 }
 
 - (void)draw {
-    NSLog(@"%d", self.drawingIteration);
     glColor4f(1, 1, 1, 1.0);
     CGPoint drawingDeltas[4001];
     NSInteger index = 0;
@@ -223,9 +222,18 @@
     }
 }
 
-- (void)advanceLevel {
-    [self changeState:self.pausedState];
+- (void)resetBattlefield {
+    [self removeBullets];
     [self resetIterations];
+    self.player.l = [ClonePlayer defaultLocation];
+}
+
+- (void)advanceLevel {
+    NSLog(@"Advancing level");
+    NSLog(@"clones: %@", self.clones);
+    
+    [self changeState:self.pausedState];
+    [self draw];
     [self activateFreshClone];
     [self repairClones];
     self.time = 0;
