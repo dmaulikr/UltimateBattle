@@ -120,6 +120,8 @@
 		BF0EE1F0163319BB002942A0 /* vec4.c in Sources */ = {isa = PBXBuildFile; fileRef = BF0EE1EF163319BB002942A0 /* vec4.c */; };
 		BF0EE1F5163319BB002942A0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0EE1F4163319BB002942A0 /* main.m */; };
 		BF0EE1F8163319BB002942A0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0EE1F7163319BB002942A0 /* AppDelegate.m */; };
+		BF386A8E16360BC40001FFE2 /* QuantumClone.m in Sources */ = {isa = PBXBuildFile; fileRef = BF386A8D16360BC40001FFE2 /* QuantumClone.m */; };
+		BF386A9616360D600001FFE2 /* VRGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = BF386A9516360D600001FFE2 /* VRGeometry.m */; };
 		BFB9DD621633CF900074EB70 /* QuantumPilot.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB9DD611633CF900074EB70 /* QuantumPilot.m */; };
 		BFB9DD661633D04E0074EB70 /* QuantumLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB9DD651633D04E0074EB70 /* QuantumLayer.m */; };
 /* End PBXBuildFile section */
@@ -372,6 +374,10 @@
 		BF0EE1F4163319BB002942A0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BF0EE1F6163319BB002942A0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BF0EE1F7163319BB002942A0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		BF386A8C16360BC40001FFE2 /* QuantumClone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuantumClone.h; sourceTree = "<group>"; };
+		BF386A8D16360BC40001FFE2 /* QuantumClone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuantumClone.m; sourceTree = "<group>"; };
+		BF386A9416360D600001FFE2 /* VRGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VRGeometry.h; sourceTree = "<group>"; };
+		BF386A9516360D600001FFE2 /* VRGeometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VRGeometry.m; sourceTree = "<group>"; };
 		BFB9DD601633CF900074EB70 /* QuantumPilot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuantumPilot.h; sourceTree = "<group>"; };
 		BFB9DD611633CF900074EB70 /* QuantumPilot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuantumPilot.m; sourceTree = "<group>"; };
 		BFB9DD641633D04E0074EB70 /* QuantumLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuantumLayer.h; sourceTree = "<group>"; };
@@ -457,6 +463,7 @@
 		BF0EE099163319B9002942A0 /* libs */ = {
 			isa = PBXGroup;
 			children = (
+				BF386A9316360D570001FFE2 /* VR Geometry */,
 				BF0EE1B0163319BA002942A0 /* LICENSE_cocos2d.txt */,
 				BF0EE1BF163319BB002942A0 /* LICENSE_CocosDenshion.txt */,
 				BF0EE1F1163319BB002942A0 /* LICENSE_Kazmath.txt */,
@@ -797,11 +804,22 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		BF386A9316360D570001FFE2 /* VR Geometry */ = {
+			isa = PBXGroup;
+			children = (
+				BF386A9416360D600001FFE2 /* VRGeometry.h */,
+				BF386A9516360D600001FFE2 /* VRGeometry.m */,
+			);
+			name = "VR Geometry";
+			sourceTree = "<group>";
+		};
 		BFB9DD5A1633CF530074EB70 /* Ships */ = {
 			isa = PBXGroup;
 			children = (
 				BFB9DD601633CF900074EB70 /* QuantumPilot.h */,
 				BFB9DD611633CF900074EB70 /* QuantumPilot.m */,
+				BF386A8C16360BC40001FFE2 /* QuantumClone.h */,
+				BF386A8D16360BC40001FFE2 /* QuantumClone.m */,
 			);
 			name = Ships;
 			sourceTree = "<group>";
@@ -1013,6 +1031,8 @@
 				BF0EE1F8163319BB002942A0 /* AppDelegate.m in Sources */,
 				BFB9DD621633CF900074EB70 /* QuantumPilot.m in Sources */,
 				BFB9DD661633D04E0074EB70 /* QuantumLayer.m in Sources */,
+				BF386A8E16360BC40001FFE2 /* QuantumClone.m in Sources */,
+				BF386A9616360D600001FFE2 /* VRGeometry.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
