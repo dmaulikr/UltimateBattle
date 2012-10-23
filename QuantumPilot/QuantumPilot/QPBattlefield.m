@@ -25,8 +25,8 @@ static QPBattlefield *instance = nil;
     self = [super init];
     if (self) {
         _pulseTimes[0] = 10;
-        _pulseTimes[1] = 30;
-        _pulseTimes[2] = 15;
+        _pulseTimes[1] = 10;
+        _pulseTimes[2] = 5;
         _pulseTimes[3] = 5;
     }
     return self;
@@ -50,12 +50,25 @@ static QPBattlefield *instance = nil;
             _pulseState = 0;
         }
     }
-    
-    if (_pulseState == resting) {
-        _rhythmScale = .3;
-    } else if (_pulseState == holding) {
-        _rhythmScale = 1;
+
+    float progress = (float)_pulseCharge / (float)_pulseTimes[_pulseState];
+    switch (_pulseState) {
+        case resting:
+            _rhythmScale = .3;
+            break;
+        case holding:
+            _rhythmScale = 1;
+            break;
+        case charging:
+            _rhythmScale = .6 + progress * .5;
+            break;
+        case falling:
+            _rhythmScale = 1.2 - progress * .6;
+            break;
+        default:
+            break;
     }
+    
     
 }
 
