@@ -15,7 +15,7 @@ static float halfWidth = 5;
 static float halfHeight = 25;
 
 - (ccColor4F)color {
-    return self.yDirection == 1 ? ccc4f(.1, .9, .1, 1) : white;
+    return self.yDirection == -1 ? ccc4f(.1, .9, .1, 1) : white;
 }
 
 - (void)draw {

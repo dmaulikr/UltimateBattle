@@ -125,6 +125,7 @@
 		BF8A7698163645300032AF8F /* Bullet.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8A7697163645300032AF8F /* Bullet.m */; };
 		BF8A769F163645C30032AF8F /* SingleLaser.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8A769E163645C30032AF8F /* SingleLaser.m */; };
 		BF8A76A2163646270032AF8F /* QPBattlefield.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8A76A1163646270032AF8F /* QPBattlefield.m */; };
+		BF8A76AA16365CFE0032AF8F /* TriLaser.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8A76A916365CFE0032AF8F /* TriLaser.m */; };
 		BFB9DD621633CF900074EB70 /* QuantumPilot.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB9DD611633CF900074EB70 /* QuantumPilot.m */; };
 		BFB9DD661633D04E0074EB70 /* QuantumLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB9DD651633D04E0074EB70 /* QuantumLayer.m */; };
 /* End PBXBuildFile section */
@@ -388,6 +389,8 @@
 		BF8A76A0163646270032AF8F /* QPBattlefield.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBattlefield.h; sourceTree = "<group>"; };
 		BF8A76A1163646270032AF8F /* QPBattlefield.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBattlefield.m; sourceTree = "<group>"; };
 		BF8A76A41636476C0032AF8F /* QPShortcuts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPShortcuts.h; sourceTree = "<group>"; };
+		BF8A76A816365CFE0032AF8F /* TriLaser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriLaser.h; sourceTree = "<group>"; };
+		BF8A76A916365CFE0032AF8F /* TriLaser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TriLaser.m; sourceTree = "<group>"; };
 		BFB9DD601633CF900074EB70 /* QuantumPilot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuantumPilot.h; sourceTree = "<group>"; };
 		BFB9DD611633CF900074EB70 /* QuantumPilot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuantumPilot.m; sourceTree = "<group>"; };
 		BFB9DD641633D04E0074EB70 /* QuantumLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuantumLayer.h; sourceTree = "<group>"; };
@@ -866,6 +869,8 @@
 				BF8A7697163645300032AF8F /* Bullet.m */,
 				BF8A769D163645C30032AF8F /* SingleLaser.h */,
 				BF8A769E163645C30032AF8F /* SingleLaser.m */,
+				BF8A76A816365CFE0032AF8F /* TriLaser.h */,
+				BF8A76A916365CFE0032AF8F /* TriLaser.m */,
 			);
 			name = Bullets;
 			sourceTree = "<group>";
@@ -1069,6 +1074,7 @@
 				BF8A7698163645300032AF8F /* Bullet.m in Sources */,
 				BF8A769F163645C30032AF8F /* SingleLaser.m in Sources */,
 				BF8A76A2163646270032AF8F /* QPBattlefield.m in Sources */,
+				BF8A76AA16365CFE0032AF8F /* TriLaser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
