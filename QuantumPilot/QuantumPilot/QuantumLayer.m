@@ -9,6 +9,7 @@
 #import "QuantumLayer.h"
 #import "SingleLaser.h"
 #import "TriLaser.h"
+#import "QuadLaser.h"
 
 @implementation QuantumLayer
 @synthesize f = _f;
@@ -45,6 +46,20 @@
         tl2.vel = ccp(0,5);
         [self.f addChild:tl2];
     //    [self.f.bullets addObject:tl2];
+        
+        QuadLaser *ql = [[QuadLaser alloc] init];
+        ql.l = ccp(200, 400);
+        ql.xDirection = -1;
+        ql.vel = ccp(0,5);
+        [self.f addChild:ql];
+//        [self.f.bullets addObject:ql];
+        
+        QuadLaser *ql2 = [[QuadLaser alloc] init];
+        ql2.l = ccp(300, 400);
+        ql2.xDirection = 1;
+        ql2.vel = ccp(0,5);
+        [self.f addChild:ql2];
+//        [self.f.bullets addObject:ql2];
         
         self.breath = [NSTimer scheduledTimerWithTimeInterval:0.016 target:self selector:@selector(breathe) userInfo:nil repeats:YES];
 

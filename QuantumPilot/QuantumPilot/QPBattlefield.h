@@ -21,6 +21,9 @@ enum pulsestate {
     NSInteger _pulseDirection;
     NSInteger _pulseCharge;
     float _rhythmScale;
+    float _breaths;
+    float _breathCycle;
+    NSInteger _breathFlow;
 }
 
 @property (nonatomic, retain) NSMutableArray *bullets;
@@ -31,5 +34,6 @@ enum pulsestate {
 + (QPBattlefield *)f;
 
 + (float)rhythmScale;
++ (float)pulseRotation;
 
 @end

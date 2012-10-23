@@ -31,8 +31,19 @@ static QPBattlefield *instance = nil;
         _pulseTimes[1] = 10;
         _pulseTimes[2] = 5;
         _pulseTimes[3] = 5;
+        _breaths = 0;
+        _breathCycle = 30;
+        _breathFlow = 1;
     }
     return self;
+}
+
+- (float)pulseRotation {
+    return _breaths / _breathCycle;
+}
+
++ (float)pulseRotation {
+    return [[QPBattlefield f] pulseRotation];
 }
 
 + (float)rhythmScale {
@@ -44,13 +55,16 @@ static QPBattlefield *instance = nil;
     return _rhythmScale;
 }
 
+
 - (void)rhythmPulse {
     _pulseCharge++;
+    _breaths+= _breathFlow;
     if (_pulseCharge >= _pulseTimes[_pulseState]) {
         _pulseCharge = 0;
         _pulseState++;
         if (_pulseState > 3) {
             _pulseState = 0;
+            _breathFlow = -_breathFlow;
         }
     }
     
