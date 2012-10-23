@@ -24,12 +24,10 @@ static QPBattlefield *instance = nil;
 - (id)init {
     self = [super init];
     if (self) {
-        _rhythmScale = 0;
-        _rhythmGrowth = .05;
-        _rhythmDirection = 1;
-        
-        _rhythmPulseDirection = 1;
-        _rhythmPulseChargeReset = 10;
+        _pulseTimes[0] = 10;
+        _pulseTimes[1] = 30;
+        _pulseTimes[2] = 15;
+        _pulseTimes[3] = 5;
     }
     return self;
 }
@@ -43,28 +41,32 @@ static QPBattlefield *instance = nil;
     return _rhythmScale + _rhythmPulse;
 }
 
-
 - (void)tick {
-    _rhythmScale+= _rhythmGrowth * _rhythmDirection;
-    if (_rhythmScale >= 1) {
-        _rhythmScale = 1;
-        _rhythmDirection = -1;
-    } else if (_rhythmScale < .2) {
-        _rhythmScale = .2;
-        _rhythmDirection = 1;
+    _pulseCharge++;
+    if (_pulseCharge >= _pulseTimes[_pulseState]) {
+        _pulseCharge = 0;
+        _pulseState++;
+        if (_pulseState > 3) {
+            _pulseState = 0;
+        }
     }
     
-    _rhythmPulseCharge += _rhythmPulseDirection;
-    if (_rhythmPulseCharge >= _rhythmPulseChargeReset) {
-        _rhythmPulse = .5;
-        if (_rhythmPulseCharge >= 2* _rhythmPulseChargeReset) {
-            _rhythmPulseDirection = -1;
-        }
-    } else if (_rhythmPulseCharge <= 0) {
-        _rhythmPulse = 0;
-        _rhythmPulseDirection = 1;
+    if (_pulseState == resting) {
+        _rhythmScale = .3;
+    } else if (_pulseState == holding) {
+        _rhythmScale = 1;
     }
     
 }
+
+
+//    if (_rhythmScale >= 1) {
+//        _rhythmScale = 1;
+//        _rhythmDirection = -1;
+//    } else if (_rhythmScale < .2) {
+//        _rhythmScale = .2;
+//        _rhythmDirection = 1;
+//    }
+
 
 @end

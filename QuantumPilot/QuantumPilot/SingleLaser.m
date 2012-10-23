@@ -11,8 +11,8 @@
 
 @implementation SingleLaser
 
-static float halfWidth = 5;
-static float halfHeight = 25;
+static float halfWidth = 50;
+static float halfHeight = 250;
 
 - (ccColor4F)color {
     return self.yDirection == 1 ? ccc4f(.1, .9, .1, 1) : white;
@@ -20,10 +20,6 @@ static float halfHeight = 25;
 
 - (void)draw {
     CGPoint lines[4];
-    float scale = rs;
-    NSLog(@"scale: %f", scale);
-    float rscale = [QPBattlefield rhythmScale];
-    NSLog(@"rscale: %f", rscale);
     lines[0] = ccp(self.l.x - rs * halfWidth, self.l.y - rs * halfHeight);
     lines[1] = ccp(self.l.x + rs * halfWidth, self.l.y - rs * halfHeight);
     lines[2] = ccp(self.l.x + rs * halfWidth, self.l.y + rs * halfHeight);

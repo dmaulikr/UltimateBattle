@@ -8,7 +8,27 @@
 
 #import "CCNode.h"
 
+enum pulsestate {
+    resting = 0,
+    charging = 1,
+    holding = 2,
+    falling = 3
+};
+
+enum pulsetimes {
+    tResting = 10,
+    tCharging = 30,
+    tHolding = 15,
+    tFalling = 5,
+};
+
 @interface QPBattlefield : CCNode {
+    NSInteger _pulseTimes[4];
+    NSInteger _pulseState;
+    NSInteger _pulseDirection;
+    NSInteger _pulseCharge;
+    
+    
     float _rhythmScale;
     NSInteger _rhythmDirection;
     float _rhythmGrowth;
