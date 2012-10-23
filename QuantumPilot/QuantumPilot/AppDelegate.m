@@ -9,6 +9,7 @@
 #import "cocos2d.h"
 #import "AppDelegate.h"
 #import "QuantumLayer.h"
+#import "WeaponsTestLayer.h"
 
 @implementation AppController
 
@@ -41,7 +42,7 @@
 	[sharedFileUtils setiPadSuffix:@"-ipad"];					// Default on iPad is "ipad"
 	[sharedFileUtils setiPadRetinaDisplaySuffix:@"-ipadhd"];	// Default on iPad RetinaDisplay is "-ipadhd"
 	[CCTexture2D PVRImagesHavePremultipliedAlpha:YES];
-	[director_ pushScene: [QuantumLayer scene]];
+	[director_ pushScene: [WeaponsTestLayer scene]];
     
 	
 	// Create a Navigation Controller with the Director
