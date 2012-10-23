@@ -8,12 +8,21 @@
 
 #import "CCNode.h"
 
-@interface QPBattlefield : CCNode
+@interface QPBattlefield : CCNode {
+    float _rhythmScale;
+    NSInteger _rhythmDirection;
+    float _rhythmGrowth;
+    
+    
+    float _rhythmPulse;
+    float _rhythmPulseGrowth;
+    float _rhythmPulseCharge;
+    NSInteger _rhythmPulseChargeReset;
+    NSInteger _rhythmPulseDirection;
+}
 
-@property (nonatomic) float rhythmScale;
-@property (nonatomic) NSInteger rhythmDirection;
-@property (nonatomic) float rhythmGrowth;
 
+- (float)rhythmScale;
 - (void)tick;
 
 + (QPBattlefield *)f;
