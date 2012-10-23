@@ -8,6 +8,7 @@
 
 #import "QuantumPilot.h"
 #import "VRGeometry.h"
+#import "QuantumClone.h"
 
 @interface QuantumPilot()
 
@@ -24,6 +25,7 @@ struct future {
 @synthesize future = _future;
 @synthesize drawingIteration = _drawingIteration;
 @synthesize fightingIteration = _fightingIteration;
+@synthesize clone = _clone;
 
 - (BOOL)isFiring {
     return self.firing;
@@ -79,6 +81,10 @@ struct future {
     //
 }
 
+- (void)copyDeltas {
+    [self.clone recordVelocity:self.vel firing:self.firing];
+}
+
 - (void)tick {
     [self checkForFiringWeapon];
     [self calculateTarget];
@@ -86,10 +92,16 @@ struct future {
     [self moveByVelocity];
     [self evaluateReachingTarget];
     [self setDrawingScaleByBattlefieldRhythm];
+    
+    [self copyDeltas];
 }
 
 - (void)draw {
     
+}
+
+- (void)addWaypoint:(CGPoint)l {
+    self.future.waypoints[self.drawingIteration] = l;
 }
 
 @end

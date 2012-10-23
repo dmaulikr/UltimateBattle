@@ -15,6 +15,9 @@
     return self.history.fireTimings[self.history.timeIndex];
 }
 
-
+- (void)recordVelocity:(CGPoint)l firing:(BOOL)firing {
+    self.history.velocities[self.history.timeIndex] = l;
+    self.history.fireTimings[self.history.timeIndex] = firing;
+}
 
 @end

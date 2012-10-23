@@ -24,4 +24,6 @@ struct history {
 
 @property (nonatomic) struct history history;
 
+- (void)recordVelocity:(CGPoint)l firing:(BOOL)firing;
+
 @end

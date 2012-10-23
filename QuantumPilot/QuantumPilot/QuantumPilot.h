@@ -7,6 +7,7 @@
 //
 
 #import "CCNode.h"
+@class QuantumClone;
 
 @interface QuantumPilot : CCNode {
     
@@ -21,8 +22,18 @@
 @property (nonatomic) NSInteger fightingIteration;
 @property (nonatomic) NSInteger drawingIteration;
 
+@property (nonatomic, retain) QuantumClone *clone;
+
 - (void)tick;
 
 - (BOOL)isFiring;
+
+- (void)addWaypoint:(CGPoint)l;
+
+//////////
+
+- (BOOL)isCollidingWithBullet;
+//- (void)hitByBullet:
+
 
 @end
