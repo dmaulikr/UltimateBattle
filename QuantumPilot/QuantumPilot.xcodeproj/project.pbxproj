@@ -122,6 +122,9 @@
 		BF0EE1F8163319BB002942A0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0EE1F7163319BB002942A0 /* AppDelegate.m */; };
 		BF386A8E16360BC40001FFE2 /* QuantumClone.m in Sources */ = {isa = PBXBuildFile; fileRef = BF386A8D16360BC40001FFE2 /* QuantumClone.m */; };
 		BF386A9616360D600001FFE2 /* VRGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = BF386A9516360D600001FFE2 /* VRGeometry.m */; };
+		BF8A7698163645300032AF8F /* Bullet.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8A7697163645300032AF8F /* Bullet.m */; };
+		BF8A769F163645C30032AF8F /* SingleLaser.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8A769E163645C30032AF8F /* SingleLaser.m */; };
+		BF8A76A2163646270032AF8F /* QPBattlefield.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8A76A1163646270032AF8F /* QPBattlefield.m */; };
 		BFB9DD621633CF900074EB70 /* QuantumPilot.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB9DD611633CF900074EB70 /* QuantumPilot.m */; };
 		BFB9DD661633D04E0074EB70 /* QuantumLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB9DD651633D04E0074EB70 /* QuantumLayer.m */; };
 /* End PBXBuildFile section */
@@ -378,6 +381,13 @@
 		BF386A8D16360BC40001FFE2 /* QuantumClone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuantumClone.m; sourceTree = "<group>"; };
 		BF386A9416360D600001FFE2 /* VRGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VRGeometry.h; sourceTree = "<group>"; };
 		BF386A9516360D600001FFE2 /* VRGeometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VRGeometry.m; sourceTree = "<group>"; };
+		BF8A7696163645300032AF8F /* Bullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bullet.h; sourceTree = "<group>"; };
+		BF8A7697163645300032AF8F /* Bullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bullet.m; sourceTree = "<group>"; };
+		BF8A769D163645C30032AF8F /* SingleLaser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleLaser.h; sourceTree = "<group>"; };
+		BF8A769E163645C30032AF8F /* SingleLaser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleLaser.m; sourceTree = "<group>"; };
+		BF8A76A0163646270032AF8F /* QPBattlefield.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBattlefield.h; sourceTree = "<group>"; };
+		BF8A76A1163646270032AF8F /* QPBattlefield.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBattlefield.m; sourceTree = "<group>"; };
+		BF8A76A41636476C0032AF8F /* QPShortcuts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPShortcuts.h; sourceTree = "<group>"; };
 		BFB9DD601633CF900074EB70 /* QuantumPilot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuantumPilot.h; sourceTree = "<group>"; };
 		BFB9DD611633CF900074EB70 /* QuantumPilot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuantumPilot.m; sourceTree = "<group>"; };
 		BFB9DD641633D04E0074EB70 /* QuantumLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuantumLayer.h; sourceTree = "<group>"; };
@@ -440,6 +450,7 @@
 		BF0EE07E163319B8002942A0 /* QuantumPilot */ = {
 			isa = PBXGroup;
 			children = (
+				BF8A76A31636475F0032AF8F /* Shortcuts */,
 				BFB9DD5D1633CF640074EB70 /* Battlefield */,
 				BFB9DD5B1633CF580074EB70 /* Weapons */,
 				BFB9DD5A1633CF530074EB70 /* Ships */,
@@ -813,6 +824,21 @@
 			name = "VR Geometry";
 			sourceTree = "<group>";
 		};
+		BF8A76A31636475F0032AF8F /* Shortcuts */ = {
+			isa = PBXGroup;
+			children = (
+				BF8A76A41636476C0032AF8F /* QPShortcuts.h */,
+			);
+			name = Shortcuts;
+			sourceTree = "<group>";
+		};
+		BF8A76A716364B360032AF8F /* Cannons */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Cannons;
+			sourceTree = "<group>";
+		};
 		BFB9DD5A1633CF530074EB70 /* Ships */ = {
 			isa = PBXGroup;
 			children = (
@@ -827,6 +853,7 @@
 		BFB9DD5B1633CF580074EB70 /* Weapons */ = {
 			isa = PBXGroup;
 			children = (
+				BF8A76A716364B360032AF8F /* Cannons */,
 				BFB9DD5C1633CF5E0074EB70 /* Bullets */,
 			);
 			name = Weapons;
@@ -835,6 +862,10 @@
 		BFB9DD5C1633CF5E0074EB70 /* Bullets */ = {
 			isa = PBXGroup;
 			children = (
+				BF8A7696163645300032AF8F /* Bullet.h */,
+				BF8A7697163645300032AF8F /* Bullet.m */,
+				BF8A769D163645C30032AF8F /* SingleLaser.h */,
+				BF8A769E163645C30032AF8F /* SingleLaser.m */,
 			);
 			name = Bullets;
 			sourceTree = "<group>";
@@ -843,6 +874,8 @@
 			isa = PBXGroup;
 			children = (
 				BFB9DD5E1633CF6A0074EB70 /* Modifiers */,
+				BF8A76A0163646270032AF8F /* QPBattlefield.h */,
+				BF8A76A1163646270032AF8F /* QPBattlefield.m */,
 			);
 			name = Battlefield;
 			sourceTree = "<group>";
@@ -1033,6 +1066,9 @@
 				BFB9DD661633D04E0074EB70 /* QuantumLayer.m in Sources */,
 				BF386A8E16360BC40001FFE2 /* QuantumClone.m in Sources */,
 				BF386A9616360D600001FFE2 /* VRGeometry.m in Sources */,
+				BF8A7698163645300032AF8F /* Bullet.m in Sources */,
+				BF8A769F163645C30032AF8F /* SingleLaser.m in Sources */,
+				BF8A76A2163646270032AF8F /* QPBattlefield.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

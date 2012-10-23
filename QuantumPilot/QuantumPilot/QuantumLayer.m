@@ -7,9 +7,11 @@
 //
 
 #import "QuantumLayer.h"
-#import "QuantumPilot.h"
+#import "SingleLaser.h"
 
 @implementation QuantumLayer
+@synthesize f = _f;
+@synthesize metronome = _metronome;
 
 +(CCScene *) scene {
 	CCScene *scene = [CCScene node];
@@ -21,11 +23,19 @@
 - (id)init {
     self = [super init];
     if (self){
-        QuantumPilot *p = [[QuantumPilot alloc] init];
-        p = p;
+        self.f = [QPBattlefield f];
+        [self addChild:self.f];
+        SingleLaser *l = [[SingleLaser alloc] init];
+        [self.f addChild:l];
+        l.l = ccp(400,400);
+        self.metronome = [NSTimer scheduledTimerWithTimeInterval:0.016 target:self selector:@selector(tick) userInfo:nil repeats:YES];
 
     }
     return self;
+}
+
+- (void)tick {
+    [self.f tick];
 }
 
 @end

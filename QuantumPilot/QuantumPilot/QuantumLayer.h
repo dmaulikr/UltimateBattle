@@ -8,8 +8,12 @@
 
 #import "CCLayer.h"
 #import "cocos2d.h"
+#import "QPBattlefield.h"
 
 @interface QuantumLayer : CCLayer
+
+@property (nonatomic, retain) QPBattlefield *f;
+@property (nonatomic, retain) NSTimer *metronome;
 
 + (CCScene *) scene;
 
