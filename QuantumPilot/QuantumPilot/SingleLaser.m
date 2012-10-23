@@ -11,8 +11,8 @@
 
 @implementation SingleLaser
 
-static float halfWidth = 5;
-static float halfHeight = 25;
+static float halfWidth = 1;
+static float halfHeight = 10;
 
 - (ccColor4F)color {
     return self.yDirection == -1 ? ccc4f(.1, .9, .1, 1) : white;

@@ -38,10 +38,10 @@ static QPBattlefield *instance = nil;
 }
 
 - (float)rhythmScale {
-    return _rhythmScale + _rhythmPulse;
+    return _rhythmScale;
 }
 
-- (void)tick {
+- (void)pulse {
     _pulseCharge++;
     if (_pulseCharge >= _pulseTimes[_pulseState]) {
         _pulseCharge = 0;
@@ -50,7 +50,7 @@ static QPBattlefield *instance = nil;
             _pulseState = 0;
         }
     }
-
+    
     float progress = (float)_pulseCharge / (float)_pulseTimes[_pulseState];
     switch (_pulseState) {
         case resting:
@@ -68,8 +68,10 @@ static QPBattlefield *instance = nil;
         default:
             break;
     }
-    
-    
+}
+
+- (void)tick {
+    [self pulse];
 }
 
 
