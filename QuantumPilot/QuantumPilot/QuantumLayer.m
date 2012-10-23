@@ -27,19 +27,22 @@
         self.f = [QPBattlefield f];
         [self addChild:self.f];
         SingleLaser *l = [[SingleLaser alloc] init];
-        [self.f addChild:l];
         l.l = ccp(400,400);
+        l.vel = ccp(0,5);
+        [self.f addChild:l];
+        [self.f.bullets addObject:l];
+
         TriLaser *tl = [[TriLaser alloc] init];
         tl.yDirection = -1;
         tl.l = ccp(500, 400);
-//        tl.vel = ccp(0,tl.yDirection);
+        tl.vel = ccp(0,-5);
         [self.f addChild:tl];
         [self.f.bullets addObject:tl];
 
         TriLaser *tl2 = [[TriLaser alloc] init];
         tl2.yDirection = 1;
         tl2.l = ccp(600, 400);
-  //      tl2.vel = ccp(0,tl2.yDirection);
+        tl2.vel = ccp(0,5);
         [self.f addChild:tl2];
         [self.f.bullets addObject:tl2];
         

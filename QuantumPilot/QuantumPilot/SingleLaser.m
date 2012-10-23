@@ -11,8 +11,6 @@
 
 @implementation SingleLaser
 
-static float halfWidth = 1;
-static float halfHeight = 10;
 static float innerWidth = .5;
 static float innerHeight = 8;
 static float outerWidth = .5;
@@ -28,10 +26,6 @@ static float outerHeight = 6;
     lines[1] = ccp(self.l.x - innerWidth - (rs * outerWidth), self.l.y + innerHeight + (rs * outerHeight));
     lines[2] = ccp(self.l.x + innerWidth + (rs * outerWidth), self.l.y + innerHeight + (rs * outerHeight));
     lines[3] = ccp(self.l.x + innerWidth + (rs * outerWidth), self.l.y - innerHeight - (rs * outerHeight));
-//    lines[0] = ccp(self.l.x - rs * halfWidth, self.l.y - rs * halfHeight);
-//    lines[1] = ccp(self.l.x + rs * halfWidth, self.l.y - rs * halfHeight);
-//    lines[2] = ccp(self.l.x + rs * halfWidth, self.l.y + rs * halfHeight);
-//    lines[3] = ccp(self.l.x - rs * halfWidth, self.l.y + rs * halfHeight);
     ccDrawSolidPoly(lines, 4, [self color]);
 }
 
