@@ -13,7 +13,7 @@
 @interface QuantumLayer : CCLayer
 
 @property (nonatomic, retain) QPBattlefield *f;
-@property (nonatomic, retain) NSTimer *metronome;
+@property (nonatomic, retain) NSTimer *breath;
 
 + (CCScene *) scene;
 

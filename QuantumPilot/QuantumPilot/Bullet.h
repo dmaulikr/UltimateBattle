@@ -19,4 +19,6 @@
 @property (nonatomic) NSInteger identifier;
 @property (nonatomic) NSInteger yDirection;
 
+- (void)pulse;
+
 @end

@@ -17,7 +17,7 @@
     return [NSString stringWithFormat:@"l: %f,%f    vel:%f,%f    %d", self.l.x, self.l.y, self.vel.x, self.vel.y, self.identifier];
 }
 
-- (void)tick {
+- (void)pulse {
     self.l = CombinedPoint(self.l, self.vel);
 }
 

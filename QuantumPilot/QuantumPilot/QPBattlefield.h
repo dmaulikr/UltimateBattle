@@ -20,14 +20,13 @@ enum pulsestate {
     NSInteger _pulseState;
     NSInteger _pulseDirection;
     NSInteger _pulseCharge;
-    
-    
     float _rhythmScale;
 }
 
+@property (nonatomic, retain) NSMutableArray *bullets;
 
 - (float)rhythmScale;
-- (void)tick;
+- (void)pulse;
 
 + (QPBattlefield *)f;
 

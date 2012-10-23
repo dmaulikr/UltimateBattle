@@ -7,8 +7,10 @@
 //
 
 #import "QPBattlefield.h"
+#import "Bullet.h"
 
 @implementation QPBattlefield
+@synthesize bullets = _bullets;
 
 static QPBattlefield *instance = nil;
 
@@ -24,6 +26,7 @@ static QPBattlefield *instance = nil;
 - (id)init {
     self = [super init];
     if (self) {
+        self.bullets = [NSMutableArray array];
         _pulseTimes[0] = 10;
         _pulseTimes[1] = 10;
         _pulseTimes[2] = 5;
@@ -41,7 +44,7 @@ static QPBattlefield *instance = nil;
     return _rhythmScale;
 }
 
-- (void)pulse {
+- (void)rhythmPulse {
     _pulseCharge++;
     if (_pulseCharge >= _pulseTimes[_pulseState]) {
         _pulseCharge = 0;
@@ -70,8 +73,15 @@ static QPBattlefield *instance = nil;
     }
 }
 
-- (void)tick {
-    [self pulse];
+- (void)bulletPulse {
+    for (Bullet *b in self.bullets) {
+        [b pulse];
+    }
+}
+
+- (void)pulse {
+    [self rhythmPulse];
+    [self bulletPulse];
 }
 
 
