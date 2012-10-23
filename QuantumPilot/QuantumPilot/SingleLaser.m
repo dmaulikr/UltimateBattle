@@ -13,6 +13,10 @@
 
 static float halfWidth = 1;
 static float halfHeight = 10;
+static float innerWidth = .5;
+static float innerHeight = 8;
+static float outerWidth = .5;
+static float outerHeight = 6;
 
 - (ccColor4F)color {
     return self.yDirection == -1 ? ccc4f(.1, .9, .1, 1) : white;
@@ -20,10 +24,14 @@ static float halfHeight = 10;
 
 - (void)draw {
     CGPoint lines[4];
-    lines[0] = ccp(self.l.x - rs * halfWidth, self.l.y - rs * halfHeight);
-    lines[1] = ccp(self.l.x + rs * halfWidth, self.l.y - rs * halfHeight);
-    lines[2] = ccp(self.l.x + rs * halfWidth, self.l.y + rs * halfHeight);
-    lines[3] = ccp(self.l.x - rs * halfWidth, self.l.y + rs * halfHeight);
+    lines[0] = ccp(self.l.x - innerWidth - (rs * outerWidth), self.l.y - innerHeight - (rs * outerHeight));
+    lines[1] = ccp(self.l.x - innerWidth - (rs * outerWidth), self.l.y + innerHeight + (rs * outerHeight));
+    lines[2] = ccp(self.l.x + innerWidth + (rs * outerWidth), self.l.y + innerHeight + (rs * outerHeight));
+    lines[3] = ccp(self.l.x + innerWidth + (rs * outerWidth), self.l.y - innerHeight - (rs * outerHeight));
+//    lines[0] = ccp(self.l.x - rs * halfWidth, self.l.y - rs * halfHeight);
+//    lines[1] = ccp(self.l.x + rs * halfWidth, self.l.y - rs * halfHeight);
+//    lines[2] = ccp(self.l.x + rs * halfWidth, self.l.y + rs * halfHeight);
+//    lines[3] = ccp(self.l.x - rs * halfWidth, self.l.y + rs * halfHeight);
     ccDrawSolidPoly(lines, 4, [self color]);
 }
 
