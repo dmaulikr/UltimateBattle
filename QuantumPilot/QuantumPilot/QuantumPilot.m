@@ -33,7 +33,7 @@ struct future {
 static float shipTopHeight = 50;
 static float shipSideWidth = 15;
 static float shipBottomHeight = 10;
-static float innerTopHeight = 5;
+static float innerTopHeight = 10;
 
 static float innerPointRatio = .7;
 
@@ -65,8 +65,11 @@ static float innerPointRatio = .7;
     float topXOffset = xVelPercentage * (innerPointRatio * shipSideWidth) * xSign;
     float bottomXOffset = xVelPercentage * (innerPointRatio *shipSideWidth) * -xSign;
 
-    outerEdges[2] = ccp(self.l.x + bottomXOffset, self.l.y - shipBottomHeight);
-    innerTopEdge = ccp(self.l.x + topXOffset, self.l.y - innerTopHeight * [self yDirection]);
+    float heightRatio = (1-xVelPercentage);
+    
+    outerEdges[2] = ccp(self.l.x + bottomXOffset, self.l.y - (shipBottomHeight * heightRatio));
+
+    innerTopEdge = ccp(self.l.x + topXOffset, self.l.y - (innerTopHeight * heightRatio ) * [self yDirection]);
     ccDrawPoly(outerEdges, 4, YES);
     
     ccDrawLine(outerEdges[1], innerTopEdge);
