@@ -8,6 +8,8 @@
 
 #import "Bullet.h"
 
-@interface SingleLaser : Bullet
+@interface SingleLaser : Bullet {
+    CGPoint lines[4];
+}
 
 @end

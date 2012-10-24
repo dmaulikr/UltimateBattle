@@ -15,7 +15,10 @@
 struct future {
     CGPoint waypoints[4001];
 };
-@property (nonatomic) struct future future;
+
+
+
+@property (nonatomic, assign) struct future future;
 
 
 @end
@@ -26,6 +29,51 @@ struct future {
 @synthesize drawingIteration = _drawingIteration;
 @synthesize fightingIteration = _fightingIteration;
 @synthesize clone = _clone;
+
+static float shipTopHeight = 50;
+static float shipSideWidth = 15;
+static float shipBottomHeight = 10;
+static float innerTopHeight = 5;
+
+static float innerPointRatio = .7;
+
+- (NSInteger)yDirection {
+    return -1;
+}
+
+- (id)init {
+    self = [super init];
+    if (self) {
+        _speed = 5;
+    }
+    return self;
+}
+
+- (void)draw {
+    outerEdges[0] = ccp(self.l.x, self.l.y - shipTopHeight * [self yDirection]);
+    outerEdges[1] = ccp(self.l.x - shipSideWidth, self.l.y);
+    outerEdges[3] = ccp(self.l.x + shipSideWidth, self.l.y);
+
+    self.vel = ccp(self.vel.x - .1, self.vel.y);
+    if (self.vel.x < -5) {
+        self.vel = ccp(5, self.l.y);
+    }
+
+    
+    float xVelPercentage = fabsf(self.vel.x) / self.speed;
+    NSInteger xSign = self.vel.x < 0 ? -1 : 1;
+    float topXOffset = xVelPercentage * (innerPointRatio * shipSideWidth) * xSign;
+    float bottomXOffset = xVelPercentage * (innerPointRatio *shipSideWidth) * -xSign;
+
+    outerEdges[2] = ccp(self.l.x + bottomXOffset, self.l.y - shipBottomHeight);
+    innerTopEdge = ccp(self.l.x + topXOffset, self.l.y - innerTopHeight * [self yDirection]);
+    ccDrawPoly(outerEdges, 4, YES);
+    
+    ccDrawLine(outerEdges[1], innerTopEdge);
+    ccDrawLine(innerTopEdge, outerEdges[3]);
+    ccDrawLine(outerEdges[2], outerEdges[0]);
+    ccDrawLine(innerTopEdge, outerEdges[0]);
+}
 
 - (BOOL)isFiring {
     return self.firing;
@@ -96,12 +144,10 @@ struct future {
     [self copyDeltas];
 }
 
-- (void)draw {
-    
-}
-
 - (void)addWaypoint:(CGPoint)l {
-    self.future.waypoints[self.drawingIteration] = l;
+    struct future f = self.future;
+    f.waypoints[self.drawingIteration] = l;
+    self.future = f;
 }
 
 @end

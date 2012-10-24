@@ -14,13 +14,13 @@ static float dropWidth = 10;
 }
 
 - (void)draw {
-    CGPoint lines[6];
     lines[0] = ccp(self.l.x, self.l.y + rs * dropHeight * self.yDirection);
     lines[1] = ccp(self.l.x - width, self.l.y - height * self.yDirection);
-    lines[2] = ccp(self.l.x - dropWidth, self.l.y - height * self.yDirection - rs * dropHeight * self.yDirection);
+    lines[2] = ccp(self.l.x - dropWidth, self.l.y - (height * self.yDirection) - (rs * dropHeight * self.yDirection));
     lines[3] = ccp(self.l.x, self.l.y - rs * dropHeight * self.yDirection);
-    lines[4] = ccp(self.l.x + dropWidth, self.l.y - height * self.yDirection - rs * dropHeight * self.yDirection);
+    lines[4] = ccp(self.l.x + dropWidth, self.l.y - (height * self.yDirection) - (rs * dropHeight * self.yDirection));
     lines[5] = ccp(self.l.x + width, self.l.y - height * self.yDirection);
+    
     ccDrawSolidPoly(lines, 6, [self color]);
 }
 

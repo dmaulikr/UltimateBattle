@@ -7,9 +7,14 @@
 //
 
 #import "CCNode.h"
+#import "cocos2d.h"
 @class QuantumClone;
 
+
+
 @interface QuantumPilot : CCNode {
+    CGPoint outerEdges[4];
+    CGPoint innerTopEdge;
     
 }
 

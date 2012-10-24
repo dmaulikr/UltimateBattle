@@ -8,7 +8,9 @@
 
 #import "Bullet.h"
 
-@interface TriLaser : Bullet
+@interface TriLaser : Bullet {
+        CGPoint lines[6];
+}
 
 @property (nonatomic) NSInteger xDirection;
 

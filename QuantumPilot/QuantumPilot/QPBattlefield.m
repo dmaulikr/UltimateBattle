@@ -55,7 +55,6 @@ static QPBattlefield *instance = nil;
     return _rhythmScale;
 }
 
-
 - (void)rhythmPulse {
     _pulseCharge++;
     _breaths+= _breathFlow;

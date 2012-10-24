@@ -2,7 +2,8 @@
 #import "SingleLaser.h"
 #import "TriLaser.h"
 #import "QuadLaser.h"
-
+#import "SplitLaser.h"
+#import "QuantumPilot.h"
 
 @implementation WeaponsTestLayer
 
@@ -48,7 +49,11 @@
         ql2.xDirection = 1;
         ql2.vel = ccp(0,5);
         [self.f addChild:ql2];
-        //        [self.f.bullets addObject:ql2];
+        //        [self.f.bullets addObject:ql2]
+        
+        QuantumPilot *qp = [[QuantumPilot alloc] init];
+        qp.l = ccp(100, 200);
+        [self.f addChild:qp];
     }
     return self;
 }

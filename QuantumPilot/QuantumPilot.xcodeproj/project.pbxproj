@@ -120,6 +120,7 @@
 		BF0EE1F0163319BB002942A0 /* vec4.c in Sources */ = {isa = PBXBuildFile; fileRef = BF0EE1EF163319BB002942A0 /* vec4.c */; };
 		BF0EE1F5163319BB002942A0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0EE1F4163319BB002942A0 /* main.m */; };
 		BF0EE1F8163319BB002942A0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0EE1F7163319BB002942A0 /* AppDelegate.m */; };
+		BF18895216374B4000C05703 /* SplitLaser.m in Sources */ = {isa = PBXBuildFile; fileRef = BF18895116374B4000C05703 /* SplitLaser.m */; };
 		BF386A8E16360BC40001FFE2 /* QuantumClone.m in Sources */ = {isa = PBXBuildFile; fileRef = BF386A8D16360BC40001FFE2 /* QuantumClone.m */; };
 		BF386A9616360D600001FFE2 /* VRGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = BF386A9516360D600001FFE2 /* VRGeometry.m */; };
 		BF8A7698163645300032AF8F /* Bullet.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8A7697163645300032AF8F /* Bullet.m */; };
@@ -380,6 +381,8 @@
 		BF0EE1F4163319BB002942A0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BF0EE1F6163319BB002942A0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BF0EE1F7163319BB002942A0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		BF18895016374B4000C05703 /* SplitLaser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplitLaser.h; sourceTree = "<group>"; };
+		BF18895116374B4000C05703 /* SplitLaser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplitLaser.m; sourceTree = "<group>"; };
 		BF386A8C16360BC40001FFE2 /* QuantumClone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuantumClone.h; sourceTree = "<group>"; };
 		BF386A8D16360BC40001FFE2 /* QuantumClone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuantumClone.m; sourceTree = "<group>"; };
 		BF386A9416360D600001FFE2 /* VRGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VRGeometry.h; sourceTree = "<group>"; };
@@ -879,6 +882,8 @@
 				BF8A76A916365CFE0032AF8F /* TriLaser.m */,
 				BF8A76AB16366DD30032AF8F /* QuadLaser.h */,
 				BF8A76AC16366DD30032AF8F /* QuadLaser.m */,
+				BF18895016374B4000C05703 /* SplitLaser.h */,
+				BF18895116374B4000C05703 /* SplitLaser.m */,
 			);
 			name = Bullets;
 			sourceTree = "<group>";
@@ -1087,6 +1092,7 @@
 				BF8A76AA16365CFE0032AF8F /* TriLaser.m in Sources */,
 				BF8A76AD16366DD30032AF8F /* QuadLaser.m in Sources */,
 				BF8A76B0163672780032AF8F /* WeaponsTestLayer.m in Sources */,
+				BF18895216374B4000C05703 /* SplitLaser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

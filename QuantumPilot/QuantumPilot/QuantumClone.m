@@ -16,8 +16,11 @@
 }
 
 - (void)recordVelocity:(CGPoint)l firing:(BOOL)firing {
-    self.history.velocities[self.history.timeIndex] = l;
-    self.history.fireTimings[self.history.timeIndex] = firing;
+    struct history h = self.history;
+    
+    h.velocities[self.history.timeIndex] = l;
+    h.fireTimings[self.history.timeIndex] = firing;
+    self.history = h;
 }
 
 @end
