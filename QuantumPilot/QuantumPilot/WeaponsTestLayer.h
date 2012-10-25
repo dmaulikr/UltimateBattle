@@ -1,6 +1,9 @@
 #import "QuantumLayer.h"
+#import "QuantumPilot.h"
 
-@interface WeaponsTestLayer : QuantumLayer
+@interface WeaponsTestLayer : QuantumLayer {
+    QuantumPilot *qp;
+}
 
 +(CCScene *) scene;
 

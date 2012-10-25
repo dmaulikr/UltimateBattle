@@ -27,7 +27,7 @@
 
 	director_ = (CCDirectorIOS*) [CCDirector sharedDirector];
 
-	director_.wantsFullScreenLayout = YES;;
+	director_.wantsFullScreenLayout = YES;
 	[director_ setAnimationInterval:1.0/60];
 	[director_ setView:glView];
 	[director_ setDelegate:self];

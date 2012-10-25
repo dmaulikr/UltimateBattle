@@ -3,7 +3,6 @@
 #import "TriLaser.h"
 #import "QuadLaser.h"
 #import "SplitLaser.h"
-#import "QuantumPilot.h"
 
 @implementation WeaponsTestLayer
 
@@ -51,11 +50,19 @@
         [self.f addChild:ql2];
         //        [self.f.bullets addObject:ql2]
         
-        QuantumPilot *qp = [[QuantumPilot alloc] init];
+        qp = [[QuantumPilot alloc] init];
         qp.l = ccp(100, 200);
         [self.f addChild:qp];
+        
+        [self setIsTouchEnabled:YES];
     }
     return self;
+}
+
+- (void)ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+    UITouch *touch = [touches anyObject];
+    CGPoint l = [touch locationInView:[touch view]];
+    qp.l = ccp(l.x, 1024-l.y);
 }
 
 @end
