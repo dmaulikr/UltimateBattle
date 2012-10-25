@@ -1,14 +1,7 @@
-//
-//  QuantumPilot.m
-//  QuantumPilot
-//
-//  Created by X3N0 on 10/21/12.
-//
-//
-
 #import "QuantumPilot.h"
 #import "VRGeometry.h"
 #import "QuantumClone.h"
+#import "QPBattlefield.h"
 
 @interface QuantumPilot()
 
@@ -35,7 +28,7 @@ static float shipSideWidth = 15;
 static float shipBottomHeight = 10;
 static float innerTopHeight = 10;
 
-static float innerPointRatio = .7;
+static float innerCircleRadius = 4.5;
 
 - (NSInteger)yDirection {
     return -1;
@@ -52,30 +45,13 @@ static float innerPointRatio = .7;
 - (void)draw {
     outerEdges[0] = ccp(self.l.x, self.l.y - shipTopHeight * [self yDirection]);
     outerEdges[1] = ccp(self.l.x - shipSideWidth, self.l.y);
+    outerEdges[2] = ccp(self.l.x, self.l.y - shipBottomHeight);
     outerEdges[3] = ccp(self.l.x + shipSideWidth, self.l.y);
-
-    self.vel = ccp(self.vel.x - .1, self.vel.y);
-    if (self.vel.x < -5) {
-        self.vel = ccp(5, self.l.y);
-    }
-
+    innerTopEdge = ccp(self.l.x, self.l.y - innerTopHeight * [self yDirection]);
     
-    float xVelPercentage = fabsf(self.vel.x) / self.speed;
-    NSInteger xSign = self.vel.x < 0 ? -1 : 1;
-    float topXOffset = xVelPercentage * (innerPointRatio * shipSideWidth) * xSign;
-    float bottomXOffset = xVelPercentage * (innerPointRatio *shipSideWidth) * -xSign;
-
-    float heightRatio = (1-xVelPercentage);
-    
-    outerEdges[2] = ccp(self.l.x + bottomXOffset, self.l.y - (shipBottomHeight * heightRatio));
-
-    innerTopEdge = ccp(self.l.x + topXOffset, self.l.y - (innerTopHeight * heightRatio ) * [self yDirection]);
     ccDrawPoly(outerEdges, 4, YES);
-    
-    ccDrawLine(outerEdges[1], innerTopEdge);
-    ccDrawLine(innerTopEdge, outerEdges[3]);
-    ccDrawLine(outerEdges[2], outerEdges[0]);
-    ccDrawLine(innerTopEdge, outerEdges[0]);
+    ccDrawFilledCircle(innerTopEdge, innerCircleRadius * [QPBattlefield pulseRotation], 0, 100, NO);
+
 }
 
 - (BOOL)isFiring {
