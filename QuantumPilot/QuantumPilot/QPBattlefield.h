@@ -21,6 +21,7 @@ enum pulsestate {
 
 @property (nonatomic, retain) NSMutableArray *bullets;
 @property (nonatomic, retain) QuantumPilot *pilot;
+@property (nonatomic, assign) CCLayer *layer;
 
 - (float)rhythmScale;
 - (void)pulse;

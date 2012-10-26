@@ -4,6 +4,7 @@
 @implementation QPBattlefield
 @synthesize bullets = _bullets;
 @synthesize pilot = _pilot;
+@synthesize layer = _layer;
 
 static QPBattlefield *instance = nil;
 
@@ -28,7 +29,7 @@ static QPBattlefield *instance = nil;
 
 - (void)setupPilot {
     self.pilot = [[[QuantumPilot alloc] init] autorelease];
-    [self addChild:self.pilot];    
+    [self addChild:self.pilot];
 }
 
 - (id)init {
@@ -103,6 +104,7 @@ static QPBattlefield *instance = nil;
 - (void)dealloc {
     [_pilot removeFromParentAndCleanup:YES];
     self.pilot = nil;
+    self.layer = nil;
     [super dealloc];
 }
 

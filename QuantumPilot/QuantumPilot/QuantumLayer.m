@@ -23,7 +23,7 @@
     self = [super init];
     if (self){
         self.f = [QPBattlefield f];
-        f.layer = self;
+        self.f.layer = self;
         [self addChild:self.f];
         
         self.breath = [NSTimer scheduledTimerWithTimeInterval:0.016 target:self selector:@selector(breathe) userInfo:nil repeats:YES];
