@@ -1,12 +1,5 @@
-//
-//  QPBattlefield.h
-//  QuantumPilot
-//
-//  Created by X3N0 on 10/22/12.
-//
-//
-
-#import "CCNode.h"
+#import "cocos2d.h"
+#import "QuantumPilot.h"
 
 enum pulsestate {
     resting = 0,
@@ -27,6 +20,7 @@ enum pulsestate {
 }
 
 @property (nonatomic, retain) NSMutableArray *bullets;
+@property (nonatomic, retain) QuantumPilot *pilot;
 
 - (float)rhythmScale;
 - (void)pulse;

@@ -1,16 +1,9 @@
-//
-//  QPBattlefield.m
-//  QuantumPilot
-//
-//  Created by X3N0 on 10/22/12.
-//
-//
-
 #import "QPBattlefield.h"
 #import "Bullet.h"
 
 @implementation QPBattlefield
 @synthesize bullets = _bullets;
+@synthesize pilot = _pilot;
 
 static QPBattlefield *instance = nil;
 
@@ -23,17 +16,27 @@ static QPBattlefield *instance = nil;
     return instance;
 }
 
+- (void)setupPulses {
+    _pulseTimes[0] = 10;
+    _pulseTimes[1] = 10;
+    _pulseTimes[2] = 5;
+    _pulseTimes[3] = 5;
+    _breaths = 0;
+    _breathCycle = 30;
+    _breathFlow = 1;
+}
+
+- (void)setupPilot {
+    self.pilot = [[[QuantumPilot alloc] init] autorelease];
+    [self addChild:self.pilot];    
+}
+
 - (id)init {
     self = [super init];
     if (self) {
         self.bullets = [NSMutableArray array];
-        _pulseTimes[0] = 10;
-        _pulseTimes[1] = 10;
-        _pulseTimes[2] = 5;
-        _pulseTimes[3] = 5;
-        _breaths = 0;
-        _breathCycle = 30;
-        _breathFlow = 1;
+        [self setupPulses];
+        [self setupPilot];
     }
     return self;
 }
@@ -97,14 +100,10 @@ static QPBattlefield *instance = nil;
     [self bulletPulse];
 }
 
-
-//    if (_rhythmScale >= 1) {
-//        _rhythmScale = 1;
-//        _rhythmDirection = -1;
-//    } else if (_rhythmScale < .2) {
-//        _rhythmScale = .2;
-//        _rhythmDirection = 1;
-//    }
-
+- (void)dealloc {
+    [_pilot removeFromParentAndCleanup:YES];
+    self.pilot = nil;
+    [super dealloc];
+}
 
 @end
