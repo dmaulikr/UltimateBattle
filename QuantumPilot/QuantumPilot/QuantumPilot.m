@@ -3,6 +3,12 @@
 #import "QuantumClone.h"
 #import "QPBattlefield.h"
 
+@protocol QuantumPilotingDelegate <NSObject>
+
+- (void)pilotReachedEndOfFutureWaypoints;
+
+@end
+
 @interface QuantumPilot() {
     CGPoint future[4001];
 }
@@ -15,6 +21,7 @@
 @synthesize fightingIteration = _fightingIteration;
 @synthesize clone = _clone;
 @synthesize bulletDelegate = _bulletDelegate;
+@synthesize pilotDelegate = _pilotDelegate;
 
 static float shipTopHeight = 50;
 static float shipSideWidth = 15;
@@ -92,7 +99,7 @@ static float innerCircleRadius = 4.5;
     if ([self reachedTarget]) {
         self.fightingIteration++;
         if (self.fightingIteration == self.drawingIteration) {
-            //Tell battlefield: REACHED last waypoint, SHIFT  to DRAWING
+            [self.pilotDelegate pilotReachedEndOfFutureWaypoints];
         }
     }
 }
@@ -118,6 +125,10 @@ static float innerCircleRadius = 4.5;
 
 - (void)addWaypoint:(CGPoint)l {
     future[self.drawingIteration] = l;
+}
+
+- (BOOL)isCollidingWithBullet:(Bullet *)b {
+    return NO;
 }
 
 @end

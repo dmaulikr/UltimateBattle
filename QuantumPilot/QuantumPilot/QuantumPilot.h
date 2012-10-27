@@ -1,6 +1,8 @@
 #import "CCNode.h"
 #import "cocos2d.h"
 #import "QPBulletDelegate.h"
+#import "Bullet.h"
+
 @protocol QuantumPilotingDelegate;
 
 @class QuantumClone;
@@ -34,7 +36,7 @@
 
 //////////
 
-- (BOOL)isCollidingWithBullet;
+- (BOOL)isCollidingWithBullet:(Bullet *)b;
 //- (void)hitByBullet:
 
 @end

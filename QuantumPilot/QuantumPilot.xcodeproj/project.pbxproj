@@ -129,6 +129,7 @@
 		BF8A76AA16365CFE0032AF8F /* TriLaser.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8A76A916365CFE0032AF8F /* TriLaser.m */; };
 		BF8A76AD16366DD30032AF8F /* QuadLaser.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8A76AC16366DD30032AF8F /* QuadLaser.m */; };
 		BF8A76B0163672780032AF8F /* WeaponsTestLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8A76AF163672780032AF8F /* WeaponsTestLayer.m */; };
+		BFA1BE56163B5C7100833186 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFA1BE55163B5C7100833186 /* Default-568h@2x.png */; };
 		BFB9DD621633CF900074EB70 /* QuantumPilot.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB9DD611633CF900074EB70 /* QuantumPilot.m */; };
 		BFB9DD661633D04E0074EB70 /* QuantumLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB9DD651633D04E0074EB70 /* QuantumLayer.m */; };
 /* End PBXBuildFile section */
@@ -401,6 +402,7 @@
 		BF8A76AE163672780032AF8F /* WeaponsTestLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeaponsTestLayer.h; sourceTree = "<group>"; };
 		BF8A76AF163672780032AF8F /* WeaponsTestLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeaponsTestLayer.m; sourceTree = "<group>"; };
 		BFA1BE53163B5A1500833186 /* QPBulletDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBulletDelegate.h; sourceTree = "<group>"; };
+		BFA1BE55163B5C7100833186 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		BFB9DD601633CF900074EB70 /* QuantumPilot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuantumPilot.h; sourceTree = "<group>"; };
 		BFB9DD611633CF900074EB70 /* QuantumPilot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuantumPilot.m; sourceTree = "<group>"; };
 		BFB9DD641633D04E0074EB70 /* QuantumLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuantumLayer.h; sourceTree = "<group>"; };
@@ -430,6 +432,7 @@
 		BF0EE05D163319B8002942A0 = {
 			isa = PBXGroup;
 			children = (
+				BFA1BE55163B5C7100833186 /* Default-568h@2x.png */,
 				BF0EE07E163319B8002942A0 /* QuantumPilot */,
 				BF0EE06B163319B8002942A0 /* Frameworks */,
 				BF0EE069163319B8002942A0 /* Products */,
@@ -972,6 +975,7 @@
 			files = (
 				BF0EE098163319B9002942A0 /* iTunesArtwork in Resources */,
 				BF0EE1D6163319BB002942A0 /* ChangeLog in Resources */,
+				BFA1BE56163B5C7100833186 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
