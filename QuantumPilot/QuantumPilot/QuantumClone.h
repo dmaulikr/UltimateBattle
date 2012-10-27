@@ -13,16 +13,12 @@ enum TimeDirection {
     backwads = -1
 };
 
-struct history {
-    CGPoint velocities[4001];
-    BOOL fireTimings[4001];
+@interface QuantumClone : QuantumPilot {
+    CGPoint pastVelocities[4001];
+    BOOL pastFireTimings[4001];
     NSInteger timeIndex;
     enum TimeDirection timeDirection;
-};
-
-@interface QuantumClone : QuantumPilot
-
-@property (nonatomic) struct history history;
+}
 
 - (void)recordVelocity:(CGPoint)l firing:(BOOL)firing;
 

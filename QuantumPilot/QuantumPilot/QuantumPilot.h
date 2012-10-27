@@ -1,15 +1,9 @@
-//
-//  QuantumPilot.h
-//  QuantumPilot
-//
-//  Created by X3N0 on 10/21/12.
-//
-//
-
 #import "CCNode.h"
 #import "cocos2d.h"
-@class QuantumClone;
+#import "QPBulletDelegate.h"
+@protocol QuantumPilotingDelegate;
 
+@class QuantumClone;
 
 
 @interface QuantumPilot : CCNode {
@@ -29,6 +23,9 @@
 
 @property (nonatomic, retain) QuantumClone *clone;
 
+@property (nonatomic, assign) id <QPBulletDelegate> bulletDelegate;
+@property (nonatomic, assign) id <QuantumPilotingDelegate> pilotDelegate;
+
 - (void)tick;
 
 - (BOOL)isFiring;
@@ -39,6 +36,5 @@
 
 - (BOOL)isCollidingWithBullet;
 //- (void)hitByBullet:
-
 
 @end

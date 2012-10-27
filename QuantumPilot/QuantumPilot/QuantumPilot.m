@@ -3,25 +3,18 @@
 #import "QuantumClone.h"
 #import "QPBattlefield.h"
 
-@interface QuantumPilot()
-
-struct future {
-    CGPoint waypoints[4001];
-};
-
-
-
-@property (nonatomic, assign) struct future future;
-
+@interface QuantumPilot() {
+    CGPoint future[4001];
+}
 
 @end
 
 @implementation QuantumPilot
 @synthesize l = _l, vel = _vel, speed = _speed, firing = _firing, t = _t;
-@synthesize future = _future;
 @synthesize drawingIteration = _drawingIteration;
 @synthesize fightingIteration = _fightingIteration;
 @synthesize clone = _clone;
+@synthesize bulletDelegate = _bulletDelegate;
 
 static float shipTopHeight = 50;
 static float shipSideWidth = 15;
@@ -65,7 +58,7 @@ static float innerCircleRadius = 4.5;
 }
 
 - (CGPoint)currentWaypoint {
-    return self.future.waypoints[self.fightingIteration];
+    return future[self.fightingIteration];
 }
 
 - (void)calculateTarget {
@@ -124,9 +117,7 @@ static float innerCircleRadius = 4.5;
 }
 
 - (void)addWaypoint:(CGPoint)l {
-    struct future f = self.future;
-    f.waypoints[self.drawingIteration] = l;
-    self.future = f;
+    future[self.drawingIteration] = l;
 }
 
 @end

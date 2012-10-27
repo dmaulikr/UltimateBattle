@@ -400,6 +400,7 @@
 		BF8A76AC16366DD30032AF8F /* QuadLaser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuadLaser.m; sourceTree = "<group>"; };
 		BF8A76AE163672780032AF8F /* WeaponsTestLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeaponsTestLayer.h; sourceTree = "<group>"; };
 		BF8A76AF163672780032AF8F /* WeaponsTestLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeaponsTestLayer.m; sourceTree = "<group>"; };
+		BFA1BE53163B5A1500833186 /* QPBulletDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBulletDelegate.h; sourceTree = "<group>"; };
 		BFB9DD601633CF900074EB70 /* QuantumPilot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuantumPilot.h; sourceTree = "<group>"; };
 		BFB9DD611633CF900074EB70 /* QuantumPilot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuantumPilot.m; sourceTree = "<group>"; };
 		BFB9DD641633D04E0074EB70 /* QuantumLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuantumLayer.h; sourceTree = "<group>"; };
@@ -847,6 +848,7 @@
 		BF8A76A716364B360032AF8F /* Cannons */ = {
 			isa = PBXGroup;
 			children = (
+				BFA1BE53163B5A1500833186 /* QPBulletDelegate.h */,
 			);
 			name = Cannons;
 			sourceTree = "<group>";
