@@ -93,7 +93,9 @@ static QPBattlefield *instance = nil;
 - (void)bulletPulse {
     for (Bullet *b in self.bullets) {
         [b pulse];
+    //    if [b isCol]
     }
+    //for
 }
 
 - (void)pulse {

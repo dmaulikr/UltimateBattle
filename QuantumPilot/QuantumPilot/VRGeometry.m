@@ -40,3 +40,15 @@ CGPoint GetAngle(CGPoint a ,CGPoint b){
 	
 	return finalVel;
 }
+
+BOOL shapeOfSizeContainsPoint(CGPoint *points, NSInteger length, CGPoint point) {
+	CGMutablePathRef path=CGPathCreateMutable();
+    
+    CGPathMoveToPoint(path, NULL, points[0].x, points[0].y);
+    for (int i = 1; i < length; i++) {
+        CGPathAddLineToPoint(path, NULL, points[i].x, points[i].y);
+    }
+    
+	CGPathCloseSubpath(path);
+	return CGPathContainsPoint(path, NULL, point, YES);
+}

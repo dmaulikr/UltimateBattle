@@ -127,8 +127,12 @@ static float innerCircleRadius = 4.5;
     future[self.drawingIteration] = l;
 }
 
+- (CGPoint *)drawShape {
+    return outerEdges;
+}
+
 - (BOOL)isCollidingWithBullet:(Bullet *)b {
-    return NO;
+    return shapeOfSizeContainsPoint([self drawShape], 4, b.l);
 }
 
 @end

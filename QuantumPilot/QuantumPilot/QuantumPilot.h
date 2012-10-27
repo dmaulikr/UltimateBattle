@@ -11,7 +11,6 @@
 @interface QuantumPilot : CCNode {
     CGPoint outerEdges[4];
     CGPoint innerTopEdge;
-    
 }
 
 @property (nonatomic) CGPoint l;
@@ -38,5 +37,7 @@
 
 - (BOOL)isCollidingWithBullet:(Bullet *)b;
 //- (void)hitByBullet:
+
+- (CGPoint *)drawShape;
 
 @end
