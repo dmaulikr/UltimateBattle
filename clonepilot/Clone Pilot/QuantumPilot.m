@@ -20,10 +20,10 @@
     self = [super init];
     if (self) {
         self.l = [ClonePlayer defaultLocation];
-        self.t = self.l;
+//        self.t = self.l;
         [self generateTurn];
         [self assignDefaultWeapon];
-        self.living = 1;
+  //      self.living = 1;
         self.speed = 5;
         self.radius = 20;
     }
@@ -65,7 +65,7 @@
     [self assignVelocityForTarget];
     [self updateLocationWithVelocity];
      
-    self.t = self.l;
+    /self.t = self.l;
 }
 
 - (void)draw {

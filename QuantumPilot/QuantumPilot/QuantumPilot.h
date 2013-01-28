@@ -2,6 +2,7 @@
 #import "cocos2d.h"
 #import "QPBulletDelegate.h"
 #import "Bullet.h"
+#define QPBF_PLAYER_TAP_RANGE 120
 
 @protocol QuantumPilotingDelegate;
 
@@ -27,7 +28,7 @@
 @property (nonatomic, assign) id <QPBulletDelegate> bulletDelegate;
 @property (nonatomic, assign) id <QuantumPilotingDelegate> pilotDelegate;
 
-- (void)tick;
+- (void)pulse;
 
 - (BOOL)isFiring;
 

@@ -6,6 +6,8 @@
 @synthesize pilot = _pilot;
 @synthesize layer = _layer;
 
+#pragma mark setup
+
 static QPBattlefield *instance = nil;
 
 + (QPBattlefield *)f {
@@ -15,6 +17,13 @@ static QPBattlefield *instance = nil;
     });
     
     return instance;
+}
+
+- (void)dealloc {
+    [_pilot removeFromParentAndCleanup:YES];
+    self.pilot = nil;
+    self.layer = nil;
+    [super dealloc];
 }
 
 - (void)setupPulses {
@@ -30,6 +39,13 @@ static QPBattlefield *instance = nil;
 - (void)setupPilot {
     self.pilot = [[[QuantumPilot alloc] init] autorelease];
     [self addChild:self.pilot];
+    self.pilot.l = ccp(100, 200);
+}
+
+- (void)setupStates {
+    self.titleState = [[QPBFTitleState alloc] initWithBattlefield:self];
+    self.drawingState = [[QPBFDrawingState alloc] initWithBattlefield:self];
+    self.currentState = self.titleState;
 }
 
 - (id)init {
@@ -38,6 +54,7 @@ static QPBattlefield *instance = nil;
         self.bullets = [NSMutableArray array];
         [self setupPulses];
         [self setupPilot];
+        [self setupStates];
     }
     return self;
 }
@@ -58,6 +75,8 @@ static QPBattlefield *instance = nil;
 - (float)rhythmScale {
     return _rhythmScale;
 }
+
+#pragma mark Pulse
 
 - (void)rhythmPulse {
     _pulseCharge++;
@@ -99,15 +118,69 @@ static QPBattlefield *instance = nil;
 }
 
 - (void)pulse {
-    [self rhythmPulse];
-    [self bulletPulse];
+    [self.currentState pulse];
+    //states manage
+    if ([self.currentState isPulsing]) {
+        [self rhythmPulse];
+        [self bulletPulse];
+        [self.pilot pulse];
+    }
 }
 
-- (void)dealloc {
-    [_pilot removeFromParentAndCleanup:YES];
-    self.pilot = nil;
-    self.layer = nil;
-    [super dealloc];
+#pragma mark States
+
+- (void)changeState:(QPBFState *)state {
+    self.currentState = state;
+}
+
+- (void)changeState:(QPBFState *)state withTouch:(CGPoint)l {
+    [self changeState:state];
+    [self.currentState addTouch:l];
+}
+
+#pragma mark Input
+
+- (void)addTouch:(CGPoint)l {
+    [self.currentState addTouch:l];
+}
+
+- (void)endTouch:(CGPoint)l {
+    [self.currentState endTouch:l];
+}
+
+- (void)moveTouch:(CGPoint)l {
+    [self.currentState moveTouch:l];
+}
+
+#pragma mark Pilot Positioning
+
+- (BOOL)touchingPlayer:(CGPoint)l {
+    return GetDistance(l, self.pilot.l) <= QPBF_PLAYER_TAP_RANGE;
+}
+
+- (void)addDelta:(CGPoint)delta {
+    if (self.time < QPBF_MAX_DRAWING_FRAMES) {
+        _deltas[self.drawingIteration] = delta;
+        self.latestExpected = delta;
+    }
+}
+
+#pragma mark Draw
+
+- (void)draw {
+    [super draw];
+    ccDrawColor4F(1, 1, 1, 1.0);
+    CGPoint drawingDeltas[4001];
+    NSInteger index = 0;
+    for (int i = self.fightingIteration; i < self.drawingIteration; i++) {
+        drawingDeltas[index] = _deltas[i];
+        index++;
+    }
+    NSInteger drawFrameTotal = self.drawingIteration - self.fightingIteration;
+    if (drawFrameTotal < 0) {
+        drawFrameTotal = 0;
+    }
+    ccDrawPoly(drawingDeltas, drawFrameTotal, NO);
 }
 
 @end

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0EEAC48C16B73BC3005F629F /* QPBFState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEAC48B16B73BC3005F629F /* QPBFState.m */; };
+		0EEAC48F16B73C35005F629F /* QPBFTitleState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEAC48E16B73C35005F629F /* QPBFTitleState.m */; };
+		0EEAC49216B73D2E005F629F /* QPBFDrawingState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEAC49116B73D2E005F629F /* QPBFDrawingState.m */; };
 		BF0EE06D163319B8002942A0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF0EE06C163319B8002942A0 /* QuartzCore.framework */; };
 		BF0EE06F163319B8002942A0 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF0EE06E163319B8002942A0 /* OpenGLES.framework */; };
 		BF0EE071163319B8002942A0 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF0EE070163319B8002942A0 /* OpenAL.framework */; };
@@ -135,6 +138,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0EEAC48A16B73BC3005F629F /* QPBFState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBFState.h; sourceTree = "<group>"; };
+		0EEAC48B16B73BC3005F629F /* QPBFState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBFState.m; sourceTree = "<group>"; };
+		0EEAC48D16B73C35005F629F /* QPBFTitleState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBFTitleState.h; sourceTree = "<group>"; };
+		0EEAC48E16B73C35005F629F /* QPBFTitleState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBFTitleState.m; sourceTree = "<group>"; };
+		0EEAC49016B73D2E005F629F /* QPBFDrawingState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBFDrawingState.h; sourceTree = "<group>"; };
+		0EEAC49116B73D2E005F629F /* QPBFDrawingState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBFDrawingState.m; sourceTree = "<group>"; };
 		BF0EE068163319B8002942A0 /* QuantumPilot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuantumPilot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF0EE06C163319B8002942A0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		BF0EE06E163319B8002942A0 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -429,6 +438,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0EEAC48816B73BB9005F629F /* States */ = {
+			isa = PBXGroup;
+			children = (
+				0EEAC48A16B73BC3005F629F /* QPBFState.h */,
+				0EEAC48B16B73BC3005F629F /* QPBFState.m */,
+				0EEAC48D16B73C35005F629F /* QPBFTitleState.h */,
+				0EEAC48E16B73C35005F629F /* QPBFTitleState.m */,
+				0EEAC49016B73D2E005F629F /* QPBFDrawingState.h */,
+				0EEAC49116B73D2E005F629F /* QPBFDrawingState.m */,
+			);
+			name = States;
+			sourceTree = "<group>";
+		};
 		BF0EE05D163319B8002942A0 = {
 			isa = PBXGroup;
 			children = (
@@ -896,6 +918,7 @@
 		BFB9DD5D1633CF640074EB70 /* Battlefield */ = {
 			isa = PBXGroup;
 			children = (
+				0EEAC48816B73BB9005F629F /* States */,
 				BFB9DD5E1633CF6A0074EB70 /* Modifiers */,
 				BF8A76A0163646270032AF8F /* QPBattlefield.h */,
 				BF8A76A1163646270032AF8F /* QPBattlefield.m */,
@@ -1099,6 +1122,9 @@
 				BF8A76AD16366DD30032AF8F /* QuadLaser.m in Sources */,
 				BF8A76B0163672780032AF8F /* WeaponsTestLayer.m in Sources */,
 				BF18895216374B4000C05703 /* SplitLaser.m in Sources */,
+				0EEAC48C16B73BC3005F629F /* QPBFState.m in Sources */,
+				0EEAC48F16B73C35005F629F /* QPBFTitleState.m in Sources */,
+				0EEAC49216B73D2E005F629F /* QPBFDrawingState.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

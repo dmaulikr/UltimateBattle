@@ -27,13 +27,37 @@
         [self addChild:self.f];
         
         self.breath = [NSTimer scheduledTimerWithTimeInterval:0.016 target:self selector:@selector(breathe) userInfo:nil repeats:YES];
-
+        self.isTouchEnabled = YES;
     }
     return self;
 }
 
 - (void)breathe {
     [self.f pulse];
+}
+
+- (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    UITouch *touch = [touches anyObject];
+    CGPoint l = [touch locationInView:[touch view]];
+    [self.f addTouch:ccp(l.x, 1024-l.y)];
+}
+
+- (void)ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+	NSArray *touchArray = [touches allObjects];
+    
+    for (UITouch *touch in touchArray) {
+        CGPoint l = [touch locationInView:[touch view]];
+        [self.f moveTouch:ccp(l.x, 1024-l.y)];
+    }
+}
+
+- (void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    NSArray *touchArray = [touches allObjects];
+    
+    for (UITouch *touch in touchArray) {
+        CGPoint l = [touch locationInView:[touch view]];
+        [self.f endTouch:ccp(l.x, 1024-l.y)];
+    }
 }
 
 @end

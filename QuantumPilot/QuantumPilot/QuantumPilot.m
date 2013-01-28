@@ -112,7 +112,7 @@ static float innerCircleRadius = 4.5;
     [self.clone recordVelocity:self.vel firing:self.firing];
 }
 
-- (void)tick {
+- (void)pulse {
     [self checkForFiringWeapon];
     [self calculateTarget];
     [self calculateVelocityForTarget];
@@ -136,24 +136,5 @@ static float innerCircleRadius = 4.5;
 }
 
 @end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

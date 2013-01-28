@@ -42,7 +42,8 @@
 	[sharedFileUtils setiPadSuffix:@"-ipad"];					// Default on iPad is "ipad"
 	[sharedFileUtils setiPadRetinaDisplaySuffix:@"-ipadhd"];	// Default on iPad RetinaDisplay is "-ipadhd"
 	[CCTexture2D PVRImagesHavePremultipliedAlpha:YES];
-	[director_ pushScene: [WeaponsTestLayer scene]];
+//	[director_ pushScene: [WeaponsTestLayer scene]];
+	[director_ pushScene: [QuantumLayer scene]];
     
 	
 	// Create a Navigation Controller with the Director
