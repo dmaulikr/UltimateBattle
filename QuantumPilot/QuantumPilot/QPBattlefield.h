@@ -3,6 +3,7 @@
 #import "QPBFState.h"
 #import "QPBFTitleState.h"
 #import "QPBFDrawingState.h"
+#import "QPBFFightingState.h"
 
 #define QPBF_MAX_DRAWING_FRAMES 4000
 
@@ -13,7 +14,7 @@ enum pulsestate {
     falling = 3
 };
 
-@interface QPBattlefield : CCNode {
+@interface QPBattlefield : CCNode <QuantumPilotingDelegate> {
     NSInteger _pulseTimes[4];
     NSInteger _pulseState;
     NSInteger _pulseDirection;
@@ -34,9 +35,10 @@ enum pulsestate {
 @property (nonatomic, retain) QPBFState *currentState;
 @property (nonatomic, retain) QPBFTitleState *titleState;
 @property (nonatomic, retain) QPBFDrawingState *drawingState;
+@property (nonatomic, retain) QPBFFightingState *fightingState;
 
-@property (nonatomic, assign) NSInteger drawingIteration;
-@property (nonatomic, assign) NSInteger fightingIteration;
+//@property (nonatomic, assign) NSInteger drawingIteration;
+//@property (nonatomic, assign) NSInteger fightingIteration;
 
 #pragma mark Pilot Positioning
 @property (nonatomic, assign) CGPoint playerTouch;
@@ -44,6 +46,9 @@ enum pulsestate {
 @property (nonatomic, assign) CGPoint touchPlayerOffset;
 
 @property (nonatomic, assign) CGPoint latestExpected;
+
+#pragma mark Clones
+@property (nonatomic, retain) NSMutableArray *clones;
 
 #pragma mark Pulse
 
@@ -66,8 +71,12 @@ enum pulsestate {
 #pragma mark Pilot Positioning
 
 - (BOOL)touchingPlayer:(CGPoint)l;
-- (void)addDelta:(CGPoint)l;
 
+- (void)changeState:(QPBFState *)state;
 - (void)changeState:(QPBFState *)state withTouch:(CGPoint)l;
+
+#pragma mark deltas
+
+- (CGPoint)deltaPoint:(NSInteger)index;
 
 @end

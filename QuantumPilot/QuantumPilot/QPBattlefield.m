@@ -2,9 +2,6 @@
 #import "Bullet.h"
 
 @implementation QPBattlefield
-@synthesize bullets = _bullets;
-@synthesize pilot = _pilot;
-@synthesize layer = _layer;
 
 #pragma mark setup
 
@@ -38,6 +35,7 @@ static QPBattlefield *instance = nil;
 
 - (void)setupPilot {
     self.pilot = [[[QuantumPilot alloc] init] autorelease];
+    self.pilot.pilotDelegate = self;
     [self addChild:self.pilot];
     self.pilot.l = ccp(100, 200);
 }
@@ -45,6 +43,7 @@ static QPBattlefield *instance = nil;
 - (void)setupStates {
     self.titleState = [[QPBFTitleState alloc] initWithBattlefield:self];
     self.drawingState = [[QPBFDrawingState alloc] initWithBattlefield:self];
+    self.fightingState = [[QPBFFightingState alloc] initWithBattlefield:self];
     self.currentState = self.titleState;
 }
 
@@ -158,29 +157,13 @@ static QPBattlefield *instance = nil;
     return GetDistance(l, self.pilot.l) <= QPBF_PLAYER_TAP_RANGE;
 }
 
-- (void)addDelta:(CGPoint)delta {
-    if (self.time < QPBF_MAX_DRAWING_FRAMES) {
-        _deltas[self.drawingIteration] = delta;
-        self.latestExpected = delta;
-    }
-}
+#pragma mark deltas
 
-#pragma mark Draw
+#pragma mark Pilot Delgate
 
-- (void)draw {
-    [super draw];
-    ccDrawColor4F(1, 1, 1, 1.0);
-    CGPoint drawingDeltas[4001];
-    NSInteger index = 0;
-    for (int i = self.fightingIteration; i < self.drawingIteration; i++) {
-        drawingDeltas[index] = _deltas[i];
-        index++;
-    }
-    NSInteger drawFrameTotal = self.drawingIteration - self.fightingIteration;
-    if (drawFrameTotal < 0) {
-        drawFrameTotal = 0;
-    }
-    ccDrawPoly(drawingDeltas, drawFrameTotal, NO);
+- (void)pilotReachedEndOfFutureWaypoints {
+//    [self changeState:self.pausedState];
+//    [self resetIterations];
 }
 
 @end

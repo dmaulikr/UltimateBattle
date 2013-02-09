@@ -3,12 +3,6 @@
 #import "QuantumClone.h"
 #import "QPBattlefield.h"
 
-@protocol QuantumPilotingDelegate <NSObject>
-
-- (void)pilotReachedEndOfFutureWaypoints;
-
-@end
-
 @interface QuantumPilot() {
     CGPoint future[4001];
 }
@@ -52,6 +46,21 @@ static float innerCircleRadius = 4.5;
     ccDrawPoly(outerEdges, 4, YES);
     ccDrawFilledCircle(innerTopEdge, innerCircleRadius * [QPBattlefield pulseRotation], 0, 100, NO);
 
+    
+    ccDrawColor4F(1, 1, 1, 1.0);
+    CGPoint drawingDeltas[4001];
+    NSInteger index = 0;
+    for (int i = self.fightingIteration; i < self.drawingIteration; i++) {
+        drawingDeltas[index] = future[i];
+        index++;
+    }
+    NSInteger drawFrameTotal = self.drawingIteration - self.fightingIteration;
+    if (drawFrameTotal < 0) {
+        drawFrameTotal = 0;
+    }
+    ccDrawPoly(drawingDeltas, drawFrameTotal, NO);
+
+    
 }
 
 - (BOOL)isFiring {
@@ -125,6 +134,14 @@ static float innerCircleRadius = 4.5;
 
 - (void)addWaypoint:(CGPoint)l {
     future[self.drawingIteration] = l;
+}
+
+- (CGPoint)deltasAtIndex:(NSInteger)index {
+    return future[index];
+}
+
+- (CGPoint)deltaTarget {
+    return future[self.fightingIteration];
 }
 
 - (CGPoint *)drawShape {

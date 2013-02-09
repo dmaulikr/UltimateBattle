@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E63B75216C7039100F63829 /* QPBFFightingState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E63B75116C7039100F63829 /* QPBFFightingState.m */; };
 		0EEAC48C16B73BC3005F629F /* QPBFState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEAC48B16B73BC3005F629F /* QPBFState.m */; };
 		0EEAC48F16B73C35005F629F /* QPBFTitleState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEAC48E16B73C35005F629F /* QPBFTitleState.m */; };
 		0EEAC49216B73D2E005F629F /* QPBFDrawingState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEAC49116B73D2E005F629F /* QPBFDrawingState.m */; };
@@ -138,6 +139,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E63B75016C7039100F63829 /* QPBFFightingState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBFFightingState.h; sourceTree = "<group>"; };
+		0E63B75116C7039100F63829 /* QPBFFightingState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBFFightingState.m; sourceTree = "<group>"; };
 		0EEAC48A16B73BC3005F629F /* QPBFState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBFState.h; sourceTree = "<group>"; };
 		0EEAC48B16B73BC3005F629F /* QPBFState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBFState.m; sourceTree = "<group>"; };
 		0EEAC48D16B73C35005F629F /* QPBFTitleState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBFTitleState.h; sourceTree = "<group>"; };
@@ -447,6 +450,8 @@
 				0EEAC48E16B73C35005F629F /* QPBFTitleState.m */,
 				0EEAC49016B73D2E005F629F /* QPBFDrawingState.h */,
 				0EEAC49116B73D2E005F629F /* QPBFDrawingState.m */,
+				0E63B75016C7039100F63829 /* QPBFFightingState.h */,
+				0E63B75116C7039100F63829 /* QPBFFightingState.m */,
 			);
 			name = States;
 			sourceTree = "<group>";
@@ -1125,6 +1130,7 @@
 				0EEAC48C16B73BC3005F629F /* QPBFState.m in Sources */,
 				0EEAC48F16B73C35005F629F /* QPBFTitleState.m in Sources */,
 				0EEAC49216B73D2E005F629F /* QPBFDrawingState.m in Sources */,
+				0E63B75216C7039100F63829 /* QPBFFightingState.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

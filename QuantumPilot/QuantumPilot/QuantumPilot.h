@@ -34,11 +34,18 @@
 
 - (void)addWaypoint:(CGPoint)l;
 
-//////////
+- (CGPoint)deltasAtIndex:(NSInteger)index;
+- (CGPoint)deltaTarget;
 
 - (BOOL)isCollidingWithBullet:(Bullet *)b;
 //- (void)hitByBullet:
 
 - (CGPoint *)drawShape;
+
+@end
+
+@protocol QuantumPilotingDelegate <NSObject>
+
+- (void)pilotReachedEndOfFutureWaypoints;
 
 @end

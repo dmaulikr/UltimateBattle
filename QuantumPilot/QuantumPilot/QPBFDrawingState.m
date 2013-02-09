@@ -4,12 +4,19 @@
 @implementation QPBFDrawingState
 
 - (void)pulse {
-    [self.f addDelta:self.f.playerTouch];
-    self.f.drawingIteration++;
-    if (self.f.drawingIteration >= QPBF_MAX_DRAWING_FRAMES) {
-//        [self.f changeState:self.f.fightingState];
+    [self.f.pilot addWaypoint:self.f.playerTouch];
+    if (self.f.time < QPBF_MAX_DRAWING_FRAMES) {
+        [self.f.pilot addWaypoint:self.f.playerTouch];
+        self.f.latestExpected = self.f.playerTouch;
+    }
+
+    self.f.pilot.drawingIteration++;
+    if (self.f.pilot.drawingIteration >= QPBF_MAX_DRAWING_FRAMES) {
+        [self.f changeState:self.f.fightingState];
     }
 }
+
+
 
 - (void)setPlayerTouch:(CGPoint)l {
     self.f.playerTouch = l;
@@ -25,7 +32,7 @@
 }
 
 - (void)endTouch:(CGPoint)l {
-  //  [self.f changeState:self.f.fightingState];
+    [self.f changeState:self.f.fightingState];
 }
 
 - (void)moveTouch:(CGPoint)l {
