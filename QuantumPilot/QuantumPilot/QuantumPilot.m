@@ -109,6 +109,7 @@ static float innerCircleRadius = 4.5;
         self.fightingIteration++;
         if (self.fightingIteration == self.drawingIteration) {
             [self.pilotDelegate pilotReachedEndOfFutureWaypoints];
+            [self resetIterations];            
         }
     }
 }
@@ -151,6 +152,16 @@ static float innerCircleRadius = 4.5;
 - (BOOL)isCollidingWithBullet:(Bullet *)b {
     return shapeOfSizeContainsPoint([self drawShape], 4, b.l);
 }
+
+- (BOOL)touchesPoint:(CGPoint)l {
+    return GetDistance(self.l, l) <= QPBF_PLAYER_TAP_RANGE;
+}
+
+- (void)resetIterations {
+    self.drawingIteration = 0;
+    self.fightingIteration = 0;
+}
+
 
 @end
 

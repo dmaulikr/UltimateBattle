@@ -33,6 +33,7 @@
 - (BOOL)isFiring;
 
 - (void)addWaypoint:(CGPoint)l;
+- (void)resetIterations;
 
 - (CGPoint)deltasAtIndex:(NSInteger)index;
 - (CGPoint)deltaTarget;
@@ -41,6 +42,8 @@
 //- (void)hitByBullet:
 
 - (CGPoint *)drawShape;
+
+- (BOOL)touchesPoint:(CGPoint)l;
 
 @end
 

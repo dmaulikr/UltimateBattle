@@ -7,10 +7,10 @@
     _shiftingToDrawing = NO;
     [self.f changeState:self.f.drawingState withTouch:_shiftToDrawingTouch];
     if (_interruptDrawingPath) {
-     //   [self.f resetIterations];
+        [self.f.pilot resetIterations];
         _interruptDrawingPath = NO;
     } else {
-       // [self.f resetPassedIterations];
+//        [self.f resetPassedIterations];
     }
 }
 

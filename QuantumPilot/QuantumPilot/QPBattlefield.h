@@ -4,6 +4,7 @@
 #import "QPBFTitleState.h"
 #import "QPBFDrawingState.h"
 #import "QPBFFightingState.h"
+#import "QPBFPausedState.h"
 
 #define QPBF_MAX_DRAWING_FRAMES 4000
 
@@ -36,6 +37,7 @@ enum pulsestate {
 @property (nonatomic, retain) QPBFTitleState *titleState;
 @property (nonatomic, retain) QPBFDrawingState *drawingState;
 @property (nonatomic, retain) QPBFFightingState *fightingState;
+@property (nonatomic, retain) QPBFPausedState *pausedState;
 
 //@property (nonatomic, assign) NSInteger drawingIteration;
 //@property (nonatomic, assign) NSInteger fightingIteration;

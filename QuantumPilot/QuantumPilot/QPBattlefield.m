@@ -43,6 +43,7 @@ static QPBattlefield *instance = nil;
 - (void)setupStates {
     self.titleState = [[QPBFTitleState alloc] initWithBattlefield:self];
     self.drawingState = [[QPBFDrawingState alloc] initWithBattlefield:self];
+    self.pausedState =  [[QPBFPausedState alloc] initWithBattlefield:self];
     self.fightingState = [[QPBFFightingState alloc] initWithBattlefield:self];
     self.currentState = self.titleState;
 }
@@ -162,8 +163,7 @@ static QPBattlefield *instance = nil;
 #pragma mark Pilot Delgate
 
 - (void)pilotReachedEndOfFutureWaypoints {
-//    [self changeState:self.pausedState];
-//    [self resetIterations];
+    [self changeState:self.pausedState];
 }
 
 @end
