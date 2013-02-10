@@ -110,10 +110,30 @@ static QPBattlefield *instance = nil;
     }
 }
 
+#pragma mark Bullets
+
+- (CGRect)battlefieldFrame {
+    return CGRectMake(0, 0, 768, 1024);
+}
+
+- (BOOL)bulletOutOfBounds:(Bullet *)b {
+    return !CGRectContainsPoint([self battlefieldFrame], b.l);
+}
+
 - (void)bulletPulse {
+    NSMutableArray *bulletsToErase = [NSMutableArray array];
     for (Bullet *b in self.bullets) {
         [b pulse];
+        if ([self bulletOutOfBounds:b]) {
+            [bulletsToErase addObject:b];
+        }
     }
+    
+    for (Bullet *b in bulletsToErase) {
+        [b removeFromParentAndCleanup:YES];
+    }
+    
+    [self.bullets removeObjectsInArray:bulletsToErase];
 }
 
 - (void)pulse {
