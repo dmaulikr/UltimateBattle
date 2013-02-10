@@ -46,6 +46,7 @@ enum pulsestate {
 @property (nonatomic, assign) CGPoint playerTouch;
 @property (nonatomic, assign) CGPoint lastPlayerTouch;
 @property (nonatomic, assign) CGPoint touchPlayerOffset;
+@property (nonatomic, assign) CGPoint touchOffset;
 
 @property (nonatomic, assign) CGPoint latestExpected;
 
@@ -73,9 +74,11 @@ enum pulsestate {
 #pragma mark Pilot Positioning
 
 - (BOOL)touchingPlayer:(CGPoint)l;
-
 - (void)changeState:(QPBFState *)state;
 - (void)changeState:(QPBFState *)state withTouch:(CGPoint)l;
+- (CGPoint)playerTouchWithOffset;
+- (void)setTouchOffsetFromPilotNear:(CGPoint)l;
+- (void)setTouchOffsetFromLatestExpectedNear:(CGPoint)l;
 
 #pragma mark deltas
 

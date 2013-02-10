@@ -4,9 +4,10 @@
 @implementation QPBFDrawingState
 
 - (void)pulse {
-    [self.f.pilot addWaypoint:self.f.playerTouch];
+//    [self.f.pilot addWaypoint:self.f.playerTouch];
     if (self.f.time < QPBF_MAX_DRAWING_FRAMES) {
-        [self.f.pilot addWaypoint:self.f.playerTouch];
+//        [self.f.pilot addWaypoint:self.f.playerTouch];
+        [self.f.pilot addWaypoint:[self.f playerTouchWithOffset]];
         self.f.latestExpected = self.f.playerTouch;
     }
 
@@ -25,9 +26,9 @@
 }
 
 - (void)addTouch:(CGPoint)l {
-    float xOffset = l.x - self.f.pilot.l.x;
-    float yOffset = l.y - self.f.pilot.l.y;
-    self.f.touchPlayerOffset = ccp(xOffset, yOffset);
+//    float xOffset = l.x - self.f.pilot.l.x;
+//    float yOffset = l.y - self.f.pilot.l.y;
+//    self.f.touchPlayerOffset = ccp(xOffset, yOffset);
     [self setPlayerTouch:l];
 }
 

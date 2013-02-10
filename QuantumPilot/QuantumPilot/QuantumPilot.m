@@ -24,7 +24,7 @@ static float innerCircleRadius = 4.5;
 - (id)init {
     self = [super init];
     if (self) {
-        _speed = 7;
+        _speed = 6.3;
         self.weapon = [[SingleLaserCannon alloc] init];
     }
     return self;

@@ -50,14 +50,22 @@
         [self.f.pilot fire];
         return;
     }
-
+    
 //    if (self.f.time < QPBF_MAX_DRAWING_FRAMES) {
-        _shiftingToDrawing = YES;
-        _shiftToDrawingTouch = l;
-
-        if (closeToPlayer && distToPilot <= distToLatestPathPoint) {
-            _interruptDrawingPath = YES;
+        if (closeToPlayer) {
+            if (distToPilot <= distToLatestPathPoint) {
+                _shiftingToDrawing = YES;
+                _shiftToDrawingTouch = l;
+                _interruptDrawingPath = YES;
+                [self.f setTouchOffsetFromPilotNear:l];
+            }
+        } else {
+            //[self.f setTouchOffsetFromLatestExpectedNear:l];
         }
+//        if (closeToPlayer && distToPilot <= distToLatestPathPoint) {
+//
+//            [self.f setTouchOffsetFromLatestExpectedNear:l];
+//        }
  //   }
 }
 

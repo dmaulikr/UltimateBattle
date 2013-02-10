@@ -177,6 +177,18 @@ static QPBattlefield *instance = nil;
     return GetDistance(l, self.pilot.l) <= QPBF_PLAYER_TAP_RANGE;
 }
 
+- (CGPoint)playerTouchWithOffset {
+    return CombinedPoint(self.playerTouch, self.touchOffset);
+}
+
+- (void)setTouchOffsetFromPilotNear:(CGPoint)l {
+    self.touchOffset = ccp(self.pilot.l.x - l.x, self.pilot.l.y - l.y);
+}
+
+- (void)setTouchOffsetFromLatestExpectedNear:(CGPoint)l {
+    self.touchOffset = ccp(self.latestExpected.x - l.x, self.latestExpected.y - l.y);
+}
+
 #pragma mark deltas
 
 #pragma mark Pilot Delgate
