@@ -2,6 +2,7 @@
 #import "VRGeometry.h"
 #import "QuantumClone.h"
 #import "QPBattlefield.h"
+#import "SingleLaserCannon.h"
 
 @interface QuantumPilot() {
     CGPoint future[4001];
@@ -10,18 +11,10 @@
 @end
 
 @implementation QuantumPilot
-@synthesize l = _l, vel = _vel, speed = _speed, firing = _firing, t = _t;
-@synthesize drawingIteration = _drawingIteration;
-@synthesize fightingIteration = _fightingIteration;
-@synthesize clone = _clone;
-@synthesize bulletDelegate = _bulletDelegate;
-@synthesize pilotDelegate = _pilotDelegate;
-
 static float shipTopHeight = 50;
 static float shipSideWidth = 15;
 static float shipBottomHeight = 10;
 static float innerTopHeight = 10;
-
 static float innerCircleRadius = 4.5;
 
 - (NSInteger)yDirection {
@@ -31,7 +24,8 @@ static float innerCircleRadius = 4.5;
 - (id)init {
     self = [super init];
     if (self) {
-        _speed = 5;
+        _speed = 7;
+        self.weapon = [[SingleLaserCannon alloc] init];
     }
     return self;
 }
@@ -58,18 +52,21 @@ static float innerCircleRadius = 4.5;
     if (drawFrameTotal < 0) {
         drawFrameTotal = 0;
     }
-    ccDrawPoly(drawingDeltas, drawFrameTotal, NO);
-
-    
+    ccDrawPoly(drawingDeltas, drawFrameTotal, NO);    
 }
 
 - (BOOL)isFiring {
     return self.firing;
 }
 
+- (NSInteger)fireDirection {
+    return -[self yDirection];
+}
+
 - (void)checkForFiringWeapon {
     if ([self isFiring]) {
-        //Send bullets to delegate
+        [self.bulletDelegate bulletsFired:[self.weapon bulletsForLocation:outerEdges[0] direction:[self fireDirection]]];
+        self.firing = NO;
     }
 }
 
@@ -131,6 +128,8 @@ static float innerCircleRadius = 4.5;
     [self setDrawingScaleByBattlefieldRhythm];
     
     [self copyDeltas];
+    
+    self.time++;
 }
 
 - (void)addWaypoint:(CGPoint)l {
@@ -162,6 +161,9 @@ static float innerCircleRadius = 4.5;
     self.fightingIteration = 0;
 }
 
+- (void)fire {
+    self.firing = YES;
+}
 
 @end
 

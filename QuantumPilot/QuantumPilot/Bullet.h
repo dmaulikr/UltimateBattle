@@ -19,6 +19,10 @@
 @property (nonatomic) NSInteger identifier;
 @property (nonatomic) NSInteger yDirection;
 
+@property (nonatomic) NSInteger radius;
+
 - (void)pulse;
+
+- (id)initWithLocation:(CGPoint)location velocity:(CGPoint)velocity;
 
 @end

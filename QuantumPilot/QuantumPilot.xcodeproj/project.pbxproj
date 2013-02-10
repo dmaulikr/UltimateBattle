@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0E63B75216C7039100F63829 /* QPBFFightingState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E63B75116C7039100F63829 /* QPBFFightingState.m */; };
 		0E63B75516C712B800F63829 /* QPBFPausedState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E63B75416C712B800F63829 /* QPBFPausedState.m */; };
+		0E63B75816C71BF700F63829 /* Weapon.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E63B75716C71BF700F63829 /* Weapon.m */; };
+		0E63B75B16C71C7C00F63829 /* SingleLaserCannon.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E63B75916C71C7C00F63829 /* SingleLaserCannon.m */; };
 		0EEAC48C16B73BC3005F629F /* QPBFState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEAC48B16B73BC3005F629F /* QPBFState.m */; };
 		0EEAC48F16B73C35005F629F /* QPBFTitleState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEAC48E16B73C35005F629F /* QPBFTitleState.m */; };
 		0EEAC49216B73D2E005F629F /* QPBFDrawingState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEAC49116B73D2E005F629F /* QPBFDrawingState.m */; };
@@ -144,6 +146,10 @@
 		0E63B75116C7039100F63829 /* QPBFFightingState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBFFightingState.m; sourceTree = "<group>"; };
 		0E63B75316C712B800F63829 /* QPBFPausedState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBFPausedState.h; sourceTree = "<group>"; };
 		0E63B75416C712B800F63829 /* QPBFPausedState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBFPausedState.m; sourceTree = "<group>"; };
+		0E63B75616C71BF700F63829 /* Weapon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Weapon.h; sourceTree = "<group>"; };
+		0E63B75716C71BF700F63829 /* Weapon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Weapon.m; sourceTree = "<group>"; };
+		0E63B75916C71C7C00F63829 /* SingleLaserCannon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleLaserCannon.m; sourceTree = "<group>"; };
+		0E63B75A16C71C7C00F63829 /* SingleLaserCannon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleLaserCannon.h; sourceTree = "<group>"; };
 		0EEAC48A16B73BC3005F629F /* QPBFState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBFState.h; sourceTree = "<group>"; };
 		0EEAC48B16B73BC3005F629F /* QPBFState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBFState.m; sourceTree = "<group>"; };
 		0EEAC48D16B73C35005F629F /* QPBFTitleState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBFTitleState.h; sourceTree = "<group>"; };
@@ -884,6 +890,10 @@
 			isa = PBXGroup;
 			children = (
 				BFA1BE53163B5A1500833186 /* QPBulletDelegate.h */,
+				0E63B75616C71BF700F63829 /* Weapon.h */,
+				0E63B75716C71BF700F63829 /* Weapon.m */,
+				0E63B75916C71C7C00F63829 /* SingleLaserCannon.m */,
+				0E63B75A16C71C7C00F63829 /* SingleLaserCannon.h */,
 			);
 			name = Cannons;
 			sourceTree = "<group>";
@@ -1137,6 +1147,8 @@
 				0EEAC49216B73D2E005F629F /* QPBFDrawingState.m in Sources */,
 				0E63B75216C7039100F63829 /* QPBFFightingState.m in Sources */,
 				0E63B75516C712B800F63829 /* QPBFPausedState.m in Sources */,
+				0E63B75816C71BF700F63829 /* Weapon.m in Sources */,
+				0E63B75B16C71C7C00F63829 /* SingleLaserCannon.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,7 +15,7 @@ enum pulsestate {
     falling = 3
 };
 
-@interface QPBattlefield : CCNode <QuantumPilotingDelegate> {
+@interface QPBattlefield : CCNode <QuantumPilotingDelegate, QPBulletDelegate> {
     NSInteger _pulseTimes[4];
     NSInteger _pulseState;
     NSInteger _pulseDirection;

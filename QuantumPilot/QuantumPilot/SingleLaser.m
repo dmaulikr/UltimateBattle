@@ -21,7 +21,6 @@ static float outerHeight = 6;
 }
 
 - (void)draw {
-
     lines[0] = ccp(self.l.x - innerWidth - (rs * outerWidth), self.l.y - innerHeight - (rs * outerHeight));
     lines[1] = ccp(self.l.x - innerWidth - (rs * outerWidth), self.l.y + innerHeight + (rs * outerHeight));
     lines[2] = ccp(self.l.x + innerWidth + (rs * outerWidth), self.l.y + innerHeight + (rs * outerHeight));

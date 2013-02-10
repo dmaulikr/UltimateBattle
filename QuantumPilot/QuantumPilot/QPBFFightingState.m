@@ -9,8 +9,6 @@
     if (_interruptDrawingPath) {
         [self.f.pilot resetIterations];
         _interruptDrawingPath = NO;
-    } else {
-//        [self.f resetPassedIterations];
     }
 }
 
@@ -32,10 +30,9 @@
 //        [self.f changeState:[self.f cloningState]];
 //    }
 //
-//    
-//    [self.f.freshClone addDeltas:self.f.player.vel firing:self.f.pilot.firing index:self.f.time];
-    
-    self.f.time++;    
+//    <<IN PILOT>>
+//    [self.f.freshClone addDeltas:self.f.pilot.vel firing:self.f.pilot.firing index:self.f.pilot.time];
+   // <</IN PILOT>
 }
 
 - (void)postTick {
@@ -50,18 +47,18 @@
     BOOL closeToPathPoint   = distToLatestPathPoint <= QPBF_PLAYER_TAP_RANGE;
     
     if (!closeToPlayer && !closeToPathPoint) {
-//        [self.f pilotFires];
+        [self.f.pilot fire];
         return;
     }
 
-    if (self.f.time < QPBF_MAX_DRAWING_FRAMES) {
-    _shiftingToDrawing = YES;
-    _shiftToDrawingTouch = l;
+//    if (self.f.time < QPBF_MAX_DRAWING_FRAMES) {
+        _shiftingToDrawing = YES;
+        _shiftToDrawingTouch = l;
 
-    if (closeToPlayer && distToPilot <= distToLatestPathPoint) {
-        _interruptDrawingPath = YES;
-    }
-}
+        if (closeToPlayer && distToPilot <= distToLatestPathPoint) {
+            _interruptDrawingPath = YES;
+        }
+ //   }
 }
 
 @end

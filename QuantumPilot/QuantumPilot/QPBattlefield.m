@@ -36,6 +36,7 @@ static QPBattlefield *instance = nil;
 - (void)setupPilot {
     self.pilot = [[[QuantumPilot alloc] init] autorelease];
     self.pilot.pilotDelegate = self;
+    self.pilot.bulletDelegate = self;
     [self addChild:self.pilot];
     self.pilot.l = ccp(100, 200);
 }
@@ -112,9 +113,7 @@ static QPBattlefield *instance = nil;
 - (void)bulletPulse {
     for (Bullet *b in self.bullets) {
         [b pulse];
-    //    if [b isCol]
     }
-    //for
 }
 
 - (void)pulse {
@@ -164,6 +163,15 @@ static QPBattlefield *instance = nil;
 
 - (void)pilotReachedEndOfFutureWaypoints {
     [self changeState:self.pausedState];
+}
+
+#pragma mark Bullet Delegate
+
+- (void)bulletsFired:(NSArray *)bullets {
+    [self.bullets addObjectsFromArray:bullets];
+    for (Bullet *b in bullets) {
+        [self addChild:b];
+    }
 }
 
 @end

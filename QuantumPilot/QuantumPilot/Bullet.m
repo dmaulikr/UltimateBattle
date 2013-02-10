@@ -13,16 +13,23 @@
 @synthesize l = _l, vel = _vel, identifier = _identifier;
 @synthesize yDirection = _yDirection;
 
+- (id)initWithLocation:(CGPoint)location velocity:(CGPoint)velocity {
+    self = [super init];
+    if (self) {
+        self.l = location;
+        self.vel = velocity;
+        self.radius = 3;
+    }
+    
+    return self;
+}
+
 - (NSString *)description {
     return [NSString stringWithFormat:@"l: %f,%f    vel:%f,%f    %d", self.l.x, self.l.y, self.vel.x, self.vel.y, self.identifier];
 }
 
 - (void)pulse {
     self.l = CombinedPoint(self.l, self.vel);
-}
-
-- (void)draw {
-    //
 }
 
 @end
