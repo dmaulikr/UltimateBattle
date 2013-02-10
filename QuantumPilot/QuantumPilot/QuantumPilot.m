@@ -39,8 +39,6 @@ static float innerCircleRadius = 4.5;
     
     ccDrawPoly(outerEdges, 4, YES);
     ccDrawFilledCircle(innerTopEdge, innerCircleRadius * [QPBattlefield pulseRotation], 0, 100, NO);
-
-    
     ccDrawColor4F(1, 1, 1, 1.0);
     CGPoint drawingDeltas[4001];
     NSInteger index = 0;
@@ -52,7 +50,7 @@ static float innerCircleRadius = 4.5;
     if (drawFrameTotal < 0) {
         drawFrameTotal = 0;
     }
-    ccDrawPoly(drawingDeltas, drawFrameTotal, NO);    
+    ccDrawPoly(drawingDeltas, drawFrameTotal, NO);
 }
 
 - (BOOL)isFiring {
