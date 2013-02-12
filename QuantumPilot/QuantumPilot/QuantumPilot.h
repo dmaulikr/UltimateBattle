@@ -53,6 +53,10 @@
 
 - (BOOL)touchesPoint:(CGPoint)l;
 
+- (void)createClone;
+
+- (NSInteger)yDirection;
+
 @end
 
 @protocol QuantumPilotingDelegate <NSObject>

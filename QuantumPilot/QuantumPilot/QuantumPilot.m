@@ -33,7 +33,7 @@ static float innerCircleRadius = 4.5;
 - (void)draw {
     outerEdges[0] = ccp(self.l.x, self.l.y - shipTopHeight * [self yDirection]);
     outerEdges[1] = ccp(self.l.x - shipSideWidth, self.l.y);
-    outerEdges[2] = ccp(self.l.x, self.l.y - shipBottomHeight);
+    outerEdges[2] = ccp(self.l.x, self.l.y - shipBottomHeight * [self yDirection]);
     outerEdges[3] = ccp(self.l.x + shipSideWidth, self.l.y);
     innerTopEdge = ccp(self.l.x, self.l.y - innerTopHeight * [self yDirection]);
     
@@ -64,7 +64,6 @@ static float innerCircleRadius = 4.5;
 - (void)checkForFiringWeapon {
     if ([self isFiring]) {
         [self.bulletDelegate bulletsFired:[self.weapon bulletsForLocation:outerEdges[0] direction:[self fireDirection]]];
-        self.firing = NO;
     }
 }
 
@@ -117,6 +116,10 @@ static float innerCircleRadius = 4.5;
     [self.clone recordVelocity:self.vel firing:self.firing];
 }
 
+- (void)resetFiring {
+    self.firing = NO;
+}
+
 - (void)pulse {
     [self checkForFiringWeapon];
     [self calculateTarget];
@@ -126,6 +129,7 @@ static float innerCircleRadius = 4.5;
     [self setDrawingScaleByBattlefieldRhythm];
     
     [self copyDeltas];
+    [self resetFiring];
     
     self.time++;
 }
@@ -161,6 +165,11 @@ static float innerCircleRadius = 4.5;
 
 - (void)fire {
     self.firing = YES;
+}
+
+- (void)createClone {
+    self.clone = [[QuantumClone alloc] init];
+    self.clone.weapon = [[[self.weapon class] alloc] init];
 }
 
 @end

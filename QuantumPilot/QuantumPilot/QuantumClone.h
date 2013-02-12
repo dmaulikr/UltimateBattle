@@ -20,6 +20,6 @@ enum TimeDirection {
     enum TimeDirection timeDirection;
 }
 
-- (void)recordVelocity:(CGPoint)l firing:(BOOL)firing;
+- (void)recordVelocity:(CGPoint)vel firing:(BOOL)firing;
 
 @end

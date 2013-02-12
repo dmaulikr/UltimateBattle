@@ -10,13 +10,25 @@
 
 @implementation QuantumClone
 
+- (NSInteger)yDirection {
+    return 1;
+}
+
 - (BOOL)isFiring {
     return pastFireTimings[timeIndex];
 }
 
-- (void)recordVelocity:(CGPoint)l firing:(BOOL)firing {
-    pastVelocities[timeIndex] = l;
-    pastFireTimings[timeIndex] = firing;
+- (void)recordVelocity:(CGPoint)vel firing:(BOOL)firing {
+    CGPoint p = pastVelocities[timeIndex];
+    p.x = vel.x;
+    p.y = vel.y;
+    pastVelocities[timeIndex] = p;
+    BOOL fired = pastFireTimings[timeIndex];
+    fired = firing;
+    pastFireTimings[timeIndex] = fired;
+    NSLog(@"firing: %d fired: %d", firing, fired);
+    NSLog(@"past Velocities: %f %d %d", pastVelocities[timeIndex].x, pastFireTimings[timeIndex], timeIndex);
+    timeIndex++;
 }
 
 @end

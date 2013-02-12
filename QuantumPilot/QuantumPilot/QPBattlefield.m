@@ -1,5 +1,6 @@
 #import "QPBattlefield.h"
 #import "Bullet.h"
+#import "QuantumClone.h"
 
 @implementation QPBattlefield
 
@@ -56,6 +57,7 @@ static QPBattlefield *instance = nil;
         [self setupPulses];
         [self setupPilot];
         [self setupStates];
+        [self setupClones];
     }
     return self;
 }
@@ -136,6 +138,12 @@ static QPBattlefield *instance = nil;
     [self.bullets removeObjectsInArray:bulletsToErase];
 }
 
+- (void)clonesPulse {
+    for (QuantumClone *c in self.clones) {
+        [c pulse];
+    }
+}
+
 - (void)pulse {
     [self.currentState pulse];
     //states manage
@@ -143,6 +151,7 @@ static QPBattlefield *instance = nil;
         [self rhythmPulse];
         [self bulletPulse];
         [self.pilot pulse];
+        [self clonesPulse];
     }
 }
 
@@ -204,6 +213,19 @@ static QPBattlefield *instance = nil;
     for (Bullet *b in bullets) {
         [self addChild:b];
     }
+}
+
+#pragma mark Clones
+
+- (void)setupClone {
+    [self.pilot createClone];
+    [self addChild:(CCNode *)self.pilot.clone];
+    self.pilot.clone.l = CGPointMake(368, 500);
+}
+
+- (void)setupClones {
+    self.clones = [NSMutableArray array];
+    [self setupClone];
 }
 
 @end
