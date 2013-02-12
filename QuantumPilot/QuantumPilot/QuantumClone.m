@@ -26,8 +26,6 @@
     BOOL fired = pastFireTimings[timeIndex];
     fired = firing;
     pastFireTimings[timeIndex] = fired;
-    NSLog(@"firing: %d fired: %d", firing, fired);
-    NSLog(@"past Velocities: %f %d %d", pastVelocities[timeIndex].x, pastFireTimings[timeIndex], timeIndex);
     timeIndex++;
 }
 
