@@ -122,12 +122,18 @@ static QPBattlefield *instance = nil;
     return !CGRectContainsPoint([self battlefieldFrame], b.l);
 }
 
-- (void)bulletPulse {
+- (void)pulseBullets:(NSMutableArray *)bs targets:(NSArray *)targets {
     NSMutableArray *bulletsToErase = [NSMutableArray array];
-    for (Bullet *b in self.bullets) {
+    for (Bullet *b in bs) {
         [b pulse];
         if ([self bulletOutOfBounds:b]) {
             [bulletsToErase addObject:b];
+        }
+    }
+    
+    for (Bullet *b in bs) {
+        for (QuantumPilot *p in targets) {
+            [p processBullet:b];
         }
     }
     
@@ -135,7 +141,12 @@ static QPBattlefield *instance = nil;
         [b removeFromParentAndCleanup:YES];
     }
     
-    [self.bullets removeObjectsInArray:bulletsToErase];
+    [bs removeObjectsInArray:bulletsToErase];
+}
+
+- (void)bulletPulse {
+    [self pulseBullets:self.bullets targets:self.clones];
+    [self pulseBullets:self.cloneBullets targets:@[self.pilot]];
 }
 
 - (void)clonesPulse {
@@ -219,6 +230,7 @@ static QPBattlefield *instance = nil;
 
 - (void)setupClone {
     [self.pilot createClone];
+    [self.clones addObject:self.pilot.clone];
     [self addChild:(CCNode *)self.pilot.clone];
     self.pilot.clone.l = CGPointMake(368, 500);
 }

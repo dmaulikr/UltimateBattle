@@ -26,31 +26,34 @@ static float innerCircleRadius = 4.5;
     if (self) {
         _speed = 6.3;
         self.weapon = [[SingleLaserCannon alloc] init];
+        self.active = YES;
     }
     return self;
 }
 
 - (void)draw {
-    outerEdges[0] = ccp(self.l.x, self.l.y - shipTopHeight * [self yDirection]);
-    outerEdges[1] = ccp(self.l.x - shipSideWidth, self.l.y);
-    outerEdges[2] = ccp(self.l.x, self.l.y + shipBottomHeight * [self yDirection]);
-    outerEdges[3] = ccp(self.l.x + shipSideWidth, self.l.y);
-    innerTopEdge = ccp(self.l.x, self.l.y - innerTopHeight * [self yDirection]);
-    
-    ccDrawPoly(outerEdges, 4, YES);
-    ccDrawFilledCircle(innerTopEdge, innerCircleRadius * [QPBattlefield pulseRotation], 0, 100, NO);
-    ccDrawColor4F(1, 1, 1, 1.0);
-    CGPoint drawingDeltas[4001];
-    NSInteger index = 0;
-    for (int i = self.fightingIteration; i < self.drawingIteration; i++) {
-        drawingDeltas[index] = future[i];
-        index++;
+    if (self.active) {
+        outerEdges[0] = ccp(self.l.x, self.l.y - shipTopHeight * [self yDirection]);
+        outerEdges[1] = ccp(self.l.x - shipSideWidth, self.l.y);
+        outerEdges[2] = ccp(self.l.x, self.l.y + shipBottomHeight * [self yDirection]);
+        outerEdges[3] = ccp(self.l.x + shipSideWidth, self.l.y);
+        innerTopEdge = ccp(self.l.x, self.l.y - innerTopHeight * [self yDirection]);
+        
+        ccDrawPoly(outerEdges, 4, YES);
+        ccDrawFilledCircle(innerTopEdge, innerCircleRadius * [QPBattlefield pulseRotation], 0, 100, NO);
+        ccDrawColor4F(1, 1, 1, 1.0);
+        CGPoint drawingDeltas[4001];
+        NSInteger index = 0;
+        for (int i = self.fightingIteration; i < self.drawingIteration; i++) {
+            drawingDeltas[index] = future[i];
+            index++;
+        }
+        NSInteger drawFrameTotal = self.drawingIteration - self.fightingIteration;
+        if (drawFrameTotal < 0) {
+            drawFrameTotal = 0;
+        }
+        ccDrawPoly(drawingDeltas, drawFrameTotal, NO);
     }
-    NSInteger drawFrameTotal = self.drawingIteration - self.fightingIteration;
-    if (drawFrameTotal < 0) {
-        drawFrameTotal = 0;
-    }
-    ccDrawPoly(drawingDeltas, drawFrameTotal, NO);
 }
 
 - (BOOL)isFiring {
@@ -152,6 +155,17 @@ static float innerCircleRadius = 4.5;
 
 - (BOOL)isCollidingWithBullet:(Bullet *)b {
     return shapeOfSizeContainsPoint([self drawShape], 4, b.l);
+}
+
+- (void)registerHit {
+    self.active = NO;
+}
+
+- (void)processBullet:(Bullet *)b {
+    if ([self isCollidingWithBullet:b]) {
+        b.l = ccp(5000,5000);
+        [self registerHit];
+    }
 }
 
 - (BOOL)touchesPoint:(CGPoint)l {

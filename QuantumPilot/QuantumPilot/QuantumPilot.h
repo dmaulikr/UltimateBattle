@@ -35,6 +35,8 @@
 
 @property (strong, nonatomic) Class bulletClass;
 
+@property (nonatomic) BOOL active;
+
 - (void)pulse;
 - (void)fire;
 
@@ -47,7 +49,7 @@
 - (CGPoint)deltaTarget;
 
 - (BOOL)isCollidingWithBullet:(Bullet *)b;
-//- (void)hitByBullet:
+- (void)processBullet:(Bullet *)b;
 
 - (CGPoint *)drawShape;
 

@@ -29,4 +29,8 @@
     timeIndex++;
 }
 
+- (void)pulse {
+    
+
+
 @end
