@@ -31,6 +31,6 @@
 
 - (void)pulse {
     
-
+}
 
 @end

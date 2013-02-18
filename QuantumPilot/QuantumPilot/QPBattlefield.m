@@ -133,7 +133,9 @@ static QPBattlefield *instance = nil;
     
     for (Bullet *b in bs) {
         for (QuantumPilot *p in targets) {
-            [p processBullet:b];
+            if (p.active) {
+                [p processBullet:b];
+            }
         }
     }
     
