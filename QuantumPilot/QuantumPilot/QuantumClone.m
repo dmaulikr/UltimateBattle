@@ -10,6 +10,14 @@
 
 @implementation QuantumClone
 
+- (id)copyWithZone:(NSZone *)zone {
+    QuantumClone *c = [[QuantumClone alloc] init];
+    for (NSInteger i = 0; i < 4001; i++) {
+        [c recordVelocity:pastVelocities[i] firing:pastFireTimings[i]];
+    }
+    return c;
+}
+
 - (NSInteger)yDirection {
     return 1;
 }
@@ -30,7 +38,18 @@
 }
 
 - (void)pulse {
-    
+    if (timeDirection != recording) {
+        self.vel = pastVelocities[timeIndex];
+        timeIndex++;
+        [self moveByVelocity];
+    }
+}
+
+- (void)activate {
+    self.l = CGPointMake(300, 768);
+    self.active = YES;
+    timeIndex = 0;
+    timeDirection = forwards;
 }
 
 @end

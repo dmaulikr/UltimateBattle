@@ -112,6 +112,12 @@ static QPBattlefield *instance = nil;
     }
 }
 
+#pragma mark Pacing
+
+- (void)historiesCleared {
+    [self setupClone];
+}
+
 #pragma mark Bullets
 
 - (CGRect)battlefieldFrame {
@@ -143,6 +149,10 @@ static QPBattlefield *instance = nil;
         [b removeFromParentAndCleanup:YES];
     }
     
+//    if ([self activeClones] == 0) {
+//        [self historiesCleared];
+//    }
+    
     [bs removeObjectsInArray:bulletsToErase];
 }
 
@@ -157,6 +167,22 @@ static QPBattlefield *instance = nil;
     }
 }
 
+- (void)activateClones {
+    for (QuantumClone *c in self.clones) {
+        [c activate];
+    }
+}
+
+- (void)killPulse {
+    if ([self activeClones] == 0) {
+        QuantumClone *c = [[self.pilot clone] copy];
+        [self.clones addObject:c];
+        [self.clones removeObject:self.pilot.clone];
+        [self setupClone];
+        [self activateClones];
+    }
+}
+
 - (void)pulse {
     [self.currentState pulse];
     //states manage
@@ -165,6 +191,7 @@ static QPBattlefield *instance = nil;
         [self bulletPulse];
         [self.pilot pulse];
         [self clonesPulse];
+        [self killPulse];
     }
 }
 
@@ -231,10 +258,19 @@ static QPBattlefield *instance = nil;
 #pragma mark Clones
 
 - (void)setupClone {
+    
     [self.pilot createClone];
     [self.clones addObject:self.pilot.clone];
     [self addChild:(CCNode *)self.pilot.clone];
     self.pilot.clone.l = CGPointMake(368, 500);
+}
+
+- (NSInteger)activeClones {
+    NSInteger active = 0;
+    for (QuantumClone *c in self.clones) {
+        active += c.active ? 1 : 0;
+    }
+    return active;
 }
 
 - (void)setupClones {

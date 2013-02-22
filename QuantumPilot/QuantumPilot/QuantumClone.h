@@ -10,10 +10,11 @@
 
 enum TimeDirection {
     forwards = 1,
-    backwads = -1
+    backwads = -1,
+    recording = 0
 };
 
-@interface QuantumClone : QuantumPilot {
+@interface QuantumClone : QuantumPilot <NSCopying> {
     CGPoint pastVelocities[4001];
     BOOL pastFireTimings[4001];
     NSInteger timeIndex;
@@ -21,5 +22,6 @@ enum TimeDirection {
 }
 
 - (void)recordVelocity:(CGPoint)vel firing:(BOOL)firing;
+- (void)activate;
 
 @end

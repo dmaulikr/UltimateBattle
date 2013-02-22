@@ -59,6 +59,8 @@
 
 - (NSInteger)yDirection;
 
+- (void)moveByVelocity;
+
 @end
 
 @protocol QuantumPilotingDelegate <NSObject>
