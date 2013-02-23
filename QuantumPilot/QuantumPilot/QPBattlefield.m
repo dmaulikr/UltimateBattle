@@ -39,7 +39,6 @@ static QPBattlefield *instance = nil;
     self.pilot.pilotDelegate = self;
     self.pilot.bulletDelegate = self;
     [self addChild:self.pilot];
-    self.pilot.l = ccp(100, 200);
 }
 
 - (void)setupStates {
@@ -128,6 +127,13 @@ static QPBattlefield *instance = nil;
     return !CGRectContainsPoint([self battlefieldFrame], b.l);
 }
 
+- (void)eraseBullets {
+    for (Bullet *b in self.bullets) {
+        [self removeChild:b cleanup:YES];
+    }
+    [self.bullets removeAllObjects];
+}
+
 - (void)pulseBullets:(NSMutableArray *)bs targets:(NSArray *)targets {
     NSMutableArray *bulletsToErase = [NSMutableArray array];
     for (Bullet *b in bs) {
@@ -171,6 +177,7 @@ static QPBattlefield *instance = nil;
 
 - (void)killPulse {
     if ([self activeClones] == 0) {
+        [self.pilot resetPosition];
         QuantumClone *c = [[self.pilot clone] copy];
         [self.clones addObject:c];
         [self addChild:c];
@@ -179,6 +186,9 @@ static QPBattlefield *instance = nil;
         self.pilot.clone = nil;
         [self activateClones];
         [self setupClone];
+        [self.pilot resetIterations];
+        [self changeState:self.pausedState];
+        [self eraseBullets];
     }
 }
 
@@ -257,11 +267,9 @@ static QPBattlefield *instance = nil;
 #pragma mark Clones
 
 - (void)setupClone {
-    
     [self.pilot createClone];
     [self.clones addObject:self.pilot.clone];
     [self addChild:(CCNode *)self.pilot.clone];
-    self.pilot.clone.l = CGPointMake(368, 500);
 }
 
 - (NSInteger)activeClones {

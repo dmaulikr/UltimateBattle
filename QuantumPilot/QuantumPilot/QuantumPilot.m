@@ -21,12 +21,17 @@ static float innerCircleRadius = 4.5;
     return -1;
 }
 
+- (void)resetPosition {
+    self.l = CGPointMake(384, 170);
+}
+
 - (id)init {
     self = [super init];
     if (self) {
         _speed = 6.3;
         self.weapon = [[SingleLaserCannon alloc] init];
         self.active = YES;
+        [self resetPosition];
     }
     return self;
 }
@@ -116,7 +121,7 @@ static float innerCircleRadius = 4.5;
 }
 
 - (void)copyDeltas {
-    [self.clone recordVelocity:self.vel firing:self.firing];
+    [self.clone recordVelocity:ccp(self.vel.x, -self.vel.y) firing:self.firing];
 }
 
 - (void)resetFiring {

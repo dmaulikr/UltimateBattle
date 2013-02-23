@@ -15,7 +15,12 @@
     for (NSInteger i = 0; i < 4001; i++) {
         [c recordVelocity:pastVelocities[i] firing:pastFireTimings[i]];
     }
+    [c recordLatestIndex:timeIndex];
     return c;
+}
+
+- (void)resetPosition {
+    self.l = CGPointMake(384, 1024-170);
 }
 
 - (NSInteger)yDirection {
@@ -37,16 +42,34 @@
     timeIndex++;
 }
 
+- (void)recordLatestIndex:(NSInteger)index {
+    latestIndex = index;
+}
+
 - (void)pulse {
     if (timeDirection != recording) {
         self.vel = pastVelocities[timeIndex];
-        timeIndex++;
+        if (timeDirection == backwards) {
+            self.vel = ccp(-self.vel.x, -self.vel.y);
+        }
         [self moveByVelocity];
+        
+        timeIndex+= timeDirection;
+        
+        if (timeIndex >= latestIndex) {
+            timeIndex = latestIndex;
+            timeDirection = backwards;
+        } else if (timeIndex < 0) {
+            timeIndex = 0;
+            timeDirection = forwards;
+        }
+    } else {
+        timeIndex++;
     }
 }
 
 - (void)activate {
-    self.l = CGPointMake(300, 768);
+    [self resetPosition];
     self.active = YES;
     timeIndex = 0;
     timeDirection = forwards;

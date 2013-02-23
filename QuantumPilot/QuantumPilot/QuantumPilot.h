@@ -61,6 +61,8 @@
 
 - (void)moveByVelocity;
 
+- (void)resetPosition;
+
 @end
 
 @protocol QuantumPilotingDelegate <NSObject>
