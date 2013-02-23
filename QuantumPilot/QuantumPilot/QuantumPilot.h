@@ -63,6 +63,8 @@
 
 - (void)resetPosition;
 
+- (void)checkForFiringWeapon;
+
 @end
 
 @protocol QuantumPilotingDelegate <NSObject>

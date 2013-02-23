@@ -7,11 +7,13 @@
 //
 
 #import "QuantumClone.h"
+#import "SingleLaserCannon.h"
 
 @implementation QuantumClone
 
 - (id)copyWithZone:(NSZone *)zone {
     QuantumClone *c = [[QuantumClone alloc] init];
+    c.weapon = [[SingleLaserCannon alloc] init];
     for (NSInteger i = 0; i < 4001; i++) {
         [c recordVelocity:pastVelocities[i] firing:pastFireTimings[i]];
     }
@@ -53,6 +55,8 @@
             self.vel = ccp(-self.vel.x, -self.vel.y);
         }
         [self moveByVelocity];
+        
+        [self checkForFiringWeapon];
         
         timeIndex+= timeDirection;
         
