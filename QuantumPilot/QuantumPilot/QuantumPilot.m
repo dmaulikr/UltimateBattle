@@ -183,6 +183,7 @@ static float innerCircleRadius = 4.5;
 
 - (void)createClone {
     self.clone = [[QuantumClone alloc] init];
+    self.clone.active = YES;
     self.clone.weapon = [[[self.weapon class] alloc] init];
 }
 

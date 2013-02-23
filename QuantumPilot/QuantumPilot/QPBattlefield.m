@@ -149,10 +149,6 @@ static QPBattlefield *instance = nil;
         [b removeFromParentAndCleanup:YES];
     }
     
-//    if ([self activeClones] == 0) {
-//        [self historiesCleared];
-//    }
-    
     [bs removeObjectsInArray:bulletsToErase];
 }
 
@@ -177,9 +173,12 @@ static QPBattlefield *instance = nil;
     if ([self activeClones] == 0) {
         QuantumClone *c = [[self.pilot clone] copy];
         [self.clones addObject:c];
-        [self.clones removeObject:self.pilot.clone];
-        [self setupClone];
+        [self addChild:c];
+        [self.clones removeObject:self.pilot.clone];        
+        [self removeChild:self.pilot.clone cleanup:YES];
+        self.pilot.clone = nil;
         [self activateClones];
+        [self setupClone];
     }
 }
 
