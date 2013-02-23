@@ -24,7 +24,7 @@
 @property (nonatomic) NSInteger fightingIteration;
 @property (nonatomic) NSInteger drawingIteration;
 @property (nonatomic) NSInteger time;
-@property (nonatomic) Weapon *weapon;
+@property (nonatomic, retain) Weapon *weapon;
 
 @property (nonatomic, retain) QuantumClone *clone;
 
@@ -64,6 +64,12 @@
 - (void)resetPosition;
 
 - (void)checkForFiringWeapon;
+
+- (void)sendBulletsToBattlefield;
+
+- (NSInteger)fireDirection;
+
+- (void)engage;
 
 @end
 

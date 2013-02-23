@@ -29,11 +29,16 @@ static float innerCircleRadius = 4.5;
     self = [super init];
     if (self) {
         _speed = 6.3;
-        self.weapon = [[SingleLaserCannon alloc] init];
-        self.active = YES;
-        [self resetPosition];
+        [self engage];
     }
     return self;
+}
+
+- (void)engage {
+    [self resetIterations];
+    self.weapon = [[SingleLaserCannon alloc] init];
+    self.active = YES;
+    [self resetPosition];
 }
 
 - (void)draw {
@@ -69,9 +74,13 @@ static float innerCircleRadius = 4.5;
     return -[self yDirection];
 }
 
+- (void)sendBulletsToBattlefield {
+    [self.bulletDelegate bulletsFired:[self.weapon bulletsForLocation:outerEdges[0] direction:[self fireDirection]]];
+}
+
 - (void)checkForFiringWeapon {
     if ([self isFiring]) {
-        [self.bulletDelegate bulletsFired:[self.weapon bulletsForLocation:outerEdges[0] direction:[self fireDirection]]];
+        [self sendBulletsToBattlefield];
     }
 }
 

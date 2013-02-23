@@ -33,6 +33,11 @@
     return pastFireTimings[timeIndex];
 }
 
+- (void)sendBulletsToBattlefield  {
+    [self.bulletDelegate cloneBulletsFired:[self.weapon bulletsForLocation:outerEdges[0] direction:[self fireDirection]]];
+
+}
+
 - (void)recordVelocity:(CGPoint)vel firing:(BOOL)firing {
     CGPoint p = pastVelocities[timeIndex];
     p.x = vel.x;

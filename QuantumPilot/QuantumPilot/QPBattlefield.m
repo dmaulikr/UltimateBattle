@@ -53,6 +53,7 @@ static QPBattlefield *instance = nil;
     self = [super init];
     if (self) {
         self.bullets = [NSMutableArray array];
+        self.cloneBullets = [NSMutableArray array];
         [self setupPulses];
         [self setupPilot];
         [self setupStates];
@@ -131,7 +132,11 @@ static QPBattlefield *instance = nil;
     for (Bullet *b in self.bullets) {
         [self removeChild:b cleanup:YES];
     }
+    for (Bullet *b in self.cloneBullets) {
+        [self removeChild:b cleanup:YES];
+    }
     [self.bullets removeAllObjects];
+    [self.cloneBullets removeAllObjects];
 }
 
 - (void)pulseBullets:(NSMutableArray *)bs targets:(NSArray *)targets {
@@ -158,9 +163,31 @@ static QPBattlefield *instance = nil;
     [bs removeObjectsInArray:bulletsToErase];
 }
 
+- (void)eraseClones {
+    for (QuantumClone *c in self.clones) {
+        [self removeChild:c cleanup:YES];
+    }
+    [self.clones removeAllObjects];
+}
+
+- (void)resetPilot {
+    [self.pilot engage];
+}
+
+- (void)resetBattlefield {
+    [self eraseBullets];
+    [self eraseClones];
+    [self resetPilot];
+    [self changeState:self.pausedState];
+    [self setupClone];
+}
+
 - (void)bulletPulse {
     [self pulseBullets:self.bullets targets:self.clones];
     [self pulseBullets:self.cloneBullets targets:@[self.pilot]];
+    if (self.pilot.active == NO) {
+        [self resetBattlefield];
+    }
 }
 
 - (void)clonesPulse {
@@ -198,10 +225,10 @@ static QPBattlefield *instance = nil;
     //states manage
     if ([self.currentState isPulsing]) {
         [self rhythmPulse];
-        [self bulletPulse];
         [self.pilot pulse];
         [self clonesPulse];
         [self killPulse];
+        [self bulletPulse];
     }
 }
 
@@ -260,6 +287,13 @@ static QPBattlefield *instance = nil;
 
 - (void)bulletsFired:(NSArray *)bullets {
     [self.bullets addObjectsFromArray:bullets];
+    for (Bullet *b in bullets) {
+        [self addChild:b];
+    }
+}
+
+- (void)cloneBulletsFired:(NSArray *)bullets {
+    [self.cloneBullets addObjectsFromArray:bullets];
     for (Bullet *b in bullets) {
         [self addChild:b];
     }
