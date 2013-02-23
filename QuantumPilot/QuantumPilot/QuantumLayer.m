@@ -37,9 +37,13 @@
 }
 
 - (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    UITouch *touch = [touches anyObject];
-    CGPoint l = [touch locationInView:[touch view]];
-    [self.f addTouch:ccp(l.x, 1024-l.y)];
+    if (touches.count == 1) {
+        UITouch *touch = [touches anyObject];
+        CGPoint l = [touch locationInView:[touch view]];
+        [self.f addTouch:ccp(l.x, 1024-l.y)];
+    } else if (touches.count == 2) {
+        [self.f addDoubleTouch];
+    }
 }
 
 - (void)ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {

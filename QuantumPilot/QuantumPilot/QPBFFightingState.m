@@ -46,10 +46,10 @@
     BOOL closeToPlayer      = distToPilot <= QPBF_PLAYER_TAP_RANGE;
     BOOL closeToPathPoint   = distToLatestPathPoint <= QPBF_PLAYER_TAP_RANGE;
     
-    if (!closeToPlayer) {
-        [self.f.pilot fire];
-        return;
-    }
+//    if (!closeToPlayer) {
+//        [self.f.pilot fire];
+//        return;
+//    }
     
 //    if (self.f.time < QPBF_MAX_DRAWING_FRAMES) {
         if (closeToPlayer) {
@@ -67,6 +67,10 @@
 //            [self.f setTouchOffsetFromLatestExpectedNear:l];
 //        }
  //   }
+}
+
+- (void)addDoubleTouch {
+    [self.f.pilot fire];
 }
 
 @end

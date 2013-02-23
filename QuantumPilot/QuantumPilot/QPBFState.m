@@ -25,6 +25,10 @@
 
 }
 
+- (void)addDoubleTouch {
+    
+}
+
 - (void)endTouch:(CGPoint)l {
     
 }

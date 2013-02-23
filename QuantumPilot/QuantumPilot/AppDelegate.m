@@ -24,6 +24,7 @@
 									sharegroup:nil
 								 multiSampling:NO
 							   numberOfSamples:0];
+    [glView setMultipleTouchEnabled:YES];
 
 	director_ = (CCDirectorIOS*) [CCDirector sharedDirector];
 
@@ -44,7 +45,7 @@
 	[CCTexture2D PVRImagesHavePremultipliedAlpha:YES];
 //	[director_ pushScene: [WeaponsTestLayer scene]];
 	[director_ pushScene: [QuantumLayer scene]];
-    
+    [window_ setMultipleTouchEnabled:YES];
 	
 	// Create a Navigation Controller with the Director
 	navController_ = [[UINavigationController alloc] initWithRootViewController:director_];

@@ -69,6 +69,7 @@ enum pulsestate {
 #pragma mark Input
 
 - (void)addTouch:(CGPoint)l;
+- (void)addDoubleTouch;
 - (void)endTouch:(CGPoint)l;
 - (void)moveTouch:(CGPoint)l;
 

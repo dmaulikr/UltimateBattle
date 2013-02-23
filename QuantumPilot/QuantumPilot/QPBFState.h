@@ -9,6 +9,7 @@
 - (void)pulse;
 - (void)postTick;
 - (void)addTouch:(CGPoint)l;
+- (void)addDoubleTouch;
 - (void)endTouch:(CGPoint)l;
 - (void)moveTouch:(CGPoint)l;
 

@@ -249,6 +249,10 @@ static QPBattlefield *instance = nil;
     [self.currentState addTouch:l];
 }
 
+- (void)addDoubleTouch {
+    [self.currentState addDoubleTouch];
+}
+
 - (void)endTouch:(CGPoint)l {
     [self.currentState endTouch:l];
 }
