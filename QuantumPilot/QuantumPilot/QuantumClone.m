@@ -55,22 +55,24 @@
 
 - (void)pulse {
     if (timeDirection != recording) {
-        self.vel = pastVelocities[timeIndex];
-        if (timeDirection == backwards) {
-            self.vel = ccp(-self.vel.x, -self.vel.y);
-        }
-        [self moveByVelocity];
-        
-        [self checkForFiringWeapon];
-        
-        timeIndex+= timeDirection;
-        
-        if (timeIndex >= latestIndex) {
-            timeIndex = latestIndex;
-            timeDirection = backwards;
-        } else if (timeIndex < 0) {
-            timeIndex = 0;
-            timeDirection = forwards;
+        if (self.active) {
+            self.vel = pastVelocities[timeIndex];
+            if (timeDirection == backwards) {
+                self.vel = ccp(-self.vel.x, -self.vel.y);
+            }
+            [self moveByVelocity];
+            
+            [self checkForFiringWeapon];
+            
+            timeIndex+= timeDirection;
+            
+            if (timeIndex >= latestIndex) {
+                timeIndex = latestIndex;
+                timeDirection = backwards;
+            } else if (timeIndex < 0) {
+                timeIndex = 0;
+                timeDirection = forwards;
+            }
         }
     } else {
         timeIndex++;
