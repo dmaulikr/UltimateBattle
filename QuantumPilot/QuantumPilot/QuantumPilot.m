@@ -41,17 +41,25 @@ static float innerCircleRadius = 4.5;
     [self resetPosition];
 }
 
+- (void)drawShip {
+    outerEdges[0] = ccp(self.l.x, self.l.y - shipTopHeight * [self yDirection]);
+    outerEdges[1] = ccp(self.l.x - shipSideWidth, self.l.y);
+    outerEdges[2] = ccp(self.l.x, self.l.y + shipBottomHeight * [self yDirection]);
+    outerEdges[3] = ccp(self.l.x + shipSideWidth, self.l.y);
+    self.innerTopEdge = ccp(self.l.x, self.l.y - innerTopHeight * [self yDirection]);
+    
+    ccDrawPoly(outerEdges, 4, YES);
+}
+
+- (void)drawCircle {
+    ccDrawFilledCircle(self.innerTopEdge, innerCircleRadius * [QPBattlefield pulseRotation], 0, 100, NO);
+    ccDrawColor4F(1, 1, 1, 1.0);
+}
+
 - (void)draw {
     if (self.active) {
-        outerEdges[0] = ccp(self.l.x, self.l.y - shipTopHeight * [self yDirection]);
-        outerEdges[1] = ccp(self.l.x - shipSideWidth, self.l.y);
-        outerEdges[2] = ccp(self.l.x, self.l.y + shipBottomHeight * [self yDirection]);
-        outerEdges[3] = ccp(self.l.x + shipSideWidth, self.l.y);
-        innerTopEdge = ccp(self.l.x, self.l.y - innerTopHeight * [self yDirection]);
-        
-        ccDrawPoly(outerEdges, 4, YES);
-        ccDrawFilledCircle(innerTopEdge, innerCircleRadius * [QPBattlefield pulseRotation], 0, 100, NO);
-        ccDrawColor4F(1, 1, 1, 1.0);
+        [self drawShip];
+        [self drawCircle];
         CGPoint drawingDeltas[4001];
         NSInteger index = 0;
         for (int i = self.fightingIteration; i < self.drawingIteration; i++) {

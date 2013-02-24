@@ -12,7 +12,6 @@
 
 @interface QuantumPilot : CCNode {
     CGPoint outerEdges[4];
-    CGPoint innerTopEdge;
 }
 
 @property (nonatomic) CGPoint l;
@@ -20,6 +19,8 @@
 @property (nonatomic) CGPoint t;
 @property (nonatomic, readonly) float speed;
 @property (nonatomic) BOOL firing;
+
+@property (nonatomic) CGPoint innerTopEdge;
 
 @property (nonatomic) NSInteger fightingIteration;
 @property (nonatomic) NSInteger drawingIteration;
@@ -70,6 +71,8 @@
 - (NSInteger)fireDirection;
 
 - (void)engage;
+
+- (void)drawCircle;
 
 @end
 

@@ -79,6 +79,11 @@
     }
 }
 
+
+- (void)drawCircle {
+
+}
+
 - (void)activate {
     [self resetPosition];
     self.active = YES;
