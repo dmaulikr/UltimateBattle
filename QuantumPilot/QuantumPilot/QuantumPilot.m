@@ -159,6 +159,11 @@ static float innerCircleRadius = 4.5;
     self.time++;
 }
 
+- (void)stationaryFire {
+    future[self.drawingIteration] = self.l;
+    [self fire];
+}
+
 - (void)addWaypoint:(CGPoint)l {
     future[self.drawingIteration] = l;
 }

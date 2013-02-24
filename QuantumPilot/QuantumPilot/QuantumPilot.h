@@ -38,12 +38,12 @@
 
 @property (nonatomic) BOOL active;
 
-- (void)pulse;
-- (void)fire;
-
 - (BOOL)isFiring;
 
+- (void)pulse;
+- (void)fire;
 - (void)addWaypoint:(CGPoint)l;
+- (void)stationaryFire;
 - (void)resetIterations;
 
 - (CGPoint)deltasAtIndex:(NSInteger)index;

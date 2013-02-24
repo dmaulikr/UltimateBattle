@@ -11,4 +11,13 @@
     }
 }
 
+- (void)addDoubleTouch {
+    [self.f changeState:self.f.drawingState];
+    [self.f setTouchOffsetFromPilotNear:self.f.pilot.l];
+    [self.f addTouch:self.f.pilot.l];
+    [self.f pulse];
+    [self.f changeState:self.f.fightingState];
+    [self.f.pilot fire];
+}
+
 @end

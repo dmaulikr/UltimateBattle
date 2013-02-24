@@ -4,9 +4,7 @@
 @implementation QPBFDrawingState
 
 - (void)pulse {
-//    [self.f.pilot addWaypoint:self.f.playerTouch];
     if (self.f.time < QPBF_MAX_DRAWING_FRAMES) {
-//        [self.f.pilot addWaypoint:self.f.playerTouch];
         [self.f.pilot addWaypoint:[self.f playerTouchWithOffset]];
         self.f.latestExpected = self.f.playerTouch;
     }
@@ -31,6 +29,7 @@
 //    self.f.touchPlayerOffset = ccp(xOffset, yOffset);
     [self setPlayerTouch:l];
 }
+
 
 - (void)endTouch:(CGPoint)l {
     [self.f changeState:self.f.fightingState];
