@@ -28,7 +28,7 @@ static float innerCircleRadius = 4.5;
 - (id)init {
     self = [super init];
     if (self) {
-        _speed = 6.3;
+        _speed = 4; //6.3
         [self engage];
     }
     return self;
