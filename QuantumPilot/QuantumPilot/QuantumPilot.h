@@ -2,7 +2,7 @@
 #import "cocos2d.h"
 #import "QPBulletDelegate.h"
 #import "Bullet.h"
-#define QPBF_PLAYER_TAP_RANGE 120
+#define QPBF_PLAYER_TAP_RANGE 80
 #import "Weapon.h"
 
 @protocol QuantumPilotingDelegate;

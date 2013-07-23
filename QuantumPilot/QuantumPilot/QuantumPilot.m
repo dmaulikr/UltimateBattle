@@ -17,12 +17,7 @@ static float shipBottomHeight = 10;
 static float innerTopHeight = 10;
 static float innerCircleRadius = 4.5;
 
-//static float shipTopHeight = 75;
-//static float shipSideWidth = 23;
-//static float shipBottomHeight = 15;
-//static float innerTopHeight = 15;
-//static float innerCircleRadius = 7;
-
+static float outerCircleRadius = 60;
 
 - (NSInteger)yDirection {
     return -1;
@@ -35,7 +30,7 @@ static float innerCircleRadius = 4.5;
 - (id)init {
     self = [super init];
     if (self) {
-        _speed = 3; //6.3, //4
+        _speed = 4; //6.3
         [self engage];
     }
     return self;
@@ -61,6 +56,9 @@ static float innerCircleRadius = 4.5;
 - (void)drawCircle {
     ccDrawFilledCircle(self.innerTopEdge, innerCircleRadius * [QPBattlefield pulseRotation], 0, 100, NO);
     ccDrawColor4F(1, 1, 1, 1.0);
+
+    ccDrawCircle(self.innerTopEdge, outerCircleRadius, 0, 100, NO);
+    
 }
 
 - (void)draw {
