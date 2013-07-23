@@ -17,6 +17,13 @@ static float shipBottomHeight = 10;
 static float innerTopHeight = 10;
 static float innerCircleRadius = 4.5;
 
+//static float shipTopHeight = 75;
+//static float shipSideWidth = 23;
+//static float shipBottomHeight = 15;
+//static float innerTopHeight = 15;
+//static float innerCircleRadius = 7;
+
+
 - (NSInteger)yDirection {
     return -1;
 }
@@ -28,7 +35,7 @@ static float innerCircleRadius = 4.5;
 - (id)init {
     self = [super init];
     if (self) {
-        _speed = 4; //6.3
+        _speed = 3; //6.3, //4
         [self engage];
     }
     return self;

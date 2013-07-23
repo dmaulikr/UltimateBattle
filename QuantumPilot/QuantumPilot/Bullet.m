@@ -10,8 +10,6 @@
 #import "VRGeometry.h"
 
 @implementation Bullet
-@synthesize l = _l, vel = _vel, identifier = _identifier;
-@synthesize yDirection = _yDirection;
 
 - (id)initWithLocation:(CGPoint)location velocity:(CGPoint)velocity {
     self = [super init];
