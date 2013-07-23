@@ -54,11 +54,10 @@ static float outerCircleRadius = 60;
 }
 
 - (void)drawCircle {
-    ccDrawFilledCircle(self.innerTopEdge, innerCircleRadius * [QPBattlefield pulseRotation], 0, 100, NO);
-    ccDrawColor4F(1, 1, 1, 1.0);
-
+    ccDrawColor4F(1 - [QPBattlefield pulseRotation], 1  - [QPBattlefield pulseRotation], 1  - [QPBattlefield pulseRotation], 1);
     ccDrawCircle(self.innerTopEdge, outerCircleRadius, 0, 100, NO);
-    
+    ccDrawColor4F(1, 1, 1, 1.0);
+    ccDrawFilledCircle(self.innerTopEdge, innerCircleRadius * [QPBattlefield pulseRotation], 0, 100, NO);
 }
 
 - (void)draw {

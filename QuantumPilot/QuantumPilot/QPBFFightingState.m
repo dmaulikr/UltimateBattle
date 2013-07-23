@@ -16,10 +16,6 @@
     return YES;
 }
 
-- (int)pulsesHeldBeforeMoving {
-    return 10;
-}
-
 - (void)pulse {
     if (_shiftingToDrawing) {
         [self shiftToDrawingState];
