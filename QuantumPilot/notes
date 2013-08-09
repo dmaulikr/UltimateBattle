@@ -1,1 +1,25 @@
-clones come from quantum
+unshielded animates 0 to .5
+shielded animated .5 to 1
+
+lines come in slanted and shrinking around ship
+
+time
+accuracy
+pathing
+battlefield
+
+display score above ship above weapon fire spot
+
+refill bombs
+install _
+deploy shield
+stall deadline
+
+display active weapon above ship below score
+display debris below ship
+display bombs circled in degrees around core
+
+debris draw node random lines
+
+tap ship to continue
+continuing sends lines flying -- including in paused state
