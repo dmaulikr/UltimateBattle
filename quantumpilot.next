@@ -1,6 +1,1 @@
-BRANCH: clone copying.
-add movement deltas and firing deltas to new clone immediately, every drawing tick and every fighting tick.
-reverse the points y when adding
-(??):draw from fighting iteration to drawing iteration. BRANCH for drawing after clone copying.
-AFTER drawing branch
-play game.
+

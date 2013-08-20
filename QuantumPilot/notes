@@ -1,4 +1,30 @@
-unshielded animates 0 to .5
+no circle
+
+tap to fire
+drag hold to move
+record index and cycle back if fired
+
+animation always on
+
+blink ship when 'paused'
+ship has 'bullet fired' bullet appears instantly
+
+gameplay test.
+
+plays sound
+
+
+
+
+
+
+
+
+
+
+
+
+
 shielded animated .5 to 1
 
 lines come in slanted and shrinking around ship
