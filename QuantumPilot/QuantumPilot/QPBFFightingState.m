@@ -4,6 +4,9 @@
 @implementation QPBFFightingState
 
 - (void)shiftToDrawingState {
+    _held = 0;
+    _holding = false;
+    
     _shiftingToDrawing = NO;
     [self.f changeState:self.f.drawingState withTouch:_shiftToDrawingTouch];
     if (_interruptDrawingPath) {
@@ -25,6 +28,15 @@
     for (QuantumClone *c in self.f.clones) {
         [c pulse];
     }
+    
+    if (_holding) {
+        _held++;
+    }
+//        if (_held > 10) {
+//            _interruptDrawingPath = true;
+//            _shiftToDrawingTouch = _touch;
+//            _shiftingToDrawing = true;
+//        }
 }
 
 - (void)postTick {
@@ -32,21 +44,44 @@
 }
 
 - (void)addTouch:(CGPoint)l {
-    float distToPilot            = GetDistance(self.f.pilot.l, l);
-    float distToLatestPathPoint   = GetDistance([self.f latestExpected], l);
-    
-    BOOL closeToPlayer      = distToPilot <= QPBF_PLAYER_TAP_RANGE;
-    
-    if (closeToPlayer) {
-        if (distToPilot <= distToLatestPathPoint) {
-            _shiftingToDrawing = YES;
-            _shiftToDrawingTouch = l;
-            _interruptDrawingPath = YES;
-            [self.f setTouchOffsetFromPilotNear:l];
-        }
-    } else {
+    _holding = true;
+    _touch = l;
+    _oldPilotLocation = self.f.pilot.l;
+//    float distToPilot            = GetDistance(self.f.pilot.l, l);
+//    float distToLatestPathPoint   = GetDistance([self.f latestExpected], l);
+//    
+//    BOOL closeToPlayer      = distToPilot <= QPBF_PLAYER_TAP_RANGE;
+//    
+//    if (closeToPlayer) {
+//        if (distToPilot <= distToLatestPathPoint) {
+//            _shiftingToDrawing = YES;
+//            _shiftToDrawingTouch = l;
+//            _interruptDrawingPath = YES;
+//            [self.f setTouchOffsetFromPilotNear:l];
+//        }
+//    } else {
+//        [self.f.pilot fire];
+//    }
+}
+
+- (void)moveTouch:(CGPoint)l {
+    if (GetDistance(_touch, _oldPilotLocation) < 80 && GetDistance(l, _touch) >= 10) {
+        _interruptDrawingPath = true;
+        _shiftToDrawingTouch = l;
+        [self shiftToDrawingState];
+        [self.f setTouchOffsetFromPilotNear:_touch];
+    }
+}
+
+- (void)endTouch:(CGPoint)l {
+    bool fire = _holding && _held < 10;
+
+    if (fire) {
         [self.f.pilot fire];
     }
+    
+    _held = 0;
+    _holding = false;
 }
 
 - (void)addDoubleTouch {
