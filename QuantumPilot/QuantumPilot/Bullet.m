@@ -8,6 +8,7 @@
 
 #import "Bullet.h"
 #import "VRGeometry.h"
+#import "QPBattlefield.h"
 
 @implementation Bullet
 
@@ -28,6 +29,8 @@
 
 - (void)pulse {
     self.l = CombinedPoint(self.l, self.vel);
+    QPBattlefield *f = [QPBattlefield f];
+    self.drawMultiplier = f.isPulsing ? rs : self.drawMultiplier;
 }
 
 @end

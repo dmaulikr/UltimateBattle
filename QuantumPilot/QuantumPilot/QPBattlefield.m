@@ -39,6 +39,7 @@ static QPBattlefield *instance = nil;
     self.pilot.pilotDelegate = self;
     self.pilot.bulletDelegate = self;
     [self addChild:self.pilot];
+//    self.pilot.blinking = true;
 }
 
 - (void)setupStates {
@@ -220,22 +221,30 @@ static QPBattlefield *instance = nil;
     }
 }
 
+- (bool)isPulsing {
+    return [self.currentState isPulsing];
+}
+
 - (void)pulse {
     [self.currentState pulse];
     //states manage
-    if ([self.currentState isPulsing]) {
-        [self rhythmPulse];
+    [self rhythmPulse];
+    if ([self isPulsing]) {
         [self.pilot pulse];
         [self clonesPulse];
         [self killPulse];
         [self bulletPulse];
+    } else if (self.currentState == self.pausedState){
+        
     }
+    
 }
 
 #pragma mark States
 
 - (void)changeState:(QPBFState *)state {
     self.currentState = state;
+    self.pilot.blinking = self.currentState == self.pausedState;
 }
 
 - (void)changeState:(QPBFState *)state withTouch:(CGPoint)l {

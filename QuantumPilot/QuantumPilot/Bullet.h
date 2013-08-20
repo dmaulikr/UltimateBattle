@@ -21,6 +21,8 @@
 
 @property (nonatomic) NSInteger radius;
 
+@property (nonatomic) float drawMultiplier;
+
 - (void)pulse;
 
 - (id)initWithLocation:(CGPoint)location velocity:(CGPoint)velocity;

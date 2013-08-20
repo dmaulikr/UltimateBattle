@@ -37,6 +37,7 @@
 @property (strong, nonatomic) Class bulletClass;
 
 @property (nonatomic) BOOL active;
+@property (nonatomic) BOOL blinking;
 
 - (BOOL)isFiring;
 

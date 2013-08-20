@@ -21,10 +21,11 @@ static float outerHeight = 6;
 }
 
 - (void)draw {
-    lines[0] = ccp(self.l.x - innerWidth - (rs * outerWidth), self.l.y - innerHeight - (rs * outerHeight));
-    lines[1] = ccp(self.l.x - innerWidth - (rs * outerWidth), self.l.y + innerHeight + (rs * outerHeight));
-    lines[2] = ccp(self.l.x + innerWidth + (rs * outerWidth), self.l.y + innerHeight + (rs * outerHeight));
-    lines[3] = ccp(self.l.x + innerWidth + (rs * outerWidth), self.l.y - innerHeight - (rs * outerHeight));
+
+    lines[0] = ccp(self.l.x - innerWidth - (self.drawMultiplier * outerWidth), self.l.y - innerHeight - (self.drawMultiplier * outerHeight));
+    lines[1] = ccp(self.l.x - innerWidth - (self.drawMultiplier * outerWidth), self.l.y + innerHeight + (self.drawMultiplier * outerHeight));
+    lines[2] = ccp(self.l.x + innerWidth + (self.drawMultiplier * outerWidth), self.l.y + innerHeight + (self.drawMultiplier * outerHeight));
+    lines[3] = ccp(self.l.x + innerWidth + (self.drawMultiplier * outerWidth), self.l.y - innerHeight - (self.drawMultiplier * outerHeight));
     ccDrawSolidPoly(lines, 4, [self color]);
 }
 

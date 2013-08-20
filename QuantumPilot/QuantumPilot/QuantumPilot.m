@@ -44,26 +44,29 @@ static float outerCircleRadius = 60;
 }
 
 - (void)drawShip {
-    outerEdges[0] = ccp(self.l.x, self.l.y - shipTopHeight * [self yDirection]);
-    outerEdges[1] = ccp(self.l.x - shipSideWidth, self.l.y);
-    outerEdges[2] = ccp(self.l.x, self.l.y + shipBottomHeight * [self yDirection]);
-    outerEdges[3] = ccp(self.l.x + shipSideWidth, self.l.y);
-    self.innerTopEdge = ccp(self.l.x, self.l.y - innerTopHeight * [self yDirection]);
-    
-    ccDrawPoly(outerEdges, 4, YES);
+    if (!self.blinking || [QPBattlefield rhythmScale] > .5) {
+        outerEdges[0] = ccp(self.l.x, self.l.y - shipTopHeight * [self yDirection]);
+        outerEdges[1] = ccp(self.l.x - shipSideWidth, self.l.y);
+        outerEdges[2] = ccp(self.l.x, self.l.y + shipBottomHeight * [self yDirection]);
+        outerEdges[3] = ccp(self.l.x + shipSideWidth, self.l.y);
+        self.innerTopEdge = ccp(self.l.x, self.l.y - innerTopHeight * [self yDirection]);
+        
+        ccDrawPoly(outerEdges, 4, YES);
+    }
 }
 
 - (void)drawCircle {
-    ccDrawColor4F(1 - [QPBattlefield pulseRotation], 1  - [QPBattlefield pulseRotation], 1  - [QPBattlefield pulseRotation], 1);
-    ccDrawCircle(self.innerTopEdge, outerCircleRadius, 0, 100, NO);
+    //if shielded
+//    ccDrawColor4F(1 - [QPBattlefield pulseRotation], 1  - [QPBattlefield pulseRotation], 1  - [QPBattlefield pulseRotation], 1);
+//    ccDrawCircle(self.innerTopEdge, outerCircleRadius, 0, 100, NO);
     ccDrawColor4F(1, 1, 1, 1.0);
     ccDrawFilledCircle(self.innerTopEdge, innerCircleRadius * [QPBattlefield pulseRotation], 0, 100, NO);
 }
 
 - (void)draw {
+    [self drawShip];
+    [self drawCircle];
     if (self.active) {
-        [self drawShip];
-        [self drawCircle];
         CGPoint drawingDeltas[4001];
         NSInteger index = 0;
         for (int i = self.fightingIteration; i < self.drawingIteration; i++) {

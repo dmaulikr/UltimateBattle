@@ -65,6 +65,7 @@ enum pulsestate {
 
 + (float)rhythmScale;
 + (float)pulseRotation;
+- (bool)isPulsing;
 
 #pragma mark Input
 
