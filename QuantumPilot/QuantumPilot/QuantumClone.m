@@ -53,6 +53,10 @@
     latestIndex = index;
 }
 
+- (bool)shouldDraw {
+    return self.active;
+}
+
 - (void)pulse {
     if (timeDirection != recording) {
         if (self.active) {

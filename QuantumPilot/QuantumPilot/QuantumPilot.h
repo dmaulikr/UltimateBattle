@@ -75,6 +75,8 @@
 
 - (void)drawCircle;
 
+- (bool)shouldDraw ;
+
 @end
 
 @protocol QuantumPilotingDelegate <NSObject>

@@ -43,8 +43,12 @@ static float outerCircleRadius = 60;
     [self resetPosition];
 }
 
+- (bool)shouldDraw {
+    return !self.blinking || [QPBattlefield rhythmScale] > .5;
+}
+
 - (void)drawShip {
-    if (!self.blinking || [QPBattlefield rhythmScale] > .5) {
+    if ([self shouldDraw]) {
         outerEdges[0] = ccp(self.l.x, self.l.y - shipTopHeight * [self yDirection]);
         outerEdges[1] = ccp(self.l.x - shipSideWidth, self.l.y);
         outerEdges[2] = ccp(self.l.x, self.l.y + shipBottomHeight * [self yDirection]);
@@ -212,7 +216,9 @@ static float outerCircleRadius = 60;
 }
 
 - (void)fire {
-    self.firing = YES;
+    if (!self.firing) {
+        self.firing = true;
+    }
 }
 
 - (void)createClone {
