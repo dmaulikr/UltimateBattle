@@ -1,51 +1,39 @@
-no circle
+Lines scale in:
 
-tap to fire
-drag hold to move
-record index and cycle back if fired
+TIME
+1000
 
-animation always on
+ACCURACY
+3000
 
-blink ship when 'paused'
-ship has 'bullet fired' bullet appears instantly
+PATHING
+4000
 
-gameplay test.
+SCORE: 
+X + Y >> X, counts up as the others count down
 
-plays sound
+transitions to:
 
+Quadrants:
+20 (debris): $.99 (price formatted)
+50 (debris) $1.99
+100 (debris) $2.99
+RECYCLE OPTION IN 3.000, to 0.000
 
-
-
-
-
-
-
-
-
-
+transitions to:
 
 
-shielded animated .5 to 1
+Quadrants:     Text displayed:
+Shield (max 4) SHIELD (drawing of circle)
+Bomb (max 1)   BOMB (drawing of lines in every direction): show text: HOLD 2 FINGERS TO BOMB
+Warning        SCANNER(cost increases with level) (drawing of !)
+Weapon Toggle  WIDE, TRI, QUAD (drawing of weapon diagram)
 
-lines come in slanted and shrinking around ship
+debris cost underneath each text in each quadrant
 
-time
-accuracy
-pathing
-battlefield
+Debris count underneath ship
 
-display score above ship above weapon fire spot
 
-refill bombs
-install _
-deploy shield
-stall deadline
+Show Bomb as : asteriks lined in center of ship
 
-display active weapon above ship below score
-display debris below ship
-display bombs circled in degrees around core
-
-debris draw node random lines
-
-tap ship to continue
-continuing sends lines flying -- including in paused state
+--tapping ship clears recycle option and resumes--

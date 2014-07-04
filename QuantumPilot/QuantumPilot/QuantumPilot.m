@@ -38,6 +38,7 @@ static float outerCircleRadius = 60;
 
 - (void)engage {
     [self resetIterations];
+    self.weapon = nil;
     self.weapon = [[SingleLaserCannon alloc] init];
     self.active = YES;
     [self resetPosition];
