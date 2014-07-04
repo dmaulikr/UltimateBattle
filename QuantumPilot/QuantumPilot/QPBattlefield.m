@@ -43,10 +43,10 @@ static QPBattlefield *instance = nil;
 }
 
 - (void)setupStates {
-    self.titleState = [[QPBFTitleState alloc] initWithBattlefield:self];
-    self.drawingState = [[QPBFDrawingState alloc] initWithBattlefield:self];
-    self.pausedState =  [[QPBFPausedState alloc] initWithBattlefield:self];
-    self.fightingState = [[QPBFFightingState alloc] initWithBattlefield:self];
+    self.titleState = [[[QPBFTitleState alloc] initWithBattlefield:self] autorelease];
+    self.drawingState = [[[QPBFDrawingState alloc] initWithBattlefield:self] autorelease];
+    self.pausedState =  [[[QPBFPausedState alloc] initWithBattlefield:self] autorelease];
+    self.fightingState = [[[QPBFFightingState alloc] initWithBattlefield:self] autorelease];
     self.currentState = self.titleState;
 }
 
@@ -237,6 +237,8 @@ static QPBattlefield *instance = nil;
     } else if (self.currentState == self.pausedState){
         
     }
+	CCDirectorIOS	*director = (CCDirectorIOS*) [CCDirector sharedDirector];
+    NSLog([NSString stringWithFormat:@"%f", director.secondsPerFrame]);
     
 }
 

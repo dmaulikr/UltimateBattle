@@ -21,11 +21,11 @@
 }
 
 - (NSArray *)newBullets {
-    return [NSArray array];
+    return nil;
 }
 
 - (NSArray *)newBulletsForLocation:(CGPoint)location direction:(NSInteger)direction {
-    return [NSArray array];
+    return nil;
 }
 
 + (NSString *)description {
@@ -47,7 +47,7 @@
 }
 
 - (void)setDrawColor {
-    glColor4f(1, 1, 1, 1.0);
+    ccDrawColor4F(1, 1, 1, 1.0);
 }
 
 @end

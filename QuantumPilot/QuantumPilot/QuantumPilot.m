@@ -39,7 +39,7 @@ static float outerCircleRadius = 60;
 - (void)engage {
     [self resetIterations];
     self.weapon = nil;
-    self.weapon = [[SingleLaserCannon alloc] init];
+    self.weapon = [[[SingleLaserCannon alloc] init] autorelease];
     self.active = YES;
     [self resetPosition];
 }
@@ -64,6 +64,7 @@ static float outerCircleRadius = 60;
     //if shielded
 //    ccDrawColor4F(1 - [QPBattlefield pulseRotation], 1  - [QPBattlefield pulseRotation], 1  - [QPBattlefield pulseRotation], 1);
 //    ccDrawCircle(self.innerTopEdge, outerCircleRadius, 0, 100, NO);
+    //DRAW SHIELD BY OPACITY OF SHIELD CHARGE
     ccDrawColor4F(1, 1, 1, 1.0);
     ccDrawFilledCircle(self.innerTopEdge, innerCircleRadius * [QPBattlefield pulseRotation], 0, 100, NO);
 }
@@ -223,9 +224,9 @@ static float outerCircleRadius = 60;
 }
 
 - (void)createClone {
-    self.clone = [[QuantumClone alloc] init];
+    self.clone = [[[QuantumClone alloc] init] autorelease];
     self.clone.active = YES;
-    self.clone.weapon = [[[self.weapon class] alloc] init];
+    self.clone.weapon = [[[[self.weapon class] alloc] init] autorelease];
 }
 
 @end

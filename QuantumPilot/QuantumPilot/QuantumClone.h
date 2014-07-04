@@ -24,6 +24,5 @@ enum TimeDirection {
 
 - (void)recordVelocity:(CGPoint)vel firing:(BOOL)firing;
 - (void)activate;
-- (void)recordLatestIndex;
 
 @end

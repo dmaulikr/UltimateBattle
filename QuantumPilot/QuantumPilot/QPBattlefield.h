@@ -83,8 +83,4 @@ enum pulsestate {
 - (void)setTouchOffsetFromPilotNear:(CGPoint)l;
 - (void)setTouchOffsetFromLatestExpectedNear:(CGPoint)l;
 
-#pragma mark deltas
-
-- (CGPoint)deltaPoint:(NSInteger)index;
-
 @end
