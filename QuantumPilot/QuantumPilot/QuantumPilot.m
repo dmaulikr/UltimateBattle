@@ -86,19 +86,19 @@ static float outerCircleRadius = 60;
 - (void)draw {
     [self drawShip];
     [self drawCircle];
-//    if (self.active) {
-//        CGPoint drawingDeltas[4001];
-//        NSInteger index = 0;
-//        for (int i = self.fightingIteration; i < self.drawingIteration; i++) {
-//            drawingDeltas[index] = future[i];
-//            index++;
-//        }
-//        NSInteger drawFrameTotal = self.drawingIteration - self.fightingIteration;
-//        if (drawFrameTotal < 0) {
-//            drawFrameTotal = 0;
-//        }
-//        ccDrawPoly(drawingDeltas, drawFrameTotal, NO);
-//    }
+    if (self.active) {
+        CGPoint drawingDeltas[4001];
+        NSInteger index = 0;
+        for (int i = self.fightingIteration; i < self.drawingIteration; i++) {
+            drawingDeltas[index] = future[i];
+            index++;
+        }
+        NSInteger drawFrameTotal = self.drawingIteration - self.fightingIteration;
+        if (drawFrameTotal < 0) {
+            drawFrameTotal = 0;
+        }
+        ccDrawPoly(drawingDeltas, drawFrameTotal, NO);
+    }
 }
 
 - (BOOL)isFiring {
@@ -203,10 +203,6 @@ static float outerCircleRadius = 60;
 - (CGPoint)deltaTarget {
     return future[self.fightingIteration];
 }
-
-//- (CGPoint *)drawShape {
-//    return outerEdges;
-//}
 
 - (BOOL)isCollidingWithBullet:(Bullet *)b {
     return shapeOfSizeContainsPoint(outerEdges, 4, b.l);
