@@ -17,7 +17,7 @@
     if (self) {
         self.l = location;
         self.vel = velocity;
-        self.radius = 3;
+        self.radius = 1.5; //iPad: 3
     }
     
     return self;

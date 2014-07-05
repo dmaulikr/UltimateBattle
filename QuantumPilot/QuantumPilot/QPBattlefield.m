@@ -237,9 +237,7 @@ static QPBattlefield *instance = nil;
     } else if (self.currentState == self.pausedState){
         
     }
-	CCDirectorIOS	*director = (CCDirectorIOS*) [CCDirector sharedDirector];
-    NSLog([NSString stringWithFormat:@"%f", director.secondsPerFrame]);
-    
+
 }
 
 #pragma mark States

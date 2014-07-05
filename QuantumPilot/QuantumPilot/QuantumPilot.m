@@ -11,11 +11,19 @@
 @end
 
 @implementation QuantumPilot
-static float shipTopHeight = 50;
-static float shipSideWidth = 15;
-static float shipBottomHeight = 10;
-static float innerTopHeight = 10;
-static float innerCircleRadius = 4.5;
+//iPad
+//static float shipTopHeight = 50;
+//static float shipSideWidth = 15;
+//static float shipBottomHeight = 10;
+//static float innerTopHeight = 10;
+//static float innerCircleRadius = 4.5;
+
+static float shipTopHeight = 28;
+static float shipSideWidth = 8.5;
+static float shipBottomHeight = 5.75;
+static float innerTopHeight = 5.75;
+static float innerCircleRadius = 2.6;
+
 
 static float outerCircleRadius = 60;
 
@@ -24,13 +32,14 @@ static float outerCircleRadius = 60;
 }
 
 - (void)resetPosition {
-    self.l = CGPointMake(384, 170);
+//    self.l = CGPointMake(384, 170);
+    self.l = CGPointMake(160, 578 * 1/3);
 }
 
 - (id)init {
     self = [super init];
     if (self) {
-        _speed = 4; //6.3
+        _speed = 2.3;//ipad: //old setting: 6.3
         [self engage];
     }
     return self;

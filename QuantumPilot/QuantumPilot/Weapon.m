@@ -10,6 +10,7 @@
 #import "cocos2d.h"
 
 @implementation Weapon
+
 @synthesize speed;
 
 - (id)init {
@@ -37,7 +38,7 @@
 }
 
 + (float)defaultSpeed {
-    return 6.8; //10, //6.8
+    return 3.91; //10, //ipad: 6.8
 }
 
 -(id)copyWithZone:(NSZone *)zone {

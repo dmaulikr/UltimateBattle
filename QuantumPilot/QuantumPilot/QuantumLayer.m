@@ -40,7 +40,7 @@
     if (touches.count == 1) {
         UITouch *touch = [touches anyObject];
         CGPoint l = [touch locationInView:[touch view]];
-        [self.f addTouch:ccp(l.x, 1024-l.y)];
+        [self.f addTouch:ccp(l.x, 578-l.y)];
     } else if (touches.count == 2) {
         [self.f addDoubleTouch];
     }
@@ -51,7 +51,7 @@
     
     for (UITouch *touch in touchArray) {
         CGPoint l = [touch locationInView:[touch view]];
-        [self.f moveTouch:ccp(l.x, 1024-l.y)];
+        [self.f moveTouch:ccp(l.x, 578-l.y)];
     }
 }
 
@@ -60,7 +60,7 @@
     
     for (UITouch *touch in touchArray) {
         CGPoint l = [touch locationInView:[touch view]];
-        [self.f endTouch:ccp(l.x, 1024-l.y)];
+        [self.f endTouch:ccp(l.x, 578-l.y)];
     }
 }
 

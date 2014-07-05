@@ -22,7 +22,8 @@
 }
 
 - (void)resetPosition {
-    self.l = CGPointMake(384, 1024-170);
+//    self.l = CGPointMake(384, 1024-170);
+    self.l = CGPointMake(160, 578 * 2/3);
 }
 
 - (NSInteger)yDirection {
