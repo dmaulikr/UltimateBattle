@@ -12,8 +12,8 @@
 @implementation QuantumClone
 
 - (id)copyWithZone:(NSZone *)zone {
-    QuantumClone *c = [[QuantumClone alloc] init];
-    c.weapon = [[SingleLaserCannon alloc] init];
+    QuantumClone *c = [[[QuantumClone alloc] init] autorelease];
+    c.weapon = @"SingleLaserCannon"; // [[[SingleLaserCannon alloc] init] autorelease];
     for (NSInteger i = 0; i < 4001; i++) {
         [c recordVelocity:pastVelocities[i] firing:pastFireTimings[i]];
     }
@@ -35,7 +35,8 @@
 }
 
 - (void)sendBulletsToBattlefield  {
-    [self.bulletDelegate cloneBulletsFired:[self.weapon bulletsForLocation:outerEdges[0] direction:[self fireDirection]]];
+    Class w = NSClassFromString(self.weapon);
+    [self.bulletDelegate cloneBulletsFired:[w bulletsForLocation:outerEdges[0] direction:[self fireDirection]]];
 
 }
 

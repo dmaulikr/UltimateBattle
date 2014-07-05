@@ -23,6 +23,7 @@
 }
 
 - (void)deactivate {
+    [self.scoreDisplay removeAllChildrenWithCleanup:true];
     [self.f removeChild:self.scoreDisplay cleanup:true];
     self.scoreDisplay = nil;
 }

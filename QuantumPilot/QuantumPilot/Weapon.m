@@ -11,21 +11,15 @@
 
 @implementation Weapon
 
-@synthesize speed;
-
-- (id)init {
-    self = [super init];
-    if (self) {
-        self.speed = [[self class] defaultSpeed];
-    }
-    return self;
++ (float)speed {
+    return [self defaultSpeed];
 }
 
-- (NSArray *)newBullets {
++ (NSArray *)newBullets {
     return nil;
 }
 
-- (NSArray *)newBulletsForLocation:(CGPoint)location direction:(NSInteger)direction {
++ (NSArray *)newBulletsForLocation:(CGPoint)location direction:(NSInteger)direction {
     return nil;
 }
 
@@ -41,13 +35,7 @@
     return 2.4; //phone: 3.91 //10, //ipad: 6.8
 }
 
--(id)copyWithZone:(NSZone *)zone {
-    id another = [[[self class] alloc] init];
-    ((Weapon *)another).speed = self.speed;
-    return another;
-}
-
-- (void)setDrawColor {
++ (void)setDrawColor {
     ccDrawColor4F(1, 1, 1, 1.0);
 }
 

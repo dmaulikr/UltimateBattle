@@ -52,7 +52,7 @@ static float outerCircleRadius = 60;
 - (void)engage {
     [self resetIterations];
     self.weapon = nil;
-    self.weapon = [[[SingleLaserCannon alloc] init] autorelease];
+    self.weapon = @"SingleLaserCannon"; //[[[SingleLaserCannon alloc] init] autorelease];
     self.active = YES;
     [self resetPosition];
 }
@@ -86,19 +86,19 @@ static float outerCircleRadius = 60;
 - (void)draw {
     [self drawShip];
     [self drawCircle];
-    if (self.active) {
-        CGPoint drawingDeltas[4001];
-        NSInteger index = 0;
-        for (int i = self.fightingIteration; i < self.drawingIteration; i++) {
-            drawingDeltas[index] = future[i];
-            index++;
-        }
-        NSInteger drawFrameTotal = self.drawingIteration - self.fightingIteration;
-        if (drawFrameTotal < 0) {
-            drawFrameTotal = 0;
-        }
-        ccDrawPoly(drawingDeltas, drawFrameTotal, NO);
-    }
+//    if (self.active) {
+//        CGPoint drawingDeltas[4001];
+//        NSInteger index = 0;
+//        for (int i = self.fightingIteration; i < self.drawingIteration; i++) {
+//            drawingDeltas[index] = future[i];
+//            index++;
+//        }
+//        NSInteger drawFrameTotal = self.drawingIteration - self.fightingIteration;
+//        if (drawFrameTotal < 0) {
+//            drawFrameTotal = 0;
+//        }
+//        ccDrawPoly(drawingDeltas, drawFrameTotal, NO);
+//    }
 }
 
 - (BOOL)isFiring {
@@ -110,7 +110,8 @@ static float outerCircleRadius = 60;
 }
 
 - (void)sendBulletsToBattlefield {
-    [self.bulletDelegate bulletsFired:[self.weapon bulletsForLocation:outerEdges[0] direction:[self fireDirection]]];
+    Class w = NSClassFromString(self.weapon);
+    [self.bulletDelegate bulletsFired:[w bulletsForLocation:outerEdges[0] direction:[self fireDirection]]];
 }
 
 - (void)checkForFiringWeapon {
@@ -203,12 +204,12 @@ static float outerCircleRadius = 60;
     return future[self.fightingIteration];
 }
 
-- (CGPoint *)drawShape {
-    return outerEdges;
-}
+//- (CGPoint *)drawShape {
+//    return outerEdges;
+//}
 
 - (BOOL)isCollidingWithBullet:(Bullet *)b {
-    return shapeOfSizeContainsPoint([self drawShape], 4, b.l);
+    return shapeOfSizeContainsPoint(outerEdges, 4, b.l);
 }
 
 - (void)registerHit {
@@ -240,7 +241,7 @@ static float outerCircleRadius = 60;
 - (void)createClone {
     self.clone = [[[QuantumClone alloc] init] autorelease];
     self.clone.active = YES;
-    self.clone.weapon = [[[[self.weapon class] alloc] init] autorelease];
+    self.clone.weapon = self.weapon;
 }
 
 @end

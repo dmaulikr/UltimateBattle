@@ -12,14 +12,13 @@
     
 }
 
-@property (nonatomic, assign) float speed;
++ (NSArray *)newBullets;
 
-- (NSArray *)newBullets;
-
-- (NSArray *)bulletsForLocation:(CGPoint)location direction:(NSInteger)direction;
++ (NSArray *)bulletsForLocation:(CGPoint)location direction:(NSInteger)direction;
 
 + (float)defaultSpeed;
++ (float)speed;
 
-- (void)setDrawColor;
++ (void)setDrawColor;
 
 @end

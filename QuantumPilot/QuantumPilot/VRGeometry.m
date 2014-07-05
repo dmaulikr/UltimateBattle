@@ -42,7 +42,7 @@ CGPoint GetAngle(CGPoint a ,CGPoint b){
 }
 
 BOOL shapeOfSizeContainsPoint(CGPoint *points, NSInteger length, CGPoint point) {
-	CGMutablePathRef path=CGPathCreateMutable();
+	CGMutablePathRef path = CGPathCreateMutable();
     
     CGPathMoveToPoint(path, NULL, points[0].x, points[0].y);
     for (int i = 1; i < length; i++) {
@@ -50,5 +50,10 @@ BOOL shapeOfSizeContainsPoint(CGPoint *points, NSInteger length, CGPoint point) 
     }
     
 	CGPathCloseSubpath(path);
-	return CGPathContainsPoint(path, NULL, point, YES);
+    
+	bool result = CGPathContainsPoint(path, NULL, point, YES);
+    
+    CFRelease(path);
+    
+    return result;
 }

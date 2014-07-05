@@ -52,7 +52,7 @@ static QPBattlefield *instance = nil;
 }
 
 - (void)setupDeadline {
-    self.dl = [[DeadLine alloc] init];
+    self.dl = [[[DeadLine alloc] init] autorelease];
     [self addChild:self.dl];
 }
 

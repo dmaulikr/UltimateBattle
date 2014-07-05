@@ -25,7 +25,7 @@
 @property (nonatomic) NSInteger fightingIteration;
 @property (nonatomic) NSInteger drawingIteration;
 @property (nonatomic) NSInteger time;
-@property (nonatomic, retain) Weapon *weapon;
+@property (nonatomic, copy) NSString *weapon;
 
 @property (nonatomic, retain) QuantumClone *clone;
 
