@@ -5,6 +5,7 @@
 #import "QPBFDrawingState.h"
 #import "QPBFFightingState.h"
 #import "QPBFPausedState.h"
+#import "DeadLine.h"
 
 #define QPBF_MAX_DRAWING_FRAMES 4000
 
@@ -57,6 +58,10 @@ enum pulsestate {
 #pragma mark Pulse
 
 @property (nonatomic, assign) NSInteger time;
+
+#pragma mark Deadline
+
+@property (strong, nonatomic) DeadLine *dl;
 
 - (float)rhythmScale;
 - (void)pulse;

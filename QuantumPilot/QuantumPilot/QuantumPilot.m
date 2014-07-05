@@ -59,6 +59,7 @@ static float outerCircleRadius = 60;
 
 - (void)drawShip {
     if ([self shouldDraw]) {
+        ccDrawColor4F(1, 1, 1, 1.0);
         outerEdges[0] = ccp(self.l.x, self.l.y - shipTopHeight * [self yDirection]);
         outerEdges[1] = ccp(self.l.x - shipSideWidth, self.l.y);
         outerEdges[2] = ccp(self.l.x, self.l.y + shipBottomHeight * [self yDirection]);

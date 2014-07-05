@@ -38,7 +38,7 @@
 }
 
 + (float)defaultSpeed {
-    return 2; //phone: 3.91 //10, //ipad: 6.8
+    return 2.4; //phone: 3.91 //10, //ipad: 6.8
 }
 
 -(id)copyWithZone:(NSZone *)zone {

@@ -50,6 +50,11 @@ static QPBattlefield *instance = nil;
     self.currentState = self.titleState;
 }
 
+- (void)setupDeadline {
+    self.dl = [[DeadLine alloc] init];
+    [self addChild:self.dl];
+}
+
 - (id)init {
     self = [super init];
     if (self) {
@@ -59,6 +64,7 @@ static QPBattlefield *instance = nil;
         [self setupPilot];
         [self setupStates];
         [self setupClones];
+        [self setupDeadline];
     }
     return self;
 }
@@ -181,6 +187,7 @@ static QPBattlefield *instance = nil;
     [self resetPilot];
     [self changeState:self.pausedState];
     [self setupClone];
+    [self.dl reset];
 }
 
 - (void)bulletPulse {
@@ -218,11 +225,19 @@ static QPBattlefield *instance = nil;
         [self.pilot resetIterations];
         [self changeState:self.pausedState];
         [self eraseBullets];
+        [self.dl reset];
     }
 }
 
 - (bool)isPulsing {
     return [self.currentState isPulsing];
+}
+
+- (void)moveDeadline {
+    [self.dl pulse];
+    if (self.dl.y < self.pilot.l.y) {
+        [self resetBattlefield];
+    }
 }
 
 - (void)pulse {
@@ -234,6 +249,7 @@ static QPBattlefield *instance = nil;
         [self clonesPulse];
         [self killPulse];
         [self bulletPulse];
+        [self moveDeadline];
     } else if (self.currentState == self.pausedState){
         
     }
