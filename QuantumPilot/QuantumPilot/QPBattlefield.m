@@ -160,6 +160,9 @@ static QPBattlefield *instance = nil;
         for (QuantumPilot *p in targets) {
             if (p.active) {
                 [p processBullet:b];
+                if (!p.active) {
+                    hits++;
+                }
             }
         }
     }
@@ -189,6 +192,8 @@ static QPBattlefield *instance = nil;
     [self changeState:self.pausedState];
     [self setupClone];
     [self.dl reset];
+    [self resetLevelScore];
+    self.score = 0;
 }
 
 - (void)bulletPulse {
@@ -215,6 +220,31 @@ static QPBattlefield *instance = nil;
     
 }
 
+- (NSDictionary *)levelScore {
+    float ab = 0;
+    if (hits >= shotsFired) {
+        ab = 100;
+    } else {
+        float acc = (float)hits / (float)shotsFired;
+        ab = floorf(acc * 100);
+    }
+    
+    NSNumber *accBonus = [NSNumber numberWithInteger:(int)floorf(ab)];
+    NSNumber *timeBonus = [NSNumber numberWithInteger:self.dl.y];
+    NSLog(@"ab:%f, accBonus: %@", ab, accBonus);
+    NSNumber *pathingBonus = [NSNumber numberWithInteger:60];
+    NSNumber *currentScore = [NSNumber numberWithInteger:self.score];
+    
+    NSLog(@"currentScore: %d -- %d", [currentScore intValue], self.score);
+    
+    return @{QP_BF_TIMESCORE: timeBonus, QP_BF_ACCSCORE: accBonus, QP_BF_PATHSCORE: pathingBonus, QP_BF_SCORE: currentScore};
+}
+
+- (void)resetLevelScore {
+    hits = 0;
+    shotsFired = 0;
+}
+
 - (void)killPulse {
     if ([self activeClones] == 0) {
         [self.pilot resetPosition];
@@ -228,7 +258,8 @@ static QPBattlefield *instance = nil;
         [self activateClones];
         [self setupClone];
         [self.pilot resetIterations];
-        [self changeState:self.scoreState];
+        [self changeState:self.scoreState withOptions:[self levelScore]];
+        [self resetLevelScore];
         [self eraseBullets];
         [self.dl reset];
     }
@@ -263,11 +294,16 @@ static QPBattlefield *instance = nil;
 
 #pragma mark States
 
-- (void)changeState:(QPBFState *)state {
+- (void)changeState:(QPBFState *)state withOptions:(NSDictionary *)options {
     [self.currentState deactivate];
     self.currentState = state;
-    [self.currentState activate];
+    [self.currentState activate:options];
     self.pilot.blinking = self.currentState == self.pausedState;
+}
+
+- (void)changeState:(QPBFState *)state {
+    [self changeState:state withOptions:nil];
+    
 }
 
 - (void)changeState:(QPBFState *)state withTouch:(CGPoint)l {
@@ -322,6 +358,8 @@ static QPBattlefield *instance = nil;
 #pragma mark Bullet Delegate
 
 - (void)bulletsFired:(NSArray *)bullets {
+    shotsFired++;
+    NSLog(@"shotsFired: %d", shotsFired);
     [self.bullets addObjectsFromArray:bullets];
     for (Bullet *b in bullets) {
         [self addChild:b];

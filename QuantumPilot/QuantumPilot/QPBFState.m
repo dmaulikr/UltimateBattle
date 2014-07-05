@@ -37,7 +37,7 @@
     
 }
 
-- (void)activate {
+- (void)activate:(NSDictionary *)options {
     
 }
 

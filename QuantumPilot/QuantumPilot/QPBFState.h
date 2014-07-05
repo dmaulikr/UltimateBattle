@@ -17,7 +17,7 @@
 
 - (BOOL)isPulsing;
 
-- (void)activate;
+- (void)activate:(NSDictionary *)options;
 - (void)deactivate;
 
 @end

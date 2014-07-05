@@ -9,7 +9,12 @@
 #import "QPBFState.h"
 #import "ScoreDisplay.h"
 
-@interface QPBFScoreState : QPBFState {
+#define QP_BF_TIMESCORE @"TimeScore"
+#define QP_BF_ACCSCORE @"AccScore"
+#define QP_BF_PATHSCORE @"PathScore"
+#define QP_BF_SCORE @"Score"
+
+@interface QPBFScoreState : QPBFState <ScoreDisplayDelegate> {
     
 }
 

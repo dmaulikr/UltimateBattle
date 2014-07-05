@@ -7,22 +7,66 @@
 //
 
 #import "ScoreDisplay.h"
-#import "cocos2d.h"
 #import "QuantumPilot.h"
 
 @implementation ScoreDisplay
 
-- (id)init {
+- (id)initWithTimeScore:(int)t accuracyScore:(int)a pathingScore:(int)p currentScore:(int)s {
     self = [super init];
     if (self) {
         iteration = 30;
         l = [QuantumPilot resetPosition];
+        
+        time = t;
+        accuracy = a;
+        pathing = p;
+        score = s;
+        NSLog(@"display opening score: %d", score);
+    
     }
     return self;
 }
 
 - (void)pulse {
-    iteration--;
+    if (state == displayZooming) {
+        iteration--;
+        if (iteration == 0) {
+            state = displayCalculating;
+        }
+    } else if (state == displayCalculating){
+        if (time > 0) {
+            if (time > 99) {
+                time-= 99;
+                score += 99;
+            } else {
+                time--;
+                score++;
+            }
+        }
+        
+        if (accuracy > 0) {
+            if (accuracy > 999) {
+                accuracy-= 999;
+                score+=999;
+            } else if (accuracy > 99) {
+                accuracy-= 99;
+                score+= 99;
+            } else {
+                accuracy--;
+                score++;
+            }
+        }
+        
+        if (time <=0 && accuracy <= 0) {
+            iteration = 50;
+            state = displayResting;
+        }
+    } else {
+        iteration--;
+        if (iteration <= 0) {
+            [self.delegate finishedDisplayingWithTotalScore:score];
+        }
+    }
 }
 
 - (void)draw {
@@ -40,5 +84,6 @@
 - (int)iteration {
     return iteration;
 }
+
 
 @end
