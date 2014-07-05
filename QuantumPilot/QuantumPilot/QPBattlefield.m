@@ -223,14 +223,14 @@ static QPBattlefield *instance = nil;
 - (NSDictionary *)levelScore {
     float ab = 0;
     if (hits >= shotsFired) {
-        ab = 100;
+        ab = 100000;
     } else {
         float acc = (float)hits / (float)shotsFired;
-        ab = floorf(acc * 100);
+        ab = floorf(acc * 10000);
     }
     
     NSNumber *accBonus = [NSNumber numberWithInteger:(int)floorf(ab)];
-    NSNumber *timeBonus = [NSNumber numberWithInteger:self.dl.y];
+    NSNumber *timeBonus = [NSNumber numberWithInteger:self.dl.y * 10];
     NSLog(@"ab:%f, accBonus: %@", ab, accBonus);
     NSNumber *pathingBonus = [NSNumber numberWithInteger:60];
     NSNumber *currentScore = [NSNumber numberWithInteger:self.score];

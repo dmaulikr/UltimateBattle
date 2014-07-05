@@ -45,7 +45,11 @@
         }
         
         if (accuracy > 0) {
-            if (accuracy > 999) {
+            if (accuracy > 9999) {
+                accuracy-= 9999;
+                score+= 9999;
+            } else if (accuracy > 999) {
+                accuracy-= 999;
                 accuracy-= 999;
                 score+=999;
             } else if (accuracy > 99) {
@@ -70,7 +74,10 @@
 }
 
 - (void)draw {
-    float distance = 50 + (iteration * 15);
+    float distance = 50;
+    if (state == displayZooming) {
+        distance = 50 + (iteration * 15);
+    }
     vertexes[0] = ccp(l.x - distance, l.y);
     vertexes[1] = ccp(l.x, l.y + distance);
     vertexes[2] = ccp(l.x + distance, l.y);
@@ -79,6 +86,8 @@
     ccDrawColor4F(1, 1, 1, 1.0);
     
     ccDrawPoly(vertexes, 4, true);
+    
+    
 }
 
 - (int)iteration {
