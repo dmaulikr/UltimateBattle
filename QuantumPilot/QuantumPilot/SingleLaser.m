@@ -11,10 +11,10 @@
 
 @implementation SingleLaser
 
-static float innerWidth = .5;
-static float innerHeight = 8;
-static float outerWidth = .5;
-static float outerHeight = 6;
+static float innerWidth = .5; //iPad: .5
+static float innerHeight = 4; //iPad: 8
+static float outerWidth = .5; //iPad: .5
+static float outerHeight = 3; //iPad: .6
 
 - (ccColor4F)color {
     return self.yDirection == -1 ? ccc4f(.1, .9, .1, 1) : white;

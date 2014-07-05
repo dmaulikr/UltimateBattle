@@ -39,7 +39,7 @@ static float outerCircleRadius = 60;
 - (id)init {
     self = [super init];
     if (self) {
-        _speed = 2.3;//ipad: //old setting: 6.3
+        _speed = 1.8;//phone: 2.3 //ipad: //old setting: 6.3
         [self engage];
     }
     return self;
