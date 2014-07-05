@@ -12,6 +12,8 @@
 		0E63B75816C71BF700F63829 /* Weapon.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E63B75716C71BF700F63829 /* Weapon.m */; };
 		0E63B75B16C71C7C00F63829 /* SingleLaserCannon.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E63B75916C71C7C00F63829 /* SingleLaserCannon.m */; };
 		0EC9E70F1967907400497BB9 /* DeadLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EC9E70E1967907400497BB9 /* DeadLine.m */; };
+		0EC9E7121967943D00497BB9 /* QPBFScoreState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EC9E7111967943D00497BB9 /* QPBFScoreState.m */; };
+		0EC9E7151967990200497BB9 /* ScoreDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EC9E7141967990200497BB9 /* ScoreDisplay.m */; };
 		0EEAC48C16B73BC3005F629F /* QPBFState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEAC48B16B73BC3005F629F /* QPBFState.m */; };
 		0EEAC48F16B73C35005F629F /* QPBFTitleState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEAC48E16B73C35005F629F /* QPBFTitleState.m */; };
 		0EEAC49216B73D2E005F629F /* QPBFDrawingState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEAC49116B73D2E005F629F /* QPBFDrawingState.m */; };
@@ -153,6 +155,10 @@
 		0E63B75A16C71C7C00F63829 /* SingleLaserCannon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleLaserCannon.h; sourceTree = "<group>"; };
 		0EC9E70D1967907400497BB9 /* DeadLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeadLine.h; sourceTree = "<group>"; };
 		0EC9E70E1967907400497BB9 /* DeadLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeadLine.m; sourceTree = "<group>"; };
+		0EC9E7101967943D00497BB9 /* QPBFScoreState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBFScoreState.h; sourceTree = "<group>"; };
+		0EC9E7111967943D00497BB9 /* QPBFScoreState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBFScoreState.m; sourceTree = "<group>"; };
+		0EC9E7131967990200497BB9 /* ScoreDisplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreDisplay.h; sourceTree = "<group>"; };
+		0EC9E7141967990200497BB9 /* ScoreDisplay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreDisplay.m; sourceTree = "<group>"; };
 		0EEAC48A16B73BC3005F629F /* QPBFState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBFState.h; sourceTree = "<group>"; };
 		0EEAC48B16B73BC3005F629F /* QPBFState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBFState.m; sourceTree = "<group>"; };
 		0EEAC48D16B73C35005F629F /* QPBFTitleState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBFTitleState.h; sourceTree = "<group>"; };
@@ -466,6 +472,10 @@
 				0E63B75116C7039100F63829 /* QPBFFightingState.m */,
 				0E63B75316C712B800F63829 /* QPBFPausedState.h */,
 				0E63B75416C712B800F63829 /* QPBFPausedState.m */,
+				0EC9E7101967943D00497BB9 /* QPBFScoreState.h */,
+				0EC9E7111967943D00497BB9 /* QPBFScoreState.m */,
+				0EC9E7131967990200497BB9 /* ScoreDisplay.h */,
+				0EC9E7141967990200497BB9 /* ScoreDisplay.m */,
 			);
 			name = States;
 			sourceTree = "<group>";
@@ -1061,6 +1071,7 @@
 				BF0EE0E6163319B9002942A0 /* CCGrid.m in Sources */,
 				BF0EE0E9163319B9002942A0 /* CCLabelAtlas.m in Sources */,
 				BF0EE0EC163319B9002942A0 /* CCLabelBMFont.m in Sources */,
+				0EC9E7121967943D00497BB9 /* QPBFScoreState.m in Sources */,
 				BF0EE0EF163319B9002942A0 /* CCLabelTTF.m in Sources */,
 				BF0EE0F2163319B9002942A0 /* CCLayer.m in Sources */,
 				BF0EE0F6163319B9002942A0 /* CCMenu.m in Sources */,
@@ -1104,6 +1115,7 @@
 				BF0EE17A163319BA002942A0 /* CCTouchHandler.m in Sources */,
 				BF0EE17E163319BA002942A0 /* CCDirectorMac.m in Sources */,
 				BF0EE181163319BA002942A0 /* CCEventDispatcher.m in Sources */,
+				0EC9E7151967990200497BB9 /* ScoreDisplay.m in Sources */,
 				BF0EE184163319BA002942A0 /* CCGLView.m in Sources */,
 				BF0EE187163319BA002942A0 /* CCWindow.m in Sources */,
 				BF0EE18A163319BA002942A0 /* base64.c in Sources */,

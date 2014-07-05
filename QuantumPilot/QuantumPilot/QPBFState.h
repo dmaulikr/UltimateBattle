@@ -17,5 +17,8 @@
 
 - (BOOL)isPulsing;
 
+- (void)activate;
+- (void)deactivate;
+
 @end
 

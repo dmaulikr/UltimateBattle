@@ -37,6 +37,15 @@
     
 }
 
+- (void)activate {
+    
+}
+
+- (void)deactivate {
+    
+}
+
+
 - (BOOL)isPulsing {
     return NO;
 }

@@ -77,6 +77,8 @@
 
 - (bool)shouldDraw ;
 
++ (CGPoint)resetPosition;
+
 @end
 
 @protocol QuantumPilotingDelegate <NSObject>

@@ -47,6 +47,7 @@ static QPBattlefield *instance = nil;
     self.drawingState = [[[QPBFDrawingState alloc] initWithBattlefield:self] autorelease];
     self.pausedState =  [[[QPBFPausedState alloc] initWithBattlefield:self] autorelease];
     self.fightingState = [[[QPBFFightingState alloc] initWithBattlefield:self] autorelease];
+    self.scoreState = [[[QPBFScoreState alloc] initWithBattlefield:self] autorelease];
     self.currentState = self.titleState;
 }
 
@@ -210,6 +211,10 @@ static QPBattlefield *instance = nil;
     }
 }
 
+- (void)advanceLevel {
+    
+}
+
 - (void)killPulse {
     if ([self activeClones] == 0) {
         [self.pilot resetPosition];
@@ -223,7 +228,7 @@ static QPBattlefield *instance = nil;
         [self activateClones];
         [self setupClone];
         [self.pilot resetIterations];
-        [self changeState:self.pausedState];
+        [self changeState:self.scoreState];
         [self eraseBullets];
         [self.dl reset];
     }
@@ -259,7 +264,9 @@ static QPBattlefield *instance = nil;
 #pragma mark States
 
 - (void)changeState:(QPBFState *)state {
+    [self.currentState deactivate];
     self.currentState = state;
+    [self.currentState activate];
     self.pilot.blinking = self.currentState == self.pausedState;
 }
 

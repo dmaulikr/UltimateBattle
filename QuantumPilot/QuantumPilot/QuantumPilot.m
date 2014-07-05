@@ -33,7 +33,11 @@ static float outerCircleRadius = 60;
 
 - (void)resetPosition {
 //    self.l = CGPointMake(384, 170);
-    self.l = CGPointMake(160, 578 * 1/3);
+    self.l = [QuantumPilot resetPosition];
+}
+
++ (CGPoint)resetPosition {
+    return CGPointMake(160, 578 * 1/3);
 }
 
 - (id)init {
