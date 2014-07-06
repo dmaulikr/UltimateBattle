@@ -250,6 +250,7 @@ static QPBattlefield *instance = nil;
         [self.pilot resetPosition];
         QuantumClone *c = [[self.pilot clone] copy];
         c.bulletDelegate = self;
+        c.weapon = self.pilot.weapon;
         [self.clones addObject:c];
         [self addChild:c];
         [self.clones removeObject:self.pilot.clone];        
