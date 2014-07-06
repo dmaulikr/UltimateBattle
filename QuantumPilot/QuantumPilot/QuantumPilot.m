@@ -5,7 +5,7 @@
 #import "SingleLaserCannon.h"
 
 @interface QuantumPilot() {
-    CGPoint future[4051];
+    CGPoint future[4551];
 }
 
 @end
@@ -96,7 +96,7 @@ static float outerCircleRadius = 60;
     [self drawCircle];
     if (self.active) {
         ccDrawColor4F(1, 1, 1, 1.0);
-        CGPoint drawingDeltas[4051];
+        CGPoint drawingDeltas[4551];
         NSInteger index = 0;
         for (int i = self.fightingIteration; i < self.drawingIteration; i++) {
             drawingDeltas[index] = future[i];

@@ -14,7 +14,7 @@
 - (id)copyWithZone:(NSZone *)zone {
     QuantumClone *c = [[[QuantumClone alloc] init] autorelease];
     c.weapon = self.weapon;
-    for (NSInteger i = 0; i < 4051; i++) {
+    for (NSInteger i = 0; i < 4551; i++) {
         [c recordVelocity:pastVelocities[i] firing:pastFireTimings[i]];
     }
     [c recordLatestIndex:timeIndex];
