@@ -1,16 +1,6 @@
-Lines scale in:
-
-TIME
-1000
-
-ACCURACY
-3000
-
-PATHING
-4000
-
-SCORE: 
-X + Y >> X, counts up as the others count down
+hold ship to stay still
+drag to move
+tap space while active to fire
 
 transitions to:
 

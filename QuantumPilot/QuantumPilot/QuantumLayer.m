@@ -51,6 +51,7 @@
     
     for (UITouch *touch in touchArray) {
         CGPoint l = [touch locationInView:[touch view]];
+
         [self.f moveTouch:ccp(l.x, 578-l.y)];
     }
 }
@@ -60,6 +61,9 @@
     
     for (UITouch *touch in touchArray) {
         CGPoint l = [touch locationInView:[touch view]];
+        if (l.x > 320) {
+            NSLog(@"Hello!");
+        }
         [self.f endTouch:ccp(l.x, 578-l.y)];
     }
 }

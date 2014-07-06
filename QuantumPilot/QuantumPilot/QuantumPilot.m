@@ -194,6 +194,23 @@ static float outerCircleRadius = 60;
     [self resetFiring];
     
     self.time++;
+    
+    [self frame];
+}
+
+- (void)frame {
+    CGPoint ll = self.l;
+    if (ll.x > 320) {
+        ll.x = 320;
+    } else if (ll.x < 0) {
+        ll.x = 0;
+    } else if (ll.y > 578) {
+        ll.y = 578;
+    } else if (ll.y < 0) {
+        ll.y = 0;
+    }
+    
+    self.l = ll;
 }
 
 - (void)stationaryFire {

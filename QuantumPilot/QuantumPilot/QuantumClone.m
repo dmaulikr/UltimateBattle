@@ -86,10 +86,10 @@
 }
 
 - (void)setShipDrawColor {
-    if (self.active) {
-        [NSClassFromString(self.weapon) setDrawColor];
+    if (timeDirection == recording) {
+        ccDrawColor4F(1, 1, 1, 1.0);
     } else {
-        ccDrawColor4F(1, 1, 1, 1.0);        
+        [NSClassFromString(self.weapon) setDrawColor];
     }
 }
 
