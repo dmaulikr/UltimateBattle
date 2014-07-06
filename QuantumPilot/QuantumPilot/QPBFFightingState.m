@@ -77,7 +77,7 @@
         _interruptDrawingPath = true;
         _shiftToDrawingTouch = l;
         [self shiftToDrawingState];
-        [self.f setTouchOffsetFromPilotNear:_touch];
+        [self.f setTouchOffsetFromPilotNear:l];
     }
 }
 
