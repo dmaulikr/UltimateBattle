@@ -200,14 +200,14 @@ static float outerCircleRadius = 60;
 
 - (void)frame {
     CGPoint ll = self.l;
-    if (ll.x > 320) {
-        ll.x = 320;
-    } else if (ll.x < 0) {
-        ll.x = 0;
-    } else if (ll.y > 578) {
-        ll.y = 578;
-    } else if (ll.y < 0) {
-        ll.y = 0;
+    if (ll.x > 315) {
+        ll.x = 315;
+    } else if (ll.x < 5) {
+        ll.x = 5;
+    } else if (ll.y > 573) {
+        ll.y = 573;
+    } else if (ll.y < 5) {
+        ll.y = 5;
     }
     
     self.l = ll;
