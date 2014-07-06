@@ -37,8 +37,8 @@ static float halfSegment = 1.5;
     [SplitLaserCannon setDrawColor];
     int xDirection = self.vel.x < 0 ? -1 : 1;
     int yDirection = self.vel.y < 0 ? -1 : 1;
-    lines[0] = ccp(self.l.x + (xDirection * halfSegment), self.l.y + (yDirection * halfSegment));
-    lines[1] = ccp(self.l.x - (xDirection * halfSegment), self.l.y - (yDirection * halfSegment));
+    lines[0] = ccp(self.l.x + (xDirection * halfSegment * .25), self.l.y + (yDirection * halfSegment * .75));
+    lines[1] = ccp(self.l.x - (xDirection * halfSegment * .25), self.l.y - (yDirection * halfSegment * .75));
     
     ccDrawPoly(lines, 2, true);
 }
