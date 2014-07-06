@@ -8,7 +8,7 @@
 #import "QPBFScoreState.h"
 #import "DeadLine.h"
 
-#define QPBF_MAX_DRAWING_FRAMES 4000
+#define QPBF_MAX_DRAWING_FRAMES 4050
 
 enum pulsestate {
     resting = 0,
@@ -27,7 +27,7 @@ enum pulsestate {
     float _breathCycle;
     NSInteger _breathFlow;
     
-    CGPoint _deltas[4001];
+    CGPoint _deltas[4051];
     
     int shotsFired;
     int hits;

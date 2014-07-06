@@ -53,8 +53,6 @@
 - (BOOL)isCollidingWithBullet:(Bullet *)b;
 - (void)processBullet:(Bullet *)b;
 
-- (CGPoint *)drawShape;
-
 - (BOOL)touchesPoint:(CGPoint)l;
 
 - (void)createClone;
@@ -78,6 +76,12 @@
 - (bool)shouldDraw ;
 
 + (CGPoint)resetPosition;
+
+- (void)installWeapon;
+
+- (void)setShipDrawColor;
+
+- (void)setShipDrawColor;
 
 @end
 

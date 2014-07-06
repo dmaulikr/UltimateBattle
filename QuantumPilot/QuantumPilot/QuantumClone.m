@@ -13,8 +13,8 @@
 
 - (id)copyWithZone:(NSZone *)zone {
     QuantumClone *c = [[[QuantumClone alloc] init] autorelease];
-    c.weapon = @"SingleLaserCannon"; // [[[SingleLaserCannon alloc] init] autorelease];
-    for (NSInteger i = 0; i < 4001; i++) {
+    c.weapon = self.weapon;
+    for (NSInteger i = 0; i < 4051; i++) {
         [c recordVelocity:pastVelocities[i] firing:pastFireTimings[i]];
     }
     [c recordLatestIndex:timeIndex];
@@ -85,6 +85,13 @@
     }
 }
 
+- (void)setShipDrawColor {
+    if (self.active) {
+        [NSClassFromString(self.weapon) setDrawColor];
+    } else {
+        ccDrawColor4F(1, 1, 1, 1.0);        
+    }
+}
 
 - (void)drawCircle {
 

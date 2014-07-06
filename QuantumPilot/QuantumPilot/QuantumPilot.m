@@ -5,7 +5,7 @@
 #import "SingleLaserCannon.h"
 
 @interface QuantumPilot() {
-    CGPoint future[4001];
+    CGPoint future[4051];
 }
 
 @end
@@ -49,10 +49,14 @@ static float outerCircleRadius = 60;
     return self;
 }
 
+- (void)installWeapon {
+    self.weapon = nil;
+    self.weapon = (arc4random() % 2) == 0 ? @"SingleLaserCannon" : @"SplitLaserCannon";
+}
+
 - (void)engage {
     [self resetIterations];
-    self.weapon = nil;
-    self.weapon = @"SingleLaserCannon"; //[[[SingleLaserCannon alloc] init] autorelease];
+    [self installWeapon];
     self.active = YES;
     [self resetPosition];
 }
@@ -61,9 +65,13 @@ static float outerCircleRadius = 60;
     return !self.blinking || [QPBattlefield rhythmScale] > .5;
 }
 
+- (void)setShipDrawColor {
+     ccDrawColor4F(1, 1, 1, 1.0);
+}
+
 - (void)drawShip {
     if ([self shouldDraw]) {
-        ccDrawColor4F(1, 1, 1, 1.0);
+        [self setShipDrawColor];
         outerEdges[0] = ccp(self.l.x, self.l.y - shipTopHeight * [self yDirection]);
         outerEdges[1] = ccp(self.l.x - shipSideWidth, self.l.y);
         outerEdges[2] = ccp(self.l.x, self.l.y + shipBottomHeight * [self yDirection]);
@@ -79,7 +87,7 @@ static float outerCircleRadius = 60;
 //    ccDrawColor4F(1 - [QPBattlefield pulseRotation], 1  - [QPBattlefield pulseRotation], 1  - [QPBattlefield pulseRotation], 1);
 //    ccDrawCircle(self.innerTopEdge, outerCircleRadius, 0, 100, NO);
     //DRAW SHIELD BY OPACITY OF SHIELD CHARGE
-    ccDrawColor4F(1, 1, 1, 1.0);
+    [NSClassFromString(self.weapon) setDrawColor];
     ccDrawFilledCircle(self.innerTopEdge, innerCircleRadius * [QPBattlefield pulseRotation], 0, 100, NO);
 }
 
@@ -87,7 +95,8 @@ static float outerCircleRadius = 60;
     [self drawShip];
     [self drawCircle];
     if (self.active) {
-        CGPoint drawingDeltas[4001];
+        ccDrawColor4F(1, 1, 1, 1.0);
+        CGPoint drawingDeltas[4051];
         NSInteger index = 0;
         for (int i = self.fightingIteration; i < self.drawingIteration; i++) {
             drawingDeltas[index] = future[i];

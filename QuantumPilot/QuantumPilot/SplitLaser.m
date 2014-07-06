@@ -1,15 +1,14 @@
 #import "SplitLaser.h"
 #import "QPBattlefield.h"
+#import "SplitLaserCannon.h"
 
 @implementation SplitLaser
 
-static float segmentWidth = 6;
-static float segmentHeight = 8;
-static float segmentSpacing = 10;
+static float segmentWidth = 6; //iPad: 6
+static float segmentHeight = 8; //iPad: 8
+static float segmentSpacing = 10; //iPad: 10
 
-- (ccColor4F)color {
-    return ccc4f(1, .64, 0, 1);
-}
+static float halfSegment = 1.5;
 
 - (id)init {
     self = [super init];
@@ -23,17 +22,25 @@ static float segmentSpacing = 10;
 }
 
 - (void)draw {
-    lines[0] = ccp(self.l.x + (segmentIndex[0] * segmentSpacing), self.l.y);
-    lines[1] = ccp(self.l.x + (segmentIndex[1] * segmentSpacing), self.l.y + segmentHeight * 1);
-    lines[2] = ccp(self.l.x + (segmentIndex[2] * segmentSpacing), self.l.y + segmentHeight * 2);
-    lines[3] = ccp(self.l.x + (segmentIndex[3] * segmentSpacing), self.l.y + segmentHeight * 3);
-    lines[4] = ccp(lines[3].x + segmentWidth, lines[3].y);
-    lines[5] = ccp(lines[2].x + segmentWidth, lines[2].y);
-    lines[6] = ccp(lines[1].x + segmentWidth, lines[1].y);
-    lines[7] = ccp(lines[0].x + segmentWidth, lines[0].y);
+//    lines[0] = ccp(self.l.x + (segmentIndex[0] * segmentSpacing), self.l.y);
+//    lines[1] = ccp(self.l.x + (segmentIndex[1] * segmentSpacing), self.l.y + segmentHeight * 1);
+//    lines[2] = ccp(self.l.x + (segmentIndex[2] * segmentSpacing), self.l.y + segmentHeight * 2);
+//    lines[3] = ccp(self.l.x + (segmentIndex[3] * segmentSpacing), self.l.y + segmentHeight * 3);
+//    lines[4] = ccp(lines[3].x + segmentWidth, lines[3].y);
+//    lines[5] = ccp(lines[2].x + segmentWidth, lines[2].y);
+//    lines[6] = ccp(lines[1].x + segmentWidth, lines[1].y);
+//    lines[7] = ccp(lines[0].x + segmentWidth, lines[0].y);
+//
+//    ccDrawPoly(lines, 8, YES);
+    //ccDrawSolidPoly(lines, 8, [self color]);
 
-    //ccDrawPoly(lines, 8, YES);
-    ccDrawSolidPoly(lines, 8, [self color]);
+    [SplitLaserCannon setDrawColor];
+    int xDirection = self.vel.x < 0 ? -1 : 1;
+    int yDirection = self.vel.y < 0 ? -1 : 1;
+    lines[0] = ccp(self.l.x + (xDirection * halfSegment), self.l.y + (yDirection * halfSegment));
+    lines[1] = ccp(self.l.x - (xDirection * halfSegment), self.l.y - (yDirection * halfSegment));
+    
+    ccDrawPoly(lines, 2, true);
 }
 
 - (void)pulse {

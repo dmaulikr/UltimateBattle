@@ -262,6 +262,7 @@ static QPBattlefield *instance = nil;
         [self resetLevelScore];
         [self eraseBullets];
         [self.dl reset];
+        [self.pilot installWeapon];
     }
 }
 

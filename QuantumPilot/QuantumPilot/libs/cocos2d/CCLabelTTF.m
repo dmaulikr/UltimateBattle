@@ -118,60 +118,64 @@
 		dimensions_ = dimensions;
 		hAlignment_ = alignment;
 		vAlignment_ = vertAlignment;
-		fontName_ = [name retain];
+//		fontName_ = [name retain];
+        self.fontName = name;
 		fontSize_ = size;
 		lineBreakMode_ = lineBreakMode;
 
-		[self setString:str];
+        self.string = str;
 	}
 	return self;
 }
 
-- (void) setString:(NSString*)str
-{
-	NSAssert( str, @"Invalid string" );
+//- (void) setString:(NSString*)str
+//{
+//	NSAssert( str, @"Invalid string" );
+//
+//	if( string_.hash != str.hash ) {
+//		[string_ release];
+//		string_ = [str copy];
+//		
+//		[self updateTexture];
+//	}
+//}
 
-	if( string_.hash != str.hash ) {
-		[string_ release];
-		string_ = [str copy];
-		
-		[self updateTexture];
-	}
-}
-
--(NSString*) string
-{
-	return string_;
-}
+//-(NSString*) string
+//{
+//	return string_;
+//}
 
 - (void)setFontName:(NSString*)fontName
 {
-	if( fontName.hash != fontName_.hash ) {
-		[fontName_ release];
-		fontName_ = [fontName copy];
-		
-#ifdef __CC_PLATFORM_MAC
-		if ([[fontName lowercaseString] hasSuffix:@".ttf"] || YES)
-		{
-			// This is a file, register font with font manager
-			NSString* fontFile = [[CCFileUtils sharedFileUtils] fullPathFromRelativePath:fontName];
-			NSURL* fontURL = [NSURL fileURLWithPath:fontFile];
-			CTFontManagerRegisterFontsForURL((CFURLRef)fontURL, kCTFontManagerScopeProcess, NULL);
-			NSString *newFontName = [[fontFile lastPathComponent] stringByDeletingPathExtension];
-
-			fontName_ = [newFontName copy];
-		}
-#endif
-		// Force update
-		if( string_ )
-			[self updateTexture];
-	}
+    if (self.string) {
+        [self updateTexture];
+    }
+//	if( fontName.hash != fontName_.hash ) {
+//		[fontName_ release];
+//		fontName_ = [fontName copy];
+//		
+//#ifdef __CC_PLATFORM_MAC
+//		if ([[fontName lowercaseString] hasSuffix:@".ttf"] || YES)
+//		{
+//			// This is a file, register font with font manager
+//			NSString* fontFile = [[CCFileUtils sharedFileUtils] fullPathFromRelativePath:fontName];
+//			NSURL* fontURL = [NSURL fileURLWithPath:fontFile];
+//			CTFontManagerRegisterFontsForURL((CFURLRef)fontURL, kCTFontManagerScopeProcess, NULL);
+//			NSString *newFontName = [[fontFile lastPathComponent] stringByDeletingPathExtension];
+//
+//			fontName_ = [newFontName copy];
+//		}
+//#endif
+//		// Force update
+//		if( self.string )
+//			[self updateTexture];
+//	}
 }
 
-- (NSString*)fontName
-{
-    return fontName_;
-}
+//- (NSString*)fontName
+//{
+//    return fontName_;
+//}
 
 - (void) setFontSize:(float)fontSize
 {
@@ -179,7 +183,7 @@
 		fontSize_ = fontSize;
 		
 		// Force update
-		if( string_ )
+        if (self.string)
 			[self updateTexture];
 	}
 }
@@ -196,7 +200,7 @@
         dimensions_ = dim;
         
 		// Force update
-		if( string_ )
+        if (self.string)
 			[self updateTexture];
     }
 }
@@ -213,7 +217,7 @@
         hAlignment_ = alignment;
         
         // Force update
-		if( string_ )
+        if (self.string)
 			[self updateTexture];
 
     }
@@ -231,7 +235,7 @@
         vAlignment_ = verticalAlignment;
         
 		// Force update
-		if( string_ )
+        if (self.string)
 			[self updateTexture];
     }
 }
@@ -243,8 +247,8 @@
 
 - (void) dealloc
 {
-	[string_ release];
-	[fontName_ release];
+    self.string = nil;
+    self.fontName = nil;
 
 	[super dealloc];
 }
@@ -261,16 +265,16 @@
 {				
 	CCTexture2D *tex;
 	if( dimensions_.width == 0 || dimensions_.height == 0 )
-		tex = [[CCTexture2D alloc] initWithString:string_
-										 fontName:fontName_
+		tex = [[CCTexture2D alloc] initWithString:self.string
+										 fontName:self.fontName
 										 fontSize:fontSize_  * CC_CONTENT_SCALE_FACTOR()];
 	else
-		tex = [[CCTexture2D alloc] initWithString:string_
+		tex = [[CCTexture2D alloc] initWithString:self.string
 									   dimensions:CC_SIZE_POINTS_TO_PIXELS(dimensions_)
 									   hAlignment:hAlignment_
 									   vAlignment:vAlignment_
 									lineBreakMode:lineBreakMode_
-										 fontName:fontName_
+										 fontName:self.fontName
 										 fontSize:fontSize_  * CC_CONTENT_SCALE_FACTOR()];
 		
 #ifdef __CC_PLATFORM_IOS

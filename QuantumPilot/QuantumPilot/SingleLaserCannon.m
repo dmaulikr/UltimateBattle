@@ -9,7 +9,7 @@
 }
 
 + (void)setDrawColor {
-    ccDrawColor4F(.1, .9, .1, 1.0);
+    ccDrawColor4F(1, 1, 1, 1.0);
 }
 
 

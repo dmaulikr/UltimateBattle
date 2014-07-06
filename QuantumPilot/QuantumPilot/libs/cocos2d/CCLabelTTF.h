@@ -45,7 +45,7 @@
 	NSString * fontName_;
 	CGFloat fontSize_;
 	CCLineBreakMode lineBreakMode_;
-	NSString	*string_;
+//	NSString	*string_;
 }
 
 /** Font name used in the label */
@@ -59,6 +59,7 @@
 /** The vertical alignment of the label */
 @property (nonatomic,assign) CCVerticalTextAlignment verticalAlignment;
 
+@property (nonatomic, copy) NSString *string;
 
 /** creates a CCLabelTTF with a font name and font size in points*/
 + (id) labelWithString:(NSString*)string fontName:(NSString*)name fontSize:(CGFloat)size;
@@ -127,6 +128,7 @@
 /** changes the string to render
  * @warning Changing the string is as expensive as creating a new CCLabelTTF. To obtain better performance use CCLabelAtlas or CCLabelBMFont.
  */
-- (void) setString:(NSString*)str;
+
+- (void)updateTexture;
 
 @end

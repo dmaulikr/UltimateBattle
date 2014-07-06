@@ -15,8 +15,8 @@ enum TimeDirection {
 };
 
 @interface QuantumClone : QuantumPilot <NSCopying> {
-    CGPoint pastVelocities[4001];
-    BOOL pastFireTimings[4001];
+    CGPoint pastVelocities[4051];
+    BOOL pastFireTimings[4051];
     NSInteger timeIndex;
     NSInteger latestIndex;
     enum TimeDirection timeDirection;

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E11F5D31968F04100205E8D /* SplitLaserCannon.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E11F5D21968F04100205E8D /* SplitLaserCannon.m */; };
 		0E63B75216C7039100F63829 /* QPBFFightingState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E63B75116C7039100F63829 /* QPBFFightingState.m */; };
 		0E63B75516C712B800F63829 /* QPBFPausedState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E63B75416C712B800F63829 /* QPBFPausedState.m */; };
 		0E63B75816C71BF700F63829 /* Weapon.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E63B75716C71BF700F63829 /* Weapon.m */; };
@@ -145,6 +146,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E11F5D11968F04100205E8D /* SplitLaserCannon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplitLaserCannon.h; sourceTree = "<group>"; };
+		0E11F5D21968F04100205E8D /* SplitLaserCannon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplitLaserCannon.m; sourceTree = "<group>"; };
 		0E63B75016C7039100F63829 /* QPBFFightingState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBFFightingState.h; sourceTree = "<group>"; };
 		0E63B75116C7039100F63829 /* QPBFFightingState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBFFightingState.m; sourceTree = "<group>"; };
 		0E63B75316C712B800F63829 /* QPBFPausedState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBFPausedState.h; sourceTree = "<group>"; };
@@ -907,6 +910,8 @@
 				0E63B75716C71BF700F63829 /* Weapon.m */,
 				0E63B75916C71C7C00F63829 /* SingleLaserCannon.m */,
 				0E63B75A16C71C7C00F63829 /* SingleLaserCannon.h */,
+				0E11F5D11968F04100205E8D /* SplitLaserCannon.h */,
+				0E11F5D21968F04100205E8D /* SplitLaserCannon.m */,
 			);
 			name = Cannons;
 			sourceTree = "<group>";
@@ -1121,6 +1126,7 @@
 				BF0EE18A163319BA002942A0 /* base64.c in Sources */,
 				BF0EE18E163319BA002942A0 /* CCArray.m in Sources */,
 				BF0EE191163319BA002942A0 /* ccCArray.m in Sources */,
+				0E11F5D31968F04100205E8D /* SplitLaserCannon.m in Sources */,
 				BF0EE194163319BA002942A0 /* CCFileUtils.m in Sources */,
 				BF0EE197163319BA002942A0 /* CCProfiling.m in Sources */,
 				BF0EE199163319BA002942A0 /* ccUtils.c in Sources */,

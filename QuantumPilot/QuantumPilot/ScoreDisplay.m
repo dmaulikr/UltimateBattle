@@ -25,15 +25,15 @@
         
         CGSize size = CGSizeMake(80, 40);
         
-//        self.timeLabel = [CCLabelTTF labelWithString:@"TIME" dimensions:size hAlignment:kCCTextAlignmentCenter fontName:@"Courier New" fontSize:15];
-//        self.accuracyLabel = [CCLabelTTF labelWithString:@"ACCURACY" dimensions:size hAlignment:kCCTextAlignmentCenter fontName:@"Courier New" fontSize:15];
-//        self.pathingLabel = [CCLabelTTF labelWithString:@"PATHING" dimensions:size hAlignment:kCCTextAlignmentCenter fontName:@"Courier New" fontSize:15];
-//        self.scoreLabel = [CCLabelTTF labelWithString:@"SCORE" dimensions:size hAlignment:kCCTextAlignmentCenter fontName:@"Courier New" fontSize:15];
+        self.timeLabel = [CCLabelTTF labelWithString:nil dimensions:size hAlignment:kCCTextAlignmentCenter fontName:@"Courier New" fontSize:13];
+        self.accuracyLabel = [CCLabelTTF labelWithString:nil  dimensions:size hAlignment:kCCTextAlignmentCenter fontName:@"Courier New" fontSize:13];
+        self.pathingLabel = [CCLabelTTF labelWithString:nil dimensions:size hAlignment:kCCTextAlignmentCenter fontName:@"Courier New" fontSize:13];
+        self.scoreLabel = [CCLabelTTF labelWithString:nil dimensions:size hAlignment:kCCTextAlignmentCenter fontName:@"Courier New" fontSize:13];
         
-//        [self addChild:self.timeLabel];
-//        [self addChild:self.accuracyLabel];
-//        [self addChild:self.pathingLabel];
-//        [self addChild:self.scoreLabel];
+        [self addChild:self.timeLabel];
+        [self addChild:self.accuracyLabel];
+        [self addChild:self.pathingLabel];
+        [self addChild:self.scoreLabel];
         
         vertexes[0] = ccp(5000, 5000);
         vertexes[1] = ccp(5000, 5000);
@@ -96,29 +96,34 @@
 }
 
 - (void)draw {
-//    float distance = 50;
-//    if (state == displayZooming) {
-//        distance = 50 + (iteration * 15);
-//    }
-//    vertexes[0] = ccp(l.x - distance, l.y);
-//    vertexes[1] = ccp(l.x, l.y + distance);
-//    vertexes[2] = ccp(l.x + distance, l.y);
-//    vertexes[3] = ccp(l.x, l.y - distance);
-//    
-//    ccDrawColor4F(1, 1, 1, 1.0);
-//    
-//    ccDrawPoly(vertexes, 4, true);
-//    
-//    float halfSegment = distance;
-//    self.timeLabel.position     = ccp(l.x - halfSegment, l.y + halfSegment);
-//    self.accuracyLabel.position = ccp(l.x + halfSegment, l.y + halfSegment);
-//    self.pathingLabel.position  = ccp(l.x - halfSegment, l.y - halfSegment);
-//    self.scoreLabel.position    = ccp(l.x + halfSegment, l.y - halfSegment);
-//    
-//    self.timeLabel.string       = [NSString stringWithFormat:@"TIME\n%d", time];
-//    self.accuracyLabel.string   = [NSString stringWithFormat:@"ACCURACY\n%d", accuracy];
-//    self.pathingLabel.string    = [NSString stringWithFormat:@"PATHING\n%d", pathing];
-//    self.scoreLabel.string      = [NSString stringWithFormat:@"SCORE\n%d", score];
+    float distance = 50;
+    if (state == displayZooming) {
+        distance = 50 + (iteration * 15);
+    }
+    vertexes[0] = ccp(l.x - distance, l.y);
+    vertexes[1] = ccp(l.x, l.y + distance);
+    vertexes[2] = ccp(l.x + distance, l.y);
+    vertexes[3] = ccp(l.x, l.y - distance);
+    
+    ccDrawColor4F(1, 1, 1, 1.0);
+    
+    ccDrawPoly(vertexes, 4, true);
+    
+    float halfSegment = distance;
+    self.timeLabel.position     = ccp(l.x - halfSegment, l.y + halfSegment);
+    self.accuracyLabel.position = ccp(l.x + halfSegment, l.y + halfSegment);
+    self.pathingLabel.position  = ccp(l.x - halfSegment, l.y - halfSegment);
+    self.scoreLabel.position    = ccp(l.x + halfSegment, l.y - halfSegment);
+    
+    self.timeLabel.string       = [NSString stringWithFormat:@"TIME\n%d", time];
+    self.accuracyLabel.string   = [NSString stringWithFormat:@"ACCURACY\n%d", accuracy];
+    self.pathingLabel.string    = [NSString stringWithFormat:@"PATHING\n%d", pathing];
+    self.scoreLabel.string      = [NSString stringWithFormat:@"SCORE\n%d", score];
+    
+    [self.timeLabel updateTexture];
+    [self.accuracyLabel updateTexture];
+    [self.pathingLabel updateTexture];
+    [self.scoreLabel updateTexture];
 }
 
 - (int)iteration {
