@@ -64,8 +64,16 @@
 //    }
 }
 
+- (bool)touchDownWasCloseToPilot {
+    return GetDistance(_touch, _oldPilotLocation) < 80;
+}
+
+- (bool)touchMovedAwayFromTouchDown:(CGPoint)l {
+    return GetDistance(l, _touch) >= 10;
+}
+
 - (void)moveTouch:(CGPoint)l {
-    if (GetDistance(_touch, _oldPilotLocation) < 80 && GetDistance(l, _touch) >= 10) {
+    if ([self touchDownWasCloseToPilot] && [self touchMovedAwayFromTouchDown:l]) {
         _interruptDrawingPath = true;
         _shiftToDrawingTouch = l;
         [self shiftToDrawingState];
