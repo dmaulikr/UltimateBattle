@@ -18,6 +18,7 @@
 		0EEAC48C16B73BC3005F629F /* QPBFState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEAC48B16B73BC3005F629F /* QPBFState.m */; };
 		0EEAC48F16B73C35005F629F /* QPBFTitleState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEAC48E16B73C35005F629F /* QPBFTitleState.m */; };
 		0EEAC49216B73D2E005F629F /* QPBFDrawingState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEAC49116B73D2E005F629F /* QPBFDrawingState.m */; };
+		0EF96AB1197598C900E5DBE2 /* Debris.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EF96AB0197598C900E5DBE2 /* Debris.m */; };
 		BF0EE06D163319B8002942A0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF0EE06C163319B8002942A0 /* QuartzCore.framework */; };
 		BF0EE06F163319B8002942A0 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF0EE06E163319B8002942A0 /* OpenGLES.framework */; };
 		BF0EE071163319B8002942A0 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF0EE070163319B8002942A0 /* OpenAL.framework */; };
@@ -168,6 +169,8 @@
 		0EEAC48E16B73C35005F629F /* QPBFTitleState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBFTitleState.m; sourceTree = "<group>"; };
 		0EEAC49016B73D2E005F629F /* QPBFDrawingState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBFDrawingState.h; sourceTree = "<group>"; };
 		0EEAC49116B73D2E005F629F /* QPBFDrawingState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBFDrawingState.m; sourceTree = "<group>"; };
+		0EF96AAF197598C900E5DBE2 /* Debris.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Debris.h; sourceTree = "<group>"; };
+		0EF96AB0197598C900E5DBE2 /* Debris.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Debris.m; sourceTree = "<group>"; };
 		BF0EE068163319B8002942A0 /* QuantumPilot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuantumPilot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF0EE06C163319B8002942A0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		BF0EE06E163319B8002942A0 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -481,6 +484,15 @@
 				0EC9E7141967990200497BB9 /* ScoreDisplay.m */,
 			);
 			name = States;
+			sourceTree = "<group>";
+		};
+		0EF96AAE197598BB00E5DBE2 /* Cycling */ = {
+			isa = PBXGroup;
+			children = (
+				0EF96AAF197598C900E5DBE2 /* Debris.h */,
+				0EF96AB0197598C900E5DBE2 /* Debris.m */,
+			);
+			name = Cycling;
 			sourceTree = "<group>";
 		};
 		BF0EE05D163319B8002942A0 = {
@@ -956,6 +968,7 @@
 		BFB9DD5D1633CF640074EB70 /* Battlefield */ = {
 			isa = PBXGroup;
 			children = (
+				0EF96AAE197598BB00E5DBE2 /* Cycling */,
 				0EEAC48816B73BB9005F629F /* States */,
 				BFB9DD5E1633CF6A0074EB70 /* Modifiers */,
 				BF8A76A0163646270032AF8F /* QPBattlefield.h */,
@@ -1055,6 +1068,7 @@
 				BF0EE0A6163319B9002942A0 /* CCActionEase.m in Sources */,
 				BF0EE0A9163319B9002942A0 /* CCActionGrid.m in Sources */,
 				BF0EE0AC163319B9002942A0 /* CCActionGrid3D.m in Sources */,
+				0EF96AB1197598C900E5DBE2 /* Debris.m in Sources */,
 				BF0EE0AF163319B9002942A0 /* CCActionInstant.m in Sources */,
 				BF0EE0B2163319B9002942A0 /* CCActionInterval.m in Sources */,
 				BF0EE0B5163319B9002942A0 /* CCActionManager.m in Sources */,

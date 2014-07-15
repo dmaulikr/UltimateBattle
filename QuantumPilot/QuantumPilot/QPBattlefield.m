@@ -1,6 +1,7 @@
 #import "QPBattlefield.h"
 #import "Bullet.h"
 #import "QuantumClone.h"
+#import "Debris.h"
 
 @implementation QPBattlefield
 
@@ -68,6 +69,7 @@ static QPBattlefield *instance = nil;
         [self setupClones];
         [self setupDeadline];
         [self setupSpeeds];
+        self.debris = [NSMutableArray array];
         level = 1;
     }
     return self;
@@ -150,6 +152,13 @@ static QPBattlefield *instance = nil;
     [self.cloneBullets removeAllObjects];
 }
 
+- (void)processKill:(QuantumPilot *)c {
+    hits++;
+    Debris *d = [[Debris alloc] initWithL:c.l];
+    [self addChild:d];
+    [self.debris addObject:d];
+}
+
 - (void)pulseBullets:(NSMutableArray *)bs targets:(NSArray *)targets {
     NSMutableArray *bulletsToErase = [NSMutableArray array];
     for (Bullet *b in bs) {
@@ -164,7 +173,7 @@ static QPBattlefield *instance = nil;
             if (p.active) {
                 [p processBullet:b];
                 if (!p.active) {
-                    hits++;
+                    [self processKill:p];
                 }
             }
         }
@@ -184,6 +193,14 @@ static QPBattlefield *instance = nil;
     [self.clones removeAllObjects];
 }
 
+- (void)eraseDebris {
+    for (Debris *d in self.debris) {
+        [self removeChild:d cleanup:YES];
+    }
+    
+    [self.debris removeAllObjects];
+}
+
 - (void)resetPilot {
     [self.pilot engage];
 }
@@ -192,6 +209,7 @@ static QPBattlefield *instance = nil;
     level = 1;
     [self eraseBullets];
     [self eraseClones];
+    [self eraseDebris];
     [self resetPilot];
     [self changeState:self.pausedState];
     [self setupClone];
@@ -199,6 +217,27 @@ static QPBattlefield *instance = nil;
     [self resetLevelScore];
     self.score = 0;
     [self setupSpeeds];
+}
+
+- (BOOL)debrisOutOfBounds:(Debris *)d {
+    return !CGRectContainsPoint([self battlefieldFrame], d.l);
+}
+
+
+- (void)debrisPulse {
+    NSMutableArray *debrisToErase = [NSMutableArray array];
+    for (Debris *d in self.debris) {
+        [d pulse];
+        if ([self debrisOutOfBounds:d] || [self.pilot processDebris:d]) {
+            [debrisToErase addObject:d];
+        }
+    }
+    
+    for (Debris *d in debrisToErase) {
+        [d removeFromParentAndCleanup:YES];
+    }
+    
+    [self.debris removeObjectsInArray:debrisToErase];
 }
 
 - (void)bulletPulse {
@@ -262,7 +301,7 @@ static QPBattlefield *instance = nil;
     paths = 1;
 }
 
-- (void)processKill {
+- (void)processWaveKill {
     [self.pilot resetPosition];
     QuantumClone *c = [[self.pilot clone] copy];
     c.bulletDelegate = self;
@@ -285,7 +324,7 @@ static QPBattlefield *instance = nil;
 
 - (void)killPulse {
     if ([self activeClones] == 0) {
-        [self processKill];
+        [self processWaveKill];
     }
 }
 
@@ -310,6 +349,7 @@ static QPBattlefield *instance = nil;
         [self killPulse];
         [self bulletPulse];
         [self moveDeadline];
+        [self debrisPulse];
     } else if (self.currentState == self.pausedState){
         
     }

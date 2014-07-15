@@ -233,8 +233,21 @@ static float outerCircleRadius = 60;
     return shapeOfSizeContainsPoint(outerEdges, 4, b.l);
 }
 
+- (BOOL)isCollidingWithDebris:(Debris *)d {
+    return shapeOfSizeContainsPoint(outerEdges, 4, d.l);
+}
+
 - (void)registerHit {
     self.active = NO;
+}
+
+- (BOOL)processDebris:(Debris *)d {
+    if ([self isCollidingWithDebris:d]) {
+        self.debris++;
+        return true;
+    }
+    
+    return false;
 }
 
 - (void)processBullet:(Bullet *)b {

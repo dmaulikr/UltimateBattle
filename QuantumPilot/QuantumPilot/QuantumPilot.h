@@ -4,6 +4,7 @@
 #import "Bullet.h"
 #define QPBF_PLAYER_TAP_RANGE 80
 #import "Weapon.h"
+#import "Debris.h"
 
 @protocol QuantumPilotingDelegate;
 
@@ -19,6 +20,8 @@
 @property (nonatomic) CGPoint t;
 @property (nonatomic, readonly) float speed;
 @property (nonatomic) BOOL firing;
+
+@property (nonatomic) int debris;
 
 @property (nonatomic) CGPoint innerTopEdge;
 
@@ -84,6 +87,8 @@
 - (void)setShipDrawColor;
 
 - (void)setSpeed:(float)speed;
+
+- (BOOL)processDebris:(Debris *)d;
 
 @end
 
