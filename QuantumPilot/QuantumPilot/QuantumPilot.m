@@ -234,7 +234,7 @@ static float outerCircleRadius = 60;
 }
 
 - (BOOL)isCollidingWithDebris:(Debris *)d {
-    return shapeOfSizeContainsPoint(outerEdges, 4, d.l);
+    return GetDistance(self.l, d.l) < 60;
 }
 
 - (void)registerHit {
