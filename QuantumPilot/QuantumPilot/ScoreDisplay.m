@@ -39,7 +39,12 @@
         vertexes[1] = ccp(5000, 5000);
         vertexes[2] = ccp(5000, 5000);
         vertexes[3] = ccp(5000, 5000);
-    
+
+        
+        pathingPerfect = pathing == 100000;
+        accuracyPerfect = accuracy == 100000;
+        timePerfect = time == 5780;
+        
     }
     return self;
 }
@@ -128,9 +133,9 @@
     self.pathingLabel.position  = ccp(l.x - halfSegment, l.y - halfSegment);
     self.scoreLabel.position    = ccp(l.x + halfSegment, l.y - halfSegment);
     
-    self.timeLabel.string       = [NSString stringWithFormat:@"TIME\n%d", time];
-    self.accuracyLabel.string   = [NSString stringWithFormat:@"ACCURACY\n%d", accuracy];
-    self.pathingLabel.string    = [NSString stringWithFormat:@"PATHING\n%d", pathing];
+    self.timeLabel.string       = timePerfect ? @"TIME\nFULL" : [NSString stringWithFormat:@"TIME\n%d", time];
+    self.accuracyLabel.string   = accuracyPerfect ? @"ACCURACY\nABSOLUTE" : [NSString stringWithFormat:@"ACCURACY\n%d", accuracy];
+    self.pathingLabel.string    = pathingPerfect ? @"PATHING\nPERFECT" : [NSString stringWithFormat:@"PATHING\n%d", pathing];
     self.scoreLabel.string      = [NSString stringWithFormat:@"SCORE\n%d", score];
     
     [self.timeLabel updateTexture];

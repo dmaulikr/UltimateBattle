@@ -31,6 +31,10 @@ enum displaystate {
     int accuracy;
     int pathing;
     int score;
+    
+    bool timePerfect;
+    bool accuracyPerfect;
+    bool pathingPerfect;
 }
 
 @property (strong, nonatomic) CCLabelTTF *timeLabel;

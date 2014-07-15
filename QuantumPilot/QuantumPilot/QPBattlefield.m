@@ -377,6 +377,7 @@ static QPBattlefield *instance = nil;
 
 - (void)pilotReachedEndOfFutureWaypoints {
     paths++;
+
     [self changeState:self.pausedState];
 }
 
