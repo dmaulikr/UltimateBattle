@@ -43,7 +43,6 @@ static float outerCircleRadius = 60;
 - (id)init {
     self = [super init];
     if (self) {
-        _speed = 1.8;//1.8 //phone: 2.3 //ipad: //old setting: 6.3
         [self engage];
     }
     return self;
@@ -264,6 +263,10 @@ static float outerCircleRadius = 60;
     self.clone = [[[QuantumClone alloc] init] autorelease];
     self.clone.active = YES;
     self.clone.weapon = self.weapon;
+}
+
+- (void)setSpeed:(float)speed {
+    _speed = speed;
 }
 
 @end

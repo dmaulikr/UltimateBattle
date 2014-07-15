@@ -12,13 +12,18 @@
     
 }
 
+@property (nonatomic) float speed;
+
 + (NSArray *)newBullets;
 
 + (NSArray *)bulletsForLocation:(CGPoint)location direction:(NSInteger)direction;
 
 + (float)defaultSpeed;
 + (float)speed;
+- (void)setupSpeed;
 
 + (void)setDrawColor;
+
++ (Weapon *)w;
 
 @end

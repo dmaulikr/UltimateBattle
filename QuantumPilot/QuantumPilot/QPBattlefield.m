@@ -39,6 +39,7 @@ static QPBattlefield *instance = nil;
     self.pilot.pilotDelegate = self;
     self.pilot.bulletDelegate = self;
     [self addChild:self.pilot];
+    [self setupSpeeds];
 //    self.pilot.blinking = true;
 }
 
@@ -66,6 +67,7 @@ static QPBattlefield *instance = nil;
         [self setupStates];
         [self setupClones];
         [self setupDeadline];
+        [self setupSpeeds];
         level = 1;
     }
     return self;
@@ -196,6 +198,7 @@ static QPBattlefield *instance = nil;
     [self.dl reset];
     [self resetLevelScore];
     self.score = 0;
+    [self setupSpeeds];
 }
 
 - (void)bulletPulse {
@@ -419,5 +422,16 @@ static QPBattlefield *instance = nil;
     self.clones = [NSMutableArray array];
     [self setupClone];
 }
+
+#pragma mark Speeds
+
+- (void)setupSpeeds {
+    float speed = 1.6 + ((arc4random() % 40) * .01);
+    [self.pilot setSpeed:speed];
+    [[Weapon w] setupSpeed];
+    //return 2.5; //2.4 //phone: 3.91 //10, //ipad: 6.8
+    //1.8 //phone: 2.3 //ipad: //old setting: 6.3
+}
+
 
 @end

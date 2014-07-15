@@ -83,6 +83,8 @@
 
 - (void)setShipDrawColor;
 
+- (void)setSpeed:(float)speed;
+
 @end
 
 @protocol QuantumPilotingDelegate <NSObject>

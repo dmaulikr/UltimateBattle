@@ -8,11 +8,29 @@
 
 #import "Weapon.h"
 #import "cocos2d.h"
+#import "QPBattlefield.h"
 
 @implementation Weapon
 
+static Weapon *instance = nil;
+
++ (Weapon *)w {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        instance = [[Weapon alloc] init];
+        
+    });
+    
+    return instance;
+}
+
+
 + (float)speed {
-    return [self defaultSpeed];
+    return [[self w] speed];
+}
+
+- (void)setupSpeed {
+    self.speed =  2.2 + ((arc4random() % 200) * .01);
 }
 
 + (NSArray *)newBullets {
@@ -32,7 +50,7 @@
 }
 
 + (float)defaultSpeed {
-    return 2.5; //2.4 //phone: 3.91 //10, //ipad: 6.8
+    return [[Weapon w] speed];
 }
 
 + (void)setDrawColor {

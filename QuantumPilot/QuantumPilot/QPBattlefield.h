@@ -33,7 +33,6 @@ enum pulsestate {
     int hits;
     int paths;
     int level;
-    
 }
 
 @property (nonatomic, retain) NSMutableArray *bullets;
@@ -99,5 +98,7 @@ enum pulsestate {
 - (CGPoint)playerTouchWithOffset;
 - (void)setTouchOffsetFromPilotNear:(CGPoint)l;
 - (void)setTouchOffsetFromLatestExpectedNear:(CGPoint)l;
+
+#pragma mark Speeds
 
 @end
