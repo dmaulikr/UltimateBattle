@@ -68,7 +68,20 @@
         }
     }
     
-    if (time <= 0 && accuracy <= 0) {
+    if (pathing > 0) {
+        if (pathing > 999) {
+            pathing-= 999;
+            score+=999;
+        } else if (pathing > 99) {
+            pathing-= 99;
+            score+= 99;
+        } else {
+            pathing--;
+            score++;
+        }
+    }
+    
+    if (time <= 0 && accuracy <= 0 && pathing <= 0) {
         iteration = 50;
         state = displayResting;
     }

@@ -66,6 +66,7 @@ static QPBattlefield *instance = nil;
         [self setupStates];
         [self setupClones];
         [self setupDeadline];
+        level = 1;
     }
     return self;
 }
@@ -186,6 +187,7 @@ static QPBattlefield *instance = nil;
 }
 
 - (void)resetBattlefield {
+    level = 1;
     [self eraseBullets];
     [self eraseClones];
     [self resetPilot];
@@ -232,7 +234,18 @@ static QPBattlefield *instance = nil;
     NSNumber *accBonus = [NSNumber numberWithInteger:(int)floorf(ab)];
     NSNumber *timeBonus = [NSNumber numberWithInteger:self.dl.y * 10];
     NSLog(@"ab:%f, accBonus: %@", ab, accBonus);
-    NSNumber *pathingBonus = [NSNumber numberWithInteger:60];
+    
+    
+    float pathing = 0;
+    if (paths <= 1) {
+        pathing = 100000;
+    } else if (paths < level) {
+        pathing = (float)paths / (float)level;
+        pathing = fabsf(1-pathing);
+        pathing *= 100000;
+    }
+    
+    NSNumber *pathingBonus = [NSNumber numberWithFloat:pathing];
     NSNumber *currentScore = [NSNumber numberWithInteger:self.score];
     
     NSLog(@"currentScore: %d -- %d", [currentScore intValue], self.score);
@@ -243,27 +256,33 @@ static QPBattlefield *instance = nil;
 - (void)resetLevelScore {
     hits = 0;
     shotsFired = 0;
+    paths = 1;
+}
+
+- (void)processKill {
+    [self.pilot resetPosition];
+    QuantumClone *c = [[self.pilot clone] copy];
+    c.bulletDelegate = self;
+    c.weapon = self.pilot.weapon;
+    [self.clones addObject:c];
+    [self addChild:c];
+    [self.clones removeObject:self.pilot.clone];
+    [self removeChild:self.pilot.clone cleanup:YES];
+    self.pilot.clone = nil;
+    [self activateClones];
+    [self setupClone];
+    [self.pilot resetIterations];
+    [self changeState:self.scoreState withOptions:[self levelScore]];
+    [self resetLevelScore];
+    [self eraseBullets];
+    [self.dl reset];
+    [self.pilot installWeapon];
+    level++;
 }
 
 - (void)killPulse {
     if ([self activeClones] == 0) {
-        [self.pilot resetPosition];
-        QuantumClone *c = [[self.pilot clone] copy];
-        c.bulletDelegate = self;
-        c.weapon = self.pilot.weapon;
-        [self.clones addObject:c];
-        [self addChild:c];
-        [self.clones removeObject:self.pilot.clone];        
-        [self removeChild:self.pilot.clone cleanup:YES];
-        self.pilot.clone = nil;
-        [self activateClones];
-        [self setupClone];
-        [self.pilot resetIterations];
-        [self changeState:self.scoreState withOptions:[self levelScore]];
-        [self resetLevelScore];
-        [self eraseBullets];
-        [self.dl reset];
-        [self.pilot installWeapon];
+        [self processKill];
     }
 }
 
@@ -309,6 +328,9 @@ static QPBattlefield *instance = nil;
 }
 
 - (void)changeState:(QPBFState *)state withTouch:(CGPoint)l {
+    if (self.currentState == self.fightingState) {
+        paths++;
+    }
     [self changeState:state];
     [self.currentState addTouch:l];
 }
@@ -354,6 +376,7 @@ static QPBattlefield *instance = nil;
 #pragma mark Pilot Delgate
 
 - (void)pilotReachedEndOfFutureWaypoints {
+    paths++;
     [self changeState:self.pausedState];
 }
 

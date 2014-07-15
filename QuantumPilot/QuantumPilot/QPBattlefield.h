@@ -31,7 +31,8 @@ enum pulsestate {
     
     int shotsFired;
     int hits;
-
+    int paths;
+    int level;
     
 }
 
