@@ -8,6 +8,7 @@
 
 #import "Debris.h"
 #import "VRGeometry.h"
+#import "QPBattlefield.h"
 
 @implementation Debris
 
@@ -32,11 +33,8 @@
 }
 
 - (void)draw {
-    CGPoint drawing[10];
-    for (int i = 0; i < 10; i++) {
-        drawing[i] = CombinedPoint(self.l, _points[i]);
-    }
-    ccDrawPoly(drawing, 10, false);
+    ccDrawColor4F(1, 1, 1, 1.0);
+    ccDrawFilledCircle(self.l, 1.3 * [QPBattlefield pulseRotation], 0, 100, NO);
 }
 
 @end
