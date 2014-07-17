@@ -7,6 +7,7 @@
 //
 
 #import "cocos2d.h"
+#import "QPBFDisplay.h"
 
 enum displaystate {
     displayZooming = 0,
@@ -14,16 +15,9 @@ enum displaystate {
     displayResting
 };
 
-@protocol ScoreDisplayDelegate <NSObject>
 
-- (void)finishedDisplayingWithTotalScore:(int)score;
-
-@end
-
-@interface ScoreDisplay : CCNode {
+@interface ScoreDisplay : QPBFDisplay {
     int iteration;
-    CGPoint vertexes[4];
-    CGPoint l;
     
     int state;
     
@@ -37,17 +31,10 @@ enum displaystate {
     bool pathingPerfect;
 }
 
-@property (strong, nonatomic) CCLabelTTF *timeLabel;
-@property (strong, nonatomic) CCLabelTTF *accuracyLabel;
-@property (strong, nonatomic) CCLabelTTF *pathingLabel;
-@property (strong, nonatomic) CCLabelTTF *scoreLabel;
-
-@property (nonatomic, assign) id <ScoreDisplayDelegate> delegate;
-
 - (int)iteration;
 
-- (void)pulse;
 
 - (id)initWithTimeScore:(int)t accuracyScore:(int)a pathingScore:(int)p currentScore:(int)s;
+
 
 @end

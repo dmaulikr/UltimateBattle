@@ -50,6 +50,7 @@ static QPBattlefield *instance = nil;
     self.pausedState =  [[[QPBFPausedState alloc] initWithBattlefield:self] autorelease];
     self.fightingState = [[[QPBFFightingState alloc] initWithBattlefield:self] autorelease];
     self.scoreState = [[[QPBFScoreState alloc] initWithBattlefield:self] autorelease];
+    self.recycleState = [[[QPBFRecycleState alloc] initWithBattlefield:self] autorelease];
     self.currentState = self.titleState;
 }
 

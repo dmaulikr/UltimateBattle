@@ -7,6 +7,7 @@
 //
 
 #import "QPBFState.h"
+#import "QPBFDisplay.h"
 #import "ScoreDisplay.h"
 
 #define QP_BF_TIMESCORE @"TimeScore"
@@ -18,6 +19,8 @@
     
 }
 
-@property (strong, nonatomic) ScoreDisplay *scoreDisplay;
+//@property (strong, nonatomic) ScoreDisplay *scoreDisplay;
+
+@property (strong, nonatomic) QPBFDisplay *scoreDisplay;
 
 @end

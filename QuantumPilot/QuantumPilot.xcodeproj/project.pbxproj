@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E03388B1977FFCC0007E528 /* QPBFRecycleState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E03388A1977FFCC0007E528 /* QPBFRecycleState.m */; };
+		0E03388E1977FFDE0007E528 /* RecycleDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E03388D1977FFDE0007E528 /* RecycleDisplay.m */; };
+		0E0338911978016F0007E528 /* QPBFDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E0338901978016F0007E528 /* QPBFDisplay.m */; };
 		0E11F5D31968F04100205E8D /* SplitLaserCannon.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E11F5D21968F04100205E8D /* SplitLaserCannon.m */; };
 		0E63B75216C7039100F63829 /* QPBFFightingState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E63B75116C7039100F63829 /* QPBFFightingState.m */; };
 		0E63B75516C712B800F63829 /* QPBFPausedState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E63B75416C712B800F63829 /* QPBFPausedState.m */; };
@@ -147,6 +150,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E0338891977FFCC0007E528 /* QPBFRecycleState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBFRecycleState.h; sourceTree = "<group>"; };
+		0E03388A1977FFCC0007E528 /* QPBFRecycleState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBFRecycleState.m; sourceTree = "<group>"; };
+		0E03388C1977FFDE0007E528 /* RecycleDisplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecycleDisplay.h; sourceTree = "<group>"; };
+		0E03388D1977FFDE0007E528 /* RecycleDisplay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecycleDisplay.m; sourceTree = "<group>"; };
+		0E03388F1978016F0007E528 /* QPBFDisplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBFDisplay.h; sourceTree = "<group>"; };
+		0E0338901978016F0007E528 /* QPBFDisplay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBFDisplay.m; sourceTree = "<group>"; };
 		0E11F5D11968F04100205E8D /* SplitLaserCannon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplitLaserCannon.h; sourceTree = "<group>"; };
 		0E11F5D21968F04100205E8D /* SplitLaserCannon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplitLaserCannon.m; sourceTree = "<group>"; };
 		0E63B75016C7039100F63829 /* QPBFFightingState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBFFightingState.h; sourceTree = "<group>"; };
@@ -482,6 +491,12 @@
 				0EC9E7111967943D00497BB9 /* QPBFScoreState.m */,
 				0EC9E7131967990200497BB9 /* ScoreDisplay.h */,
 				0EC9E7141967990200497BB9 /* ScoreDisplay.m */,
+				0E0338891977FFCC0007E528 /* QPBFRecycleState.h */,
+				0E03388A1977FFCC0007E528 /* QPBFRecycleState.m */,
+				0E03388C1977FFDE0007E528 /* RecycleDisplay.h */,
+				0E03388D1977FFDE0007E528 /* RecycleDisplay.m */,
+				0E03388F1978016F0007E528 /* QPBFDisplay.h */,
+				0E0338901978016F0007E528 /* QPBFDisplay.m */,
 			);
 			name = States;
 			sourceTree = "<group>";
@@ -1089,6 +1104,7 @@
 				BF0EE0E3163319B9002942A0 /* CCGrabber.m in Sources */,
 				BF0EE0E6163319B9002942A0 /* CCGrid.m in Sources */,
 				BF0EE0E9163319B9002942A0 /* CCLabelAtlas.m in Sources */,
+				0E03388E1977FFDE0007E528 /* RecycleDisplay.m in Sources */,
 				BF0EE0EC163319B9002942A0 /* CCLabelBMFont.m in Sources */,
 				0EC9E7121967943D00497BB9 /* QPBFScoreState.m in Sources */,
 				BF0EE0EF163319B9002942A0 /* CCLabelTTF.m in Sources */,
@@ -1100,12 +1116,14 @@
 				BF0EE102163319B9002942A0 /* CCNode.m in Sources */,
 				0EC9E70F1967907400497BB9 /* DeadLine.m in Sources */,
 				BF0EE105163319B9002942A0 /* CCParallaxNode.m in Sources */,
+				0E0338911978016F0007E528 /* QPBFDisplay.m in Sources */,
 				BF0EE108163319B9002942A0 /* CCParticleBatchNode.m in Sources */,
 				BF0EE10B163319B9002942A0 /* CCParticleExamples.m in Sources */,
 				BF0EE10E163319B9002942A0 /* CCParticleSystem.m in Sources */,
 				BF0EE111163319B9002942A0 /* CCParticleSystemQuad.m in Sources */,
 				BF0EE114163319BA002942A0 /* CCProgressTimer.m in Sources */,
 				BF0EE118163319BA002942A0 /* CCRenderTexture.m in Sources */,
+				0E03388B1977FFCC0007E528 /* QPBFRecycleState.m in Sources */,
 				BF0EE11B163319BA002942A0 /* CCScene.m in Sources */,
 				BF0EE11E163319BA002942A0 /* CCScheduler.m in Sources */,
 				BF0EE12E163319BA002942A0 /* CCShaderCache.m in Sources */,
@@ -1197,7 +1215,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1209,7 +1227,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PROVISIONING_PROFILE = "4327526B-2502-4A66-9741-44DE1C249148";
+				PROVISIONING_PROFILE = "AB5A2B84-A4B7-4C78-8281-8A8CD0EC3CC0";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1240,6 +1258,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Anthony Broussard (PPZYZW945Q)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Anthony Broussard (PPZYZW945Q)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1251,6 +1271,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "AB5A2B84-A4B7-4C78-8281-8A8CD0EC3CC0";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;

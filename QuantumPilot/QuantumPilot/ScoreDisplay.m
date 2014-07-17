@@ -7,7 +7,6 @@
 //
 
 #import "ScoreDisplay.h"
-#import "QuantumPilot.h"
 
 @implementation ScoreDisplay
 
@@ -15,32 +14,13 @@
     self = [super init];
     if (self) {
         iteration = 30;
-        l = [QuantumPilot resetPosition];
         
         time = t;
         accuracy = a;
         pathing = p;
         score = s;
         NSLog(@"display opening score: %d", score);
-        
-        CGSize size = CGSizeMake(80, 40);
-        
-        self.timeLabel = [CCLabelTTF labelWithString:nil dimensions:size hAlignment:kCCTextAlignmentCenter fontName:@"Courier New" fontSize:13];
-        self.accuracyLabel = [CCLabelTTF labelWithString:nil  dimensions:size hAlignment:kCCTextAlignmentCenter fontName:@"Courier New" fontSize:13];
-        self.pathingLabel = [CCLabelTTF labelWithString:nil dimensions:size hAlignment:kCCTextAlignmentCenter fontName:@"Courier New" fontSize:13];
-        self.scoreLabel = [CCLabelTTF labelWithString:nil dimensions:size hAlignment:kCCTextAlignmentCenter fontName:@"Courier New" fontSize:13];
-        
-        [self addChild:self.timeLabel];
-        [self addChild:self.accuracyLabel];
-        [self addChild:self.pathingLabel];
-        [self addChild:self.scoreLabel];
-        
-        vertexes[0] = ccp(5000, 5000);
-        vertexes[1] = ccp(5000, 5000);
-        vertexes[2] = ccp(5000, 5000);
-        vertexes[3] = ccp(5000, 5000);
 
-        
         pathingPerfect = pathing == 100000;
         accuracyPerfect = accuracy == 100000;
         timePerfect = time == 5780;
@@ -113,31 +93,24 @@
     }
 }
 
-- (void)draw {
-    float distance = 50;
+- (float)labelDistance {
+    float distance = [self baseLabelDistance];
     if (state == displayZooming) {
         distance = 50 + (iteration * 15);
     }
-    vertexes[0] = ccp(l.x - distance, l.y);
-    vertexes[1] = ccp(l.x, l.y + distance);
-    vertexes[2] = ccp(l.x + distance, l.y);
-    vertexes[3] = ccp(l.x, l.y - distance);
-    
-    ccDrawColor4F(1, 1, 1, 1.0);
-    
-    ccDrawPoly(vertexes, 4, true);
-    
-    float halfSegment = distance;
-    self.timeLabel.position     = ccp(l.x - halfSegment, l.y + halfSegment);
-    self.accuracyLabel.position = ccp(l.x + halfSegment, l.y + halfSegment);
-    self.pathingLabel.position  = ccp(l.x - halfSegment, l.y - halfSegment);
-    self.scoreLabel.position    = ccp(l.x + halfSegment, l.y - halfSegment);
-    
+    return distance;
+}
+
+- (void)drawText {
     self.timeLabel.string       = timePerfect ? @"TIME\nFULL" : [NSString stringWithFormat:@"TIME\n%d", time];
     self.accuracyLabel.string   = accuracyPerfect ? @"ACCURACY\nABSOLUTE" : [NSString stringWithFormat:@"ACCURACY\n%d", accuracy];
     self.pathingLabel.string    = pathingPerfect ? @"PATHING\nPERFECT" : [NSString stringWithFormat:@"PATHING\n%d", pathing];
     self.scoreLabel.string      = [NSString stringWithFormat:@"SCORE\n%d", score];
-    
+}
+
+- (void)draw {
+    [self drawLabels];
+    [self drawText];
     [self.timeLabel updateTexture];
     [self.accuracyLabel updateTexture];
     [self.pathingLabel updateTexture];

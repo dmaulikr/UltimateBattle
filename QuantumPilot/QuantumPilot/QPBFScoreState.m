@@ -15,10 +15,17 @@
     [self.scoreDisplay pulse];
 }
 
+- (Class)displayClass {
+    return [ScoreDisplay class];
+}
+
 - (void)activate:(NSDictionary *)options {
     NSLog(@"options: %@", options);
     self.scoreDisplay = [[[ScoreDisplay alloc] initWithTimeScore:[options[QP_BF_TIMESCORE] intValue] accuracyScore:[options[QP_BF_ACCSCORE] intValue] pathingScore:[options[QP_BF_PATHSCORE] intValue] currentScore:[options[QP_BF_SCORE]intValue]] autorelease];
+    
     self.scoreDisplay.delegate = self;
+    
+
     [self.f addChild:self.scoreDisplay];
 }
 
@@ -32,7 +39,7 @@
 
 - (void)finishedDisplayingWithTotalScore:(int)score {
     self.f.score = score;
-    [self.f changeState:self.f.pausedState];
+    [self.f changeState:self.f.recycleState];
     NSLog(@"score: %d", self.f.score);
 }
 
