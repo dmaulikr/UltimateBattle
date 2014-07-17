@@ -99,7 +99,7 @@
 
 - (void)activate {
     [self resetPosition];
-    self.active = YES;
+    self.active = true;
     timeIndex = 0;
     timeDirection = forwards;
 }
