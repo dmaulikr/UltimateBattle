@@ -474,5 +474,36 @@ static QPBattlefield *instance = nil;
     //1.8 //phone: 2.3 //ipad: //old setting: 6.3
 }
 
+#pragma mark Recycling
+
+- (bool)installShield {
+    return false;
+}
+
+- (bool)installWarning {
+    return false;
+}
+
+- (bool)installBomb {
+    return false;
+}
+
+- (NSArray *)weapons {
+    return @[@"TightSplitLaserCannon"]; // @"WideTripleLaserCannon", @"TripleLaserCannon", @"QuadLaserCannon"];
+}
+
+- (NSString *)nextWeapon {
+    return [self weapons][installs];
+}
+
+- (bool)installNewWeapon {
+    if (installs < [self weapons].count) {
+        [self.pilot installWeapon:[self nextWeapon]];
+        installs++;
+        return true;
+    }
+    
+    return false;
+}
 
 @end

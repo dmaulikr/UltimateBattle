@@ -48,9 +48,17 @@ static float outerCircleRadius = 60;
     return self;
 }
 
-- (void)installWeapon {
+- (void)installWeapon:(NSString *)w {
     self.weapon = nil;
-    self.weapon = (arc4random() % 2) == 0 ? @"SingleLaserCannon" : @"SplitLaserCannon";
+    if (!w) {
+        self.weapon = (arc4random() % 2) == 0 ? @"SingleLaserCannon" : @"SplitLaserCannon";
+    } else {
+        self.weapon = w;
+    }
+}
+
+- (void)installWeapon {
+    [self installWeapon:nil];
 }
 
 - (void)engage {

@@ -22,10 +22,9 @@
 - (void)activate:(NSDictionary *)options {
     NSLog(@"options: %@", options);
     self.scoreDisplay = [[[ScoreDisplay alloc] initWithTimeScore:[options[QP_BF_TIMESCORE] intValue] accuracyScore:[options[QP_BF_ACCSCORE] intValue] pathingScore:[options[QP_BF_PATHSCORE] intValue] currentScore:[options[QP_BF_SCORE]intValue]] autorelease];
-    
+
     self.scoreDisplay.delegate = self;
     
-
     [self.f addChild:self.scoreDisplay];
 }
 

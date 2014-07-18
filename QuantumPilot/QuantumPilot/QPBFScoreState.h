@@ -19,8 +19,6 @@
     
 }
 
-//@property (strong, nonatomic) ScoreDisplay *scoreDisplay;
-
 @property (strong, nonatomic) QPBFDisplay *scoreDisplay;
 
 @end

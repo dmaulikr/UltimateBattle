@@ -81,6 +81,7 @@
 + (CGPoint)resetPosition;
 
 - (void)installWeapon;
+- (void)installWeapon:(NSString *)w;
 
 - (void)setShipDrawColor;
 

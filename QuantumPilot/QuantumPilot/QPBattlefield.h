@@ -34,6 +34,7 @@ enum pulsestate {
     int hits;
     int paths;
     int level;
+    int installs;
 }
 
 @property (nonatomic, retain) NSMutableArray *bullets;
@@ -77,6 +78,8 @@ enum pulsestate {
 
 @property (strong, nonatomic) DeadLine *dl;
 
+@property (nonatomic, copy) NSString *nextWeapon;
+
 - (float)rhythmScale;
 - (void)pulse;
 
@@ -102,6 +105,13 @@ enum pulsestate {
 - (void)setTouchOffsetFromPilotNear:(CGPoint)l;
 - (void)setTouchOffsetFromLatestExpectedNear:(CGPoint)l;
 
-#pragma mark Speeds
+#pragma mark Recycling
+
+
+- (bool)installShield;
+- (bool)installWarning;
+- (bool)installBomb;
+- (bool)installNewWeapon;
+
 
 @end

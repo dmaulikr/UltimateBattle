@@ -11,6 +11,8 @@
 		0E03388E1977FFDE0007E528 /* RecycleDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E03388D1977FFDE0007E528 /* RecycleDisplay.m */; };
 		0E0338911978016F0007E528 /* QPBFDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E0338901978016F0007E528 /* QPBFDisplay.m */; };
 		0E11F5D31968F04100205E8D /* SplitLaserCannon.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E11F5D21968F04100205E8D /* SplitLaserCannon.m */; };
+		0E38191D1979BC8A002A3554 /* TightSplitLaserCannon.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E38191C1979BC8A002A3554 /* TightSplitLaserCannon.m */; };
+		0E3819201979BCAE002A3554 /* TightSplitLaser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E38191F1979BCAE002A3554 /* TightSplitLaser.m */; };
 		0E63B75216C7039100F63829 /* QPBFFightingState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E63B75116C7039100F63829 /* QPBFFightingState.m */; };
 		0E63B75516C712B800F63829 /* QPBFPausedState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E63B75416C712B800F63829 /* QPBFPausedState.m */; };
 		0E63B75816C71BF700F63829 /* Weapon.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E63B75716C71BF700F63829 /* Weapon.m */; };
@@ -158,6 +160,10 @@
 		0E0338901978016F0007E528 /* QPBFDisplay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBFDisplay.m; sourceTree = "<group>"; };
 		0E11F5D11968F04100205E8D /* SplitLaserCannon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplitLaserCannon.h; sourceTree = "<group>"; };
 		0E11F5D21968F04100205E8D /* SplitLaserCannon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplitLaserCannon.m; sourceTree = "<group>"; };
+		0E38191B1979BC8A002A3554 /* TightSplitLaserCannon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TightSplitLaserCannon.h; sourceTree = "<group>"; };
+		0E38191C1979BC8A002A3554 /* TightSplitLaserCannon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TightSplitLaserCannon.m; sourceTree = "<group>"; };
+		0E38191E1979BCAE002A3554 /* TightSplitLaser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TightSplitLaser.h; sourceTree = "<group>"; };
+		0E38191F1979BCAE002A3554 /* TightSplitLaser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TightSplitLaser.m; sourceTree = "<group>"; };
 		0E63B75016C7039100F63829 /* QPBFFightingState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBFFightingState.h; sourceTree = "<group>"; };
 		0E63B75116C7039100F63829 /* QPBFFightingState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBFFightingState.m; sourceTree = "<group>"; };
 		0E63B75316C712B800F63829 /* QPBFPausedState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBFPausedState.h; sourceTree = "<group>"; };
@@ -939,6 +945,8 @@
 				0E63B75A16C71C7C00F63829 /* SingleLaserCannon.h */,
 				0E11F5D11968F04100205E8D /* SplitLaserCannon.h */,
 				0E11F5D21968F04100205E8D /* SplitLaserCannon.m */,
+				0E38191B1979BC8A002A3554 /* TightSplitLaserCannon.h */,
+				0E38191C1979BC8A002A3554 /* TightSplitLaserCannon.m */,
 			);
 			name = Cannons;
 			sourceTree = "<group>";
@@ -976,6 +984,8 @@
 				BF8A76AC16366DD30032AF8F /* QuadLaser.m */,
 				BF18895016374B4000C05703 /* SplitLaser.h */,
 				BF18895116374B4000C05703 /* SplitLaser.m */,
+				0E38191E1979BCAE002A3554 /* TightSplitLaser.h */,
+				0E38191F1979BCAE002A3554 /* TightSplitLaser.m */,
 			);
 			name = Bullets;
 			sourceTree = "<group>";
@@ -1134,6 +1144,7 @@
 				BF0EE13D163319BA002942A0 /* CCSpriteFrameCache.m in Sources */,
 				BF0EE140163319BA002942A0 /* CCTexture2D.m in Sources */,
 				BF0EE143163319BA002942A0 /* CCTextureAtlas.m in Sources */,
+				0E38191D1979BC8A002A3554 /* TightSplitLaserCannon.m in Sources */,
 				BF0EE146163319BA002942A0 /* CCTextureCache.m in Sources */,
 				BF0EE149163319BA002942A0 /* CCTexturePVR.m in Sources */,
 				BF0EE14C163319BA002942A0 /* CCTileMapAtlas.m in Sources */,
@@ -1205,6 +1216,7 @@
 				0E63B75516C712B800F63829 /* QPBFPausedState.m in Sources */,
 				0E63B75816C71BF700F63829 /* Weapon.m in Sources */,
 				0E63B75B16C71C7C00F63829 /* SingleLaserCannon.m in Sources */,
+				0E3819201979BCAE002A3554 /* TightSplitLaser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
