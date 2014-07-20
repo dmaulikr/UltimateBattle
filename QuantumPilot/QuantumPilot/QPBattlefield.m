@@ -218,6 +218,8 @@ static QPBattlefield *instance = nil;
     [self resetLevelScore];
     self.score = 0;
     [self setupSpeeds];
+    weaponLevel = 0;
+    installLevel = 0;
 }
 
 - (BOOL)debrisOutOfBounds:(Debris *)d {
@@ -312,6 +314,7 @@ static QPBattlefield *instance = nil;
     [self.clones removeObject:self.pilot.clone];
     [self removeChild:self.pilot.clone cleanup:YES];
     self.pilot.clone = nil;
+    [self.pilot installWeapon];
     [self activateClones];
     [self setupClone];
     [self.pilot resetIterations];
@@ -319,7 +322,7 @@ static QPBattlefield *instance = nil;
     [self resetLevelScore];
     [self eraseBullets];
     [self.dl reset];
-    [self.pilot installWeapon];
+    weaponLevel = 0;
     level++;
 }
 
@@ -488,22 +491,59 @@ static QPBattlefield *instance = nil;
     return false;
 }
 
+- (NSArray *)weaponDescriptions {
+    return @[@"SIGMA", @"GAMMA"];
+}
+
 - (NSArray *)weapons {
-    return @[@"TightSplitLaserCannon"]; // @"WideTripleLaserCannon", @"TripleLaserCannon", @"QuadLaserCannon"];
+    return @[@"FastLaserCannon", @"TightSplitLaserCannon"]; // @"WideTripleLaserCannon", @"TripleLaserCannon", @"QuadLaserCannon"];
 }
 
 - (NSString *)nextWeapon {
-    return [self weapons][installs];
-}
-
-- (bool)installNewWeapon {
-    if (installs < [self weapons].count) {
-        [self.pilot installWeapon:[self nextWeapon]];
-        installs++;
-        return true;
+    if (weaponLevel < [[self weapons] count]) {
+        return [self weapons][weaponLevel];
     }
     
+    return nil;
+}
+
+- (bool)weaponMaxed {
+    return weaponLevel >= [[self weapons] count];
+}
+
+- (bool)canAffordNextWeapon {
+    if ([self weaponMaxed]) {
+        return false;
+    }
+    
+    return self.pilot.debris > installLevel && ![self weaponMaxed];
+}
+
+- (NSString *)nextWeaponDescription {
+    return [self weaponDescriptions][weaponLevel];
+}
+
+- (bool)installNextWeapon {
+    if ([self canAffordNextWeapon]) {
+        [self.pilot installWeapon:[self nextWeapon]];
+        weaponLevel++;
+        if (weaponLevel > installLevel) {
+            installLevel++;
+        }
+        
+        if ([self weaponMaxed]) {
+            [self.recycleState showWeapon:@"GOOD LUCK!"];
+        } else {
+            [self.recycleState showWeapon:[self nextWeaponDescription]];
+        }
+        return true;
+    }
+
     return false;
+}
+
+- (void)enterRecycleState {
+    [self changeState:self.recycleState withOptions:@{QP_RECYCLE_NEXT_WEAPON : [self nextWeaponDescription]}];
 }
 
 @end

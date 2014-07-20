@@ -38,7 +38,7 @@
 
 - (void)finishedDisplayingWithTotalScore:(int)score {
     self.f.score = score;
-    [self.f changeState:self.f.recycleState];
+    [self.f enterRecycleState];
     NSLog(@"score: %d", self.f.score);
 }
 

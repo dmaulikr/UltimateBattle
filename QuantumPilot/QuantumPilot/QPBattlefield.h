@@ -34,7 +34,8 @@ enum pulsestate {
     int hits;
     int paths;
     int level;
-    int installs;
+    int installLevel;
+    int weaponLevel;
 }
 
 @property (nonatomic, retain) NSMutableArray *bullets;
@@ -111,7 +112,7 @@ enum pulsestate {
 - (bool)installShield;
 - (bool)installWarning;
 - (bool)installBomb;
-- (bool)installNewWeapon;
-
+- (bool)installNextWeapon;
+- (void)enterRecycleState;
 
 @end

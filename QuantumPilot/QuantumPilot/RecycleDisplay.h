@@ -10,6 +10,10 @@
 #import "ScoreDisplay.h"
 
 @interface RecycleDisplay : ScoreDisplay {
+    NSString *_weapon;
+    
 }
+
+- (void)showWeapon:(NSString *)w;
 
 @end

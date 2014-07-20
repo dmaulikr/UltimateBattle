@@ -20,9 +20,14 @@
 
 - (void)drawText {
     self.timeLabel.string       = @"SHIELD";
-    self.accuracyLabel.string   = @"TRIPLE";
+    self.accuracyLabel.string   = _weapon;
     self.pathingLabel.string    = @"WARNING";
     self.scoreLabel.string      = @"BOMB";
+}
+
+- (void)showWeapon:(NSString *)w {
+    _weapon = w;
+    [self drawText];
 }
 
 @end

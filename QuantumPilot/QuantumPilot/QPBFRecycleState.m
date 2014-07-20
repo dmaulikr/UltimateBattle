@@ -32,8 +32,8 @@
                 [self.f changeState:self.f.pausedState];
             }
         } else if (l.y > p.y + 20) {
-            if ([self.f installNewWeapon]) {
-                [self.f changeState:self.f.pausedState];
+            if ([self.f installNextWeapon]) {
+                
             }
         }
     }
@@ -43,6 +43,7 @@
     self.display = [[[RecycleDisplay alloc] init] autorelease];
     //show options
     //show pay
+    [self showWeapon:options[QP_RECYCLE_NEXT_WEAPON]];
     [self.f addChild:self.display];
 }
 
@@ -56,5 +57,8 @@
     
 }
 
+- (void)showWeapon:(NSString *)w {
+    [self.display showWeapon:w];
+}
 
 @end
