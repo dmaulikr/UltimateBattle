@@ -17,4 +17,6 @@
 
 - (void)showWeapon:(NSString *)w;
 
+- (void)reloadDebris:(int)d;
+
 @end

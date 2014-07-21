@@ -79,5 +79,8 @@
     
 }
 
+- (CGPoint)center {
+    return l;
+}
 
 @end

@@ -34,5 +34,9 @@
 
 - (void)drawLabels;
 
+- (void)initializeLabels;
+
+- (CGPoint)center;
+
 @end
 

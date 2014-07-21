@@ -61,4 +61,8 @@
     [self.display showWeapon:w];
 }
 
+- (void)reloadDebris:(int)d {
+    [self.display reloadDebrisLabel:d];
+}
+
 @end

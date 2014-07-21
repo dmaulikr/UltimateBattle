@@ -511,23 +511,34 @@ static QPBattlefield *instance = nil;
     return weaponLevel >= [[self weapons] count];
 }
 
+- (int)nextWeaponCost {
+    return (installLevel+1)* 10;
+}
+
 - (bool)canAffordNextWeapon {
     if ([self weaponMaxed]) {
         return false;
     }
     
-    return self.pilot.debris > installLevel && ![self weaponMaxed];
+    return self.pilot.debris >= [self nextWeaponCost] && ![self weaponMaxed];
 }
 
 - (NSString *)nextWeaponDescription {
     return [self weaponDescriptions][weaponLevel];
 }
 
+- (void)recycleDebris:(int)d {
+    self.pilot.debris -= d;
+    [self.recycleState reloadDebris:self.pilot.debris];
+}
+
 - (bool)installNextWeapon {
     if ([self canAffordNextWeapon]) {
+        
         [self.pilot installWeapon:[self nextWeapon]];
         weaponLevel++;
         if (weaponLevel > installLevel) {
+            [self recycleDebris:[self nextWeaponCost]];
             installLevel++;
         }
         
@@ -542,8 +553,13 @@ static QPBattlefield *instance = nil;
     return false;
 }
 
+- (void)reloadDebrisDisplay {
+    [self.recycleState reloadDebris:self.pilot.debris];
+}
+
 - (void)enterRecycleState {
     [self changeState:self.recycleState withOptions:@{QP_RECYCLE_NEXT_WEAPON : [self nextWeaponDescription]}];
+    [self reloadDebrisDisplay];
 }
 
 @end
