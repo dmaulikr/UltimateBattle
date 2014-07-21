@@ -155,7 +155,16 @@ static QPBattlefield *instance = nil;
 
 - (void)processKill:(QuantumPilot *)c {
     hits++;
+    
+    int debrisLevel = 1;
+    if ([[self weapons] containsObject:c.weapon]) {
+        debrisLevel = [[self weapons] indexOfObject:c.weapon] + 2;
+    } else if ([c.weapon isEqualToString:@"SplitLaserCannon"]) {
+        debrisLevel = 2;
+    }
+    
     Debris *d = [[Debris alloc] initWithL:c.l];
+    [d setLevel:debrisLevel];
     [self addChild:d];
     [self.debris addObject:d];
 }

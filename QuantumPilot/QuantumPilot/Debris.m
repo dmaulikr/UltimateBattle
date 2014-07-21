@@ -9,6 +9,10 @@
 #import "Debris.h"
 #import "VRGeometry.h"
 #import "QPBattlefield.h"
+#import "SingleLaserCannon.h"
+#import "SplitLaserCannon.h"
+#import "FastLaserCannon.h"
+#import "TightSplitLaserCannon.h"
 
 @implementation Debris
 
@@ -33,8 +37,33 @@
 }
 
 - (void)draw {
-    ccDrawColor4F(1, 1, 1, 1.0);
-    ccDrawFilledCircle(self.l, 1.3 * [QPBattlefield pulseRotation], 0, 100, NO);
+    switch (_level) {
+        case 1:
+            [SingleLaserCannon setDrawColor];
+            break;
+        case 2:
+            [SplitLaserCannon setDrawColor];
+            break;
+        case 3:
+            [FastLaserCannon setDrawColor];
+            break;
+        case 4:
+            [TightSplitLaserCannon setDrawColor];
+            break;
+            
+        default:
+            break;
+    }
+
+    ccDrawFilledCircle(self.l, 2.6 * [QPBattlefield pulseRotation], 0, 100, NO);
+}
+
+- (void)setLevel:(int)l {
+    _level = l;
+}
+
+- (int)level {
+    return _level;
 }
 
 @end

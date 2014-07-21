@@ -11,6 +11,7 @@
 @interface Debris : CCNode {
     CGPoint _points[10];
     float _speed;
+    int _level;
 }
 
 @property (nonatomic) CGPoint l;
@@ -18,5 +19,9 @@
 - (id)initWithL:(CGPoint)l;
 
 - (void)pulse;
+
+- (void)setLevel:(int)l;
+
+- (int)level;
 
 @end

@@ -242,7 +242,7 @@ static float outerCircleRadius = 60;
 }
 
 - (BOOL)isCollidingWithDebris:(Debris *)d {
-    return GetDistance(self.l, d.l) < 60;
+    return GetDistance(self.l, d.l) < 50;
 }
 
 - (void)registerHit {
@@ -251,7 +251,7 @@ static float outerCircleRadius = 60;
 
 - (BOOL)processDebris:(Debris *)d {
     if ([self isCollidingWithDebris:d]) {
-        self.debris++;
+        self.debris += [d level];
         return true;
     }
     
