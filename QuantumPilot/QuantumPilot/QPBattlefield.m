@@ -520,6 +520,10 @@ static QPBattlefield *instance = nil;
         return false;
     }
     
+    if (weaponLevel < installLevel) {
+        return true;
+    }
+    
     return self.pilot.debris >= [self nextWeaponCost] && ![self weaponMaxed];
 }
 

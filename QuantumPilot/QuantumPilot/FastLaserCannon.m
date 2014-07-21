@@ -13,7 +13,7 @@
 
 + (float)speed {
     float s = [super speed];
-    return s + 3;
+    return s + 1.5;
 }
 
 + (void)setDrawColor {
