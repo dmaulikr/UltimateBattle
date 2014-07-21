@@ -8,12 +8,19 @@
 
 #import "FastLaserCannon.h"
 #import "cocos2d.h"
+#import "FastLaser.h"
 
 @implementation FastLaserCannon
 
++ (NSArray *)bulletsForLocation:(CGPoint)location direction:(NSInteger)direction {
+    FastLaser *b = [[[FastLaser alloc] initWithLocation:location velocity:CGPointMake(0,direction * [self speed])] autorelease];
+    return [NSArray arrayWithObject:b];
+}
+
+
 + (float)speed {
     float s = [super speed];
-    return s + 1.5;
+    return s + 1.23;
 }
 
 + (void)setDrawColor {

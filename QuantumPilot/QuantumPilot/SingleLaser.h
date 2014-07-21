@@ -12,4 +12,6 @@
     CGPoint lines[4];
 }
 
+- (void)setDrawColor;
+
 @end

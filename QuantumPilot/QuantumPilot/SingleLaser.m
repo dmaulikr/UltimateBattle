@@ -23,6 +23,10 @@ static float triangleHeight = 3;
     return self.yDirection == -1 ? ccc4f(.1, .9, .1, 1) : white;
 }
 
+- (void)setDrawColor {
+    ccDrawColor4F(1, 1, 1, 1);
+}
+
 - (void)draw {
 //    lines[0] = ccp(self.l.x - innerWidth - (self.drawMultiplier * outerWidth), self.l.y - innerHeight - (self.drawMultiplier * outerHeight));
 //    lines[1] = ccp(self.l.x - innerWidth - (self.drawMultiplier * outerWidth), self.l.y + innerHeight + (self.drawMultiplier * outerHeight));
@@ -31,7 +35,7 @@ static float triangleHeight = 3;
 //    ccDrawSolidPoly(lines, 4, [self color]);
     
 //        ccDrawColor4F(.1, .9, .1, 1); //green
-        ccDrawColor4F(1, 1, 1, 1);
+    [self setDrawColor];
     
     int facing = self.vel.y > 0 ? 1 : -1;
     lines[0] = ccp(self.l.x - (triangleWidth * self.drawMultiplier), self.l.y - (triangleHeight * facing * self.drawMultiplier));

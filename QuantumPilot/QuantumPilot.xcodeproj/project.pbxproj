@@ -17,6 +17,7 @@
 		0E63B75516C712B800F63829 /* QPBFPausedState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E63B75416C712B800F63829 /* QPBFPausedState.m */; };
 		0E63B75816C71BF700F63829 /* Weapon.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E63B75716C71BF700F63829 /* Weapon.m */; };
 		0E63B75B16C71C7C00F63829 /* SingleLaserCannon.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E63B75916C71C7C00F63829 /* SingleLaserCannon.m */; };
+		0E8A113E197D56510028A78F /* FastLaser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E8A113D197D56510028A78F /* FastLaser.m */; };
 		0EC9E70F1967907400497BB9 /* DeadLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EC9E70E1967907400497BB9 /* DeadLine.m */; };
 		0EC9E7121967943D00497BB9 /* QPBFScoreState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EC9E7111967943D00497BB9 /* QPBFScoreState.m */; };
 		0EC9E7151967990200497BB9 /* ScoreDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EC9E7141967990200497BB9 /* ScoreDisplay.m */; };
@@ -173,6 +174,8 @@
 		0E63B75716C71BF700F63829 /* Weapon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Weapon.m; sourceTree = "<group>"; };
 		0E63B75916C71C7C00F63829 /* SingleLaserCannon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleLaserCannon.m; sourceTree = "<group>"; };
 		0E63B75A16C71C7C00F63829 /* SingleLaserCannon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleLaserCannon.h; sourceTree = "<group>"; };
+		0E8A113C197D56510028A78F /* FastLaser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FastLaser.h; sourceTree = "<group>"; };
+		0E8A113D197D56510028A78F /* FastLaser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FastLaser.m; sourceTree = "<group>"; };
 		0EC9E70D1967907400497BB9 /* DeadLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeadLine.h; sourceTree = "<group>"; };
 		0EC9E70E1967907400497BB9 /* DeadLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeadLine.m; sourceTree = "<group>"; };
 		0EC9E7101967943D00497BB9 /* QPBFScoreState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBFScoreState.h; sourceTree = "<group>"; };
@@ -991,6 +994,8 @@
 				BF18895116374B4000C05703 /* SplitLaser.m */,
 				0E38191E1979BCAE002A3554 /* TightSplitLaser.h */,
 				0E38191F1979BCAE002A3554 /* TightSplitLaser.m */,
+				0E8A113C197D56510028A78F /* FastLaser.h */,
+				0E8A113D197D56510028A78F /* FastLaser.m */,
 			);
 			name = Bullets;
 			sourceTree = "<group>";
@@ -1111,6 +1116,7 @@
 				BF0EE0CA163319B9002942A0 /* CCAtlasNode.m in Sources */,
 				BF0EE0CD163319B9002942A0 /* CCCamera.m in Sources */,
 				BF0EE0D1163319B9002942A0 /* CCConfiguration.m in Sources */,
+				0E8A113E197D56510028A78F /* FastLaser.m in Sources */,
 				BF0EE0D4163319B9002942A0 /* ccDeprecated.m in Sources */,
 				BF0EE0D7163319B9002942A0 /* CCDirector.m in Sources */,
 				BF0EE0DA163319B9002942A0 /* CCDrawingPrimitives.m in Sources */,
