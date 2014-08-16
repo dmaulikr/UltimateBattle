@@ -44,6 +44,7 @@ static float outerCircleRadius = 60;
     self = [super init];
     if (self) {
         [self engage];
+        _debris = 50;
     }
     return self;
 }

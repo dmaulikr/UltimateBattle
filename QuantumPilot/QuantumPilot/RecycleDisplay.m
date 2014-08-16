@@ -55,7 +55,6 @@
     
     float mod = 7;
     
-    NSLog(@"weapon: %@", _weapon);
     if ([_weapon isEqualToString:@"GOOD LUCK!"]) {
         self.accuracyLabel.string  = _weapon;
     } else {

@@ -10,6 +10,7 @@
 
 @interface TightSplitLaser : Bullet {
     CGPoint lines[2];
+    int _xDirection;
 }
 
 @end
