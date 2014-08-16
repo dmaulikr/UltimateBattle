@@ -8,6 +8,8 @@
 
 #import "SingleLaser.h"
 
-@interface FastLaser : SingleLaser
+@interface FastLaser : SingleLaser {
+    int _pulses;
+}
 
 @end

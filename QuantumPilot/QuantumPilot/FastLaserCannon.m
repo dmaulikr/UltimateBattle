@@ -13,10 +13,11 @@
 @implementation FastLaserCannon
 
 + (NSArray *)bulletsForLocation:(CGPoint)location direction:(NSInteger)direction {
-    FastLaser *b = [[[FastLaser alloc] initWithLocation:location velocity:CGPointMake(0,direction * [self speed])] autorelease];
-    return [NSArray arrayWithObject:b];
+    FastLaser *b = [[[FastLaser alloc] initWithLocation:ccp(location.x - 3, location.y) velocity:CGPointMake(0,direction * [self speed])] autorelease];
+    FastLaser *b2 = [[[FastLaser alloc] initWithLocation:ccp(location.x + 3, location.y) velocity:CGPointMake(0,direction * [self speed])] autorelease];
+    
+    return @[b, b2];
 }
-
 
 + (float)speed {
     float s = [super speed];
