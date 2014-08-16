@@ -1,3 +1,9 @@
+shield hit: draw expanding circle (class)
+redline: expand delay
+bang: give warning
+
+bang, redline, shield: increasing cost (per level?)
+
 drag ship to record course
 tap space while following course to fire -- show the tap space text
 

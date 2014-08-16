@@ -500,10 +500,6 @@ static QPBattlefield *instance = nil;
     return false;
 }
 
-- (NSArray *)weaponDescriptions {
-    return @[@"SIGMA", @"GAMMA"];
-}
-
 - (NSArray *)weapons {
     return @[@"FastLaserCannon", @"TightSplitLaserCannon"]; // @"WideTripleLaserCannon", @"TripleLaserCannon", @"QuadLaserCannon"];
 }
@@ -536,10 +532,6 @@ static QPBattlefield *instance = nil;
     return self.pilot.debris >= [self nextWeaponCost] && ![self weaponMaxed];
 }
 
-- (NSString *)nextWeaponDescription {
-    return [self weaponDescriptions][weaponLevel];
-}
-
 - (void)recycleDebris:(int)d {
     self.pilot.debris -= d;
     [self.recycleState reloadDebris:self.pilot.debris];
@@ -558,7 +550,7 @@ static QPBattlefield *instance = nil;
         if ([self weaponMaxed]) {
             [self.recycleState showWeapon:@"GOOD LUCK!"];
         } else {
-            [self.recycleState showWeapon:[self nextWeaponDescription]];
+            [self.recycleState showWeapon:[self nextWeapon]];
         }
         return true;
     }
@@ -571,7 +563,7 @@ static QPBattlefield *instance = nil;
 }
 
 - (void)enterRecycleState {
-    [self changeState:self.recycleState withOptions:@{QP_RECYCLE_NEXT_WEAPON : [self nextWeaponDescription]}];
+    [self changeState:self.recycleState withOptions:@{QP_RECYCLE_NEXT_WEAPON : [self nextWeapon]}];
     [self reloadDebrisDisplay];
 }
 
