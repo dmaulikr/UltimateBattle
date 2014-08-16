@@ -19,17 +19,17 @@
     } else if (l.x < p.x - 20) {
         if (l.y < p.y - 20) {
             if ([self.f installWarning]) {
-                [self.f changeState:self.f.pausedState];
+                
             }
         } else if (l.y > p.y + 20) {
             if ([self.f installShield]) {
-                [self.f changeState:self.f.pausedState];
+                
             }
         }
     } else if (l.x > p.x + 20) {
         if (l.y < p.y - 20) {
             if ([self.f installBomb]) {
-                [self.f changeState:self.f.pausedState];
+                
             }
         } else if (l.y > p.y + 20) {
             if ([self.f installNextWeapon]) {
