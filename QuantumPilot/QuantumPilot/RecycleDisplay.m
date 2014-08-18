@@ -50,17 +50,23 @@
     return [self baseLabelDistance] * .75;
 }
 
-- (void)drawText {
+- (void)drawWeaponLabel {
     float halfSegment = [self labelDistance];
-    
     float mod = 7;
-    
     if ([_weapon isEqualToString:@"GOOD LUCK!"]) {
         self.accuracyLabel.string  = _weapon;
     } else {
         [NSClassFromString(_weapon) setDrawColor];
         ccDrawFilledCircle(ccp(l.x + halfSegment, l.y + halfSegment + mod) , 2.6, 0, 100, NO);
+        self.accuracyLabel.string = [NSString stringWithFormat:@"%d", _weaponCost];
     }
+}
+
+- (void)drawText {
+    float halfSegment = [self labelDistance];
+    float mod = 7;
+    
+    [self drawWeaponLabel];
     
     ccDrawColor4F(1, 0, 0, 1.0);
     ccDrawLine(ccp(l.x + halfSegment - 5, l.y - halfSegment + mod + 9), ccp(l.x + halfSegment + 5, l.y - halfSegment + mod + 9));
@@ -78,7 +84,6 @@
 
     //draw pricing
     self.timeLabel.string = @"3";
-    self.accuracyLabel.string = @"8";
     self.scoreLabel.string = @"5";
     self.pathingLabel.string = @"4";
     
@@ -86,7 +91,13 @@
 
 - (void)showWeapon:(NSString *)w {
     _weapon = w;
+    _weaponCost = -1;
     [self drawText];
+}
+
+- (void)showWeapon:(NSString *)w cost:(int)cost {
+    [self showWeapon:w];
+    _weaponCost = cost;
 }
 
 - (void)reloadDebrisLabel:(int)d {

@@ -43,7 +43,9 @@
     self.display = [[[RecycleDisplay alloc] init] autorelease];
     //show options
     //show pay
-    [self showWeapon:options[QP_RECYCLE_NEXT_WEAPON]];
+    int cost = [options[QP_RECYCLE_NEXT_WEAPON_COST] intValue];
+    [self showWeapon:options[QP_RECYCLE_NEXT_WEAPON] cost:cost];
+
     [self.f addChild:self.display];
 }
 
@@ -59,6 +61,10 @@
 
 - (void)showWeapon:(NSString *)w {
     [self.display showWeapon:w];
+}
+
+- (void)showWeapon:(NSString *)w cost:(int)cost {
+    [self.display showWeapon:w cost:cost];
 }
 
 - (void)reloadDebris:(int)d {

@@ -517,7 +517,14 @@ static QPBattlefield *instance = nil;
 }
 
 - (int)nextWeaponCost {
+    if ([self underpowered]) {
+        return 0;
+    }
     return (installLevel+1)* 10;
+}
+
+- (bool)underpowered {
+    return weaponLevel < installLevel;
 }
 
 - (bool)canAffordNextWeapon {
@@ -525,7 +532,7 @@ static QPBattlefield *instance = nil;
         return false;
     }
     
-    if (weaponLevel < installLevel) {
+    if ([self underpowered]) {
         return true;
     }
     
@@ -550,7 +557,7 @@ static QPBattlefield *instance = nil;
         if ([self weaponMaxed]) {
             [self.recycleState showWeapon:@"GOOD LUCK!"];
         } else {
-            [self.recycleState showWeapon:[self nextWeapon]];
+            [self.recycleState showWeapon:[self nextWeapon] cost:[self nextWeaponCost]];
         }
         return true;
     }
@@ -563,7 +570,9 @@ static QPBattlefield *instance = nil;
 }
 
 - (void)enterRecycleState {
-    [self changeState:self.recycleState withOptions:@{QP_RECYCLE_NEXT_WEAPON : [self nextWeapon]}];
+    NSNumber *cost = [NSNumber numberWithInt:[self nextWeaponCost]];
+    [self changeState:self.recycleState withOptions:@{QP_RECYCLE_NEXT_WEAPON : [self nextWeapon],
+                                                      QP_RECYCLE_NEXT_WEAPON_COST : cost}];
     [self reloadDebrisDisplay];
 }
 
