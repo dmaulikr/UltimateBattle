@@ -31,8 +31,7 @@ static float halfSegment = 1.5;
 
 - (void)pulse {
     [super pulse];
-    //tap to split
-//    self.vel = ccp(self.vel.x - (.1 * _xDirection), self.vel.y);
+    self.vel = ccp(self.vel.x - (.05 * _xDirection), self.vel.y);
 }
 
 @end

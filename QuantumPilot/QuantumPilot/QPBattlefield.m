@@ -2,6 +2,7 @@
 #import "Bullet.h"
 #import "QuantumClone.h"
 #import "Debris.h"
+#import "TightSplitLaser.h"
 
 @implementation QPBattlefield
 
@@ -442,10 +443,12 @@ static QPBattlefield *instance = nil;
 - (void)bulletsFired:(NSArray *)bullets {
     shotsFired++;
     NSLog(@"shotsFired: %d", shotsFired);
-    [self.bullets addObjectsFromArray:bullets];
+    
     for (Bullet *b in bullets) {
         [self addChild:b];
     }
+    
+    [self.bullets addObjectsFromArray:bullets];
 }
 
 - (void)cloneBulletsFired:(NSArray *)bullets {

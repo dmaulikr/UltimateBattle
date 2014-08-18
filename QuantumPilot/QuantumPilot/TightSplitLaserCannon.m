@@ -14,8 +14,8 @@
 
 + (NSArray *)bulletsForLocation:(CGPoint)location direction:(NSInteger)direction {
     //15, 85
-    TightSplitLaser *l = [[[TightSplitLaser alloc] initWithLocation:location velocity:ccp(-[self speed] * .15, [self speed] * direction * .85)] autorelease];
-    TightSplitLaser *r = [[[TightSplitLaser alloc] initWithLocation:location velocity:ccp([self speed] * .15, [self speed] * direction * .85)] autorelease];
+    TightSplitLaser *l = [[[TightSplitLaser alloc] initWithLocation:location velocity:ccp(-[self speed] * .25, [self speed] * direction * .85)] autorelease];
+    TightSplitLaser *r = [[[TightSplitLaser alloc] initWithLocation:location velocity:ccp([self speed] * .25, [self speed] * direction * .85)] autorelease];
     return @[l, r];
 }
 
