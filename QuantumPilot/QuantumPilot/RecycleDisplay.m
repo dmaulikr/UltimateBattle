@@ -23,7 +23,7 @@
     [super drawLabels];
     
     self.debrisLabel.position    = ccp([self center].x, [self center].y - 35    );
-    if (_debris <= 9) {
+    if (_debris <= 99) {
         [self.debrisLabel setString:[NSString stringWithFormat:@"%d", _debris]];
     } else {
         self.debrisLabel.string = @"+";
