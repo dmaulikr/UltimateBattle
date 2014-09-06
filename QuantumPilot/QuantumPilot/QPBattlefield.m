@@ -493,7 +493,7 @@ static QPBattlefield *instance = nil;
 #pragma mark Recycling
 
 - (int)shieldCost {
-    return (self.pilot.shield + 1) * 10;
+    return (self.pilot.shield + 1) * 50;
 }
 
 - (bool)canAffordShield {
