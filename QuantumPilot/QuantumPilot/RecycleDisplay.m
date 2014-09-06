@@ -38,10 +38,6 @@
 
 }
 
-//- (float)labelDistance {
-//    return [self baseLabelDistance];
-//}
-
 - (void)pulse {
     
 }
@@ -83,7 +79,7 @@
     ccDrawCircle(ccp(l.x - halfSegment, l.y + halfSegment + mod), 3, 0, 100, NO);
 
     //draw pricing
-    self.timeLabel.string = @"3";
+    self.timeLabel.string = [NSString stringWithFormat:@"%d",[[QPBattlefield f] shieldCost]];
     self.scoreLabel.string = @"5";
     self.pathingLabel.string = @"4";
     

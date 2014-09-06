@@ -66,4 +66,8 @@
     return _level;
 }
 
+- (bool)dissipated {
+    return false;
+}
+
 @end

@@ -42,6 +42,8 @@
 @property (nonatomic) BOOL active;
 @property (nonatomic) BOOL blinking;
 
+@property (nonatomic) int shield;
+
 - (BOOL)isFiring;
 
 - (void)pulse;
@@ -82,6 +84,7 @@
 
 - (void)installWeapon;
 - (void)installWeapon:(NSString *)w;
+- (void)installShield;
 
 - (void)setShipDrawColor;
 

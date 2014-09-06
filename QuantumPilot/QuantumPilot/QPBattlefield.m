@@ -3,6 +3,7 @@
 #import "QuantumClone.h"
 #import "Debris.h"
 #import "TightSplitLaser.h"
+#import "ShieldDebris.h"
 
 @implementation QPBattlefield
 
@@ -233,7 +234,7 @@ static QPBattlefield *instance = nil;
 }
 
 - (BOOL)debrisOutOfBounds:(Debris *)d {
-    return !CGRectContainsPoint([self battlefieldFrame], d.l);
+    return !CGRectContainsPoint([self battlefieldFrame], d.l) || [d dissipated];
 }
 
 
@@ -491,7 +492,21 @@ static QPBattlefield *instance = nil;
 
 #pragma mark Recycling
 
+- (int)shieldCost {
+    return (self.pilot.shield + 1) * 10;
+}
+
+- (bool)canAffordShield {
+    return self.pilot.debris >= [self shieldCost];
+}
+
 - (bool)installShield {
+    if (!self.pilot.shield && [self canAffordShield]) {
+        [self.pilot installShield];
+        [self recycleDebris:[self shieldCost]];
+        return true;
+    }
+    
     return false;
 }
 
@@ -578,5 +593,15 @@ static QPBattlefield *instance = nil;
                                                       QP_RECYCLE_NEXT_WEAPON_COST : cost}];
     [self reloadDebrisDisplay];
 }
+
+#pragma mark Pilot effects
+
+- (void)registerShieldHit {
+    ShieldDebris *d = [[ShieldDebris alloc] init];
+    d.l = self.pilot.l;
+    [self.debris addObject:d];
+    [self addChild:d];
+}
+
 
 @end

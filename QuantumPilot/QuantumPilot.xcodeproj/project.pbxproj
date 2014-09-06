@@ -18,6 +18,7 @@
 		0E63B75816C71BF700F63829 /* Weapon.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E63B75716C71BF700F63829 /* Weapon.m */; };
 		0E63B75B16C71C7C00F63829 /* SingleLaserCannon.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E63B75916C71C7C00F63829 /* SingleLaserCannon.m */; };
 		0E8A113E197D56510028A78F /* FastLaser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E8A113D197D56510028A78F /* FastLaser.m */; };
+		0E9356E619BBCD160023E1B0 /* ShieldDebris.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E9356E519BBCD160023E1B0 /* ShieldDebris.m */; };
 		0EC9E70F1967907400497BB9 /* DeadLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EC9E70E1967907400497BB9 /* DeadLine.m */; };
 		0EC9E7121967943D00497BB9 /* QPBFScoreState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EC9E7111967943D00497BB9 /* QPBFScoreState.m */; };
 		0EC9E7151967990200497BB9 /* ScoreDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EC9E7141967990200497BB9 /* ScoreDisplay.m */; };
@@ -176,6 +177,8 @@
 		0E63B75A16C71C7C00F63829 /* SingleLaserCannon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleLaserCannon.h; sourceTree = "<group>"; };
 		0E8A113C197D56510028A78F /* FastLaser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FastLaser.h; sourceTree = "<group>"; };
 		0E8A113D197D56510028A78F /* FastLaser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FastLaser.m; sourceTree = "<group>"; };
+		0E9356E419BBCD160023E1B0 /* ShieldDebris.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShieldDebris.h; sourceTree = "<group>"; };
+		0E9356E519BBCD160023E1B0 /* ShieldDebris.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShieldDebris.m; sourceTree = "<group>"; };
 		0EC9E70D1967907400497BB9 /* DeadLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeadLine.h; sourceTree = "<group>"; };
 		0EC9E70E1967907400497BB9 /* DeadLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeadLine.m; sourceTree = "<group>"; };
 		0EC9E7101967943D00497BB9 /* QPBFScoreState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBFScoreState.h; sourceTree = "<group>"; };
@@ -518,6 +521,8 @@
 			children = (
 				0EF96AAF197598C900E5DBE2 /* Debris.h */,
 				0EF96AB0197598C900E5DBE2 /* Debris.m */,
+				0E9356E419BBCD160023E1B0 /* ShieldDebris.h */,
+				0E9356E519BBCD160023E1B0 /* ShieldDebris.m */,
 			);
 			name = Cycling;
 			sourceTree = "<group>";
@@ -1190,6 +1195,7 @@
 				BF0EE1A3163319BA002942A0 /* NSThread+performBlock.m in Sources */,
 				BF0EE1A7163319BA002942A0 /* TGAlib.m in Sources */,
 				BF0EE1AA163319BA002942A0 /* TransformUtils.m in Sources */,
+				0E9356E619BBCD160023E1B0 /* ShieldDebris.m in Sources */,
 				BF0EE1AF163319BA002942A0 /* ZipUtils.m in Sources */,
 				BF0EE1B4163319BA002942A0 /* CDAudioManager.m in Sources */,
 				BF0EE1B8163319BA002942A0 /* CDOpenALSupport.m in Sources */,

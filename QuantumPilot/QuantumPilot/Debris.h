@@ -24,4 +24,6 @@
 
 - (int)level;
 
+- (bool)dissipated;
+
 @end

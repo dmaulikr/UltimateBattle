@@ -3,6 +3,7 @@
 #import "QuantumClone.h"
 #import "QPBattlefield.h"
 #import "SingleLaserCannon.h"
+#import "ShieldDebris.h"
 
 @interface QuantumPilot() {
     CGPoint future[4551];
@@ -91,10 +92,10 @@ static float outerCircleRadius = 60;
 }
 
 - (void)drawCircle {
-    //if shielded
-//    ccDrawColor4F(1 - [QPBattlefield pulseRotation], 1  - [QPBattlefield pulseRotation], 1  - [QPBattlefield pulseRotation], 1);
-//    ccDrawCircle(self.innerTopEdge, outerCircleRadius, 0, 100, NO);
-    //DRAW SHIELD BY OPACITY OF SHIELD CHARGE
+    if (self.shield) {
+        ccDrawColor4F(1 - [QPBattlefield pulseRotation], 1  - [QPBattlefield pulseRotation], 1  - [QPBattlefield pulseRotation], 1);
+        ccDrawCircle(self.innerTopEdge, 20 + (5 * self.shield), 0, 100, NO);
+    }
     [NSClassFromString(self.weapon) setDrawColor];
     ccDrawFilledCircle(self.innerTopEdge, innerCircleRadius * [QPBattlefield pulseRotation], 0, 100, NO);
 }
@@ -251,6 +252,9 @@ static float outerCircleRadius = 60;
 }
 
 - (BOOL)processDebris:(Debris *)d {
+    if ([d isKindOfClass:[ShieldDebris class]]) {
+        return false;
+    }
     if ([self isCollidingWithDebris:d]) {
         self.debris += [d level];
         return true;
@@ -262,7 +266,13 @@ static float outerCircleRadius = 60;
 - (void)processBullet:(Bullet *)b {
     if ([self isCollidingWithBullet:b]) {
         b.l = ccp(5000,5000);
-        [self registerHit];
+        if (!self.shield) {
+            [self registerHit];
+        } else {
+            self.shield--;
+            [[QPBattlefield f] registerShieldHit];
+        }
+
     }
 }
 
@@ -289,6 +299,10 @@ static float outerCircleRadius = 60;
 
 - (void)setSpeed:(float)speed {
     _speed = speed;
+}
+
+- (void)installShield {
+    self.shield++;
 }
 
 @end
