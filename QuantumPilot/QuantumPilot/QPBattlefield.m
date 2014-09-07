@@ -502,8 +502,8 @@ static QPBattlefield *instance = nil;
 
 - (bool)installShield {
     if (self.pilot.shield < 9 && [self canAffordShield]) {
-        [self.pilot installShield];
         [self recycleDebris:[self shieldCost]];
+        [self.pilot installShield];
         return true;
     }
     
