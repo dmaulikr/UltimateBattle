@@ -26,4 +26,7 @@
 
 - (bool)dissipated;
 
+- (void)establishColor;
+- (void)drawCircle;
+
 @end

@@ -13,5 +13,6 @@
 }
 
 
+@property (strong, nonatomic) NSString *weapon;
 
 @end

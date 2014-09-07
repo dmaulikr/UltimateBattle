@@ -36,7 +36,7 @@
     self.l = CombinedPoint(self.l, ccp(0,-2));
 }
 
-- (void)draw {
+- (void)establishColor {
     switch (_level) {
         case 1:
             [SingleLaserCannon setDrawColor];
@@ -54,8 +54,15 @@
         default:
             break;
     }
+}
 
+- (void)drawCircle {
     ccDrawFilledCircle(self.l, 2.6 * [QPBattlefield pulseRotation], 0, 100, NO);
+}
+
+- (void)draw {
+    [self establishColor];
+    [self drawCircle];
 }
 
 - (void)setLevel:(int)l {

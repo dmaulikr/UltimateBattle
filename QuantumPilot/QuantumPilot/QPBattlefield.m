@@ -157,6 +157,7 @@ static QPBattlefield *instance = nil;
 
 - (void)processKill:(QuantumPilot *)c {
     hits++;
+    [self registerShieldHit:c.l weapon:c.weapon];
     
     int debrisLevel = 1;
     if ([[self weapons] containsObject:c.weapon]) {
@@ -596,12 +597,18 @@ static QPBattlefield *instance = nil;
 
 #pragma mark Pilot effects
 
-- (void)registerShieldHit {
+- (void)registerShieldHit:(CGPoint)l weapon:(NSString *)w {
     ShieldDebris *d = [[ShieldDebris alloc] init];
-    d.l = self.pilot.l;
+    d.l = l;
+    [d setWeapon:w];
     [self.debris addObject:d];
     [self addChild:d];
 }
+
+- (void)registerShieldHit:(CGPoint)l {
+    [self registerShieldHit:l weapon:nil];
+}
+
 
 
 @end

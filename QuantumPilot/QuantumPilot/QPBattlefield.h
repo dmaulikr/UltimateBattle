@@ -119,6 +119,6 @@ enum pulsestate {
 
 #pragma mark Pilot effects
 
-- (void)registerShieldHit;
+- (void)registerShieldHit:(CGPoint)l;
 
 @end

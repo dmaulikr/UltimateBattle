@@ -11,14 +11,21 @@
 
 @implementation ShieldDebris
 
-- (void)draw {
-    ccDrawColor4F(1, 1, 1, 1.0);
-    ccDrawColor4F(1 - [QPBattlefield pulseRotation], 1  - [QPBattlefield pulseRotation], 1  - [QPBattlefield pulseRotation], 1);
+- (void)establishColor {
+    if (self.weapon) {
+        [NSClassFromString(self.weapon) setDrawColor];
+    } else {
+        ccDrawColor4F(1, 1, 1, 1.0);
+    }
+}
+
+- (void)drawCircle {
     int points = 300 - iterations;
     if (points < 30) {
         points = 30;
     }
     ccDrawCircle(self.l, iterations * 11, 0, points, NO);
+    
 }
 
 - (void)pulse {
