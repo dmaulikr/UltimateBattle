@@ -20,9 +20,12 @@ enum TimeDirection {
     NSInteger timeIndex;
     NSInteger latestIndex;
     enum TimeDirection timeDirection;
+    int fireSignal;
 }
 
 - (void)recordVelocity:(CGPoint)vel firing:(BOOL)firing;
 - (void)activate;
+
+- (void)showFireSignal;
 
 @end

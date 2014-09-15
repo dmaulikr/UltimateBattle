@@ -79,16 +79,13 @@ static float outerCircleRadius = 60;
 }
 
 - (void)drawShip {
-    if ([self shouldDraw]) {
-        [self setShipDrawColor];
-        outerEdges[0] = ccp(self.l.x, self.l.y - shipTopHeight * [self yDirection]);
-        outerEdges[1] = ccp(self.l.x - shipSideWidth, self.l.y);
-        outerEdges[2] = ccp(self.l.x, self.l.y + shipBottomHeight * [self yDirection]);
-        outerEdges[3] = ccp(self.l.x + shipSideWidth, self.l.y);
-        self.innerTopEdge = ccp(self.l.x, self.l.y - innerTopHeight * [self yDirection]);
-        
-        ccDrawPoly(outerEdges, 4, YES);
-    }
+    outerEdges[0] = ccp(self.l.x, self.l.y - shipTopHeight * [self yDirection]);
+    outerEdges[1] = ccp(self.l.x - shipSideWidth, self.l.y);
+    outerEdges[2] = ccp(self.l.x, self.l.y + shipBottomHeight * [self yDirection]);
+    outerEdges[3] = ccp(self.l.x + shipSideWidth, self.l.y);
+    self.innerTopEdge = ccp(self.l.x, self.l.y - innerTopHeight * [self yDirection]);
+    
+    ccDrawPoly(outerEdges, 4, YES);
 }
 
 - (void)drawCircle {
@@ -101,8 +98,11 @@ static float outerCircleRadius = 60;
 }
 
 - (void)draw {
-    [self drawShip];
-    [self drawCircle];
+    if ([self shouldDraw]) {
+        [self setShipDrawColor];
+        [self drawShip];
+        [self drawCircle];
+    }
     if (self.active) {
         ccDrawColor4F(1, 1, 1, 1.0);
         CGPoint drawingDeltas[4551];

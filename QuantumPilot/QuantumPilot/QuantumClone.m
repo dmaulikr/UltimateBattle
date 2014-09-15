@@ -11,6 +11,8 @@
 
 @implementation QuantumClone
 
+static int fireSignalValue = 55;
+
 - (id)copyWithZone:(NSZone *)zone {
     QuantumClone *c = [[[QuantumClone alloc] init] autorelease];
     c.weapon = self.weapon;
@@ -67,7 +69,11 @@
                 self.vel = ccp(-self.vel.x, -self.vel.y);
             }
             [self moveByVelocity];
-            
+       
+            [self showFireSignal];
+            if (fireSignal > 0) {
+                fireSignal--;
+            }
             [self checkForFiringWeapon];
             
             timeIndex+= timeDirection;
@@ -94,7 +100,10 @@
 }
 
 - (void)drawCircle {
-
+    if (fireSignal > 0) {
+        float ratio = (float)fireSignal/(float)fireSignalValue;
+        ccDrawFilledCircle(self.innerTopEdge, 2.6 * ratio, 0, 100, NO);
+    }
 }
 
 - (void)activate {
@@ -102,6 +111,31 @@
     self.active = true;
     timeIndex = 0;
     timeDirection = forwards;
+}
+
+- (void)showFireSignal {
+    int index = timeIndex;
+    if (timeDirection == forwards) {
+        index += fireSignalValue;
+        if (index > latestIndex) {
+            int diff = latestIndex - index;
+            index = latestIndex - diff;
+        }
+    } else {
+        index -= fireSignalValue;
+        if (index < 0) {
+            int diff = 0 - index;
+            index = 0 - diff;
+        }
+    }
+    
+    if (pastFireTimings[index] == true) {
+        fireSignal = fireSignalValue;
+    }
+}
+
+- (NSString *)description {
+    return [NSString stringWithFormat:@"x: %f y: %f wep: %@ on: %d", self.l.x, self.l.y, self.weapon, self.active];
 }
 
 @end
