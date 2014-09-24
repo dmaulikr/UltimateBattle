@@ -67,21 +67,28 @@
     ccDrawColor4F(1, 0, 0, 1.0);
     ccDrawLine(ccp(l.x + halfSegment - 5, l.y - halfSegment + mod + 9), ccp(l.x + halfSegment + 5, l.y - halfSegment + mod + 9));
 
-    ccDrawColor4F(1, 1, 0, 1);
-    
-    CGPoint bangTop = ccp(l.x - halfSegment, l.y - halfSegment + 25);
-    CGPoint bangBottom = ccp(l.x - halfSegment, l.y - halfSegment + 18);
-    
-    ccDrawLine(bangTop, bangBottom);
-    ccDrawFilledCircle(ccp(bangBottom.x, bangBottom.y - 6), 1, 0, 100, NO);
-    
-    ccDrawColor4F(1, 1, 1, 1);
-    ccDrawCircle(ccp(l.x - halfSegment, l.y + halfSegment + mod), 3, 0, 100, NO);
 
     //draw pricing
     self.timeLabel.string = [NSString stringWithFormat:@"%d",[[QPBattlefield f] shieldCost]];
     self.scoreLabel.string = @"5";
-    self.pathingLabel.string = @"4";
+    
+    ccDrawColor4F(1, 1, 0, 1);
+
+    ccDrawColor4F(1, 1, 1, 1);
+    ccDrawCircle(ccp(l.x - halfSegment, l.y + halfSegment + mod), 3, 0, 100, NO);
+    
+    if (!warning) {
+        CGPoint bangTop = ccp(l.x - halfSegment, l.y - halfSegment + 25);
+        CGPoint bangBottom = ccp(l.x - halfSegment, l.y - halfSegment + 18);
+        
+        ccDrawLine(bangTop, bangBottom);
+        ccDrawFilledCircle(ccp(bangBottom.x, bangBottom.y - 6), 1, 0, 100, NO);
+        
+        
+        self.pathingLabel.string = [NSString stringWithFormat:@"%d",[[QPBattlefield f] warningCost]];
+    } else {
+        self.pathingLabel.string = @"";
+    }
     
 }
 
@@ -94,6 +101,10 @@
 - (void)showWeapon:(NSString *)w cost:(int)cost {
     [self showWeapon:w];
     _weaponCost = cost;
+}
+
+- (void)showWarningActivated:(bool)w {
+    warning = w;
 }
 
 - (void)reloadDebrisLabel:(int)d {

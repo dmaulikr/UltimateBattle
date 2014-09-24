@@ -14,12 +14,15 @@
     int _debris;
     
     int _weaponCost;
+    
+    bool warning;
 }
 
 @property (strong, nonatomic) CCLabelTTF *debrisLabel;
 
 - (void)showWeapon:(NSString *)w;
 - (void)showWeapon:(NSString *)w cost:(int)cost;
+- (void)showWarningActivated:(bool)w;
 
 - (void)reloadDebrisLabel:(int)d;
 

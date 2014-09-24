@@ -232,6 +232,7 @@ static QPBattlefield *instance = nil;
     [self setupSpeeds];
     weaponLevel = 0;
     installLevel = 0;
+    warning = 0;
 }
 
 - (BOOL)debrisOutOfBounds:(Debris *)d {
@@ -265,6 +266,9 @@ static QPBattlefield *instance = nil;
 
 - (void)clonesPulse {
     for (QuantumClone *c in self.clones) {
+        if (warning) {
+            [c showFireSignal];
+        }
         [c pulse];
     }
 }
@@ -510,8 +514,23 @@ static QPBattlefield *instance = nil;
     
     return false;
 }
+            
+- (int)warningCost {
+    return 10;
+}
+
+- (bool)canAffordWarning {
+    return self.pilot.debris >= [self warningCost];
+}
 
 - (bool)installWarning {
+    if (!warning && [self canAffordWarning]) {
+        [self recycleDebris:[self warningCost]];
+        warning = 1;
+        [self reloadWarningDisplay];
+        return true;
+    }
+    
     return false;
 }
 
@@ -588,11 +607,16 @@ static QPBattlefield *instance = nil;
     [self.recycleState reloadDebris:self.pilot.debris];
 }
 
+- (void)reloadWarningDisplay {
+    [self.recycleState showWarningActivated:warning];
+}
+
 - (void)enterRecycleState {
     NSNumber *cost = [NSNumber numberWithInt:[self nextWeaponCost]];
     [self changeState:self.recycleState withOptions:@{QP_RECYCLE_NEXT_WEAPON : [self nextWeapon],
                                                       QP_RECYCLE_NEXT_WEAPON_COST : cost}];
     [self reloadDebrisDisplay];
+    [self reloadWarningDisplay];
 }
 
 #pragma mark Pilot effects

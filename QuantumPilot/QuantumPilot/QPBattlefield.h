@@ -37,6 +37,7 @@ enum pulsestate {
     int installLevel;
     int weaponLevel; //move to upgrade class?
     int shield;
+    int warning;
 }
 
 @property (nonatomic, retain) NSMutableArray *bullets;
@@ -110,6 +111,7 @@ enum pulsestate {
 #pragma mark Recycling
 
 - (int)shieldCost;
+- (int)warningCost;
 
 - (bool)installShield;
 - (bool)installWarning;

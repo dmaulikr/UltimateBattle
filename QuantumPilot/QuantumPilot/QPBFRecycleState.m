@@ -67,6 +67,10 @@
     [self.display showWeapon:w cost:cost];
 }
 
+- (void)showWarningActivated:(bool)w {
+    [self.display showWarningActivated:w];
+}
+
 - (void)reloadDebris:(int)d {
     [self.display reloadDebrisLabel:d];
 }
