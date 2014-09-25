@@ -13,7 +13,7 @@
 - (void)pulse {
     [super pulse];
     _pulses++;
-    if (_pulses > 48) {
+    if (_pulses > 48) { //48/1.23
         self.l = ccp(1000,1000);
     }
 }
