@@ -11,7 +11,7 @@
 
 @implementation QuantumClone
 
-static int fireSignalValue = 55;
+static int fireSignalValue = 89;
 
 - (id)copyWithZone:(NSZone *)zone {
     QuantumClone *c = [[[QuantumClone alloc] init] autorelease];

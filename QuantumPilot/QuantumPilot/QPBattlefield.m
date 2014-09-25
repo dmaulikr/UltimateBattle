@@ -279,10 +279,6 @@ static QPBattlefield *instance = nil;
     }
 }
 
-- (void)advanceLevel {
-    
-}
-
 - (NSDictionary *)levelScore {
     float ab = 0;
     if (hits >= shotsFired) {
@@ -340,6 +336,7 @@ static QPBattlefield *instance = nil;
     [self.dl reset];
     weaponLevel = 0;
     level++;
+    warning = 0;
 }
 
 - (void)killPulse {
@@ -516,7 +513,7 @@ static QPBattlefield *instance = nil;
 }
             
 - (int)warningCost {
-    return 10;
+    return (level - 1) * 10;
 }
 
 - (bool)canAffordWarning {
