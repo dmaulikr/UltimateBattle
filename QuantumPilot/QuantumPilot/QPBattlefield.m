@@ -233,6 +233,7 @@ static QPBattlefield *instance = nil;
     weaponLevel = 0;
     installLevel = 0;
     warning = 0;
+    slow = 0;
 }
 
 - (BOOL)debrisOutOfBounds:(Debris *)d {
@@ -337,6 +338,7 @@ static QPBattlefield *instance = nil;
     weaponLevel = 0;
     level++;
     warning = 0;
+    slow = 0;
 }
 
 - (void)killPulse {
@@ -350,7 +352,12 @@ static QPBattlefield *instance = nil;
 }
 
 - (void)moveDeadline {
-    [self.dl pulse];
+    if (!slow) {
+        [self.dl pulse];
+    } else {
+        slow--;
+    }
+
     if (self.dl.y < self.pilot.l.y) {
         [self resetBattlefield];
     }
@@ -531,10 +538,6 @@ static QPBattlefield *instance = nil;
     return false;
 }
 
-- (bool)installBomb {
-    return false;
-}
-
 - (NSArray *)weapons {
     return @[@"FastLaserCannon", @"TightSplitLaserCannon"]; // @"WideTripleLaserCannon", @"TripleLaserCannon", @"QuadLaserCannon"];
 }
@@ -597,6 +600,28 @@ static QPBattlefield *instance = nil;
         return true;
     }
 
+    return false;
+}
+
+- (int)slowCost {
+    return 10 * (level - 1);
+}
+
+- (bool)canAffordSlow {
+    return !slow && self.pilot.debris > [self slowCost];
+}
+
+- (int)slowInstallLevel {
+    return 1000;
+}
+
+- (bool)installSlow {
+    if ([self canAffordSlow]) {
+        [self recycleDebris:[self slowCost]];
+        slow = [self slowInstallLevel];
+        [self.recycleState showSlow:slow];
+    }
+    
     return false;
 }
 

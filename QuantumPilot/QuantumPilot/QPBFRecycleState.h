@@ -19,6 +19,7 @@
 - (void)showWeapon:(NSString *)w;
 - (void)showWeapon:(NSString *)w cost:(int)cost;
 - (void)showWarningActivated:(bool)w;
+- (void)showSlow:(bool)s;
 
 - (void)reloadDebris:(int)d;
 

@@ -38,6 +38,7 @@ enum pulsestate {
     int weaponLevel; //move to upgrade class?
     int shield;
     int warning;
+    int slow;
 }
 
 @property (nonatomic, retain) NSMutableArray *bullets;
@@ -112,11 +113,12 @@ enum pulsestate {
 
 - (int)shieldCost;
 - (int)warningCost;
+- (int)slowCost;
 
 - (bool)installShield;
 - (bool)installWarning;
-- (bool)installBomb;
 - (bool)installNextWeapon;
+- (bool)installSlow;
 - (void)enterRecycleState;
 
 #pragma mark Pilot effects

@@ -28,7 +28,7 @@
         }
     } else if (l.x > p.x + 20) {
         if (l.y < p.y - 20) {
-            if ([self.f installBomb]) {
+            if ([self.f installSlow]) {
                 
             }
         } else if (l.y > p.y + 20) {
@@ -69,6 +69,10 @@
 
 - (void)showWarningActivated:(bool)w {
     [self.display showWarningActivated:w];
+}
+
+- (void)showSlow:(bool)s {
+    [self.display showSlow:s];
 }
 
 - (void)reloadDebris:(int)d {

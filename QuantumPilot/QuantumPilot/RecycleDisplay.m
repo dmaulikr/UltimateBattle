@@ -67,10 +67,14 @@
     ccDrawColor4F(1, 0, 0, 1.0);
     ccDrawLine(ccp(l.x + halfSegment - 5, l.y - halfSegment + mod + 9), ccp(l.x + halfSegment + 5, l.y - halfSegment + mod + 9));
 
-
     //draw pricing
     self.timeLabel.string = [NSString stringWithFormat:@"%d",[[QPBattlefield f] shieldCost]];
-    self.scoreLabel.string = @"5";
+    
+    if (slow) {
+        self.scoreLabel.string = @"TIME\nOFF";
+    } else {
+        self.scoreLabel.string = [NSString stringWithFormat:@"%d", [[QPBattlefield f] slowCost]];
+    }
     
     ccDrawColor4F(1, 1, 0, 1);
 
@@ -87,9 +91,8 @@
         
         self.pathingLabel.string = [NSString stringWithFormat:@"%d",[[QPBattlefield f] warningCost]];
     } else {
-        self.pathingLabel.string = @"";
+        self.pathingLabel.string = @"NO\nREFUGE";
     }
-    
 }
 
 - (void)showWeapon:(NSString *)w {
@@ -105,6 +108,10 @@
 
 - (void)showWarningActivated:(bool)w {
     warning = w;
+}
+
+- (void)showSlow:(bool)s {
+    slow = s;
 }
 
 - (void)reloadDebrisLabel:(int)d {
