@@ -12,6 +12,9 @@
     int _xDirection;
     CGPoint lines[2];
     int side;
+    int ox;
 }
+
+- (id)initWithLocation:(CGPoint)location velocity:(CGPoint)velocity centerX:(int)x;
 
 @end

@@ -13,10 +13,11 @@
 
 static float halfSegment = .5;
 
-- (id)initWithLocation:(CGPoint)location velocity:(CGPoint)velocity {
+- (id)initWithLocation:(CGPoint)location velocity:(CGPoint)velocity centerX:(int)x {
     self = [super initWithLocation:location velocity:velocity];
+    ox = x;
     _xDirection = self.vel.x < 0 ? -1 : 1;
-    side = _xDirection == 1 ? 20 : 0;
+//    side = _xDirection == 1 ? 20 : 0;
     return self;
 }
 
@@ -35,18 +36,25 @@ static float halfSegment = .5;
 
 - (void)pulse {
     [super pulse];
-//    self.vel = ccp(self.vel.x - (.05 * _xDirection), self.vel.y);
-    side += _xDirection;
-    if (side > 20) {
-        side = 20;
-        _xDirection = -1;
-    } else if (side <= 0) {
-        _xDirection = 1;
-        side = 0;
-        
+    
+    if (self.l.x > ox) {
+        self.vel = ccp(self.vel.x - .1, self.vel.y);
+    } else if (self.l.x < ox) {
+        self.vel = ccp(self.vel.x + .1, self.vel.y);
     }
     
-    self.vel = ccp(_xDirection * 2, self.vel.y);
+//    self.vel = ccp(self.vel.x - (.05 * _xDirection), self.vel.y);
+  //  side += _xDirection;
+//    if (side > 20) {
+//        side = 20;
+//        _xDirection = -1;
+//    } else if (side <= 0) {
+//        _xDirection = 1;
+//        side = 0;
+//        
+//    }
+    
+//    self.vel = ccp(_xDirection * 2, self.vel.y);
 //    if (self.vel.x < -2) {
 //        _xDirection = 1;
 //        self.vel = ccp(0, self.vel.y);
