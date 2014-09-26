@@ -12,7 +12,7 @@
 #import "SingleLaserCannon.h"
 #import "SplitLaserCannon.h"
 #import "FastLaserCannon.h"
-#import "TightSplitLaserCannon.h"
+#import "TightSpiralLaserCannon.h"
 
 @implementation Debris
 
@@ -48,7 +48,7 @@
             [FastLaserCannon setDrawColor];
             break;
         case 4:
-            [TightSplitLaserCannon setDrawColor];
+            [TightSpiralLaserCannon setDrawColor];
             break;
             
         default:

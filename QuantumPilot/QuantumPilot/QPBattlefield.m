@@ -2,7 +2,6 @@
 #import "Bullet.h"
 #import "QuantumClone.h"
 #import "Debris.h"
-#import "TightSplitLaser.h"
 #import "ShieldDebris.h"
 
 @implementation QPBattlefield
@@ -539,7 +538,7 @@ static QPBattlefield *instance = nil;
 }
 
 - (NSArray *)weapons {
-    return @[@"FastLaserCannon", @"TightSplitLaserCannon"]; // @"WideTripleLaserCannon", @"TripleLaserCannon", @"QuadLaserCannon"];
+    return @[@"TightSpiralLaserCannon", @"FastLaserCannon"]; // @"WideTripleLaserCannon", @"TripleLaserCannon", @"QuadLaserCannon"];
 }
 
 - (NSString *)nextWeapon {
