@@ -172,14 +172,6 @@ static QPBattlefield *instance = nil;
 }
 
 - (void)pulseBullets:(NSMutableArray *)bs targets:(NSArray *)targets {
-    NSMutableArray *bulletsToErase = [NSMutableArray array];
-    for (Bullet *b in bs) {
-        [b pulse];
-        if ([self bulletOutOfBounds:b]) {
-            [bulletsToErase addObject:b];
-        }
-    }
-    
     for (Bullet *b in bs) {
         for (QuantumPilot *p in targets) {
             if (p.active) {
@@ -188,6 +180,14 @@ static QPBattlefield *instance = nil;
                     [self processKill:p];
                 }
             }
+        }
+    }
+    
+    NSMutableArray *bulletsToErase = [NSMutableArray array];
+    for (Bullet *b in bs) {
+        [b pulse];
+        if ([self bulletOutOfBounds:b]) {
+            [bulletsToErase addObject:b];
         }
     }
     
