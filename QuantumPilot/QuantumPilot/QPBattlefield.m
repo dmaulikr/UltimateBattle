@@ -160,7 +160,7 @@ static QPBattlefield *instance = nil;
     
     int debrisLevel = 1;
     if ([[self weapons] containsObject:c.weapon]) {
-        debrisLevel = [[self weapons] indexOfObject:c.weapon] + 2;
+        debrisLevel = [[self weapons] indexOfObject:c.weapon] + 3;
     } else if ([c.weapon isEqualToString:@"SplitLaserCannon"]) {
         debrisLevel = 2;
     }
