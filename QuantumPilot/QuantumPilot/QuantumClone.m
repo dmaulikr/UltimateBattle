@@ -70,7 +70,6 @@ static int fireSignalValue = 89;
             }
             [self moveByVelocity];
        
-            [self showFireSignal];
             if (fireSignal > 0) {
                 fireSignal--;
             }

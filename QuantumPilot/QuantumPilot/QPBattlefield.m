@@ -538,7 +538,7 @@ static QPBattlefield *instance = nil;
 }
 
 - (NSArray *)weapons {
-    return @[@"TightSpiralLaserCannon", @"FastLaserCannon"]; // @"WideTripleLaserCannon", @"TripleLaserCannon", @"QuadLaserCannon"];
+    return @[@"FastLaserCannon", @"TightSpiralLaserCannon"]; // @"WideTripleLaserCannon", @"TripleLaserCannon", @"QuadLaserCannon"];
 }
 
 - (NSString *)nextWeapon {
@@ -557,7 +557,7 @@ static QPBattlefield *instance = nil;
     if ([self underpowered]) {
         return 0;
     }
-    return (installLevel+1)* 10;
+    return (installLevel+1)* 50;
 }
 
 - (bool)underpowered {
