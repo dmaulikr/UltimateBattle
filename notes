@@ -1,13 +1,18 @@
-tap to skip forward
-no delay
+tap to skip forward (increments scores) to play
+tap and hold to record
+tap and	
+
+singleton labels
 
 weapons
-singleton labels
 
 flash debris count on collect
 
+menu screen
+
 drag ship to record course
 tap space while following course to fire -- show the tap space text
+the enemy mirrors you
 
 icloud
 
