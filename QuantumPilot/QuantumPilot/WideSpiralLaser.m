@@ -12,7 +12,7 @@
 @implementation WideSpiralLaser
 
 - (float)oscillateSpeed {
-    return .2;
+    return .4;
 }
 
 - (void)setColor {
