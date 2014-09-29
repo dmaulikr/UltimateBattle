@@ -33,5 +33,9 @@
     self.drawMultiplier = f.isPulsing ? rs : self.drawMultiplier;
 }
 
+- (int)yDirection {
+    return self.vel.y < 0 ? -1 : 1;
+}
+
 @end
 

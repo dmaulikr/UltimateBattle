@@ -22,7 +22,6 @@ static float halfSegment = 1.5;
     } else if (self.vel.x > 0) {
         xDirection = 1;
     }
-    
     int yDirection = self.vel.y < 0 ? -1 : 1;
     lines[0] = ccp(self.l.x + (xDirection * halfSegment * .15), self.l.y + (yDirection * halfSegment * .85));
     lines[1] = ccp(self.l.x - (xDirection * halfSegment * .15), self.l.y - (yDirection * halfSegment * .85));

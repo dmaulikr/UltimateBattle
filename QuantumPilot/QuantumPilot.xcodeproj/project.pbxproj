@@ -10,6 +10,8 @@
 		0E03388B1977FFCC0007E528 /* QPBFRecycleState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E03388A1977FFCC0007E528 /* QPBFRecycleState.m */; };
 		0E03388E1977FFDE0007E528 /* RecycleDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E03388D1977FFDE0007E528 /* RecycleDisplay.m */; };
 		0E0338911978016F0007E528 /* QPBFDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E0338901978016F0007E528 /* QPBFDisplay.m */; };
+		0E0FE17419D93AD8001EA38F /* QuadLaserCannon.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E0FE17319D93AD8001EA38F /* QuadLaserCannon.m */; };
+		0E0FE17719D93BB7001EA38F /* CloseQuadLaser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E0FE17619D93BB7001EA38F /* CloseQuadLaser.m */; };
 		0E11F5D31968F04100205E8D /* SplitLaserCannon.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E11F5D21968F04100205E8D /* SplitLaserCannon.m */; };
 		0E63B75216C7039100F63829 /* QPBFFightingState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E63B75116C7039100F63829 /* QPBFFightingState.m */; };
 		0E63B75516C712B800F63829 /* QPBFPausedState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E63B75416C712B800F63829 /* QPBFPausedState.m */; };
@@ -163,6 +165,10 @@
 		0E03388D1977FFDE0007E528 /* RecycleDisplay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecycleDisplay.m; sourceTree = "<group>"; };
 		0E03388F1978016F0007E528 /* QPBFDisplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBFDisplay.h; sourceTree = "<group>"; };
 		0E0338901978016F0007E528 /* QPBFDisplay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBFDisplay.m; sourceTree = "<group>"; };
+		0E0FE17219D93AD8001EA38F /* QuadLaserCannon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuadLaserCannon.h; sourceTree = "<group>"; };
+		0E0FE17319D93AD8001EA38F /* QuadLaserCannon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuadLaserCannon.m; sourceTree = "<group>"; };
+		0E0FE17519D93BB7001EA38F /* CloseQuadLaser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CloseQuadLaser.h; sourceTree = "<group>"; };
+		0E0FE17619D93BB7001EA38F /* CloseQuadLaser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloseQuadLaser.m; sourceTree = "<group>"; };
 		0E11F5D11968F04100205E8D /* SplitLaserCannon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplitLaserCannon.h; sourceTree = "<group>"; };
 		0E11F5D21968F04100205E8D /* SplitLaserCannon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplitLaserCannon.m; sourceTree = "<group>"; };
 		0E63B75016C7039100F63829 /* QPBFFightingState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBFFightingState.h; sourceTree = "<group>"; };
@@ -968,6 +974,8 @@
 				0E74ED7619D5B4DF00D55989 /* TightSpiralLaserCannon.m */,
 				0E773A2119D8FDFA00009DA0 /* WideTriLaserCannon.h */,
 				0E773A2219D8FDFA00009DA0 /* WideTriLaserCannon.m */,
+				0E0FE17219D93AD8001EA38F /* QuadLaserCannon.h */,
+				0E0FE17319D93AD8001EA38F /* QuadLaserCannon.m */,
 			);
 			name = Cannons;
 			sourceTree = "<group>";
@@ -1003,6 +1011,8 @@
 				BF8A76A916365CFE0032AF8F /* TriLaser.m */,
 				BF8A76AB16366DD30032AF8F /* QuadLaser.h */,
 				BF8A76AC16366DD30032AF8F /* QuadLaser.m */,
+				0E0FE17519D93BB7001EA38F /* CloseQuadLaser.h */,
+				0E0FE17619D93BB7001EA38F /* CloseQuadLaser.m */,
 				BF18895016374B4000C05703 /* SplitLaser.h */,
 				BF18895116374B4000C05703 /* SplitLaser.m */,
 				0E8A113C197D56510028A78F /* FastLaser.h */,
@@ -1120,6 +1130,7 @@
 				BF0EE0AC163319B9002942A0 /* CCActionGrid3D.m in Sources */,
 				0EF96AB1197598C900E5DBE2 /* Debris.m in Sources */,
 				BF0EE0AF163319B9002942A0 /* CCActionInstant.m in Sources */,
+				0E0FE17719D93BB7001EA38F /* CloseQuadLaser.m in Sources */,
 				BF0EE0B2163319B9002942A0 /* CCActionInterval.m in Sources */,
 				BF0EE0B5163319B9002942A0 /* CCActionManager.m in Sources */,
 				BF0EE0B8163319B9002942A0 /* CCActionPageTurn3D.m in Sources */,
@@ -1147,6 +1158,7 @@
 				BF0EE0EF163319B9002942A0 /* CCLabelTTF.m in Sources */,
 				BF0EE0F2163319B9002942A0 /* CCLayer.m in Sources */,
 				BF0EE0F6163319B9002942A0 /* CCMenu.m in Sources */,
+				0E0FE17419D93AD8001EA38F /* QuadLaserCannon.m in Sources */,
 				BF0EE0F9163319B9002942A0 /* CCMenuItem.m in Sources */,
 				BF0EE0FC163319B9002942A0 /* CCMotionStreak.m in Sources */,
 				BF0EE0FF163319B9002942A0 /* CCNode+Debug.m in Sources */,

@@ -5,6 +5,7 @@
 #import "ShieldDebris.h"
 #import "WideTriLaserCannon.h"
 #import "WideSpiralLaserCannon.h"
+#import "QuadLaserCannon.h"
 
 @implementation QPBattlefield
 
@@ -540,7 +541,7 @@ static QPBattlefield *instance = nil;
 }
 
 - (NSArray *)weapons {
-    return @[@"WideTriLaserCannon", @"FastLaserCannon", @"TightSpiralLaserCannon", @"WideTriLaserCannon"]; // @"WideTripleLaserCannon", @"TripleLaserCannon", @"QuadLaserCannon"];------------------
+    return @[@"FastLaserCannon", @"TightSpiralLaserCannon", @"WideTriLaserCannon", @"QuadLaserCannon"]; // @"WideTripleLaserCannon", @"TripleLaserCannon", @"QuadLaserCannon"];------------------
 }
 
 - (NSString *)nextWeapon {

@@ -1,23 +1,36 @@
 #import "QuadLaser.h"
 #import "QPBattlefield.h"
+#import "QuadLaserCannon.h"
 
 @implementation QuadLaser
-@synthesize xDirection = _xDirection;
 
-static float outerWidth = 10;
-static float outerHeight = 20;
+static float halfSegment = 1.5;
 
-- (ccColor4F)color {
-    return ccc4f(.05, .05, .9, 1);
+- (float)xDrawRate {
+    return .4;
+}
+
+- (float)yDrawRate {
+    return .6;
 }
 
 - (void)draw {
-    CGPoint lines[4];
-    lines[0] = ccp(self.l.x, self.l.y);
-    lines[1] = ccp(self.l.x - outerWidth * self.xDirection, self.l.y + pr * outerHeight);
-    lines[2] = ccp(self.l.x, self.l.y + outerHeight);
-    lines[3] = ccp(self.l.x + outerWidth * self.xDirection, self.l.y + outerHeight - (pr * outerHeight));
-    ccDrawSolidPoly(lines, 4, [self color]);
+    [QuadLaserCannon setDrawColor];
+    int xDirection = 0;
+    if (self.vel.x < 0) {
+        xDirection = -1;
+    } else if (self.vel.x > 0) {
+        xDirection = 1;
+    }
+    
+    int yDirection = [self yDirection];
+    
+    lines[0] = ccp(self.l.x + (xDirection * halfSegment * [self xDrawRate]), self.l.y + (yDirection * halfSegment * [self yDrawRate]));
+    lines[1] = ccp(self.l.x - (xDirection * halfSegment * [self xDrawRate]), self.l.y - (yDirection * halfSegment * [self yDrawRate]));
+    
+    ccDrawPoly(lines, 2, true);
+
+    
 }
 
 

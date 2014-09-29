@@ -27,4 +27,6 @@
 
 - (id)initWithLocation:(CGPoint)location velocity:(CGPoint)velocity;
 
+- (int)yDirection;
+
 @end

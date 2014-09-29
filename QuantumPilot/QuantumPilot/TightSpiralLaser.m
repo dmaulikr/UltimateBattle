@@ -24,7 +24,7 @@ static float halfSegment = .5;
 - (void)draw {
     [TightSpiralLaserCannon setDrawColor];
     int xD = _xDirection;
-    int yDirection = self.vel.y < 0 ? -1 : 1;
+    int yDirection = [self yDirection];
 //    lines[0] = ccp(self.l.x - (self.vel.x * halfSegment), self.l.y - (self.vel.y * halfSegment));
 //    lines[1] = ccp(self.l.x + (self.vel.x * halfSegment), self.l.y + (self.vel.y * halfSegment));
     lines[0] = ccp(self.l.x + (xD * halfSegment * .15), self.l.y + (yDirection * halfSegment * .85));

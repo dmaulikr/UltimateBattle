@@ -24,7 +24,7 @@ static float halfSegment = 1.5;
 - (void)draw {
     [SplitLaserCannon setDrawColor];
     int xDirection = self.vel.x < 0 ? -1 : 1;
-    int yDirection = self.vel.y < 0 ? -1 : 1;
+    int yDirection = [self yDirection];
     lines[0] = ccp(self.l.x + (xDirection * halfSegment * .25), self.l.y + (yDirection * halfSegment * .75));
     lines[1] = ccp(self.l.x - (xDirection * halfSegment * .25), self.l.y - (yDirection * halfSegment * .75));
     
