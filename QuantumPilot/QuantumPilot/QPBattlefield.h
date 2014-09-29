@@ -125,4 +125,6 @@ enum pulsestate {
 
 - (void)registerShieldHit:(CGPoint)l;
 
+- (NSArray *)weapons;
+
 @end

@@ -4,7 +4,7 @@
 
 @implementation QuadLaser
 
-static float halfSegment = 1.5;
+static float halfSegment = 3;
 
 - (float)xDrawRate {
     return .4;

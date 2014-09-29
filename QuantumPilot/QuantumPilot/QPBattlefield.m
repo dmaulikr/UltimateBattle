@@ -541,7 +541,7 @@ static QPBattlefield *instance = nil;
 }
 
 - (NSArray *)weapons {
-    return @[@"FastLaserCannon", @"TightSpiralLaserCannon", @"WideTriLaserCannon", @"QuadLaserCannon"]; // @"WideTripleLaserCannon", @"TripleLaserCannon", @"QuadLaserCannon"];------------------
+    return @[@"FastLaserCannon", @"TightSpiralLaserCannon", @"WideTriLaserCannon", @"WideSpiralLaserCannon", @"QuadLaserCannon"]; // @"WideTripleLaserCannon", @"TripleLaserCannon", @"QuadLaserCannon"];------------------
 }
 
 - (NSString *)nextWeapon {

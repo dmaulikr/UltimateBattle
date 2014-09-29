@@ -19,4 +19,8 @@
 
 - (void)oscillate;
 
+- (float)oscillateSpeed;
+
+- (void)setColor;
+
 @end

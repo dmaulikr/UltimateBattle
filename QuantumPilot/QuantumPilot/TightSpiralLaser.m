@@ -11,7 +11,7 @@
 
 @implementation TightSpiralLaser
 
-static float halfSegment = .5;
+static float halfSegment = 1.2;
 
 - (id)initWithLocation:(CGPoint)location velocity:(CGPoint)velocity centerX:(int)x {
     self = [super initWithLocation:location velocity:velocity];
@@ -21,8 +21,12 @@ static float halfSegment = .5;
     return self;
 }
 
-- (void)draw {
+- (void)setColor {
     [TightSpiralLaserCannon setDrawColor];
+}
+
+- (void)draw {
+    [self setColor];
     int xD = _xDirection;
     int yDirection = [self yDirection];
 //    lines[0] = ccp(self.l.x - (self.vel.x * halfSegment), self.l.y - (self.vel.y * halfSegment));
@@ -33,11 +37,15 @@ static float halfSegment = .5;
     ccDrawPoly(lines, 2, true);
 }
 
+- (float)oscillateSpeed {
+    return .1;
+}
+
 - (void)oscillate {
     if (self.l.x > ox) {
-        self.vel = ccp(self.vel.x - .1, self.vel.y);
+        self.vel = ccp(self.vel.x - [self oscillateSpeed], self.vel.y);
     } else if (self.l.x < ox) {
-        self.vel = ccp(self.vel.x + .1, self.vel.y);
+        self.vel = ccp(self.vel.x + [self oscillateSpeed], self.vel.y);
     }
 }
 

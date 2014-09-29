@@ -21,8 +21,7 @@
 }
 
 + (void)setDrawColor {
-        ccDrawColor4F(.3, .7, .65, 1);
-    //ccDrawColor4F(.8, .2, .2, 1);
+    ccDrawColor4F(0, 1, 0, 1);
 }
 
 
