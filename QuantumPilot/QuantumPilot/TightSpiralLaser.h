@@ -17,4 +17,6 @@
 
 - (id)initWithLocation:(CGPoint)location velocity:(CGPoint)velocity centerX:(int)x;
 
+- (void)oscillate;
+
 @end

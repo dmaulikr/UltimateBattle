@@ -13,8 +13,8 @@
 
 
 + (NSArray *)bulletsForLocation:(CGPoint)location direction:(NSInteger)direction {
-    float yMod = .6;
-    float xMod = .4;
+    float yMod = .85;
+    float xMod = .15;
     WideTriLaser *b1 = [[WideTriLaser alloc] initWithLocation:location velocity:ccp([self speed] *xMod, [self speed] * yMod * direction)];
     WideTriLaser *b2 = [[WideTriLaser alloc] initWithLocation:location velocity:ccp(-[self speed] *xMod, [self speed] *yMod * direction)];
     WideTriLaser *c = [[WideTriLaser alloc] initWithLocation:location velocity:ccp(0, [self speed])];

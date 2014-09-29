@@ -33,37 +33,18 @@ static float halfSegment = .5;
     ccDrawPoly(lines, 2, true);
 }
 
-
-- (void)pulse {
-    [super pulse];
-    
+- (void)oscillate {
     if (self.l.x > ox) {
         self.vel = ccp(self.vel.x - .1, self.vel.y);
     } else if (self.l.x < ox) {
         self.vel = ccp(self.vel.x + .1, self.vel.y);
     }
-    
-//    self.vel = ccp(self.vel.x - (.05 * _xDirection), self.vel.y);
-  //  side += _xDirection;
-//    if (side > 20) {
-//        side = 20;
-//        _xDirection = -1;
-//    } else if (side <= 0) {
-//        _xDirection = 1;
-//        side = 0;
-//        
-//    }
-    
-//    self.vel = ccp(_xDirection * 2, self.vel.y);
-//    if (self.vel.x < -2) {
-//        _xDirection = 1;
-//        self.vel = ccp(0, self.vel.y);
-//    } else if (self.vel.x > 2) {
-//        _xDirection = -1;
-//        self.vel = ccp(0, self.vel.y);
-//    }
 }
 
-
+- (void)pulse {
+    [super pulse];
+    
+    [self oscillate];
+}
 
 @end
