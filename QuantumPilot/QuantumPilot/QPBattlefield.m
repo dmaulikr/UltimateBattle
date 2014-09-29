@@ -519,7 +519,7 @@ static QPBattlefield *instance = nil;
 }
             
 - (int)warningCost {
-    return (level - 1) * 10;
+    return (level - 1) * 5;
 }
 
 - (bool)canAffordWarning {
@@ -603,7 +603,7 @@ static QPBattlefield *instance = nil;
 }
 
 - (int)slowCost {
-    return 10 * (level - 1);
+    return 5 * (level - 1);
 }
 
 - (bool)canAffordSlow {
