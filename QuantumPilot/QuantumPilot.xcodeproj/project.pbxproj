@@ -30,6 +30,7 @@
 		0EC9E7121967943D00497BB9 /* QPBFScoreState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EC9E7111967943D00497BB9 /* QPBFScoreState.m */; };
 		0EC9E7151967990200497BB9 /* ScoreDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EC9E7141967990200497BB9 /* ScoreDisplay.m */; };
 		0ED1F4B6197C5D2800AFD969 /* FastLaserCannon.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ED1F4B5197C5D2800AFD969 /* FastLaserCannon.m */; };
+		0ED2FAA419DC30F200D3E742 /* Arsenal.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ED2FAA319DC30F200D3E742 /* Arsenal.m */; };
 		0EEAC48C16B73BC3005F629F /* QPBFState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEAC48B16B73BC3005F629F /* QPBFState.m */; };
 		0EEAC48F16B73C35005F629F /* QPBFTitleState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEAC48E16B73C35005F629F /* QPBFTitleState.m */; };
 		0EEAC49216B73D2E005F629F /* QPBFDrawingState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEAC49116B73D2E005F629F /* QPBFDrawingState.m */; };
@@ -208,6 +209,8 @@
 		0EC9E7141967990200497BB9 /* ScoreDisplay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreDisplay.m; sourceTree = "<group>"; };
 		0ED1F4B4197C5D2800AFD969 /* FastLaserCannon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FastLaserCannon.h; sourceTree = "<group>"; };
 		0ED1F4B5197C5D2800AFD969 /* FastLaserCannon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FastLaserCannon.m; sourceTree = "<group>"; };
+		0ED2FAA219DC30F200D3E742 /* Arsenal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Arsenal.h; sourceTree = "<group>"; };
+		0ED2FAA319DC30F200D3E742 /* Arsenal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Arsenal.m; sourceTree = "<group>"; };
 		0EEAC48A16B73BC3005F629F /* QPBFState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBFState.h; sourceTree = "<group>"; };
 		0EEAC48B16B73BC3005F629F /* QPBFState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBFState.m; sourceTree = "<group>"; };
 		0EEAC48D16B73C35005F629F /* QPBFTitleState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBFTitleState.h; sourceTree = "<group>"; };
@@ -1009,6 +1012,8 @@
 			children = (
 				BF8A76A716364B360032AF8F /* Cannons */,
 				BFB9DD5C1633CF5E0074EB70 /* Bullets */,
+				0ED2FAA219DC30F200D3E742 /* Arsenal.h */,
+				0ED2FAA319DC30F200D3E742 /* Arsenal.m */,
 			);
 			name = Weapons;
 			sourceTree = "<group>";
@@ -1151,6 +1156,7 @@
 				BF0EE0B8163319B9002942A0 /* CCActionPageTurn3D.m in Sources */,
 				BF0EE0BB163319B9002942A0 /* CCActionProgressTimer.m in Sources */,
 				BF0EE0BE163319B9002942A0 /* CCActionTiledGrid.m in Sources */,
+				0ED2FAA419DC30F200D3E742 /* Arsenal.m in Sources */,
 				BF0EE0C1163319B9002942A0 /* CCActionTween.m in Sources */,
 				BF0EE0C4163319B9002942A0 /* CCAnimation.m in Sources */,
 				BF0EE0C7163319B9002942A0 /* CCAnimationCache.m in Sources */,

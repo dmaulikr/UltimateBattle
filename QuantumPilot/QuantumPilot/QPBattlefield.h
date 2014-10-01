@@ -84,6 +84,8 @@ enum pulsestate {
 
 @property (nonatomic, copy) NSString *nextWeapon;
 
+@property (strong, nonatomic) NSArray *weapons;
+
 - (float)rhythmScale;
 - (void)pulse;
 

@@ -16,6 +16,7 @@
 #import "WideSpiralLaserCannon.h"
 #import "WideTriLaserCannon.h"
 #import "QuadLaserCannon.h"
+#import "Arsenal.h"
 
 @implementation Debris
 
@@ -40,31 +41,7 @@
 }
 
 - (void)establishColor {
-    switch (_level) {
-        case 1:
-            [SingleLaserCannon setDrawColor];
-            break;
-        case 2:
-            [SplitLaserCannon setDrawColor];
-            break;
-        case 3:
-            [FastLaserCannon setDrawColor];
-            break;
-        case 4:
-            [TightSpiralLaserCannon setDrawColor];
-        case 5:
-            [WideTriLaserCannon setDrawColor];
-            break;
-        case 6:
-            [WideSpiralLaserCannon setDrawColor];
-            break;
-        case 7:
-            [QuadLaserCannon setDrawColor];
-            break;
-            
-        default:
-            break;
-    }
+    [[Arsenal weaponIndexedFromArsenal:_level] setDrawColor];
 }
 
 - (void)drawCircle {

@@ -6,6 +6,7 @@
 #import "WideTriLaserCannon.h"
 #import "WideSpiralLaserCannon.h"
 #import "QuadLaserCannon.h"
+#import "Arsenal.h"
 
 @implementation QPBattlefield
 
@@ -63,18 +64,25 @@ static QPBattlefield *instance = nil;
     [self addChild:self.dl];
 }
 
+- (void)setupWeapons {
+    self.weapons = [Arsenal upgradeArsenal];
+}
+
 - (id)init {
     self = [super init];
     if (self) {
         self.bullets = [NSMutableArray array];
         self.cloneBullets = [NSMutableArray array];
+        self.debris = [NSMutableArray array];
         [self setupPulses];
         [self setupPilot];
         [self setupStates];
         [self setupClones];
         [self setupDeadline];
         [self setupSpeeds];
-        self.debris = [NSMutableArray array];
+        [self setupWeapons];
+ 
+        
         level = 1;
     }
     return self;
@@ -157,21 +165,30 @@ static QPBattlefield *instance = nil;
     [self.cloneBullets removeAllObjects];
 }
 
-- (void)processKill:(QuantumPilot *)c {
-    hits++;
-    [self registerShieldHit:c.l weapon:c.weapon];
-    
-    int debrisLevel = 1;
-    if ([[self weapons] containsObject:c.weapon]) {
-        debrisLevel = [[self weapons] indexOfObject:c.weapon] + 3;
-    } else if ([c.weapon isEqualToString:@"SplitLaserCannon"]) {
-        debrisLevel = 2;
+- (void)createDebrisFromCloneKill:(QuantumClone *)c {
+    if (self.clones.lastObject == c) {
+        return;
     }
+    
+    int debrisLevel = [[Arsenal arsenal] indexOfObject:c.weapon];
     
     Debris *d = [[Debris alloc] initWithL:c.l];
     [d setLevel:debrisLevel];
     [self addChild:d];
     [self.debris addObject:d];
+
+}
+
+- (void)processKill:(QuantumPilot *)c {
+    hits++;
+    NSString *w = c.weapon;
+    if (self.clones.lastObject == c) {
+        w = [Arsenal arsenal][0];
+    }
+    [self registerShieldHit:c.l weapon:c.weapon];
+    
+    [self createDebrisFromCloneKill:c];
+    
 }
 
 - (void)pulseBullets:(NSMutableArray *)bs targets:(NSArray *)targets {
@@ -538,10 +555,6 @@ static QPBattlefield *instance = nil;
     }
     
     return false;
-}
-
-- (NSArray *)weapons {
-    return @[@"FastLaserCannon", @"TightSpiralLaserCannon", @"WideTriLaserCannon", @"WideSpiralLaserCannon", @"QuadLaserCannon"]; // @"WideTripleLaserCannon", @"TripleLaserCannon", @"QuadLaserCannon"];------------------
 }
 
 - (NSString *)nextWeapon {
