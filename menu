@@ -17,7 +17,12 @@ keep menu hidden after reset
 show guidance text Drag Ship if < 4 wave
 delay menu showing by 4 seconds
 
+Recycle debris into upgrades
+Drag ship to record course
+
 IONSHIELD
 SCANNER
 (weapon name)
 DELAY DEADLINE
+
+Each new wave copies your previous pattern.
