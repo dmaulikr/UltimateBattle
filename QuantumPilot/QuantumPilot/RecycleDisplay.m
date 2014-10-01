@@ -71,7 +71,7 @@
     self.timeLabel.string = [NSString stringWithFormat:@"%d",[[QPBattlefield f] shieldCost]];
     
     if (slow) {
-        self.scoreLabel.string = @"TIME\nOFF";
+        self.scoreLabel.string = @"TIME EXTEND";
     } else {
         self.scoreLabel.string = [NSString stringWithFormat:@"%d", [[QPBattlefield f] slowCost]];
     }
@@ -91,7 +91,7 @@
         
         self.pathingLabel.string = [NSString stringWithFormat:@"%d",[[QPBattlefield f] warningCost]];
     } else {
-        self.pathingLabel.string = @"NO\nREFUGE";
+        self.pathingLabel.string = @"WARNING ON";
     }
 }
 

@@ -2,7 +2,6 @@
 #import "Bullet.h"
 #import "QuantumClone.h"
 #import "Debris.h"
-#import "ShieldDebris.h"
 #import "WideTriLaserCannon.h"
 #import "WideSpiralLaserCannon.h"
 #import "QuadLaserCannon.h"
@@ -46,7 +45,8 @@ static QPBattlefield *instance = nil;
     self.pilot.bulletDelegate = self;
     [self addChild:self.pilot];
     [self setupSpeeds];
-//    self.pilot.blinking = true;
+    self.winBlast = [[ShieldDebris alloc] initWithL:ccp(5000,5000)];
+    [self addChild:self.winBlast];
 }
 
 - (void)setupStates {
@@ -337,6 +337,9 @@ static QPBattlefield *instance = nil;
 }
 
 - (void)processWaveKill {
+    self.winBlast.l = self.pilot.l;
+    [self.winBlast setWeapon:self.pilot.weapon];
+    [self.winBlast reset];
     [self.pilot resetPosition];
     QuantumClone *c = [[self.pilot clone] copy];
     c.bulletDelegate = self;
@@ -393,9 +396,15 @@ static QPBattlefield *instance = nil;
         [self bulletPulse];
         [self moveDeadline];
         [self debrisPulse];
-    } else if (self.currentState == self.pausedState){
+    } else if (self.currentState == self.pausedState) {
         
     }
+    
+    if (![self.winBlast dissipated]) {
+        [self.winBlast pulse];
+    }
+    
+
 
 }
 

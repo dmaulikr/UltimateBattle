@@ -15,4 +15,6 @@
 
 @property (strong, nonatomic) NSString *weapon;
 
+- (void)reset;
+
 @end

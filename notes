@@ -1,11 +1,6 @@
-tap to skip forward (increments scores) to play
-tap outside ship to skip menu
-tap and hold to record
-tap and	
-
 flash win circle
 
-singleton labels
+singleton labels for main menu, for title, for upgrades, for scoring
 
 flash debris count on collect
 
@@ -14,6 +9,12 @@ menu screen
 drag ship to record course
 tap space while following course to fire -- show the tap space text
 the enemy mirrors you
+
+tap to skip forward (increments scores) to play
+tap outside ship to skip menu
+tap and hold to record
+tap and	
+
 
 icloud
 

@@ -8,6 +8,7 @@
 #import "QPBFScoreState.h"
 #import "QPBFRecycleState.h"
 #import "DeadLine.h"
+#import "ShieldDebris.h"
 
 #define QPBF_MAX_DRAWING_FRAMES 4550
 
@@ -85,6 +86,8 @@ enum pulsestate {
 @property (nonatomic, copy) NSString *nextWeapon;
 
 @property (strong, nonatomic) NSArray *weapons;
+
+@property (strong, nonatomic) ShieldDebris *winBlast;
 
 - (float)rhythmScale;
 - (void)pulse;

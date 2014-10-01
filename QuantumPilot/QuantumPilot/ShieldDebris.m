@@ -36,4 +36,8 @@
     return iterations > 500;
 }
 
+
+- (void)reset {
+    iterations = 0;
+}
 @end
