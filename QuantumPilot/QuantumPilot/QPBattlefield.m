@@ -45,8 +45,8 @@ static QPBattlefield *instance = nil;
     self.pilot.bulletDelegate = self;
     [self addChild:self.pilot];
     [self setupSpeeds];
-    self.winBlast = [[ShieldDebris alloc] initWithL:ccp(5000,5000)];
-    [self addChild:self.winBlast];
+//    self.winBlast = [[ShieldDebris alloc] initWithL:ccp(5000,5000)];
+//    [self addChild:self.winBlast];
 }
 
 - (void)setupStates {
@@ -185,7 +185,7 @@ static QPBattlefield *instance = nil;
     if (self.clones.lastObject == c) {
         w = [Arsenal arsenal][0];
     }
-    [self registerShieldHit:c.l weapon:c.weapon];
+    [self registerShieldHit:c weapon:c.weapon];
     
     [self createDebrisFromCloneKill:c];
     
@@ -263,7 +263,15 @@ static QPBattlefield *instance = nil;
 - (void)debrisPulse {
     NSMutableArray *debrisToErase = [NSMutableArray array];
     for (Debris *d in self.debris) {
-        [d pulse];
+        if ([self.currentState isShieldDebrisPulsing]) {
+            [d pulse];
+        } else if ([d isKindOfClass:[ShieldDebris class]]) {
+            ShieldDebris *sd = (ShieldDebris *)d;
+            if (sd.pilot == self.pilot) {
+                [d pulse];
+            }
+        }
+
         if ([self debrisOutOfBounds:d] || [self.pilot processDebris:d]) {
             [debrisToErase addObject:d];
         }
@@ -336,10 +344,12 @@ static QPBattlefield *instance = nil;
     paths = 1;
 }
 
+- (void)showWinBlast {
+    [self registerShieldHit:self.pilot weapon:self.pilot.weapon];
+}
+
 - (void)processWaveKill {
-    self.winBlast.l = self.pilot.l;
-    [self.winBlast setWeapon:self.pilot.weapon];
-    [self.winBlast reset];
+    [self showWinBlast];
     [self.pilot resetPosition];
     QuantumClone *c = [[self.pilot clone] copy];
     c.bulletDelegate = self;
@@ -389,20 +399,20 @@ static QPBattlefield *instance = nil;
     [self.currentState pulse];
     //states manage
     [self rhythmPulse];
+        [self debrisPulse];
     if ([self isPulsing]) {
         [self.pilot pulse];
         [self clonesPulse];
         [self killPulse];
         [self bulletPulse];
         [self moveDeadline];
-        [self debrisPulse];
     } else if (self.currentState == self.pausedState) {
         
     }
     
-    if (![self.winBlast dissipated]) {
-        [self.winBlast pulse];
-    }
+//    if (![self.winBlast dissipated]) {
+//        [self.winBlast pulse];
+//    }
     
 
 
@@ -608,8 +618,8 @@ static QPBattlefield *instance = nil;
 
 - (bool)installNextWeapon {
     if ([self canAffordNextWeapon]) {
-        
         [self.pilot installWeapon:[self nextWeapon]];
+        [self showWinBlast];
         weaponLevel++;
         if (weaponLevel > installLevel) {
             [self recycleDebris:[self nextWeaponCost]];
@@ -667,16 +677,20 @@ static QPBattlefield *instance = nil;
 
 #pragma mark Pilot effects
 
-- (void)registerShieldHit:(CGPoint)l weapon:(NSString *)w {
+- (void)registerShieldHit:(QuantumPilot *)p weapon:(NSString *)w {
     ShieldDebris *d = [[ShieldDebris alloc] init];
-    d.l = l;
+    d.l = p.l;
+    d.pilot = p;
     [d setWeapon:w];
+    if (self.clones.lastObject == p) {
+        [d setWeapon:[Arsenal arsenal][0]];
+    }
     [self.debris addObject:d];
     [self addChild:d];
 }
 
-- (void)registerShieldHit:(CGPoint)l {
-    [self registerShieldHit:l weapon:nil];
+- (void)registerShieldHit:(QuantumPilot *)p {
+    [self registerShieldHit:p weapon:nil];
 }
 
 

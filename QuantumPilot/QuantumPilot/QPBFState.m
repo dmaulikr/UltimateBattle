@@ -55,4 +55,8 @@
     [super dealloc];
 }
 
+- (bool)isShieldDebrisPulsing {
+    return false;
+}
+
 @end

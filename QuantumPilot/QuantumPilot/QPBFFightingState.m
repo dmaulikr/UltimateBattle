@@ -96,4 +96,9 @@
 //    [self.f.pilot fire];
 }
 
+- (bool)isShieldDebrisPulsing {
+    return true;
+}
+
+
 @end

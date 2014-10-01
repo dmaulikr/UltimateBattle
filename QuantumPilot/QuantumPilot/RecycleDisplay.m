@@ -71,7 +71,7 @@
     self.timeLabel.string = [NSString stringWithFormat:@"%d",[[QPBattlefield f] shieldCost]];
     
     if (slow) {
-        self.scoreLabel.string = @"TIME EXTEND";
+        self.scoreLabel.string = @"MORE\nTIME";
     } else {
         self.scoreLabel.string = [NSString stringWithFormat:@"%d", [[QPBattlefield f] slowCost]];
     }

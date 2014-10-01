@@ -7,14 +7,14 @@
 //
 
 #import "Debris.h"
+#import "QuantumPilot.h"
 
 @interface ShieldDebris : Debris {
     int iterations;
 }
 
+@property (strong, nonatomic) QuantumPilot *pilot;
 
 @property (strong, nonatomic) NSString *weapon;
-
-- (void)reset;
 
 @end

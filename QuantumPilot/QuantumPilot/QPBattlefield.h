@@ -87,7 +87,7 @@ enum pulsestate {
 
 @property (strong, nonatomic) NSArray *weapons;
 
-@property (strong, nonatomic) ShieldDebris *winBlast;
+//@property (strong, nonatomic) ShieldDebris *winBlast;
 
 - (float)rhythmScale;
 - (void)pulse;
@@ -128,7 +128,7 @@ enum pulsestate {
 
 #pragma mark Pilot effects
 
-- (void)registerShieldHit:(CGPoint)l;
+- (void)registerShieldHit:(QuantumPilot *)p;
 
 - (NSArray *)weapons;
 

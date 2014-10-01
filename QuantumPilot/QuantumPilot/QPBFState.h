@@ -16,6 +16,7 @@
 - (id)initWithBattlefield:(QPBattlefield *)field;
 
 - (BOOL)isPulsing;
+- (bool)isShieldDebrisPulsing;
 
 - (void)activate:(NSDictionary *)options;
 - (void)deactivate;
