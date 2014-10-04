@@ -7,6 +7,7 @@
 
 @interface QuantumPilot() {
     CGPoint future[4551];
+    CGPoint circles[4551];
 }
 
 @end
@@ -173,8 +174,10 @@ static float outerCircleRadius = 60;
     if ([self reachedTarget]) {
         self.fightingIteration++;
         if (self.fightingIteration == self.drawingIteration) {
-            [self.pilotDelegate pilotReachedEndOfFutureWaypoints];
-            [self resetIterations];            
+            future[self.fightingIteration] = self.l;
+            self.drawingIteration++;
+//            [self.pilotDelegate pilotReachedEndOfFutureWaypoints];
+//            [self resetIterations];            
         }
     }
 }

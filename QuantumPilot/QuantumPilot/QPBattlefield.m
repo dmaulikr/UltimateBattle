@@ -482,8 +482,9 @@ static QPBattlefield *instance = nil;
 
 - (void)pilotReachedEndOfFutureWaypoints {
     paths++;
+    
 
-    [self changeState:self.pausedState];
+//    [self changeState:self.pausedState];
 }
 
 #pragma mark Bullet Delegate
