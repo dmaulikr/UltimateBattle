@@ -13,8 +13,8 @@
 @implementation TightSpiralLaserCannon
 
 + (NSArray *)bulletsForLocation:(CGPoint)location direction:(NSInteger)direction {
-    TightSpiralLaser *b1 = [[TightSpiralLaser alloc] initWithLocation:ccp(location.x - 15, location.y) velocity:ccp(2, [self speed] * direction) centerX:location.x];
-    TightSpiralLaser *b2 = [[TightSpiralLaser alloc] initWithLocation:ccp(location.x + 15, location.y) velocity:ccp(-2, [self speed] * direction) centerX:location.x];
+    TightSpiralLaser *b1 = [[[TightSpiralLaser alloc] initWithLocation:ccp(location.x - 15, location.y) velocity:ccp(2, [self speed] * direction) centerX:location.x] autorelease];
+    TightSpiralLaser *b2 = [[[TightSpiralLaser alloc] initWithLocation:ccp(location.x + 15, location.y) velocity:ccp(-2, [self speed] * direction) centerX:location.x] autorelease];
     
     return @[b1, b2];
 }

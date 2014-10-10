@@ -172,7 +172,7 @@ static QPBattlefield *instance = nil;
     
     int debrisLevel = [[Arsenal arsenal] indexOfObject:c.weapon];
     
-    Debris *d = [[Debris alloc] initWithL:c.l];
+    Debris *d = [[[Debris alloc] initWithL:c.l] autorelease];
     [d setLevel:debrisLevel];
     [self addChild:d];
     [self.debris addObject:d];
@@ -181,12 +181,7 @@ static QPBattlefield *instance = nil;
 
 - (void)processKill:(QuantumPilot *)c {
     hits++;
-    NSString *w = c.weapon;
-    if (self.clones.lastObject == c) {
-        w = [Arsenal arsenal][0];
-    }
     [self registerShieldHit:c weapon:c.weapon];
-    
     [self createDebrisFromCloneKill:c];
     
 }
@@ -398,6 +393,7 @@ static QPBattlefield *instance = nil;
 - (void)pulse {
     [self.currentState pulse];
     //states manage
+    
     [self rhythmPulse];
         [self debrisPulse];
     if ([self isPulsing]) {

@@ -19,6 +19,12 @@ static float outerHeight = 3; //iPad: .6
 static float triangleWidth = 3;
 static float triangleHeight = 3;
 
+- (id)initWithLocation:(CGPoint)location velocity:(CGPoint)velocity {
+    self = [super initWithLocation:location velocity:velocity];
+    _facing = [self yDirection];
+    return self;
+}
+
 - (ccColor4F)color {
     return self.yDirection == -1 ? ccc4f(.1, .9, .1, 1) : white;
 }
@@ -28,19 +34,11 @@ static float triangleHeight = 3;
 }
 
 - (void)draw {
-//    lines[0] = ccp(self.l.x - innerWidth - (self.drawMultiplier * outerWidth), self.l.y - innerHeight - (self.drawMultiplier * outerHeight));
-//    lines[1] = ccp(self.l.x - innerWidth - (self.drawMultiplier * outerWidth), self.l.y + innerHeight + (self.drawMultiplier * outerHeight));
-//    lines[2] = ccp(self.l.x + innerWidth + (self.drawMultiplier * outerWidth), self.l.y + innerHeight + (self.drawMultiplier * outerHeight));
-//    lines[3] = ccp(self.l.x + innerWidth + (self.drawMultiplier * outerWidth), self.l.y - innerHeight - (self.drawMultiplier * outerHeight));
-//    ccDrawSolidPoly(lines, 4, [self color]);
-    
-//        ccDrawColor4F(.1, .9, .1, 1); //green
     [self setDrawColor];
     
-    int facing = self.vel.y > 0 ? 1 : -1;
-    lines[0] = ccp(self.l.x - (triangleWidth * self.drawMultiplier), self.l.y - (triangleHeight * facing * self.drawMultiplier));
+    lines[0] = ccp(self.l.x - (triangleWidth * self.drawMultiplier), self.l.y - (triangleHeight * _facing * self.drawMultiplier));
     lines[1] = self.l;
-    lines[2] = ccp(self.l.x + (triangleWidth * self.drawMultiplier), self.l.y - (triangleHeight * facing * self.drawMultiplier));
+    lines[2] = ccp(self.l.x + (triangleWidth * self.drawMultiplier), self.l.y - (triangleHeight * _facing * self.drawMultiplier));
     
     ccDrawPoly(lines, 3, false);
 }

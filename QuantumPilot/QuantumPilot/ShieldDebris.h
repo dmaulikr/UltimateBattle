@@ -11,6 +11,7 @@
 
 @interface ShieldDebris : Debris {
     int iterations;
+    int _edges;
 }
 
 @property (strong, nonatomic) QuantumPilot *pilot;

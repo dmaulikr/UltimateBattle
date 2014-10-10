@@ -14,17 +14,20 @@
 
 static float halfSegment = 1.5;
 
+- (void)pulse {
+    [super pulse];
+    _xDirection = 0;
+    if (self.vel.x < 0) {
+        _xDirection = -1;
+    } else if (self.vel.x > 0) {
+        _xDirection = 1;
+    }
+}
+
 - (void)draw {
     [WideTriLaserCannon setDrawColor];
-    int xDirection = 0;
-    if (self.vel.x < 0) {
-        xDirection = -1;
-    } else if (self.vel.x > 0) {
-        xDirection = 1;
-    }
-    int yDirection = self.vel.y < 0 ? -1 : 1;
-    lines[0] = ccp(self.l.x + (xDirection * halfSegment * .15), self.l.y + (yDirection * halfSegment * .85));
-    lines[1] = ccp(self.l.x - (xDirection * halfSegment * .15), self.l.y - (yDirection * halfSegment * .85));
+    lines[0] = ccp(self.l.x + (_xDirection * halfSegment * .15), self.l.y + ([self yDirection] * halfSegment * .85));
+    lines[1] = ccp(self.l.x - (_xDirection * halfSegment * .15), self.l.y - ([self yDirection] * halfSegment * .85));
     
     ccDrawPoly(lines, 2, true);
 }

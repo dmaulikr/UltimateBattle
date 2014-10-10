@@ -13,6 +13,8 @@
     NSInteger segmentIndex[4];
     NSInteger _heldBreaths;
     NSInteger _breathCharge;
+    int _xDirection;
+    int _yDirection;
 }
 
 @end

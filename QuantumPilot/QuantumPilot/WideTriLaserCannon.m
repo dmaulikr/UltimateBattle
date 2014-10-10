@@ -11,13 +11,12 @@
 
 @implementation WideTriLaserCannon
 
-
 + (NSArray *)bulletsForLocation:(CGPoint)location direction:(NSInteger)direction {
     float yMod = .85;
     float xMod = .15;
-    WideTriLaser *b1 = [[WideTriLaser alloc] initWithLocation:location velocity:ccp([self speed] *xMod, [self speed] * yMod * direction)];
-    WideTriLaser *b2 = [[WideTriLaser alloc] initWithLocation:location velocity:ccp(-[self speed] *xMod, [self speed] *yMod * direction)];
-    WideTriLaser *c = [[WideTriLaser alloc] initWithLocation:location velocity:ccp(0, [self speed])];
+    WideTriLaser *b1 = [[[WideTriLaser alloc] initWithLocation:location velocity:ccp([self speed] *xMod, [self speed] * yMod * direction)] autorelease];
+    WideTriLaser *b2 = [[[WideTriLaser alloc] initWithLocation:location velocity:ccp(-[self speed] *xMod, [self speed] * yMod * direction)] autorelease];
+    WideTriLaser *c = [[[WideTriLaser alloc] initWithLocation:location velocity:ccp(0, [self speed] * direction)] autorelease];
     
     return @[b1, b2, c];
 }

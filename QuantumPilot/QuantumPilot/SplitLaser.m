@@ -10,23 +10,24 @@ static float segmentSpacing = 10; //iPad: 10
 
 static float halfSegment = 1.5;
 
-- (id)init {
-    self = [super init];
+- (id)initWithLocation:(CGPoint)location velocity:(CGPoint)velocity {
+    self = [super initWithLocation:location velocity:velocity];
     if (self) {
         _breathCharge = 10;
         segmentIndex[1] = 1;
         segmentIndex[2] = 2;
         segmentIndex[3] = 3;
+        _xDirection = self.vel.x < 0 ? -1 : 1;
+        _yDirection = [self yDirection];
     }
+    
     return self;
 }
 
 - (void)draw {
     [SplitLaserCannon setDrawColor];
-    int xDirection = self.vel.x < 0 ? -1 : 1;
-    int yDirection = [self yDirection];
-    lines[0] = ccp(self.l.x + (xDirection * halfSegment * .25), self.l.y + (yDirection * halfSegment * .75));
-    lines[1] = ccp(self.l.x - (xDirection * halfSegment * .25), self.l.y - (yDirection * halfSegment * .75));
+    lines[0] = ccp(self.l.x + (_xDirection * halfSegment * .25), self.l.y + (_yDirection * halfSegment * .75));
+    lines[1] = ccp(self.l.x - (_xDirection * halfSegment * .25), self.l.y - (_yDirection * halfSegment * .75));
     
     ccDrawPoly(lines, 2, true);
 }

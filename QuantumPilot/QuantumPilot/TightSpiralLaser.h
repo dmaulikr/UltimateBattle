@@ -10,6 +10,7 @@
 
 @interface TightSpiralLaser : Bullet {
     int _xDirection;
+    int _yDirection;
     CGPoint lines[2];
     int side;
     int ox;

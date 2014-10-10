@@ -16,21 +16,21 @@ static float halfSegment = 3;
 
 - (void)draw {
     [QuadLaserCannon setDrawColor];
-    int xDirection = 0;
-    if (self.vel.x < 0) {
-        xDirection = -1;
-    } else if (self.vel.x > 0) {
-        xDirection = 1;
-    }
     
-    int yDirection = [self yDirection];
-    
-    lines[0] = ccp(self.l.x + (xDirection * halfSegment * [self xDrawRate]), self.l.y + (yDirection * halfSegment * [self yDrawRate]));
-    lines[1] = ccp(self.l.x - (xDirection * halfSegment * [self xDrawRate]), self.l.y - (yDirection * halfSegment * [self yDrawRate]));
+    lines[0] = ccp(self.l.x + (_xDirection * halfSegment * [self xDrawRate]), self.l.y + ([self yDirection] * halfSegment * [self yDrawRate]));
+    lines[1] = ccp(self.l.x - (_xDirection * halfSegment * [self xDrawRate]), self.l.y - ([self yDirection] * halfSegment * [self yDrawRate]));
     
     ccDrawPoly(lines, 2, true);
+}
 
-    
+- (void)pulse {
+    [super pulse];
+    _xDirection = 0;
+    if (self.vel.x < 0) {
+        _xDirection = -1;
+    } else if (self.vel.x > 0) {
+        _xDirection = 1;
+    }
 }
 
 

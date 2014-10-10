@@ -10,6 +10,7 @@
 
 @interface SingleLaser : Bullet {
     CGPoint lines[4];
+    int _facing;
 }
 
 - (void)setDrawColor;

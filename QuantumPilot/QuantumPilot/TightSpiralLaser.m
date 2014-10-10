@@ -18,6 +18,7 @@ static float halfSegment = 1.2;
     ox = x;
     _xDirection = self.vel.x < 0 ? -1 : 1;
 //    side = _xDirection == 1 ? 20 : 0;
+    _yDirection = [self yDirection];
     return self;
 }
 
@@ -27,12 +28,8 @@ static float halfSegment = 1.2;
 
 - (void)draw {
     [self setColor];
-    int xD = _xDirection;
-    int yDirection = [self yDirection];
-//    lines[0] = ccp(self.l.x - (self.vel.x * halfSegment), self.l.y - (self.vel.y * halfSegment));
-//    lines[1] = ccp(self.l.x + (self.vel.x * halfSegment), self.l.y + (self.vel.y * halfSegment));
-    lines[0] = ccp(self.l.x + (xD * halfSegment * .15), self.l.y + (yDirection * halfSegment * .85));
-    lines[1] = ccp(self.l.x - (xD * halfSegment * .15), self.l.y - (yDirection * halfSegment * .85));
+    lines[0] = ccp(self.l.x + (_xDirection * halfSegment * .15), self.l.y + (_yDirection * halfSegment * .85));
+    lines[1] = ccp(self.l.x - (_xDirection * halfSegment * .15), self.l.y - (_yDirection * halfSegment * .85));
     
     ccDrawPoly(lines, 2, true);
 }

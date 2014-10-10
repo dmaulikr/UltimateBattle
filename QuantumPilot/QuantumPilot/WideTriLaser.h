@@ -10,6 +10,7 @@
 
 @interface WideTriLaser : Bullet {
     CGPoint lines[2];
+    int _xDirection;
 }
 
 

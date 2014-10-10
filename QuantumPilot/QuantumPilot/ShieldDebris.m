@@ -20,16 +20,15 @@
 }
 
 - (void)drawCircle {
-    int points = 300 - iterations;
-    if (points < 30) {
-        points = 30;
-    }
-    ccDrawCircle(self.l, iterations * 11, 0, points, NO);
-    
+    ccDrawCircle(self.l, iterations * 11, 0, _points, NO);
 }
 
 - (void)pulse {
     iterations++;
+    _edges = 300 - iterations;
+    if (_edges < 30) {
+        _edges = 30;
+    }
 }
 
 - (bool)dissipated {

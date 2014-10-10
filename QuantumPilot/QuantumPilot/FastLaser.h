@@ -10,6 +10,7 @@
 
 @interface FastLaser : SingleLaser {
     int _pulses;
+    float _ratio;
 }
 
 @end

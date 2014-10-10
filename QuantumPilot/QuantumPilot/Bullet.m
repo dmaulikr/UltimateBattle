@@ -34,7 +34,11 @@
 }
 
 - (int)yDirection {
-    return self.vel.y < 0 ? -1 : 1;
+    static int yD = -11;
+    if (yD == -11) {
+        yD = self.vel.y < 0 ? -1 : 1;
+    }
+    return yD;
 }
 
 @end
