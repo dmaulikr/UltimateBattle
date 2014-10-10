@@ -69,6 +69,7 @@ static float outerCircleRadius = 60;
     [self installWeapon];
     self.active = YES;
     [self resetPosition];
+    self.shield = 0;
 }
 
 - (bool)shouldDraw {
