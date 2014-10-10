@@ -29,16 +29,15 @@
 
 - (void)pulse {
     self.l = CombinedPoint(self.l, self.vel);
-    QPBattlefield *f = [QPBattlefield f];
-    self.drawMultiplier = f.isPulsing ? rs : self.drawMultiplier;
+    self.drawMultiplier = [[QPBattlefield f] isPulsing] ? rs : self.drawMultiplier;
 }
 
 - (int)yDirection {
-    static int yD = -11;
-    if (yD == -11) {       
-        yD = self.vel.y < 0 ? -1 : 1;
-    }
-    return yD;
+//    static int yD = -11;
+//    if (yD == -11) {       
+    return self.vel.y < 0 ? -1 : 1;
+//    }
+//    return yD;
 }
 
 @end

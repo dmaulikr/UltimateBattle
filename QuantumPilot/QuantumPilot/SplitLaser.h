@@ -10,9 +10,6 @@
 
 @interface SplitLaser : Bullet {
     CGPoint lines[2];
-    NSInteger segmentIndex[4];
-    NSInteger _heldBreaths;
-    NSInteger _breathCharge;
     int _xDirection;
     int _yDirection;
 }
