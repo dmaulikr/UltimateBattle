@@ -20,7 +20,7 @@
 }
 
 - (void)drawCircle {
-    ccDrawCircle(self.l, iterations * 11, 0, _points, NO);
+    ccDrawCircle(self.l, iterations * 11, 0, _edges, NO);
 }
 
 - (void)pulse {
