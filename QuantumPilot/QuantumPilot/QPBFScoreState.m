@@ -25,7 +25,7 @@
 
     self.scoreDisplay.delegate = self;
     
-    [self.f addChild:self.scoreDisplay];
+   [self.f addChild:self.scoreDisplay]; //do this originally
 }
 
 - (void)deactivate {

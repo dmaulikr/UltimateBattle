@@ -47,7 +47,6 @@ static int fireSignalValue = 89;
     p.x = vel.x;
     p.y = vel.y;
     pastVelocities[timeIndex] = p;
-//    BOOL fired = pastFireTimings[timeIndex];
     bool fired = firing;
     pastFireTimings[timeIndex] = fired;
     timeIndex++;

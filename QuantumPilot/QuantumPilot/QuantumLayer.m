@@ -51,7 +51,7 @@
     
     for (UITouch *touch in touchArray) {
         CGPoint l = [touch locationInView:[touch view]];
-
+ 
         [self.f moveTouch:ccp(l.x, 578-l.y)];
     }
 }
@@ -63,6 +63,12 @@
         CGPoint l = [touch locationInView:[touch view]];
             [self.f endTouch:ccp(l.x, 578-l.y)];
     }
+}
+
+- (void)ccTouchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
+    UITouch *t = [touches anyObject];
+    CGPoint l = [t locationInView:[t view]];
+    [self.f endTouch:ccp(l.x, 578-l.y)];
 }
 
 @end

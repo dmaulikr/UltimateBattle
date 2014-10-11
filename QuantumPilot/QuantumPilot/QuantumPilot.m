@@ -208,7 +208,7 @@ static float outerCircleRadius = 60;
     
     self.time++;
     
-    [self frame];
+   // [self frame];
 }
 
 - (void)frame {
@@ -232,6 +232,16 @@ static float outerCircleRadius = 60;
 }
 
 - (void)addWaypoint:(CGPoint)l {
+    if (l.x < 5) {
+        l = ccp(5, l.y);
+    } else if (l.x > 315) {
+        l = ccp(315, l.y);
+    } else if (l.y > 573) {
+        l = ccp(l.x, 573);
+    } else if (l.y < 5) {
+        l = ccp(l.x, 5);
+    }
+
     future[self.drawingIteration] = l;
 }
 
