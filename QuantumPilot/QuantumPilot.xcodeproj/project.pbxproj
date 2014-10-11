@@ -156,7 +156,6 @@
 		BF8A76A2163646270032AF8F /* QPBattlefield.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8A76A1163646270032AF8F /* QPBattlefield.m */; };
 		BF8A76AA16365CFE0032AF8F /* TriLaser.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8A76A916365CFE0032AF8F /* TriLaser.m */; };
 		BF8A76AD16366DD30032AF8F /* QuadLaser.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8A76AC16366DD30032AF8F /* QuadLaser.m */; };
-		BF8A76B0163672780032AF8F /* WeaponsTestLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8A76AF163672780032AF8F /* WeaponsTestLayer.m */; };
 		BFA1BE56163B5C7100833186 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFA1BE55163B5C7100833186 /* Default-568h@2x.png */; };
 		BFB9DD621633CF900074EB70 /* QuantumPilot.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB9DD611633CF900074EB70 /* QuantumPilot.m */; };
 		BFB9DD661633D04E0074EB70 /* QuantumLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB9DD651633D04E0074EB70 /* QuantumLayer.m */; };
@@ -483,8 +482,6 @@
 		BF8A76A916365CFE0032AF8F /* TriLaser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TriLaser.m; sourceTree = "<group>"; };
 		BF8A76AB16366DD30032AF8F /* QuadLaser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuadLaser.h; sourceTree = "<group>"; };
 		BF8A76AC16366DD30032AF8F /* QuadLaser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuadLaser.m; sourceTree = "<group>"; };
-		BF8A76AE163672780032AF8F /* WeaponsTestLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeaponsTestLayer.h; sourceTree = "<group>"; };
-		BF8A76AF163672780032AF8F /* WeaponsTestLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeaponsTestLayer.m; sourceTree = "<group>"; };
 		BFA1BE53163B5A1500833186 /* QPBulletDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBulletDelegate.h; sourceTree = "<group>"; };
 		BFA1BE55163B5C7100833186 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		BFB9DD601633CF900074EB70 /* QuantumPilot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuantumPilot.h; sourceTree = "<group>"; };
@@ -1073,8 +1070,6 @@
 				BF0EE1F7163319BB002942A0 /* AppDelegate.m */,
 				BFB9DD641633D04E0074EB70 /* QuantumLayer.h */,
 				BFB9DD651633D04E0074EB70 /* QuantumLayer.m */,
-				BF8A76AE163672780032AF8F /* WeaponsTestLayer.h */,
-				BF8A76AF163672780032AF8F /* WeaponsTestLayer.m */,
 			);
 			name = "iOS Core";
 			sourceTree = "<group>";
@@ -1274,7 +1269,6 @@
 				BF8A76A2163646270032AF8F /* QPBattlefield.m in Sources */,
 				BF8A76AA16365CFE0032AF8F /* TriLaser.m in Sources */,
 				BF8A76AD16366DD30032AF8F /* QuadLaser.m in Sources */,
-				BF8A76B0163672780032AF8F /* WeaponsTestLayer.m in Sources */,
 				BF18895216374B4000C05703 /* SplitLaser.m in Sources */,
 				0EEAC48C16B73BC3005F629F /* QPBFState.m in Sources */,
 				0EEAC48F16B73C35005F629F /* QPBFTitleState.m in Sources */,

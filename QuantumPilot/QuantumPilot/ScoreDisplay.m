@@ -91,6 +91,7 @@
             [self.delegate finishedDisplayingWithTotalScore:score];
         }
     }
+    
 }
 
 - (float)labelDistance {
