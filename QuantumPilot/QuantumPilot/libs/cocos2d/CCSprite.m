@@ -938,6 +938,7 @@
 
 	if( ! batchNode_ && texture_ != texture ) {
 		[texture_ release];
+        texture_ = nil;
 		texture_ = [texture retain];
 
 		[self updateBlendFunc];

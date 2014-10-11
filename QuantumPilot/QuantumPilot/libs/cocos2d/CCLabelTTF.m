@@ -261,8 +261,7 @@
 }
 
 // Helper
-- (void) updateTexture
-{				
+- (void) updateTexture {				
 	CCTexture2D *tex;
 	if( dimensions_.width == 0 || dimensions_.height == 0 )
 		tex = [[CCTexture2D alloc] initWithString:self.string

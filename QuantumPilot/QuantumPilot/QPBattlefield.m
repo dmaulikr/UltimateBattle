@@ -675,7 +675,7 @@ static QPBattlefield *instance = nil;
 #pragma mark Pilot effects
 
 - (void)registerShieldHit:(QuantumPilot *)p weapon:(NSString *)w {
-    ShieldDebris *d = [[ShieldDebris alloc] init];
+    ShieldDebris *d = [[[ShieldDebris alloc] init] autorelease];
     d.l = p.l;
     d.pilot = p;
     [d setWeapon:w];
