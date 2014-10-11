@@ -35,4 +35,10 @@
     return iterations > 500;
 }
 
+- (void)dealloc {
+    self.weapon = nil;
+    self.pilot = nil;
+    [super dealloc];
+}
+
 @end

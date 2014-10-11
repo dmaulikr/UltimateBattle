@@ -14,7 +14,7 @@
     int _edges;
 }
 
-@property (strong, nonatomic) QuantumPilot *pilot;
+@property (nonatomic, assign) QuantumPilot *pilot;
 
 @property (strong, nonatomic) NSString *weapon;
 

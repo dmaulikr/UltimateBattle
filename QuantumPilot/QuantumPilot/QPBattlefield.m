@@ -676,7 +676,7 @@ static QPBattlefield *instance = nil;
 
 - (void)registerShieldHit:(QuantumPilot *)p weapon:(NSString *)w {
     ShieldDebris *d = [[ShieldDebris alloc] init];
-d.l = p.l;
+    d.l = p.l;
     d.pilot = p;
     [d setWeapon:w];
     if (self.clones.lastObject == p) {

@@ -33,8 +33,6 @@ enum displaystate {
 
 - (int)iteration;
 
-
 - (id)initWithTimeScore:(int)t accuracyScore:(int)a pathingScore:(int)p currentScore:(int)s;
-
 
 @end

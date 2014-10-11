@@ -75,7 +75,7 @@
     } else {
         self.scoreLabel.string = [NSString stringWithFormat:@"%d", [[QPBattlefield f] slowCost]];
     }
-    
+     
     ccDrawColor4F(1, 1, 0, 1);
 
     ccDrawColor4F(1, 1, 1, 1);
@@ -117,6 +117,13 @@
 - (void)reloadDebrisLabel:(int)d {
     _debris = d;
     [self drawLabels];
+}
+
+- (void)dealloc {
+    _weapon = nil;
+    [self.debrisLabel removeFromParentAndCleanup:true];
+    self.debrisLabel = nil;
+    [super dealloc];
 }
 
 @end

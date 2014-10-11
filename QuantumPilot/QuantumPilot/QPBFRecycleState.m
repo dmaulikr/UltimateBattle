@@ -79,4 +79,9 @@
     [self.display reloadDebrisLabel:d];
 }
 
+- (void)dealloc {
+    [self.display removeFromParentAndCleanup:true];
+    [super dealloc];
+}
+
 @end

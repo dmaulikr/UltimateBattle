@@ -42,4 +42,10 @@
     NSLog(@"score: %d", self.f.score);
 }
 
+- (void)dealloc {
+    [self.scoreDisplay removeFromParentAndCleanup:true];
+    self.scoreDisplay = nil;
+    [super dealloc];
+}
+
 @end

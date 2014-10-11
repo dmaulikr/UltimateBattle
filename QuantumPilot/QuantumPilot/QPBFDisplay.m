@@ -83,4 +83,13 @@
     return l;
 }
 
+- (void)dealloc {
+    for (CCLabelTTF *f in @[self.timeLabel, self.accuracyLabel, self.pathingLabel, self.scoreLabel]) {
+        [f removeFromParentAndCleanup:true];
+        f = nil;
+    }
+    self.delegate = nil;
+    [super dealloc];
+}
+
 @end

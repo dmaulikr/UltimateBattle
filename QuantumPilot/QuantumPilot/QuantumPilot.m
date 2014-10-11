@@ -309,6 +309,14 @@ static float outerCircleRadius = 60;
     self.shield++;
 }
 
+- (void)dealloc {
+    self.weapon = nil;
+    self.clone = nil;
+    self.bulletDelegate = nil;
+    self.pilotDelegate = nil;
+    [super dealloc];
+}
+
 @end
 
 
