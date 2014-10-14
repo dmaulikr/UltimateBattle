@@ -59,6 +59,7 @@
 }
 
 - (void)drawText {
+    return;
     float halfSegment = [self labelDistance];
     float mod = 7;
     

@@ -81,12 +81,6 @@ static float outerCircleRadius = 60;
 }
 
 - (void)drawShip {
-    outerEdges[0] = ccp(self.l.x, self.l.y - shipTopHeight * [self yDirection]);
-    outerEdges[1] = ccp(self.l.x - shipSideWidth, self.l.y);
-    outerEdges[2] = ccp(self.l.x, self.l.y + shipBottomHeight * [self yDirection]);
-    outerEdges[3] = ccp(self.l.x + shipSideWidth, self.l.y);
-    self.innerTopEdge = ccp(self.l.x, self.l.y - innerTopHeight * [self yDirection]);
-    
     ccDrawPoly(outerEdges, 4, YES);
 }
 
@@ -195,6 +189,14 @@ static float outerCircleRadius = 60;
     self.firing = NO;
 }
 
+- (void)defineEdges {
+    outerEdges[0] = ccp(self.l.x, self.l.y - shipTopHeight * [self yDirection]);
+    outerEdges[1] = ccp(self.l.x - shipSideWidth, self.l.y);
+    outerEdges[2] = ccp(self.l.x, self.l.y + shipBottomHeight * [self yDirection]);
+    outerEdges[3] = ccp(self.l.x + shipSideWidth, self.l.y);
+    self.innerTopEdge = ccp(self.l.x, self.l.y - innerTopHeight * [self yDirection]);
+}
+
 - (void)pulse {
     [self checkForFiringWeapon];
     [self calculateTarget];
@@ -205,6 +207,8 @@ static float outerCircleRadius = 60;
     
     [self copyDeltas];
     [self resetFiring];
+    
+    [self defineEdges];
     
     self.time++;
 }

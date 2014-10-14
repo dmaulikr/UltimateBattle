@@ -94,6 +94,8 @@
 
 - (BOOL)processDebris:(Debris *)d;
 
+- (void)defineEdges;
+
 @end
 
 @protocol QuantumPilotingDelegate <NSObject>

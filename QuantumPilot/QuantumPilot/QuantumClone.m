@@ -87,6 +87,7 @@ static int fireSignalValue = 89;
     } else {
         timeIndex++;
     }
+    [self defineEdges];
 }
 
 - (void)setShipDrawColor {

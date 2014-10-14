@@ -13,14 +13,17 @@ static float dropWidth = 10;
     return ccc4f(.8, .2, .2, 1);
 }
 
-- (void)draw {
+- (void)pulse {
+    [super pulse];
     lines[0] = ccp(self.l.x, self.l.y + rs * dropHeight * self.yDirection);
     lines[1] = ccp(self.l.x - width, self.l.y - height * self.yDirection);
     lines[2] = ccp(self.l.x - dropWidth, self.l.y - (height * self.yDirection) - (rs * dropHeight * self.yDirection));
     lines[3] = ccp(self.l.x, self.l.y - rs * dropHeight * self.yDirection);
     lines[4] = ccp(self.l.x + dropWidth, self.l.y - (height * self.yDirection) - (rs * dropHeight * self.yDirection));
     lines[5] = ccp(self.l.x + width, self.l.y - height * self.yDirection);
-    
+}
+
+- (void)draw {
     ccDrawSolidPoly(lines, 6, [self color]);
 }
 

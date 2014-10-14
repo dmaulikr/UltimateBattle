@@ -395,15 +395,20 @@ static QPBattlefield *instance = nil;
     //states manage
     
     [self rhythmPulse];
-        [self debrisPulse];
+    [self debrisPulse];
+    
+    
     if ([self isPulsing]) {
         [self.pilot pulse];
         [self clonesPulse];
         [self killPulse];
         [self bulletPulse];
         [self moveDeadline];
-    } else if (self.currentState == self.pausedState) {
-        
+    } else { //if (self.currentState == self.pausedState) {
+        [self.pilot defineEdges];
+        for (QuantumClone *c in self.clones) {
+            [c defineEdges];
+        }
     }
     
 //    if (![self.winBlast dissipated]) {
