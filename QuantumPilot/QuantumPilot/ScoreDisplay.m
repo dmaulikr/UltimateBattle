@@ -91,7 +91,11 @@
             [self.delegate finishedDisplayingWithTotalScore:score];
         }
     }
-    
+
+    [self.timeLabel updateTexture];
+    [self.accuracyLabel updateTexture];
+    [self.pathingLabel updateTexture];
+    [self.scoreLabel updateTexture];
 }
 
 - (float)labelDistance {
@@ -112,10 +116,6 @@
 - (void)draw {
     [self drawLabels];
     [self drawText];
-    [self.timeLabel updateTexture];
-    [self.accuracyLabel updateTexture];
-    [self.pathingLabel updateTexture];
-    [self.scoreLabel updateTexture];
 }
 
 - (int)iteration {
