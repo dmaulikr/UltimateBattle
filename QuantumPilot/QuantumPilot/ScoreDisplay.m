@@ -73,6 +73,7 @@
 }
 
 - (void)pulse {
+    [super pulse];
     if (state == displayZooming) {
         iteration--;
         if (iteration == 0) {
@@ -91,10 +92,6 @@
             [self.delegate finishedDisplayingWithTotalScore:score];
         }
     }
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"L1" object:[NSString stringWithFormat:@"TIME\n%d", time]];
-    NSLog(@"time: %d", time);
-
 }
 
 - (float)labelDistance {
@@ -105,20 +102,20 @@
     return distance;
 }
 
-- (void)drawText {
-//    self.timeLabel.string       = timePerfect ? @"TIME\nFULL" : [NSString stringWithFormat:@"TIME\n%d", time];
-//    self.accuracyLabel.string   = accuracyPerfect ? @"ACCURACY\nABSOLUTE" : [NSString stringWithFormat:@"ACCURACY\n%d", accuracy];
-//    self.pathingLabel.string    = pathingPerfect ? @"PATHING\nPERFECT" : [NSString stringWithFormat:@"PATHING\n%d", pathing];
-//    self.scoreLabel.string      = [NSString stringWithFormat:@"SCORE\n%d", score];
+- (NSString *)timeText {
+    return timePerfect ? @"TIME\nFULL" : [NSString stringWithFormat:@"TIME\n%d", time];
 }
 
-- (void)draw {
-    [self drawLabels];
-    [self drawText];
-    [self.timeLabel updateTexture];
-    [self.accuracyLabel updateTexture];
-    [self.pathingLabel updateTexture];
-    [self.scoreLabel updateTexture];
+- (NSString *)accuracyText {
+    return accuracyPerfect ? @"ACCURACY\nABSOLUTE" : [NSString stringWithFormat:@"ACCURACY\n%d", accuracy];
+}
+
+- (NSString *)pathingText {
+    return pathingPerfect ? @"PATHING\nPERFECT" : [NSString stringWithFormat:@"PATHING\n%d", pathing];
+}
+
+- (NSString *)scoreText {
+    return [NSString stringWithFormat:@"SCORE\n%d", score];
 }
 
 - (int)iteration {

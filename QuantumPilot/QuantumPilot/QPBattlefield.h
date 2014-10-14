@@ -61,9 +61,6 @@ enum pulsestate {
 @property (nonatomic, retain) QPBFScoreState *scoreState;
 @property (nonatomic, retain) QPBFRecycleState *recycleState;
 
-//@property (nonatomic, assign) NSInteger drawingIteration;
-//@property (nonatomic, assign) NSInteger fightingIteration;
-
 #pragma mark Pilot Positioning
 @property (nonatomic, assign) CGPoint playerTouch;
 @property (nonatomic, assign) CGPoint lastPlayerTouch;
@@ -86,8 +83,6 @@ enum pulsestate {
 @property (nonatomic, copy) NSString *nextWeapon;
 
 @property (strong, nonatomic) NSArray *weapons;
-
-//@property (strong, nonatomic) ShieldDebris *winBlast;
 
 - (float)rhythmScale;
 - (void)pulse;

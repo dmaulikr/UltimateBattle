@@ -410,13 +410,6 @@ static QPBattlefield *instance = nil;
             [c defineEdges];
         }
     }
-    
-//    if (![self.winBlast dissipated]) {
-//        [self.winBlast pulse];
-//    }
-    
-
-
 }
 
 #pragma mark States

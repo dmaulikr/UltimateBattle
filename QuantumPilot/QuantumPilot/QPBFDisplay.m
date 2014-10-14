@@ -16,7 +16,6 @@
     if (self) {
         [self initializeLocation];
         [self initializeVertexes];
-        [self initializeLabels];
     }
     
     return self;
@@ -34,40 +33,53 @@
     vertexes[3] = ccp(5000, 5000);
 }
 
-- (void)initializeLabels {
-    CGSize size = CGSizeMake(80, 40);
-    
-    self.timeLabel = [CCLabelTTF labelWithString:nil dimensions:size hAlignment:kCCTextAlignmentCenter fontName:@"Courier New" fontSize:13];
-    self.accuracyLabel = [CCLabelTTF labelWithString:nil  dimensions:size hAlignment:kCCTextAlignmentCenter fontName:@"Courier New" fontSize:13];
-    self.pathingLabel = [CCLabelTTF labelWithString:nil dimensions:size hAlignment:kCCTextAlignmentCenter fontName:@"Courier New" fontSize:13];
-    self.scoreLabel = [CCLabelTTF labelWithString:nil dimensions:size hAlignment:kCCTextAlignmentCenter fontName:@"Courier New" fontSize:13];
-    
-    [self addChild:self.timeLabel];
-    [self addChild:self.accuracyLabel];
-    [self addChild:self.pathingLabel];
-    [self addChild:self.scoreLabel];
+- (NSString *)timeText {
+    return nil;
 }
 
+- (NSString *)accuracyText {
+    return nil;
+}
+
+- (NSString *)pathingText {
+    return nil;
+}
+
+- (NSString *)scoreText {
+    return nil;
+}
+
+
 - (void)drawLabels {
+    [self initializeLocation];
     float distance = [self labelDistance];
     vertexes[0] = ccp(l.x - distance, l.y);
     vertexes[1] = ccp(l.x, l.y + distance);
     vertexes[2] = ccp(l.x + distance, l.y);
     vertexes[3] = ccp(l.x, l.y - distance);
     
-    ccDrawColor4F(1, 1, 1, 1.0);
-    
-    ccDrawPoly(vertexes, 4, true);
-    
     float halfSegment = distance;
-    self.timeLabel.position     = ccp(l.x - halfSegment, l.y + halfSegment);
-    self.accuracyLabel.position = ccp(l.x + halfSegment, l.y + halfSegment);
-    self.pathingLabel.position  = ccp(l.x - halfSegment, l.y - halfSegment);
-    self.scoreLabel.position    = ccp(l.x + halfSegment, l.y - halfSegment);
+    
+    float h = 578;
+    
+    NSDictionary *l1 = @{@"x" : [NSNumber numberWithFloat:l.x - halfSegment], @"y" : [NSNumber numberWithFloat:h - (l.y + halfSegment)], @"text" : [self timeText]};
+    NSDictionary *l2 = @{@"x" : [NSNumber numberWithFloat:l.x + halfSegment], @"y" : [NSNumber numberWithFloat:h - (l.y + halfSegment)], @"text" : [self accuracyText]};
+    NSDictionary *l3 = @{@"x" : [NSNumber numberWithFloat:l.x - halfSegment], @"y" : [NSNumber numberWithFloat:h - (l.y - halfSegment)], @"text" : [self pathingText]};
+    NSDictionary *l4 = @{@"x" : [NSNumber numberWithFloat:l.x + halfSegment], @"y" : [NSNumber numberWithFloat:h - (l.y - halfSegment)], @"text" : [self scoreText]};
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"L1" object:l1];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"L2" object:l2];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"L3" object:l3];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"L4" object:l4];
+}
+
+- (void)draw {
+    ccDrawColor4F(1, 1, 1, 1.0);
+    ccDrawPoly(vertexes, 4, true);
 }
 
 - (void)pulse {
-    
+    [self drawLabels];
 }
 - (float)labelDistance {
     return [self baseLabelDistance];
@@ -84,10 +96,6 @@
 }
 
 - (void)dealloc {
-    for (CCLabelTTF *f in @[self.timeLabel, self.accuracyLabel, self.pathingLabel, self.scoreLabel]) {
-        [f removeFromParentAndCleanup:true];
-        f = nil;
-    }
     self.delegate = nil;
     [super dealloc];
 }

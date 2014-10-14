@@ -25,11 +25,6 @@
 							   numberOfSamples:0];
     [glView setMultipleTouchEnabled:YES];
 
-    UILabel * l = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 100, 40)];
-    l.text = @"hi";
-    l.textColor = [UIColor whiteColor];
-    [window_ addSubview:l];
-    
 	director_ = (CCDirectorIOS*) [CCDirector sharedDirector];
 
 //	director_.wantsFullScreenLayout = YES;
@@ -62,8 +57,8 @@
     UIViewController *c = (UIViewController *)director_;
     [c.view addSubview:self.window.l1];
     [c.view addSubview:self.window.l2];
-        [c.view addSubview:self.window.l3];
-        [c.view addSubview:self.window.l4];
+    [c.view addSubview:self.window.l3];
+    [c.view addSubview:self.window.l4];
     
 	// make main window visible
 	[window_ makeKeyAndVisible];

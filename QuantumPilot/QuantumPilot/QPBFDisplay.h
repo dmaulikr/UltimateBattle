@@ -38,5 +38,10 @@
 
 - (CGPoint)center;
 
+- (NSString *)timeText;
+- (NSString *)accuracyText;
+- (NSString *)pathingText;
+- (NSString *)scoreText;
+
 @end
 

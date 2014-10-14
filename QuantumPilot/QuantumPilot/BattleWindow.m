@@ -7,31 +7,57 @@
 //
 
 #import "BattleWindow.h"
+#import "cocos2d.h"
 
 @implementation BattleWindow
 
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     
-    self.l1 = [[UILabel alloc] initWithFrame:CGRectMake(30, 100, 90, 90)];
-    self.l2 = [[UILabel alloc] initWithFrame:CGRectMake(270, 100, 200, 30)];
-    self.l3 = [[UILabel alloc] initWithFrame:CGRectMake(30, 300, 200, 30)];
-    self.l4 = [[UILabel alloc] initWithFrame:CGRectMake(270, 300, 200, 30)];
+    self.l1 = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 90)];
+    self.l2 = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 90)];
+    self.l3 = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 90)];
+    self.l4 = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 90)];
     
     for (UILabel *l in @[self.l1, self.l2, self.l3, self.l4]) {
         l.backgroundColor = [UIColor clearColor];
         l.textColor = [UIColor whiteColor];
         l.numberOfLines = 0;
         l.lineBreakMode = NSLineBreakByWordWrapping;
+        l.textAlignment = NSTextAlignmentCenter;
+        l.font = [UIFont systemFontOfSize:12];
     }
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateL1:) name:@"L1" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateL2:) name:@"L2" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateL3:) name:@"L3" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateL4:) name:@"L4" object:nil];
     
     return self;
 }
 
 - (void)updateL1:(NSNotification *)n {
-    self.l1.text = n.object;
+    NSDictionary *d = n.object;
+    self.l1.center = ccp([d[@"x"] intValue], [d[@"y"] intValue]);
+    self.l1.text = d[@"text"];
+}
+
+- (void)updateL2:(NSNotification *)n {
+    NSDictionary *d = n.object;
+    self.l2.center = ccp([d[@"x"] intValue], [d[@"y"] intValue]);
+    self.l2.text = d[@"text"];
+}
+
+- (void)updateL3:(NSNotification *)n {
+    NSDictionary *d = n.object;
+    self.l3.center = ccp([d[@"x"] intValue], [d[@"y"] intValue]);
+    self.l3.text = d[@"text"];
+}
+
+- (void)updateL4:(NSNotification *)n {
+    NSDictionary *d = n.object;
+    self.l4.center = ccp([d[@"x"] intValue], [d[@"y"] intValue]);
+    self.l4.text = d[@"text"];
 }
 
 @end
