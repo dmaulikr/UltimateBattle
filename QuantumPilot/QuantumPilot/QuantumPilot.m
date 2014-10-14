@@ -274,7 +274,6 @@ static float outerCircleRadius = 60;
             self.shield--;
             [[QPBattlefield f] registerShieldHit:self];
         }
-
     }
 }
 

@@ -183,7 +183,6 @@ static QPBattlefield *instance = nil;
     hits++;
     [self registerShieldHit:c weapon:c.weapon];
     [self createDebrisFromCloneKill:c];
-    
 }
 
 - (void)pulseBullets:(NSMutableArray *)bs targets:(NSArray *)targets {

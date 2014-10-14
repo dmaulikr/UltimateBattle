@@ -83,6 +83,8 @@ static int fireSignalValue = 89;
                 timeIndex = 0;
                 timeDirection = forwards;
             }
+        } else {
+            [self resetPosition];
         }
     } else {
         timeIndex++;
