@@ -49,23 +49,37 @@
     return nil;
 }
 
+- (CGPoint)timePosition {
+    float h = 578;
+    return ccp(l.x - [self labelDistance], h - (l.y + [self labelDistance]));
+}
+
+- (CGPoint)accuracyPosition {
+    float h = 578;
+    return ccp(l.x + [self labelDistance], h - (l.y + [self labelDistance]));
+}
+
+- (CGPoint)pathingPosition {
+    float h = 578;
+    return ccp(l.x - [self labelDistance], h - (l.y - [self labelDistance]));
+}
+
+- (CGPoint)scorePosition {
+    float h = 578;
+    return ccp(l.x + [self labelDistance], h - (l.y - [self labelDistance]));
+}
 
 - (void)drawLabels {
-    [self initializeLocation];
     float distance = [self labelDistance];
     vertexes[0] = ccp(l.x - distance, l.y);
     vertexes[1] = ccp(l.x, l.y + distance);
     vertexes[2] = ccp(l.x + distance, l.y);
     vertexes[3] = ccp(l.x, l.y - distance);
     
-    float halfSegment = distance;
-    
-    float h = 578;
-    
-    NSDictionary *l1 = @{@"x" : [NSNumber numberWithFloat:l.x - halfSegment], @"y" : [NSNumber numberWithFloat:h - (l.y + halfSegment)], @"text" : [self timeText]};
-    NSDictionary *l2 = @{@"x" : [NSNumber numberWithFloat:l.x + halfSegment], @"y" : [NSNumber numberWithFloat:h - (l.y + halfSegment)], @"text" : [self accuracyText]};
-    NSDictionary *l3 = @{@"x" : [NSNumber numberWithFloat:l.x - halfSegment], @"y" : [NSNumber numberWithFloat:h - (l.y - halfSegment)], @"text" : [self pathingText]};
-    NSDictionary *l4 = @{@"x" : [NSNumber numberWithFloat:l.x + halfSegment], @"y" : [NSNumber numberWithFloat:h - (l.y - halfSegment)], @"text" : [self scoreText]};
+    NSDictionary *l1 = @{@"x" : [NSNumber numberWithFloat:[self timePosition].x], @"y" : [NSNumber numberWithFloat:[self timePosition].y], @"text" : [self timeText]};
+    NSDictionary *l2 = @{@"x" : [NSNumber numberWithFloat:[self accuracyPosition].x], @"y" : [NSNumber numberWithFloat:[self accuracyPosition].y], @"text" : [self accuracyText]};
+    NSDictionary *l3 = @{@"x" : [NSNumber numberWithFloat:[self pathingPosition].x], @"y" : [NSNumber numberWithFloat:[self pathingPosition].y], @"text" : [self pathingText]};
+    NSDictionary *l4 = @{@"x" : [NSNumber numberWithFloat:[self scorePosition].x], @"y" : [NSNumber numberWithFloat:[self scorePosition].y], @"text" : [self scoreText]};
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"L1" object:l1];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"L2" object:l2];

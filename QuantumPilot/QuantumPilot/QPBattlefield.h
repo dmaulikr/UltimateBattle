@@ -121,6 +121,8 @@ enum pulsestate {
 - (bool)installSlow;
 - (void)enterRecycleState;
 
+- (bool)shieldMaxed;
+
 #pragma mark Pilot effects
 
 - (void)registerShieldHit:(QuantumPilot *)p;

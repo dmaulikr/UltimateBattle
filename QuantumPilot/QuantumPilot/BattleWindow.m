@@ -33,6 +33,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateL3:) name:@"L3" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateL4:) name:@"L4" object:nil];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hideLabels) name:@"clearLabels" object:nil];
+    
     return self;
 }
 
@@ -58,6 +60,12 @@
     NSDictionary *d = n.object;
     self.l4.center = ccp([d[@"x"] intValue], [d[@"y"] intValue]);
     self.l4.text = d[@"text"];
+}
+
+- (void)hideLabels {
+    for (UILabel *l in @[self.l1, self.l2, self.l3, self.l4]) {
+        l.center = ccp(5000,5000);
+    }
 }
 
 @end

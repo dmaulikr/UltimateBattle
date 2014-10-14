@@ -19,68 +19,88 @@
     [self addChild:self.debrisLabel];
 }
 
-- (void)drawLabels {
-    [super drawLabels];
-    
-    self.debrisLabel.position    = ccp([self center].x, [self center].y - 35    );
-    if (_debris <= 99) {
-        [self.debrisLabel setString:[NSString stringWithFormat:@"%d", _debris]];
-    } else {
-        self.debrisLabel.string = @"+";
-    }
-    [self.debrisLabel updateTexture];
-    
-    float halfSegment = [self labelDistance];
-    self.timeLabel.position     = ccp(l.x - halfSegment, l.y + halfSegment - 20);
-    self.accuracyLabel.position = ccp(l.x + halfSegment, l.y + halfSegment - 20);
-    self.pathingLabel.position  = ccp(l.x - halfSegment, l.y - halfSegment - 15);
-    self.scoreLabel.position    = ccp(l.x + halfSegment, l.y - halfSegment - 15);
+//- (void)drawLabels {
+//    [super drawLabels];
+//    
+//    self.debrisLabel.position    = ccp([self center].x, [self center].y - 35    );
+//    if (_debris <= 99) {
+//        [self.debrisLabel setString:[NSString stringWithFormat:@"%d", _debris]];
+//    } else {
+//        self.debrisLabel.string = @"+";
+//    }
+//    [self.debrisLabel updateTexture];
+//}
 
+- (NSString *)timeText {
+    return [[QPBattlefield f] shieldMaxed] ? @"GUARD\nMAX" : [NSString stringWithFormat:@"%d",[[QPBattlefield f] shieldCost]];
 }
 
-- (void)pulse {
+- (NSString *)accuracyText {
+    if ([_weapon isEqualToString:@"GOOD LUCK!"]) {
+        return [NSString stringWithFormat:@"GOOD\nLUCK"];
+    }
     
+    [NSClassFromString(_weapon) setDrawColor];
+    return [NSString stringWithFormat:@"%d", _weaponCost];
+}
+
+- (NSString *)pathingText {
+    return warning ? @"WARNING\nON" : [NSString stringWithFormat:@"%d",[[QPBattlefield f] warningCost]];
+}
+
+- (NSString *)scoreText {
+    return slow ? @"MORE\nTIME" : [NSString stringWithFormat:@"%d", [[QPBattlefield f] slowCost]];
+}
+
+- (CGPoint)timePosition {
+    float h = 578;
+    return ccp(l.x - [self labelDistance], h - (l.y + [self labelDistance]));
+}
+
+- (CGPoint)accuracyPosition {
+    float h = 578;
+    return ccp(l.x + [self labelDistance], h - (l.y + [self labelDistance]));
+}
+
+- (CGPoint)pathingPosition {
+    float h = 578;
+    return ccp(l.x - [self labelDistance], h - (l.y - [self labelDistance]));
+}
+
+- (CGPoint)scorePosition {
+    float h = 578;
+    return ccp(l.x + [self labelDistance], h - (l.y - [self labelDistance]));
 }
 
 - (float)labelDistance {
-    return [self baseLabelDistance] * .75;
+    return [self baseLabelDistance] * 1;
 }
 
 - (void)drawWeaponLabel {
     float halfSegment = [self labelDistance];
     float mod = 7;
     if ([_weapon isEqualToString:@"GOOD LUCK!"]) {
-        self.accuracyLabel.string  = _weapon;
     } else {
         [NSClassFromString(_weapon) setDrawColor];
         ccDrawFilledCircle(ccp(l.x + halfSegment, l.y + halfSegment + mod) , 2.6, 0, 100, NO);
-        self.accuracyLabel.string = [NSString stringWithFormat:@"%d", _weaponCost];
     }
 }
 
 - (void)drawText {
-    return;
     float halfSegment = [self labelDistance];
     float mod = 7;
     
     [self drawWeaponLabel];
     
-    ccDrawColor4F(1, 0, 0, 1.0);
-    ccDrawLine(ccp(l.x + halfSegment - 5, l.y - halfSegment + mod + 9), ccp(l.x + halfSegment + 5, l.y - halfSegment + mod + 9));
-
-    //draw pricing
-    self.timeLabel.string = [NSString stringWithFormat:@"%d",[[QPBattlefield f] shieldCost]];
-    
-    if (slow) {
-        self.scoreLabel.string = @"MORE\nTIME";
-    } else {
-        self.scoreLabel.string = [NSString stringWithFormat:@"%d", [[QPBattlefield f] slowCost]];
+    if (!slow) {
+        ccDrawColor4F(1, 0, 0, 1.0);
+        ccDrawLine(ccp(l.x + halfSegment - 5, l.y - halfSegment + mod + 9), ccp(l.x + halfSegment + 5, l.y - halfSegment + mod + 9));
     }
-     
-    ccDrawColor4F(1, 1, 0, 1);
 
-    ccDrawColor4F(1, 1, 1, 1);
-    ccDrawCircle(ccp(l.x - halfSegment, l.y + halfSegment + mod), 3, 0, 100, NO);
+    if (![[QPBattlefield f] shieldMaxed]) {
+        ccDrawColor4F(1, 1, 1, 1);
+        ccDrawCircle(ccp(l.x - halfSegment, l.y + halfSegment + mod), 3, 0, 100, NO);
+    }
     
     if (!warning) {
         CGPoint bangTop = ccp(l.x - halfSegment, l.y - halfSegment + 25);
@@ -88,17 +108,18 @@
         
         ccDrawLine(bangTop, bangBottom);
         ccDrawFilledCircle(ccp(bangBottom.x, bangBottom.y - 6), 1, 0, 100, NO);
-        
-        
-        self.pathingLabel.string = [NSString stringWithFormat:@"%d",[[QPBattlefield f] warningCost]];
-    } else {
-        self.pathingLabel.string = @"WARNING ON";
     }
 }
 
 - (void)showWeapon:(NSString *)w {
     _weapon = w;
     _weaponCost = -1;
+    [self drawText];
+}
+
+- (void)draw {
+    [super draw];
+//    [self drawLabels];
     [self drawText];
 }
 
