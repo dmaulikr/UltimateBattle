@@ -87,10 +87,10 @@ static float outerCircleRadius = 60;
 - (void)drawCircle {
     if (self.shield) {
         ccDrawColor4F(1 - [QPBattlefield pulseRotation], 1  - [QPBattlefield pulseRotation], 1  - [QPBattlefield pulseRotation], 1);
-        ccDrawCircle(self.innerTopEdge, 20 + (5 * self.shield), 0, 100, NO);
+        ccDrawCircle(self.innerTopEdge, radius, 0, 50, NO);
     }
     [NSClassFromString(self.weapon) setDrawColor];
-    ccDrawFilledCircle(self.innerTopEdge, innerCircleRadius * [QPBattlefield pulseRotation], 0, 100, NO);
+    ccDrawFilledCircle(self.innerTopEdge, innerRadius, 0, 30, NO);
 }
 
 - (void)draw {
@@ -101,16 +101,7 @@ static float outerCircleRadius = 60;
     }
     if (self.active) {
         ccDrawColor4F(1, 1, 1, 1.0);
-        CGPoint drawingDeltas[4551];
-        NSInteger index = 0;
-        for (int i = self.fightingIteration; i < self.drawingIteration; i++) {
-            drawingDeltas[index] = future[i];
-            index++;
-        }
-        NSInteger drawFrameTotal = self.drawingIteration - self.fightingIteration;
-        if (drawFrameTotal < 0) {
-            drawFrameTotal = 0;
-        }
+//        CGPoint drawingDeltas[4551];
         ccDrawPoly(drawingDeltas, drawFrameTotal, NO);
     }
 }
@@ -211,6 +202,22 @@ static float outerCircleRadius = 60;
     [self defineEdges];
     
     self.time++;
+    
+    radius = 20 + (5 * self.shield);
+    
+    if (self.active) {
+        NSInteger index = 0;
+        for (int i = self.fightingIteration; i < self.drawingIteration; i++) {
+            drawingDeltas[index] = future[i];
+            index++;
+        }
+        drawFrameTotal = self.drawingIteration - self.fightingIteration;
+        if (drawFrameTotal < 0) {
+            drawFrameTotal = 0;
+        }
+        
+        innerRadius = innerCircleRadius * [QPBattlefield pulseRotation];
+    }
 }
 
 
@@ -265,7 +272,7 @@ static float outerCircleRadius = 60;
     return false;
 }
 
-- (void)processBullet:(Bullet *)b {
+- (bool)processBullet:(Bullet *)b {
     if ([self isCollidingWithBullet:b]) {
         b.l = ccp(5000,5000);
         if (!self.shield) {
@@ -274,7 +281,10 @@ static float outerCircleRadius = 60;
             self.shield--;
             [[QPBattlefield f] registerShieldHit:self];
         }
+        return true;
     }
+    
+    return false;
 }
 
 - (BOOL)touchesPoint:(CGPoint)l {

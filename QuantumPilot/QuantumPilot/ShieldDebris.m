@@ -20,7 +20,7 @@
 }
 
 - (void)drawCircle {
-    ccDrawCircle(self.l, iterations * 11, 0, _edges, NO);
+    ccDrawCircle(self.l, radius, 0, _edges, NO);
 }
 
 - (void)pulse {
@@ -29,6 +29,8 @@
     if (_edges < 30) {
         _edges = 30;
     }
+    
+    radius = iterations * 11;
 }
 
 - (bool)dissipated {

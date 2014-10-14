@@ -90,6 +90,7 @@ static int fireSignalValue = 89;
         timeIndex++;
     }
     [self defineEdges];
+    radius = (float)fireSignal/(float)fireSignalValue * 2.6;
 }
 
 - (void)setShipDrawColor {
@@ -102,8 +103,7 @@ static int fireSignalValue = 89;
 
 - (void)drawCircle {
     if (fireSignal > 0) {
-        float ratio = (float)fireSignal/(float)fireSignalValue;
-        ccDrawFilledCircle(self.innerTopEdge, 2.6 * ratio, 0, 100, NO);
+        ccDrawFilledCircle(self.innerTopEdge, radius, 0, 10, NO);
     }
 }
 

@@ -82,7 +82,6 @@ static QPBattlefield *instance = nil;
         [self setupSpeeds];
         [self setupWeapons];
  
-        
         level = 1;
     }
     return self;
@@ -189,13 +188,26 @@ static QPBattlefield *instance = nil;
     for (Bullet *b in bs) {
         for (QuantumPilot *p in targets) {
             if (p.active) {
-                [p processBullet:b];
-                if (!p.active) {
-                    [self processKill:p];
+                if (fabsf(p.l.x - b.l.x) + fabsf(p.l.y - b.l.y) < 50) {
+                    if ([p processBullet:b]) {
+                        [self processKill:p];
+                    }
                 }
+//                if (b.vel.y < 0) {
+//                    if(fabs  ) {
+//                    
+//                    }
+//                } else {
+//                    if(p.l.y > b.l.y + 40) {
+//                        if ([p processBullet:b]) {
+//                            [self processKill:p];
+//                        }
+//                    }
+//                }
             }
         }
     }
+    
     
     NSMutableArray *bulletsToErase = [NSMutableArray array];
     for (Bullet *b in bs) {

@@ -13,6 +13,10 @@
 
 @interface QuantumPilot : CCNode {
     CGPoint outerEdges[4];
+    float radius;
+    float innerRadius;
+    CGPoint drawingDeltas[4551];
+    int drawFrameTotal;
 }
 
 @property (nonatomic) CGPoint l;
@@ -56,7 +60,7 @@
 - (CGPoint)deltaTarget;
 
 - (BOOL)isCollidingWithBullet:(Bullet *)b;
-- (void)processBullet:(Bullet *)b;
+- (bool)processBullet:(Bullet *)b;
 
 - (BOOL)touchesPoint:(CGPoint)l;
 

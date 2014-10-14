@@ -12,6 +12,7 @@
     CGPoint _points[10];
     float _speed;
     int _level;
+    float radius;
 }
 
 @property (nonatomic) CGPoint l;
