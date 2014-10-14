@@ -9,14 +9,13 @@
 #import "cocos2d.h"
 #import "AppDelegate.h"
 #import "QuantumLayer.h"
-#import "WeaponsTestLayer.h"
 
 @implementation AppController
 
 @synthesize window=window_, navController=navController_, director=director_;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-	window_ = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+	window_ = [[BattleWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 	CCGLView *glView = [CCGLView viewWithFrame:[window_ bounds]
 								   pixelFormat:kEAGLColorFormatRGB565	//kEAGLColorFormatRGBA8
 								   depthFormat:0	//GL_DEPTH_COMPONENT24_OES
@@ -26,6 +25,11 @@
 							   numberOfSamples:0];
     [glView setMultipleTouchEnabled:YES];
 
+    UILabel * l = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 100, 40)];
+    l.text = @"hi";
+    l.textColor = [UIColor whiteColor];
+    [window_ addSubview:l];
+    
 	director_ = (CCDirectorIOS*) [CCDirector sharedDirector];
 
 //	director_.wantsFullScreenLayout = YES;

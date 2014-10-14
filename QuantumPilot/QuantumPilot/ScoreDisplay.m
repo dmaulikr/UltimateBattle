@@ -92,6 +92,8 @@
         }
     }
     
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"L1" object:[NSString stringWithFormat:@"TIME\n%d", time]];
+
 }
 
 - (float)labelDistance {
@@ -103,10 +105,10 @@
 }
 
 - (void)drawText {
-    self.timeLabel.string       = timePerfect ? @"TIME\nFULL" : [NSString stringWithFormat:@"TIME\n%d", time];
-    self.accuracyLabel.string   = accuracyPerfect ? @"ACCURACY\nABSOLUTE" : [NSString stringWithFormat:@"ACCURACY\n%d", accuracy];
-    self.pathingLabel.string    = pathingPerfect ? @"PATHING\nPERFECT" : [NSString stringWithFormat:@"PATHING\n%d", pathing];
-    self.scoreLabel.string      = [NSString stringWithFormat:@"SCORE\n%d", score];
+//    self.timeLabel.string       = timePerfect ? @"TIME\nFULL" : [NSString stringWithFormat:@"TIME\n%d", time];
+//    self.accuracyLabel.string   = accuracyPerfect ? @"ACCURACY\nABSOLUTE" : [NSString stringWithFormat:@"ACCURACY\n%d", accuracy];
+//    self.pathingLabel.string    = pathingPerfect ? @"PATHING\nPERFECT" : [NSString stringWithFormat:@"PATHING\n%d", pathing];
+//    self.scoreLabel.string      = [NSString stringWithFormat:@"SCORE\n%d", score];
 }
 
 - (void)draw {
