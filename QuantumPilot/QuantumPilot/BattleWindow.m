@@ -13,7 +13,7 @@
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     
-    self.l1 = [[UILabel alloc] initWithFrame:CGRectMake(30, 100, 200, 30)];
+    self.l1 = [[UILabel alloc] initWithFrame:CGRectMake(30, 100, 90, 90)];
     self.l2 = [[UILabel alloc] initWithFrame:CGRectMake(270, 100, 200, 30)];
     self.l3 = [[UILabel alloc] initWithFrame:CGRectMake(30, 300, 200, 30)];
     self.l4 = [[UILabel alloc] initWithFrame:CGRectMake(270, 300, 200, 30)];
@@ -21,7 +21,8 @@
     for (UILabel *l in @[self.l1, self.l2, self.l3, self.l4]) {
         l.backgroundColor = [UIColor clearColor];
         l.textColor = [UIColor whiteColor];
-        [self addSubview:l];
+        l.numberOfLines = 0;
+        l.lineBreakMode = NSLineBreakByWordWrapping;
     }
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateL1:) name:@"L1" object:nil];

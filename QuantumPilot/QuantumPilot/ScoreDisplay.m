@@ -93,6 +93,7 @@
     }
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"L1" object:[NSString stringWithFormat:@"TIME\n%d", time]];
+    NSLog(@"time: %d", time);
 
 }
 

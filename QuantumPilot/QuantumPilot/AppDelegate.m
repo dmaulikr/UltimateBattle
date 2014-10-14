@@ -59,6 +59,12 @@
 //	[window_ addSubview:navController_.view];	// Generates flicker.
 	[window_ setRootViewController:navController_];
 	
+    UIViewController *c = (UIViewController *)director_;
+    [c.view addSubview:self.window.l1];
+    [c.view addSubview:self.window.l2];
+        [c.view addSubview:self.window.l3];
+        [c.view addSubview:self.window.l4];
+    
 	// make main window visible
 	[window_ makeKeyAndVisible];
 	
