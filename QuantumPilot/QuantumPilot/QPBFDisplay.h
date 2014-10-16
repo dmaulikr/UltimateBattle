@@ -30,6 +30,7 @@
 - (void)pulse;
 - (float)labelDistance;
 - (float)baseLabelDistance;
+- (float)selectionLabelDistance;
 - (void)drawText;
 
 - (void)drawLabels;

@@ -66,4 +66,8 @@
     return false;
 }
 
+- (bool)isDebris {
+    return true;
+}
+
 @end

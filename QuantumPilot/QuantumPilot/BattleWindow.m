@@ -11,6 +11,10 @@
 
 @implementation BattleWindow
 
+- (NSArray *)labels {
+    return @[self.l1, self.l2, self.l3, self.l4, self.debrisLabel];
+}
+
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     
@@ -19,7 +23,9 @@
     self.l3 = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 90)];
     self.l4 = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 90)];
     
-    for (UILabel *l in @[self.l1, self.l2, self.l3, self.l4]) {
+    self.debrisLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 90)];
+    
+    for (UILabel *l in [self labels]) {
         l.backgroundColor = [UIColor clearColor];
         l.textColor = [UIColor whiteColor];
         l.numberOfLines = 0;
@@ -32,6 +38,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateL2:) name:@"L2" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateL3:) name:@"L3" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateL4:) name:@"L4" object:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateDebrisLabel:) name:@"DebrisLabel" object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hideLabels) name:@"clearLabels" object:nil];
     
@@ -63,9 +71,15 @@
 }
 
 - (void)hideLabels {
-    for (UILabel *l in @[self.l1, self.l2, self.l3, self.l4]) {
+    for (UILabel *l in [self labels]) {
         l.center = ccp(5000,5000);
     }
+}
+
+- (void)updateDebrisLabel:(NSNotification *)n {
+    NSDictionary *d = n.object;
+    self.debrisLabel.center = ccp([d[@"x"] intValue], 578 - [d[@"y"] intValue]); //could post 1, use index
+    self.debrisLabel.text = d[@"text"];
 }
 
 @end

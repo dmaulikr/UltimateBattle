@@ -40,6 +40,8 @@ enum pulsestate {
     int shield;
     int warning;
     int slow;
+    
+    int debrisShow;
 }
 
 @property (nonatomic, retain) NSMutableArray *bullets;

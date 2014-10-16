@@ -30,4 +30,6 @@
 - (void)establishColor;
 - (void)drawCircle;
 
+- (bool)isDebris;
+
 @end

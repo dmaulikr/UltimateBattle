@@ -56,10 +56,9 @@
 	[window_ setRootViewController:navController_];
 	
     UIViewController *c = (UIViewController *)director_;
-    [c.view addSubview:self.window.l1];
-    [c.view addSubview:self.window.l2];
-    [c.view addSubview:self.window.l3];
-    [c.view addSubview:self.window.l4];
+    for (UIView *v in [self.window labels]) {
+        [c.view addSubview:v];
+    }
     
 	// make main window visible
 	[window_ makeKeyAndVisible];

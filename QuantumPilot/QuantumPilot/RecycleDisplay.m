@@ -52,32 +52,32 @@
     return slow ? @"MORE\nTIME" : [NSString stringWithFormat:@"%d", [[QPBattlefield f] slowCost]];
 }
 
-- (CGPoint)timePosition {
-    float h = 578;
-    return ccp(l.x - [self labelDistance], h - (l.y + [self labelDistance]));
-}
-
-- (CGPoint)accuracyPosition {
-    float h = 578;
-    return ccp(l.x + [self labelDistance], h - (l.y + [self labelDistance]));
-}
-
-- (CGPoint)pathingPosition {
-    float h = 578;
-    return ccp(l.x - [self labelDistance], h - (l.y - [self labelDistance]));
-}
-
-- (CGPoint)scorePosition {
-    float h = 578;
-    return ccp(l.x + [self labelDistance], h - (l.y - [self labelDistance]));
-}
+//- (CGPoint)timePosition {
+//    float h = 578;
+//    return ccp(l.x - [self labelDistance], h - (l.y + [self labelDistance]));
+//}
+//
+//- (CGPoint)accuracyPosition {
+//    float h = 578;
+//    return ccp(l.x + [self labelDistance], h - (l.y + [self labelDistance]));
+//}
+//
+//- (CGPoint)pathingPosition {
+//    float h = 578;
+//    return ccp(l.x - [self labelDistance], h - (l.y - [self labelDistance]));
+//}
+//
+//- (CGPoint)scorePosition {
+//    float h = 578;
+//    return ccp(l.x + [self labelDistance], h - (l.y - [self labelDistance]));
+//}
 
 - (float)labelDistance {
     return [self baseLabelDistance] * 1;
 }
 
 - (void)drawWeaponLabel {
-    float halfSegment = [self labelDistance];
+    float halfSegment = [self selectionLabelDistance];
     float mod = 7;
     if ([_weapon isEqualToString:@"GOOD LUCK!"]) {
     } else {
@@ -87,7 +87,7 @@
 }
 
 - (void)drawText {
-    float halfSegment = [self labelDistance];
+    float halfSegment = [self selectionLabelDistance];
     float mod = 7;
     
     [self drawWeaponLabel];

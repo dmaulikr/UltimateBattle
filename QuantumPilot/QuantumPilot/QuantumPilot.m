@@ -99,9 +99,11 @@ static float outerCircleRadius = 60;
 }
 
 - (void)draw {
-    [self setShipDrawColor];
-    [self drawShip];
-    [self drawCircle];
+    if ([self shouldDraw]) {
+        [self setShipDrawColor];
+        [self drawShip];
+        [self drawCircle];
+    }
 
     if (self.shield) {
         ccDrawCircle(self.innerTopEdge, radius, 0, 50, NO);
@@ -278,6 +280,7 @@ static float outerCircleRadius = 60;
     }
     if ([self isCollidingWithDebris:d]) {
         self.debris += [d level];
+        d.l = ccp(5000,500);
         return true;
     }
     

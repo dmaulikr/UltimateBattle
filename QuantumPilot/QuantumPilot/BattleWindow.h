@@ -15,4 +15,8 @@
 @property (strong, nonatomic) UILabel *l3;
 @property (strong, nonatomic) UILabel *l4;
 
+@property (strong, nonatomic) UILabel *debrisLabel;
+
+- (NSArray *)labels;
+
 @end

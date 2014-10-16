@@ -81,7 +81,7 @@ static QPBattlefield *instance = nil;
         [self setupDeadline];
         [self setupSpeeds];
         [self setupWeapons];
- 
+        
         level = 1;
     }
     return self;
@@ -265,11 +265,19 @@ static QPBattlefield *instance = nil;
             if (sd.pilot == self.pilot) {
                 [d pulse];
             }
+        } else if ([self.pilot processDebris:d]) {
+            [self resetDebrisShow];
         }
 
-        if ([self debrisOutOfBounds:d] || [self.pilot processDebris:d]) {
+        if ([self debrisOutOfBounds:d]) {
             [debrisToErase addObject:d];
         }
+//        } else
+//            [debrisToErase addObject:d];
+//            if ([d isDebris]) {
+//                [self resetDebrisShow];
+//            }
+//        }
     }
     
     for (Debris *d in debrisToErase) {
@@ -408,6 +416,23 @@ static QPBattlefield *instance = nil;
         [self.pilot prepareDeltaDraw];
         for (QuantumClone *c in self.clones) {
             [c defineEdges];
+        }
+    }
+    
+    [self debrisShowPulse];
+}
+
+- (void)debrisShowPulse {
+    if (debrisShow > 0) {
+        if (self.currentState != self.recycleState) {
+            debrisShow--;
+        }
+        
+        if (debrisShow == 0) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"DebrisLabel" object:@{@"x":[NSNumber numberWithInteger:0], @"y" : [NSNumber numberWithInteger:0], @"text" : @""}];
+        } else {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"DebrisLabel" object:@{@"x":[NSNumber numberWithInteger:self.pilot.l.x], @"y" : [NSNumber numberWithInteger:self.pilot.l.y - 10], @"text" : [NSString stringWithFormat:@"%d", self.pilot.debris]}];
+
         }
     }
 }
@@ -662,8 +687,13 @@ static QPBattlefield *instance = nil;
     return false;
 }
 
+- (void)resetDebrisShow {
+    debrisShow = 55;
+}
+
 - (void)reloadDebrisDisplay {
     [self.recycleState reloadDebris:self.pilot.debris];
+    [self resetDebrisShow];
 }
 
 - (void)reloadWarningDisplay {

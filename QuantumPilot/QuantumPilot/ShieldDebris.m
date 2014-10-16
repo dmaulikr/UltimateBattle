@@ -43,4 +43,8 @@
     [super dealloc];
 }
 
+- (bool)isDebris {
+    return false;
+}
+
 @end

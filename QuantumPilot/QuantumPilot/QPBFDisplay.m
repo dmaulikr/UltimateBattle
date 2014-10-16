@@ -49,24 +49,28 @@
     return nil;
 }
 
+- (float)selectionLabelDistance {
+    return 1.25 * [self labelDistance];
+}
+
 - (CGPoint)timePosition {
     float h = 578;
-    return ccp(l.x - [self labelDistance], h - (l.y + [self labelDistance]));
+    return ccp(l.x - [self selectionLabelDistance], h - (l.y + [self selectionLabelDistance]));
 }
 
 - (CGPoint)accuracyPosition {
     float h = 578;
-    return ccp(l.x + [self labelDistance], h - (l.y + [self labelDistance]));
+    return ccp(l.x + [self selectionLabelDistance], h - (l.y + [self selectionLabelDistance]));
 }
 
 - (CGPoint)pathingPosition {
     float h = 578;
-    return ccp(l.x - [self labelDistance], h - (l.y - [self labelDistance]));
+    return ccp(l.x - [self selectionLabelDistance], h - (l.y - [self selectionLabelDistance]));
 }
 
 - (CGPoint)scorePosition {
     float h = 578;
-    return ccp(l.x + [self labelDistance], h - (l.y - [self labelDistance]));
+    return ccp(l.x + [self selectionLabelDistance], h - (l.y - [self selectionLabelDistance]));
 }
 
 - (void)drawLabels {
