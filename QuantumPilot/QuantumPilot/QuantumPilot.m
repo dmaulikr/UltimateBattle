@@ -281,6 +281,8 @@ static float outerCircleRadius = 60;
     if ([self isCollidingWithDebris:d]) {
         self.debris += [d level];
         d.l = ccp(5000,500);
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"DebrisCollected" object:nil];
         return true;
     }
     

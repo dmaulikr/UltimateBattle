@@ -81,7 +81,8 @@ static QPBattlefield *instance = nil;
         [self setupDeadline];
         [self setupSpeeds];
         [self setupWeapons];
-        
+     
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resetDebrisShow) name:@"DebrisCollected" object:nil];
         level = 1;
     }
     return self;
@@ -265,19 +266,11 @@ static QPBattlefield *instance = nil;
             if (sd.pilot == self.pilot) {
                 [d pulse];
             }
-        } else if ([self.pilot processDebris:d]) {
-            [self resetDebrisShow];
         }
 
-        if ([self debrisOutOfBounds:d]) {
+        if ([self debrisOutOfBounds:d] || [self.pilot processDebris:d]) {
             [debrisToErase addObject:d];
         }
-//        } else
-//            [debrisToErase addObject:d];
-//            if ([d isDebris]) {
-//                [self resetDebrisShow];
-//            }
-//        }
     }
     
     for (Debris *d in debrisToErase) {
@@ -688,7 +681,7 @@ static QPBattlefield *instance = nil;
 }
 
 - (void)resetDebrisShow {
-    debrisShow = 55;
+    debrisShow = 115;
 }
 
 - (void)reloadDebrisDisplay {
