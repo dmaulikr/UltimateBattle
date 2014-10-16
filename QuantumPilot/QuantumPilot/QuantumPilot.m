@@ -267,7 +267,7 @@ static float outerCircleRadius = 60;
 }
 
 - (BOOL)isCollidingWithDebris:(Debris *)d {
-    return GetDistance(self.l, d.l) < 50;
+    return GetDistance(self.l, d.l) < 30;
 }
 
 - (void)registerHit {
@@ -275,14 +275,10 @@ static float outerCircleRadius = 60;
 }
 
 - (BOOL)processDebris:(Debris *)d {
-    if ([d isKindOfClass:[ShieldDebris class]]) {
-        return false;
-    }
     if ([self isCollidingWithDebris:d]) {
         self.debris += [d level];
         d.l = ccp(5000,500);
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"DebrisCollected" object:nil];
         return true;
     }
     

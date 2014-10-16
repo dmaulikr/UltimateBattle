@@ -74,6 +74,7 @@ static QPBattlefield *instance = nil;
         self.bullets = [NSMutableArray array];
         self.cloneBullets = [NSMutableArray array];
         self.debris = [NSMutableArray array];
+        self.shieldDebris = [NSMutableArray array];
         [self setupPulses];
         [self setupPilot];
         [self setupStates];
@@ -181,9 +182,12 @@ static QPBattlefield *instance = nil;
 }
 
 - (void)processKill:(QuantumPilot *)c {
-    hits++;
+    if (c != self.pilot) {
+        hits++;
+        [self createDebrisFromCloneKill:(QuantumClone *)c];
+    }
+
     [self registerShieldHit:c weapon:c.weapon];
-    [self createDebrisFromCloneKill:(QuantumClone *)c];
 }
 
 - (void)pulseBullets:(NSMutableArray *)bs targets:(NSArray *)targets {
@@ -225,8 +229,13 @@ static QPBattlefield *instance = nil;
     for (Debris *d in self.debris) {
         [self removeChild:d cleanup:YES];
     }
-    
     [self.debris removeAllObjects];
+    
+    for (ShieldDebris *d in self.shieldDebris) {
+        [self removeChild:d cleanup:YES];
+    }
+    [self.shieldDebris removeAllObjects];
+    
 }
 
 - (void)resetPilot {
@@ -259,17 +268,13 @@ static QPBattlefield *instance = nil;
 - (void)debrisPulse {
     NSMutableArray *debrisToErase = [NSMutableArray array];
     for (Debris *d in self.debris) {
-        if ([self.currentState isShieldDebrisPulsing]) {
-            [d pulse];
-        } else if ([d isKindOfClass:[ShieldDebris class]]) {
-            ShieldDebris *sd = (ShieldDebris *)d;
-            if (sd.pilot == self.pilot) {
-                [d pulse];
-            }
-        }
+        [d pulse];
 
-        if ([self debrisOutOfBounds:d] || [self.pilot processDebris:d]) {
+        if ([self debrisOutOfBounds:d]) {
             [debrisToErase addObject:d];
+        } else if ([self.pilot processDebris:d]) {
+            [debrisToErase addObject:d];
+            [self resetDebrisShow];
         }
     }
     
@@ -391,12 +396,31 @@ static QPBattlefield *instance = nil;
     }
 }
 
+- (void)shieldDebrisPulse {
+    NSMutableArray *debrisToErase = [NSMutableArray array];
+    for (ShieldDebris *d in self.shieldDebris) {
+        [d pulse];
+        
+        if ([self debrisOutOfBounds:d]) {
+            [debrisToErase addObject:d];
+        }
+    }
+    
+    for (ShieldDebris *d in debrisToErase) {
+        [d removeFromParentAndCleanup:YES];
+    }
+    
+    [self.shieldDebris removeObjectsInArray:debrisToErase];
+
+}
+
 - (void)pulse {
     [self.currentState pulse];
     //states manage
     
     [self rhythmPulse];
     [self debrisPulse];
+    [self shieldDebrisPulse];
     
     if ([self isPulsing]) {
         [self.pilot pulse];
@@ -711,7 +735,7 @@ static QPBattlefield *instance = nil;
     if (self.clones.lastObject == p) {
         [d setWeapon:[Arsenal arsenal][0]];
     }
-    [self.debris addObject:d];
+    [self.shieldDebris addObject:d];
     [self addChild:d];
 }
 
