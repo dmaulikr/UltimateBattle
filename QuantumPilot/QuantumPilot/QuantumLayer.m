@@ -25,9 +25,10 @@
         self.f = [QPBattlefield f];
         self.f.layer = self;
         [self addChild:self.f];
-        
         self.breath = [NSTimer scheduledTimerWithTimeInterval:0.016 target:self selector:@selector(breathe) userInfo:nil repeats:YES];
         self.isTouchEnabled = YES;
+        glDisable( GL_BLEND );
+        glColorMask(true, true, true, false);
     }
     return self;
 }

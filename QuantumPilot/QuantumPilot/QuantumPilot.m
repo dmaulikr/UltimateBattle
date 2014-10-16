@@ -86,7 +86,6 @@ static float outerCircleRadius = 60;
 
 - (void)drawCircle {
     if (self.shield) {
-        ccDrawColor4F(1 - [QPBattlefield pulseRotation], 1  - [QPBattlefield pulseRotation], 1  - [QPBattlefield pulseRotation], 1);
         ccDrawCircle(self.innerTopEdge, radius, 0, 50, NO);
     }
     [NSClassFromString(self.weapon) setDrawColor];
@@ -194,7 +193,7 @@ static float outerCircleRadius = 60;
     [self calculateVelocityForTarget];
     [self moveByVelocity];
     [self evaluateReachingTarget];
-    [self setDrawingScaleByBattlefieldRhythm];
+  //  [self setDrawingScaleByBattlefieldRhythm];
     
     [self copyDeltas];
     [self resetFiring];
@@ -216,7 +215,7 @@ static float outerCircleRadius = 60;
             drawFrameTotal = 0;
         }
         
-        innerRadius = innerCircleRadius * [QPBattlefield pulseRotation];
+       innerRadius = innerCircleRadius * [QPBattlefield pulseRotation];
     }
 }
 

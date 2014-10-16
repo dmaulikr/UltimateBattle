@@ -92,6 +92,7 @@ static QPBattlefield *instance = nil;
 }
 
 + (float)pulseRotation {
+//    return 1;
     return [[QPBattlefield f] pulseRotation];
 }
 

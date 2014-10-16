@@ -44,6 +44,7 @@
 	[CCTexture2D PVRImagesHavePremultipliedAlpha:YES];
 //	[director_ pushScene: [WeaponsTestLayer scene]];
 	[director_ pushScene: [QuantumLayer scene]];
+    [director_ setDisplayStats:true];
     [window_ setMultipleTouchEnabled:YES];
 	
 	// Create a Navigation Controller with the Director
