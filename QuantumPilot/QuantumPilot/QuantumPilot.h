@@ -100,6 +100,10 @@
 
 - (void)defineEdges;
 
+- (void)assignInnerCircleRadius;
+
+- (void)prepareDeltaDraw;
+
 @end
 
 @protocol QuantumPilotingDelegate <NSObject>

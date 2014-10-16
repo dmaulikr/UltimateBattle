@@ -147,7 +147,7 @@ static QPBattlefield *instance = nil;
 #pragma mark Bullets
 
 - (CGRect)battlefieldFrame {
-    return CGRectMake(0, 0, 768, 1024);
+    return CGRectMake(-100, -100, 768 + 100, 1024 + 100);
 }
 
 - (BOOL)bulletOutOfBounds:(Bullet *)b {
@@ -182,7 +182,7 @@ static QPBattlefield *instance = nil;
 - (void)processKill:(QuantumPilot *)c {
     hits++;
     [self registerShieldHit:c weapon:c.weapon];
-    [self createDebrisFromCloneKill:c];
+    [self createDebrisFromCloneKill:(QuantumClone *)c];
 }
 
 - (void)pulseBullets:(NSMutableArray *)bs targets:(NSArray *)targets {
@@ -194,21 +194,9 @@ static QPBattlefield *instance = nil;
                         [self processKill:p];
                     }
                 }
-//                if (b.vel.y < 0) {
-//                    if(fabs  ) {
-//                    
-//                    }
-//                } else {
-//                    if(p.l.y > b.l.y + 40) {
-//                        if ([p processBullet:b]) {
-//                            [self processKill:p];
-//                        }
-//                    }
-//                }
             }
         }
     }
-    
     
     NSMutableArray *bulletsToErase = [NSMutableArray array];
     for (Bullet *b in bs) {
@@ -409,7 +397,6 @@ static QPBattlefield *instance = nil;
     [self rhythmPulse];
     [self debrisPulse];
     
-    
     if ([self isPulsing]) {
         [self.pilot pulse];
         [self clonesPulse];
@@ -418,6 +405,7 @@ static QPBattlefield *instance = nil;
         [self moveDeadline];
     } else { //if (self.currentState == self.pausedState) {
         [self.pilot defineEdges];
+        [self.pilot prepareDeltaDraw];
         for (QuantumClone *c in self.clones) {
             [c defineEdges];
         }
