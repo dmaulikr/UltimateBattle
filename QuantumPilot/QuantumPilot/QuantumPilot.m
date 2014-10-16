@@ -94,9 +94,6 @@ static float outerCircleRadius = 60;
 }
 
 - (void)drawCircle {
-    if (self.shield) {
-        ccDrawCircle(self.innerTopEdge, radius, 0, 50, NO);
-    }
     [NSClassFromString(self.weapon) setDrawColor];
     ccDrawFilledCircle(self.innerTopEdge, innerRadius, 0, 30, NO);
 }
@@ -105,6 +102,10 @@ static float outerCircleRadius = 60;
     [self setShipDrawColor];
     [self drawShip];
     [self drawCircle];
+
+    if (self.shield) {
+        ccDrawCircle(self.innerTopEdge, radius, 0, 50, NO);
+    }
 
     ccDrawPoly(drawingDeltas, drawFrameTotal, NO);
 }
