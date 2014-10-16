@@ -46,7 +46,7 @@
 }
 
 - (void)drawCircle {
-    ccDrawFilledCircle(self.l, 2, 0, 30, NO);
+    ccDrawFilledCircle(self.l, radius, 0, 30, NO);
 }
 
 - (void)draw {
