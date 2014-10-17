@@ -56,7 +56,7 @@ static QPBattlefield *instance = nil;
     self.fightingState = [[[QPBFFightingState alloc] initWithBattlefield:self] autorelease];
     self.scoreState = [[[QPBFScoreState alloc] initWithBattlefield:self] autorelease];
     self.recycleState = [[[QPBFRecycleState alloc] initWithBattlefield:self] autorelease];
-    self.currentState = self.titleState;
+    [self changeState:self.titleState];
 }
 
 - (void)setupDeadline {
@@ -248,7 +248,7 @@ static QPBattlefield *instance = nil;
     [self eraseClones];
     [self eraseDebris];
     [self resetPilot];
-    [self changeState:self.pausedState];
+    [self changeState:self.titleState];
     [self setupClone];
     [self.dl reset];
     [self resetLevelScore];
@@ -399,7 +399,9 @@ static QPBattlefield *instance = nil;
 - (void)shieldDebrisPulse {
     NSMutableArray *debrisToErase = [NSMutableArray array];
     for (ShieldDebris *d in self.shieldDebris) {
-        [d pulse];
+        if ([self.currentState isShieldDebrisPulsing] || d.pilot == self.pilot) {
+            [d pulse];
+        }
         
         if ([self debrisOutOfBounds:d]) {
             [debrisToErase addObject:d];
@@ -414,15 +416,35 @@ static QPBattlefield *instance = nil;
 
 }
 
+- (void)titlePulse {
+    if (titleSlide) {
+        if (titleDelay) {
+            titleDelay--;
+            return;
+        }
+        titleY--;
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"TitleLabel" object:@{@"x":[NSNumber numberWithInteger:160], @"y" : [NSNumber numberWithInteger:titleY], @"text" : @"QUANTUM PILOT"}];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"SubtitleLabel" object:@{@"x":[NSNumber numberWithInteger:160], @"y" : [NSNumber numberWithInteger:titleY + 25], @"text" : @"You are your own worst enemy"}];
+
+        
+        if (titleY < -50) {
+            titleSlide = false;
+        }
+    }
+}
+
 - (void)pulse {
     [self.currentState pulse];
     //states manage
     
+    [self titlePulse];
+    
     [self rhythmPulse];
-    [self debrisPulse];
     [self shieldDebrisPulse];
     
     if ([self isPulsing]) {
+        [self debrisPulse];
         [self.pilot pulse];
         [self clonesPulse];
         [self killPulse];
@@ -457,7 +479,15 @@ static QPBattlefield *instance = nil;
 #pragma mark States
 
 - (void)changeState:(QPBFState *)state withOptions:(NSDictionary *)options {
-    [self.currentState deactivate];
+    if (self.currentState == self.titleState) {
+        titleSlide = true;
+        titleDelay = 225;
+        titleY = 50;
+    }
+    
+    if (self.currentState) {
+        [self.currentState deactivate];
+    }
     self.currentState = state;
     [self.currentState activate:options];
     self.pilot.blinking = self.currentState == self.pausedState;

@@ -17,6 +17,9 @@
 
 @property (strong, nonatomic) UILabel *debrisLabel;
 
+@property (strong, nonatomic) UILabel *titleLabel;
+@property (strong, nonatomic) UILabel *subTitle;
+
 - (NSArray *)labels;
 
 @end

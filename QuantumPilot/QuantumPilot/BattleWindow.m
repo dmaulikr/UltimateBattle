@@ -12,18 +12,21 @@
 @implementation BattleWindow
 
 - (NSArray *)labels {
-    return @[self.l1, self.l2, self.l3, self.l4, self.debrisLabel];
+    return @[self.l1, self.l2, self.l3, self.l4, self.debrisLabel, self.titleLabel, self.subTitle];
 }
 
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     
-    self.l1 = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 90)];
-    self.l2 = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 90)];
-    self.l3 = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 90)];
-    self.l4 = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 90)];
+    self.l1 = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 90)] autorelease];
+    self.l2 = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 90)] autorelease];
+    self.l3 = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 90)] autorelease];
+    self.l4 = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 90)] autorelease];
     
-    self.debrisLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 90)];
+    self.debrisLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 90)] autorelease];
+    
+    self.titleLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 100)] autorelease];
+    self.subTitle = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 60)] autorelease];
     
     for (UILabel *l in [self labels]) {
         l.backgroundColor = [UIColor clearColor];
@@ -34,17 +37,48 @@
         l.font = [UIFont systemFontOfSize:12];
     }
     
+    self.titleLabel.font = [UIFont systemFontOfSize:30];
+    self.subTitle.font = [UIFont systemFontOfSize:16];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateL1:) name:@"L1" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateL2:) name:@"L2" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateL3:) name:@"L3" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateL4:) name:@"L4" object:nil];
 
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateLabel:) name:@"label" object:nil];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateDebrisLabel:) name:@"DebrisLabel" object:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateTitleLabel:) name:@"TitleLabel" object:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateSubtitleLabel:) name:@"SubtitleLabel" object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hideLabels) name:@"clearLabels" object:nil];
     
     return self;
 }
+
+//- (void)updateLabel:(NSNotification *)n {
+//    NSDictionary *d = n.object;
+//    int index = [d[@"index"] intValue];
+//    UILabel *l = [self labels][index];
+//    l.center = ccp([d[@"x"] intValue], [d[@"y"] intValue]);
+//    l.text = d[@"text"];
+//}
+
+- (void)updateTitleLabel:(NSNotification *)n {
+    NSDictionary *d = n.object;
+    self.titleLabel.center = ccp([d[@"x"] intValue], [d[@"y"] intValue]);
+    self.titleLabel.text = d[@"text"];
+}
+
+- (void)updateSubtitleLabel:(NSNotification *)n {
+    NSDictionary *d = n.object;
+    self.subTitle.center = ccp([d[@"x"] intValue], [d[@"y"] intValue]);
+    self.subTitle.text = d[@"text"];
+}
+
+
 
 - (void)updateL1:(NSNotification *)n {
     NSDictionary *d = n.object;

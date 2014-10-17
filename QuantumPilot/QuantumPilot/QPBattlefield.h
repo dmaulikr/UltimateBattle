@@ -42,6 +42,10 @@ enum pulsestate {
     int slow;
     
     int debrisShow;
+    
+    int titleY;
+    int titleDelay;
+    bool titleSlide;
 }
 
 @property (nonatomic, retain) NSMutableArray *bullets;
