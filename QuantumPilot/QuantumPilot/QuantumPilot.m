@@ -46,7 +46,7 @@ static float outerCircleRadius = 60;
     self = [super init];
     if (self) {
         [self engage];
-        _debris = 55555;
+        _debris = 0;
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self assignInnerCircleRadius];
         });
@@ -276,7 +276,7 @@ static float outerCircleRadius = 60;
 
 - (BOOL)processDebris:(Debris *)d {
     if ([self isCollidingWithDebris:d]) {
-        self.debris += [d level];
+        self.debris += ([d level] + 1);
         d.l = ccp(5000,500);
         
         return true;
