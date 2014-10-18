@@ -24,10 +24,8 @@ static float shipTopHeight = 28;
 static float shipSideWidth = 8.5;
 static float shipBottomHeight = 5.75;
 static float innerTopHeight = 5.75;
-static float innerCircleRadius = 2.6;
-
-
-static float outerCircleRadius = 60;
+//static float innerCircleRadius = 1.3; //2.6
+//static float outerCircleRadius = 60;
 
 - (NSInteger)yDirection {
     return -1;
@@ -47,17 +45,17 @@ static float outerCircleRadius = 60;
     if (self) {
         [self engage];
         _debris = 0;
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self assignInnerCircleRadius];
-        });
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//            [self assignInnerCircleRadius];
+//        });
 
-        innerCircleRadius = 2;
+//        innerCircleRadius = 2;
     }
     return self;
 }
 
 - (void)assignInnerCircleRadius {
-    innerRadius = innerCircleRadius * [QPBattlefield pulseRotation];
+    innerRadius = 1.7 * [QPBattlefield pulseRotation];
 }
 
 - (void)installWeapon:(NSString *)w {

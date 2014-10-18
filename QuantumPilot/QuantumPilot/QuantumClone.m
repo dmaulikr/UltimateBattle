@@ -90,7 +90,7 @@ static int fireSignalValue = 89;
         timeIndex++;
     }
     [self defineEdges];
-    radius = (float)fireSignal/(float)fireSignalValue * 2.6;
+    radius = (float)fireSignal/(float)fireSignalValue * 1.7;
 }
 
 - (void)setShipDrawColor {

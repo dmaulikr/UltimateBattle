@@ -30,7 +30,7 @@
         _edges = 30;
     }
     
-    radius = iterations * 11;
+    radius = iterations * 7;
 }
 
 - (bool)dissipated {

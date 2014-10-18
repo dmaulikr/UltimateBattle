@@ -38,7 +38,7 @@
 
 - (void)pulse {
     self.l = CombinedPoint(self.l, ccp(0,-2));
-    radius = 2.6 * [QPBattlefield pulseRotation];
+    radius = 1.7 * [QPBattlefield pulseRotation];
 }
 
 - (void)establishColor {
