@@ -231,11 +231,10 @@ static QPBattlefield *instance = nil;
     }
     [self.debris removeAllObjects];
     
-    for (ShieldDebris *d in self.shieldDebris) {
-        [self removeChild:d cleanup:YES];
-    }
-    [self.shieldDebris removeAllObjects];
-    
+//    for (ShieldDebris *d in self.shieldDebris) {
+//        [self removeChild:d cleanup:YES];
+//    }
+//    [self.shieldDebris removeAllObjects];
 }
 
 - (void)resetPilot {
@@ -319,8 +318,6 @@ static QPBattlefield *instance = nil;
     
     NSNumber *accBonus = [NSNumber numberWithInteger:(int)floorf(ab)];
     NSNumber *timeBonus = [NSNumber numberWithInteger:self.dl.y * 10];
-    NSLog(@"ab:%f, accBonus: %@", ab, accBonus);
-    
     
     float pathing = 0;
     if (paths <= 1) {
@@ -333,8 +330,6 @@ static QPBattlefield *instance = nil;
     
     NSNumber *pathingBonus = [NSNumber numberWithFloat:pathing];
     NSNumber *currentScore = [NSNumber numberWithInteger:self.score];
-    
-    NSLog(@"currentScore: %d -- %d", [currentScore intValue], self.score);
     
     return @{QP_BF_TIMESCORE: timeBonus, QP_BF_ACCSCORE: accBonus, QP_BF_PATHSCORE: pathingBonus, QP_BF_SCORE: currentScore};
 }
@@ -390,10 +385,12 @@ static QPBattlefield *instance = nil;
     } else {
         slow--;
     }
-
+    
     if (self.dl.y < self.pilot.l.y) {
+        [self registerShieldHit:self.pilot weapon:@"Deadline"];
         [self resetBattlefield];
     }
+
 }
 
 - (void)shieldDebrisPulse {
@@ -557,7 +554,6 @@ static QPBattlefield *instance = nil;
 
 - (void)bulletsFired:(NSArray *)bullets {
     shotsFired++;
-    NSLog(@"shotsFired: %d", shotsFired);
     
     for (Bullet *b in bullets) {
         [self addChild:b];

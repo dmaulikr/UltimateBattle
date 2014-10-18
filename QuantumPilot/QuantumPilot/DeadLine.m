@@ -46,4 +46,8 @@
     ccDrawLine(ccp(0,self.y), ccp(320,self.y));
 }
 
++ (void)setDrawColor {
+    ccDrawColor4F(1, 0, 0, 1);
+}
+
 @end
