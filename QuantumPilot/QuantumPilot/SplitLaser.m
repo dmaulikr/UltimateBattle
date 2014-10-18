@@ -31,6 +31,9 @@ static float halfSegment = 1.5;
     ccDrawPoly(lines, 2, true);
 }
 
+- (NSString *)weapon {
+    return @"SplitaserCannon";
+}
 
 
 @end

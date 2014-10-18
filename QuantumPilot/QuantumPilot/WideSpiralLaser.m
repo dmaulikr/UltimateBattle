@@ -19,4 +19,9 @@
     [WideSpiralLaserCannon setDrawColor];
 }
 
+- (NSString *)weapon {
+    return @"WideSpiralLaserCannon";
+}
+
+
 @end

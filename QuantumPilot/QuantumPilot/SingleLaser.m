@@ -45,4 +45,8 @@ static float triangleHeight = 3;
     ccDrawPoly(lines, 3, false);
 }
 
+- (NSString *)weapon {
+    return @"SingleLaserCannon";
+}
+
 @end

@@ -30,7 +30,10 @@ static float halfSegment = 3;
     
     lines[0] = ccp(self.l.x + (_xDirection * halfSegment * [self xDrawRate]), self.l.y + ([self yDirection] * halfSegment * [self yDrawRate]));
     lines[1] = ccp(self.l.x - (_xDirection * halfSegment * [self xDrawRate]), self.l.y - ([self yDirection] * halfSegment * [self yDrawRate]));
-    
+}
+
+- (NSString *)weapon {
+    return @"QuadLaserCannon";
 }
 
 

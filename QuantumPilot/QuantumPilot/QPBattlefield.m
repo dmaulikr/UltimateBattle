@@ -6,6 +6,7 @@
 #import "WideSpiralLaserCannon.h"
 #import "QuadLaserCannon.h"
 #import "Arsenal.h"
+#import "Shatter.h"
 
 @implementation QPBattlefield
 
@@ -75,6 +76,7 @@ static QPBattlefield *instance = nil;
         self.cloneBullets = [NSMutableArray array];
         self.debris = [NSMutableArray array];
         self.shieldDebris = [NSMutableArray array];
+        self.shatters = [NSMutableArray array];
         [self setupPulses];
         [self setupPilot];
         [self setupStates];
@@ -167,10 +169,10 @@ static QPBattlefield *instance = nil;
     [self.cloneBullets removeAllObjects];
 }
 
-- (void)createDebrisFromCloneKill:(QuantumClone *)c {
-    if (self.clones.lastObject == c) {
-        return;
-    }
+- (void)createDebrisFromCloneKill:(QuantumClone *)c bullet:(Bullet *)b {
+//    if (self.clones.lastObject == c) {
+//        return;
+//    }
     
     int debrisLevel = [[Arsenal arsenal] indexOfObject:c.weapon];
     
@@ -178,13 +180,16 @@ static QPBattlefield *instance = nil;
     [d setLevel:debrisLevel];
     [self addChild:d];
     [self.debris addObject:d];
-
+    
+    Shatter *s = [[[Shatter alloc] initWithL:c.l weapon:[b weapon]] autorelease];
+    [self.shatters addObject:s];
+    [self addChild:s];
 }
 
-- (void)processKill:(QuantumPilot *)c {
+- (void)processKill:(QuantumPilot *)c bullet:(Bullet *)b {
     if (c != self.pilot) {
         hits++;
-        [self createDebrisFromCloneKill:(QuantumClone *)c];
+        [self createDebrisFromCloneKill:(QuantumClone *)c bullet:b];
     }
 
     [self registerShieldHit:c weapon:c.weapon];
@@ -196,7 +201,7 @@ static QPBattlefield *instance = nil;
             if (p.active) {
                 if (fabsf(p.l.x - b.l.x) + fabsf(p.l.y - b.l.y) < 50) {
                     if ([p processBullet:b]) {
-                        [self processKill:p];
+                        [self processKill:p bullet:b];
                     }
                 }
             }
@@ -429,6 +434,12 @@ static QPBattlefield *instance = nil;
     }
 }
 
+- (void)shatterPulse {
+    for (Shatter *s in self.shatters) {
+        [s pulse];
+    }
+}
+
 - (void)pulse {
     [self.currentState pulse];
     //states manage
@@ -437,6 +448,7 @@ static QPBattlefield *instance = nil;
     
     [self rhythmPulse];
     [self shieldDebrisPulse];
+    [self shatterPulse];
     
     if ([self isPulsing]) {
         [self debrisPulse];
@@ -752,15 +764,15 @@ static QPBattlefield *instance = nil;
 #pragma mark Pilot effects
 
 - (void)registerShieldHit:(QuantumPilot *)p weapon:(NSString *)w {
-    ShieldDebris *d = [[[ShieldDebris alloc] init] autorelease];
-    d.l = p.l;
-    d.pilot = p;
-    [d setWeapon:w];
-    if (self.clones.lastObject == p) {
-        [d setWeapon:[Arsenal arsenal][0]];
-    }
-    [self.shieldDebris addObject:d];
-    [self addChild:d];
+//    ShieldDebris *d = [[[ShieldDebris alloc] init] autorelease];
+//    d.l = p.l;
+//    d.pilot = p;
+//    [d setWeapon:w];
+//    if (self.clones.lastObject == p) {
+//        [d setWeapon:[Arsenal arsenal][0]];
+//    }
+//    [self.shieldDebris addObject:d];
+//    [self addChild:d];
 }
 
 - (void)registerShieldHit:(QuantumPilot *)p {

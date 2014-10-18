@@ -36,5 +36,9 @@
     return self.vel.y < 0 ? -1 : 1;
 }
 
+- (NSString *)weapon {
+    return nil;
+}
+
 @end
 

@@ -37,4 +37,8 @@ static float halfSegment = 1.5;
     return [[Weapon w] speed] - .2;
 }
 
+- (NSString *)weapon {
+    return @"WideTriLaserCannon";
+}
+
 @end

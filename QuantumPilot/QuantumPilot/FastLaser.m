@@ -33,11 +33,15 @@ static float triangleHeight = 3;
     lines[2] = ccp(self.l.x + (triangleWidth * _ratio), self.l.y - (triangleHeight * [self yDirection]));
     
     ccDrawPoly(lines, 3, false);
-
 }
 
 - (void)setDrawColor {
      ccDrawColor4F(.8, .03, .8, 1.0);   
 }
+
+- (NSString *)weapon {
+    return @"FastLaserCannon";
+}
+
 
 @end

@@ -25,6 +25,7 @@
 		0E74ED7A19D5B51400D55989 /* TightSpiralLaser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E74ED7919D5B51400D55989 /* TightSpiralLaser.m */; };
 		0E773A2319D8FDFA00009DA0 /* WideTriLaserCannon.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E773A2219D8FDFA00009DA0 /* WideTriLaserCannon.m */; };
 		0E773A2619D8FE1100009DA0 /* WideTriLaser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E773A2519D8FE1100009DA0 /* WideTriLaser.m */; };
+		0E87A21919F30DE200B55AA2 /* Shatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E87A21819F30DE200B55AA2 /* Shatter.m */; };
 		0E8A113E197D56510028A78F /* FastLaser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E8A113D197D56510028A78F /* FastLaser.m */; };
 		0E9356E619BBCD160023E1B0 /* ShieldDebris.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E9356E519BBCD160023E1B0 /* ShieldDebris.m */; };
 		0EC9E70F1967907400497BB9 /* DeadLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EC9E70E1967907400497BB9 /* DeadLine.m */; };
@@ -199,6 +200,8 @@
 		0E773A2219D8FDFA00009DA0 /* WideTriLaserCannon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WideTriLaserCannon.m; sourceTree = "<group>"; };
 		0E773A2419D8FE1100009DA0 /* WideTriLaser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WideTriLaser.h; sourceTree = "<group>"; };
 		0E773A2519D8FE1100009DA0 /* WideTriLaser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WideTriLaser.m; sourceTree = "<group>"; };
+		0E87A21719F30DE200B55AA2 /* Shatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shatter.h; sourceTree = "<group>"; };
+		0E87A21819F30DE200B55AA2 /* Shatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shatter.m; sourceTree = "<group>"; };
 		0E8A113C197D56510028A78F /* FastLaser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FastLaser.h; sourceTree = "<group>"; };
 		0E8A113D197D56510028A78F /* FastLaser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FastLaser.m; sourceTree = "<group>"; };
 		0E9356E419BBCD160023E1B0 /* ShieldDebris.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShieldDebris.h; sourceTree = "<group>"; };
@@ -547,6 +550,8 @@
 				0EF96AB0197598C900E5DBE2 /* Debris.m */,
 				0E9356E419BBCD160023E1B0 /* ShieldDebris.h */,
 				0E9356E519BBCD160023E1B0 /* ShieldDebris.m */,
+				0E87A21719F30DE200B55AA2 /* Shatter.h */,
+				0E87A21819F30DE200B55AA2 /* Shatter.m */,
 			);
 			name = Cycling;
 			sourceTree = "<group>";
@@ -1275,6 +1280,7 @@
 				BF8A76A2163646270032AF8F /* QPBattlefield.m in Sources */,
 				BF8A76AA16365CFE0032AF8F /* TriLaser.m in Sources */,
 				BF8A76AD16366DD30032AF8F /* QuadLaser.m in Sources */,
+				0E87A21919F30DE200B55AA2 /* Shatter.m in Sources */,
 				BF18895216374B4000C05703 /* SplitLaser.m in Sources */,
 				0EEAC48C16B73BC3005F629F /* QPBFState.m in Sources */,
 				0EEAC48F16B73C35005F629F /* QPBFTitleState.m in Sources */,

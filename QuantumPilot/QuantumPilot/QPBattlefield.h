@@ -52,6 +52,7 @@ enum pulsestate {
 @property (nonatomic, retain) NSMutableArray *cloneBullets;
 @property (nonatomic, retain) NSMutableArray *debris;
 @property (nonatomic, retain) NSMutableArray *shieldDebris;
+@property (nonatomic, retain) NSMutableArray *shatters;
 @property (nonatomic, retain) QuantumPilot *pilot;
 @property (nonatomic, assign) CCLayer *layer;
 

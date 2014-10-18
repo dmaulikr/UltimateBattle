@@ -51,4 +51,9 @@ static float halfSegment = 1.2;
     lines[1] = ccp(self.l.x - (_xDirection * halfSegment * .15), self.l.y - (_yDirection * halfSegment * .85));
 }
 
+- (NSString *)weapon {
+    return @"TightSpiralLaserCannon";
+}
+
+
 @end
