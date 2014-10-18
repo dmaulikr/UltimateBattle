@@ -51,7 +51,7 @@
 }
 
 - (bool)dissipated {
-    return iteration > 100;
+    return iteration > 900;
 }
 
 - (void)dealloc {
