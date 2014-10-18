@@ -387,7 +387,7 @@ static QPBattlefield *instance = nil;
     }
     
     if (self.dl.y < self.pilot.l.y) {
-        [self registerShieldHit:self.pilot weapon:@"Deadline"];
+        [self registerShieldHit:self.pilot weapon:@"DeadLine"];
         [self resetBattlefield];
     }
 
@@ -627,7 +627,7 @@ static QPBattlefield *instance = nil;
 }
             
 - (int)warningCost {
-    return (level - 1) * 5;
+    return (level - 1);
 }
 
 - (bool)canAffordWarning {
@@ -707,7 +707,7 @@ static QPBattlefield *instance = nil;
 }
 
 - (int)slowCost {
-    return 5 * (level - 1);
+    return (level - 1);
 }
 
 - (bool)canAffordSlow {
