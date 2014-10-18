@@ -19,6 +19,9 @@
         accuracy = a;
         pathing = p;
         score = s;
+        
+        self.totalScoreIncrease = time + accuracy + pathing;
+        
         NSLog(@"display opening score: %d", score);
 
         pathingPerfect = pathing == 100000;

@@ -106,7 +106,9 @@
 
 - (void)hideLabels {
     for (UILabel *l in [self labels]) {
-        l.center = ccp(5000,5000);
+        if (l != self.titleLabel && l!= self.subTitle) {
+            l.center = ccp(5000,5000);
+        }
     }
 }
 
