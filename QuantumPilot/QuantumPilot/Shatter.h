@@ -25,6 +25,8 @@
 
 - (void)pulse;
 
+- (bool)dissipated;
+
 - (id)initWithL:(CGPoint)l weapon:(NSString *)w;
 
 @end

@@ -435,9 +435,19 @@ static QPBattlefield *instance = nil;
 }
 
 - (void)shatterPulse {
+    NSMutableArray *shattersToErase = [NSMutableArray array];
     for (Shatter *s in self.shatters) {
         [s pulse];
+        if ([s dissipated]) {
+            [shattersToErase addObject:s];
+        }
     }
+    
+    for (Shatter *s in shattersToErase) {
+        [self removeChild:s cleanup:true];
+    }
+    
+    [self.shatters removeObjectsInArray:shattersToErase];
 }
 
 - (void)pulse {
