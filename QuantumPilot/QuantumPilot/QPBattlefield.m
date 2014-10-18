@@ -396,9 +396,7 @@ static QPBattlefield *instance = nil;
 - (void)shieldDebrisPulse {
     NSMutableArray *debrisToErase = [NSMutableArray array];
     for (ShieldDebris *d in self.shieldDebris) {
-        if ([self.currentState isShieldDebrisPulsing] || d.pilot == self.pilot) {
-            [d pulse];
-        }
+        [d pulse];
         
         if ([self debrisOutOfBounds:d]) {
             [debrisToErase addObject:d];
