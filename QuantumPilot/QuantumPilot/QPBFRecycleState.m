@@ -15,6 +15,7 @@
 - (void)addTouch:(CGPoint)l {
     CGPoint p = self.f.pilot.l;
     if (GetDistance(l, p) < 40) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"clearLabels" object:nil];
         [self.f changeState:self.f.pausedState withTouch:l];
     } else if (l.x < p.x - 20) {
         if (l.y < p.y - 20) {
@@ -56,7 +57,7 @@
 }
 
 - (void)pulse {
-    
+    [self.display pulse];
 }
 
 - (void)showWeapon:(NSString *)w {

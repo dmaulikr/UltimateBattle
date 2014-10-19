@@ -28,9 +28,6 @@ static float halfSegment = 1.2;
 
 - (void)draw {
     [self setColor];
-    lines[0] = ccp(self.l.x + (_xDirection * halfSegment * .15), self.l.y + (_yDirection * halfSegment * .85));
-    lines[1] = ccp(self.l.x - (_xDirection * halfSegment * .15), self.l.y - (_yDirection * halfSegment * .85));
-    
     ccDrawPoly(lines, 2, true);
 }
 
@@ -48,8 +45,15 @@ static float halfSegment = 1.2;
 
 - (void)pulse {
     [super pulse];
-    
     [self oscillate];
+    
+    lines[0] = ccp(self.l.x + (_xDirection * halfSegment * .15), self.l.y + (_yDirection * halfSegment * .85));
+    lines[1] = ccp(self.l.x - (_xDirection * halfSegment * .15), self.l.y - (_yDirection * halfSegment * .85));
 }
+
+- (NSString *)weapon {
+    return @"TightSpiralLaserCannon";
+}
+
 
 @end

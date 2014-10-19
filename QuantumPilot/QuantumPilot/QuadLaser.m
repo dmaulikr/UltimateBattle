@@ -16,10 +16,6 @@ static float halfSegment = 3;
 
 - (void)draw {
     [QuadLaserCannon setDrawColor];
-    
-    lines[0] = ccp(self.l.x + (_xDirection * halfSegment * [self xDrawRate]), self.l.y + ([self yDirection] * halfSegment * [self yDrawRate]));
-    lines[1] = ccp(self.l.x - (_xDirection * halfSegment * [self xDrawRate]), self.l.y - ([self yDirection] * halfSegment * [self yDrawRate]));
-    
     ccDrawPoly(lines, 2, true);
 }
 
@@ -31,6 +27,13 @@ static float halfSegment = 3;
     } else if (self.vel.x > 0) {
         _xDirection = 1;
     }
+    
+    lines[0] = ccp(self.l.x + (_xDirection * halfSegment * [self xDrawRate]), self.l.y + ([self yDirection] * halfSegment * [self yDrawRate]));
+    lines[1] = ccp(self.l.x - (_xDirection * halfSegment * [self xDrawRate]), self.l.y - ([self yDirection] * halfSegment * [self yDrawRate]));
+}
+
+- (NSString *)weapon {
+    return @"QuadLaserCannon";
 }
 
 

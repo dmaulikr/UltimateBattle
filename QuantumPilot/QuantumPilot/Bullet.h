@@ -28,4 +28,6 @@
 
 - (int)yDirection;
 
+- (NSString *)weapon;
+
 @end

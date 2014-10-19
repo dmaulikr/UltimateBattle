@@ -16,6 +16,7 @@
 		0E0FE17E19D93DE4001EA38F /* CenterWideSpiralLaser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E0FE17D19D93DE4001EA38F /* CenterWideSpiralLaser.m */; };
 		0E0FE18119D93FC6001EA38F /* WideSpiralLaser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E0FE18019D93FC6001EA38F /* WideSpiralLaser.m */; };
 		0E11F5D31968F04100205E8D /* SplitLaserCannon.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E11F5D21968F04100205E8D /* SplitLaserCannon.m */; };
+		0E22E95E19ECCAF900261AC5 /* BattleWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E22E95D19ECCAF900261AC5 /* BattleWindow.m */; };
 		0E63B75216C7039100F63829 /* QPBFFightingState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E63B75116C7039100F63829 /* QPBFFightingState.m */; };
 		0E63B75516C712B800F63829 /* QPBFPausedState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E63B75416C712B800F63829 /* QPBFPausedState.m */; };
 		0E63B75816C71BF700F63829 /* Weapon.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E63B75716C71BF700F63829 /* Weapon.m */; };
@@ -24,6 +25,7 @@
 		0E74ED7A19D5B51400D55989 /* TightSpiralLaser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E74ED7919D5B51400D55989 /* TightSpiralLaser.m */; };
 		0E773A2319D8FDFA00009DA0 /* WideTriLaserCannon.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E773A2219D8FDFA00009DA0 /* WideTriLaserCannon.m */; };
 		0E773A2619D8FE1100009DA0 /* WideTriLaser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E773A2519D8FE1100009DA0 /* WideTriLaser.m */; };
+		0E87A21919F30DE200B55AA2 /* Shatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E87A21819F30DE200B55AA2 /* Shatter.m */; };
 		0E8A113E197D56510028A78F /* FastLaser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E8A113D197D56510028A78F /* FastLaser.m */; };
 		0E9356E619BBCD160023E1B0 /* ShieldDebris.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E9356E519BBCD160023E1B0 /* ShieldDebris.m */; };
 		0EC9E70F1967907400497BB9 /* DeadLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EC9E70E1967907400497BB9 /* DeadLine.m */; };
@@ -180,6 +182,8 @@
 		0E0FE18019D93FC6001EA38F /* WideSpiralLaser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WideSpiralLaser.m; sourceTree = "<group>"; };
 		0E11F5D11968F04100205E8D /* SplitLaserCannon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplitLaserCannon.h; sourceTree = "<group>"; };
 		0E11F5D21968F04100205E8D /* SplitLaserCannon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplitLaserCannon.m; sourceTree = "<group>"; };
+		0E22E95C19ECCAF900261AC5 /* BattleWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BattleWindow.h; sourceTree = "<group>"; };
+		0E22E95D19ECCAF900261AC5 /* BattleWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BattleWindow.m; sourceTree = "<group>"; };
 		0E63B75016C7039100F63829 /* QPBFFightingState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBFFightingState.h; sourceTree = "<group>"; };
 		0E63B75116C7039100F63829 /* QPBFFightingState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBFFightingState.m; sourceTree = "<group>"; };
 		0E63B75316C712B800F63829 /* QPBFPausedState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBFPausedState.h; sourceTree = "<group>"; };
@@ -196,6 +200,8 @@
 		0E773A2219D8FDFA00009DA0 /* WideTriLaserCannon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WideTriLaserCannon.m; sourceTree = "<group>"; };
 		0E773A2419D8FE1100009DA0 /* WideTriLaser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WideTriLaser.h; sourceTree = "<group>"; };
 		0E773A2519D8FE1100009DA0 /* WideTriLaser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WideTriLaser.m; sourceTree = "<group>"; };
+		0E87A21719F30DE200B55AA2 /* Shatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shatter.h; sourceTree = "<group>"; };
+		0E87A21819F30DE200B55AA2 /* Shatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shatter.m; sourceTree = "<group>"; };
 		0E8A113C197D56510028A78F /* FastLaser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FastLaser.h; sourceTree = "<group>"; };
 		0E8A113D197D56510028A78F /* FastLaser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FastLaser.m; sourceTree = "<group>"; };
 		0E9356E419BBCD160023E1B0 /* ShieldDebris.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShieldDebris.h; sourceTree = "<group>"; };
@@ -544,6 +550,8 @@
 				0EF96AB0197598C900E5DBE2 /* Debris.m */,
 				0E9356E419BBCD160023E1B0 /* ShieldDebris.h */,
 				0E9356E519BBCD160023E1B0 /* ShieldDebris.m */,
+				0E87A21719F30DE200B55AA2 /* Shatter.h */,
+				0E87A21819F30DE200B55AA2 /* Shatter.m */,
 			);
 			name = Cycling;
 			sourceTree = "<group>";
@@ -1070,6 +1078,8 @@
 				BF0EE1F7163319BB002942A0 /* AppDelegate.m */,
 				BFB9DD641633D04E0074EB70 /* QuantumLayer.h */,
 				BFB9DD651633D04E0074EB70 /* QuantumLayer.m */,
+				0E22E95C19ECCAF900261AC5 /* BattleWindow.h */,
+				0E22E95D19ECCAF900261AC5 /* BattleWindow.m */,
 			);
 			name = "iOS Core";
 			sourceTree = "<group>";
@@ -1248,6 +1258,7 @@
 				BF0EE1DC163319BB002942A0 /* matrix.c in Sources */,
 				BF0EE1DE163319BB002942A0 /* mat3.c in Sources */,
 				BF0EE1E0163319BB002942A0 /* mat4.c in Sources */,
+				0E22E95E19ECCAF900261AC5 /* BattleWindow.m in Sources */,
 				BF0EE1E2163319BB002942A0 /* neon_matrix_impl.c in Sources */,
 				BF0EE1E4163319BB002942A0 /* plane.c in Sources */,
 				BF0EE1E6163319BB002942A0 /* quaternion.c in Sources */,
@@ -1269,6 +1280,7 @@
 				BF8A76A2163646270032AF8F /* QPBattlefield.m in Sources */,
 				BF8A76AA16365CFE0032AF8F /* TriLaser.m in Sources */,
 				BF8A76AD16366DD30032AF8F /* QuadLaser.m in Sources */,
+				0E87A21919F30DE200B55AA2 /* Shatter.m in Sources */,
 				BF18895216374B4000C05703 /* SplitLaser.m in Sources */,
 				0EEAC48C16B73BC3005F629F /* QPBFState.m in Sources */,
 				0EEAC48F16B73C35005F629F /* QPBFTitleState.m in Sources */,
@@ -1295,6 +1307,7 @@
 					"COCOS2D_DEBUG=1",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
@@ -1316,6 +1329,7 @@
 					NDEBUG,
 					"NS_BLOCK_ASSERTIONS=1",
 				);
+				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
@@ -1341,6 +1355,7 @@
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-ObjC",
+					"-os",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "AB5A2B84-A4B7-4C78-8281-8A8CD0EC3CC0";
@@ -1362,6 +1377,7 @@
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-ObjC",
+					"-os",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALIDATE_PRODUCT = YES;

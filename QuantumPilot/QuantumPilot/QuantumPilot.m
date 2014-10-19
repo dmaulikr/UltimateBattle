@@ -24,18 +24,16 @@ static float shipTopHeight = 28;
 static float shipSideWidth = 8.5;
 static float shipBottomHeight = 5.75;
 static float innerTopHeight = 5.75;
-static float innerCircleRadius = 2.6;
-
-
-static float outerCircleRadius = 60;
+//static float innerCircleRadius = 1.3; //2.6
+//static float outerCircleRadius = 60;
 
 - (NSInteger)yDirection {
     return -1;
 }
 
 - (void)resetPosition {
-//    self.l = CGPointMake(384, 170);
     self.l = [QuantumPilot resetPosition];
+    [self emptyDeltas];
 }
 
 + (CGPoint)resetPosition {
@@ -47,8 +45,17 @@ static float outerCircleRadius = 60;
     if (self) {
         [self engage];
         _debris = 55555;
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//            [self assignInnerCircleRadius];
+//        });
+
+//        innerCircleRadius = 2;
     }
     return self;
+}
+
+- (void)assignInnerCircleRadius {
+    innerRadius = 1.7 * [QPBattlefield pulseRotation];
 }
 
 - (void)installWeapon:(NSString *)w {
@@ -73,7 +80,7 @@ static float outerCircleRadius = 60;
 }
 
 - (bool)shouldDraw {
-    return !self.blinking || [QPBattlefield rhythmScale] > .5;
+    return true;
 }
 
 - (void)setShipDrawColor {
@@ -81,22 +88,12 @@ static float outerCircleRadius = 60;
 }
 
 - (void)drawShip {
-    outerEdges[0] = ccp(self.l.x, self.l.y - shipTopHeight * [self yDirection]);
-    outerEdges[1] = ccp(self.l.x - shipSideWidth, self.l.y);
-    outerEdges[2] = ccp(self.l.x, self.l.y + shipBottomHeight * [self yDirection]);
-    outerEdges[3] = ccp(self.l.x + shipSideWidth, self.l.y);
-    self.innerTopEdge = ccp(self.l.x, self.l.y - innerTopHeight * [self yDirection]);
-    
     ccDrawPoly(outerEdges, 4, YES);
 }
 
 - (void)drawCircle {
-    if (self.shield) {
-        ccDrawColor4F(1 - [QPBattlefield pulseRotation], 1  - [QPBattlefield pulseRotation], 1  - [QPBattlefield pulseRotation], 1);
-        ccDrawCircle(self.innerTopEdge, 20 + (5 * self.shield), 0, 100, NO);
-    }
     [NSClassFromString(self.weapon) setDrawColor];
-    ccDrawFilledCircle(self.innerTopEdge, innerCircleRadius * [QPBattlefield pulseRotation], 0, 100, NO);
+    ccDrawFilledCircle(self.innerTopEdge, innerRadius, 0, 30, NO);
 }
 
 - (void)draw {
@@ -105,20 +102,12 @@ static float outerCircleRadius = 60;
         [self drawShip];
         [self drawCircle];
     }
-    if (self.active) {
-        ccDrawColor4F(1, 1, 1, 1.0);
-        CGPoint drawingDeltas[4551];
-        NSInteger index = 0;
-        for (int i = self.fightingIteration; i < self.drawingIteration; i++) {
-            drawingDeltas[index] = future[i];
-            index++;
-        }
-        NSInteger drawFrameTotal = self.drawingIteration - self.fightingIteration;
-        if (drawFrameTotal < 0) {
-            drawFrameTotal = 0;
-        }
-        ccDrawPoly(drawingDeltas, drawFrameTotal, NO);
+
+    if (self.shield) {
+        ccDrawCircle(self.innerTopEdge, radius, 0, 50, NO);
     }
+
+    ccDrawPoly(drawingDeltas, drawFrameTotal, NO);
 }
 
 - (BOOL)isFiring {
@@ -195,18 +184,52 @@ static float outerCircleRadius = 60;
     self.firing = NO;
 }
 
+- (void)defineEdges {
+    outerEdges[0] = ccp(self.l.x, self.l.y - shipTopHeight * [self yDirection]);
+    outerEdges[1] = ccp(self.l.x - shipSideWidth, self.l.y);
+    outerEdges[2] = ccp(self.l.x, self.l.y + shipBottomHeight * [self yDirection]);
+    outerEdges[3] = ccp(self.l.x + shipSideWidth, self.l.y);
+    self.innerTopEdge = ccp(self.l.x, self.l.y - innerTopHeight * [self yDirection]);
+}
+
+- (void)prepareShieldDraw {
+    radius = 20 + (5 * self.shield);
+}
+
+- (void)prepareDeltaDraw {
+    NSInteger index = 0;
+    for (int i = self.fightingIteration; i < self.drawingIteration; i++) {
+        drawingDeltas[index] = future[i];
+        index++;
+    }
+    drawFrameTotal = self.drawingIteration - self.fightingIteration;
+    if (drawFrameTotal < 0) {
+        drawFrameTotal = 0;
+    }
+    
+    [self assignInnerCircleRadius];
+    [self prepareShieldDraw];
+}
+
 - (void)pulse {
     [self checkForFiringWeapon];
     [self calculateTarget];
     [self calculateVelocityForTarget];
     [self moveByVelocity];
     [self evaluateReachingTarget];
-    [self setDrawingScaleByBattlefieldRhythm];
+  //  [self setDrawingScaleByBattlefieldRhythm];
     
     [self copyDeltas];
     [self resetFiring];
     
+    [self defineEdges];
+    
     self.time++;
+    
+    [self prepareDeltaDraw];
+    
+//    if (self.active) {
+  //  }
 }
 
 
@@ -242,7 +265,7 @@ static float outerCircleRadius = 60;
 }
 
 - (BOOL)isCollidingWithDebris:(Debris *)d {
-    return GetDistance(self.l, d.l) < 50;
+    return GetDistance(self.l, d.l) < 30;
 }
 
 - (void)registerHit {
@@ -250,28 +273,30 @@ static float outerCircleRadius = 60;
 }
 
 - (BOOL)processDebris:(Debris *)d {
-    if ([d isKindOfClass:[ShieldDebris class]]) {
-        return false;
-    }
     if ([self isCollidingWithDebris:d]) {
-        self.debris += [d level];
+        self.debris += ([d level] + 1);
+        d.l = ccp(5000,500);
+        
         return true;
     }
     
     return false;
 }
 
-- (void)processBullet:(Bullet *)b {
+- (bool)processBullet:(Bullet *)b {
     if ([self isCollidingWithBullet:b]) {
         b.l = ccp(5000,5000);
         if (!self.shield) {
             [self registerHit];
+            [[QPBattlefield f] registerShieldHit:self];
         } else {
             self.shield--;
             [[QPBattlefield f] registerShieldHit:self];
         }
-
+        return true;
     }
+    
+    return false;
 }
 
 - (BOOL)touchesPoint:(CGPoint)l {
@@ -301,6 +326,12 @@ static float outerCircleRadius = 60;
 
 - (void)installShield {
     self.shield++;
+}
+
+- (void)emptyDeltas {
+    for (int i = 0; i < 4551; i++) {
+        drawingDeltas[i] = ccp(-5,-5);
+    }
 }
 
 - (void)dealloc {

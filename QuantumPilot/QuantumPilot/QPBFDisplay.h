@@ -30,6 +30,7 @@
 - (void)pulse;
 - (float)labelDistance;
 - (float)baseLabelDistance;
+- (float)selectionLabelDistance;
 - (void)drawText;
 
 - (void)drawLabels;
@@ -37,6 +38,11 @@
 - (void)initializeLabels;
 
 - (CGPoint)center;
+
+- (NSString *)timeText;
+- (NSString *)accuracyText;
+- (NSString *)pathingText;
+- (NSString *)scoreText;
 
 @end
 

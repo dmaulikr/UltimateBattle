@@ -9,14 +9,13 @@
 #import "cocos2d.h"
 #import "AppDelegate.h"
 #import "QuantumLayer.h"
-#import "WeaponsTestLayer.h"
 
 @implementation AppController
 
 @synthesize window=window_, navController=navController_, director=director_;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-	window_ = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+	window_ = [[BattleWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 	CCGLView *glView = [CCGLView viewWithFrame:[window_ bounds]
 								   pixelFormat:kEAGLColorFormatRGB565	//kEAGLColorFormatRGBA8
 								   depthFormat:0	//GL_DEPTH_COMPONENT24_OES
@@ -45,6 +44,7 @@
 	[CCTexture2D PVRImagesHavePremultipliedAlpha:YES];
 //	[director_ pushScene: [WeaponsTestLayer scene]];
 	[director_ pushScene: [QuantumLayer scene]];
+    [director_ setDisplayStats:true];
     [window_ setMultipleTouchEnabled:YES];
 	
 	// Create a Navigation Controller with the Director
@@ -55,6 +55,11 @@
 //	[window_ addSubview:navController_.view];	// Generates flicker.
 	[window_ setRootViewController:navController_];
 	
+    UIViewController *c = (UIViewController *)director_;
+    for (UIView *v in [self.window labels]) {
+        [c.view addSubview:v];
+    }
+    
 	// make main window visible
 	[window_ makeKeyAndVisible];
 	

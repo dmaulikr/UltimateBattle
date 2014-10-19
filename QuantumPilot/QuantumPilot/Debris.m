@@ -38,6 +38,7 @@
 
 - (void)pulse {
     self.l = CombinedPoint(self.l, ccp(0,-2));
+    radius = 1.7 * [QPBattlefield pulseRotation];
 }
 
 - (void)establishColor {
@@ -45,7 +46,7 @@
 }
 
 - (void)drawCircle {
-    ccDrawFilledCircle(self.l, 2.6 * [QPBattlefield pulseRotation], 0, 100, NO);
+    ccDrawFilledCircle(self.l, radius, 0, 30, NO);
 }
 
 - (void)draw {
@@ -63,6 +64,10 @@
 
 - (bool)dissipated {
     return false;
+}
+
+- (bool)isDebris {
+    return true;
 }
 
 @end

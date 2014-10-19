@@ -33,14 +33,20 @@ static float triangleHeight = 3;
     ccDrawColor4F(1, 1, 1, 1);
 }
 
-- (void)draw {
-    [self setDrawColor];
-    
+- (void)pulse {
+    [super pulse];
     lines[0] = ccp(self.l.x - (triangleWidth * self.drawMultiplier), self.l.y - (triangleHeight * _facing * self.drawMultiplier));
     lines[1] = self.l;
     lines[2] = ccp(self.l.x + (triangleWidth * self.drawMultiplier), self.l.y - (triangleHeight * _facing * self.drawMultiplier));
-    
+}
+
+- (void)draw {
+    [self setDrawColor];
     ccDrawPoly(lines, 3, false);
+}
+
+- (NSString *)weapon {
+    return @"SingleLaserCannon";
 }
 
 @end

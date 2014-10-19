@@ -20,14 +20,20 @@ static float halfSegment = 1.5;
     return self;
 }
 
-- (void)draw {
-    [SplitLaserCannon setDrawColor];
+- (void)pulse {
+    [super pulse];
     lines[0] = ccp(self.l.x + (_xDirection * halfSegment * .25), self.l.y + (_yDirection * halfSegment * .75));
     lines[1] = ccp(self.l.x - (_xDirection * halfSegment * .25), self.l.y - (_yDirection * halfSegment * .75));
-    
+}
+
+- (void)draw {
+    [SplitLaserCannon setDrawColor];
     ccDrawPoly(lines, 2, true);
 }
 
+- (NSString *)weapon {
+    return @"SplitaserCannon";
+}
 
 
 @end

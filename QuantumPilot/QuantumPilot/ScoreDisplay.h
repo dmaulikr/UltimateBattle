@@ -31,6 +31,8 @@ enum displaystate {
     bool pathingPerfect;
 }
 
+@property (nonatomic) int totalScoreIncrease;
+
 - (int)iteration;
 
 - (id)initWithTimeScore:(int)t accuracyScore:(int)a pathingScore:(int)p currentScore:(int)s;

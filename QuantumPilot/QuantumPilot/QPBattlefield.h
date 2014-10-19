@@ -40,11 +40,19 @@ enum pulsestate {
     int shield;
     int warning;
     int slow;
+    
+    int debrisShow;
+    
+    int titleY;
+    int titleDelay;
+    bool titleSlide;
 }
 
 @property (nonatomic, retain) NSMutableArray *bullets;
 @property (nonatomic, retain) NSMutableArray *cloneBullets;
 @property (nonatomic, retain) NSMutableArray *debris;
+@property (nonatomic, retain) NSMutableArray *shieldDebris;
+@property (nonatomic, retain) NSMutableArray *shatters;
 @property (nonatomic, retain) QuantumPilot *pilot;
 @property (nonatomic, assign) CCLayer *layer;
 
@@ -60,9 +68,6 @@ enum pulsestate {
 @property (nonatomic, retain) QPBFPausedState *pausedState;
 @property (nonatomic, retain) QPBFScoreState *scoreState;
 @property (nonatomic, retain) QPBFRecycleState *recycleState;
-
-//@property (nonatomic, assign) NSInteger drawingIteration;
-//@property (nonatomic, assign) NSInteger fightingIteration;
 
 #pragma mark Pilot Positioning
 @property (nonatomic, assign) CGPoint playerTouch;
@@ -86,8 +91,6 @@ enum pulsestate {
 @property (nonatomic, copy) NSString *nextWeapon;
 
 @property (strong, nonatomic) NSArray *weapons;
-
-//@property (strong, nonatomic) ShieldDebris *winBlast;
 
 - (float)rhythmScale;
 - (void)pulse;
@@ -125,6 +128,8 @@ enum pulsestate {
 - (bool)installNextWeapon;
 - (bool)installSlow;
 - (void)enterRecycleState;
+
+- (bool)shieldMaxed;
 
 #pragma mark Pilot effects
 

@@ -1,3 +1,4 @@
+
 #import "CCNode.h"
 #import "cocos2d.h"
 #import "QPBulletDelegate.h"
@@ -13,6 +14,10 @@
 
 @interface QuantumPilot : CCNode {
     CGPoint outerEdges[4];
+    float radius;
+    float innerRadius;
+    CGPoint drawingDeltas[4551];
+    int drawFrameTotal;
 }
 
 @property (nonatomic) CGPoint l;
@@ -56,7 +61,7 @@
 - (CGPoint)deltaTarget;
 
 - (BOOL)isCollidingWithBullet:(Bullet *)b;
-- (void)processBullet:(Bullet *)b;
+- (bool)processBullet:(Bullet *)b;
 
 - (BOOL)touchesPoint:(CGPoint)l;
 
@@ -93,6 +98,12 @@
 - (void)setSpeed:(float)speed;
 
 - (BOOL)processDebris:(Debris *)d;
+
+- (void)defineEdges;
+
+- (void)assignInnerCircleRadius;
+
+- (void)prepareDeltaDraw;
 
 @end
 

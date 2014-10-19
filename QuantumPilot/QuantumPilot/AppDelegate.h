@@ -8,17 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import "cocos2d.h"
+#import "BattleWindow.h"
 
-@interface AppController : NSObject <UIApplicationDelegate, CCDirectorDelegate>
-{
-	UIWindow *window_;
+@interface AppController : NSObject <UIApplicationDelegate, CCDirectorDelegate> {
+	BattleWindow *window_;
 	UINavigationController *navController_;
 
 	CCDirectorIOS	*director_;							// weak ref
 }
 
-@property (nonatomic, retain) UIWindow *window;
+@property (nonatomic, retain) BattleWindow *window;
 @property (readonly) UINavigationController *navController;
 @property (readonly) CCDirectorIOS *director;
+
 
 @end

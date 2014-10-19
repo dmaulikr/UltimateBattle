@@ -6,6 +6,7 @@
 #import "WideSpiralLaserCannon.h"
 #import "QuadLaserCannon.h"
 #import "Arsenal.h"
+#import "Shatter.h"
 
 @implementation QPBattlefield
 
@@ -56,7 +57,7 @@ static QPBattlefield *instance = nil;
     self.fightingState = [[[QPBFFightingState alloc] initWithBattlefield:self] autorelease];
     self.scoreState = [[[QPBFScoreState alloc] initWithBattlefield:self] autorelease];
     self.recycleState = [[[QPBFRecycleState alloc] initWithBattlefield:self] autorelease];
-    self.currentState = self.titleState;
+    [self changeState:self.titleState];
 }
 
 - (void)setupDeadline {
@@ -74,6 +75,8 @@ static QPBattlefield *instance = nil;
         self.bullets = [NSMutableArray array];
         self.cloneBullets = [NSMutableArray array];
         self.debris = [NSMutableArray array];
+        self.shieldDebris = [NSMutableArray array];
+        self.shatters = [NSMutableArray array];
         [self setupPulses];
         [self setupPilot];
         [self setupStates];
@@ -81,8 +84,8 @@ static QPBattlefield *instance = nil;
         [self setupDeadline];
         [self setupSpeeds];
         [self setupWeapons];
- 
-        
+     
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resetDebrisShow) name:@"DebrisCollected" object:nil];
         level = 1;
     }
     return self;
@@ -93,6 +96,7 @@ static QPBattlefield *instance = nil;
 }
 
 + (float)pulseRotation {
+//    return 1;
     return [[QPBattlefield f] pulseRotation];
 }
 
@@ -147,7 +151,7 @@ static QPBattlefield *instance = nil;
 #pragma mark Bullets
 
 - (CGRect)battlefieldFrame {
-    return CGRectMake(0, 0, 768, 1024);
+    return CGRectMake(-100, -100, 768 + 100, 1024 + 100);
 }
 
 - (BOOL)bulletOutOfBounds:(Bullet *)b {
@@ -165,10 +169,10 @@ static QPBattlefield *instance = nil;
     [self.cloneBullets removeAllObjects];
 }
 
-- (void)createDebrisFromCloneKill:(QuantumClone *)c {
-    if (self.clones.lastObject == c) {
-        return;
-    }
+- (void)createDebrisFromCloneKill:(QuantumClone *)c bullet:(Bullet *)b {
+//    if (self.clones.lastObject == c) {
+//        return;
+//    }
     
     int debrisLevel = [[Arsenal arsenal] indexOfObject:c.weapon];
     
@@ -176,23 +180,29 @@ static QPBattlefield *instance = nil;
     [d setLevel:debrisLevel];
     [self addChild:d];
     [self.debris addObject:d];
-
+    
+    Shatter *s = [[[Shatter alloc] initWithL:c.l weapon:[b weapon]] autorelease];
+    [self.shatters addObject:s];
+    [self addChild:s];
 }
 
-- (void)processKill:(QuantumPilot *)c {
-    hits++;
+- (void)processKill:(QuantumPilot *)c bullet:(Bullet *)b {
+    if (c != self.pilot) {
+        hits++;
+        [self createDebrisFromCloneKill:(QuantumClone *)c bullet:b];
+    }
+
     [self registerShieldHit:c weapon:c.weapon];
-    [self createDebrisFromCloneKill:c];
-    
 }
 
 - (void)pulseBullets:(NSMutableArray *)bs targets:(NSArray *)targets {
     for (Bullet *b in bs) {
         for (QuantumPilot *p in targets) {
             if (p.active) {
-                [p processBullet:b];
-                if (!p.active) {
-                    [self processKill:p];
+                if (fabsf(p.l.x - b.l.x) + fabsf(p.l.y - b.l.y) < 50) {
+                    if ([p processBullet:b]) {
+                        [self processKill:p bullet:b];
+                    }
                 }
             }
         }
@@ -224,8 +234,12 @@ static QPBattlefield *instance = nil;
     for (Debris *d in self.debris) {
         [self removeChild:d cleanup:YES];
     }
-    
     [self.debris removeAllObjects];
+    
+//    for (ShieldDebris *d in self.shieldDebris) {
+//        [self removeChild:d cleanup:YES];
+//    }
+//    [self.shieldDebris removeAllObjects];
 }
 
 - (void)resetPilot {
@@ -238,7 +252,7 @@ static QPBattlefield *instance = nil;
     [self eraseClones];
     [self eraseDebris];
     [self resetPilot];
-    [self changeState:self.pausedState];
+    [self changeState:self.titleState];
     [self setupClone];
     [self.dl reset];
     [self resetLevelScore];
@@ -258,17 +272,13 @@ static QPBattlefield *instance = nil;
 - (void)debrisPulse {
     NSMutableArray *debrisToErase = [NSMutableArray array];
     for (Debris *d in self.debris) {
-        if ([self.currentState isShieldDebrisPulsing]) {
-            [d pulse];
-        } else if ([d isKindOfClass:[ShieldDebris class]]) {
-            ShieldDebris *sd = (ShieldDebris *)d;
-            if (sd.pilot == self.pilot) {
-                [d pulse];
-            }
-        }
+        [d pulse];
 
-        if ([self debrisOutOfBounds:d] || [self.pilot processDebris:d]) {
+        if ([self debrisOutOfBounds:d]) {
             [debrisToErase addObject:d];
+        } else if ([self.pilot processDebris:d]) {
+            [debrisToErase addObject:d];
+            [self resetDebrisShow];
         }
     }
     
@@ -313,8 +323,6 @@ static QPBattlefield *instance = nil;
     
     NSNumber *accBonus = [NSNumber numberWithInteger:(int)floorf(ab)];
     NSNumber *timeBonus = [NSNumber numberWithInteger:self.dl.y * 10];
-    NSLog(@"ab:%f, accBonus: %@", ab, accBonus);
-    
     
     float pathing = 0;
     if (paths <= 1) {
@@ -327,8 +335,6 @@ static QPBattlefield *instance = nil;
     
     NSNumber *pathingBonus = [NSNumber numberWithFloat:pathing];
     NSNumber *currentScore = [NSNumber numberWithInteger:self.score];
-    
-    NSLog(@"currentScore: %d -- %d", [currentScore intValue], self.score);
     
     return @{QP_BF_TIMESCORE: timeBonus, QP_BF_ACCSCORE: accBonus, QP_BF_PATHSCORE: pathingBonus, QP_BF_SCORE: currentScore};
 }
@@ -384,40 +390,121 @@ static QPBattlefield *instance = nil;
     } else {
         slow--;
     }
-
+    
     if (self.dl.y < self.pilot.l.y) {
+        [self registerShieldHit:self.pilot weapon:@"DeadLine"];
         [self resetBattlefield];
     }
+
+}
+
+- (void)shieldDebrisPulse {
+    NSMutableArray *debrisToErase = [NSMutableArray array];
+    for (ShieldDebris *d in self.shieldDebris) {
+        [d pulse];
+        
+        if ([self debrisOutOfBounds:d]) {
+            [debrisToErase addObject:d];
+        }
+    }
+    
+    for (ShieldDebris *d in debrisToErase) {
+        [d removeFromParentAndCleanup:YES];
+    }
+    
+    [self.shieldDebris removeObjectsInArray:debrisToErase];
+
+}
+
+- (void)titlePulse {
+    if (titleSlide) {
+        if (titleDelay) {
+            titleDelay--;
+            return;
+        }
+        titleY--;
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"TitleLabel" object:@{@"x":[NSNumber numberWithInteger:160], @"y" : [NSNumber numberWithInteger:titleY], @"text" : @"QUANTUM PILOT"}];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"SubtitleLabel" object:@{@"x":[NSNumber numberWithInteger:160], @"y" : [NSNumber numberWithInteger:titleY + 25], @"text" : @"You are your own worst enemy"}];
+
+        
+        if (titleY < -50) {
+            titleSlide = false;
+        }
+    }
+}
+
+- (void)shatterPulse {
+    NSMutableArray *shattersToErase = [NSMutableArray array];
+    for (Shatter *s in self.shatters) {
+        [s pulse];
+        if ([s dissipated]) {
+            [shattersToErase addObject:s];
+        }
+    }
+    
+    for (Shatter *s in shattersToErase) {
+        [self removeChild:s cleanup:true];
+    }
+    
+    [self.shatters removeObjectsInArray:shattersToErase];
 }
 
 - (void)pulse {
     [self.currentState pulse];
     //states manage
     
+    [self titlePulse];
+    
     [self rhythmPulse];
-        [self debrisPulse];
+    [self shieldDebrisPulse];
+    [self shatterPulse];
+    
     if ([self isPulsing]) {
+        [self debrisPulse];
         [self.pilot pulse];
         [self clonesPulse];
         [self killPulse];
         [self bulletPulse];
         [self moveDeadline];
-    } else if (self.currentState == self.pausedState) {
-        
+    } else { //if (self.currentState == self.pausedState) {
+        [self.pilot defineEdges];
+        [self.pilot prepareDeltaDraw];
+        for (QuantumClone *c in self.clones) {
+            [c defineEdges];
+        }
     }
     
-//    if (![self.winBlast dissipated]) {
-//        [self.winBlast pulse];
-//    }
-    
+    [self debrisShowPulse];
+}
 
+- (void)debrisShowPulse {
+    if (debrisShow > 0) {
+        if (self.currentState != self.recycleState) {
+            debrisShow--;
+        }
+        
+        if (debrisShow == 0) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"DebrisLabel" object:@{@"x":[NSNumber numberWithInteger:0], @"y" : [NSNumber numberWithInteger:0], @"text" : @""}];
+        } else {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"DebrisLabel" object:@{@"x":[NSNumber numberWithInteger:self.pilot.l.x], @"y" : [NSNumber numberWithInteger:self.pilot.l.y - 10], @"text" : [NSString stringWithFormat:@"%d", self.pilot.debris]}];
 
+        }
+    }
 }
 
 #pragma mark States
 
 - (void)changeState:(QPBFState *)state withOptions:(NSDictionary *)options {
-    [self.currentState deactivate];
+    if (self.currentState == self.titleState) {
+        titleSlide = true;
+        titleDelay = 225;
+        titleY = 50;
+    }
+    
+    if (self.currentState) {
+        [self.currentState deactivate];
+    }
     self.currentState = state;
     [self.currentState activate:options];
     self.pilot.blinking = self.currentState == self.pausedState;
@@ -487,7 +574,6 @@ static QPBattlefield *instance = nil;
 
 - (void)bulletsFired:(NSArray *)bullets {
     shotsFired++;
-    NSLog(@"shotsFired: %d", shotsFired);
     
     for (Bullet *b in bullets) {
         [self addChild:b];
@@ -544,8 +630,16 @@ static QPBattlefield *instance = nil;
     return self.pilot.debris >= [self shieldCost];
 }
 
+- (int)maxShield {
+    return 9;
+}
+
+- (bool)shieldMaxed {
+    return self.pilot.shield >= [self maxShield];
+}
+
 - (bool)installShield {
-    if (self.pilot.shield < 9 && [self canAffordShield]) {
+    if (self.pilot.shield < [self maxShield] && [self canAffordShield]) {
         [self recycleDebris:[self shieldCost]];
         [self.pilot installShield];
         return true;
@@ -555,7 +649,7 @@ static QPBattlefield *instance = nil;
 }
             
 - (int)warningCost {
-    return (level - 1) * 5;
+    return (level - 1);
 }
 
 - (bool)canAffordWarning {
@@ -635,7 +729,7 @@ static QPBattlefield *instance = nil;
 }
 
 - (int)slowCost {
-    return 5 * (level - 1);
+    return (level - 1);
 }
 
 - (bool)canAffordSlow {
@@ -656,8 +750,13 @@ static QPBattlefield *instance = nil;
     return false;
 }
 
+- (void)resetDebrisShow {
+    debrisShow = 115;
+}
+
 - (void)reloadDebrisDisplay {
     [self.recycleState reloadDebris:self.pilot.debris];
+    [self resetDebrisShow];
 }
 
 - (void)reloadWarningDisplay {
@@ -675,15 +774,15 @@ static QPBattlefield *instance = nil;
 #pragma mark Pilot effects
 
 - (void)registerShieldHit:(QuantumPilot *)p weapon:(NSString *)w {
-    ShieldDebris *d = [[[ShieldDebris alloc] init] autorelease];
-    d.l = p.l;
-    d.pilot = p;
-    [d setWeapon:w];
-    if (self.clones.lastObject == p) {
-        [d setWeapon:[Arsenal arsenal][0]];
-    }
-    [self.debris addObject:d];
-    [self addChild:d];
+//    ShieldDebris *d = [[[ShieldDebris alloc] init] autorelease];
+//    d.l = p.l;
+//    d.pilot = p;
+//    [d setWeapon:w];
+//    if (self.clones.lastObject == p) {
+//        [d setWeapon:[Arsenal arsenal][0]];
+//    }
+//    [self.shieldDebris addObject:d];
+//    [self addChild:d];
 }
 
 - (void)registerShieldHit:(QuantumPilot *)p {

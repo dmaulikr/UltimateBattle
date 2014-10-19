@@ -1,3 +1,5 @@
+show shatter color as ship color
+
 singleton labels for main menu, for title, for upgrades, for scoring
 flash debris count on collect
 
@@ -6,6 +8,8 @@ menu screen
 drag ship to record course
 tap anywhere else to fire
 the enemy mirrors you
+
+brighter colors/contrast?
 
 tap to skip forward (increments scores) to play
 tap outside ship to skip menu
