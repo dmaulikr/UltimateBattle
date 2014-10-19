@@ -20,6 +20,8 @@
 @property (strong, nonatomic) UILabel *titleLabel;
 @property (strong, nonatomic) UILabel *subTitle;
 
+@property (strong, nonatomic) UILabel *guide;
+
 - (NSArray *)labels;
 
 @end

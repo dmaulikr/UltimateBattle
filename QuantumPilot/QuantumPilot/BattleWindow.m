@@ -12,7 +12,7 @@
 @implementation BattleWindow
 
 - (NSArray *)labels {
-    return @[self.l1, self.l2, self.l3, self.l4, self.debrisLabel, self.titleLabel, self.subTitle];
+    return @[self.l1, self.l2, self.l3, self.l4, self.debrisLabel, self.titleLabel, self.subTitle, self.guide];
 }
 
 - (id)initWithFrame:(CGRect)frame {
@@ -27,6 +27,8 @@
     
     self.titleLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 100)] autorelease];
     self.subTitle = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 60)] autorelease];
+
+    self.guide = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 60)] autorelease];
     
     for (UILabel *l in [self labels]) {
         l.backgroundColor = [UIColor clearColor];
@@ -45,7 +47,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateL3:) name:@"L3" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateL4:) name:@"L4" object:nil];
 
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateLabel:) name:@"label" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateGuide:) name:@"Guide" object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateDebrisLabel:) name:@"DebrisLabel" object:nil];
 
@@ -58,50 +60,37 @@
     return self;
 }
 
-//- (void)updateLabel:(NSNotification *)n {
-//    NSDictionary *d = n.object;
-//    int index = [d[@"index"] intValue];
-//    UILabel *l = [self labels][index];
-//    l.center = ccp([d[@"x"] intValue], [d[@"y"] intValue]);
-//    l.text = d[@"text"];
-//}
+- (void)updateLabel:(UILabel *)l withData:(NSDictionary *)d {
+    l.center = ccp([d[@"x"] intValue], [d[@"y"] intValue]);
+    l.text = d[@"text"];
+}
+
+- (void)updateGuide:(NSNotification *)n {
+    [self updateLabel:self.guide withData:n.object];
+}
 
 - (void)updateTitleLabel:(NSNotification *)n {
-    NSDictionary *d = n.object;
-    self.titleLabel.center = ccp([d[@"x"] intValue], [d[@"y"] intValue]);
-    self.titleLabel.text = d[@"text"];
+    [self updateLabel:self.titleLabel withData:n.object];
 }
 
 - (void)updateSubtitleLabel:(NSNotification *)n {
-    NSDictionary *d = n.object;
-    self.subTitle.center = ccp([d[@"x"] intValue], [d[@"y"] intValue]);
-    self.subTitle.text = d[@"text"];
+    [self updateLabel:self.subTitle withData:n.object];
 }
 
-
-
 - (void)updateL1:(NSNotification *)n {
-    NSDictionary *d = n.object;
-    self.l1.center = ccp([d[@"x"] intValue], [d[@"y"] intValue]);
-    self.l1.text = d[@"text"];
+    [self updateLabel:self.l1 withData:n.object];
 }
 
 - (void)updateL2:(NSNotification *)n {
-    NSDictionary *d = n.object;
-    self.l2.center = ccp([d[@"x"] intValue], [d[@"y"] intValue]);
-    self.l2.text = d[@"text"];
+    [self updateLabel:self.l2 withData:n.object];
 }
 
 - (void)updateL3:(NSNotification *)n {
-    NSDictionary *d = n.object;
-    self.l3.center = ccp([d[@"x"] intValue], [d[@"y"] intValue]);
-    self.l3.text = d[@"text"];
+    [self updateLabel:self.l3 withData:n.object];
 }
 
 - (void)updateL4:(NSNotification *)n {
-    NSDictionary *d = n.object;
-    self.l4.center = ccp([d[@"x"] intValue], [d[@"y"] intValue]);
-    self.l4.text = d[@"text"];
+    [self updateLabel:self.l4 withData:n.object];
 }
 
 - (void)hideLabels {
