@@ -160,15 +160,18 @@ static float innerTopHeight = 5.75;
     return GetDistance(self.l, [self currentWaypoint]) == 0;
 }
 
+- (void)processedReachedTarget {
+    self.fightingIteration++;
+    if (self.fightingIteration == self.drawingIteration) {
+        future[self.fightingIteration] = self.l;
+        self.drawingIteration++;
+        [self.pilotDelegate pilotReachedEndOfFutureWaypoints];
+    }
+}
+
 - (void)evaluateReachingTarget {
     if ([self reachedTarget]) {
-        self.fightingIteration++;
-        if (self.fightingIteration == self.drawingIteration) {
-            future[self.fightingIteration] = self.l;
-            self.drawingIteration++;
-            [self.pilotDelegate pilotReachedEndOfFutureWaypoints];
-//            [self resetIterations];            
-        }
+        [self processedReachedTarget];
     }
 }
 
@@ -212,6 +215,21 @@ static float innerTopHeight = 5.75;
 }
 
 - (void)pulse {
+    CGPoint ll = self.l;
+    if (ll.x < 5) {
+        ll = ccp(5, ll.y);
+        [self processedReachedTarget];
+    } else if (ll.x > 315) {
+        ll = ccp(315, ll.y);
+        [self processedReachedTarget];
+    }
+    if (ll.y > 573) {
+        ll = ccp(ll.x, 573);
+        [self processedReachedTarget];
+    }
+    self.l = ll;
+
+    
     [self checkForFiringWeapon];
     [self calculateTarget];
     [self calculateVelocityForTarget];

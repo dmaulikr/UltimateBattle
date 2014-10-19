@@ -11,22 +11,16 @@
 
 @implementation QPBFScoreState
 
-- (void)interruptedTransition {
+- (void)interruptedTransition:(CGPoint)l {
     ScoreDisplay *sd = (ScoreDisplay *)self.scoreDisplay;
     [self finishedDisplayingWithTotalScore:[sd totalScoreIncrease] + self.f.score];
     [self deactivate];
-    [self.f finishedDisplayingScore];
+    [self.f finishedDisplayingScore:l];
 }
 
 - (void)addTouch:(CGPoint)l {
-    if ([self.f.pilot touchesPoint:l]) {
-        [self interruptedTransition];
-    } else {
-        [self.f.pilot fire];
-        [self.f setTouchOffsetFromPilotNear:self.f.pilot.l];
-        [self.f addTouch:self.f.pilot.l];
-        [self interruptedTransition];
-    }
+    [self.f setTouchOffsetFromPilotNear:l];
+    [self interruptedTransition:l];
 }
 
 - (void)pulse {
@@ -57,7 +51,7 @@
 
 - (void)finishedDisplayingWithTotalScore:(int)score {
     self.f.score = score;
-    [self.f finishedDisplayingScore];
+    [self.f finishedDisplayingScore:self.f.pilot.l];
     NSLog(@"score: %d", self.f.score);
 }
 

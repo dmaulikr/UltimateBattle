@@ -373,7 +373,7 @@ static QPBattlefield *instance = nil;
     if (paths <= 1) {
         pathing = 100000;
     } else if (paths < level) {
-        pathing = (float)paths / (float)level;
+        pathing = (float)(paths - 1) / (float)level;
         pathing = fabsf(1-pathing);
         pathing *= 100000;
     }
@@ -810,12 +810,12 @@ static QPBattlefield *instance = nil;
     [self.recycleState showWarningActivated:warning];
 }
 
-- (void)finishedDisplayingScore {
+- (void)finishedDisplayingScore:(CGPoint)l {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"clearLabels" object:nil];
     if (self.pilot.debris >= 50) {
         [self enterRecycleState];
     } else {
-        [self changeState:self.pausedState];
+        [self changeState:self.pausedState withTouch:l];
     }
 }
 

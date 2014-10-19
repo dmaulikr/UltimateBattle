@@ -10,26 +10,27 @@
         [self.f addTouch:l];
     } else {
         [self.f.pilot fire];
+        [self.f changeState:self.f.drawingState];
     }
 }
 
-- (void)moveTouch:(CGPoint)l {
-    CGPoint lOffset = CombinedPoint(l, ccp(-self.f.pilot.l.x, self.f.pilot.l.y));
-    if (lOffset.x < 5) {
-        l = ccp(5, l.y);
-    } else if (lOffset.x > 315) {
-        l = ccp(315, l.y);
-    }
-    if (lOffset.y > 573) {
-        l = ccp(l.x, 573);
-    }
-    
-    [self.f setTouchOffsetFromPilotNear:l];
-    
-    self.f.playerTouch = l;
-    
-    [self.f changeState:self.f.drawingState withTouch:l];
-}
+//- (void)moveTouch:(CGPoint)l {
+//    [self.f setTouchOffsetFromPilotNear:l];
+//    
+//    CGPoint lOffset = CombinedPoint(l, ccp(-self.f.touchOffset.x, self.f.touchOffset.y));
+//    if (lOffset.x < 5) {
+//        l = ccp(5, l.y);
+//    } else if (lOffset.x > 315) {
+//        l = ccp(315, l.y);
+//    }
+//    if (lOffset.y > 573) {
+//        l = ccp(l.x, 573);
+//    }
+//    
+//
+//    
+//    [self.f changeState:self.f.drawingState withTouch:l];
+//}
 
 
 @end
