@@ -14,7 +14,7 @@
 }
 
 - (void)moveTouch:(CGPoint)l {
-    CGPoint lOffset = CombinedPoint(l, ccp(-self.f.touchOffset.x, self.f.touchOffset.y));
+    CGPoint lOffset = CombinedPoint(l, ccp(-self.f.pilot.l.x, self.f.pilot.l.y));
     if (lOffset.x < 5) {
         l = ccp(5, l.y);
     } else if (lOffset.x > 315) {
@@ -24,9 +24,11 @@
         l = ccp(l.x, 573);
     }
     
+    [self.f setTouchOffsetFromPilotNear:l];
+    
     self.f.playerTouch = l;
     
-    [self.f changeState:self.f.drawingState withTouch:self.f.playerTouch];
+    [self.f changeState:self.f.drawingState withTouch:l];
 }
 
 
