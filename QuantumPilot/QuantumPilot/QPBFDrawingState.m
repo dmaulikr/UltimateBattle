@@ -15,8 +15,6 @@
     }
 }
 
-
-
 - (void)setPlayerTouch:(CGPoint)l {
     self.f.playerTouch = l;
     self.f.lastPlayerTouch = l;
