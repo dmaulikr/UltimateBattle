@@ -496,15 +496,16 @@ static QPBattlefield *instance = nil;
 #pragma mark States
 
 - (void)changeState:(QPBFState *)state withOptions:(NSDictionary *)options {
-    if (self.currentState == self.titleState) {
-        titleSlide = true;
-        titleDelay = 225;
-        titleY = 50;
-    }
-    
     if (self.currentState) {
         [self.currentState deactivate];
+        
+        if (self.currentState == self.titleState) {
+            titleSlide = true;
+            titleDelay = 225;
+            titleY = 50;
+        }
     }
+    
     self.currentState = state;
     [self.currentState activate:options];
     self.pilot.blinking = self.currentState == self.pausedState;
@@ -761,6 +762,15 @@ static QPBattlefield *instance = nil;
 
 - (void)reloadWarningDisplay {
     [self.recycleState showWarningActivated:warning];
+}
+
+- (void)finishedDisplayingScore {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"clearLabels" object:nil];
+    if (self.pilot.debris >= 50) {
+        [self enterRecycleState];
+    } else {
+        [self changeState:self.pausedState];
+    }
 }
 
 - (void)enterRecycleState {

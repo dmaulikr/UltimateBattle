@@ -46,6 +46,8 @@ enum pulsestate {
     int titleY;
     int titleDelay;
     bool titleSlide;
+    
+    bool veteran;
 }
 
 @property (nonatomic, retain) NSMutableArray *bullets;
@@ -127,7 +129,7 @@ enum pulsestate {
 - (bool)installWarning;
 - (bool)installNextWeapon;
 - (bool)installSlow;
-- (void)enterRecycleState;
+- (void)finishedDisplayingScore;
 
 - (bool)shieldMaxed;
 

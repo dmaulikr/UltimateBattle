@@ -15,15 +15,12 @@
     ScoreDisplay *sd = (ScoreDisplay *)self.scoreDisplay;
     [self finishedDisplayingWithTotalScore:[sd totalScoreIncrease] + self.f.score];
     [self deactivate];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"clearLabels" object:nil];
-    [self.f changeState:self.f.drawingState];
+    [self.f finishedDisplayingScore];
 }
 
 - (void)addTouch:(CGPoint)l {
     if ([self.f.pilot touchesPoint:l]) {
         [self interruptedTransition];
-        [self.f setTouchOffsetFromPilotNear:l];
-        [self.f addTouch:l];
     } else {
         [self.f.pilot fire];
         [self.f setTouchOffsetFromPilotNear:self.f.pilot.l];
@@ -59,7 +56,7 @@
 
 - (void)finishedDisplayingWithTotalScore:(int)score {
     self.f.score = score;
-    [self.f enterRecycleState];
+    [self.f finishedDisplayingScore];
     NSLog(@"score: %d", self.f.score);
 }
 
