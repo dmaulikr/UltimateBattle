@@ -28,7 +28,7 @@
     self.titleLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 100)] autorelease];
     self.subTitle = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 60)] autorelease];
 
-    self.guide = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 60)] autorelease];
+    self.guide = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 106, 60)] autorelease];
     
     for (UILabel *l in [self labels]) {
         l.backgroundColor = [UIColor clearColor];

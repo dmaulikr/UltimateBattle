@@ -38,6 +38,7 @@
 }
 
 - (void)activate:(NSDictionary *)options {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"clearLabels" object:nil];
     NSLog(@"options: %@", options);
     self.scoreDisplay = [[[ScoreDisplay alloc] initWithTimeScore:[options[QP_BF_TIMESCORE] intValue] accuracyScore:[options[QP_BF_ACCSCORE] intValue] pathingScore:[options[QP_BF_PATHSCORE] intValue] currentScore:[options[QP_BF_SCORE]intValue]] autorelease];
 

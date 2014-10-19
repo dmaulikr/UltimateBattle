@@ -44,7 +44,7 @@ static float innerTopHeight = 5.75;
     self = [super init];
     if (self) {
         [self engage];
-        _debris = 55555;
+        _debris = 0;
 //        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 //            [self assignInnerCircleRadius];
 //        });
@@ -166,7 +166,7 @@ static float innerTopHeight = 5.75;
         if (self.fightingIteration == self.drawingIteration) {
             future[self.fightingIteration] = self.l;
             self.drawingIteration++;
-//            [self.pilotDelegate pilotReachedEndOfFutureWaypoints];
+            [self.pilotDelegate pilotReachedEndOfFutureWaypoints];
 //            [self resetIterations];            
         }
     }

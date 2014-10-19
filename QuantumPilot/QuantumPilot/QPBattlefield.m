@@ -87,8 +87,44 @@ static QPBattlefield *instance = nil;
      
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resetDebrisShow) name:@"DebrisCollected" object:nil];
         level = 1;
+        
+        [self showGuide:0];
     }
     return self;
+}
+
+- (void)showGuide:(int)guideLevel {
+    if (veteran) {
+        return;
+    }
+    
+    QuantumClone *c = self.clones.firstObject;
+    
+    switch (guideLevel) {
+        case 0:
+            if (level > 1) {
+                return;
+            }
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"Guide" object:@{@"x":[NSNumber numberWithInteger:self.pilot.l.x], @"y" : [NSNumber numberWithInteger:(578 - self.pilot.l.y + 25)], @"text" : @"Drag your ship to record a path"}];
+            break;
+        case 1:
+            if (level > 1) {
+                return;
+            }
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"Guide" object:@{@"x":[NSNumber numberWithFloat:self.pilot.l.x + (.5 * self.pilot.l.x)], @"y" : [NSNumber numberWithInteger:(578 - self.pilot.l.y + 25)], @"text" : @"Tap empty space to fire"}];
+            break;
+        case 2:
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"Guide" object:@{@"x":[NSNumber numberWithInteger:c.l.x], @"y" : [NSNumber numberWithInteger:(578 - c.l.y - 45)], @"text" : @"The enemy copies your attack"}];
+            break;
+        case 3:
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"Guide" object:@{@"x":[NSNumber numberWithInteger:160], @"y" : [NSNumber numberWithInteger:35], @"text" : @"Collect 50 falling debris to install upgrades"}];
+            break;
+
+       
+            
+        default:
+            break;
+    }
 }
 
 - (float)pulseRotation {
@@ -247,6 +283,7 @@ static QPBattlefield *instance = nil;
 }
 
 - (void)resetBattlefield {
+    veteran = level > 4;
     level = 1;
     [self eraseBullets];
     [self eraseClones];
@@ -262,6 +299,8 @@ static QPBattlefield *instance = nil;
     installLevel = 0;
     warning = 0;
     slow = 0;
+    
+    [self showGuide:0];
 }
 
 - (BOOL)debrisOutOfBounds:(Debris *)d {
@@ -303,6 +342,12 @@ static QPBattlefield *instance = nil;
             [c showFireSignal];
         }
         [c pulse];
+    }
+    
+    if (level == 2 || level == 3) {
+        [self showGuide:2];
+    } else if (level == 4) {
+        [self showGuide:3];
     }
 }
 
@@ -503,6 +548,8 @@ static QPBattlefield *instance = nil;
             titleSlide = true;
             titleDelay = 225;
             titleY = 50;
+        } else if (level == 1 && state == self.fightingState) {
+            [self showGuide:1];
         }
     }
     
@@ -565,8 +612,7 @@ static QPBattlefield *instance = nil;
 #pragma mark Pilot Delgate
 
 - (void)pilotReachedEndOfFutureWaypoints {
-    paths++;
-    
+    [self showGuide:0];
 
 //    [self changeState:self.pausedState];
 }
