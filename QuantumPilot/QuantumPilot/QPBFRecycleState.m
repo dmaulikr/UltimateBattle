@@ -17,31 +17,38 @@
     if ([self.f touchingPlayer:l]) {
         [[NSNotificationCenter defaultCenter] postNotificationName:@"clearLabels" object:nil];
         [self.f changeState:self.f.pausedState withTouch:l];
-    } else if (l.x < p.x - 20) {
-        if (l.y < p.y - 20) {
-            if ([self.f installWarning]) {
-                
+    } else if (!off) {
+        if(l.x < p.x - 20) {
+            if (l.y < p.y - 20) {
+                if ([self.f installWarning]) {
+                    
+                }
+            } else if (l.y > p.y + 20) {
+                if ([self.f installShield]) {
+                    
+                }
             }
-        } else if (l.y > p.y + 20) {
-            if ([self.f installShield]) {
-                
+        } else if (l.x > p.x + 20) {
+            if (l.y < p.y - 20) {
+                if ([self.f installSlow]) {
+                    
+                }
+            } else if (l.y > p.y + 20) {
+                if ([self.f installNextWeapon]) {
+                    
+                }
             }
         }
-    } else if (l.x > p.x + 20) {
-        if (l.y < p.y - 20) {
-            if ([self.f installSlow]) {
-                
-            }
-        } else if (l.y > p.y + 20) {
-            if ([self.f installNextWeapon]) {
-                
-            }
-        }
+    } else {
+        [self.f.pilot fire];
+        [self.f.pilot resetFuture];
+        [self.f changeState:self.f.fightingState withTouch:l];
     }
 }
 
 - (void)activate:(NSDictionary *)options {
     if ([options[QP_RECYCLE_NEXT_WEAPON] isEqualToString:@"cancel"]) {
+        off = true;
         return;
     }
     self.display = [[[RecycleDisplay alloc] init] autorelease];

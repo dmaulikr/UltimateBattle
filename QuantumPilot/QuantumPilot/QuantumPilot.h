@@ -105,6 +105,8 @@
 
 - (void)prepareDeltaDraw;
 
+- (void)resetFuture;
+
 @end
 
 @protocol QuantumPilotingDelegate <NSObject>

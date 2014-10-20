@@ -10,7 +10,8 @@
         [self.f addTouch:l];
     } else {
         [self.f.pilot fire];
-        [self.f changeState:self.f.drawingState];
+        [self.f.pilot resetFuture];
+        [self.f changeState:self.f.fightingState withTouch:l];
     }
 }
 

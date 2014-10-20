@@ -360,6 +360,12 @@ static float innerTopHeight = 5.75;
     [super dealloc];
 }
 
+- (void)resetFuture {
+    for (int i = 0; i < 4551; i++) {
+        future[i] = self.l;
+    }
+}
+
 @end
 
 

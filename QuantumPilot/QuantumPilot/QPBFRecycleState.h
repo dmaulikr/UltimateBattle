@@ -12,7 +12,9 @@
 #define QP_RECYCLE_NEXT_WEAPON @"QP_RECYCLE_NEXT_WEAPON"
 #define QP_RECYCLE_NEXT_WEAPON_COST @"QP_RECYCLE_NEXT_WEAPON_COST"
 
-@interface QPBFRecycleState : QPBFState
+@interface QPBFRecycleState : QPBFState {
+    bool off;
+}
 
 @property (strong, nonatomic) RecycleDisplay *display;
 
