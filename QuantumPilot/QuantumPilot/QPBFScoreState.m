@@ -15,7 +15,7 @@
     ScoreDisplay *sd = (ScoreDisplay *)self.scoreDisplay;
     [self finishedDisplayingWithTotalScore:[sd totalScoreIncrease] + self.f.score];
     [self deactivate];
-    [self.f finishedDisplayingScore:l];
+    [self.f finishedDisplayingScore:l rush:true];
 }
 
 - (void)addTouch:(CGPoint)l {
@@ -51,7 +51,7 @@
 
 - (void)finishedDisplayingWithTotalScore:(int)score {
     self.f.score = score;
-    [self.f finishedDisplayingScore:self.f.pilot.l];
+    [self.f finishedDisplayingScore:self.f.pilot.l rush:false];
     NSLog(@"score: %d", self.f.score);
 }
 

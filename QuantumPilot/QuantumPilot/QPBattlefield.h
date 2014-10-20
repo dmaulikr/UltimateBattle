@@ -129,7 +129,7 @@ enum pulsestate {
 - (bool)installWarning;
 - (bool)installNextWeapon;
 - (bool)installSlow;
-- (void)finishedDisplayingScore:(CGPoint)l;
+- (void)finishedDisplayingScore:(CGPoint)l rush:(bool)rush;
 
 - (bool)shieldMaxed;
 

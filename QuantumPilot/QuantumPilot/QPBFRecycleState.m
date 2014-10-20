@@ -14,7 +14,7 @@
 
 - (void)addTouch:(CGPoint)l {
     CGPoint p = self.f.pilot.l;
-    if (GetDistance(l, p) < 40) {
+    if ([self.f touchingPlayer:l]) {
         [[NSNotificationCenter defaultCenter] postNotificationName:@"clearLabels" object:nil];
         [self.f changeState:self.f.pausedState withTouch:l];
     } else if (l.x < p.x - 20) {
@@ -41,6 +41,9 @@
 }
 
 - (void)activate:(NSDictionary *)options {
+    if ([options[QP_RECYCLE_NEXT_WEAPON] isEqualToString:@"cancel"]) {
+        return;
+    }
     self.display = [[[RecycleDisplay alloc] init] autorelease];
     //show options
     //show pay

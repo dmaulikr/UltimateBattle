@@ -810,21 +810,29 @@ static QPBattlefield *instance = nil;
     [self.recycleState showWarningActivated:warning];
 }
 
-- (void)finishedDisplayingScore:(CGPoint)l {
+- (void)finishedDisplayingScore:(CGPoint)l rush:(bool)rush {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"clearLabels" object:nil];
-    if (self.pilot.debris >= 50) {
-        [self enterRecycleState];
-    } else {
+    if (rush) {
         [self changeState:self.pausedState withTouch:l];
+    } else {
+        if (self.pilot.debris >= 50) {
+            [self enterRecycleState:true];
+        } else {
+            [self enterRecycleState:false];
+        }
     }
 }
 
-- (void)enterRecycleState {
+- (void)enterRecycleState:(bool)show {
     NSNumber *cost = [NSNumber numberWithInt:[self nextWeaponCost]];
-    [self changeState:self.recycleState withOptions:@{QP_RECYCLE_NEXT_WEAPON : [self nextWeapon],
-                                                      QP_RECYCLE_NEXT_WEAPON_COST : cost}];
-    [self reloadDebrisDisplay];
-    [self reloadWarningDisplay];
+    if (show) {
+        [self changeState:self.recycleState withOptions:@{QP_RECYCLE_NEXT_WEAPON : [self nextWeapon],
+                                                          QP_RECYCLE_NEXT_WEAPON_COST : cost}];
+        [self reloadDebrisDisplay];
+        [self reloadWarningDisplay];
+    } else {
+        [self changeState:self.recycleState withOptions:@{QP_RECYCLE_NEXT_WEAPON : @"cancel"}];
+    }
 }
 
 #pragma mark Pilot effects
