@@ -28,4 +28,6 @@ enum TimeDirection {
 
 - (void)showFireSignal;
 
+- (void)increaseTime;
+
 @end

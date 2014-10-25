@@ -181,6 +181,7 @@ static float innerTopHeight = 5.75;
 
 - (void)copyDeltas {
     [self.clone recordVelocity:ccp(self.vel.x, -self.vel.y) firing:self.firing];
+    [self.clone increaseTime];
 }
 
 - (void)resetFiring {

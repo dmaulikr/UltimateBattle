@@ -18,6 +18,7 @@ static int fireSignalValue = 89;
     c.weapon = self.weapon;
     for (NSInteger i = 0; i < 4551; i++) {
         [c recordVelocity:pastVelocities[i] firing:pastFireTimings[i]];
+        [c increaseTime];
     }
     [c recordLatestIndex:timeIndex];
     return c;
@@ -49,7 +50,6 @@ static int fireSignalValue = 89;
     pastVelocities[timeIndex] = p;
     bool fired = firing;
     pastFireTimings[timeIndex] = fired;
-    timeIndex++;
 }
 
 - (void)recordLatestIndex:(NSInteger)index {
@@ -58,6 +58,14 @@ static int fireSignalValue = 89;
 
 - (bool)shouldDraw {
     return self.active;
+}
+
+- (void)increaseTime {
+    timeIndex++;
+}
+
+- (void)changeTime {
+    timeIndex+= timeDirection;
 }
 
 - (void)pulse {
@@ -74,7 +82,7 @@ static int fireSignalValue = 89;
             }
             [self checkForFiringWeapon];
             
-            timeIndex+= timeDirection;
+            [self changeTime];
             
             if (timeIndex >= latestIndex) {
                 timeIndex = latestIndex;
@@ -87,7 +95,7 @@ static int fireSignalValue = 89;
             [self resetPosition];
         }
     } else {
-        timeIndex++;
+        [self increaseTime];
     }
     [self defineEdges];
     radius = (float)fireSignal/(float)fireSignalValue * 1.7;
