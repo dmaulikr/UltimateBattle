@@ -4,10 +4,12 @@
 #import "QPBattlefield.h"
 #import "SingleLaserCannon.h"
 #import "ShieldDebris.h"
+#import "Arsenal.h"
 
 @interface QuantumPilot() {
     CGPoint future[4551];
     CGPoint circles[4551];
+    CGPoint weapon;
 }
 
 @end
@@ -92,7 +94,7 @@ static float innerTopHeight = 5.75;
 }
 
 - (void)drawCircle {
-    [NSClassFromString(self.weapon) setDrawColor];
+    [[Arsenal weaponIndexedFromArsenal:weapon.x] setDrawColor];
     ccDrawFilledCircle(self.innerTopEdge, innerRadius, 0, 30, NO);
 }
 
@@ -119,7 +121,8 @@ static float innerTopHeight = 5.75;
 }
 
 - (void)sendBulletsToBattlefield {
-    Class w = NSClassFromString(self.weapon);
+    int i = weapon.x;
+    Class w = [Arsenal weaponIndexedFromArsenal:i];
     [self.bulletDelegate bulletsFired:[w bulletsForLocation:outerEdges[0] direction:[self fireDirection]]];
 }
 
@@ -180,8 +183,7 @@ static float innerTopHeight = 5.75;
 }
 
 - (void)copyDeltas {
-    [self.clone recordVelocity:ccp(self.vel.x, -self.vel.y) firing:self.firing];
-    [self.clone increaseTime];
+    [self.clone recordVelocity:ccp(self.vel.x, -self.vel.y) firing:self.firing weapon:weapon];
 }
 
 - (void)resetFiring {
@@ -293,10 +295,15 @@ static float innerTopHeight = 5.75;
 
 - (BOOL)processDebris:(Debris *)d {
     if ([self isCollidingWithDebris:d]) {
-        self.debris += ([d level] + 1);
+//        self.debris += ([d level] + 1);
         d.l = ccp(5000,500);
         
-        return true;
+        int wx = d.level;
+        CGPoint w = weapon;
+        w.x = wx;
+        weapon = w;
+        
+  //      return true;
     }
     
     return false;

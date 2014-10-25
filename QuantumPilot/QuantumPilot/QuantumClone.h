@@ -17,13 +17,14 @@ enum TimeDirection {
 @interface QuantumClone : QuantumPilot <NSCopying> {
     CGPoint pastVelocities[4551];
     BOOL pastFireTimings[4551];
+    CGPoint pastWeapons[4551];
     NSInteger timeIndex;
     NSInteger latestIndex;
     enum TimeDirection timeDirection;
     int fireSignal;
 }
 
-- (void)recordVelocity:(CGPoint)vel firing:(BOOL)firing;
+- (void)recordVelocity:(CGPoint)vel firing:(BOOL)firing weapon:(CGPoint)wep;
 - (void)activate;
 
 - (void)showFireSignal;

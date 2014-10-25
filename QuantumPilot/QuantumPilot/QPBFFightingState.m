@@ -25,9 +25,9 @@
         return;
     }
 
-    for (QuantumClone *c in self.f.clones) {
-        [c pulse];
-    }
+//    for (QuantumClone *c in self.f.clones) {
+//        [c pulse];
+//    }
     
     if (_holding) {
         _held++;

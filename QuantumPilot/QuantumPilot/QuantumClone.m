@@ -8,6 +8,8 @@
 
 #import "QuantumClone.h"
 #import "SingleLaserCannon.h"
+#import "Arsenal.h"
+#import "QPBattlefield.h"
 
 @implementation QuantumClone
 
@@ -17,7 +19,7 @@ static int fireSignalValue = 89;
     QuantumClone *c = [[[QuantumClone alloc] init] autorelease];
     c.weapon = self.weapon;
     for (NSInteger i = 0; i < 4551; i++) {
-        [c recordVelocity:pastVelocities[i] firing:pastFireTimings[i]];
+        [c recordVelocity:pastVelocities[i] firing:pastFireTimings[i] weapon:pastWeapons[i]];
         [c increaseTime];
     }
     [c recordLatestIndex:timeIndex];
@@ -38,18 +40,25 @@ static int fireSignalValue = 89;
 }
 
 - (void)sendBulletsToBattlefield  {
-    Class w = NSClassFromString(self.weapon);
+//    Class w = NSClassFromString(self.weapon);
+    Class w = [Arsenal weaponIndexedFromArsenal:[self pastWeapon]];
     [self.bulletDelegate cloneBulletsFired:[w bulletsForLocation:outerEdges[0] direction:[self fireDirection]]];
 
 }
 
-- (void)recordVelocity:(CGPoint)vel firing:(BOOL)firing {
-    CGPoint p = pastVelocities[timeIndex];
+- (void)recordVelocity:(CGPoint)vel firing:(BOOL)firing weapon:(CGPoint)wep {
+    int t = timeIndex;
+    CGPoint p = pastVelocities[t];
     p.x = vel.x;
     p.y = vel.y;
-    pastVelocities[timeIndex] = p;
+    pastVelocities[t] = p;
     bool fired = firing;
-    pastFireTimings[timeIndex] = fired;
+    pastFireTimings[t] = fired;
+    
+    CGPoint wp = pastWeapons[t];
+    wp.x = wep.x;
+    wp.y = wep.y;
+    pastWeapons[t] = wp;
 }
 
 - (void)recordLatestIndex:(NSInteger)index {
@@ -66,31 +75,45 @@ static int fireSignalValue = 89;
 
 - (void)changeTime {
     timeIndex+= timeDirection;
+    NSLog(@"timeIndex: %d", timeIndex);
+}
+
+- (void)moveByVelocity {
+    self.vel = pastVelocities[timeIndex];
+    if (timeDirection == backwards) {
+        self.vel = ccp(-self.vel.x, -self.vel.y);
+    }
+    [super moveByVelocity];
+}
+
+- (void)fireByWeapons {
+    if (fireSignal > 0) {
+        fireSignal--;
+    }
+    [self checkForFiringWeapon];
+}
+
+- (void)moveThroughTime {
+    [self changeTime];
+    
+    if (timeIndex >= latestIndex) {
+        timeIndex = latestIndex;
+        timeDirection = backwards;
+    } else if (timeIndex < 0) {
+        timeIndex = 0;
+        timeDirection = forwards;
+    }
+    
+//    int pt = [[[QPBattlefield f] pilot] time];
+//    NSLog(@"c time: %d p time: %d", timeIndex, pt);
 }
 
 - (void)pulse {
     if (timeDirection != recording) {
         if (self.active) {
-            self.vel = pastVelocities[timeIndex];
-            if (timeDirection == backwards) {
-                self.vel = ccp(-self.vel.x, -self.vel.y);
-            }
             [self moveByVelocity];
-       
-            if (fireSignal > 0) {
-                fireSignal--;
-            }
-            [self checkForFiringWeapon];
-            
-            [self changeTime];
-            
-            if (timeIndex >= latestIndex) {
-                timeIndex = latestIndex;
-                timeDirection = backwards;
-            } else if (timeIndex < 0) {
-                timeIndex = 0;
-                timeDirection = forwards;
-            }
+            [self fireByWeapons];
+            [self moveThroughTime];
         } else {
             [self resetPosition];
         }
@@ -101,11 +124,16 @@ static int fireSignalValue = 89;
     radius = (float)fireSignal/(float)fireSignalValue * 1.7;
 }
 
+- (int)pastWeapon {
+    return pastWeapons[timeIndex].x;
+}
+
 - (void)setShipDrawColor {
     if (timeDirection == recording) {
         ccDrawColor4F(1, 1, 1, 1.0);
     } else {
-        [NSClassFromString(self.weapon) setDrawColor];
+        [[Arsenal weaponIndexedFromArsenal:[self pastWeapon]] setDrawColor];
+//        [NSClassFromString(self.weapon) setDrawColor];
     }
 }
 
