@@ -32,4 +32,6 @@
 
 - (bool)isDebris;
 
+- (void)assignLevel;
+
 @end

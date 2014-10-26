@@ -75,7 +75,6 @@ static int fireSignalValue = 89;
 
 - (void)changeTime {
     timeIndex+= timeDirection;
-    NSLog(@"timeIndex: %d", timeIndex);
 }
 
 - (void)moveByVelocity {

@@ -1,17 +1,8 @@
- white: 25%
- orange 25%
- purple: 15%
- light blue: 15%
- yellow: 10%
- blue: 5
- green: 5
-
 collect to upgrade level
 clones have levels, as does pilot/weapon
 
 show upgrade circles
  
-Wave 1
 Weapon 
 
 Show score
@@ -20,6 +11,8 @@ Remove score/recycle flow
 
 Autofire: ON -- show in bottom corner in place of Score
 IMITATION: ghost bullet -- fades out in front of you
+
+Wave 1 underneath ship -- green:drag to ..
 
 HEY: SPEC WORK: LOGO: QUANTUM PILOT
 

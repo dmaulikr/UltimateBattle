@@ -70,4 +70,24 @@
     return true;
 }
 
+- (void)assignLevel {
+    int wRandom[7] = {140, 140, 30, 30, 20, 15, 5};
+    
+    int wRandomTotal = 0;
+    for (int i = 0; i < 7; i++) {
+        wRandomTotal += wRandom[i];
+    }
+
+    int weaponRandom = arc4random() % wRandomTotal;
+    NSLog(@"random: %d", weaponRandom);
+    _level = 0;
+    int accum = 0;
+    for (int i = 0; i < 6; i++) {
+        accum+= wRandom[i];
+        if (weaponRandom > accum) {
+            _level++;
+        }
+    }
+}
+
 @end
