@@ -3,7 +3,7 @@ bullet deflection (x vel swapping) (collision rule: modifier advances, replaces 
 ship momentum
 ship control
 ship gravity  well
-reset layers && special weapons
+reset layers && special weapons on tap:
  single stops/starts y vel
  wide swaps x vel
  shotgun turns around && resets pulses

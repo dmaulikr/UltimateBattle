@@ -1,18 +1,3 @@
-debate: gameplay not WOW enough.
-select only between shield & weapon upgrade?
-collect falling weapons to upgrade?
- falling weapons means..
-
- collect a falling weapon to set it as your next weapon
- play click
- show Wave 1 \n (circle) weapon botom left
- show Next \n weapon (circle) bottom right
- show next wreapon
-
- show shield falling?
-
- next weapon stays as next weapon
-
  white: 25%
  orange 25%
  purple: 15%
@@ -20,8 +5,6 @@ collect falling weapons to upgrade?
  yellow: 10%
  blue: 5
  green: 5
-
-record weapon index
 
 collect to upgrade speed
 clones have levels, as does pilot/weapon
@@ -31,8 +14,16 @@ show upgrade circles
 Wave 1
 Weapon 
 
+Show score
 
-menu screen
+Remove score/recycle flow
+
+Autofire: ON -- show in bottom corner in place of Score
+IMITATION: ghost bullet -- fades out in front of you
+
+HEY: SPEC WORK: LOGO: QUANTUM PILOT
+
+SHOTGUN: Low distance -- stay still to INCREASE range
 
 icloud
 store locally
@@ -40,7 +31,7 @@ register for icloud updates
 sync from icloud
 store to icloud
 
-iap
+iap: shields, round 2 (infinite?)
 
 cross platform
 

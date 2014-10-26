@@ -1,7 +1,7 @@
+dismantler: faster
 
-
-core crusher
-exoslicer
-gamma hammer
-spacemelter (quad)
-voidwave
+core crusher: 2x, 3x, 4x
+exoslicer: bullet doesn't fade x2, ever
+gamma hammer: more spread
+spacemelter (quad): faster
+voidwave: seriously?
