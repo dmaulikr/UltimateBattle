@@ -60,6 +60,9 @@
         [c.view addSubview:v];
     }
     
+    [c.view addSubview:self.window.weaponLabel];
+    [c.view addSubview:self.window.scoreLabel];
+    
 	// make main window visible
 	[window_ makeKeyAndVisible];
 	

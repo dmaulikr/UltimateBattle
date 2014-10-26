@@ -22,6 +22,9 @@
 
 @property (strong, nonatomic) UILabel *guide;
 
+@property (strong, nonatomic) UILabel *weaponLabel;
+@property (strong, nonatomic) UILabel *scoreLabel;
+
 - (NSArray *)labels;
 
 @end

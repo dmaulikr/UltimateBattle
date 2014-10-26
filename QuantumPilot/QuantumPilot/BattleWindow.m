@@ -8,6 +8,8 @@
 
 #import "BattleWindow.h"
 #import "cocos2d.h"
+#import "Arsenal.h"
+#import "Weapon.h"
 
 @implementation BattleWindow
 
@@ -29,6 +31,16 @@
     self.subTitle = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 60)] autorelease];
 
     self.guide = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 106, 60)] autorelease];
+    
+    self.weaponLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0, 568-40, 200, 40)] autorelease];
+    self.weaponLabel.textColor = [UIColor whiteColor];
+    self.weaponLabel.font = [UIFont boldSystemFontOfSize:16];
+    self.weaponLabel.textAlignment = NSTextAlignmentLeft;
+    
+    self.scoreLabel = [[[UILabel alloc] initWithFrame:CGRectMake(320-200, 568-40, 200, 40)] autorelease];
+    self.scoreLabel.textColor = [UIColor whiteColor];
+    self.scoreLabel.font = [UIFont boldSystemFontOfSize:16];
+    self.scoreLabel.textAlignment = NSTextAlignmentRight;
     
     for (UILabel *l in [self labels]) {
         l.backgroundColor = [UIColor clearColor];
@@ -56,8 +68,23 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateSubtitleLabel:) name:@"SubtitleLabel" object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hideLabels) name:@"clearLabels" object:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateWeaponLabel:) name:@"WeaponLabel" object:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateScoreLabel:) name:@"ScoreLabel" object:nil];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"WeaponLabel" object:[NSNumber numberWithInteger:0]];
     
     return self;
+}
+
+- (void)updateWeaponLabel:(NSNotification *)n {
+    int i = [n.object intValue];
+    Class w = [Arsenal weaponIndexedFromArsenal:i];
+    
+    self.weaponLabel.text = [w weaponName];
+    self.weaponLabel.textColor = [w weaponColor];
+    
 }
 
 - (void)updateLabel:(UILabel *)l withData:(NSDictionary *)d {

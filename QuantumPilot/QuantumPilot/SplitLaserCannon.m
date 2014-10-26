@@ -21,4 +21,12 @@
     ccDrawColor4F(1, .64, 0, 1);
 }
 
++ (NSString *)weaponName {
+    return @"NOVA SPLITTER";
+}
+
++ (UIColor *)weaponColor {
+    return [UIColor colorWithRed:1.0f green:0.64f blue:0.0f alpha:1];
+}
+
 @end

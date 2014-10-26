@@ -12,5 +12,13 @@
     ccDrawColor4F(1, 1, 1, 1.0);
 }
 
++ (NSString *)weaponName {
+    return @"DISMANTLER";
+}
+
++ (UIColor *)weaponColor {
+    return [UIColor whiteColor];;
+}
+
 
 @end

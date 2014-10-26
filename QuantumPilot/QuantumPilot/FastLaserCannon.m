@@ -28,4 +28,12 @@
     ccDrawColor4F(.8, .03, .8, 1.0);
 }
 
++ (NSString *)weaponName {
+    return @"CORE CRUSHER";
+}
+
++ (UIColor *)weaponColor {
+    return [UIColor colorWithRed:0.8f green:0.03f blue:0.8f alpha:1];
+}
+
 @end

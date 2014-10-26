@@ -57,4 +57,12 @@ static Weapon *instance = nil;
     ccDrawColor4F(1, 1, 1, 1.0);
 }
 
++ (NSString *)weaponName {
+    return @"Weapon";
+}
+
++ (UIColor *)weaponColor {
+    return [UIColor greenColor];;
+}
+
 @end

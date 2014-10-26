@@ -26,4 +26,7 @@
 
 + (Weapon *)w;
 
++ (NSString *)weaponName;
++ (UIColor *)weaponColor;
+
 @end

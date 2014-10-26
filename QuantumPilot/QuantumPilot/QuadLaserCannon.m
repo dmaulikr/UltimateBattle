@@ -23,4 +23,12 @@
     ccDrawColor4F(.0, .0, 1, 1); //.05, .05, .9
 }
 
++ (NSString *)weaponName {
+    return @"STAR MELTER";
+}
+
++ (UIColor *)weaponColor {
+    return [UIColor colorWithRed:0.0f green:0.00f blue:1.0f alpha:1];
+}
+
 @end

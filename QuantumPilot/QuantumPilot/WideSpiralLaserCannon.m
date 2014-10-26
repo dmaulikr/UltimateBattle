@@ -24,5 +24,12 @@
     ccDrawColor4F(0, 1, 0, 1);
 }
 
++ (NSString *)weaponName {
+    return @"VOIDWAVE";
+}
+
++ (UIColor *)weaponColor {
+    return [UIColor colorWithRed:0.0f green:1.0f blue:0.0f alpha:1];
+}
 
 @end

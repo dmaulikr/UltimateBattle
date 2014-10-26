@@ -26,5 +26,12 @@
     ccDrawColor4F(1, 1, 0, 1);
 }
 
++ (NSString *)weaponName {
+    return @"GAMMA HAMMER";
+}
+
++ (UIColor *)weaponColor {
+    return [UIColor colorWithRed:1.0f green:1.0f blue:0.0f alpha:1];
+}
 
 @end
