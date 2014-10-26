@@ -299,15 +299,28 @@ static float innerTopHeight = 5.75;
         d.l = ccp(5000,500);
         
         int wx = d.level;
+        int wy = weapon.y;
+        
+        if (wx != weapon.x) {
+            wy = 0;
+        } else {
+            wy++;
+        }
+        
         [[NSNotificationCenter defaultCenter] postNotificationName:@"WeaponLabel" object:[NSNumber numberWithInteger:wx]];
         CGPoint w = weapon;
         w.x = wx;
+        w.y = wy;
         weapon = w;
         
   //      return true;
     }
     
     return false;
+}
+
+- (int)arsenalLevel {
+    return weapon.x;
 }
 
 - (bool)processBullet:(Bullet *)b {
@@ -373,6 +386,10 @@ static float innerTopHeight = 5.75;
     for (int i = 0; i < 4551; i++) {
         future[i] = self.l;
     }
+}
+
+- (int)weaponLevel {
+    return weapon.y;
 }
 
 @end

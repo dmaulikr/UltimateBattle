@@ -855,6 +855,22 @@ static QPBattlefield *instance = nil;
     [self registerShieldHit:p weapon:nil];
 }
 
+- (void)draw {
+    [super draw];
+    [[Arsenal weaponIndexedFromArsenal:[self.pilot arsenalLevel]] setDrawColor];
+    CGPoint c = ccp(3, 568 - 540);
+    ccDrawFilledCircle(c, 1.7, 0, 30, NO);
+    
+    if ([self.pilot weaponLevel] > 0) {
+        c = ccp(9, 568 - 540);
+        ccDrawFilledCircle(c, 1.7, 0, 30, NO);
+        
+        if ([self.pilot weaponLevel] > 1) {
+            c = ccp(15, 568 - 540);
+            ccDrawFilledCircle(c, 1.7, 0, 30, NO);
+        }
+    }
+}
 
 
 @end

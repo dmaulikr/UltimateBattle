@@ -107,6 +107,10 @@
 
 - (void)resetFuture;
 
+- (int)arsenalLevel;
+
+- (int)weaponLevel;
+
 @end
 
 @protocol QuantumPilotingDelegate <NSObject>

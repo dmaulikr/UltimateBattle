@@ -125,6 +125,7 @@ static int fireSignalValue = 89;
 
 - (int)pastWeapon {
     int index = timeIndex >= 0 ? timeIndex : 0;
+    
     return pastWeapons[index].x;
 }
 
