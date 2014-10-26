@@ -6,7 +6,7 @@
  blue: 5
  green: 5
 
-collect to upgrade speed
+collect to upgrade level
 clones have levels, as does pilot/weapon
 
 show upgrade circles
@@ -22,6 +22,9 @@ Autofire: ON -- show in bottom corner in place of Score
 IMITATION: ghost bullet -- fades out in front of you
 
 HEY: SPEC WORK: LOGO: QUANTUM PILOT
+
+weapon upgrades
+
 
 SHOTGUN: Low distance -- stay still to INCREASE range
 

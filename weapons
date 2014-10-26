@@ -1,7 +1,7 @@
 dismantler: faster
-
+?? : bounce off enemies when hits, faster
 core crusher: 2x, 3x, 4x
-exoslicer: bullet doesn't fade x2, ever
+exoslicer: bullet doesn't fade x2, slowdown
 gamma hammer: more spread
 spacemelter (quad): faster
-voidwave: seriously?
+voidwave: add slow central line, normal speed central line
