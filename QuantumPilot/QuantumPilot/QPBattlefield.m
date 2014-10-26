@@ -211,6 +211,7 @@ static QPBattlefield *instance = nil;
 //    }
     
     int weaponCount = [[Arsenal arsenal] count] - 1;
+    int weaponCount = [[Arsenal arsenal] count];
     int debrisLevel = arc4random() % weaponCount; //[[Arsenal arsenal] indexOfObject:c.weapon];
     
     Debris *d = [[[Debris alloc] initWithL:c.l] autorelease];
