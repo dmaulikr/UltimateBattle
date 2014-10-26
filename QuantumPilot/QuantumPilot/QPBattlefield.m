@@ -408,7 +408,10 @@ static QPBattlefield *instance = nil;
     [self activateClones];
     [self setupClone];
     [self.pilot resetIterations];
-    [self changeState:self.scoreState withOptions:[self levelScore]];
+    //setup manager
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ScoreLabel" object:[NSNumber numberWithInteger:153229]];
+//    [self changeState:self.scoreState withOptions:[self levelScore]];
+    [self changeState:self.pausedState];
     [self resetLevelScore];
     [self eraseBullets];
     [self.dl reset];
