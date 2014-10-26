@@ -124,7 +124,8 @@ static int fireSignalValue = 89;
 }
 
 - (int)pastWeapon {
-    return pastWeapons[timeIndex].x;
+    int index = timeIndex >= 0 ? timeIndex : 0;
+    return pastWeapons[index].x;
 }
 
 - (void)setShipDrawColor {
