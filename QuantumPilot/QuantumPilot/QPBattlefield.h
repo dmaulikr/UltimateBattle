@@ -29,6 +29,8 @@ enum pulsestate {
     float _breathCycle;
     NSInteger _breathFlow;
     
+    int _circleCharges;
+    
     CGPoint _deltas[4551];
     
     int shotsFired;

@@ -497,7 +497,13 @@ static QPBattlefield *instance = nil;
     [self.shatters removeObjectsInArray:shattersToErase];
 }
 
+- (void)calculateCircleCharges {
+    _circleCharges = [self.pilot weaponLevel];
+}
+
 - (void)pulse {
+    [self calculateCircleCharges];
+    
     [self.currentState pulse];
     //states manage
     
@@ -857,18 +863,14 @@ static QPBattlefield *instance = nil;
 
 - (void)draw {
     [super draw];
-    [[Arsenal weaponIndexedFromArsenal:[self.pilot arsenalLevel]] setDrawColor];
-    CGPoint c = ccp(3, 568 - 540);
-    ccDrawFilledCircle(c, 1.7, 0, 30, NO);
     
-    if ([self.pilot weaponLevel] > 0) {
-        c = ccp(9, 568 - 540);
+    [[Arsenal weaponIndexedFromArsenal:[self.pilot arsenalLevel]] setDrawColor];
+    
+    int x = 3;
+    for (int i = 0; i < _circleCharges + 1; i++) {
+        CGPoint c = ccp(x, 568 - 540);
         ccDrawFilledCircle(c, 1.7, 0, 30, NO);
-        
-        if ([self.pilot weaponLevel] > 1) {
-            c = ccp(15, 568 - 540);
-            ccDrawFilledCircle(c, 1.7, 0, 30, NO);
-        }
+        x+=6;
     }
 }
 
