@@ -1,10 +1,6 @@
-show solid upgrade circles above weapon
-score updater: constant active class, updates to BW via notification.
-score+1 on fire
-score+10 on core collect
-score+100 on kill
+debug: weapon resetting
+debug: clones flashing white
 
-draw enemy path for CURRENT Clone
 Autofire: ON -- show in bottom corner in place of Score
 IMITATION: ghost bullet -- fades out in front of you
 
