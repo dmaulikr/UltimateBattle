@@ -874,5 +874,8 @@ static QPBattlefield *instance = nil;
     }
 }
 
+- (float)bulletSpeed {
+    return 2.2 + (min((float)_circleCharges, (float)6) * .40 ) ;
+}
 
 @end

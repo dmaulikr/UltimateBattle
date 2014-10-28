@@ -79,6 +79,7 @@ static float innerTopHeight = 5.75;
     self.active = YES;
     [self resetPosition];
     self.shield = 0;
+    weapon = ccp(0, 0);
 }
 
 - (bool)shouldDraw {

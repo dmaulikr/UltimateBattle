@@ -135,6 +135,8 @@ enum pulsestate {
 
 - (bool)shieldMaxed;
 
+- (float)bulletSpeed;
+
 #pragma mark Pilot effects
 
 - (void)registerShieldHit:(QuantumPilot *)p;

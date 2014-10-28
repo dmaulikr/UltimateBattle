@@ -79,7 +79,6 @@
     }
 
     int weaponRandom = arc4random() % wRandomTotal;
-    NSLog(@"random: %d", weaponRandom);
     _level = 0;
     int accum = 0;
     for (int i = 0; i < 6; i++) {
