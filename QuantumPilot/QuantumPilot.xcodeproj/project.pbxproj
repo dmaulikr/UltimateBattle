@@ -36,6 +36,7 @@
 		0EEAC48C16B73BC3005F629F /* QPBFState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEAC48B16B73BC3005F629F /* QPBFState.m */; };
 		0EEAC48F16B73C35005F629F /* QPBFTitleState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEAC48E16B73C35005F629F /* QPBFTitleState.m */; };
 		0EEAC49216B73D2E005F629F /* QPBFDrawingState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEAC49116B73D2E005F629F /* QPBFDrawingState.m */; };
+		0EED0EDE19FF1ECE009B6C7E /* QPScoreCycler.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EED0EDD19FF1ECE009B6C7E /* QPScoreCycler.m */; };
 		0EF96AB1197598C900E5DBE2 /* Debris.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EF96AB0197598C900E5DBE2 /* Debris.m */; };
 		BF0EE06D163319B8002942A0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF0EE06C163319B8002942A0 /* QuartzCore.framework */; };
 		BF0EE06F163319B8002942A0 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF0EE06E163319B8002942A0 /* OpenGLES.framework */; };
@@ -222,6 +223,8 @@
 		0EEAC48E16B73C35005F629F /* QPBFTitleState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBFTitleState.m; sourceTree = "<group>"; };
 		0EEAC49016B73D2E005F629F /* QPBFDrawingState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBFDrawingState.h; sourceTree = "<group>"; };
 		0EEAC49116B73D2E005F629F /* QPBFDrawingState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBFDrawingState.m; sourceTree = "<group>"; };
+		0EED0EDC19FF1ECE009B6C7E /* QPScoreCycler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPScoreCycler.h; sourceTree = "<group>"; };
+		0EED0EDD19FF1ECE009B6C7E /* QPScoreCycler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPScoreCycler.m; sourceTree = "<group>"; };
 		0EF96AAF197598C900E5DBE2 /* Debris.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Debris.h; sourceTree = "<group>"; };
 		0EF96AB0197598C900E5DBE2 /* Debris.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Debris.m; sourceTree = "<group>"; };
 		BF0EE068163319B8002942A0 /* QuantumPilot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuantumPilot.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1057,6 +1060,8 @@
 				0EEAC48816B73BB9005F629F /* States */,
 				BFB9DD5E1633CF6A0074EB70 /* Modifiers */,
 				BF8A76A0163646270032AF8F /* QPBattlefield.h */,
+				0EED0EDC19FF1ECE009B6C7E /* QPScoreCycler.h */,
+				0EED0EDD19FF1ECE009B6C7E /* QPScoreCycler.m */,
 				BF8A76A1163646270032AF8F /* QPBattlefield.m */,
 				0EC9E70D1967907400497BB9 /* DeadLine.h */,
 				0EC9E70E1967907400497BB9 /* DeadLine.m */,
@@ -1250,6 +1255,7 @@
 				0E9356E619BBCD160023E1B0 /* ShieldDebris.m in Sources */,
 				BF0EE1AF163319BA002942A0 /* ZipUtils.m in Sources */,
 				BF0EE1B4163319BA002942A0 /* CDAudioManager.m in Sources */,
+				0EED0EDE19FF1ECE009B6C7E /* QPScoreCycler.m in Sources */,
 				BF0EE1B8163319BA002942A0 /* CDOpenALSupport.m in Sources */,
 				BF0EE1BB163319BA002942A0 /* CocosDenshion.m in Sources */,
 				BF0EE1BE163319BB002942A0 /* SimpleAudioEngine.m in Sources */,

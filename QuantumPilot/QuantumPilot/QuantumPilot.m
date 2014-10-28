@@ -79,7 +79,7 @@ static float innerTopHeight = 5.75;
     self.active = YES;
     [self resetPosition];
     self.shield = 0;
-    weapon = ccp(0, 0);
+    weapon = ccp(weapon.x, 0);
     [[NSNotificationCenter defaultCenter] postNotificationName:@"WeaponLabel" object:[NSNumber numberWithInteger:weapon.x]];
 }
 

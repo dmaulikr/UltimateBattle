@@ -84,6 +84,7 @@ static QPBattlefield *instance = nil;
         [self setupDeadline];
         [self setupSpeeds];
         [self setupWeapons];
+        self.scoreCycler = [[[QPScoreCycler alloc] init] autorelease];
      
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resetDebrisShow) name:@"DebrisCollected" object:nil];
         level = 1;
@@ -270,11 +271,6 @@ static QPBattlefield *instance = nil;
         [self removeChild:d cleanup:YES];
     }
     [self.debris removeAllObjects];
-    
-//    for (ShieldDebris *d in self.shieldDebris) {
-//        [self removeChild:d cleanup:YES];
-//    }
-//    [self.shieldDebris removeAllObjects];
 }
 
 - (void)resetPilot {
@@ -284,6 +280,7 @@ static QPBattlefield *instance = nil;
 - (void)resetBattlefield {
     veteran = level > 4;
     level = 1;
+    [self.scoreCycler reset];
     [self eraseBullets];
     [self eraseClones];
     [self eraseDebris];
@@ -315,6 +312,7 @@ static QPBattlefield *instance = nil;
         if ([self debrisOutOfBounds:d]) {
             [debrisToErase addObject:d];
         } else if ([self.pilot processDebris:d]) {
+            [self.scoreCycler score:100];
             [debrisToErase addObject:d];
             [self resetDebrisShow];
         }
@@ -408,8 +406,8 @@ static QPBattlefield *instance = nil;
     [self activateClones];
     [self setupClone];
     [self.pilot resetIterations];
-    //setup manager
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"ScoreLabel" object:[NSNumber numberWithInteger:153229]];
+    [self.scoreCycler addScoring:[self levelScore]];
+    self.score = [self.scoreCycler actualScore];
 //    [self changeState:self.scoreState withOptions:[self levelScore]];
     [self changeState:self.pausedState];
     [self resetLevelScore];
@@ -529,6 +527,13 @@ static QPBattlefield *instance = nil;
     }
     
     [self debrisShowPulse];
+    
+    [self scorePulse];
+}
+
+- (void)scorePulse {
+    [self.scoreCycler pulse];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ScoreLabel" object:[NSNumber numberWithInteger:[self.scoreCycler displayedScore]]];
 }
 
 - (void)debrisShowPulse {
@@ -635,6 +640,8 @@ static QPBattlefield *instance = nil;
     }
     
     [self.bullets addObjectsFromArray:bullets];
+    
+    [self.scoreCycler score:1];
 }
 
 - (void)cloneBulletsFired:(NSArray *)bullets {
