@@ -111,6 +111,8 @@
 
 - (int)weaponLevel;
 
+- (void)registerHit;
+
 @end
 
 @protocol QuantumPilotingDelegate <NSObject>

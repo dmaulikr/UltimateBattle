@@ -13,6 +13,8 @@
 
 @implementation QuantumClone
 
+CGPoint pathDraws[4551];
+
 static int fireSignalValue = 89;
 
 - (id)copyWithZone:(NSZone *)zone {
@@ -23,12 +25,17 @@ static int fireSignalValue = 89;
         [c increaseTime];
     }
     [c recordLatestIndex:timeIndex];
+    c.showPath = false;
     return c;
 }
 
 - (void)resetPosition {
 //    self.l = CGPointMake(384, 1024-170);
     self.l = CGPointMake(160, 578 * 2/3);
+}
+
++ (CGPoint)resetPosition {
+    return CGPointMake(160, 578 * 2/3);
 }
 
 - (NSInteger)yDirection {
@@ -144,6 +151,22 @@ static int fireSignalValue = 89;
     }
 }
 
+- (void)draw {
+    [super draw];
+
+    if (self.showPath) {
+
+        CGPoint dl = [QuantumClone resetPosition];
+        for (int i = 0; i < latestIndex; i++) {
+            CGPoint p = ccp(dl.x + pastVelocities[i].x, dl.y + pastVelocities[i].y);
+            pathDraws[i] = p;
+            dl = p;
+        }
+        
+        ccDrawPoly(pathDraws, latestIndex, NO);
+    }
+}
+
 - (void)activate {
     [self resetPosition];
     self.active = true;
@@ -174,6 +197,11 @@ static int fireSignalValue = 89;
 
 - (NSString *)description {
     return [NSString stringWithFormat:@"x: %f y: %f wep: %@ on: %d", self.l.x, self.l.y, self.weapon, self.active];
+}
+
+- (void)registerHit {
+    [super registerHit];
+    self.showPath = false;
 }
 
 @end

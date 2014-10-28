@@ -24,6 +24,8 @@ enum TimeDirection {
     int fireSignal;
 }
 
+@property (nonatomic) bool showPath;
+
 - (void)recordVelocity:(CGPoint)vel firing:(BOOL)firing weapon:(CGPoint)wep;
 - (void)activate;
 

@@ -417,6 +417,14 @@ static QPBattlefield *instance = nil;
     level++;
     warning = 0;
     slow = 0;
+    
+    for (QuantumClone *c in self.clones) {
+        c.showPath = false;
+    }
+    
+    int i = self.clones.count - 2;
+    QuantumClone *pc = self.clones[i];
+    pc.showPath = true;
 }
 
 - (void)killPulse {
