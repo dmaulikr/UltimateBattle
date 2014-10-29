@@ -132,7 +132,9 @@ static int fireSignalValue = 89;
 
 - (int)pastWeapon {
     int index = timeIndex >= 0 ? timeIndex : 0;
-    
+    if (index >= latestIndex) {
+        index = latestIndex - 1;
+    }
     return pastWeapons[index].x;
 }
 

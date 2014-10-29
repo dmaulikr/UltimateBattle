@@ -79,9 +79,7 @@ static float innerTopHeight = 5.75;
     self.active = YES;
     [self resetPosition];
     self.shield = 0;
-    NSLog(@"weapon x: %f", weapon.x);
     weapon = ccp(weapon.x, 0);
-    NSLog(@"weapon x: %f", weapon.x);
     [self announceWeapon];
 }
 
