@@ -47,11 +47,7 @@ static float innerTopHeight = 5.75;
     if (self) {
         [self engage];
         _debris = 0;
-//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//            [self assignInnerCircleRadius];
-//        });
-
-//        innerCircleRadius = 2;
+        self.autofire = true;
     }
     return self;
 }
@@ -115,6 +111,14 @@ static float innerTopHeight = 5.75;
 }
 
 - (BOOL)isFiring {
+    if (self.autofire) {
+        self.autofireDelay--;
+        if (self.autofireDelay < 0) {
+            self.autofireDelay = 100;
+            self.firing = true;
+        }
+    }
+    
     return self.firing;
 }
 
@@ -236,6 +240,7 @@ static float innerTopHeight = 5.75;
 
     
     [self checkForFiringWeapon];
+
     [self calculateTarget];
     [self calculateVelocityForTarget];
     [self moveByVelocity];

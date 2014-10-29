@@ -51,6 +51,8 @@
         l.font = [UIFont systemFontOfSize:12];
     }
     
+    self.guide.textColor = [UIColor greenColor];
+    
     self.titleLabel.font = [UIFont systemFontOfSize:30];
     self.subTitle.font = [UIFont systemFontOfSize:16];
     
@@ -87,7 +89,7 @@
 }
 
 - (void)updateScoreLabel:(NSNotification *)n {
-    self.scoreLabel.text = [n.object stringValue];
+    self.scoreLabel.text = n.object;
 }
 
 - (void)updateLabel:(UILabel *)l withData:(NSDictionary *)d {

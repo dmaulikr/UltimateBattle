@@ -99,13 +99,8 @@ static QPBattlefield *instance = nil;
         return;
     }
     
-    QuantumClone *c = self.clones.firstObject;
-    
     switch (guideLevel) {
         case 0:
-            if (level > 1) {
-                return;
-            }
             [[NSNotificationCenter defaultCenter] postNotificationName:@"Guide" object:@{@"x":[NSNumber numberWithInteger:self.pilot.l.x], @"y" : [NSNumber numberWithInteger:(578 - self.pilot.l.y + 25)], @"text" : @"Drag your ship to record a path"}];
             break;
         case 1:
@@ -114,15 +109,6 @@ static QPBattlefield *instance = nil;
             }
             [[NSNotificationCenter defaultCenter] postNotificationName:@"Guide" object:@{@"x":[NSNumber numberWithFloat:self.pilot.l.x + (.5 * self.pilot.l.x)], @"y" : [NSNumber numberWithInteger:(578 - self.pilot.l.y + 25)], @"text" : @"Tap empty space to fire"}];
             break;
-        case 2:
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"Guide" object:@{@"x":[NSNumber numberWithInteger:c.l.x], @"y" : [NSNumber numberWithInteger:(578 - c.l.y - 45)], @"text" : @"The enemy copies your attack"}];
-            break;
-        case 3:
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"Guide" object:@{@"x":[NSNumber numberWithInteger:160], @"y" : [NSNumber numberWithInteger:35], @"text" : @"Collect 50 falling debris to install upgrades"}];
-            break;
-
-       
-            
         default:
             break;
     }
@@ -340,12 +326,6 @@ static QPBattlefield *instance = nil;
         }
         [c pulse];
     }
-    
-    if (level == 2 || level == 3) {
-        [self showGuide:2];
-    } else if (level == 4) {
-        [self showGuide:3];
-    }
 }
 
 - (void)activateClones {
@@ -415,6 +395,9 @@ static QPBattlefield *instance = nil;
     [self.dl reset];
     weaponLevel = 0;
     level++;
+    
+    [self showGuide:0];
+    
     warning = 0;
     slow = 0;
     
@@ -478,7 +461,6 @@ static QPBattlefield *instance = nil;
         titleY--;
         
         [[NSNotificationCenter defaultCenter] postNotificationName:@"TitleLabel" object:@{@"x":[NSNumber numberWithInteger:160], @"y" : [NSNumber numberWithInteger:titleY], @"text" : @"QUANTUM PILOT"}];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"SubtitleLabel" object:@{@"x":[NSNumber numberWithInteger:160], @"y" : [NSNumber numberWithInteger:titleY + 25], @"text" : @"You are your own worst enemy"}];
 
         
         if (titleY < -50) {
@@ -526,22 +508,28 @@ static QPBattlefield *instance = nil;
         [self killPulse];
         [self bulletPulse];
         [self moveDeadline];
+        [self scorePulse];
     } else { //if (self.currentState == self.pausedState) {
         [self.pilot defineEdges];
         [self.pilot prepareDeltaDraw];
         for (QuantumClone *c in self.clones) {
             [c defineEdges];
         }
+        
+        if (self.currentState == self.titleState) {
+            NSString *autofireAlert = [NSString stringWithFormat:@"Autofire: %@", self.pilot.autofire ? @"ON" : @"OFF"];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"ScoreLabel" object:autofireAlert];
+        } else {
+            [self scorePulse];
+        }
     }
     
     [self debrisShowPulse];
-    
-    [self scorePulse];
 }
 
 - (void)scorePulse {
     [self.scoreCycler pulse];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"ScoreLabel" object:[NSNumber numberWithInteger:[self.scoreCycler displayedScore]]];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ScoreLabel" object:[NSString stringWithFormat:@"%d", [self.scoreCycler displayedScore]]];
 }
 
 - (void)debrisShowPulse {
@@ -569,8 +557,10 @@ static QPBattlefield *instance = nil;
             titleSlide = true;
             titleDelay = 225;
             titleY = 50;
-        } else if (level == 1 && state == self.fightingState) {
-            [self showGuide:1];
+        } else if (state == self.drawingState) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"clearLabels" object:nil];
+        } else if (state == self.pausedState) {
+            [self showGuide:0];
         }
     }
     
@@ -633,9 +623,9 @@ static QPBattlefield *instance = nil;
 #pragma mark Pilot Delgate
 
 - (void)pilotReachedEndOfFutureWaypoints {
-    [self showGuide:0];
-
-//    [self changeState:self.pausedState];
+    if (!veteran) {
+        [self showGuide:0];
+    }
 }
 
 #pragma mark Bullet Delegate

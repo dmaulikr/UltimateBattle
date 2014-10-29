@@ -49,6 +49,9 @@
 
 @property (nonatomic) int shield;
 
+@property (nonatomic) bool autofire;
+@property (nonatomic) int autofireDelay;
+
 - (BOOL)isFiring;
 
 - (void)pulse;
