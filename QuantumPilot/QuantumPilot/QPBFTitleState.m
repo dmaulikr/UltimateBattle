@@ -12,7 +12,7 @@
     if ([self.f touchingPlayer:l]) {
         [self.f setTouchOffsetFromPilotNear:l];
         [self.f changeState:self.f.drawingState withTouch:l];
-    } else {
+    } else if (l.y < 400) {
         self.f.pilot.autofire = !self.f.pilot.autofire;
     }
 }
