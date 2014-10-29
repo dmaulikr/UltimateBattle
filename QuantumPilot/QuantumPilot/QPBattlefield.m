@@ -104,10 +104,7 @@ static QPBattlefield *instance = nil;
             [[NSNotificationCenter defaultCenter] postNotificationName:@"Guide" object:@{@"x":[NSNumber numberWithInteger:self.pilot.l.x], @"y" : [NSNumber numberWithInteger:(578 - self.pilot.l.y + 25)], @"text" : @"Drag your ship to record a path"}];
             break;
         case 1:
-            if (level > 1) {
-                return;
-            }
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"Guide" object:@{@"x":[NSNumber numberWithFloat:self.pilot.l.x + (.5 * self.pilot.l.x)], @"y" : [NSNumber numberWithInteger:(578 - self.pilot.l.y + 25)], @"text" : @"Tap empty space to fire"}];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"Guide" object:@{@"x":[NSNumber numberWithFloat:self.pilot.l.x], @"y" : [NSNumber numberWithInteger:(578 - self.pilot.l.y + 75)], @"text" : @"Tap anywhere else to fire"}];
             break;
         default:
             break;
@@ -561,6 +558,8 @@ static QPBattlefield *instance = nil;
             [[NSNotificationCenter defaultCenter] postNotificationName:@"clearLabels" object:nil];
         } else if (state == self.pausedState) {
             [self showGuide:0];
+        } else if (state == self.fightingState && !veteran && level < 4) {
+            [self showGuide:1];
         }
     }
     
