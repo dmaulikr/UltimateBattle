@@ -204,4 +204,8 @@ static int fireSignalValue = 89;
     self.showPath = false;
 }
 
+- (void)announceWeapon {
+    
+}
+
 @end
