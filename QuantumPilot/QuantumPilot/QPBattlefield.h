@@ -99,6 +99,8 @@ enum pulsestate {
 
 @property (strong, nonatomic) QPScoreCycler *scoreCycler;
 
+@property (strong, nonatomic) NSMutableArray *activeScores;
+
 - (float)rhythmScale;
 - (void)pulse;
 

@@ -46,8 +46,6 @@ static QPBattlefield *instance = nil;
     self.pilot.bulletDelegate = self;
     [self addChild:self.pilot];
     [self setupSpeeds];
-//    self.winBlast = [[ShieldDebris alloc] initWithL:ccp(5000,5000)];
-//    [self addChild:self.winBlast];
 }
 
 - (void)setupStates {
@@ -67,6 +65,11 @@ static QPBattlefield *instance = nil;
 
 - (void)setupWeapons {
     self.weapons = [Arsenal upgradeArsenal];
+}
+
+- (NSString *)activePath {
+    NSString *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+    return [path stringByAppendingPathComponent:@"qp_active_skill"];
 }
 
 - (id)init {
@@ -90,6 +93,15 @@ static QPBattlefield *instance = nil;
         level = 1;
         
         [self showGuide:0 wave:1];
+        
+        if ([[NSFileManager defaultManager] fileExistsAtPath:[self activePath]]) {
+            self.activeScores = [NSMutableArray arrayWithContentsOfFile:[self activePath]];
+        } else {
+            self.activeScores = [NSMutableArray array];
+            for (int i = 0; i < 10; i++) {
+                [self.activeScores addObject:@"0"];
+            }
+        }
     }
     return self;
 }
@@ -112,7 +124,6 @@ static QPBattlefield *instance = nil;
         g2Text = @"Tap anywhere else to fire";
     }
     
-    
     switch (guideLevel) {
         case 0:
             [[NSNotificationCenter defaultCenter] postNotificationName:@"Guide" object:@{@"x":[NSNumber numberWithInteger:self.pilot.l.x], @"y" : [NSNumber numberWithInteger:(578 - self.pilot.l.y + 25)], @"text" : text}];
@@ -130,7 +141,6 @@ static QPBattlefield *instance = nil;
 }
 
 + (float)pulseRotation {
-//    return 1;
     return [[QPBattlefield f] pulseRotation];
 }
 
@@ -274,6 +284,15 @@ static QPBattlefield *instance = nil;
     [self.pilot engage];
 }
 
+- (NSString *)activeScore {
+    int as = 0;
+    for (int i = 0; i < 10; i++) {
+        as+= [self.activeScores[i] intValue];
+    }
+    
+    return [NSString stringWithFormat:@"Rating\n%d", as];
+}
+
 - (void)resetBattlefield {
     veteran = level > 4;
     level = 1;
@@ -286,6 +305,11 @@ static QPBattlefield *instance = nil;
     [self setupClone];
     [self.dl reset];
     [self resetLevelScore];
+    [self.activeScores removeObjectAtIndex:0];
+    [self.activeScores addObject:[NSString stringWithFormat:@"%d", self.score]];
+    [self.activeScores writeToFile:[self activePath] atomically:true];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"SubtitleLabel" object:@{@"x" : @"160", @"y" : @"88", @"text" : [self activeScore]}];
     self.score = 0;
     [self setupSpeeds];
     weaponLevel = 0;
@@ -399,7 +423,6 @@ static QPBattlefield *instance = nil;
     [self.pilot resetIterations];
     [self.scoreCycler addScoring:[self levelScore]];
     self.score = [self.scoreCycler actualScore];
-//    [self changeState:self.scoreState withOptions:[self levelScore]];
     [self changeState:self.pausedState];
     [self resetLevelScore];
     [self eraseBullets];
@@ -461,23 +484,6 @@ static QPBattlefield *instance = nil;
     
     [self.shieldDebris removeObjectsInArray:debrisToErase];
 
-}
-
-- (void)titlePulse {
-    if (titleSlide) {
-        if (titleDelay) {
-            titleDelay--;
-            return;
-        }
-        titleY--;
-        
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"TitleLabel" object:@{@"x":[NSNumber numberWithInteger:160], @"y" : [NSNumber numberWithInteger:titleY], @"text" : @"QUANTUM PILOT"}];
-
-        
-        if (titleY < -50) {
-            titleSlide = false;
-        }
-    }
 }
 
 - (void)shatterPulse {
