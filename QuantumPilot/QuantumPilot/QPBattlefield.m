@@ -107,9 +107,10 @@ static QPBattlefield *instance = nil;
 }
 
 - (void)showGuide:(int)guideLevel wave:(bool)wave {
+    float height = [[UIScreen mainScreen] bounds].size.height;
     if (veteran) {
         NSString *text = [NSString stringWithFormat:@"Wave %d", level];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"Guide" object:@{@"x":[NSNumber numberWithInteger:self.pilot.l.x], @"y" : [NSNumber numberWithInteger:(578 - self.pilot.l.y + 25)], @"text" : text}];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"Guide" object:@{@"x":[NSNumber numberWithInteger:self.pilot.l.x], @"y" : [NSNumber numberWithInteger:(height - self.pilot.l.y + 35)], @"text" : text}];
         return;
     }
     
@@ -126,10 +127,10 @@ static QPBattlefield *instance = nil;
     
     switch (guideLevel) {
         case 0:
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"Guide" object:@{@"x":[NSNumber numberWithInteger:self.pilot.l.x], @"y" : [NSNumber numberWithInteger:(578 - self.pilot.l.y + 25)], @"text" : text}];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"Guide" object:@{@"x":[NSNumber numberWithInteger:self.pilot.l.x], @"y" : [NSNumber numberWithInteger:(height - self.pilot.l.y + 35)], @"text" : text}];
             break;
         case 1:
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"Guide" object:@{@"x":[NSNumber numberWithFloat:self.pilot.l.x], @"y" : [NSNumber numberWithInteger:(578 - self.pilot.l.y + 75)], @"text" : g2Text}];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"Guide" object:@{@"x":[NSNumber numberWithFloat:self.pilot.l.x], @"y" : [NSNumber numberWithInteger:(height - self.pilot.l.y + 75)], @"text" : g2Text}];
             break;
         default:
             break;

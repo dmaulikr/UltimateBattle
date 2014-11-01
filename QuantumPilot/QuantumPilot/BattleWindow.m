@@ -135,7 +135,8 @@
 
 - (void)updateDebrisLabel:(NSNotification *)n {
     NSDictionary *d = n.object;
-    self.debrisLabel.center = ccp([d[@"x"] intValue], 578 - [d[@"y"] intValue]); //could post 1, use index
+    float height = [[UIScreen mainScreen] bounds].size.height;
+    self.debrisLabel.center = ccp([d[@"x"] intValue], height - [d[@"y"] intValue]); //could post 1, use index
     self.debrisLabel.text = d[@"text"];
 }
 

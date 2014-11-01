@@ -41,7 +41,8 @@
     if (touches.count == 1) {
         UITouch *touch = [touches anyObject];
         CGPoint l = [touch locationInView:[touch view]];
-        [self.f addTouch:ccp(l.x, 578-l.y)];
+        float height = [[UIScreen mainScreen] bounds].size.height;
+        [self.f addTouch:ccp(l.x, height-l.y)];
     } else if (touches.count == 2) {
         [self.f addDoubleTouch];
     }
@@ -50,26 +51,31 @@
 - (void)ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
 	NSArray *touchArray = [touches allObjects];
     
+    float height = [[UIScreen mainScreen] bounds].size.height;
+    
     for (UITouch *touch in touchArray) {
         CGPoint l = [touch locationInView:[touch view]];
  
-        [self.f moveTouch:ccp(l.x, 578-l.y)];
+        [self.f moveTouch:ccp(l.x, height-l.y)];
     }
 }
 
 - (void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     NSArray *touchArray = [touches allObjects];
     
+    float height = [[UIScreen mainScreen] bounds].size.height;
+    
     for (UITouch *touch in touchArray) {
         CGPoint l = [touch locationInView:[touch view]];
-            [self.f endTouch:ccp(l.x, 578-l.y)];
+            [self.f endTouch:ccp(l.x, height-l.y)];
     }
 }
 
 - (void)ccTouchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
     UITouch *t = [touches anyObject];
     CGPoint l = [t locationInView:[t view]];
-    [self.f endTouch:ccp(l.x, 578-l.y)];
+    float height = [[UIScreen mainScreen] bounds].size.height;
+    [self.f endTouch:ccp(l.x, height-l.y)];
 }
 
 @end

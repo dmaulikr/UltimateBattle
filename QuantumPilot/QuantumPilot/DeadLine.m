@@ -29,7 +29,8 @@
 }
 
 - (void)reset {
-    self.y = 578;
+    float height = [[UIScreen mainScreen] bounds].size.height;
+    self.y = height;
     self.delay = [self delayReset];
 }
 
