@@ -136,7 +136,37 @@ static QPBattlefield *instance = nil;
     pathURL = [NSURL fileURLWithPath : path];
     AudioServicesCreateSystemSoundID((CFURLRef) pathURL, &l7);
 
+    path  = [[NSBundle mainBundle] pathForResource:@"collect" ofType:@"wav"];
+    pathURL = [NSURL fileURLWithPath : path];
+    AudioServicesCreateSystemSoundID((CFURLRef) pathURL, &collect);
+
+    path  = [[NSBundle mainBundle] pathForResource:@"x1" ofType:@"wav"];
+    pathURL = [NSURL fileURLWithPath : path];
+    AudioServicesCreateSystemSoundID((CFURLRef) pathURL, &x1);
+
+    path  = [[NSBundle mainBundle] pathForResource:@"x2" ofType:@"wav"];
+    pathURL = [NSURL fileURLWithPath : path];
+    AudioServicesCreateSystemSoundID((CFURLRef) pathURL, &x2);
     
+    path  = [[NSBundle mainBundle] pathForResource:@"x3" ofType:@"wav"];
+    pathURL = [NSURL fileURLWithPath : path];
+    AudioServicesCreateSystemSoundID((CFURLRef) pathURL, &x3);
+    path  = [[NSBundle mainBundle] pathForResource:@"x4" ofType:@"wav"];
+    pathURL = [NSURL fileURLWithPath : path];
+    AudioServicesCreateSystemSoundID((CFURLRef) pathURL, &x4);
+    path  = [[NSBundle mainBundle] pathForResource:@"x5" ofType:@"wav"];
+    pathURL = [NSURL fileURLWithPath : path];
+    AudioServicesCreateSystemSoundID((CFURLRef) pathURL, &x5);
+    path  = [[NSBundle mainBundle] pathForResource:@"x6" ofType:@"wav"];
+    pathURL = [NSURL fileURLWithPath : path];
+    AudioServicesCreateSystemSoundID((CFURLRef) pathURL, &x6);
+    path  = [[NSBundle mainBundle] pathForResource:@"x7" ofType:@"wav"];
+    pathURL = [NSURL fileURLWithPath : path];
+    AudioServicesCreateSystemSoundID((CFURLRef) pathURL, &x7);
+    
+    path  = [[NSBundle mainBundle] pathForResource:@"process" ofType:@"wav"];
+    pathURL = [NSURL fileURLWithPath : path];
+    AudioServicesCreateSystemSoundID((CFURLRef) pathURL, &process);
 //    [self createSound:@"l1" systemSoundID:&l1 format:@"wav"];
 }
 
@@ -305,7 +335,39 @@ static QPBattlefield *instance = nil;
     [self addChild:s];
 }
 
+- (void)playKillSound {
+    int x = arc4random() % 7;
+    
+    switch (x) {
+        case 0:
+            AudioServicesPlaySystemSound(x1);
+            break;
+        case 1:
+            AudioServicesPlaySystemSound(x2);
+            break;
+        case 2:
+            AudioServicesPlaySystemSound(x3);
+            break;
+        case 3:
+            AudioServicesPlaySystemSound(x4);
+            break;
+        case 4:
+            AudioServicesPlaySystemSound(x5);
+            break;
+        case 5:
+            AudioServicesPlaySystemSound(x6);
+            break;
+        case 6:
+            AudioServicesPlaySystemSound(x7);
+            break;
+            
+        default:
+            break;
+    }
+}
+
 - (void)processKill:(QuantumPilot *)c bullet:(Bullet *)b {
+    [self playKillSound];
     if (c != self.pilot) {
         hits++;
         [self createDebrisFromCloneKill:(QuantumClone *)c bullet:b];
@@ -409,31 +471,35 @@ static QPBattlefield *instance = nil;
         if ([self debrisOutOfBounds:d]) {
             [debrisToErase addObject:d];         
         } else if ([self.pilot processDebris:d]) {
-            switch (d.level) {
-                case 0:
-                    AudioServicesPlaySystemSound(dismantler);
-                    break;
-                case 1:
-                    AudioServicesPlaySystemSound(novasplitter);
-                    break;
-                case 2:
-                    AudioServicesPlaySystemSound(corecrusher);
-                    break;
-                case 3:
-                    AudioServicesPlaySystemSound(exoslicer);
-                    break;
-                case 4:
-                    AudioServicesPlaySystemSound(gammahammer);
-                    break;
-                case 5:
-                    AudioServicesPlaySystemSound(spacemelter);
-                    break;
-                case 6:
-                    AudioServicesPlaySystemSound(voidwave);
-                    break;
-                    
-                default:
-                    break;
+            AudioServicesPlaySystemSound(collect);
+            
+            if (self.pilot.weaponLevel == 0) {
+                switch (d.level) {
+                    case 0:
+                        AudioServicesPlaySystemSound(dismantler);
+                        break;
+                    case 1:
+                        AudioServicesPlaySystemSound(novasplitter);
+                        break;
+                    case 2:
+                        AudioServicesPlaySystemSound(corecrusher);
+                        break;
+                    case 3:
+                        AudioServicesPlaySystemSound(exoslicer);
+                        break;
+                    case 4:
+                        AudioServicesPlaySystemSound(gammahammer);
+                        break;
+                    case 5:
+                        AudioServicesPlaySystemSound(spacemelter);
+                        break;
+                    case 6:
+                        AudioServicesPlaySystemSound(voidwave);
+                        break;
+                        
+                    default:
+                        break;
+                }
             }
             
 
@@ -511,6 +577,7 @@ static QPBattlefield *instance = nil;
 }
 
 - (void)processWaveKill {
+    AudioServicesPlaySystemSound(process);
     [self showWinBlast];
     [self.pilot resetPosition];
     QuantumClone *c = [[self.pilot clone] copy];

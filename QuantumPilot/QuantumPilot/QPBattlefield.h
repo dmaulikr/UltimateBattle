@@ -69,6 +69,18 @@ enum pulsestate {
     SystemSoundID l5;
     SystemSoundID l6;
     SystemSoundID l7;
+    
+    SystemSoundID collect;
+    
+    SystemSoundID x1;
+    SystemSoundID x2;
+    SystemSoundID x3;
+    SystemSoundID x4;
+    SystemSoundID x5;
+    SystemSoundID x6;
+    SystemSoundID x7;
+    
+    SystemSoundID process;
 }
 
 @property (nonatomic, retain) NSMutableArray *bullets;
