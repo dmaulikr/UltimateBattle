@@ -89,22 +89,36 @@ static QPBattlefield *instance = nil;
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resetDebrisShow) name:@"DebrisCollected" object:nil];
         level = 1;
         
-        [self showGuide:0];
+        [self showGuide:0 wave:1];
     }
     return self;
 }
 
-- (void)showGuide:(int)guideLevel {
+- (void)showGuide:(int)guideLevel wave:(bool)wave {
     if (veteran) {
+        NSString *text = [NSString stringWithFormat:@"Wave %d", level];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"Guide" object:@{@"x":[NSNumber numberWithInteger:self.pilot.l.x], @"y" : [NSNumber numberWithInteger:(578 - self.pilot.l.y + 25)], @"text" : text}];
         return;
     }
     
+    NSString *text = nil;
+    NSString *g2Text = nil;
+    
+    if (wave) {
+        text = [NSString stringWithFormat:@"Wave %d\nDrag your ship to record a path", level];
+        g2Text = [NSString stringWithFormat:@"Wave %d\nTap anywhere else to fire", level];
+    } else {
+        text = @"Drag your ship to record a path";
+        g2Text = @"Wave %d\nTap anywhere else to fire";
+    }
+    
+    
     switch (guideLevel) {
         case 0:
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"Guide" object:@{@"x":[NSNumber numberWithInteger:self.pilot.l.x], @"y" : [NSNumber numberWithInteger:(578 - self.pilot.l.y + 25)], @"text" : @"Drag your ship to record a path"}];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"Guide" object:@{@"x":[NSNumber numberWithInteger:self.pilot.l.x], @"y" : [NSNumber numberWithInteger:(578 - self.pilot.l.y + 25)], @"text" : text}];
             break;
         case 1:
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"Guide" object:@{@"x":[NSNumber numberWithFloat:self.pilot.l.x], @"y" : [NSNumber numberWithInteger:(578 - self.pilot.l.y + 75)], @"text" : @"Tap anywhere else to fire"}];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"Guide" object:@{@"x":[NSNumber numberWithFloat:self.pilot.l.x], @"y" : [NSNumber numberWithInteger:(578 - self.pilot.l.y + 75)], @"text" : g2Text}];
             break;
         default:
             break;
@@ -279,7 +293,7 @@ static QPBattlefield *instance = nil;
     warning = 0;
     slow = 0;
     
-    [self showGuide:0];
+    [self showGuide:0 wave:1];
 }
 
 - (BOOL)debrisOutOfBounds:(Debris *)d {
@@ -393,7 +407,7 @@ static QPBattlefield *instance = nil;
     weaponLevel = 0;
     level++;
     
-    [self showGuide:0];
+    [self showGuide:0 wave:1];
     
     warning = 0;
     slow = 0;
@@ -557,9 +571,9 @@ static QPBattlefield *instance = nil;
         } else if (state == self.drawingState) {
             [[NSNotificationCenter defaultCenter] postNotificationName:@"clearLabels" object:nil];
         } else if (state == self.pausedState) {
-            [self showGuide:0];
+            [self showGuide:0 wave:1];
         } else if (state == self.fightingState && !veteran && level < 4) {
-            [self showGuide:1];
+            [self showGuide:1 wave:1];
         }
     }
     
@@ -623,7 +637,7 @@ static QPBattlefield *instance = nil;
 
 - (void)pilotReachedEndOfFutureWaypoints {
     if (!veteran) {
-        [self showGuide:0];
+        [self showGuide:0 wave:0];
     }
 }
 
