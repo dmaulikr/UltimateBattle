@@ -492,7 +492,7 @@ static QPBattlefield *instance = nil;
     [self.currentState pulse];
     //states manage
     
-    [self titlePulse];
+//    [self titlePulse];
     
     [self rhythmPulse];
     [self shieldDebrisPulse];

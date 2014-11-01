@@ -1,23 +1,16 @@
 HEY: SPEC WORK: LOGO: QUANTUM PILOT
-Title animation
-Recent 10: under title
-Highscore, scores with iCloud
+Remove Title animation (show and hide title)
+Last 10: under title
+Highscore, scores
 Cross Platform
-Game Center
 SHOTGUN: Low distance -- stay still to INCREASE range
-Sounds
-
-
-icloud for high scores
-store locally
-register for icloud updates
-sync from icloud
-store to icloud
-
+Weapon Sounds
+Fire sounds
+hit sounds
+new red line sound
+red line hit sound
 share button in corner: twitter/fb/
  Show icons in place of title (top view?), tap an icon
 star button in corner: rating
-
-cross platform
 
 build & deploy
