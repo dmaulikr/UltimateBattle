@@ -227,7 +227,7 @@
 		0EED0EDD19FF1ECE009B6C7E /* QPScoreCycler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPScoreCycler.m; sourceTree = "<group>"; };
 		0EF96AAF197598C900E5DBE2 /* Debris.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Debris.h; sourceTree = "<group>"; };
 		0EF96AB0197598C900E5DBE2 /* Debris.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Debris.m; sourceTree = "<group>"; };
-		BF0EE068163319B8002942A0 /* QuantumPilot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuantumPilot.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF0EE068163319B8002942A0 /* QP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF0EE06C163319B8002942A0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		BF0EE06E163319B8002942A0 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF0EE070163319B8002942A0 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
@@ -572,7 +572,7 @@
 		BF0EE069163319B8002942A0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BF0EE068163319B8002942A0 /* QuantumPilot.app */,
+				BF0EE068163319B8002942A0 /* QP.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1106,7 +1106,7 @@
 			);
 			name = QuantumPilot;
 			productName = QuantumPilot;
-			productReference = BF0EE068163319B8002942A0 /* QuantumPilot.app */;
+			productReference = BF0EE068163319B8002942A0 /* QP.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1363,7 +1363,7 @@
 					"-ObjC",
 					"-os",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = QP;
 				PROVISIONING_PROFILE = "AB5A2B84-A4B7-4C78-8281-8A8CD0EC3CC0";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1385,7 +1385,7 @@
 					"-ObjC",
 					"-os",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = QP;
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};

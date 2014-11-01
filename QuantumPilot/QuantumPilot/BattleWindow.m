@@ -32,12 +32,13 @@
 
     self.guide = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 106, 60)] autorelease];
     
-    self.weaponLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0, 568-27, 200, 40)] autorelease];
+    float height = [[UIScreen mainScreen] bounds].size.height - 10;
+    self.weaponLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0, height-27, 200, 40)] autorelease];
     self.weaponLabel.textColor = [UIColor whiteColor];
     self.weaponLabel.font = [UIFont boldSystemFontOfSize:16];
     self.weaponLabel.textAlignment = NSTextAlignmentLeft;
     
-    self.scoreLabel = [[[UILabel alloc] initWithFrame:CGRectMake(320-200, 568-27, 200, 40)] autorelease];
+    self.scoreLabel = [[[UILabel alloc] initWithFrame:CGRectMake(320-200, height-27, 200, 40)] autorelease];
     self.scoreLabel.textColor = [UIColor whiteColor];
     self.scoreLabel.font = [UIFont boldSystemFontOfSize:16];
     self.scoreLabel.textAlignment = NSTextAlignmentRight;
