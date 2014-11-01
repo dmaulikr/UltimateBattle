@@ -96,10 +96,10 @@
 	if( enabled != isAccelerometerEnabled_ ) {
 		isAccelerometerEnabled_ = enabled;
 		if( isRunning_ ) {
-			if( enabled )
-				[[UIAccelerometer sharedAccelerometer] setDelegate:self];
-			else
-				[[UIAccelerometer sharedAccelerometer] setDelegate:nil];
+//			if( enabled )
+			// 	[[UIAccelerometer sharedAccelerometer] setDelegate:self];
+//			else
+			//	[[UIAccelerometer sharedAccelerometer] setDelegate:nil];
 		}
 	}
 }
@@ -239,8 +239,8 @@
 -(void) onEnterTransitionDidFinish
 {
 #ifdef __CC_PLATFORM_IOS
-	if( isAccelerometerEnabled_ )
-		[[UIAccelerometer sharedAccelerometer] setDelegate:self];
+//	if( isAccelerometerEnabled_ )
+//		[[UIAccelerometer sharedAccelerometer] setDelegate:self];
 #endif
 
 	[super onEnterTransitionDidFinish];
@@ -255,8 +255,8 @@
 	if( isTouchEnabled_ )
 		[[director touchDispatcher] removeDelegate:self];
 
-	if( isAccelerometerEnabled_ )
-		[[UIAccelerometer sharedAccelerometer] setDelegate:nil];
+//	if( isAccelerometerEnabled_ )
+//		[[UIAccelerometer sharedAccelerometer] setDelegate:nil];
 
 #elif defined(__CC_PLATFORM_MAC)
 	CCEventDispatcher *eventDispatcher = [director eventDispatcher];

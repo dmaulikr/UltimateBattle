@@ -33,9 +33,7 @@
 - (float)selectionLabelDistance;
 - (void)drawText;
 
-- (void)drawLabels;
-
-- (void)initializeLabels;
+- (void)drawLabels; 
 
 - (CGPoint)center;
 
