@@ -16,6 +16,7 @@
 		0E0FE17E19D93DE4001EA38F /* CenterWideSpiralLaser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E0FE17D19D93DE4001EA38F /* CenterWideSpiralLaser.m */; };
 		0E0FE18119D93FC6001EA38F /* WideSpiralLaser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E0FE18019D93FC6001EA38F /* WideSpiralLaser.m */; };
 		0E11F5D31968F04100205E8D /* SplitLaserCannon.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E11F5D21968F04100205E8D /* SplitLaserCannon.m */; };
+		0E1292AA1A04998F006A8BAB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E1292A91A04998F006A8BAB /* Images.xcassets */; };
 		0E22E95E19ECCAF900261AC5 /* BattleWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E22E95D19ECCAF900261AC5 /* BattleWindow.m */; };
 		0E63B75216C7039100F63829 /* QPBFFightingState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E63B75116C7039100F63829 /* QPBFFightingState.m */; };
 		0E63B75516C712B800F63829 /* QPBFPausedState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E63B75416C712B800F63829 /* QPBFPausedState.m */; };
@@ -183,6 +184,7 @@
 		0E0FE18019D93FC6001EA38F /* WideSpiralLaser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WideSpiralLaser.m; sourceTree = "<group>"; };
 		0E11F5D11968F04100205E8D /* SplitLaserCannon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplitLaserCannon.h; sourceTree = "<group>"; };
 		0E11F5D21968F04100205E8D /* SplitLaserCannon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplitLaserCannon.m; sourceTree = "<group>"; };
+		0E1292A91A04998F006A8BAB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0E22E95C19ECCAF900261AC5 /* BattleWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BattleWindow.h; sourceTree = "<group>"; };
 		0E22E95D19ECCAF900261AC5 /* BattleWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BattleWindow.m; sourceTree = "<group>"; };
 		0E63B75016C7039100F63829 /* QPBFFightingState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBFFightingState.h; sourceTree = "<group>"; };
@@ -603,6 +605,7 @@
 				BFB9DD5F1633CF710074EB70 /* iOS Core */,
 				BF0EE07F163319B8002942A0 /* Resources */,
 				BF0EE099163319B9002942A0 /* libs */,
+				0E1292A91A04998F006A8BAB /* Images.xcassets */,
 				BF0EE1F2163319BB002942A0 /* Supporting Files */,
 			);
 			path = QuantumPilot;
@@ -1140,6 +1143,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF0EE098163319B9002942A0 /* iTunesArtwork in Resources */,
+				0E1292AA1A04998F006A8BAB /* Images.xcassets in Resources */,
 				BF0EE1D6163319BB002942A0 /* ChangeLog in Resources */,
 				BFA1BE56163B5C7100833186 /* Default-568h@2x.png in Resources */,
 			);
@@ -1350,6 +1354,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Anthony Broussard (PPZYZW945Q)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Anthony Broussard (PPZYZW945Q)";
 				COPY_PHASE_STRIP = NO;
@@ -1373,6 +1379,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Anthony Broussard (5VJK8F6JVW)";
 				COPY_PHASE_STRIP = YES;
