@@ -72,6 +72,34 @@ static QPBattlefield *instance = nil;
     return [path stringByAppendingPathComponent:@"qp_active_skill"];
 }
 
+- (void)loadSounds {
+    NSString *path  = [[NSBundle mainBundle] pathForResource:@"dismantler" ofType:@"m4a"];
+    NSURL *pathURL = [NSURL fileURLWithPath : path];
+    AudioServicesCreateSystemSoundID((CFURLRef) pathURL, &dismantler);
+    
+    path  = [[NSBundle mainBundle] pathForResource:@"corecrusher" ofType:@"m4a"];
+    pathURL = [NSURL fileURLWithPath : path];
+    AudioServicesCreateSystemSoundID((CFURLRef) pathURL, &corecrusher);
+    
+    path  = [[NSBundle mainBundle] pathForResource:@"novasplitter" ofType:@"m4a"];
+    pathURL = [NSURL fileURLWithPath : path];
+    AudioServicesCreateSystemSoundID((CFURLRef) pathURL, &novasplitter);
+    
+    path  = [[NSBundle mainBundle] pathForResource:@"exoslicer" ofType:@"m4a"];
+    pathURL = [NSURL fileURLWithPath : path];
+    AudioServicesCreateSystemSoundID((CFURLRef) pathURL, &exoslicer);
+    
+    path  = [[NSBundle mainBundle] pathForResource:@"spacemelter" ofType:@"m4a"];
+    pathURL = [NSURL fileURLWithPath : path];
+    AudioServicesCreateSystemSoundID((CFURLRef) pathURL, &spacemelter);
+    path  = [[NSBundle mainBundle] pathForResource:@"gammahammer" ofType:@"m4a"];
+    pathURL = [NSURL fileURLWithPath : path];
+    AudioServicesCreateSystemSoundID((CFURLRef) pathURL, &gammahammer);
+    path  = [[NSBundle mainBundle] pathForResource:@"voidwave" ofType:@"m4a"];
+    pathURL = [NSURL fileURLWithPath : path];
+    AudioServicesCreateSystemSoundID((CFURLRef) pathURL, &voidwave);
+}
+
 - (id)init {
     self = [super init];
     if (self) {
@@ -87,6 +115,7 @@ static QPBattlefield *instance = nil;
         [self setupDeadline];
         [self setupSpeeds];
         [self setupWeapons];
+        [self loadSounds];
         self.scoreCycler = [[[QPScoreCycler alloc] init] autorelease];
      
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resetDebrisShow) name:@"DebrisCollected" object:nil];
@@ -332,8 +361,36 @@ static QPBattlefield *instance = nil;
         [d pulse];
 
         if ([self debrisOutOfBounds:d]) {
-            [debrisToErase addObject:d];
+            [debrisToErase addObject:d];         
         } else if ([self.pilot processDebris:d]) {
+            switch (d.level) {
+                case 0:
+                    AudioServicesPlaySystemSound(dismantler);
+                    break;
+                case 1:
+                    AudioServicesPlaySystemSound(novasplitter);
+                    break;
+                case 2:
+                    AudioServicesPlaySystemSound(corecrusher);
+                    break;
+                case 3:
+                    AudioServicesPlaySystemSound(exoslicer);
+                    break;
+                case 4:
+                    AudioServicesPlaySystemSound(gammahammer);
+                    break;
+                case 5:
+                    AudioServicesPlaySystemSound(spacemelter);
+                    break;
+                case 6:
+                    AudioServicesPlaySystemSound(voidwave);
+                    break;
+                    
+                default:
+                    break;
+            }
+            
+
             [self.scoreCycler score:100];
             [debrisToErase addObject:d];
             [self resetDebrisShow];

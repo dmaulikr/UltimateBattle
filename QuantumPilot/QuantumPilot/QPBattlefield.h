@@ -11,6 +11,8 @@
 #import "ShieldDebris.h"
 #import "QPScoreCycler.h"
 
+#import <AudioToolbox/AudioToolbox.h>
+
 #define QPBF_MAX_DRAWING_FRAMES 4550
 
 enum pulsestate {
@@ -51,6 +53,14 @@ enum pulsestate {
     bool titleSlide;
     
     bool veteran;
+    
+    SystemSoundID dismantler;
+    SystemSoundID novasplitter;
+    SystemSoundID corecrusher;
+    SystemSoundID exoslicer;
+    SystemSoundID gammahammer;
+    SystemSoundID spacemelter;
+    SystemSoundID voidwave;
 }
 
 @property (nonatomic, retain) NSMutableArray *bullets;

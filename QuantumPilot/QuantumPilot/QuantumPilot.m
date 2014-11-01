@@ -324,7 +324,7 @@ static float innerTopHeight = 5.75;
         w.y = wy;
         weapon = w;
         
-  //      return true;
+        return true;
     }
     
     return false;
