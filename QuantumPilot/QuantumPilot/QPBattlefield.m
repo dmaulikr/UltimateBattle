@@ -109,7 +109,7 @@ static QPBattlefield *instance = nil;
         g2Text = [NSString stringWithFormat:@"Wave %d\nTap anywhere else to fire", level];
     } else {
         text = @"Drag your ship to record a path";
-        g2Text = @"Wave %d\nTap anywhere else to fire";
+        g2Text = @"Tap anywhere else to fire";
     }
     
     
@@ -573,7 +573,7 @@ static QPBattlefield *instance = nil;
         } else if (state == self.pausedState) {
             [self showGuide:0 wave:1];
         } else if (state == self.fightingState && !veteran && level < 4) {
-            [self showGuide:1 wave:1];
+            [self showGuide:1 wave:0];
         }
     }
     
