@@ -133,7 +133,7 @@ static float innerTopHeight = 5.75;
 - (void)sendBulletsToBattlefield {
     int i = weapon.x;
     Class w = [Arsenal weaponIndexedFromArsenal:i];
-    [self.bulletDelegate bulletsFired:[w bulletsForLocation:outerEdges[0] direction:[self fireDirection]]];
+    [self.bulletDelegate bulletsFired:[w bulletsForLocation:outerEdges[0] direction:[self fireDirection]] li:weapon.x];
 }
 
 - (void)checkForFiringWeapon {

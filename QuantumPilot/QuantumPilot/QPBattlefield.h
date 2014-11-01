@@ -61,6 +61,14 @@ enum pulsestate {
     SystemSoundID gammahammer;
     SystemSoundID spacemelter;
     SystemSoundID voidwave;
+    
+    SystemSoundID l1;
+    SystemSoundID l2;
+    SystemSoundID l3;
+    SystemSoundID l4;
+    SystemSoundID l5;
+    SystemSoundID l6;
+    SystemSoundID l7;
 }
 
 @property (nonatomic, retain) NSMutableArray *bullets;

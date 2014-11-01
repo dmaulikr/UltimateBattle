@@ -98,6 +98,52 @@ static QPBattlefield *instance = nil;
     path  = [[NSBundle mainBundle] pathForResource:@"voidwave" ofType:@"m4a"];
     pathURL = [NSURL fileURLWithPath : path];
     AudioServicesCreateSystemSoundID((CFURLRef) pathURL, &voidwave);
+
+    path  = [[NSBundle mainBundle] pathForResource:@"voidwave" ofType:@"m4a"];
+    pathURL = [NSURL fileURLWithPath : path];
+    AudioServicesCreateSystemSoundID((CFURLRef) pathURL, &voidwave);
+
+    path  = [[NSBundle mainBundle] pathForResource:@"l1" ofType:@"wav"];
+    pathURL = [NSURL fileURLWithPath : path];
+    AudioServicesCreateSystemSoundID((CFURLRef) pathURL, &l1);
+
+    path  = [[NSBundle mainBundle] pathForResource:@"l2" ofType:@"wav"];
+    pathURL = [NSURL fileURLWithPath : path];
+    AudioServicesCreateSystemSoundID((CFURLRef) pathURL, &l2);
+
+    
+    path  = [[NSBundle mainBundle] pathForResource:@"l3" ofType:@"wav"];
+    pathURL = [NSURL fileURLWithPath : path];
+    AudioServicesCreateSystemSoundID((CFURLRef) pathURL, &l3);
+
+    
+    path  = [[NSBundle mainBundle] pathForResource:@"l4" ofType:@"wav"];
+    pathURL = [NSURL fileURLWithPath : path];
+    AudioServicesCreateSystemSoundID((CFURLRef) pathURL, &l4);
+
+    
+    path  = [[NSBundle mainBundle] pathForResource:@"l5" ofType:@"wav"];
+    pathURL = [NSURL fileURLWithPath : path];
+    AudioServicesCreateSystemSoundID((CFURLRef) pathURL, &l5);
+
+    
+    path  = [[NSBundle mainBundle] pathForResource:@"l6" ofType:@"wav"];
+    pathURL = [NSURL fileURLWithPath : path];
+    AudioServicesCreateSystemSoundID((CFURLRef) pathURL, &l6);
+
+    
+    path  = [[NSBundle mainBundle] pathForResource:@"l7" ofType:@"wav"];
+    pathURL = [NSURL fileURLWithPath : path];
+    AudioServicesCreateSystemSoundID((CFURLRef) pathURL, &l7);
+
+    
+//    [self createSound:@"l1" systemSoundID:&l1 format:@"wav"];
+}
+
+- (void)createSound:(NSString *)s systemSoundID:(SystemSoundID)ssid format:(NSString *)f{
+    NSString *path = [[NSBundle mainBundle] pathForResource:s ofType:f];
+    NSURL *pathURL = [NSURL fileURLWithPath:path];
+    AudioServicesCreateSystemSoundID((CFURLRef) pathURL, &ssid);
 }
 
 - (id)init {
@@ -707,7 +753,38 @@ static QPBattlefield *instance = nil;
 
 #pragma mark Bullet Delegate
 
-- (void)bulletsFired:(NSArray *)bullets {
+- (void)playBulletSound:(int)li {
+    switch (li) {
+        case 0:
+            AudioServicesPlaySystemSound(l1);
+            break;
+        case 1:
+            AudioServicesPlaySystemSound(l2);
+            break;
+        case 2:
+            AudioServicesPlaySystemSound(l3);
+            break;
+        case 3:
+            AudioServicesPlaySystemSound(l4);
+            break;
+        case 4:
+            AudioServicesPlaySystemSound(l5);
+            break;
+        case 5:
+            AudioServicesPlaySystemSound(l6);
+            break;
+        case 6:
+            AudioServicesPlaySystemSound(l7);
+            break;
+            
+        default:
+            break;
+    }
+}
+
+- (void)bulletsFired:(NSArray *)bullets li:(int)li {
+    [self playBulletSound:li];
+    
     shotsFired++;
     
     for (Bullet *b in bullets) {
@@ -719,7 +796,8 @@ static QPBattlefield *instance = nil;
     [self.scoreCycler score:1];
 }
 
-- (void)cloneBulletsFired:(NSArray *)bullets {
+- (void)cloneBulletsFired:(NSArray *)bullets li:(int)li {
+    [self playBulletSound:li];
     [self.cloneBullets addObjectsFromArray:bullets];
     for (Bullet *b in bullets) {
         [self addChild:b];

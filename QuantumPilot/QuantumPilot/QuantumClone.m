@@ -53,7 +53,7 @@ static int fireSignalValue = 89;
 - (void)sendBulletsToBattlefield  {
 //    Class w = NSClassFromString(self.weapon);
     Class w = [Arsenal weaponIndexedFromArsenal:[self pastWeapon]];
-    [self.bulletDelegate cloneBulletsFired:[w bulletsForLocation:outerEdges[0] direction:[self fireDirection]]];
+    [self.bulletDelegate cloneBulletsFired:[w bulletsForLocation:outerEdges[0] direction:[self fireDirection]] li:[self pastWeapon]];
 
 }
 
