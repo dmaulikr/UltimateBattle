@@ -633,6 +633,7 @@ static QPBattlefield *instance = nil;
     }
     
     if (self.dl.y < self.pilot.l.y) {
+        AudioServicesPlaySystemSound(process);        
         [self registerShieldHit:self.pilot weapon:@"DeadLine"];
         [self resetBattlefield];
     }
