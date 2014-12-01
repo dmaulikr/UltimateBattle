@@ -170,7 +170,7 @@ static float innerTopHeight = 5.75;
 }
 
 - (BOOL)reachedTarget {
-    return GetDistance(self.l, [self currentWaypoint]) == 0;
+    return GetDistance(self.l, [self currentWaypoint]) < 1;
 }
 
 - (void)processedReachedTarget {

@@ -18,16 +18,20 @@ float GetDistance(CGPoint a, CGPoint b) {
     return veldistance;
 }
 
-CGPoint GetAngle(CGPoint a ,CGPoint b){
-
+CGPoint GetAngle(CGPoint a ,CGPoint b) {
 	float veldistance = GetDistance(a, b);
     
     if (veldistance == 0) {
         return CGPointMake(0, 0);
     }
     
-	float distvar = ((fabsf(a.x-b.x))/veldistance);
-	float distvar2 = ((fabsf(a.y-b.y))/veldistance);
+    float distvar = fabsf(a.x-b.x);
+    float distvar2 = fabsf(a.y-b.y);
+    
+    float total = distvar + distvar2;
+    
+    distvar = (float)distvar / (float)total;
+    distvar2 = (float)distvar2 / (float)total;
 	
 	if (b.x < a.x){
 		distvar = -distvar;
