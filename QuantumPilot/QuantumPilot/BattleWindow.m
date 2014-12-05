@@ -35,13 +35,15 @@
     float height = [[UIScreen mainScreen] bounds].size.height - 10;
     self.weaponLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0, height-27, 200, 40)] autorelease];
     self.weaponLabel.textColor = [UIColor whiteColor];
+    self.weaponLabel.center = ccp(160,10);
     self.weaponLabel.font = [UIFont boldSystemFontOfSize:16];
-    self.weaponLabel.textAlignment = NSTextAlignmentLeft;
+    self.weaponLabel.textAlignment = NSTextAlignmentCenter;
     
     self.scoreLabel = [[[UILabel alloc] initWithFrame:CGRectMake(320-200, height-27, 200, 40)] autorelease];
+    self.scoreLabel.center = ccp(160, 30);
     self.scoreLabel.textColor = [UIColor whiteColor];
     self.scoreLabel.font = [UIFont boldSystemFontOfSize:16];
-    self.scoreLabel.textAlignment = NSTextAlignmentRight;
+    self.scoreLabel.textAlignment = NSTextAlignmentCenter;
     
     for (UILabel *l in [self labels]) {
         l.backgroundColor = [UIColor clearColor];

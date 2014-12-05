@@ -1,10 +1,14 @@
-1.2
+1.02
 smoother path recording
 voice tutorials
 new weapon sounds: higher volume
 SHOOT bouncing at random l / r mod height spots
 video
 http://store.penny-arcade.com/products/pax-east-indie-showcase-2015-game-submission
+memory in desc
+action in desc
+
+~
 
 bonus
 menu mockup below ship
@@ -14,9 +18,13 @@ sharing
 shield powerup on/off, shielding
 scanner powerup on/off, scanning
 time powerup on/off, delay
+bomb powerup on/off, multifinger for core fragments
 gamepad
 IAP
 game video
 highres photos showcasing new elements
 build and deploy
 https://developer.apple.com/library/ios/documentation/Audio/Conceptual/AudioSessionProgrammingGuide/ConfiguringanAudioSession/ConfiguringanAudioSession.html#//apple_ref/doc/uid/TP40007875-CH2-SW1 << use other audio
+
+multifinger for core fragments
+~
