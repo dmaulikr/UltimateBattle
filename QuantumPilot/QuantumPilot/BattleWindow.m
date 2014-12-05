@@ -35,7 +35,7 @@
     float height = [[UIScreen mainScreen] bounds].size.height - 10;
     self.weaponLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0, height-27, 200, 40)] autorelease];
     self.weaponLabel.textColor = [UIColor whiteColor];
-    self.weaponLabel.center = ccp(160,10);
+    self.weaponLabel.center = ccp(160, 10);
     self.weaponLabel.font = [UIFont boldSystemFontOfSize:16];
     self.weaponLabel.textAlignment = NSTextAlignmentCenter;
     

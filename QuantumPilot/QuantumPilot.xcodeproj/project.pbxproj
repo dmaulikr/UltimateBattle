@@ -1202,6 +1202,11 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0450;
+				TargetAttributes = {
+					BF0EE067163319B8002942A0 = {
+						DevelopmentTeam = 5VJK8F6JVW;
+					};
+				};
 			};
 			buildConfigurationList = BF0EE062163319B8002942A0 /* Build configuration list for PBXProject "QuantumPilot" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1464,8 +1469,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Anthony Broussard (PPZYZW945Q)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Anthony Broussard (PPZYZW945Q)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1478,7 +1483,7 @@
 					"-os",
 				);
 				PRODUCT_NAME = QP;
-				PROVISIONING_PROFILE = "AB5A2B84-A4B7-4C78-8281-8A8CD0EC3CC0";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1489,8 +1494,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Anthony Broussard (5VJK8F6JVW)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = QuantumPilot/Prefix.pch;
@@ -1502,7 +1507,7 @@
 					"-os",
 				);
 				PRODUCT_NAME = QP;
-				PROVISIONING_PROFILE = "85139b0d-7a57-4f80-bfee-e676dbd471dd";
+				PROVISIONING_PROFILE = "";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};

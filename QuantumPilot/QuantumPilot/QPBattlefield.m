@@ -398,6 +398,9 @@ static QPBattlefield *instance = nil;
     }
     
     for (Bullet *b in bulletsToErase) {
+        if (b.tag == -1) {
+            shotsFired++;
+        }
         [b removeFromParentAndCleanup:YES];
     }
     
@@ -853,10 +856,9 @@ static QPBattlefield *instance = nil;
 - (void)bulletsFired:(NSArray *)bullets li:(int)li {
     [self playBulletSound:li];
     
-    shotsFired++;
-    
     for (Bullet *b in bullets) {
         [self addChild:b];
+        b.tag = -1;
     }
     
     [self.bullets addObjectsFromArray:bullets];
@@ -1094,7 +1096,7 @@ static QPBattlefield *instance = nil;
     
     [[Arsenal weaponIndexedFromArsenal:[self.pilot arsenalLevel]] setDrawColor];
     
-    int x = 3;
+    float x = (160.0f - ((float)_circleCharges * (float)3));
     for (int i = 0; i < _circleCharges + 1; i++) {
         CGPoint c = ccp(x, 568 - 540);
         ccDrawFilledCircle(c, 1.7, 0, 30, NO);
