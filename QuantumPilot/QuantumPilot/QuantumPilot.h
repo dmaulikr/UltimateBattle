@@ -18,6 +18,7 @@
     float innerRadius;
     CGPoint drawingDeltas[4551];
     int drawFrameTotal;
+    int _autofireIterations;
 }
 
 @property (nonatomic) CGPoint l;

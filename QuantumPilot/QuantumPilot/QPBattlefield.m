@@ -709,8 +709,8 @@ static QPBattlefield *instance = nil;
         }
         
         if (self.currentState == self.titleState) {
-            NSString *autofireAlert = [NSString stringWithFormat:@"Autofire: %@", self.pilot.autofire ? @"ON" : @"OFF"];
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"ScoreLabel" object:autofireAlert];
+//            NSString *autofireAlert = [NSString stringWithFormat:@"Autofire: %@", self.pilot.autofire ? @"ON" : @"OFF"];
+//            [[NSNotificationCenter defaultCenter] postNotificationName:@"ScoreLabel" object:autofireAlert];
         } else {
             [self scorePulse];
         }
