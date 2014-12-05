@@ -223,11 +223,11 @@ static QPBattlefield *instance = nil;
     NSString *g2Text = nil;
     
     if (wave) {
-        text = [NSString stringWithFormat:@"Wave %d\nDrag your ship to record a path", level];
-        g2Text = [NSString stringWithFormat:@"Wave %d\nTap anywhere else to fire", level];
+        text = [NSString stringWithFormat:@"Wave %d\nDRAW", level];
+        g2Text = [NSString stringWithFormat:@"Wave %d\nSHOOT", level];
     } else {
-        text = @"Drag your ship to record a path";
-        g2Text = @"Tap anywhere else to fire";
+        text = @"DRAW";
+        g2Text = @"SHOOT";
     }
     
     switch (guideLevel) {
