@@ -32,6 +32,7 @@ static Weapon *instance = nil;
 
 - (void)setupSpeed {
     self.speed =  2.2 + ((arc4random() % 200) * .01);
+    self.speed =  self.speed * 1/3;
 }
 
 + (NSArray *)newBullets {

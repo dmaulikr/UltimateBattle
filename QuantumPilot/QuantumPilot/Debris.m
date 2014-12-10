@@ -37,7 +37,7 @@
 }
 
 - (void)pulse {
-    self.l = CombinedPoint(self.l, ccp(0,-2));
+    self.l = CombinedPoint(self.l, ccp(0,-2 * .5));
     radius = 1.7 * [QPBattlefield pulseRotation];
 }
 

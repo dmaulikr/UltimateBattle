@@ -21,7 +21,7 @@
 }
 
 - (float)defaultSpeed {
-    return -.5;
+    return -.5 * .5;
 }
 
 - (int)delayReset {

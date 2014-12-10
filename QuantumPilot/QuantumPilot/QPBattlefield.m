@@ -899,7 +899,7 @@ static QPBattlefield *instance = nil;
 
 - (void)setupSpeeds {
     float speed = 1.6 + ((arc4random() % 40) * .01);
-    [self.pilot setSpeed:speed];
+    [self.pilot setSpeed:speed * .5];
     [[Weapon w] setupSpeed];
     //return 2.5; //2.4 //phone: 3.91 //10, //ipad: 6.8
     //1.8 //phone: 2.3 //ipad: //old setting: 6.3
@@ -1105,7 +1105,8 @@ static QPBattlefield *instance = nil;
 }
 
 - (float)bulletSpeed {
-    return 2.2 + (min((float)_circleCharges, (float)6) * .40 ) ;
+    float s = 2.2 + (min((float)_circleCharges, (float)6) * .40 ) ;
+    return s * .5;
 }
 
 @end
