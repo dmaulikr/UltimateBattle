@@ -9,6 +9,7 @@
 #import "WideTriLaser.h"
 #import "cocos2d.h"
 #import "WideTriLaserCannon.h"
+#import "QPBattlefield.h"
 
 @implementation WideTriLaser
 
@@ -34,7 +35,7 @@ static float halfSegment = 1.5;
 }
 
 + (float)speed {
-    return [[Weapon w] speed] - .2;
+    return [[QPBattlefield f] bulletSpeed] - .2;
 }
 
 - (NSString *)weapon {
