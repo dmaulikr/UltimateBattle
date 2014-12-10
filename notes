@@ -1,18 +1,19 @@
 1.02
+half || 2/3 float speed
 voice tutorials
+draw tutorials: draw half circle, pause. draw other half. DRAW  growing under ship
+draw tutorials: \ / / \ SHOOT in crosshairs growing within and with line expansion, random l / r mod height 
 new weapon sounds: higher volume
 Show Score + Bonus (combined acc, pathing, time)
-SHOOT bouncing at random l / r mod height spots
-DRAW bouncing underneath player ship
+Score + PERFECT
 video
+PAX 2015 entry. Source code available on Procjam.
 http://store.penny-arcade.com/products/pax-east-indie-showcase-2015-game-submission
 memory in desc
 action in desc
 
 ~
-
 bonus
-menu mockup below ship
 gamecenter highscores
 gamecenter achievements
 sharing
@@ -20,6 +21,8 @@ shield powerup on/off, shielding
 scanner powerup on/off, scanning
 time powerup on/off, delay
 bomb powerup on/off, multifinger for core fragments
+show powerups between ships
+show tw/fb/email/msg above clone ship
 gamepad
 IAP
 game video
