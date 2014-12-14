@@ -325,7 +325,6 @@ static float innerTopHeight = 5.75;
             wy++;
         }
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"WeaponLabel" object:[NSNumber numberWithInteger:wx]];
         CGPoint w = weapon;
         w.x = wx;
         w.y = wy;
