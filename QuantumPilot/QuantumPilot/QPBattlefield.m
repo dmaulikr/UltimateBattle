@@ -431,7 +431,7 @@ static QPBattlefield *instance = nil;
         as+= [self.activeScores[i] intValue];
     }
     
-    return [NSString stringWithFormat:@"Rating\n%d", as];
+    return [NSString stringWithFormat:@"%d", as];
 }
 
 - (void)resetBattlefield {
@@ -450,7 +450,7 @@ static QPBattlefield *instance = nil;
     [self.activeScores addObject:[NSString stringWithFormat:@"%d", self.score]];
     [self.activeScores writeToFile:[self activePath] atomically:true];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"SubtitleLabel" object:@{@"x" : @"160", @"y" : @"88", @"text" : [self activeScore]}];
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"SubtitleLabel" object:@{@"x" : @"160", @"y" : @"88", @"text" : [self activeScore]}];
     self.score = 0;
     [self setupSpeeds];
     weaponLevel = 0;
@@ -746,11 +746,11 @@ static QPBattlefield *instance = nil;
         
     }
     
+    if (self.currentState == self.titleState) {
+        scoreDisplay = [self activeScore];
+    }
+    
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ScoreLabel" object:[NSString stringWithFormat:@"%@", scoreDisplay]];
-
-    
-    
-     //
 }
 
 - (void)debrisShowPulse {

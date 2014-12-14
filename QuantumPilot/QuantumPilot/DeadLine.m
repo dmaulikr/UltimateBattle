@@ -30,7 +30,7 @@
 
 - (void)reset {
     float height = [[UIScreen mainScreen] bounds].size.height;
-    self.y = height;
+    self.y = height + 1;
     self.delay = [self delayReset];
 }
 
