@@ -106,7 +106,7 @@
 	glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_WIDTH, &backingWidth_);
 	glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_HEIGHT, &backingHeight_);
 
-	CCLOG(@"cocos2d: surface size: %dx%d", (int)backingWidth_, (int)backingHeight_);
+//	CCLOG(@"cocos2d: surface size: %dx%d", (int)backingWidth_, (int)backingHeight_);
 
 	if (multiSampling_)
 	{
