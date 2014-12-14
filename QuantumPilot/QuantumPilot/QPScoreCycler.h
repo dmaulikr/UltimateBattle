@@ -9,20 +9,22 @@
 #import <Foundation/Foundation.h>
 
 @interface QPScoreCycler : NSObject {
-    int s;
-    int ds;
+    NSInteger s;
+    NSInteger ds;
 }
 
 - (void)score:(int)score;
 
 - (void)reset;
 
-- (int)actualScore;
+- (NSInteger)actualScore;
 
-- (int)displayedScore;
+- (NSInteger)displayedScore;
 
-- (void)addScoring:(NSDictionary *)d;
+//- (void)addScoring:(NSDictionary *)d;
 
 - (void)pulse;
+
+- (void)addDisplayScoring:(NSInteger)bonus;
 
 @end

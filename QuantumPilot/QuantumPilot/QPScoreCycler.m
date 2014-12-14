@@ -39,22 +39,26 @@
     }
 }
 
-- (int)actualScore {
+- (NSInteger)actualScore {
     return ds + s;
 }
 
-- (int)displayedScore {
+- (NSInteger)displayedScore {
     return ds;
 }
 
-- (void)addScoring:(NSDictionary *)d {
-    int time        = [d[QP_BF_TIMESCORE] intValue];
-    int accuracy    = [d[QP_BF_ACCSCORE] intValue];
-    int pathing     = [d[QP_BF_PATHSCORE] intValue];
-    ds              = [d[QP_BF_SCORE] intValue];
-    s+= time;
-    s+= accuracy;
-    s+= pathing;
+//- (void)addScoring:(NSDictionary *)d {
+//    int time        = [d[QP_BF_TIMESCORE] intValue];
+//    int accuracy    = [d[QP_BF_ACCSCORE] intValue];
+//    int pathing     = [d[QP_BF_PATHSCORE] intValue];
+//    ds              = [d[QP_BF_SCORE] intValue];
+//    s+= time;
+//    s+= accuracy;
+//    s+= pathing;
+//}
+
+- (void)addDisplayScoring:(NSInteger)bonus {
+    s+= bonus;
 }
 
 @end

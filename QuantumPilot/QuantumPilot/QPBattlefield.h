@@ -81,6 +81,8 @@ enum pulsestate {
     SystemSoundID x7;
     
     SystemSoundID process;
+    
+    NSInteger _recentBonus;
 }
 
 @property (nonatomic, retain) NSMutableArray *bullets;
@@ -93,7 +95,7 @@ enum pulsestate {
 
 #pragma mark Score
 
-@property (nonatomic) int score;
+@property (nonatomic) NSInteger score;
 
 #pragma mark States
 @property (nonatomic, retain) QPBFState *currentState;

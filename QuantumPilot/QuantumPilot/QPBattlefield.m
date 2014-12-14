@@ -542,6 +542,15 @@ static QPBattlefield *instance = nil;
     }
 }
 
+- (NSInteger)currentScoreBonus {
+    NSDictionary *total = [self levelScore];
+    NSNumber *acc = total[QP_BF_ACCSCORE];
+    NSNumber *time = total[QP_BF_TIMESCORE];
+    NSNumber *path = total[QP_BF_PATHSCORE];
+    
+    return [acc intValue] + [time intValue] + [path intValue];
+}
+
 - (NSDictionary *)levelScore {
     float ab = 0;
     if (hits >= shotsFired) {
@@ -581,6 +590,7 @@ static QPBattlefield *instance = nil;
 
 - (void)processWaveKill {
     AudioServicesPlaySystemSound(process);
+    _recentBonus += [self currentScoreBonus];
     [self showWinBlast];
     [self.pilot resetPosition];
     QuantumClone *c = [[self.pilot clone] copy];
@@ -595,7 +605,7 @@ static QPBattlefield *instance = nil;
     [self activateClones];
     [self setupClone];
     [self.pilot resetIterations];
-    [self.scoreCycler addScoring:[self levelScore]];
+//    [self.scoreCycler addScoring:[self levelScore]];
     self.score = [self.scoreCycler actualScore];
     [self changeState:self.pausedState];
     [self resetLevelScore];
@@ -692,6 +702,7 @@ static QPBattlefield *instance = nil;
     [self rhythmPulse];
     [self shieldDebrisPulse];
     [self shatterPulse];
+    [self scorePulse];
     
     if ([self isPulsing]) {
         [self debrisPulse];
@@ -700,7 +711,6 @@ static QPBattlefield *instance = nil;
         [self killPulse];
         [self bulletPulse];
         [self moveDeadline];
-        [self scorePulse];
     } else { //if (self.currentState == self.pausedState) {
         [self.pilot defineEdges];
         [self.pilot prepareDeltaDraw];
@@ -721,7 +731,26 @@ static QPBattlefield *instance = nil;
 
 - (void)scorePulse {
     [self.scoreCycler pulse];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"ScoreLabel" object:[NSString stringWithFormat:@"%d", [self.scoreCycler displayedScore]]];
+    NSInteger currentScore = [self.scoreCycler displayedScore];
+    NSInteger bonus = [self currentScoreBonus];
+    
+    [self.scoreCycler addDisplayScoring:_recentBonus];
+    _recentBonus = 0;
+    
+    NSString *scoreDisplay = @"";
+    if (self.pilot.fightingIteration == 0) {
+        scoreDisplay = [NSString stringWithFormat:@"%d", currentScore + 0];
+    } else {
+        NSString *bonusDisplay = bonus >= 200480 ? @"PERFECT" : [NSString stringWithFormat:@"%d", bonus];
+        scoreDisplay = [NSString stringWithFormat:@"%d + %@", currentScore, bonusDisplay];
+        
+    }
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ScoreLabel" object:[NSString stringWithFormat:@"%@", scoreDisplay]];
+
+    
+    
+     //
 }
 
 - (void)debrisShowPulse {
