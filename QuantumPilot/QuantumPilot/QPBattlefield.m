@@ -103,16 +103,16 @@ static QPBattlefield *instance = nil;
     pathURL = [NSURL fileURLWithPath : path];
     AudioServicesCreateSystemSoundID((CFURLRef) pathURL, &voidwave);
 
-    path  = [[NSBundle mainBundle] pathForResource:@"l1" ofType:@"wav"];
+    path  = [[NSBundle mainBundle] pathForResource:@"l1-12" ofType:@"wav"];
     pathURL = [NSURL fileURLWithPath : path];
     AudioServicesCreateSystemSoundID((CFURLRef) pathURL, &l1);
 
-    path  = [[NSBundle mainBundle] pathForResource:@"l2" ofType:@"wav"];
+    path  = [[NSBundle mainBundle] pathForResource:@"l2-12" ofType:@"wav"];
     pathURL = [NSURL fileURLWithPath : path];
     AudioServicesCreateSystemSoundID((CFURLRef) pathURL, &l2);
 
     
-    path  = [[NSBundle mainBundle] pathForResource:@"l3" ofType:@"wav"];
+    path  = [[NSBundle mainBundle] pathForResource:@"l3-22" ofType:@"wav"];
     pathURL = [NSURL fileURLWithPath : path];
     AudioServicesCreateSystemSoundID((CFURLRef) pathURL, &l3);
 
@@ -121,18 +121,17 @@ static QPBattlefield *instance = nil;
     pathURL = [NSURL fileURLWithPath : path];
     AudioServicesCreateSystemSoundID((CFURLRef) pathURL, &l4);
 
-    
-    path  = [[NSBundle mainBundle] pathForResource:@"l5" ofType:@"wav"];
+    path  = [[NSBundle mainBundle] pathForResource:@"l5-12" ofType:@"wav"];
     pathURL = [NSURL fileURLWithPath : path];
     AudioServicesCreateSystemSoundID((CFURLRef) pathURL, &l5);
 
     
-    path  = [[NSBundle mainBundle] pathForResource:@"l6" ofType:@"wav"];
+    path  = [[NSBundle mainBundle] pathForResource:@"l6-12" ofType:@"wav"];
     pathURL = [NSURL fileURLWithPath : path];
     AudioServicesCreateSystemSoundID((CFURLRef) pathURL, &l6);
 
     
-    path  = [[NSBundle mainBundle] pathForResource:@"l7" ofType:@"wav"];
+    path  = [[NSBundle mainBundle] pathForResource:@"l7-12" ofType:@"wav"];
     pathURL = [NSURL fileURLWithPath : path];
     AudioServicesCreateSystemSoundID((CFURLRef) pathURL, &l7);
 
@@ -140,31 +139,31 @@ static QPBattlefield *instance = nil;
     pathURL = [NSURL fileURLWithPath : path];
     AudioServicesCreateSystemSoundID((CFURLRef) pathURL, &collect);
 
-    path  = [[NSBundle mainBundle] pathForResource:@"x1" ofType:@"wav"];
+    path  = [[NSBundle mainBundle] pathForResource:@"x1-12" ofType:@"wav"];
     pathURL = [NSURL fileURLWithPath : path];
     AudioServicesCreateSystemSoundID((CFURLRef) pathURL, &x1);
 
-    path  = [[NSBundle mainBundle] pathForResource:@"x2" ofType:@"wav"];
+    path  = [[NSBundle mainBundle] pathForResource:@"x2-12" ofType:@"wav"];
     pathURL = [NSURL fileURLWithPath : path];
     AudioServicesCreateSystemSoundID((CFURLRef) pathURL, &x2);
     
-    path  = [[NSBundle mainBundle] pathForResource:@"x3" ofType:@"wav"];
+    path  = [[NSBundle mainBundle] pathForResource:@"x3-12" ofType:@"wav"];
     pathURL = [NSURL fileURLWithPath : path];
     AudioServicesCreateSystemSoundID((CFURLRef) pathURL, &x3);
-    path  = [[NSBundle mainBundle] pathForResource:@"x4" ofType:@"wav"];
+    path  = [[NSBundle mainBundle] pathForResource:@"x4-12" ofType:@"wav"];
     pathURL = [NSURL fileURLWithPath : path];
     AudioServicesCreateSystemSoundID((CFURLRef) pathURL, &x4);
-    path  = [[NSBundle mainBundle] pathForResource:@"x5" ofType:@"wav"];
+    path  = [[NSBundle mainBundle] pathForResource:@"x5-12" ofType:@"wav"];
     pathURL = [NSURL fileURLWithPath : path];
     AudioServicesCreateSystemSoundID((CFURLRef) pathURL, &x5);
-    path  = [[NSBundle mainBundle] pathForResource:@"x6" ofType:@"wav"];
+    path  = [[NSBundle mainBundle] pathForResource:@"x6-12" ofType:@"wav"];
     pathURL = [NSURL fileURLWithPath : path];
     AudioServicesCreateSystemSoundID((CFURLRef) pathURL, &x6);
-    path  = [[NSBundle mainBundle] pathForResource:@"x7" ofType:@"wav"];
+    path  = [[NSBundle mainBundle] pathForResource:@"x7-12" ofType:@"wav"];
     pathURL = [NSURL fileURLWithPath : path];
     AudioServicesCreateSystemSoundID((CFURLRef) pathURL, &x7);
     
-    path  = [[NSBundle mainBundle] pathForResource:@"process" ofType:@"wav"];
+    path  = [[NSBundle mainBundle] pathForResource:@"process-12" ofType:@"wav"];
     pathURL = [NSURL fileURLWithPath : path];
     AudioServicesCreateSystemSoundID((CFURLRef) pathURL, &process);
 //    [self createSound:@"l1" systemSoundID:&l1 format:@"wav"];
