@@ -54,6 +54,7 @@
 		0EA1A3871A40EBA100A098A6 /* x6-12.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0EA1A37F1A40EBA100A098A6 /* x6-12.wav */; };
 		0EA1A3881A40EBA100A098A6 /* x7-12.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0EA1A3801A40EBA100A098A6 /* x7-12.wav */; };
 		0EA1A38A1A40EC0600A098A6 /* process-12.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0EA1A3891A40EC0600A098A6 /* process-12.wav */; };
+		0EA1A38C1A40ED4900A098A6 /* collect-8.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0EA1A38B1A40ED4900A098A6 /* collect-8.wav */; };
 		0EC9E70F1967907400497BB9 /* DeadLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EC9E70E1967907400497BB9 /* DeadLine.m */; };
 		0EC9E7121967943D00497BB9 /* QPBFScoreState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EC9E7111967943D00497BB9 /* QPBFScoreState.m */; };
 		0EC9E7151967990200497BB9 /* ScoreDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EC9E7141967990200497BB9 /* ScoreDisplay.m */; };
@@ -259,6 +260,7 @@
 		0EA1A37F1A40EBA100A098A6 /* x6-12.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "x6-12.wav"; sourceTree = "<group>"; };
 		0EA1A3801A40EBA100A098A6 /* x7-12.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "x7-12.wav"; sourceTree = "<group>"; };
 		0EA1A3891A40EC0600A098A6 /* process-12.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "process-12.wav"; sourceTree = "<group>"; };
+		0EA1A38B1A40ED4900A098A6 /* collect-8.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "collect-8.wav"; sourceTree = "<group>"; };
 		0EC9E70D1967907400497BB9 /* DeadLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeadLine.h; sourceTree = "<group>"; };
 		0EC9E70E1967907400497BB9 /* DeadLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeadLine.m; sourceTree = "<group>"; };
 		0EC9E7101967943D00497BB9 /* QPBFScoreState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBFScoreState.h; sourceTree = "<group>"; };
@@ -607,6 +609,7 @@
 				0EA1A37F1A40EBA100A098A6 /* x6-12.wav */,
 				0EA1A3801A40EBA100A098A6 /* x7-12.wav */,
 				0EA1A3891A40EC0600A098A6 /* process-12.wav */,
+				0EA1A38B1A40ED4900A098A6 /* collect-8.wav */,
 			);
 			name = Combat;
 			sourceTree = "<group>";
@@ -1256,6 +1259,7 @@
 				0EA1A3861A40EBA100A098A6 /* x5-12.wav in Resources */,
 				0E1292D71A04ACB1006A8BAB /* collect.wav in Resources */,
 				0EA1A36F1A40E9E900A098A6 /* l1-12.wav in Resources */,
+				0EA1A38C1A40ED4900A098A6 /* collect-8.wav in Resources */,
 				0EA1A38A1A40EC0600A098A6 /* process-12.wav in Resources */,
 				0E1292B61A049FAA006A8BAB /* exoslicer.m4a in Resources */,
 				0E1292B91A049FAA006A8BAB /* dismantler.m4a in Resources */,

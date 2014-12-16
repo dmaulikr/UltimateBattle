@@ -135,7 +135,7 @@ static QPBattlefield *instance = nil;
     pathURL = [NSURL fileURLWithPath : path];
     AudioServicesCreateSystemSoundID((CFURLRef) pathURL, &l7);
 
-    path  = [[NSBundle mainBundle] pathForResource:@"collect" ofType:@"wav"];
+    path  = [[NSBundle mainBundle] pathForResource:@"collect-8" ofType:@"wav"];
     pathURL = [NSURL fileURLWithPath : path];
     AudioServicesCreateSystemSoundID((CFURLRef) pathURL, &collect);
 
