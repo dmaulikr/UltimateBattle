@@ -6,6 +6,7 @@ level up voidwave
 pause the exoslicer's horizontal momentum once it changes for 6 ticks -- give a little more space inside.
 QP app icon suggestion from adam?
 1.02
+circle: draw circle, crosshair quadrants. stays still for that level.
 request splash screen from adam
 draw circle when title, when paused, and when stationary and NOT drawing
 draw nothing when drawing
