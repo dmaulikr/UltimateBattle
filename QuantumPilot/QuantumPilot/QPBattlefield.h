@@ -22,6 +22,13 @@ enum pulsestate {
     falling = 3
 };
 
+enum drawguide {
+    circle = 0,
+    zigzag = 1,
+    rest = 2,
+    fire = 3
+};
+
 @interface QPBattlefield : CCNode <QuantumPilotingDelegate, QPBulletDelegate> {
     NSInteger _pulseTimes[4];
     NSInteger _pulseState;
@@ -84,9 +91,15 @@ enum pulsestate {
     
     NSInteger _recentBonus;
     
-    float drawRadius;
+    int drawRadius;
     
-    bool _showDrawGuide;
+    enum drawguide _guideMode;
+    
+    CGPoint zigzags[50];
+    
+    bool _pilotStill;
+    
+    bool _touchedSinceReached;
 }
 
 @property (nonatomic, retain) NSMutableArray *bullets;

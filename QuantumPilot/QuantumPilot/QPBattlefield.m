@@ -695,18 +695,56 @@ static QPBattlefield *instance = nil;
 }
 
 - (void)pulse {
-    
-    if (_showDrawGuide) {
-        drawRadius--;
-        if (drawRadius < 10) {
-            drawRadius = 50;
-        }
-    } else {
-        drawRadius++;
-        if (drawRadius > 30) {
-            drawRadius = 10;
-        }
+    switch (_guideMode) {
+        case circle:
+            drawRadius--;
+            if (drawRadius < 10) {
+                if (self.currentState == self.fightingState) {
+                    drawRadius = 50;
+                    break;
+                } else if (self.currentState == self.titleState || self.currentState == self.pausedState) {
+                
+                    drawRadius = 0;
+                    
+                    _guideMode = zigzag;
+                    zigzags[0] = self.pilot.l;
+                    for (int i = 1; i < 50; i++) {
+                        int rx = arc4random() % 4;
+                        if (arc4random() % 2 == 0) {
+                            rx = -rx;
+                        }
+                        zigzags[i] = ccp(zigzags[i-1].x + rx, zigzags[i-1].y + 3);
+                    }
+                }
+            }
+            break;
+        case zigzag:
+            drawRadius++;
+            if (drawRadius > 50) {
+                drawRadius = 50;
+                _guideMode = circle;
+            }
+            break;
+        default:
+            break;
     }
+    
+    if (_guideMode == zigzag) {
+        
+    }
+    
+//    if (_guideMode == circle) {
+//        drawRadius--;
+//        if (drawRadius < 10) {
+//            drawRadius = 50;
+//            _guideMode = zigzag;
+//        }
+//    } else {
+//        drawRadius++;
+//        if (drawRadius > 30) {
+//            drawRadius = 10;
+//        }
+//    }
     
     [self calculateCircleCharges];
     
@@ -727,7 +765,7 @@ static QPBattlefield *instance = nil;
         [self killPulse];
         [self bulletPulse];
         [self moveDeadline];
-    } else { //if (self.currentState == self.pausedState) {
+    } else {
         [self.pilot defineEdges];
         [self.pilot prepareDeltaDraw];
         for (QuantumClone *c in self.clones) {
@@ -735,9 +773,7 @@ static QPBattlefield *instance = nil;
         }
         
         if (self.currentState == self.titleState || self.currentState == self.pausedState) {
-            _showDrawGuide = true;
         } else {
-            _showDrawGuide = false;
             [self scorePulse];
         }
     }
@@ -798,12 +834,18 @@ static QPBattlefield *instance = nil;
             [[NSNotificationCenter defaultCenter] postNotificationName:@"clearLabels" object:nil];
         } else if (state == self.pausedState) {
             [self showGuide:0 wave:1];
-        } else if (state == self.fightingState && !veteran && level < 4) {
-            [self showGuide:1 wave:0];
+        } else if (state == self.fightingState) {
+            _guideMode = rest;
+            if (!veteran && level < 4) {
+                [self showGuide:1 wave:0];
+            }
         }
     }
     
     self.currentState = state;
+    if (self.currentState == self.pausedState) {
+        _guideMode = circle;
+    }
     [self.currentState activate:options];
     self.pilot.blinking = self.currentState == self.pausedState;
 }
@@ -824,6 +866,8 @@ static QPBattlefield *instance = nil;
 #pragma mark Input
 
 - (void)addTouch:(CGPoint)l {
+    _guideMode = rest;
+    _touchedSinceReached = true;
     [self.currentState addTouch:l];
 }
 
@@ -1140,13 +1184,19 @@ static QPBattlefield *instance = nil;
     [super draw];
     
     [[Arsenal weaponIndexedFromArsenal:[self.pilot arsenalLevel]] setDrawColor];
-    if (_showDrawGuide) {
-        ccDrawCircle(self.pilot.l, drawRadius, 0, 50, 0);
-    } else {
-        ccDrawCircle(ccp(self.pilot.l.x + 75, self.pilot.l.y), drawRadius, 0, 50, 0);
+    
+    switch (_guideMode) {
+        case circle:
+            ccDrawCircle(self.pilot.l, drawRadius, 0, 50, 0);
+            break;
+        case zigzag:
+            ccDrawPoly(zigzags, drawRadius, 0);
+            break;
+        case fire:
+            break;
+        default:
+            break;
     }
-    
-    
     
     float x = (160.0f - ((float)_circleCharges * (float)3));
     for (int i = 0; i < _circleCharges + 1; i++) {

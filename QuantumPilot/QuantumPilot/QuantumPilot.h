@@ -19,6 +19,8 @@
     CGPoint drawingDeltas[4551];
     int drawFrameTotal;
     int _autofireIterations;
+    
+    bool _reachedTarget;
 }
 
 @property (nonatomic) CGPoint l;

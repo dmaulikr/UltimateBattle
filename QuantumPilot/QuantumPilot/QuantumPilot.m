@@ -185,7 +185,9 @@ static float innerTopHeight = 5.75;
     if (self.fightingIteration == self.drawingIteration) {
         future[self.fightingIteration] = self.l;
         self.drawingIteration++;
-        [self.pilotDelegate pilotReachedEndOfFutureWaypoints];
+        if (!_reachedTarget) {
+            [self.pilotDelegate pilotReachedEndOfFutureWaypoints];
+        }
     }
 }
 
@@ -252,6 +254,8 @@ static float innerTopHeight = 5.75;
     
     [self checkForFiringWeapon];
 
+    _reachedTarget = [self reachedTarget];
+    
     [self calculateTarget];
     [self calculateVelocityForTarget];
     [self moveByVelocity];
