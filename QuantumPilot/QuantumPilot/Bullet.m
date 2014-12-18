@@ -27,8 +27,12 @@
     return [NSString stringWithFormat:@"l: %f,%f    vel:%f,%f    %d", self.l.x, self.l.y, self.vel.x, self.vel.y, self.identifier];
 }
 
+- (CGPoint)velocity {
+    return self.vel;
+}
+
 - (void)pulse {
-    self.l = CombinedPoint(self.l, self.vel);
+    self.l = CombinedPoint(self.l, [self velocity]);
     self.drawMultiplier = [[QPBattlefield f] isPulsing] ? rs : self.drawMultiplier;
 }
 

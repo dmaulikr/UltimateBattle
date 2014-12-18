@@ -35,17 +35,40 @@ static float halfSegment = 1.2;
     return .1;
 }
 
-- (void)oscillate {
-    if (self.l.x > ox) {
-        self.vel = ccp(self.vel.x - [self oscillateSpeed], self.vel.y);
-    } else if (self.l.x < ox) {
-        self.vel = ccp(self.vel.x + [self oscillateSpeed], self.vel.y);
+- (CGPoint)velocity {
+    if (delay > 0) {
+        return ccp(0,self.vel.y);
     }
+    
+    return self.vel;
+}
+
+- (void)oscillate {
+    if (delay > 0) {
+        delay--;
+    } else {
+        if (self.l.x > ox) {
+            self.vel = ccp(self.vel.x - [self oscillateSpeed], self.vel.y);
+        } else if (self.l.x < ox) {
+            self.vel = ccp(self.vel.x + [self oscillateSpeed], self.vel.y);
+        }
+    }
+    
+    
+    
+}
+
+- (bool)shouldTurn {
+    return (self.vel.x < 0 && self.l.x < ox) || (self.vel.x > 0 && self.l.x > ox);
 }
 
 - (void)pulse {
+    int turn = [self shouldTurn];
     [super pulse];
     [self oscillate];
+    if (turn == 1 && ![self shouldTurn]) {
+        delay = 14;
+    }
     
     lines[0] = ccp(self.l.x + (_xDirection * halfSegment * .15), self.l.y + (_yDirection * halfSegment * .85));
     lines[1] = ccp(self.l.x - (_xDirection * halfSegment * .15), self.l.y - (_yDirection * halfSegment * .85));

@@ -14,6 +14,7 @@
     CGPoint lines[2];
     int side;
     int ox;
+    int delay;
 }
 
 - (id)initWithLocation:(CGPoint)location velocity:(CGPoint)velocity centerX:(int)x;

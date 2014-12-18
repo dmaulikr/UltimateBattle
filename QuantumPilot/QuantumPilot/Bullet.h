@@ -30,4 +30,6 @@
 
 - (NSString *)weapon;
 
+- (CGPoint)velocity;
+
 @end
