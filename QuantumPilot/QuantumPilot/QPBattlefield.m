@@ -855,7 +855,9 @@ static QPBattlefield *instance = nil;
 
 - (void)addTouch:(CGPoint)l {
     if (self.currentState == self.titleState || self.currentState == self.pausedState) {
-        _guideMode = rest;
+        if ([self touchingPlayer:l]) {
+            _guideMode = rest;
+        }
     }
     [self.currentState addTouch:l];
 }
