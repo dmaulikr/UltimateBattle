@@ -12,7 +12,11 @@
 @implementation WideSpiralLaser
 
 - (float)oscillateSpeed {
-    return .4;
+    return .2;
+}
+
+- (NSInteger)delayReset {
+    return 31;
 }
 
 - (void)setColor {

@@ -62,12 +62,16 @@ static float halfSegment = 1.2;
     return (self.vel.x < 0 && self.l.x < ox) || (self.vel.x > 0 && self.l.x > ox);
 }
 
+- (NSInteger)delayReset {
+    return 14;
+}
+
 - (void)pulse {
     int turn = [self shouldTurn];
     [super pulse];
     [self oscillate];
     if (turn == 1 && ![self shouldTurn]) {
-        delay = 14;
+        delay = [self delayReset];
     }
     
     lines[0] = ccp(self.l.x + (_xDirection * halfSegment * .15), self.l.y + (_yDirection * halfSegment * .85));

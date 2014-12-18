@@ -25,4 +25,6 @@
 
 - (void)setColor;
 
+- (NSInteger)delayReset;
+
 @end
