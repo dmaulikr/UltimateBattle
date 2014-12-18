@@ -25,7 +25,7 @@
     if (self) {
         self.l = l;
         _speed = 1.5 + ((arc4random() % 40) * .05);
-        _speed *= .5;
+        _speed *= .3;
         for (int i = 0; i < 10; i++) {
             int xD = arc4random() % 2 == 0 ? 1 : -1;
             int yD = arc4random() % 2 == 0 ? 1 : -1;
