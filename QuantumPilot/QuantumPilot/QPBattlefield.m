@@ -209,9 +209,13 @@ static QPBattlefield *instance = nil;
         
         drawRadius = 10;
         
-        fireCircle = ccp(160, 28);
+        fireCircle = [self fireCircleReset];
     }
     return self;
+}
+
+- (CGPoint)fireCircleReset {
+    return ccp(160,28);
 }
 
 - (void)showGuide:(int)guideLevel wave:(bool)wave {
@@ -413,6 +417,7 @@ static QPBattlefield *instance = nil;
 
 - (void)resetBattlefield {
     veteran = level > 4;
+    _guideMode = veteran ? circle : _guideMode;
     level = 1;
     [self.scoreCycler reset];
     [self eraseBullets];
@@ -824,9 +829,11 @@ static QPBattlefield *instance = nil;
     }
     
     self.currentState = state;
-    if (self.currentState == self.pausedState && !veteran) {
+    if ((self.currentState == self.pausedState || self.currentState == self.titleState) && !veteran) {
         _guideMode = circle;
     }
+    
+    fireCircle = state == self.fightingState ? [self fireCircleReset] : ccp(5000,5000);
     [self.currentState activate:options];
     self.pilot.blinking = self.currentState == self.pausedState;
 }
@@ -847,6 +854,9 @@ static QPBattlefield *instance = nil;
 #pragma mark Input
 
 - (void)addTouch:(CGPoint)l {
+    if (self.currentState == self.titleState || self.currentState == self.pausedState) {
+        _guideMode = rest;
+    }
     [self.currentState addTouch:l];
 }
 

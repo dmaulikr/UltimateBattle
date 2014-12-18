@@ -18,7 +18,6 @@
     float innerRadius;
     CGPoint drawingDeltas[4551];
     int drawFrameTotal;
-    int _autofireIterations;
     
     bool _reachedTarget;
 }
@@ -51,9 +50,6 @@
 @property (nonatomic) BOOL blinking;
 
 @property (nonatomic) int shield;
-
-@property (nonatomic) bool autofire;
-@property (nonatomic) int autofireDelay;
 
 - (BOOL)isFiring;
 

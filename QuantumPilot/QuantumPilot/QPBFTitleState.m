@@ -12,8 +12,6 @@
         [self.f changeState:self.f.drawingState withTouch:l];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"TitleLabel" object:@{@"x":[NSNumber numberWithInteger:160], @"y" : [NSNumber numberWithInteger:-5000], @"text" : @"QUANTUM PILOT"}];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"SubtitleLabel" object:@{@"x":[NSNumber numberWithInteger:160], @"y" : [NSNumber numberWithInteger:-5000], @"text" : @"QUANTUM PILOT"}];
-    } else if (l.y < 400) {
-        self.f.pilot.autofire = !self.f.pilot.autofire;
     }
 }
 

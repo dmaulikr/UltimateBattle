@@ -47,7 +47,6 @@ static float innerTopHeight = 5.75;
     if (self) {
         [self engage];
         _debris = 0;
-//        self.autofire = true;
     }
     return self;
 }
@@ -115,21 +114,6 @@ static float innerTopHeight = 5.75;
 }
 
 - (BOOL)isFiring {
-    if (self.autofire) {
-        self.autofireDelay--;
-        if (self.autofireDelay < 0) {
-            _autofireIterations++;
-            if (_autofireIterations < 2) {
-                self.autofireDelay = 4;
-            } else {
-                self.autofireDelay = 46;
-                _autofireIterations = 0;
-            }
-
-            self.firing = true;
-        }
-    }
-    
     return self.firing;
 }
 
