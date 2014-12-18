@@ -369,6 +369,7 @@ static QPBattlefield *instance = nil;
     [self playKillSound];
     if (c != self.pilot) {
         hits++;
+        [self.scoreCycler score:(10000 * hits)];
         [self createDebrisFromCloneKill:(QuantumClone *)c bullet:b];
     }
 
@@ -733,7 +734,7 @@ static QPBattlefield *instance = nil;
     NSInteger currentScore = [self.scoreCycler displayedScore];
     NSInteger bonus = [self currentScoreBonus];
     
-    [self.scoreCycler addDisplayScoring:_recentBonus];
+    [self.scoreCycler score:_recentBonus];
     _recentBonus = 0;
     
     NSString *scoreDisplay = @"";

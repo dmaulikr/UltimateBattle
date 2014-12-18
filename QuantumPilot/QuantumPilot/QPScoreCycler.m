@@ -57,8 +57,4 @@
 //    s+= pathing;
 //}
 
-- (void)addDisplayScoring:(NSInteger)bonus {
-    s+= bonus;
-}
-
 @end

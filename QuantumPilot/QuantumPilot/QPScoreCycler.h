@@ -15,6 +15,8 @@
 
 - (void)score:(int)score;
 
+- (void)scoreBonus:(int)bonus;
+
 - (void)reset;
 
 - (NSInteger)actualScore;
@@ -24,7 +26,5 @@
 //- (void)addScoring:(NSDictionary *)d;
 
 - (void)pulse;
-
-- (void)addDisplayScoring:(NSInteger)bonus;
 
 @end
