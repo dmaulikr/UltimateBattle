@@ -121,6 +121,8 @@
 
 - (void)announceWeapon;
 
+- (CGPoint)latestWaypoint;
+
 @end
 
 @protocol QuantumPilotingDelegate <NSObject>

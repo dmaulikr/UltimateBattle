@@ -97,9 +97,7 @@ enum drawguide {
     
     CGPoint zigzags[50];
     
-    bool _pilotStill;
-    
-    bool _touchedSinceReached;
+    CGPoint fireCircle;
 }
 
 @property (nonatomic, retain) NSMutableArray *bullets;

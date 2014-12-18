@@ -208,40 +208,14 @@ static QPBattlefield *instance = nil;
         }
         
         drawRadius = 10;
+        
+        fireCircle = ccp(160, 28);
     }
     return self;
 }
 
 - (void)showGuide:(int)guideLevel wave:(bool)wave {
     return;
-    float height = [[UIScreen mainScreen] bounds].size.height;
-    if (veteran) {
-        NSString *text = [NSString stringWithFormat:@"Wave %d", level];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"Guide" object:@{@"x":[NSNumber numberWithInteger:self.pilot.l.x], @"y" : [NSNumber numberWithInteger:(height - self.pilot.l.y + 35)], @"text" : text}];
-        return;
-    }
-    
-    NSString *text = nil;
-    NSString *g2Text = nil;
-    
-    if (wave) {
-        text = [NSString stringWithFormat:@"Wave %d\nDRAW", level];
-        g2Text = [NSString stringWithFormat:@"Wave %d\nSHOOT", level];
-    } else {
-        text = @"DRAW";
-        g2Text = @"SHOOT";
-    }
-    
-    switch (guideLevel) {
-        case 0:
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"Guide" object:@{@"x":[NSNumber numberWithInteger:self.pilot.l.x], @"y" : [NSNumber numberWithInteger:(height - self.pilot.l.y + 35)], @"text" : text}];
-            break;
-        case 1:
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"Guide" object:@{@"x":[NSNumber numberWithFloat:self.pilot.l.x], @"y" : [NSNumber numberWithInteger:(height - self.pilot.l.y + 75)], @"text" : g2Text}];
-            break;
-        default:
-            break;
-    }
 }
 
 - (float)pulseRotation {
@@ -725,6 +699,12 @@ static QPBattlefield *instance = nil;
                 _guideMode = circle;
             }
             break;
+        case fire:
+            drawRadius--;
+            if (drawRadius <= 1) {
+                drawRadius = 20;
+            }
+            break;
         default:
             break;
     }
@@ -835,15 +815,16 @@ static QPBattlefield *instance = nil;
         } else if (state == self.pausedState) {
             [self showGuide:0 wave:1];
         } else if (state == self.fightingState) {
-            _guideMode = rest;
             if (!veteran && level < 4) {
-                [self showGuide:1 wave:0];
+                _guideMode = fire;
+            } else {
+                _guideMode = rest;
             }
         }
     }
     
     self.currentState = state;
-    if (self.currentState == self.pausedState) {
+    if (self.currentState == self.pausedState && !veteran) {
         _guideMode = circle;
     }
     [self.currentState activate:options];
@@ -866,8 +847,6 @@ static QPBattlefield *instance = nil;
 #pragma mark Input
 
 - (void)addTouch:(CGPoint)l {
-    _guideMode = rest;
-    _touchedSinceReached = true;
     [self.currentState addTouch:l];
 }
 
@@ -906,9 +885,6 @@ static QPBattlefield *instance = nil;
 #pragma mark Pilot Delgate
 
 - (void)pilotReachedEndOfFutureWaypoints {
-    if (!veteran) {
-        [self showGuide:0 wave:0];
-    }
 }
 
 #pragma mark Bullet Delegate
@@ -1185,6 +1161,14 @@ static QPBattlefield *instance = nil;
     
     [[Arsenal weaponIndexedFromArsenal:[self.pilot arsenalLevel]] setDrawColor];
     
+    float x = (160.0f - ((float)_circleCharges * (float)3));
+    for (int i = 0; i < _circleCharges + 1; i++) {
+        CGPoint c = ccp(x, 568 - 540); //screensize
+        ccDrawFilledCircle(c, 1.7, 0, 30, NO);
+        x+=6;
+    }
+
+    
     switch (_guideMode) {
         case circle:
             ccDrawCircle(self.pilot.l, drawRadius, 0, 50, 0);
@@ -1193,16 +1177,10 @@ static QPBattlefield *instance = nil;
             ccDrawPoly(zigzags, drawRadius, 0);
             break;
         case fire:
+            ccDrawCircle(fireCircle, drawRadius, 0, 30, 0);
             break;
         default:
             break;
-    }
-    
-    float x = (160.0f - ((float)_circleCharges * (float)3));
-    for (int i = 0; i < _circleCharges + 1; i++) {
-        CGPoint c = ccp(x, 568 - 540);
-        ccDrawFilledCircle(c, 1.7, 0, 30, NO);
-        x+=6;
     }
 }
 

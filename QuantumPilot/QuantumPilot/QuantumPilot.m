@@ -413,6 +413,10 @@ static float innerTopHeight = 5.75;
     return weapon.y;
 }
 
+- (CGPoint)latestWaypoint {
+    return future[self.fightingIteration];
+}
+
 @end
 
 
