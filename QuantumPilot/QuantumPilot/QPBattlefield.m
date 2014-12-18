@@ -206,11 +206,14 @@ static QPBattlefield *instance = nil;
                 [self.activeScores addObject:@"0"];
             }
         }
+        
+        drawRadius = 10;
     }
     return self;
 }
 
 - (void)showGuide:(int)guideLevel wave:(bool)wave {
+    return;
     float height = [[UIScreen mainScreen] bounds].size.height;
     if (veteran) {
         NSString *text = [NSString stringWithFormat:@"Wave %d", level];
@@ -692,6 +695,19 @@ static QPBattlefield *instance = nil;
 }
 
 - (void)pulse {
+    
+    if (_showDrawGuide) {
+        drawRadius--;
+        if (drawRadius < 10) {
+            drawRadius = 50;
+        }
+    } else {
+        drawRadius++;
+        if (drawRadius > 30) {
+            drawRadius = 10;
+        }
+    }
+    
     [self calculateCircleCharges];
     
     [self.currentState pulse];
@@ -718,10 +734,10 @@ static QPBattlefield *instance = nil;
             [c defineEdges];
         }
         
-        if (self.currentState == self.titleState) {
-//            NSString *autofireAlert = [NSString stringWithFormat:@"Autofire: %@", self.pilot.autofire ? @"ON" : @"OFF"];
-//            [[NSNotificationCenter defaultCenter] postNotificationName:@"ScoreLabel" object:autofireAlert];
+        if (self.currentState == self.titleState || self.currentState == self.pausedState) {
+            _showDrawGuide = true;
         } else {
+            _showDrawGuide = false;
             [self scorePulse];
         }
     }
@@ -1124,6 +1140,13 @@ static QPBattlefield *instance = nil;
     [super draw];
     
     [[Arsenal weaponIndexedFromArsenal:[self.pilot arsenalLevel]] setDrawColor];
+    if (_showDrawGuide) {
+        ccDrawCircle(self.pilot.l, drawRadius, 0, 50, 0);
+    } else {
+        ccDrawCircle(ccp(self.pilot.l.x + 75, self.pilot.l.y), drawRadius, 0, 50, 0);
+    }
+    
+    
     
     float x = (160.0f - ((float)_circleCharges * (float)3));
     for (int i = 0; i < _circleCharges + 1; i++) {

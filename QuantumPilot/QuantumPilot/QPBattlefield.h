@@ -83,6 +83,10 @@ enum pulsestate {
     SystemSoundID process;
     
     NSInteger _recentBonus;
+    
+    float drawRadius;
+    
+    bool _showDrawGuide;
 }
 
 @property (nonatomic, retain) NSMutableArray *bullets;
