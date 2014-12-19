@@ -166,7 +166,19 @@ static QPBattlefield *instance = nil;
     path  = [[NSBundle mainBundle] pathForResource:@"process-12" ofType:@"wav"];
     pathURL = [NSURL fileURLWithPath : path];
     AudioServicesCreateSystemSoundID((CFURLRef) pathURL, &process);
-//    [self createSound:@"l1" systemSoundID:&l1 format:@"wav"];
+
+    path  = [[NSBundle mainBundle] pathForResource:@"drag" ofType:@"m4a"];
+    pathURL = [NSURL fileURLWithPath : path];
+    AudioServicesCreateSystemSoundID((CFURLRef) pathURL, &drag);
+    
+    path  = [[NSBundle mainBundle] pathForResource:@"tap" ofType:@"m4a"];
+    pathURL = [NSURL fileURLWithPath : path];
+    AudioServicesCreateSystemSoundID((CFURLRef) pathURL, &tap);
+    
+    path  = [[NSBundle mainBundle] pathForResource:@"copy" ofType:@"m4a"];
+    pathURL = [NSURL fileURLWithPath : path];
+    AudioServicesCreateSystemSoundID((CFURLRef) pathURL, &copy);
+
 }
 
 - (void)createSound:(NSString *)s systemSoundID:(SystemSoundID)ssid format:(NSString *)f{
@@ -441,6 +453,7 @@ static QPBattlefield *instance = nil;
     slow = 0;
     
     [self showGuide:0 wave:1];
+    _playedDrag = 0;
 }
 
 - (BOOL)debrisOutOfBounds:(Debris *)d {
@@ -595,6 +608,9 @@ static QPBattlefield *instance = nil;
     [self.dl reset];
     weaponLevel = 0;
     level++;
+    if (!veteran &&level == 2) {
+        [self playCopySound];
+    }
     
     [self showGuide:0 wave:1];
     
@@ -686,6 +702,10 @@ static QPBattlefield *instance = nil;
                     drawRadius = 0;
                     
                     _guideMode = zigzag;
+                    
+                    if (level == 1 && !veteran && !_playedDrag) {
+                        [self playDragSound];
+                    }
                     zigzags[0] = self.pilot.l;
                     for (int i = 1; i < 50; i++) {
                         int rx = arc4random() % 4;
@@ -1199,6 +1219,19 @@ static QPBattlefield *instance = nil;
 - (float)bulletSpeed {
     float s = 2.2 + (min((float)_circleCharges, (float)6) * .40 ) ;
     return s * .5;
+}
+
+- (void)playDragSound {
+    _playedDrag = true;
+    AudioServicesPlaySystemSound(drag);
+}
+- (void)playTapSound {
+    if (level == 1 && self.pilot.fightingIteration == 30 && !veteran) {
+        AudioServicesPlaySystemSound(tap);
+    }
+}
+- (void)playCopySound {
+    AudioServicesPlaySystemSound(copy);
 }
 
 @end

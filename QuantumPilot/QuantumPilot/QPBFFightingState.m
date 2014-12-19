@@ -25,6 +25,8 @@
         return;
     }
     
+    [self.f playTapSound];
+    
     if (_holding) {
         _held++;
     }

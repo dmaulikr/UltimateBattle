@@ -4,7 +4,9 @@
 @implementation QPBFTitleState
 
 - (void)activate:(NSDictionary *)options {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"TitleLabel" object:@{@"x":[NSNumber numberWithInteger:160], @"y" : [NSNumber numberWithInteger:54], @"text" : @"QUANTUM PILOT"}];}
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"TitleLabel" object:@{@"x":[NSNumber numberWithInteger:160], @"y" : [NSNumber numberWithInteger:54], @"text" : @"QUANTUM PILOT"}];
+
+}
 
 - (void)addTouch:(CGPoint)l {
     if ([self.f touchingPlayer:l]) {

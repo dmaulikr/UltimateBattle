@@ -89,6 +89,10 @@ enum drawguide {
     
     SystemSoundID process;
     
+    SystemSoundID drag;
+    SystemSoundID tap;
+    SystemSoundID copy;
+    
     NSInteger _recentBonus;
     
     int drawRadius;
@@ -98,6 +102,8 @@ enum drawguide {
     CGPoint zigzags[50];
     
     CGPoint fireCircle;
+    
+    bool _playedDrag;
 }
 
 @property (nonatomic, retain) NSMutableArray *bullets;
@@ -188,6 +194,12 @@ enum drawguide {
 - (bool)shieldMaxed;
 
 - (float)bulletSpeed;
+
+#pragma mark Guide
+
+- (void)playDragSound;
+- (void)playTapSound;
+- (void)playCopySound;
 
 #pragma mark Pilot effects
 
