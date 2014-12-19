@@ -20,6 +20,8 @@
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     
+    CGSize size = [[UIScreen mainScreen] bounds].size;
+    
     self.l1 = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 90)] autorelease];
     self.l2 = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 90)] autorelease];
     self.l3 = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 90)] autorelease];
@@ -27,20 +29,20 @@
     
     self.debrisLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 90)] autorelease];
     
-    self.titleLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 100)] autorelease];
-    self.subTitle = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 60)] autorelease];
+    self.titleLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, size.width, 100)] autorelease];
+    self.subTitle = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, size.width, 60)] autorelease];
 
     self.guide = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 106, 60)] autorelease];
     
     float height = [[UIScreen mainScreen] bounds].size.height - 10;
     self.weaponLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0, height-27, 200, 40)] autorelease];
     self.weaponLabel.textColor = [UIColor whiteColor];
-    self.weaponLabel.center = ccp(160, 10);
+    self.weaponLabel.center = ccp(size.width / 2, 10);
     self.weaponLabel.font = [UIFont boldSystemFontOfSize:16];
     self.weaponLabel.textAlignment = NSTextAlignmentCenter;
     
-    self.scoreLabel = [[[UILabel alloc] initWithFrame:CGRectMake(320-200, height-27, 200, 40)] autorelease];
-    self.scoreLabel.center = ccp(160, 30);
+    self.scoreLabel = [[[UILabel alloc] initWithFrame:CGRectMake(size.width -200, height-27, 200, 40)] autorelease];
+    self.scoreLabel.center = ccp(size.width / 2, 30);
     self.scoreLabel.textColor = [UIColor whiteColor];
     self.scoreLabel.font = [UIFont boldSystemFontOfSize:16];
     self.scoreLabel.textAlignment = NSTextAlignmentCenter;

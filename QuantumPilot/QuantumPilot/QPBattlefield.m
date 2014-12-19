@@ -227,7 +227,7 @@ static QPBattlefield *instance = nil;
 }
 
 - (CGPoint)fireCircleReset {
-    return ccp(160,28);
+    return ccp([[UIScreen mainScreen] bounds].size.width / 2 ,28);
 }
 
 - (void)showGuide:(int)guideLevel wave:(bool)wave {
@@ -444,7 +444,6 @@ static QPBattlefield *instance = nil;
     [self.activeScores addObject:[NSString stringWithFormat:@"%d", self.score]];
     [self.activeScores writeToFile:[self activePath] atomically:true];
     
-//    [[NSNotificationCenter defaultCenter] postNotificationName:@"SubtitleLabel" object:@{@"x" : @"160", @"y" : @"88", @"text" : [self activeScore]}];
     self.score = 0;
     [self setupSpeeds];
     weaponLevel = 0;
@@ -1193,9 +1192,10 @@ static QPBattlefield *instance = nil;
     
     [[Arsenal weaponIndexedFromArsenal:[self.pilot arsenalLevel]] setDrawColor];
     
-    float x = (160.0f - ((float)_circleCharges * (float)3));
+    CGSize size = [[UIScreen mainScreen] bounds].size;
+    float x = (size.width / 2 - ((float)_circleCharges * (float)3));
     for (int i = 0; i < _circleCharges + 1; i++) {
-        CGPoint c = ccp(x, 568 - 540); //screensize
+        CGPoint c = ccp(x, 28);
         ccDrawFilledCircle(c, 1.7, 0, 30, NO);
         x+=6;
     }

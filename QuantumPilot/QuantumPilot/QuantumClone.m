@@ -30,7 +30,6 @@ static int fireSignalValue = 89;
 }
 
 - (void)resetPosition {
-//    self.l = CGPointMake(384, 1024-170);
     float height = [[UIScreen mainScreen] bounds].size.height;
     float width = [[UIScreen mainScreen] bounds].size.width;
     self.l = CGPointMake(width / 2, height * 2/3);
