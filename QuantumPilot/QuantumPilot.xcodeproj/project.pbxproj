@@ -1469,7 +1469,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PROVISIONING_PROFILE = "AB5A2B84-A4B7-4C78-8281-8A8CD0EC3CC0";
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -1477,8 +1477,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Anthony Broussard (5VJK8F6JVW)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Anthony Broussard (5VJK8F6JVW)";
+				CODE_SIGN_IDENTITY = "iOS Distribution: Anthony Broussard";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iOS Distribution: Anthony Broussard";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					NDEBUG,
@@ -1489,9 +1489,9 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PROVISIONING_PROFILE = "85139b0d-7a57-4f80-bfee-e676dbd471dd";
+				PROVISIONING_PROFILE = "390fc53d-772f-4575-88db-cc09362b600c";
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -1509,13 +1509,14 @@
 				GCC_PREFIX_HEADER = QuantumPilot/Prefix.pch;
 				HEADER_SEARCH_PATHS = "\"QuantumPilot/libs/kazmath/include\"";
 				INFOPLIST_FILE = QuantumPilot/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-ObjC",
 					"-os",
 				);
 				PRODUCT_NAME = QP;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "390fc53d-772f-4575-88db-cc09362b600c";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1526,20 +1527,21 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iOS Distribution: Anthony Broussard";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iOS Distribution: Anthony Broussard";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = QuantumPilot/Prefix.pch;
 				HEADER_SEARCH_PATHS = "\"QuantumPilot/libs/kazmath/include\"";
 				INFOPLIST_FILE = QuantumPilot/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-ObjC",
 					"-os",
 				);
 				PRODUCT_NAME = QP;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "390fc53d-772f-4575-88db-cc09362b600c";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
