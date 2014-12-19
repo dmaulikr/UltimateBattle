@@ -26,6 +26,7 @@
 		0E1292B91A049FAA006A8BAB /* dismantler.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0E1292B21A049FAA006A8BAB /* dismantler.m4a */; };
 		0E1292D71A04ACB1006A8BAB /* collect.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0E1292D61A04ACB1006A8BAB /* collect.wav */; };
 		0E22E95E19ECCAF900261AC5 /* BattleWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E22E95D19ECCAF900261AC5 /* BattleWindow.m */; };
+		0E3347431A43FE0600C3FA60 /* l4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0E3347421A43FE0600C3FA60 /* l4.wav */; };
 		0E53480F1A43CDAF0045FEF1 /* drag.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0E53480C1A43CAB90045FEF1 /* drag.m4a */; };
 		0E5348101A43CDB20045FEF1 /* tap.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0E53480D1A43CAB90045FEF1 /* tap.m4a */; };
 		0E5348111A43CDB70045FEF1 /* copy.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0E53480E1A43CAB90045FEF1 /* copy.m4a */; };
@@ -224,6 +225,7 @@
 		0E1292D61A04ACB1006A8BAB /* collect.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = collect.wav; sourceTree = "<group>"; };
 		0E22E95C19ECCAF900261AC5 /* BattleWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BattleWindow.h; sourceTree = "<group>"; };
 		0E22E95D19ECCAF900261AC5 /* BattleWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BattleWindow.m; sourceTree = "<group>"; };
+		0E3347421A43FE0600C3FA60 /* l4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = l4.wav; sourceTree = "<group>"; };
 		0E53480C1A43CAB90045FEF1 /* drag.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = drag.m4a; sourceTree = "<group>"; };
 		0E53480D1A43CAB90045FEF1 /* tap.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = tap.m4a; sourceTree = "<group>"; };
 		0E53480E1A43CAB90045FEF1 /* copy.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = copy.m4a; sourceTree = "<group>"; };
@@ -613,6 +615,7 @@
 				0EA1A36E1A40E9E900A098A6 /* l2-12.wav */,
 				0EA1A3691A40E95800A098A6 /* l1-18.wav */,
 				0EA1A36A1A40E95800A098A6 /* l2-18.wav */,
+				0E3347421A43FE0600C3FA60 /* l4.wav */,
 				0EA1A3711A40EB7100A098A6 /* l3-22.wav */,
 				0EA1A3721A40EB7100A098A6 /* l5-12.wav */,
 				0EA1A3731A40EB7100A098A6 /* l6-12.wav */,
@@ -1288,6 +1291,7 @@
 				BFA1BE56163B5C7100833186 /* Default-568h@2x.png in Resources */,
 				0E53480F1A43CDAF0045FEF1 /* drag.m4a in Resources */,
 				0E5348101A43CDB20045FEF1 /* tap.m4a in Resources */,
+				0E3347431A43FE0600C3FA60 /* l4.wav in Resources */,
 				0EA1A3751A40EB7100A098A6 /* l3-22.wav in Resources */,
 				0E1292B51A049FAA006A8BAB /* gammahammer.m4a in Resources */,
 				0EA1A36C1A40E95800A098A6 /* l2-18.wav in Resources */,
