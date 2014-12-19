@@ -499,7 +499,7 @@ static QPBattlefield *instance = nil;
                         break;
                 }
             }
-            
+            [self.pilot announceWeapon];
 
             [self.scoreCycler score:100];
             [debrisToErase addObject:d];
@@ -1226,7 +1226,7 @@ static QPBattlefield *instance = nil;
     AudioServicesPlaySystemSound(drag);
 }
 - (void)playTapSound {
-    if (level == 1 && self.pilot.fightingIteration == 30 && !veteran) {
+    if (level == 1 && self.pilot.time == 2 && !veteran) {
         AudioServicesPlaySystemSound(tap);
     }
 }
