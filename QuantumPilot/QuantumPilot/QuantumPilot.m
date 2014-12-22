@@ -292,7 +292,15 @@ static float innerTopHeight = 5.75;
 }
 
 - (BOOL)isCollidingWithDebris:(Debris *)d {
-    return GetDistance(self.l, d.l) < 30;
+    float distance = GetDistance(self.l, d.l);
+    if (distance < 30) {
+        float mvDist = GetDistance(CombinedPoint(self.l, self.vel), d.l);
+        if (mvDist <= distance) {
+            return YES;
+        }
+    }
+    
+    return NO;
 }
 
 - (void)registerHit {
