@@ -2,11 +2,18 @@ move towards debris to collect
 1.03
 Stackoverflow: interception
 core crusher branch: by zones
+  by y and x in array
+  arrays of dictionaries: bullets
+   each key is based on: origin, vel, time
+   process an entire array of bullets at once
+   move bullets
+   if it enters a new zone X/Y, then remove & add it
+   X/Y are absolute not derived for this version
 core crusher: shoots through other bullets once
 draw white lines of last ships around imprint when veteran
 
 PAX 2015 entry. Source code available on Procjam.
-video
+final cut pro video
 memory in desc
 action in desc
 
