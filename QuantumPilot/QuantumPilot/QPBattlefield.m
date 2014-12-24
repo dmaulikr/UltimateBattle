@@ -1199,12 +1199,14 @@ static QPBattlefield *instance = nil;
     
     [[Arsenal weaponIndexedFromArsenal:[self.pilot arsenalLevel]] setDrawColor];
     
-    CGSize size = [[UIScreen mainScreen] bounds].size;
-    float x = (size.width / 2 - ((float)_circleCharges * (float)3));
-    for (int i = 0; i < _circleCharges + 1; i++) {
-        CGPoint c = ccp(x, 28);
-        ccDrawFilledCircle(c, 1.7, 0, 30, NO);
-        x+=6;
+    if (self.currentState != self.titleState) {
+        CGSize size = [[UIScreen mainScreen] bounds].size;
+        float x = (size.width / 2 - ((float)_circleCharges * (float)3));
+        for (int i = 0; i < _circleCharges + 1; i++) {
+            CGPoint c = ccp(x, 28);
+            ccDrawFilledCircle(c, 1.7, 0, 30, NO);
+            x+=6;
+        }
     }
 
     
