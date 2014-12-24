@@ -906,10 +906,6 @@ static QPBattlefield *instance = nil;
     return GetDistance(l, self.pilot.l) <= QPBF_PLAYER_TAP_RANGE;
 }
 
-- (BOOL)touchingFireCircle:(CGPoint)l {
-    return GetDistance(l, fireCircle) <= QPBF_PLAYER_TAP_RANGE;
-}
-
 - (CGPoint)playerTouchWithOffset {
     return CombinedPoint(self.playerTouch, self.touchOffset);
 }
