@@ -1,7 +1,7 @@
-dismantler: faster
-nova splitter:faster
-core crusher: 2x, 3x, 4x horizontally
+dismantler: pauses / resumes
+nova splitter: swap angles
+core crusher: switches direction
 exoslicer: bullet doesn't fade x2, slowdown
-gamma hammer: more spread
-spacemelter (quad): faster
-voidwave: add slow central line, normal speed central line
+gamma hammer: swap angles
+spacemelter (quad): swap angles
+voidwave: add slow central line -- no special

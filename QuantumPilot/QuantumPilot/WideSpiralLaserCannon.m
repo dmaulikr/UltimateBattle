@@ -14,9 +14,9 @@
 + (NSArray *)bulletsForLocation:(CGPoint)location direction:(NSInteger)direction {
     WideSpiralLaser *b1 = [[[WideSpiralLaser alloc] initWithLocation:ccp(location.x - 15, location.y) velocity:ccp(4, [self speed] * direction) centerX:location.x] autorelease];
     WideSpiralLaser *b2 = [[[WideSpiralLaser alloc] initWithLocation:ccp(location.x + 15, location.y) velocity:ccp(-4, [self speed] * direction) centerX:location.x] autorelease];
-    CenterWideSpiralLaser *c = [[[CenterWideSpiralLaser alloc] initWithLocation:ccp(location.x, location.y) velocity:ccp(0, [self speed] * direction) centerX:location.x] autorelease];
+//    CenterWideSpiralLaser *c = [[[CenterWideSpiralLaser alloc] initWithLocation:ccp(location.x, location.y) velocity:ccp(0, [self speed] * direction) centerX:location.x] autorelease];
     
-    return @[b1, b2, c];
+    return @[b1, b2];
 
 }
 
