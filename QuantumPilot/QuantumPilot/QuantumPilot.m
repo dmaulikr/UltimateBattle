@@ -293,7 +293,7 @@ static float innerTopHeight = 5.75;
 
 - (BOOL)isCollidingWithDebris:(Debris *)d {
     float distance = GetDistance(self.l, d.l);
-    if (distance < 17) {
+    if (distance < 20) {
         float mvDist = GetDistance(CombinedPoint(self.l, self.vel), d.l);
         if (mvDist <= distance) {
             return YES;

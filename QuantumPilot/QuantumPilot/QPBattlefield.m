@@ -829,6 +829,12 @@ static QPBattlefield *instance = nil;
 - (void)changeState:(QPBFState *)state withOptions:(NSDictionary *)options {
     if (self.currentState) {
         [self.currentState deactivate];
+    
+        if (state == self.fightingState || state == self.titleState) {
+            fireCircle = [self fireCircleReset];
+        } else {
+            fireCircle = ccp(5000,5000);
+        }
         
         if (self.currentState == self.titleState) {
             titleSlide = true;
@@ -852,9 +858,10 @@ static QPBattlefield *instance = nil;
         _guideMode = circle;
     }
     
-    fireCircle = state == self.fightingState ? [self fireCircleReset] : ccp(5000,5000);
+    
     [self.currentState activate:options];
     self.pilot.blinking = self.currentState == self.pausedState;
+    
 }
 
 - (void)changeState:(QPBFState *)state {
@@ -897,6 +904,10 @@ static QPBattlefield *instance = nil;
 
 - (BOOL)touchingPlayer:(CGPoint)l {
     return GetDistance(l, self.pilot.l) <= QPBF_PLAYER_TAP_RANGE;
+}
+
+- (BOOL)touchingFireCircle:(CGPoint)l {
+    return GetDistance(l, fireCircle) <= QPBF_PLAYER_TAP_RANGE;
 }
 
 - (CGPoint)playerTouchWithOffset {

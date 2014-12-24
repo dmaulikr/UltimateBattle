@@ -25,7 +25,7 @@
     if (self) {
         self.l = l;
         _speed = 1.5 + ((arc4random() % 40) * .05);
-        _speed *= .3;
+        _speed *= .12;
         for (int i = 0; i < 10; i++) {
             int xD = arc4random() % 2 == 0 ? 1 : -1;
             int yD = arc4random() % 2 == 0 ? 1 : -1;
@@ -72,7 +72,7 @@
 }
 
 - (void)assignLevel {
-    int wRandom[7] = {140, 140, 30, 30, 20, 15, 5};
+    int wRandom[7] = {140, 140, 130, 30, 20, 15, 5};
     
     int wRandomTotal = 0;
     for (int i = 0; i < 7; i++) {

@@ -13,11 +13,21 @@
 static float triangleWidth = 3;
 static float triangleHeight = 3;
 
+- (id)initWithLocation:(CGPoint)location velocity:(CGPoint)velocity {
+    self = [super initWithLocation:location velocity:velocity];
+    _pulseDirection = 1;
+    return self;
+}
+
 - (void)pulse {
     [super pulse];
-    _pulses++;
-    if (_pulses > 48) { //48/1.23
-        self.l = ccp(1000,1000);
+    _pulses+= _pulseDirection;
+    if (_pulses > 48) {
+        _pulses = 48;
+        _pulseDirection = -1;
+    } else if (_pulses < 0) {
+        _pulses = 0;
+        _pulseDirection = 1;
     }
     
     _ratio = (float)(48 - _pulses) / 48.0f;

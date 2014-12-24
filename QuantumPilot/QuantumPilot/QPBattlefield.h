@@ -173,6 +173,7 @@ enum drawguide {
 #pragma mark Pilot Positioning
 
 - (BOOL)touchingPlayer:(CGPoint)l;
+- (BOOL)touchingFireCircle:(CGPoint)l;
 - (void)changeState:(QPBFState *)state;
 - (void)changeState:(QPBFState *)state withTouch:(CGPoint)l;
 - (CGPoint)playerTouchWithOffset;
