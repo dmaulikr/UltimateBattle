@@ -1198,10 +1198,20 @@ static QPBattlefield *instance = nil;
     float x = (_screenSize.width / 2 - ((float)_drawings * (float)3));
     
     
-    for (int i = 0; i < _drawings + (self.currentState == self.titleState ? 0 : 1); i++) {
-        CGPoint c = ccp(x, 28);
-        ccDrawFilledCircle(c, 1.7, 0, 30, NO);
-        x+=6;
+    if (self.currentState == self.titleState) {
+        if (_drawings > 0) {
+            for (int i = 0; i < _drawings + 1; i++) {
+                CGPoint c = ccp(x, 28);
+                ccDrawFilledCircle(c, 1.7, 0, 30, NO);
+                x+=6;
+            }
+        }
+    } else {
+        for (int i = 0; i < _drawings + 1; i++) {
+            CGPoint c = ccp(x, 28);
+            ccDrawFilledCircle(c, 1.7, 0, 30, NO);
+            x+=6;
+        }
     }
 
     switch (_guideMode) {
