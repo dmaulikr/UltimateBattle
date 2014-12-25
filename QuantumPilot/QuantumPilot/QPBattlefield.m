@@ -1198,16 +1198,17 @@ static QPBattlefield *instance = nil;
     
     [[Arsenal weaponIndexedFromArsenal:[self.pilot arsenalLevel]] setDrawColor];
     
-    int drawings = self.currentState == self.titleState ? _coreCycles : _circleCharges;
+    int drawings = self.currentState == self.titleState ? _coresCollected : _circleCharges;
     CGSize size = [[UIScreen mainScreen] bounds].size;
-    float x = (size.width / 2 - ((float)drawings + 1 * (float)3));
-    for (int i = 0; i < drawings; i++) {
+    float x = (size.width / 2 - ((float)drawings * (float)3));
+    for (int i = 0; i < drawings + 1; i++) {
         CGPoint c = ccp(x, 28);
         ccDrawFilledCircle(c, 1.7, 0, 30, NO);
         x+=6;
     }
-    
-    
+
+
+
     switch (_guideMode) {
         case circle:
             ccDrawCircle(self.pilot.l, drawRadius, 0, 50, 0);
