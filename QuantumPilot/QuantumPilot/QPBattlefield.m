@@ -192,6 +192,7 @@ static QPBattlefield *instance = nil;
     if (self) {
         self.bullets = [NSMutableArray array];
         self.cloneBullets = [NSMutableArray array];
+        self.zones = [NSMutableDictionary dictionary];
         self.debris = [NSMutableArray array];
         self.shieldDebris = [NSMutableArray array];
         self.shatters = [NSMutableArray array];
@@ -205,6 +206,11 @@ static QPBattlefield *instance = nil;
         [self loadSounds];
         self.scoreCycler = [[[QPScoreCycler alloc] init] autorelease];
      
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(processBulletMoved:)
+                                                     name:@"BulletMoved"
+                                                   object:nil];
+        
         _screenSize = [[UIScreen mainScreen] bounds].size;
         
         level = 1;
@@ -319,6 +325,7 @@ static QPBattlefield *instance = nil;
         [self removeChild:b cleanup:YES];
     }
     [self.bullets removeAllObjects];
+    self.zones = [NSMutableDictionary dictionary];
     [self.cloneBullets removeAllObjects];
 }
 
@@ -380,19 +387,7 @@ static QPBattlefield *instance = nil;
     [self registerShieldHit:c weapon:c.weapon];
 }
 
-- (void)pulseBullets:(NSMutableArray *)bs targets:(NSArray *)targets {
-    for (Bullet *b in bs) {
-        for (QuantumPilot *p in targets) {
-            if (p.active) {
-                if (fabsf(p.l.x - b.l.x) + fabsf(p.l.y - b.l.y) < 50) {
-                    if ([p processBullet:b]) {
-                        [self processKill:p bullet:b];
-                    }
-                }
-            }
-        }
-    }
-    
+- (void)pulseBullets:(NSMutableArray *)bs {
     NSMutableArray *bulletsToErase = [NSMutableArray array];
     for (Bullet *b in bs) {
         [b pulse];
@@ -405,10 +400,28 @@ static QPBattlefield *instance = nil;
         if (b.tag == -1) {
             shotsFired++;
         }
+        NSMutableArray *a = self.zones[[b zoneKey]];
+        [a removeObject:b];
         [b removeFromParentAndCleanup:YES];
     }
     
     [bs removeObjectsInArray:bulletsToErase];
+}
+
+- (void)pulseBullets:(NSMutableArray *)bs targets:(NSArray *)targets {
+//    for (Bullet *b in bs) {
+//        for (QuantumPilot *p in targets) {
+//            if (p.active) {
+//                if (fabsf(p.l.x - b.l.x) + fabsf(p.l.y - b.l.y) < 50) {
+//                    if ([p processBullet:b]) {
+//                        [self processKill:p bullet:b];
+//                    }
+//                }
+//            }
+//        }
+//    }
+    
+    
 }
 
 - (void)eraseClones {
@@ -541,8 +554,24 @@ static QPBattlefield *instance = nil;
 }
 
 - (void)bulletPulse {
-    [self pulseBullets:self.bullets targets:self.clones];
-    [self pulseBullets:self.cloneBullets targets:@[self.pilot]];
+    [self pulseBullets:self.bullets];
+    [self pulseBullets:self.cloneBullets];
+
+    for (QuantumClone *c in self.clones) {
+        if (c.active) {
+            NSString *key = [c zoneKey];
+            NSMutableArray *a = self.zones[key];
+            NSMutableArray *bulletsToRemove = [NSMutableArray array];
+            for (Bullet *b in a) {
+                if ([c processBullet:b]) {
+                    [self processKill:c bullet:b];
+                    [bulletsToRemove addObject:b];
+                }
+            }
+            [a removeObjectsInArray:bulletsToRemove];
+        }
+    }
+    
     if (self.pilot.active == NO) {
         [self resetBattlefield];
     }
@@ -957,9 +986,20 @@ static QPBattlefield *instance = nil;
     for (Bullet *b in bullets) {
         [self addChild:b];
         b.tag = -1;
+        
+        NSString *key = [b zoneKey];
+        NSMutableArray *a = self.zones[key];
+        if (!a) {
+            a = [NSMutableArray arrayWithObject:b];
+            [self.zones setObject:a forKey:key];
+        } else {
+            [a addObject:b];
+        }
     }
     
     [self.bullets addObjectsFromArray:bullets];
+
+
     
     [self.scoreCycler score:1];
 }
@@ -1260,6 +1300,22 @@ static QPBattlefield *instance = nil;
 
 - (float)speedMod {
     return _speedMod;
+}
+
+- (void)processBulletMoved:(NSNotification *)n {
+    Bullet *b = n.object;
+    if (b.zone) {
+        NSMutableArray *a = self.zones[b.zone];
+        [a removeObject:b];
+    }
+    
+    NSMutableArray *a = self.zones[[b zoneKey]];
+    if (!a) {
+        a = [NSMutableArray arrayWithObject:b];
+        [self.zones setObject:a forKey:[b zoneKey]];
+    } else {
+        [a addObject:b];
+    }
 }
 
 @end

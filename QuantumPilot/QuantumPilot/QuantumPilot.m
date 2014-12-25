@@ -401,6 +401,12 @@ static float innerTopHeight = 5.75;
     return future[self.fightingIteration];
 }
 
+- (NSString *)zoneKey {
+    int x = (int)self.l.x / 50.0f;
+    int y = (int)self.l.y / 50.0f;
+    return [NSString stringWithFormat:@"%d,%d", x, y];
+}
+
 @end
 
 

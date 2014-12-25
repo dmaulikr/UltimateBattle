@@ -22,6 +22,8 @@
 
 @property (nonatomic) float drawMultiplier;
 
+@property (strong, nonatomic) NSString *zone;
+
 - (void)pulse;
 
 - (id)initWithLocation:(CGPoint)location velocity:(CGPoint)velocity;
@@ -31,5 +33,7 @@
 - (NSString *)weapon;
 
 - (CGPoint)velocity;
+
+- (NSString *)zoneKey;
 
 @end

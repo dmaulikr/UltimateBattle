@@ -34,6 +34,9 @@
 - (void)pulse {
     self.l = CombinedPoint(self.l, [self velocity]);
     self.drawMultiplier = [[QPBattlefield f] isPulsing] ? rs : self.drawMultiplier;
+    if (![self.zone isEqualToString:[self zoneKey]]) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"BulletMoved" object:self];
+    }
 }
 
 - (int)yDirection {
@@ -42,6 +45,12 @@
 
 - (NSString *)weapon {
     return nil;
+}
+
+- (NSString *)zoneKey {
+    int x = (int)self.l.x / 50.0f;
+    int y = (int)self.l.y / 50.0f;
+    return [NSString stringWithFormat:@"%d,%d", x, y];
 }
 
 @end

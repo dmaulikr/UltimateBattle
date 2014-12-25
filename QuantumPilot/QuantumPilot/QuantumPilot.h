@@ -119,6 +119,8 @@
 
 - (CGPoint)latestWaypoint;
 
+- (NSString *)zoneKey;
+
 @end
 
 @protocol QuantumPilotingDelegate <NSObject>
