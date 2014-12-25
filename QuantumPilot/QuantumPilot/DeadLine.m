@@ -39,7 +39,7 @@
     if (self.delay > 0) {
         self.delay--;
     } else {
-        self.y += self.speed;
+        self.y -= self.speed;
     }
 }
 

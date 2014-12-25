@@ -115,6 +115,7 @@ enum drawguide {
 @property (nonatomic, assign) CCLayer *layer;
 
 @property (nonatomic, retain) NSMutableDictionary *zones;
+@property (nonatomic, retain) NSMutableDictionary *cloneZones;
 #pragma mark Score
 
 @property (nonatomic) NSInteger score;

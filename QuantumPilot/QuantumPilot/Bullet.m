@@ -35,7 +35,11 @@
     self.l = CombinedPoint(self.l, [self velocity]);
     self.drawMultiplier = [[QPBattlefield f] isPulsing] ? rs : self.drawMultiplier;
     if (![self.zone isEqualToString:[self zoneKey]]) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"BulletMoved" object:self];
+        if (self.tag == -1) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"BulletMoved" object:self];
+        } else {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"CloneBulletMoved" object:self];
+        }
     }
 }
 

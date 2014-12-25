@@ -193,6 +193,7 @@ static QPBattlefield *instance = nil;
         self.bullets = [NSMutableArray array];
         self.cloneBullets = [NSMutableArray array];
         self.zones = [NSMutableDictionary dictionary];
+        self.cloneZones = [NSMutableDictionary dictionary];
         self.debris = [NSMutableArray array];
         self.shieldDebris = [NSMutableArray array];
         self.shatters = [NSMutableArray array];
@@ -210,6 +211,12 @@ static QPBattlefield *instance = nil;
                                                  selector:@selector(processBulletMoved:)
                                                      name:@"BulletMoved"
                                                    object:nil];
+
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(processCloneBulletMoved:)
+                                                     name:@"CloneBulletMoved"
+                                                   object:nil];
+
         
         _screenSize = [[UIScreen mainScreen] bounds].size;
         
@@ -327,6 +334,7 @@ static QPBattlefield *instance = nil;
     [self.bullets removeAllObjects];
     self.zones = [NSMutableDictionary dictionary];
     [self.cloneBullets removeAllObjects];
+    self.cloneZones = [NSMutableDictionary dictionary];
 }
 
 - (void)createDebrisFromCloneKill:(QuantumClone *)c bullet:(Bullet *)b {
@@ -397,9 +405,7 @@ static QPBattlefield *instance = nil;
     }
     
     for (Bullet *b in bulletsToErase) {
-        if (b.tag == -1) {
-            shotsFired++;
-        }
+        shotsFired++;
         NSMutableArray *a = self.zones[[b zoneKey]];
         [a removeObject:b];
         [b removeFromParentAndCleanup:YES];
@@ -408,20 +414,22 @@ static QPBattlefield *instance = nil;
     [bs removeObjectsInArray:bulletsToErase];
 }
 
-- (void)pulseBullets:(NSMutableArray *)bs targets:(NSArray *)targets {
-//    for (Bullet *b in bs) {
-//        for (QuantumPilot *p in targets) {
-//            if (p.active) {
-//                if (fabsf(p.l.x - b.l.x) + fabsf(p.l.y - b.l.y) < 50) {
-//                    if ([p processBullet:b]) {
-//                        [self processKill:p bullet:b];
-//                    }
-//                }
-//            }
-//        }
-//    }
+- (void)pulseCloneBullets:(NSMutableArray *)bs {
+    NSMutableArray *bulletsToErase = [NSMutableArray array];
+    for (Bullet *b in bs) {
+        [b pulse];
+        if ([self bulletOutOfBounds:b]) {
+            [bulletsToErase addObject:b];
+        }
+    }
     
+    for (Bullet *b in bulletsToErase) {
+        NSMutableArray *a = self.cloneZones[[b zoneKey]];
+        [a removeObject:b];
+        [b removeFromParentAndCleanup:YES];
+    }
     
+    [bs removeObjectsInArray:bulletsToErase];
 }
 
 - (void)eraseClones {
@@ -553,10 +561,7 @@ static QPBattlefield *instance = nil;
     [self.debris removeObjectsInArray:debrisToErase];
 }
 
-- (void)bulletPulse {
-    [self pulseBullets:self.bullets];
-    [self pulseBullets:self.cloneBullets];
-
+- (void)processPilotBullets {
     for (QuantumClone *c in self.clones) {
         if (c.active) {
             NSString *key = [c zoneKey];
@@ -571,6 +576,27 @@ static QPBattlefield *instance = nil;
             [a removeObjectsInArray:bulletsToRemove];
         }
     }
+}
+
+- (void)processCloneBullets {
+    NSString *key = [self.pilot zoneKey];
+    NSMutableArray *a = self.cloneZones[key];
+    NSMutableArray *bulletsToRemove = [NSMutableArray array];
+    for (Bullet *b in a) {
+        if ([self.pilot processBullet:b]) { //opportunity for dodge notation
+            [bulletsToRemove addObject:b];
+        }
+    }
+    
+    [a removeObjectsInArray:bulletsToRemove];
+}
+
+- (void)bulletPulse {
+    [self pulseBullets:self.bullets];
+    [self pulseCloneBullets:self.cloneBullets];
+    
+    [self processPilotBullets];
+    [self processCloneBullets];
     
     if (self.pilot.active == NO) {
         [self resetBattlefield];
@@ -998,19 +1024,28 @@ static QPBattlefield *instance = nil;
     }
     
     [self.bullets addObjectsFromArray:bullets];
-
-
-    
     [self.scoreCycler score:1];
 }
 
 - (void)cloneBulletsFired:(NSArray *)bullets li:(int)li {
     [self playBulletSound:li];
-    [self.cloneBullets addObjectsFromArray:bullets];
     for (Bullet *b in bullets) {
         [self addChild:b];
+        b.tag = 0;
+        
+        NSString *key = [b zoneKey];
+        NSMutableArray *a = self.cloneZones[key];
+        if (!a) {
+            a = [NSMutableArray arrayWithObject:b];
+            [self.cloneZones setObject:a forKey:key];
+        } else {
+            [a addObject:b];
+        }
     }
+    
+    [self.cloneBullets addObjectsFromArray:bullets];
 }
+
 
 #pragma mark Clones
 
@@ -1043,7 +1078,7 @@ static QPBattlefield *instance = nil;
     w.speed =  2.2 + ((arc4random() % 200) * .01);
     w.speed =  w.speed * [self speedMod];
     
-    self.dl.speed = .5 * [self speedMod];
+    self.dl.speed = 0.25f; // * [self speedMod];
     
     //return 2.5; //2.4 //phone: 3.91 //10, //ipad: 6.8
     //1.8 //phone: 2.3 //ipad: //old setting: 6.3
@@ -1313,6 +1348,22 @@ static QPBattlefield *instance = nil;
     if (!a) {
         a = [NSMutableArray arrayWithObject:b];
         [self.zones setObject:a forKey:[b zoneKey]];
+    } else {
+        [a addObject:b];
+    }
+}
+
+- (void)processCloneBulletMoved:(NSNotification *)n {
+    Bullet *b = n.object;
+    if (b.zone) {
+        NSMutableArray *a = self.cloneZones[b.zone];
+        [a removeObject:b];
+    }
+    
+    NSMutableArray *a = self.cloneZones[[b zoneKey]];
+    if (!a) {
+        a = [NSMutableArray arrayWithObject:b];
+        [self.cloneZones setObject:a forKey:[b zoneKey]];
     } else {
         [a addObject:b];
     }
