@@ -34,4 +34,6 @@
 
 - (void)assignLevel;
 
+- (void)multiplySpeed:(float)s;
+
 @end

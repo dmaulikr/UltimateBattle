@@ -27,7 +27,7 @@ static Weapon *instance = nil;
 
 + (float)speed {
     return [[QPBattlefield f] bulletSpeed];
-    return [[self w] speed];
+//    return [[self w] speed];
 }
 
 - (void)setupSpeed {

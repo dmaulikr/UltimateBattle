@@ -329,6 +329,7 @@ static QPBattlefield *instance = nil;
     
     
     Debris *d = [[[Debris alloc] initWithL:c.l] autorelease];
+    [d multiplySpeed:[self speedMod]];
     [d assignLevel];
     [self addChild:d];
     [self.debris addObject:d];
@@ -997,11 +998,8 @@ static QPBattlefield *instance = nil;
 
 - (void)setupSpeeds {
     [self generateSpeedMod];
-    float speed = 1.6 + ((arc4random() % 40) * .01);
+    float speed = 1.6 + ((arc4random() % 50) * .01);
     [self.pilot setSpeed:speed * [self speedMod]];
-    Weapon *w = [Weapon w];
-    w.speed =  2.2 + ((arc4random() % 200) * .01);
-    w.speed =  w.speed * [self speedMod];
     
     self.dl.speed = -.5 * [self speedMod];
     
@@ -1230,7 +1228,7 @@ static QPBattlefield *instance = nil;
 }
 
 - (float)bulletSpeed {
-    float s = 2.2 + (min((float)_circleCharges, (float)6) * .40 ) ;
+    float s = _bulletSpeed +  (min((float)_circleCharges, (float)6) * .40);
     return s * [self speedMod];
 }
 
@@ -1248,6 +1246,7 @@ static QPBattlefield *instance = nil;
 }
 
 - (void)generateSpeedMod {
+    _bulletSpeed = 1.8 + ((arc4random() % 250) * .01);
     if (_coreCycles > 0) {
         _speedMod = 0.4f + (0.006f * (arc4random() % _coreCycles));
         NSLog(@"speedmod: %f", _speedMod);

@@ -90,4 +90,8 @@
     }
 }
 
+- (void)multiplySpeed:(float)s {
+    _speed *= s;
+}
+
 @end

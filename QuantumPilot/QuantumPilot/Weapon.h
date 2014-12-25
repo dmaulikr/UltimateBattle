@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Weapon : NSObject <NSCopying> {
+@interface Weapon : NSObject {
     
 }
 
