@@ -206,31 +206,40 @@ static QPBattlefield *instance = nil;
         self.scoreCycler = [[[QPScoreCycler alloc] init] autorelease];
      
         level = 1;
-        
-        [self showGuide:0 wave:1];
-        
-        if ([[NSFileManager defaultManager] fileExistsAtPath:[self activePath]]) {
-            self.activeScores = [NSMutableArray arrayWithContentsOfFile:[self activePath]];
-        } else {
-            self.activeScores = [NSMutableArray array];
-            for (int i = 0; i < 10; i++) {
-                [self.activeScores addObject:@"0"];
-            }
-        }
-        
+        [self loadActiveScores];
         drawRadius = 10;
-        
         fireCircle = [self fireCircleReset];
+        
+        [self setupDebrisCores];
     }
     return self;
 }
 
-- (CGPoint)fireCircleReset {
-    return ccp([[UIScreen mainScreen] bounds].size.width / 2 ,28);
+- (void)setupDebrisCores {
+    NSNumber *cores = [[NSUserDefaults standardUserDefaults] objectForKey:@"cores"];
+    if (cores) {
+        _coresCollected = [cores intValue];
+    }
+    
+    NSNumber *coreCycles = [[NSUserDefaults standardUserDefaults] objectForKey:@"corecycles"];
+    if (coreCycles) {
+        _coreCycles = [coreCycles intValue];
+    }
 }
 
-- (void)showGuide:(int)guideLevel wave:(bool)wave {
-    return;
+- (void)loadActiveScores {
+    if ([[NSFileManager defaultManager] fileExistsAtPath:[self activePath]]) {
+        self.activeScores = [NSMutableArray arrayWithContentsOfFile:[self activePath]];
+    } else {
+        self.activeScores = [NSMutableArray array];
+        for (int i = 0; i < 10; i++) {
+            [self.activeScores addObject:@"0"];
+        }
+    }
+}
+
+- (CGPoint)fireCircleReset {
+    return ccp([[UIScreen mainScreen] bounds].size.width / 2 ,28);
 }
 
 - (float)pulseRotation {
@@ -430,6 +439,16 @@ static QPBattlefield *instance = nil;
     veteran = level > 4;
     _guideMode = veteran ? circle : _guideMode;
     level = 1;
+    if (_coresCollected > 40) {
+        _coresCollected = 0;
+        _coreCycles++;
+        if (_coreCycles > 101) {
+            _coreCycles = 101;
+        }
+    }
+    NSNumber *cores = [NSNumber numberWithInteger:_coresCollected];
+    [[NSUserDefaults standardUserDefaults] setObject:cores forKey:@"cores"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     [self.scoreCycler reset];
     [self eraseBullets];
     [self eraseClones];
@@ -450,7 +469,6 @@ static QPBattlefield *instance = nil;
     warning = 0;
     slow = 0;
     
-    [self showGuide:0 wave:1];
     _playedDrag = 0;
 }
 
@@ -468,6 +486,8 @@ static QPBattlefield *instance = nil;
             [debrisToErase addObject:d];         
         } else if ([self.pilot processDebris:d]) {
             AudioServicesPlaySystemSound(collect);
+            
+            _coresCollected++;
             
             if (self.pilot.weaponLevel == 0) {
                 switch (d.level) {
@@ -608,8 +628,6 @@ static QPBattlefield *instance = nil;
     if (!veteran &&level == 2) {
         [self playCopySound];
     }
-    
-    [self showGuide:0 wave:1];
     
     warning = 0;
     slow = 0;
@@ -824,7 +842,6 @@ static QPBattlefield *instance = nil;
         } else if (state == self.drawingState) {
             [[NSNotificationCenter defaultCenter] postNotificationName:@"clearLabels" object:nil];
         } else if (state == self.pausedState) {
-            [self showGuide:0 wave:1];
         } else if (state == self.fightingState) {
             if (!veteran && level < 4) {
                 _guideMode = fire;
@@ -982,9 +999,15 @@ static QPBattlefield *instance = nil;
 #pragma mark Speeds
 
 - (void)setupSpeeds {
+    [self generateSpeedMod];
     float speed = 1.6 + ((arc4random() % 40) * .01);
-    [self.pilot setSpeed:speed * .5];
-    [[Weapon w] setupSpeed];
+    [self.pilot setSpeed:speed * [self speedMod]];
+    Weapon *w = [Weapon w];
+    w.speed =  2.2 + ((arc4random() % 200) * .01);
+    w.speed =  w.speed * [self speedMod];
+    
+    self.dl.speed = .5 * [self speedMod];
+
     //return 2.5; //2.4 //phone: 3.91 //10, //ipad: 6.8
     //1.8 //phone: 2.3 //ipad: //old setting: 6.3
 }
@@ -1175,16 +1198,15 @@ static QPBattlefield *instance = nil;
     
     [[Arsenal weaponIndexedFromArsenal:[self.pilot arsenalLevel]] setDrawColor];
     
-    if (self.currentState != self.titleState) {
-        CGSize size = [[UIScreen mainScreen] bounds].size;
-        float x = (size.width / 2 - ((float)_circleCharges * (float)3));
-        for (int i = 0; i < _circleCharges + 1; i++) {
-            CGPoint c = ccp(x, 28);
-            ccDrawFilledCircle(c, 1.7, 0, 30, NO);
-            x+=6;
-        }
+    int drawings = self.currentState == self.titleState ? _coreCycles : _circleCharges;
+    CGSize size = [[UIScreen mainScreen] bounds].size;
+    float x = (size.width / 2 - ((float)drawings + 1 * (float)3));
+    for (int i = 0; i < drawings; i++) {
+        CGPoint c = ccp(x, 28);
+        ccDrawFilledCircle(c, 1.7, 0, 30, NO);
+        x+=6;
     }
-
+    
     
     switch (_guideMode) {
         case circle:
@@ -1203,7 +1225,7 @@ static QPBattlefield *instance = nil;
 
 - (float)bulletSpeed {
     float s = 2.2 + (min((float)_circleCharges, (float)6) * .40 ) ;
-    return s * .5;
+    return s * [self speedMod];
 }
 
 - (void)playDragSound {
@@ -1217,6 +1239,21 @@ static QPBattlefield *instance = nil;
 }
 - (void)playCopySound {
     AudioServicesPlaySystemSound(copy);
+}
+
+- (void)generateSpeedMod {
+    if (_coreCycles > 0) {
+        _speedMod = 0.4f + (0.006f * (arc4random() % _coreCycles));
+        NSLog(@"speedmod: %f", _speedMod);
+        return;
+    }
+    
+    _speedMod = 0.4f;
+    NSLog(@"speedmod: %f", _speedMod);
+}
+
+- (float)speedMod {
+    return _speedMod;
 }
 
 @end

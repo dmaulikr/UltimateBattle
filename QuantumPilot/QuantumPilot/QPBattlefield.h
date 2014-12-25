@@ -102,6 +102,12 @@ enum drawguide {
     CGPoint fireCircle;
     
     bool _playedDrag;
+    
+    int _coresCollected;
+    
+    int _coreCycles;
+    
+    float _speedMod;
 }
 
 @property (nonatomic, retain) NSMutableArray *bullets;
@@ -204,5 +210,7 @@ enum drawguide {
 - (void)registerShieldHit:(QuantumPilot *)p;
 
 - (NSArray *)weapons;
+
+- (float)speedMod;
 
 @end

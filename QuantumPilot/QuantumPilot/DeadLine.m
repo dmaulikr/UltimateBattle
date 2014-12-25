@@ -8,6 +8,7 @@
 
 #import "DeadLine.h"
 #import "cocos2d.h"
+#import "QPBattlefield.h"
 
 @implementation DeadLine
 
@@ -21,7 +22,7 @@
 }
 
 - (float)defaultSpeed {
-    return -.5 * .5;
+    return -.5;
 }
 
 - (int)delayReset {
