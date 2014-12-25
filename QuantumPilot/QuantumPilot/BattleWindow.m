@@ -14,7 +14,7 @@
 @implementation BattleWindow
 
 - (NSArray *)labels {
-    return @[self.l1, self.l2, self.l3, self.l4, self.debrisLabel, self.titleLabel, self.subTitle, self.guide];
+    return @[self.l1, self.l2, self.l3, self.l4, self.debrisLabel, self.titleLabel, self.subTitle, self.guide, self.speedLabel];
 }
 
 - (id)initWithFrame:(CGRect)frame {
@@ -33,8 +33,11 @@
     self.subTitle = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, size.width, 60)] autorelease];
 
     self.guide = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 106, 60)] autorelease];
+
+    float height = size.height - 10;
     
-    float height = [[UIScreen mainScreen] bounds].size.height - 10;
+    self.speedLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 50, 50)] autorelease];
+    
     self.weaponLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0, height-27, 200, 40)] autorelease];
     self.weaponLabel.textColor = [UIColor whiteColor];
     self.weaponLabel.center = ccp(size.width / 2, 10);
@@ -74,6 +77,9 @@
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateSubtitleLabel:) name:@"SubtitleLabel" object:nil];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateSpeedLabel:) name:@"SpeedLabel" object:nil];
+
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hideLabels) name:@"clearLabels" object:nil];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateWeaponLabel:) name:@"WeaponLabel" object:nil];
@@ -91,6 +97,12 @@
     
     self.weaponLabel.text = [w weaponName];
     self.weaponLabel.textColor = [w weaponColor];
+}
+
+- (void)updateSpeedLabel:(NSNotification *)n {
+    CGSize size = [[UIScreen mainScreen] bounds].size;
+    self.speedLabel.center = ccp(size.width / 2, size.height - 10);
+    self.speedLabel.text = n.object;
 }
 
 - (void)updateScoreLabel:(NSNotification *)n {

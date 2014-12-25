@@ -94,20 +94,16 @@ enum drawguide {
     NSInteger _recentBonus;
     
     int drawRadius;
-    
     enum drawguide _guideMode;
     
     CGPoint zigzags[50];
-    
     CGPoint fireCircle;
-    
     bool _playedDrag;
-    
     int _coresCollected;
-    
     int _coreCycles;
-    
     float _speedMod;
+    CGSize _screenSize;
+    int _drawings;
 }
 
 @property (nonatomic, retain) NSMutableArray *bullets;

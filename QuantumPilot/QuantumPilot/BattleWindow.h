@@ -25,6 +25,8 @@
 @property (strong, nonatomic) UILabel *weaponLabel;
 @property (strong, nonatomic) UILabel *scoreLabel;
 
+@property (strong, nonatomic) UILabel *speedLabel;
+
 - (NSArray *)labels;
 
 @end

@@ -205,12 +205,15 @@ static QPBattlefield *instance = nil;
         [self loadSounds];
         self.scoreCycler = [[[QPScoreCycler alloc] init] autorelease];
      
+        _screenSize = [[UIScreen mainScreen] bounds].size;
+        
         level = 1;
         [self loadActiveScores];
         drawRadius = 10;
         fireCircle = [self fireCircleReset];
         
         [self setupDebrisCores];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"SpeedLabel" object:[NSString stringWithFormat:@"%d%%", _coreCycles]];
     }
     return self;
 }
@@ -439,7 +442,7 @@ static QPBattlefield *instance = nil;
     veteran = level > 4;
     _guideMode = veteran ? circle : _guideMode;
     level = 1;
-    if (_coresCollected > 40) {
+    if (_coresCollected > 53) {
         _coresCollected = 0;
         _coreCycles++;
         if (_coreCycles > 101) {
@@ -448,6 +451,10 @@ static QPBattlefield *instance = nil;
     }
     NSNumber *cores = [NSNumber numberWithInteger:_coresCollected];
     [[NSUserDefaults standardUserDefaults] setObject:cores forKey:@"cores"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    NSNumber *coreCycles  = [NSNumber numberWithInteger:_coreCycles];
+    [[NSUserDefaults standardUserDefaults] setObject:coreCycles forKey:@"corecycles"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     [self.scoreCycler reset];
     [self eraseBullets];
@@ -470,6 +477,8 @@ static QPBattlefield *instance = nil;
     slow = 0;
     
     _playedDrag = 0;
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"SpeedLabel" object:[NSString stringWithFormat:@"%d%%", _coreCycles]];
 }
 
 - (BOOL)debrisOutOfBounds:(Debris *)d {
@@ -704,7 +713,8 @@ static QPBattlefield *instance = nil;
     _circleCharges = [self.pilot weaponLevel];
 }
 
-- (void)pulse {
+- (void)pulseCircleDrawings {
+    _drawings = self.currentState == self.titleState ? _coresCollected : _circleCharges;
     switch (_guideMode) {
         case circle:
             drawRadius--;
@@ -713,7 +723,7 @@ static QPBattlefield *instance = nil;
                     drawRadius = 50;
                     break;
                 } else if (self.currentState == self.titleState || self.currentState == self.pausedState) {
-                
+                    
                     drawRadius = 0;
                     
                     _guideMode = zigzag;
@@ -752,27 +762,12 @@ static QPBattlefield *instance = nil;
     if (_guideMode == zigzag) {
         
     }
-    
-//    if (_guideMode == circle) {
-//        drawRadius--;
-//        if (drawRadius < 10) {
-//            drawRadius = 50;
-//            _guideMode = zigzag;
-//        }
-//    } else {
-//        drawRadius++;
-//        if (drawRadius > 30) {
-//            drawRadius = 10;
-//        }
-//    }
-    
+}
+
+- (void)pulse {
+    [self pulseCircleDrawings];
     [self calculateCircleCharges];
-    
     [self.currentState pulse];
-    //states manage
-    
-//    [self titlePulse];
-    
     [self rhythmPulse];
     [self shieldDebrisPulse];
     [self shatterPulse];
@@ -882,8 +877,10 @@ static QPBattlefield *instance = nil;
         if ([self touchingPlayer:l]) {
             _guideMode = rest;
         }
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"SpeedLabel" object:@""];
     }
     [self.currentState addTouch:l];
+
 }
 
 - (void)addDoubleTouch {
@@ -1007,7 +1004,7 @@ static QPBattlefield *instance = nil;
     w.speed =  w.speed * [self speedMod];
     
     self.dl.speed = .5 * [self speedMod];
-
+    
     //return 2.5; //2.4 //phone: 3.91 //10, //ipad: 6.8
     //1.8 //phone: 2.3 //ipad: //old setting: 6.3
 }
@@ -1198,16 +1195,14 @@ static QPBattlefield *instance = nil;
     
     [[Arsenal weaponIndexedFromArsenal:[self.pilot arsenalLevel]] setDrawColor];
     
-    int drawings = self.currentState == self.titleState ? _coresCollected : _circleCharges;
-    CGSize size = [[UIScreen mainScreen] bounds].size;
-    float x = (size.width / 2 - ((float)drawings * (float)3));
-    for (int i = 0; i < drawings + 1; i++) {
+    float x = (_screenSize.width / 2 - ((float)_drawings * (float)3));
+    
+    
+    for (int i = 0; i < _drawings + (self.currentState == self.titleState ? 0 : 1); i++) {
         CGPoint c = ccp(x, 28);
         ccDrawFilledCircle(c, 1.7, 0, 30, NO);
         x+=6;
     }
-
-
 
     switch (_guideMode) {
         case circle:
