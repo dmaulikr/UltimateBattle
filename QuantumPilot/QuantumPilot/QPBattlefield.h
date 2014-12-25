@@ -53,8 +53,6 @@ enum drawguide {
     int warning;
     int slow;
     
-    int debrisShow;
-    
     int titleY;
     int titleDelay;
     bool titleSlide;

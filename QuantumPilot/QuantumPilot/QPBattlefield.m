@@ -205,7 +205,6 @@ static QPBattlefield *instance = nil;
         [self loadSounds];
         self.scoreCycler = [[[QPScoreCycler alloc] init] autorelease];
      
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resetDebrisShow) name:@"DebrisCollected" object:nil];
         level = 1;
         
         [self showGuide:0 wave:1];
@@ -502,7 +501,6 @@ static QPBattlefield *instance = nil;
 
             [self.scoreCycler score:100];
             [debrisToErase addObject:d];
-            [self resetDebrisShow];
         }
     }
     
@@ -781,8 +779,6 @@ static QPBattlefield *instance = nil;
             [self scorePulse];
         }
     }
-    
-    [self debrisShowPulse];
 }
 
 - (void)scorePulse {
@@ -807,21 +803,6 @@ static QPBattlefield *instance = nil;
     }
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ScoreLabel" object:[NSString stringWithFormat:@"%@", scoreDisplay]];
-}
-
-- (void)debrisShowPulse {
-    if (debrisShow > 0) {
-        if (self.currentState != self.recycleState) {
-            debrisShow--;
-        }
-        
-        if (debrisShow == 0) {
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"DebrisLabel" object:@{@"x":[NSNumber numberWithInteger:0], @"y" : [NSNumber numberWithInteger:0], @"text" : @""}];
-        } else {
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"DebrisLabel" object:@{@"x":[NSNumber numberWithInteger:self.pilot.l.x], @"y" : [NSNumber numberWithInteger:self.pilot.l.y - 10], @"text" : [NSString stringWithFormat:@"%d", self.pilot.debris]}];
-
-        }
-    }
 }
 
 #pragma mark States
@@ -1138,13 +1119,8 @@ static QPBattlefield *instance = nil;
     return false;
 }
 
-- (void)resetDebrisShow {
-    debrisShow = 115;
-}
-
 - (void)reloadDebrisDisplay {
     [self.recycleState reloadDebris:self.pilot.debris];
-    [self resetDebrisShow];
 }
 
 - (void)reloadWarningDisplay {
