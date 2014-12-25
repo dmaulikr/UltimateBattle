@@ -1003,7 +1003,7 @@ static QPBattlefield *instance = nil;
     w.speed =  2.2 + ((arc4random() % 200) * .01);
     w.speed =  w.speed * [self speedMod];
     
-    self.dl.speed = .5 * [self speedMod];
+    self.dl.speed = -.5 * [self speedMod];
     
     //return 2.5; //2.4 //phone: 3.91 //10, //ipad: 6.8
     //1.8 //phone: 2.3 //ipad: //old setting: 6.3
