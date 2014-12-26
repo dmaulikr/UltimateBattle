@@ -34,11 +34,14 @@
 - (void)pulse {
     self.l = CombinedPoint(self.l, [self velocity]);
     self.drawMultiplier = [[QPBattlefield f] isPulsing] ? rs : self.drawMultiplier;
-    if (![self.zone isEqualToString:[self zoneKey]]) {
+
+    if (self.zx != [self calcZx] || self.zy != [self calcZy]) {
+        self.zx = (int)self.l.x / 50.0f;
+        self.zy = (int)self.l.y / 50.0f;
         if (self.tag == -1) {
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"BulletMoved" object:self];
+            [self.delegate bulletChangedZone:self];
         } else {
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"CloneBulletMoved" object:self];
+            [self.delegate cloneBulletChangedZone:self];
         }
     }
 }
@@ -51,10 +54,21 @@
     return nil;
 }
 
+- (int)calcZx {
+    return (int)self.l.x / 50.0f;
+}
+
+- (int)calcZy {
+    return (int)self.l.y / 50.0f;
+}
+
+- (void)dealloc {
+    self.delegate = nil;
+    [super dealloc];
+}
+
 - (NSString *)zoneKey {
-    int x = (int)self.l.x / 50.0f;
-    int y = (int)self.l.y / 50.0f;
-    return [NSString stringWithFormat:@"%d,%d", x, y];
+    return [NSString stringWithFormat:@"%d,%d", self.zx, self.zy];
 }
 
 @end

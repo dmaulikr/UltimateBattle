@@ -29,7 +29,7 @@ enum drawguide {
     fire = 3
 };
 
-@interface QPBattlefield : CCNode <QuantumPilotingDelegate, QPBulletDelegate> {
+@interface QPBattlefield : CCNode <QuantumPilotingDelegate, QPBulletDelegate, BulletDelegate> {
     NSInteger _pulseTimes[4];
     NSInteger _pulseState;
     NSInteger _pulseDirection;

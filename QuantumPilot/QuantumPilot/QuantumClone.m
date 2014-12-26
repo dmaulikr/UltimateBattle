@@ -118,6 +118,7 @@ static int fireSignalValue = 89;
 }
 
 - (void)pulse {
+    self.zone = [self zoneKey];
     if (timeDirection != recording) {
         if (self.active) {
             [self moveByVelocity];
@@ -205,12 +206,13 @@ static int fireSignalValue = 89;
 }
 
 - (void)registerHit {
-    [super registerHit];
+    self.active = NO;
     self.showPath = false;
 }
 
 - (void)announceWeapon {
     
 }
+
 
 @end

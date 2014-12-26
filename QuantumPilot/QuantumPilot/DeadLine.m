@@ -22,7 +22,7 @@
 }
 
 - (float)defaultSpeed {
-    return -.5;
+    return 0.20f;
 }
 
 - (int)delayReset {
@@ -33,6 +33,7 @@
     float height = [[UIScreen mainScreen] bounds].size.height;
     self.y = height + 1;
     self.delay = [self delayReset];
+    self.speed = [self defaultSpeed];
 }
 
 - (void)pulse {

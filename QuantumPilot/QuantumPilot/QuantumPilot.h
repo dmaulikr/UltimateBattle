@@ -51,6 +51,8 @@
 
 @property (nonatomic) int shield;
 
+@property (strong, nonatomic) NSString *zone;
+
 - (BOOL)isFiring;
 
 - (void)pulse;

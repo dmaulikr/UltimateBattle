@@ -10,6 +10,8 @@
 #import "QPShortcuts.h"
 #import "cocos2d.h"
 
+@protocol BulletDelegate;
+
 @class QPBattlefield;
 
 @interface Bullet : CCNode
@@ -24,6 +26,8 @@
 
 @property (strong, nonatomic) NSString *zone;
 
+@property (nonatomic, assign) id <BulletDelegate> delegate;
+
 - (void)pulse;
 
 - (id)initWithLocation:(CGPoint)location velocity:(CGPoint)velocity;
@@ -34,6 +38,16 @@
 
 - (CGPoint)velocity;
 
+@property (nonatomic) int zx;
+@property (nonatomic) int zy;
+
 - (NSString *)zoneKey;
+
+@end
+
+@protocol BulletDelegate <NSObject>
+
+- (void)bulletChangedZone:(Bullet *)b;
+- (void)cloneBulletChangedZone:(Bullet *)b;
 
 @end

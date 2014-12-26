@@ -565,26 +565,26 @@ static QPBattlefield *instance = nil;
 - (void)processPilotBullets {
     for (QuantumClone *c in self.clones) {
         if (c.active) {
-            NSString *key = [c zoneKey];
-            NSMutableArray *a = self.zones[key];
-            NSMutableArray *bulletsToRemove = [NSMutableArray array];
-            for (Bullet *b in a) {
-                if ([c processBullet:b]) {
-                    [self processKill:c bullet:b];
-                    [bulletsToRemove addObject:b];
+            NSMutableArray *a = self.zones[c.zone];
+            if (a.count > 0) {
+                NSMutableArray *bulletsToRemove = [NSMutableArray array];
+                for (Bullet *b in a) {
+                    if (GetDistance(b.l, c.l) < 70 && [c processBullet:b]) {
+                        [self processKill:c bullet:b];
+                        [bulletsToRemove addObject:b];
+                    }
                 }
+                [a removeObjectsInArray:bulletsToRemove];
             }
-            [a removeObjectsInArray:bulletsToRemove];
         }
     }
 }
 
 - (void)processCloneBullets {
-    NSString *key = [self.pilot zoneKey];
-    NSMutableArray *a = self.cloneZones[key];
+    NSMutableArray *a = self.cloneZones[self.pilot.zone];
     NSMutableArray *bulletsToRemove = [NSMutableArray array];
     for (Bullet *b in a) {
-        if ([self.pilot processBullet:b]) { //opportunity for dodge notation
+        if (GetDistance(b.l, self.pilot.l) < 70 && [self.pilot processBullet:b]) { //opportunity for dodge notation
             [bulletsToRemove addObject:b];
         }
     }
@@ -1013,6 +1013,8 @@ static QPBattlefield *instance = nil;
     for (Bullet *b in bullets) {
         [self addChild:b];
         b.tag = -1;
+        b.delegate = self;
+
         
         NSString *key = [b zoneKey];
         NSMutableArray *a = self.zones[key];
@@ -1033,6 +1035,7 @@ static QPBattlefield *instance = nil;
     for (Bullet *b in bullets) {
         [self addChild:b];
         b.tag = 0;
+        b.delegate = self;
         
         NSString *key = [b zoneKey];
         NSMutableArray *a = self.cloneZones[key];
@@ -1076,7 +1079,8 @@ static QPBattlefield *instance = nil;
     float speed = 1.6f + (float)((arc4random() % 50) * 0.01f);
     [self.pilot setSpeed:speed * [self speedMod]];
     
-    self.dl.speed = -.5 * [self speedMod];
+    [self.dl reset];
+    self.dl.speed *= [self speedMod];
     
     //return 2.5; //2.4 //phone: 3.91 //10, //ipad: 6.8
     //1.8 //phone: 2.3 //ipad: //old setting: 6.3
@@ -1336,12 +1340,13 @@ static QPBattlefield *instance = nil;
     return _speedMod;
 }
 
-- (void)processBulletMoved:(NSNotification *)n {
-    Bullet *b = n.object;
+- (void)bulletChangedZone:(Bullet *)b {
     if (b.zone) {
         NSMutableArray *a = self.zones[b.zone];
         [a removeObject:b];
     }
+    
+    b.zone = b.zoneKey;
     
     NSMutableArray *a = self.zones[[b zoneKey]];
     if (!a) {
@@ -1352,12 +1357,13 @@ static QPBattlefield *instance = nil;
     }
 }
 
-- (void)processCloneBulletMoved:(NSNotification *)n {
-    Bullet *b = n.object;
+- (void)cloneBulletChangedZone:(Bullet *)b {
     if (b.zone) {
         NSMutableArray *a = self.cloneZones[b.zone];
         [a removeObject:b];
     }
+    
+    b.zone = b.zoneKey;
     
     NSMutableArray *a = self.cloneZones[[b zoneKey]];
     if (!a) {
