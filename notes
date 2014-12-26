@@ -13,12 +13,12 @@ redo drag voice
 bonus
 gamecenter highscores
 gamecenter achievements
-shield powerup on/off, shielding in shape of ship Level 3
-scanner powerup on/off, scanning Level 20
-time powerup on/off, delay level 5
-bomb powerup on/off, multifinger for core fragments level 10
+shield powerup on/off, shielding in shape of ship Level 2%
+scanner powerup on/off, scanning Level 5%
+time powerup on/off, delay level 4%
+bomb powerup on/off, multifinger for core fragments level 3$
 show powerups between ships
-show tw/fb/email/msg above clone ship -- after level 2
+show tw/fb/email/msg above clone ship -- after 1%
 accumulate cores below ship show first IAP only when this fills
 ANIMATE these cores being added after each round
 white line after level 10 for next phase

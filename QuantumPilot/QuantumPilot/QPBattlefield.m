@@ -190,6 +190,10 @@ static QPBattlefield *instance = nil;
 - (id)init {
     self = [super init];
     if (self) {
+        CGRect bounds = [[UIScreen mainScreen] bounds];
+        _battlefieldFrame = CGRectMake(bounds.origin.x - 10, bounds.origin.y - 10, bounds.size.width + 10, bounds.size.height + 10);
+        _screenSize = bounds.size;
+
         self.bullets = [NSMutableArray array];
         self.cloneBullets = [NSMutableArray array];
         self.debris = [NSMutableArray array];
@@ -204,8 +208,6 @@ static QPBattlefield *instance = nil;
         [self setupWeapons];
         [self loadSounds];
         self.scoreCycler = [[[QPScoreCycler alloc] init] autorelease];
-     
-        _screenSize = [[UIScreen mainScreen] bounds].size;
         
         level = 1;
         [self loadActiveScores];
@@ -303,12 +305,8 @@ static QPBattlefield *instance = nil;
 
 #pragma mark Bullets
 
-- (CGRect)battlefieldFrame {
-    return CGRectMake(-100, -100, 768 + 100, 1024 + 100);
-}
-
 - (BOOL)bulletOutOfBounds:(Bullet *)b {
-    return !CGRectContainsPoint([self battlefieldFrame], b.l);
+    return !CGRectContainsPoint(_battlefieldFrame, b.l);
 }
 
 - (void)eraseBullets {
@@ -483,7 +481,7 @@ static QPBattlefield *instance = nil;
 }
 
 - (BOOL)debrisOutOfBounds:(Debris *)d {
-    return !CGRectContainsPoint([self battlefieldFrame], d.l) || [d dissipated];
+    return !CGRectContainsPoint(_battlefieldFrame, d.l) || [d dissipated];
 }
 
 

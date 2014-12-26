@@ -105,6 +105,8 @@ enum drawguide {
     float _bulletSpeed;
     CGSize _screenSize;
     int _drawings;
+    
+    CGRect _battlefieldFrame;
 }
 
 @property (nonatomic, retain) NSMutableArray *bullets;
