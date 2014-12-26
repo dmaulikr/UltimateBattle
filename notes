@@ -1,4 +1,6 @@
 move towards debris to collect
+speed balancing
+show 1% to 100%
 1.03
 PAX 2015 entry. Source code available on Procjam.
 final cut pro video
@@ -18,7 +20,6 @@ bomb powerup on/off, multifinger for core fragments level 10
 show powerups between ships
 show tw/fb/email/msg above clone ship -- after level 2
 accumulate cores below ship show first IAP only when this fills
-show 1% to 100%
 ANIMATE these cores being added after each round
 white line after level 10 for next phase
 Just one secret phase: Secret Battlefield with special weapons
@@ -28,15 +29,6 @@ white line moves on -- turns red then leaves screen
 then pop up buy prompt
 gamepad
 IAP
-
-speed consideration: .0066 * speed bonus
-drag cores up to middle to regulate speed up to what you've opened
-fill cores to increase core level -- this will open the core oscillation
-after 10 levels -- the cores pulse to indicate you can drop them -- pulse and translate down, pause then teleport to their max. They do this twice.
-CORES Auto adjust based on score from previous round: > the current core expected level * score, they increase if possible. < threshhold of core expected level (.5 of next, maybe) -- they decrease if possible
-CORES always increase after player fills screen with cores. 50 cores.
-
-PILOT LEVEL
 
 game video
 highres photos showcasing new elements

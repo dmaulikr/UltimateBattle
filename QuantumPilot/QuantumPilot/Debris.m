@@ -24,7 +24,7 @@
     self = [super init];
     if (self) {
         self.l = l;
-        _speed = 1.5 + ((arc4random() % 40) * .05);
+        _speed = 1 + ((arc4random() % 40) * .05);
         _speed *= .4;
         for (int i = 0; i < 10; i++) {
             int xD = arc4random() % 2 == 0 ? 1 : -1;
@@ -39,7 +39,6 @@
 
 - (void)pulse {
     self.l = CombinedPoint(self.l, ccp(0,-2));
-    radius = 1.7 * [QPBattlefield pulseRotation];
 }
 
 - (void)establishColor {
