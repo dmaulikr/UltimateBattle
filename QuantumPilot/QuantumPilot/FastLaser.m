@@ -58,9 +58,12 @@ static float triangleHeight = 3;
 
 - (void)crushBullet:(Bullet *)b {
     if (_crushes == 0) {
-        _crushes++;
+//        _crushes++;
         b.l = ccp(5000,5000);
         _pulses = 62;
+        if (b.crushes) {
+            self.l = ccp(5000, 5000);
+        }
     } else {
         [super crushBullet:b];
     }
