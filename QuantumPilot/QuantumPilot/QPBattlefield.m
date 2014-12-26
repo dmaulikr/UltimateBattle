@@ -190,6 +190,10 @@ static QPBattlefield *instance = nil;
 - (id)init {
     self = [super init];
     if (self) {
+        CGRect bounds = [[UIScreen mainScreen] bounds];
+        _battlefieldFrame = CGRectMake(bounds.origin.x - 10, bounds.origin.y - 10, bounds.size.width + 10, bounds.size.height + 10);
+        _screenSize = bounds.size;
+
         self.bullets = [NSMutableArray array];
         self.cloneBullets = [NSMutableArray array];
         self.zones = [NSMutableDictionary dictionary];
@@ -316,12 +320,8 @@ static QPBattlefield *instance = nil;
 
 #pragma mark Bullets
 
-- (CGRect)battlefieldFrame {
-    return CGRectMake(-100, -100, 768 + 100, 1024 + 100);
-}
-
 - (BOOL)bulletOutOfBounds:(Bullet *)b {
-    return !CGRectContainsPoint([self battlefieldFrame], b.l);
+    return !CGRectContainsPoint(_battlefieldFrame, b.l);
 }
 
 - (void)eraseBullets {
@@ -344,6 +344,7 @@ static QPBattlefield *instance = nil;
     
     
     Debris *d = [[[Debris alloc] initWithL:c.l] autorelease];
+    [d multiplySpeed:[self speedMod]];
     [d assignLevel];
     [self addChild:d];
     [self.debris addObject:d];
@@ -503,7 +504,7 @@ static QPBattlefield *instance = nil;
 }
 
 - (BOOL)debrisOutOfBounds:(Debris *)d {
-    return !CGRectContainsPoint([self battlefieldFrame], d.l) || [d dissipated];
+    return !CGRectContainsPoint(_battlefieldFrame, d.l) || [d dissipated];
 }
 
 
@@ -1072,13 +1073,10 @@ static QPBattlefield *instance = nil;
 
 - (void)setupSpeeds {
     [self generateSpeedMod];
-    float speed = 1.6 + ((arc4random() % 40) * .01);
+    float speed = 1.6f + (float)((arc4random() % 50) * 0.01f);
     [self.pilot setSpeed:speed * [self speedMod]];
-    Weapon *w = [Weapon w];
-    w.speed =  2.2 + ((arc4random() % 200) * .01);
-    w.speed =  w.speed * [self speedMod];
     
-    self.dl.speed = 0.25f; // * [self speedMod];
+    self.dl.speed = -.5 * [self speedMod];
     
     //return 2.5; //2.4 //phone: 3.91 //10, //ipad: 6.8
     //1.8 //phone: 2.3 //ipad: //old setting: 6.3
@@ -1305,7 +1303,7 @@ static QPBattlefield *instance = nil;
 }
 
 - (float)bulletSpeed {
-    float s = 2.2 + (min((float)_circleCharges, (float)6) * .40 ) ;
+    float s = _bulletSpeed +  (min((float)_circleCharges, (float)6) * .40);
     return s * [self speedMod];
 }
 
@@ -1323,6 +1321,7 @@ static QPBattlefield *instance = nil;
 }
 
 - (void)generateSpeedMod {
+    _bulletSpeed = 1.8f + (float)((arc4random() % 250) * 0.01f);
     if (_coreCycles > 0) {
         _speedMod = 0.4f + (0.006f * (arc4random() % _coreCycles));
         NSLog(@"speedmod: %f", _speedMod);
