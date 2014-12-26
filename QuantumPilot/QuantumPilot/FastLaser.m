@@ -15,7 +15,8 @@ static float triangleHeight = 3;
 
 - (id)initWithLocation:(CGPoint)location velocity:(CGPoint)velocity {
     self = [super initWithLocation:location velocity:velocity];
-    _pulseDirection = 1;
+    _pulseDirection = -1;
+    _pulses = 48;
     self.crushes = 1;
     return self;
 }
@@ -59,6 +60,7 @@ static float triangleHeight = 3;
     if (_crushes == 0) {
         _crushes++;
         b.l = ccp(5000,5000);
+        _pulses = 48;
     } else {
         [super crushBullet:b];
     }

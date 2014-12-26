@@ -18,7 +18,7 @@
         self.l = location;
         self.vel = velocity;
         self.radius = 1.5; //iPad: 3
-        self.crushes = 1;
+        self.crushes = 0;
     }
     
     return self;
