@@ -28,6 +28,8 @@
 
 @property (nonatomic, assign) id <BulletDelegate> delegate;
 
+@property (nonatomic) int crushes;
+
 - (void)pulse;
 
 - (id)initWithLocation:(CGPoint)location velocity:(CGPoint)velocity;
@@ -42,6 +44,8 @@
 @property (nonatomic) int zy;
 
 - (NSString *)zoneKey;
+
+- (void)crushBullet:(Bullet *)b;
 
 @end
 

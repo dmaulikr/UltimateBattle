@@ -7,6 +7,7 @@
 #import "QuadLaserCannon.h"
 #import "Arsenal.h"
 #import "Shatter.h"
+#import "FastLaser.h"
 
 @implementation QPBattlefield
 
@@ -578,6 +579,23 @@ static QPBattlefield *instance = nil;
             }
         }
     }
+    
+    for (Bullet *b in self.bullets) {
+        if (b.crushes > 0) {
+            NSMutableArray *a = self.cloneZones[b.zoneKey];
+            if (a.count > 0) {
+                for (Bullet *bb in a) {
+                    if (GetDistance(b.l, bb.l) < 4) {
+                        [b crushBullet:bb];
+                    }
+                }
+            }
+        }
+    }
+}
+
+- (bool)bulletCrushes:(Bullet *)b {
+    return b.class == [FastLaser class];
 }
 
 - (void)processCloneBullets {
@@ -590,6 +608,20 @@ static QPBattlefield *instance = nil;
     }
     
     [a removeObjectsInArray:bulletsToRemove];
+    
+    for (Bullet *b in self.cloneBullets) {
+        if (b.crushes > 0) {
+            NSMutableArray *a = self.zones[b.zoneKey];
+            if (a.count > 0) {
+                for (Bullet *bb in a) {
+                    if (GetDistance(b.l, bb.l) < 4) {
+                        [b crushBullet:bb];
+                    }
+                }
+            }
+        }
+    }
+
 }
 
 - (void)bulletPulse {
