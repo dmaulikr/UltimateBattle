@@ -10,23 +10,49 @@ action in desc
 redo drag voice
 ~
 1.04
-bonus
-gamecenter highscores
-gamecenter achievements
-shield powerup on/off, shielding in shape of ship Level 2%
-scanner powerup on/off, scanning Level 5%
-time powerup on/off, delay level 4%
-bomb powerup on/off, multifinger for core fragments level 3$
-show powerups between ships
-show tw/fb/email/msg above clone ship -- after 1%
-accumulate cores below ship show first IAP only when this fills
-ANIMATE these cores being added after each round
-white line after level 10 for next phase
-Just one secret phase: Secret Battlefield with special weapons
-white line carries you past top
-ship comes up with line centered from bottom
-white line moves on -- turns red then leaves screen
-then pop up buy prompt
+
+recycle overlays:
+
+to left of ship:   cancel(rename) mode 99c
+to right of ship:  special weapon mode 99c
+
+below cancel mode:    ship power
+right of ship power:  shield power
+left of new weapon:   laser power
+below special weapon: NOVA SPLITTER
+
+below each of these 4 except NOVA SPLITTER is a % ranging from 10 to 100%, split by 18%.
+once the 5th upgrade is installed, tapping will cycle by 18% to 100%, 10%
+colored circle below each in the overlay
+
+NOVA SPLITTER installs NOVA SPLITTER into weapon arsenal
+once maxed, LIMIT DISMANTLER, LIMIT __WEAPONNAME__ up to FULL ARMORY
+
+cost is shown beneath each of these 4 with a NUMBER # then a big fill colored circle O
+
+this big O fills up when the player collets 54 debris cores
+
+show 0 Cores at start.
+show 4 core spendable upgrades at start.
+
+twitter, email, sms, facebook up top below title
+
+below twitter: DEADLINE ACTIVE to DEADLINE STALLED
+below facebook: SCANNER OFF to SHOT PREDICTION
+
+MODE upgrades do not appear without 20 plays (or at least 2 core cycles)
+DEADLINE/SCANNER do not appear without 10 playes (or at least 1 core cycle)
+
+all upgrades: 1
+weapons: 1
+
+tap upgrade with insufficient cores: show prompt to install all power levels for 99c.
+
+
+
+
+gamecenter highscores ?
+gamecenter achievements ?
 gamepad
 IAP
 
