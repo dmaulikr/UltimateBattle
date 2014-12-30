@@ -33,7 +33,7 @@ static float triangleHeight = 3;
 //        _pulseDirection = 1;
     }
     
-    _ratio = (float)(48 - _pulses) / 48.0f;
+    _ratio = (float)(_pulses) / 48.0f;
     _facing = self.vel.y > 0 ? 1 : -1;
 
 }
