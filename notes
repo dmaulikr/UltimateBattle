@@ -13,7 +13,7 @@ redo drag voice
 
 recycle overlays:
 
-to left of ship:   cancel(rename) mode 99c
+to left of ship:   cancel(rename) mode 99c (IF CANCEL MODE DOESNT WORK >> RESET CORE CRUSHER)
 to right of ship:  special weapon mode 99c
 
 below cancel mode:    ship power

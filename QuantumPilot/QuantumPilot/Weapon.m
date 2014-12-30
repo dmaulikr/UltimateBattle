@@ -31,7 +31,7 @@ static Weapon *instance = nil;
 }
 
 - (void)setupSpeed {
-    self.speed =  2.2 + ((arc4random() % 200) * .01);
+    self.speed =  2.2f + (float)((arc4random() % 200) * 0.01f);
     self.speed =  self.speed * 1/3;
 }
 

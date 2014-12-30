@@ -29,7 +29,7 @@ enum drawguide {
     fire = 3
 };
 
-@interface QPBattlefield : CCNode <QuantumPilotingDelegate, QPBulletDelegate> {
+@interface QPBattlefield : CCNode <QuantumPilotingDelegate, QPBulletDelegate, BulletDelegate> {
     NSInteger _pulseTimes[4];
     NSInteger _pulseState;
     NSInteger _pulseDirection;
@@ -107,6 +107,9 @@ enum drawguide {
     int _drawings;
     
     CGRect _battlefieldFrame;
+    
+    int zonesWide;
+    int zonesTall;
 }
 
 @property (nonatomic, retain) NSMutableArray *bullets;
@@ -117,6 +120,8 @@ enum drawguide {
 @property (nonatomic, retain) QuantumPilot *pilot;
 @property (nonatomic, assign) CCLayer *layer;
 
+@property (nonatomic, retain) NSMutableArray *zones;
+@property (nonatomic, retain) NSMutableArray *cloneZones;
 #pragma mark Score
 
 @property (nonatomic) NSInteger score;

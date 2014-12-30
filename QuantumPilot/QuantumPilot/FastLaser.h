@@ -12,6 +12,8 @@
     int _pulses;
     float _ratio;
     int _pulseDirection;
+    
+    int _crushes;
 }
 
 @end

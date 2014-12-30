@@ -51,6 +51,11 @@
 
 @property (nonatomic) int shield;
 
+@property (strong, nonatomic) NSString *zone;
+
+@property (nonatomic) int zx;
+@property (nonatomic) int zy;
+
 - (BOOL)isFiring;
 
 - (void)pulse;
@@ -118,6 +123,9 @@
 - (void)announceWeapon;
 
 - (CGPoint)latestWaypoint;
+
+- (int)calcZx;
+- (int)calcZy;
 
 @end
 

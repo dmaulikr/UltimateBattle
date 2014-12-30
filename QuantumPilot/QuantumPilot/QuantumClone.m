@@ -118,6 +118,11 @@ static int fireSignalValue = 89;
 }
 
 - (void)pulse {
+    if (self.zx != [self calcZx] || self.zy != [self calcZy]) {
+        self.zx = (int)self.l.x / 50.0f;
+        self.zy = (int)self.l.y / 50.0f;
+    }
+
     if (timeDirection != recording) {
         if (self.active) {
             [self moveByVelocity];
@@ -205,12 +210,13 @@ static int fireSignalValue = 89;
 }
 
 - (void)registerHit {
-    [super registerHit];
+    self.active = NO;
     self.showPath = false;
 }
 
 - (void)announceWeapon {
     
 }
+
 
 @end

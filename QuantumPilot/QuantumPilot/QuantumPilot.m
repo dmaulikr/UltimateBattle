@@ -257,6 +257,13 @@ static float innerTopHeight = 5.75;
     
 //    if (self.active) {
   //  }
+//    self.zone = [self zoneKey];
+    
+    if (self.zx != [self calcZx] || self.zy != [self calcZy]) {
+        self.zx = (int)self.l.x / 50.0f;
+        self.zy = (int)self.l.y / 50.0f;
+    }
+
 }
 
 
@@ -399,6 +406,20 @@ static float innerTopHeight = 5.75;
 
 - (CGPoint)latestWaypoint {
     return future[self.fightingIteration];
+}
+
+//- (NSString *)zoneKey {
+//    int x = (int)self.l.x / 50.0f;
+//    int y = (int)self.l.y / 50.0f;
+//    return [NSString stringWithFormat:@"%d,%d", x, y];
+//}
+
+- (int)calcZx {
+    return (int)self.l.x / 50.0f;
+}
+
+- (int)calcZy {
+    return (int)self.l.y / 50.0f;
 }
 
 @end

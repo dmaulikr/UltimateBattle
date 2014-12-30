@@ -15,22 +15,25 @@ static float triangleHeight = 3;
 
 - (id)initWithLocation:(CGPoint)location velocity:(CGPoint)velocity {
     self = [super initWithLocation:location velocity:velocity];
-    _pulseDirection = 1;
+    _pulseDirection = -1;
+    _pulses = 62;
+    self.crushes = 1;
     return self;
 }
 
 - (void)pulse {
     [super pulse];
     _pulses+= _pulseDirection;
-    if (_pulses > 48) {
-        _pulses = 48;
+    if (_pulses > 62) {
+        _pulses = 62;
         _pulseDirection = -1;
     } else if (_pulses < 0) {
-        _pulses = 0;
-        _pulseDirection = 1;
+        self.l = ccp(5000,5000);
+//        _pulses = 0;
+//        _pulseDirection = 1;
     }
     
-    _ratio = (float)(48 - _pulses) / 48.0f;
+    _ratio = (float)(_pulses) / 48.0f;
     _facing = self.vel.y > 0 ? 1 : -1;
 
 }
@@ -53,5 +56,17 @@ static float triangleHeight = 3;
     return @"FastLaserCannon";
 }
 
+- (void)crushBullet:(Bullet *)b {
+    if (_crushes == 0) {
+//        _crushes++;
+        b.l = ccp(5000,5000);
+        _pulses = 62;
+        if (b.crushes) {
+            self.l = ccp(5000, 5000);
+        }
+    } else {
+        [super crushBullet:b];
+    }
+}
 
 @end
