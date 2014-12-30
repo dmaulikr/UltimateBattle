@@ -72,7 +72,7 @@
 }
 
 - (void)assignLevel {
-    int wRandom[7] = {140, 140, 60, 30, 20, 15, 5};
+    int wRandom[7] = {130, 130, 50, 30, 30, 15, 5};
     
     int wRandomTotal = 0;
     for (int i = 0; i < 7; i++) {
