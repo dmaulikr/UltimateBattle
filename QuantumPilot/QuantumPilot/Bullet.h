@@ -30,6 +30,8 @@
 
 @property (nonatomic) int crushes;
 
+@property (strong, nonatomic) NSMutableArray *zoneArray;
+
 - (void)pulse;
 
 - (id)initWithLocation:(CGPoint)location velocity:(CGPoint)velocity;

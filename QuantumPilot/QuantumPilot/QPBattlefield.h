@@ -107,6 +107,9 @@ enum drawguide {
     int _drawings;
     
     CGRect _battlefieldFrame;
+    
+    int zonesWide;
+    int zonesTall;
 }
 
 @property (nonatomic, retain) NSMutableArray *bullets;

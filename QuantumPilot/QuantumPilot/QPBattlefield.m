@@ -192,8 +192,8 @@ static QPBattlefield *instance = nil;
     self.zones = [NSMutableArray array];
     self.cloneZones = [NSMutableArray array];
     
-    int zonesWide = (int)(ceilf(_battlefieldFrame.size.width / (50.0f)));
-    int zonesTall = (int)(ceilf(_battlefieldFrame.size.height / (50.0f)));
+    zonesWide = (int)(ceilf(_battlefieldFrame.size.width / (50.0f)));
+    zonesTall = (int)(ceilf(_battlefieldFrame.size.height / (50.0f)));
     
     for (int i = 0; i < zonesTall; i++) {
         NSMutableArray *zs = [NSMutableArray array];
@@ -595,33 +595,60 @@ static QPBattlefield *instance = nil;
     [self.debris removeObjectsInArray:debrisToErase];
 }
 
+- (void)processPilotBulletsForZone:(NSMutableArray *)a forClone:(QuantumClone *)c {
+    NSMutableArray *bulletsToRemove = [NSMutableArray array];
+    for (Bullet *b in a) {
+        if (ccpDistance(b.l, c.l) < 70 && [c processBullet:b]) {
+            [self processKill:c bullet:b];
+            [bulletsToRemove addObject:b];
+        }
+    }
+    [a removeObjectsInArray:bulletsToRemove];
+}
+
 - (void)processPilotBullets {
     for (QuantumClone *c in self.clones) {
         if (c.active) {
-            NSMutableArray *a = self.zones[c.zy][c.zx];
-            if (a.count > 0) {
-                NSMutableArray *bulletsToRemove = [NSMutableArray array];
-                for (Bullet *b in a) {
-                    if (GetDistance(b.l, c.l) < 70 && [c processBullet:b]) {
-                        [self processKill:c bullet:b];
-                        [bulletsToRemove addObject:b];
-                    }
+            [self processPilotBulletsForZone:self.zones[c.zy][c.zx] forClone:c];
+            
+            bool greaterZeroX = c.zx > 0;
+            bool greaterZeroY = c.zy > 0;
+            bool lessMaxX = c.zx < zonesWide;
+            bool lessMaxY = c.zy < zonesTall;
+            if (greaterZeroX) {
+                [self processPilotBulletsForZone:self.cloneZones[c.zy][c.zx-1] forClone:c];
+                if (greaterZeroY) {
+                    [self processPilotBulletsForZone:self.cloneZones[c.zy-1][c.zx-1] forClone:c];
+                } else if (lessMaxY) {
+                    [self processPilotBulletsForZone:self.cloneZones[c.zy+1][c.zx-1] forClone:c];
                 }
-                [a removeObjectsInArray:bulletsToRemove];
+            } else if (lessMaxX) {
+                [self processPilotBulletsForZone:self.cloneZones[c.zy][c.zx+1] forClone:c];
+                if (greaterZeroY) {
+                    [self processPilotBulletsForZone:self.cloneZones[c.zy-1][c.zx+1] forClone:c];
+                } else if (lessMaxY) {
+                    [self processPilotBulletsForZone:self.cloneZones[c.zy+1][c.zx+1] forClone:c];
+                }
+            }
+            
+            if (lessMaxX) {
+                [self processPilotBulletsForZone:self.cloneZones[c.zy][c.zx+1] forClone:c];
+            } else if (lessMaxY) {
+                [self processPilotBulletsForZone:self.cloneZones[c.zy+1][c.zx] forClone:c];
             }
         }
     }
     
+    
+    
     for (Bullet *b in self.bullets) {
         if (b.crushes > 0) {
             NSMutableArray *a = self.cloneZones[b.zy][b.zx];
-            if (a.count > 0) {
                 for (Bullet *bb in a) {
-                    if (GetDistance(b.l, bb.l) < 4) {
+                    if (ccpDistance(b.l, bb.l) < 4) {
                         [b crushBullet:bb];
                     }
                 }
-            }
         }
     }
 }
@@ -630,31 +657,56 @@ static QPBattlefield *instance = nil;
     return b.class == [FastLaser class];
 }
 
-- (void)processCloneBullets {
-    NSMutableArray *a = self.cloneZones[self.pilot.zy][self.pilot.zx];
+- (void)processCloneBulletsInZone:(NSMutableArray *)a {
     NSMutableArray *bulletsToRemove = [NSMutableArray array];
     for (Bullet *b in a) {
-        if (GetDistance(b.l, self.pilot.l) < 70 && [self.pilot processBullet:b]) { //opportunity for dodge notation
+        if (ccpDistance(b.l, self.pilot.l) < 70 && [self.pilot processBullet:b]) { //opportunity for dodge notation
             [self playKillSound];
             [bulletsToRemove addObject:b];
         }
     }
     
     [a removeObjectsInArray:bulletsToRemove];
+}
+
+- (void)processCloneBullets {
+    [self processCloneBulletsInZone:self.cloneZones[self.pilot.zy][self.pilot.zx]];
+    bool greaterZeroX = self.pilot.zx > 0;
+    bool greaterZeroY = self.pilot.zy > 0;
+    bool lessMaxX = self.pilot.zx < zonesWide;
+    bool lessMaxY = self.pilot.zy < zonesTall;
+    if (greaterZeroX) {
+        [self processCloneBulletsInZone:self.cloneZones[self.pilot.zy][self.pilot.zx-1]];
+        if (greaterZeroY) {
+            [self processCloneBulletsInZone:self.cloneZones[self.pilot.zy-1][self.pilot.zx-1]];
+        } else if (lessMaxY) {
+            [self processCloneBulletsInZone:self.cloneZones[self.pilot.zy+1][self.pilot.zx-1]];
+        }
+    } else if (lessMaxX) {
+        [self processCloneBulletsInZone:self.cloneZones[self.pilot.zy][self.pilot.zx+1]];
+        if (greaterZeroY) {
+            [self processCloneBulletsInZone:self.cloneZones[self.pilot.zy-1][self.pilot.zx+1]];
+        } else if (lessMaxY) {
+            [self processCloneBulletsInZone:self.cloneZones[self.pilot.zy+1][self.pilot.zx+1]];
+        }
+    }
+    
+    if (lessMaxX) {
+        [self processCloneBulletsInZone:self.cloneZones[self.pilot.zy][self.pilot.zx+1]];
+    } else if (lessMaxY) {
+        [self processCloneBulletsInZone:self.cloneZones[self.pilot.zy+1][self.pilot.zx]];
+    }
     
     for (Bullet *b in self.cloneBullets) {
         if (b.crushes > 0) {
             NSMutableArray *a = self.zones[b.zy][b.zx];
-            if (a.count > 0) {
-                for (Bullet *bb in a) {
-                    if (GetDistance(b.l, bb.l) < 4) {
-                        [b crushBullet:bb];
-                    }
+            for (Bullet *bb in a) {
+                if (ccpDistance(b.l, bb.l) < 4) {
+                    [b crushBullet:bb];
                 }
             }
         }
     }
-
 }
 
 - (void)bulletPulse {
