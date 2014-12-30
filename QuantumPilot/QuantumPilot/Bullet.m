@@ -18,7 +18,7 @@
         self.l = location;
         self.vel = velocity;
         self.radius = 1.5; //iPad: 3
-        self.crushes = 0;
+        self.crushes = 1;
     }
     
     return self;
@@ -66,10 +66,6 @@
 - (void)dealloc {
     self.delegate = nil;
     [super dealloc];
-}
-
-- (NSString *)zoneKey {
-    return [NSString stringWithFormat:@"%d,%d", self.zx, self.zy];
 }
 
 - (void)crushBullet:(Bullet *)b {

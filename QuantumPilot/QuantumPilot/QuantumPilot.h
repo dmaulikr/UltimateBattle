@@ -53,6 +53,9 @@
 
 @property (strong, nonatomic) NSString *zone;
 
+@property (nonatomic) int zx;
+@property (nonatomic) int zy;
+
 - (BOOL)isFiring;
 
 - (void)pulse;
@@ -121,7 +124,8 @@
 
 - (CGPoint)latestWaypoint;
 
-- (NSString *)zoneKey;
+- (int)calcZx;
+- (int)calcZy;
 
 @end
 

@@ -43,8 +43,6 @@
 @property (nonatomic) int zx;
 @property (nonatomic) int zy;
 
-- (NSString *)zoneKey;
-
 - (void)crushBullet:(Bullet *)b;
 
 @end
