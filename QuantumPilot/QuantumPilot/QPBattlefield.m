@@ -54,8 +54,6 @@ static QPBattlefield *instance = nil;
     self.drawingState = [[[QPBFDrawingState alloc] initWithBattlefield:self] autorelease];
     self.pausedState =  [[[QPBFPausedState alloc] initWithBattlefield:self] autorelease];
     self.fightingState = [[[QPBFFightingState alloc] initWithBattlefield:self] autorelease];
-    self.scoreState = [[[QPBFScoreState alloc] initWithBattlefield:self] autorelease];
-    self.recycleState = [[[QPBFRecycleState alloc] initWithBattlefield:self] autorelease];
     [self changeState:self.titleState];
 }
 
@@ -737,10 +735,9 @@ static QPBattlefield *instance = nil;
 - (NSInteger)currentScoreBonus {
     NSDictionary *total = [self levelScore];
     NSNumber *acc = total[QP_BF_ACCSCORE];
-    NSNumber *time = total[QP_BF_TIMESCORE];
     NSNumber *path = total[QP_BF_PATHSCORE];
     
-    return [acc intValue] + [time intValue] + [path intValue];
+    return [acc intValue] + [path intValue];
 }
 
 - (NSDictionary *)levelScore {
@@ -753,7 +750,6 @@ static QPBattlefield *instance = nil;
     }
     
     NSNumber *accBonus = [NSNumber numberWithInteger:(int)floorf(ab)];
-    NSNumber *timeBonus = [NSNumber numberWithInteger:self.dl.y * 10];
     
     float pathing = 0;
     if (paths <= 1) {
@@ -767,7 +763,7 @@ static QPBattlefield *instance = nil;
     NSNumber *pathingBonus = [NSNumber numberWithFloat:pathing];
     NSNumber *currentScore = [NSNumber numberWithInteger:self.score];
     
-    return @{QP_BF_TIMESCORE: timeBonus, QP_BF_ACCSCORE: accBonus, QP_BF_PATHSCORE: pathingBonus, QP_BF_SCORE: currentScore};
+    return @{QP_BF_ACCSCORE: accBonus, QP_BF_PATHSCORE: pathingBonus, QP_BF_SCORE: currentScore};
 }
 
 - (void)resetLevelScore {
@@ -834,8 +830,7 @@ static QPBattlefield *instance = nil;
     }
     
     if (self.dl.y < self.pilot.l.y) {
-        AudioServicesPlaySystemSound(process);        
-        [self registerShieldHit:self.pilot weapon:@"DeadLine"];
+        AudioServicesPlaySystemSound(process);
         [self resetBattlefield];
     }
 

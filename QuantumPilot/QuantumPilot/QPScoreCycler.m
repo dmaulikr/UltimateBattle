@@ -7,7 +7,6 @@
 //
 
 #import "QPScoreCycler.h"
-#import "QPBFScoreState.h"
 
 @implementation QPScoreCycler
 

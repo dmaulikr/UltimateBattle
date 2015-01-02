@@ -5,11 +5,13 @@
 #import "QPBFDrawingState.h"
 #import "QPBFFightingState.h"
 #import "QPBFPausedState.h"
-#import "QPBFScoreState.h"
-#import "QPBFRecycleState.h"
 #import "DeadLine.h"
 #import "ShieldDebris.h"
 #import "QPScoreCycler.h"
+
+#define QP_BF_SCORE     @"QP_BF_SCORE"
+#define QP_BF_ACCSCORE  @"QP_BF_ACCSCORE"
+#define QP_BF_PATHSCORE @"QP_BF_PATHSCORE"
 
 #import <AudioToolbox/AudioToolbox.h>
 
@@ -132,8 +134,6 @@ enum drawguide {
 @property (nonatomic, retain) QPBFDrawingState *drawingState;
 @property (nonatomic, retain) QPBFFightingState *fightingState;
 @property (nonatomic, retain) QPBFPausedState *pausedState;
-@property (nonatomic, retain) QPBFScoreState *scoreState;
-@property (nonatomic, retain) QPBFRecycleState *recycleState;
 
 #pragma mark Pilot Positioning
 @property (nonatomic, assign) CGPoint playerTouch;
