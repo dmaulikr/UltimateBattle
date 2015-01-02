@@ -93,6 +93,10 @@
 
 - (void)updateWeaponLabel:(NSNotification *)n {
     int i = [n.object intValue];
+    if (i == -1) {
+        self.weaponLabel.text = @"";
+        return;
+    }
     Class w = [Arsenal weaponIndexedFromArsenal:i];
     
     self.weaponLabel.text = [w weaponName];
@@ -106,7 +110,19 @@
 }
 
 - (void)updateScoreLabel:(NSNotification *)n {
-    self.scoreLabel.text = n.object;
+    CGSize size = [[UIScreen mainScreen] bounds].size;
+    int s = [n.object intValue];
+    if (s >= 0) {
+        self.scoreLabel.text = n.object;
+        self.scoreLabel.center = ccp(size.width / 2, 30);
+        self.scoreLabel.textColor = [UIColor whiteColor];
+        self.scoreLabel.font = [UIFont boldSystemFontOfSize:16];
+    } else {
+        self.scoreLabel.center = ccp(size.width / 2, 60);
+        self.scoreLabel.textColor = [UIColor whiteColor];
+        self.scoreLabel.font = [UIFont boldSystemFontOfSize:19];
+        self.scoreLabel.text = [NSString stringWithFormat:@"%d", -s];
+    }
 }
 
 - (void)updateLabel:(UILabel *)l withData:(NSDictionary *)d {

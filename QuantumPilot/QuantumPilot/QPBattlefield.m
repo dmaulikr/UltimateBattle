@@ -481,12 +481,13 @@ static QPBattlefield *instance = nil;
 }
 
 - (NSString *)activeScore {
-    int as = 0;
-    for (int i = 0; i < 10; i++) {
-        as+= [self.activeScores[i] intValue];
-    }
+    int as = [self.activeScores[self.activeScores.count - 1] intValue];
+//    int as = 0;
+//    for (int i = 0; i < 10; i++) {
+//        as+= [self.activeScores[i] intValue];
+//    }
     
-    return [NSString stringWithFormat:@"%d", as];
+    return [NSString stringWithFormat:@"%d", -as];
 }
 
 - (void)resetBattlefield {
