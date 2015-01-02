@@ -612,25 +612,25 @@ static QPBattlefield *instance = nil;
             bool lessMaxX = c.zx < zonesWide;
             bool lessMaxY = c.zy < zonesTall;
             if (greaterZeroX) {
-                [self processPilotBulletsForZone:self.cloneZones[c.zy][c.zx-1] forClone:c];
+                [self processPilotBulletsForZone:self.zones[c.zy][c.zx-1] forClone:c];
                 if (greaterZeroY) {
-                    [self processPilotBulletsForZone:self.cloneZones[c.zy-1][c.zx-1] forClone:c];
+                    [self processPilotBulletsForZone:self.zones[c.zy-1][c.zx-1] forClone:c];
                 } else if (lessMaxY) {
-                    [self processPilotBulletsForZone:self.cloneZones[c.zy+1][c.zx-1] forClone:c];
+                    [self processPilotBulletsForZone:self.zones[c.zy+1][c.zx-1] forClone:c];
                 }
             } else if (lessMaxX) {
-                [self processPilotBulletsForZone:self.cloneZones[c.zy][c.zx+1] forClone:c];
+                [self processPilotBulletsForZone:self.zones[c.zy][c.zx+1] forClone:c];
                 if (greaterZeroY) {
-                    [self processPilotBulletsForZone:self.cloneZones[c.zy-1][c.zx+1] forClone:c];
+                    [self processPilotBulletsForZone:self.zones[c.zy-1][c.zx+1] forClone:c];
                 } else if (lessMaxY) {
-                    [self processPilotBulletsForZone:self.cloneZones[c.zy+1][c.zx+1] forClone:c];
+                    [self processPilotBulletsForZone:self.zones[c.zy+1][c.zx+1] forClone:c];
                 }
             }
             
             if (lessMaxX) {
-                [self processPilotBulletsForZone:self.cloneZones[c.zy][c.zx+1] forClone:c];
+                [self processPilotBulletsForZone:self.zones[c.zy][c.zx+1] forClone:c];
             } else if (lessMaxY) {
-                [self processPilotBulletsForZone:self.cloneZones[c.zy+1][c.zx] forClone:c];
+                [self processPilotBulletsForZone:self.zones[c.zy+1][c.zx] forClone:c];
             }
         }
     }
@@ -639,7 +639,7 @@ static QPBattlefield *instance = nil;
     
     for (Bullet *b in self.bullets) {
         if (b.crushes > 0) {
-            NSMutableArray *a = self.cloneZones[b.zy][b.zx];
+            NSMutableArray *a = self.zones[b.zy][b.zx];
                 for (Bullet *bb in a) {
                     if (ccpDistance(b.l, bb.l) < 4) {
                         [b crushBullet:bb];
