@@ -3,6 +3,11 @@
 
 @implementation QPBFFightingState
 
+- (void)activate:(NSDictionary *)options {
+    [self.f resetGuideMode];
+    [self.f resetFireCircle];
+}
+
 - (void)shiftToDrawingState {
     _held = 0;
     _holding = false;

@@ -421,8 +421,6 @@ static QPBattlefield *instance = nil;
         [self.scoreCycler score:(10000 * hits)];
         [self createDebrisFromCloneKill:(QuantumClone *)c bullet:b];
     }
-
-    [self registerShieldHit:c weapon:c.weapon];
 }
 
 - (void)pulseBullets:(NSMutableArray *)bs {
@@ -778,14 +776,9 @@ static QPBattlefield *instance = nil;
     paths = 1;
 }
 
-- (void)showWinBlast {
-    [self registerShieldHit:self.pilot weapon:self.pilot.weapon];
-}
-
 - (void)processWaveKill {
     AudioServicesPlaySystemSound(process);
     _recentBonus += [self currentScoreBonus];
-    [self showWinBlast];
     [self.pilot resetPosition];
     QuantumClone *c = [[self.pilot clone] copy];
     c.bulletDelegate = self;
@@ -996,43 +989,14 @@ static QPBattlefield *instance = nil;
 - (void)changeState:(QPBFState *)state withOptions:(NSDictionary *)options {
     if (self.currentState) {
         [self.currentState deactivate];
-    
-        if (state == self.fightingState || state == self.titleState) {
-            fireCircle = [self fireCircleReset];
-        } else {
-            fireCircle = ccp(5000,5000);
-        }
-        
-        if (self.currentState == self.titleState) {
-            titleSlide = true;
-            titleDelay = 225;
-            titleY = 50;
-        } else if (state == self.drawingState) {
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"clearLabels" object:nil];
-        } else if (state == self.pausedState) {
-        } else if (state == self.fightingState) {
-            if (!veteran && level < 4) {
-                _guideMode = fire;
-            } else {
-                _guideMode = rest;
-            }
-        }
     }
     
     self.currentState = state;
-    if ((self.currentState == self.pausedState || self.currentState == self.titleState) && !veteran) {
-        _guideMode = circle;
-    }
-    
-    
     [self.currentState activate:options];
-    self.pilot.blinking = self.currentState == self.pausedState;
-    
 }
 
 - (void)changeState:(QPBFState *)state {
     [self changeState:state withOptions:nil];
-    
 }
 
 - (void)changeState:(QPBFState *)state withTouch:(CGPoint)l {
@@ -1046,14 +1010,7 @@ static QPBattlefield *instance = nil;
 #pragma mark Input
 
 - (void)addTouch:(CGPoint)l {
-    if (self.currentState == self.titleState || self.currentState == self.pausedState) {
-        if ([self touchingPlayer:l]) {
-            _guideMode = rest;
-        }
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"SpeedLabel" object:@""];
-    }
     [self.currentState addTouch:l];
-
 }
 
 - (void)addDoubleTouch {
@@ -1134,12 +1091,7 @@ static QPBattlefield *instance = nil;
 
         
         NSMutableArray *a = self.zones[b.zy][b.zx];
-//        if (!a) {
-//            a = [NSMutableArray arrayWithObject:b];
-//            [self.zones setObject:a forKey:key];
-//        } else {
-            [a addObject:b];
-//        }
+        [a addObject:b];
     }
     
     [self.bullets addObjectsFromArray:bullets];
@@ -1159,7 +1111,6 @@ static QPBattlefield *instance = nil;
     
     [self.cloneBullets addObjectsFromArray:bullets];
 }
-
 
 #pragma mark Clones
 
@@ -1191,191 +1142,9 @@ static QPBattlefield *instance = nil;
     
     [self.dl reset];
     self.dl.speed *= [self speedMod];
-    
-    //return 2.5; //2.4 //phone: 3.91 //10, //ipad: 6.8
-    //1.8 //phone: 2.3 //ipad: //old setting: 6.3
-}
-
-#pragma mark Recycling
-
-- (int)shieldCost {
-    return (self.pilot.shield + 1) * 50;
-}
-
-- (bool)canAffordShield {
-    return self.pilot.debris >= [self shieldCost];
-}
-
-- (int)maxShield {
-    return 9;
-}
-
-- (bool)shieldMaxed {
-    return self.pilot.shield >= [self maxShield];
-}
-
-- (bool)installShield {
-    if (self.pilot.shield < [self maxShield] && [self canAffordShield]) {
-        [self recycleDebris:[self shieldCost]];
-        [self.pilot installShield];
-        return true;
-    }
-    
-    return false;
-}
-            
-- (int)warningCost {
-    return (level - 1);
-}
-
-- (bool)canAffordWarning {
-    return self.pilot.debris >= [self warningCost];
-}
-
-- (bool)installWarning {
-    if (!warning && [self canAffordWarning]) {
-        [self recycleDebris:[self warningCost]];
-        warning = 1;
-        [self reloadWarningDisplay];
-        return true;
-    }
-    
-    return false;
-}
-
-- (NSString *)nextWeapon {
-    if (weaponLevel < [[self weapons] count]) {
-        return [self weapons][weaponLevel];
-    }
-    
-    return nil;
-}
-
-- (bool)weaponMaxed {
-    return weaponLevel >= [[self weapons] count];
-}
-
-- (int)nextWeaponCost {
-    if ([self underpowered]) {
-        return 0;
-    }
-    return (installLevel+1)* 50; //50
-}
-
-- (bool)underpowered {
-    return weaponLevel < installLevel;
-}
-
-- (bool)canAffordNextWeapon {
-    if ([self weaponMaxed]) {
-        return false;
-    }
-    
-    if ([self underpowered]) {
-        return true;
-    }
-    
-    return self.pilot.debris >= [self nextWeaponCost] && ![self weaponMaxed];
-}
-
-- (void)recycleDebris:(int)d {
-    self.pilot.debris -= d;
-    [self.recycleState reloadDebris:self.pilot.debris];
-}
-
-- (bool)installNextWeapon {
-    if ([self canAffordNextWeapon]) {
-        [self.pilot installWeapon:[self nextWeapon]];
-        [self showWinBlast];
-        weaponLevel++;
-        if (weaponLevel > installLevel) {
-            [self recycleDebris:[self nextWeaponCost]];
-            installLevel++;
-        }
-        
-        if ([self weaponMaxed]) {
-            [self.recycleState showWeapon:@"GOOD LUCK!"];
-        } else {
-            [self.recycleState showWeapon:[self nextWeapon] cost:[self nextWeaponCost]];
-        }
-        return true;
-    }
-
-    return false;
-}
-
-- (int)slowCost {
-    return (level - 1);
-}
-
-- (bool)canAffordSlow {
-    return !slow && self.pilot.debris > [self slowCost];
-}
-
-- (int)slowInstallLevel {
-    return 1000;
-}
-
-- (bool)installSlow {
-    if ([self canAffordSlow]) {
-        [self recycleDebris:[self slowCost]];
-        slow = [self slowInstallLevel];
-        [self.recycleState showSlow:slow];
-    }
-    
-    return false;
-}
-
-- (void)reloadDebrisDisplay {
-    [self.recycleState reloadDebris:self.pilot.debris];
-}
-
-- (void)reloadWarningDisplay {
-    [self.recycleState showWarningActivated:warning];
-}
-
-- (void)finishedDisplayingScore:(CGPoint)l rush:(bool)rush {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"clearLabels" object:nil];
-    if (rush) {
-        [self changeState:self.pausedState withTouch:l];
-    } else {
-        if (self.pilot.debris >= 50) {
-            [self enterRecycleState:true];
-        } else {
-            [self enterRecycleState:false];
-        }
-    }
-}
-
-- (void)enterRecycleState:(bool)show {
-    NSNumber *cost = [NSNumber numberWithInt:[self nextWeaponCost]];
-    if (show) {
-        [self changeState:self.recycleState withOptions:@{QP_RECYCLE_NEXT_WEAPON : [self nextWeapon],
-                                                          QP_RECYCLE_NEXT_WEAPON_COST : cost}];
-        [self reloadDebrisDisplay];
-        [self reloadWarningDisplay];
-    } else {
-        [self changeState:self.recycleState withOptions:@{QP_RECYCLE_NEXT_WEAPON : @"cancel"}];
-    }
 }
 
 #pragma mark Pilot effects
-
-- (void)registerShieldHit:(QuantumPilot *)p weapon:(NSString *)w {
-//    ShieldDebris *d = [[[ShieldDebris alloc] init] autorelease];
-//    d.l = p.l;
-//    d.pilot = p;
-//    [d setWeapon:w];
-//    if (self.clones.lastObject == p) {
-//        [d setWeapon:[Arsenal arsenal][0]];
-//    }
-//    [self.shieldDebris addObject:d];
-//    [self addChild:d];
-}
-
-- (void)registerShieldHit:(QuantumPilot *)p {
-    [self registerShieldHit:p weapon:nil];
-}
 
 - (void)draw {
     [super draw];
@@ -1383,7 +1152,6 @@ static QPBattlefield *instance = nil;
     [[Arsenal weaponIndexedFromArsenal:[self.pilot arsenalLevel]] setDrawColor];
     
     float x = (_screenSize.width / 2 - ((float)_drawings * (float)3));
-    
     
     if (self.currentState == self.titleState) {
         if (_drawings > 0) {
@@ -1461,12 +1229,7 @@ static QPBattlefield *instance = nil;
     }
     
     NSMutableArray *a = self.zones[b.zy][b.zx];
-//    if (!a) {
-//        a = [NSMutableArray arrayWithObject:b];
-//        [self.zones setObject:a forKey:[b zoneKey]];
-//    } else {
-        [a addObject:b];
-  //  }
+    [a addObject:b];
 }
 
 - (void)cloneBulletChangedZone:(Bullet *)b {
@@ -1480,12 +1243,35 @@ static QPBattlefield *instance = nil;
     }
     
     NSMutableArray *a = self.cloneZones[b.zy][b.zx];
-//    if (!a) {
-//        a = [NSMutableArray arrayWithObject:b];
-//        [self.cloneZones setObject:a forKey:[b zoneKey]];
-//    } else {
-        [a addObject:b];
-//    }
+    [a addObject:b];
 }
 
+#pragma mark State Control
+
+- (void)showCircleGuideMode {
+    if (!veteran) {
+        _guideMode = circle;
+    }
+}
+
+- (void)resetGuideMode {
+    if (!veteran && level < 4) {
+        _guideMode = fire;
+    } else {
+        _guideMode = rest;
+    }
+}
+
+- (void)restGuideMode {
+    _guideMode = rest;
+}
+
+- (void)resetFireCircle {
+    fireCircle = [self fireCircleReset];
+}
+
+- (void)moveFireCircleOffscreen {
+    fireCircle = ccp(5000,5000);
+}
+ 
 @end

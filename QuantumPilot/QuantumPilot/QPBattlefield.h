@@ -197,7 +197,6 @@ enum drawguide {
 - (bool)installWarning;
 - (bool)installNextWeapon;
 - (bool)installSlow;
-- (void)finishedDisplayingScore:(CGPoint)l rush:(bool)rush;
 
 - (bool)shieldMaxed;
 
@@ -209,12 +208,16 @@ enum drawguide {
 - (void)playTapSound;
 - (void)playCopySound;
 
-#pragma mark Pilot effects
-
-- (void)registerShieldHit:(QuantumPilot *)p;
-
 - (NSArray *)weapons;
 
 - (float)speedMod;
+
+#pragma mark State Control
+
+- (void)resetGuideMode;
+- (void)showCircleGuideMode;
+- (void)restGuideMode;
+- (void)resetFireCircle;
+- (void)moveFireCircleOffscreen;
 
 @end

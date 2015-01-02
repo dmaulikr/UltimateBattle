@@ -3,6 +3,10 @@
 
 @implementation QPBFDrawingState
 
+- (void)activate:(NSDictionary *)options {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"clearLabels" object:nil];
+}
+
 - (void)pulse {
     if (self.f.time < QPBF_MAX_DRAWING_FRAMES) {
         [self.f.pilot addWaypoint:[self.f playerTouchWithOffset]];

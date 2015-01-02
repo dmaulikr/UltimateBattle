@@ -21,5 +21,7 @@
 - (void)activate:(NSDictionary *)options;
 - (void)deactivate;
 
+- (void)resetFireCircle;
+
 @end
 

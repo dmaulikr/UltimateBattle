@@ -340,10 +340,8 @@ static float innerTopHeight = 5.75;
         b.l = ccp(5000,5000);
         if (!self.shield) {
             [self registerHit];
-            [[QPBattlefield f] registerShieldHit:self];
         } else {
             self.shield--;
-            [[QPBattlefield f] registerShieldHit:self];
         }
         return true;
     }

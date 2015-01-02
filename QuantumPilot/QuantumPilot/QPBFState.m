@@ -37,8 +37,12 @@
     
 }
 
+- (void)resetFireCircle {
+    [self.f moveFireCircleOffscreen];
+}
+
 - (void)activate:(NSDictionary *)options {
-    
+    [self resetFireCircle];
 }
 
 - (void)deactivate {

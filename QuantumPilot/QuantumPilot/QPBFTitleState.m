@@ -4,7 +4,8 @@
 @implementation QPBFTitleState
 
 - (void)activate:(NSDictionary *)options {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"TitleLabel" object:@{@"x":[NSNumber numberWithInteger:    [[UIScreen mainScreen] bounds].size.width / 2], @"y" : [NSNumber numberWithInteger:54], @"text" : @"QUANTUM PILOT"}];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"TitleLabel" object:@{@"x":[NSNumber numberWithInteger:    [[UIScreen mainScreen] bounds].size.width / 2], @"y" : [NSNumber numberWithInteger:12], @"text" : @"QUANTUM PILOT"}];
+    [self.f resetFireCircle];
 
 }
 
@@ -15,6 +16,12 @@
         [[NSNotificationCenter defaultCenter] postNotificationName:@"TitleLabel" object:@{@"x":[NSNumber numberWithInteger:    [[UIScreen mainScreen] bounds].size.width / 2], @"y" : [NSNumber numberWithInteger:-5000], @"text" : @"QUANTUM PILOT"}];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"SubtitleLabel" object:@{@"x":[NSNumber numberWithInteger:    [[UIScreen mainScreen] bounds].size.width / 2], @"y" : [NSNumber numberWithInteger:-5000], @"text" : @"QUANTUM PILOT"}];
     }
+    
+    if ([self.f touchingPlayer:l]) {
+        [self.f restGuideMode];
+    }
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"SpeedLabel" object:@""];
 }
 
 - (void)deactivate {
