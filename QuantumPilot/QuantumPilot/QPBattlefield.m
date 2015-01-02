@@ -639,7 +639,7 @@ static QPBattlefield *instance = nil;
     
     for (Bullet *b in self.bullets) {
         if (b.crushes > 0) {
-            NSMutableArray *a = self.zones[b.zy][b.zx];
+            NSMutableArray *a = self.cloneZones[b.zy][b.zx];
                 for (Bullet *bb in a) {
                     if (ccpDistance(b.l, bb.l) < 4) {
                         [b crushBullet:bb];
