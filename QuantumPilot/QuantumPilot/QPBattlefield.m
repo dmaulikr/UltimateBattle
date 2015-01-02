@@ -415,13 +415,13 @@ static QPBattlefield *instance = nil;
     for (Bullet *b in bs) {
         [b pulse];
         if ([self bulletOutOfBounds:b]) {
+            shotsFired++;
+            totalShotsFired++;  
             [bulletsToErase addObject:b];
         }
     }
     
     for (Bullet *b in bulletsToErase) {
-        shotsFired++;
-        totalShotsFired++;
         if (![self bulletOutOfBounds:b]) {
             NSMutableArray *a = self.zones[b.zy][b.zx];
             [a removeObject:b];
@@ -490,6 +490,22 @@ static QPBattlefield *instance = nil;
     [[NSUserDefaults standardUserDefaults] synchronize];
     lastScore = [self.scoreCycler actualScore];
     [self.scoreCycler reset];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"PathsLabel" object:[NSNumber numberWithInteger:-totalPaths]];
+    
+    NSNumber *accAnnouncement;
+    if (totalShotsFired > 0) {
+        int acc = (int)ceil((((float)totalHits / (float)totalShotsFired)) * 100.0);
+        if (acc > 100) {
+            acc = 100;
+        }
+        accAnnouncement = [NSNumber numberWithInteger:-1 * acc];
+    } else {
+        accAnnouncement = [NSNumber numberWithInteger:0];
+    }
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"AccuracyLabel" object:@{@"accuracy" : [accAnnouncement stringValue], @"corner" : [NSNumber numberWithBool:false]}];
+    
     [self eraseBullets];
     [self eraseClones];
     [self eraseDebris];
@@ -622,6 +638,8 @@ static QPBattlefield *instance = nil;
                 for (Bullet *bb in a) {
                     if (ccpDistance(b.l, bb.l) < 4) {
                         [b crushBullet:bb];
+                        hits++;
+                        totalHits++;
                     }
                 }
         }
@@ -749,6 +767,7 @@ static QPBattlefield *instance = nil;
     hits = 0;
     shotsFired = 0;
     paths = 1;
+    totalPaths++;
 }
 
 - (void)processWaveKill {
@@ -956,6 +975,24 @@ static QPBattlefield *instance = nil;
     }
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ScoreLabel" object:[NSString stringWithFormat:@"%@", scoreDisplay]];
+    
+    if (self.currentState != self.titleState) {
+        NSNumber *accAnnouncement;
+        if (totalShotsFired > 0) {
+            int acc = (int)ceil((((float)totalHits / (float)totalShotsFired)) * 100.0);
+            if (acc > 100) {
+                acc = 100;
+            }
+            accAnnouncement = [NSNumber numberWithInteger:acc];
+        } else {
+            accAnnouncement = [NSNumber numberWithInteger:100];
+        }
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"AccuracyLabel" object:@{@"accuracy" : [accAnnouncement stringValue], @"corner" : [NSNumber numberWithBool:true]}];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"PathsLabel" object:[NSNumber numberWithInteger:totalPaths]];
+    }
+
 }
 
 #pragma mark States

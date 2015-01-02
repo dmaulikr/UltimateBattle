@@ -16,19 +16,16 @@
         [self.f changeState:self.f.drawingState withTouch:l];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"TitleLabel" object:@{@"x":[NSNumber numberWithInteger:    [[UIScreen mainScreen] bounds].size.width / 2], @"y" : [NSNumber numberWithInteger:-5000], @"text" : @"QUANTUM PILOT"}];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"SubtitleLabel" object:@{@"x":[NSNumber numberWithInteger:    [[UIScreen mainScreen] bounds].size.width / 2], @"y" : [NSNumber numberWithInteger:-5000], @"text" : @"QUANTUM PILOT"}];
+        [self.f.pilot announceWeapon];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"ScoreLabel" object:@"0"];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"SpeedLabel" object:@""];
+        
+        [self.f resetScoringTotals];
     }
     
-    if ([self.f touchingPlayer:l]) {
-        [self.f restGuideMode];
-    }
-    
-    [self.f.pilot announceWeapon];
-
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"ScoreLabel" object:@"0"];
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"SpeedLabel" object:@""];
-    
-    [self.f resetScoringTotals];
+    [self.f restGuideMode];
 }
 
 - (void)deactivate {

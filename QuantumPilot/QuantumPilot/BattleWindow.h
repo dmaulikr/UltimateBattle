@@ -27,6 +27,9 @@
 
 @property (strong, nonatomic) UILabel *speedLabel;
 
+@property (strong, nonatomic) UILabel *accuracyLabel;
+@property (strong, nonatomic) UILabel *pathsLabel;
+
 - (NSArray *)labels;
 
 @end

@@ -14,7 +14,7 @@
 @implementation BattleWindow
 
 - (NSArray *)labels {
-    return @[self.l1, self.l2, self.l3, self.l4, self.debrisLabel, self.titleLabel, self.subTitle, self.guide, self.speedLabel];
+    return @[self.l1, self.l2, self.l3, self.l4, self.debrisLabel, self.titleLabel, self.subTitle, self.guide, self.speedLabel, self.accuracyLabel, self.pathsLabel];
 }
 
 - (id)initWithFrame:(CGRect)frame {
@@ -49,6 +49,9 @@
     self.scoreLabel.textColor = [UIColor whiteColor];
     self.scoreLabel.font = [UIFont boldSystemFontOfSize:16];
     self.scoreLabel.textAlignment = NSTextAlignmentCenter;
+    
+    self.accuracyLabel  = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 50, 20)] autorelease];
+    self.pathsLabel     = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 50, 20)] autorelease];
     
     for (UILabel *l in [self labels]) {
         l.backgroundColor = [UIColor clearColor];
@@ -86,6 +89,11 @@
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateScoreLabel:) name:@"ScoreLabel" object:nil];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateAccuracyLabel:) name:@"AccuracyLabel" object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updatePathsLabel:) name:@"PathsLabel" object:nil];
+    
+    
     [[NSNotificationCenter defaultCenter] postNotificationName:@"WeaponLabel" object:[NSNumber numberWithInteger:0]];
     
     return self;
@@ -118,9 +126,10 @@
         self.scoreLabel.textColor = [UIColor whiteColor];
         self.scoreLabel.font = [UIFont boldSystemFontOfSize:16];
     } else {
-        self.scoreLabel.center = ccp(size.width / 2, 60);
+        self.scoreLabel.center = ccp(size.width / 2, 45);
         self.scoreLabel.textColor = [UIColor whiteColor];
-        self.scoreLabel.font = [UIFont boldSystemFontOfSize:19];
+        self.scoreLabel.font = [UIFont boldSystemFontOfSize:26];
+        self.scoreLabel.backgroundColor = [UIColor clearColor];
         self.scoreLabel.text = [NSString stringWithFormat:@"%d", -s];
     }
 }
@@ -172,5 +181,30 @@
     self.debrisLabel.center = ccp([d[@"x"] intValue], height - [d[@"y"] intValue]); //could post 1, use index
     self.debrisLabel.text = d[@"text"];
 }
+
+- (void)updateAccuracyLabel:(NSNotification *)n {
+    CGSize size = [[UIScreen mainScreen] bounds].size;
+    int acc = [[n.object objectForKey:@"accuracy"] intValue];
+
+    self.accuracyLabel.text = [NSString stringWithFormat:@"%d%%", abs(acc)];
+    if ([[n.object objectForKey:@"corner"] boolValue]) {
+        self.accuracyLabel.center = ccp(0.05f * size.width, 10);
+    } else {
+        self.accuracyLabel.center = ccp(0.375f * size.width, .15 * size.height);
+    }
+}
+
+- (void)updatePathsLabel:(NSNotification *)n {
+    CGSize size = [[UIScreen mainScreen] bounds].size;
+    int paths = [n.object intValue];
+    self.pathsLabel.text = [NSString stringWithFormat:@"%d§", abs(paths)];
+    
+    if (paths >= 0) {
+        self.pathsLabel.center = ccp(0.95f * size.width, 10);
+    } else {
+        self.pathsLabel.center = ccp(0.625f * size.width, .15 * size.height);
+    }
+}
+
 
 @end
