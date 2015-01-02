@@ -254,16 +254,15 @@ static float innerTopHeight = 5.75;
     self.time++;
     
     [self prepareDeltaDraw];
-    
-//    if (self.active) {
-  //  }
-//    self.zone = [self zoneKey];
-    
+
+    [self updateZone];
+}
+
+- (void)updateZone {
     if (self.zx != [self calcZx] || self.zy != [self calcZy]) {
         self.zx = (int)self.l.x / 50.0f;
         self.zy = (int)self.l.y / 50.0f;
     }
-
 }
 
 

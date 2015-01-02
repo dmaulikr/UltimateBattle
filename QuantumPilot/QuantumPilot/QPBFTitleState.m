@@ -27,6 +27,8 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ScoreLabel" object:@"0"];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"SpeedLabel" object:@""];
+    
+    [self.f resetScoringTotals];
 }
 
 - (void)deactivate {

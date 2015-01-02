@@ -404,6 +404,7 @@ static QPBattlefield *instance = nil;
     [self playKillSound];
     if (c != self.pilot) {
         hits++;
+        totalHits++;
         [self.scoreCycler score:(10000 * hits)];
         [self createDebrisFromCloneKill:(QuantumClone *)c bullet:b];
     }
@@ -420,6 +421,7 @@ static QPBattlefield *instance = nil;
     
     for (Bullet *b in bulletsToErase) {
         shotsFired++;
+        totalShotsFired++;
         if (![self bulletOutOfBounds:b]) {
             NSMutableArray *a = self.zones[b.zy][b.zx];
             [a removeObject:b];
@@ -974,6 +976,7 @@ static QPBattlefield *instance = nil;
 - (void)changeState:(QPBFState *)state withTouch:(CGPoint)l {
     if (self.currentState == self.fightingState) {
         paths++;
+        totalPaths++;
     }
     [self changeState:state];
     [self.currentState addTouch:l];
@@ -1245,5 +1248,11 @@ static QPBattlefield *instance = nil;
 - (void)moveFireCircleOffscreen {
     fireCircle = ccp(5000,5000);
 }
- 
+
+- (void)resetScoringTotals {
+    totalShotsFired = 0;
+    totalHits = 0;
+    totalPaths = 0;
+}
+
 @end

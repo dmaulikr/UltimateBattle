@@ -126,6 +126,8 @@
 - (int)calcZx;
 - (int)calcZy;
 
+- (void)updateZone;
+
 @end
 
 @protocol QuantumPilotingDelegate <NSObject>

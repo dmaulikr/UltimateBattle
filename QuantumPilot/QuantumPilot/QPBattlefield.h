@@ -49,6 +49,11 @@ enum drawguide {
     int hits;
     int paths;
     int level;
+    
+    int totalShotsFired;
+    int totalHits;
+    int totalPaths;
+    
     int installLevel;
     int weaponLevel; //move to upgrade class?
     int shield;
@@ -219,5 +224,6 @@ enum drawguide {
 - (void)restGuideMode;
 - (void)resetFireCircle;
 - (void)moveFireCircleOffscreen;
+- (void)resetScoringTotals;
 
 @end

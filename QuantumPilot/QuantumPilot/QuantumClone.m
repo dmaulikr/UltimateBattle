@@ -117,25 +117,43 @@ static int fireSignalValue = 89;
 //    NSLog(@"c time: %d p time: %d", timeIndex, pt);
 }
 
-- (void)pulse {
-    if (self.zx != [self calcZx] || self.zy != [self calcZy]) {
-        self.zx = (int)self.l.x / 50.0f;
-        self.zy = (int)self.l.y / 50.0f;
+- (void)pulseRepeat {
+    if (self.active) {
+        [self moveByVelocity];
+        [self fireByWeapons];
+        [self moveThroughTime];
+    } else {
+        [self resetPosition];
     }
+}
+
+- (void)updatePathDrawing {
+    if ([self showPath]) {
+        CGPoint dl = [QuantumClone resetPosition];
+        for (int i = 0; i < latestIndex; i++) {
+            CGPoint p = ccp(dl.x + pastVelocities[i].x, dl.y + pastVelocities[i].y);
+            pathDraws[i] = p;
+            dl = p;
+        }
+    }
+}
+
+- (void)calculateRadius {
+    radius = (float)fireSignal/(float)fireSignalValue * 1.7;
+}
+
+- (void)pulse {
+    [self updateZone];
 
     if (timeDirection != recording) {
-        if (self.active) {
-            [self moveByVelocity];
-            [self fireByWeapons];
-            [self moveThroughTime];
-        } else {
-            [self resetPosition];
-        }
+        [self pulseRepeat];
     } else {
         [self increaseTime];
     }
+    
     [self defineEdges];
-    radius = (float)fireSignal/(float)fireSignalValue * 1.7;
+    [self calculateRadius];
+    [self updatePathDrawing];
 }
 
 - (int)pastWeapon {
@@ -165,14 +183,6 @@ static int fireSignalValue = 89;
     [super draw];
 
     if (self.showPath) {
-
-        CGPoint dl = [QuantumClone resetPosition];
-        for (int i = 0; i < latestIndex; i++) {
-            CGPoint p = ccp(dl.x + pastVelocities[i].x, dl.y + pastVelocities[i].y);
-            pathDraws[i] = p;
-            dl = p;
-        }
-        
         ccDrawPoly(pathDraws, latestIndex, NO);
     }
 }
