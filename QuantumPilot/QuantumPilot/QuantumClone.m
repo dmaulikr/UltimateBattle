@@ -127,16 +127,16 @@ static int fireSignalValue = 89;
     }
 }
 
-- (void)updatePathDrawing {
-    if ([self showPath]) {
-        CGPoint dl = [QuantumClone resetPosition];
-        for (int i = 0; i < latestIndex; i++) {
-            CGPoint p = ccp(dl.x + pastVelocities[i].x, dl.y + pastVelocities[i].y);
-            pathDraws[i] = p;
-            dl = p;
-        }
-    }
-}
+//- (void)updatePathDrawing {
+//    if ([self showPath]) {
+//        CGPoint dl = [QuantumClone resetPosition];
+//        for (int i = 0; i < latestIndex; i++) {
+//            CGPoint p = ccp(dl.x + pastVelocities[i].x, dl.y + pastVelocities[i].y);
+//            pathDraws[i] = p;
+//            dl = p;
+//        }
+//    }
+//}
 
 - (void)calculateRadius {
     radius = (float)fireSignal/(float)fireSignalValue * 1.7;
@@ -153,7 +153,7 @@ static int fireSignalValue = 89;
     
     [self defineEdges];
     [self calculateRadius];
-    [self updatePathDrawing];
+//    [self updatePathDrawing];
 }
 
 - (int)pastWeapon {
@@ -181,10 +181,18 @@ static int fireSignalValue = 89;
 
 - (void)draw {
     [super draw];
-
     if (self.showPath) {
+        
+        CGPoint dl = [QuantumClone resetPosition];
+        for (int i = 0; i < latestIndex; i++) {
+            CGPoint p = ccp(dl.x + pastVelocities[i].x, dl.y + pastVelocities[i].y);
+            pathDraws[i] = p;
+            dl = p;
+        }
+        
         ccDrawPoly(pathDraws, latestIndex, NO);
     }
+    
 }
 
 - (void)activate {
