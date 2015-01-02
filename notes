@@ -31,6 +31,7 @@ DETERMINE: Show wave advance
 
 
 
+
              
 
 recycle overlays:
@@ -59,8 +60,8 @@ show 4 core spendable upgrades at start.
 
 twitter, email, sms, facebook up top below title
 
-below twitter: DEADLINE ACTIVE to DEADLINE STALLED
-below facebook: SCANNER OFF to SHOT PREDICTION
+below twitter: DEADLINE ACTIVE to DEADLINE STALLED and CLONE SHIP
+below facebook: SCANNER OFF to SHOT PREDICTION and CLONE SHIP
 
 MODE upgrades do not appear without 20 plays (or at least 2 core cycles)
 DEADLINE/SCANNER do not appear without 10 playes (or at least 1 core cycle)
@@ -71,6 +72,9 @@ weapons: 1
 tap upgrade with insufficient cores: show prompt to install all power levels for 99c.
 
 
+seamless GIF recording
+GIF to Twitter
+GIF to Facebook
 
 
 gamecenter highscores ?
