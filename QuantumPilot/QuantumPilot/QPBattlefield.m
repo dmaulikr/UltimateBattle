@@ -253,7 +253,6 @@ static QPBattlefield *instance = nil;
         _screenSize = [[UIScreen mainScreen] bounds].size;
         
         level = 1;
-        [self loadActiveScores];
         drawRadius = 10;
         fireCircle = [self fireCircleReset];
         
@@ -272,17 +271,6 @@ static QPBattlefield *instance = nil;
     NSNumber *coreCycles = [[NSUserDefaults standardUserDefaults] objectForKey:@"corecycles"];
     if (coreCycles) {
         _coreCycles = [coreCycles intValue];
-    }
-}
-
-- (void)loadActiveScores {
-    if ([[NSFileManager defaultManager] fileExistsAtPath:[self activePath]]) {
-        self.activeScores = [NSMutableArray arrayWithContentsOfFile:[self activePath]];
-    } else {
-        self.activeScores = [NSMutableArray array];
-        for (int i = 0; i < 10; i++) {
-            [self.activeScores addObject:@"0"];
-        }
     }
 }
 
@@ -480,16 +468,6 @@ static QPBattlefield *instance = nil;
     [self.pilot engage];
 }
 
-- (NSString *)activeScore {
-    int as = [self.activeScores[self.activeScores.count - 1] intValue];
-//    int as = 0;
-//    for (int i = 0; i < 10; i++) {
-//        as+= [self.activeScores[i] intValue];
-//    }
-    
-    return [NSString stringWithFormat:@"%d", -as];
-}
-
 - (void)resetBattlefield {
     veteran = level > 4;
     _guideMode = veteran ? circle : _guideMode;
@@ -508,6 +486,7 @@ static QPBattlefield *instance = nil;
     NSNumber *coreCycles  = [NSNumber numberWithInteger:_coreCycles];
     [[NSUserDefaults standardUserDefaults] setObject:coreCycles forKey:@"corecycles"];
     [[NSUserDefaults standardUserDefaults] synchronize];
+    lastScore = [self.scoreCycler actualScore];
     [self.scoreCycler reset];
     [self eraseBullets];
     [self eraseClones];
@@ -517,9 +496,6 @@ static QPBattlefield *instance = nil;
     [self setupClone];
     [self.dl reset];
     [self resetLevelScore];
-    [self.activeScores removeObjectAtIndex:0];
-    [self.activeScores addObject:[NSString stringWithFormat:@"%d", self.score]];
-    [self.activeScores writeToFile:[self activePath] atomically:true];
     
     self.score = 0;
     [self setupSpeeds];
@@ -974,7 +950,7 @@ static QPBattlefield *instance = nil;
     }
     
     if (self.currentState == self.titleState) {
-        scoreDisplay = [self activeScore];
+        scoreDisplay = [NSString stringWithFormat:@"%d", -lastScore];
     }
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ScoreLabel" object:[NSString stringWithFormat:@"%@", scoreDisplay]];

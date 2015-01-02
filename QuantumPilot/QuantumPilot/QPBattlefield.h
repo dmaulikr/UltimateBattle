@@ -112,6 +112,8 @@ enum drawguide {
     
     int zonesWide;
     int zonesTall;
+    
+    int lastScore;
 }
 
 @property (nonatomic, retain) NSMutableArray *bullets;
@@ -159,8 +161,6 @@ enum drawguide {
 @property (strong, nonatomic) NSArray *weapons;
 
 @property (strong, nonatomic) QPScoreCycler *scoreCycler;
-
-@property (strong, nonatomic) NSMutableArray *activeScores;
 
 - (float)rhythmScale;
 - (void)pulse;
