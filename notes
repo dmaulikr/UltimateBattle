@@ -1,15 +1,28 @@
-move towards debris to collect
-speed balancing
-show 1% to 100%
-1.03
-PAX 2015 entry. Source code available on Procjam.
-final cut pro video
-memory in desc
-action in desc
-
 redo drag voice
 ~
 1.04
+
+Battle Layer: show weapon name at bottom, % top left, 8 x N top right, score top
+Title Layer: Title & last score top.
+             V x kills, N%, 8x, lI| leaderboards
+               scale on transition for 1 s
+               cycle 3s swap to next
+             FB, Email, SMS, Twitter
+               +1 O Core
+
+Upgrade Layer:
+
+Ship Power, Ship Shape, Arsenal, Laser Power
+
+Branch: Draw 8 between ships
+
+Branch: Record past playback
+
+Branch: Draw all paths on start
+
+
+DETERMINE: Show wave advance
+             
 
 recycle overlays:
 
