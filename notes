@@ -2,8 +2,8 @@ redo drag voice
 ~
 1.04
 
-Battle Layer: show weapon name at bottom, % top left, 8 x N top right, score top
-Title Layer: Title & last score top.
+Battle Layer: % top left, 8 x N top right
+Title Layer: 
              V x kills, N%, 8x, lI| leaderboards
                scale on transition for 1 s
                cycle 3s swap to next
