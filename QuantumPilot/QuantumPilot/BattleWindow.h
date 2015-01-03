@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BattleLabel.h"
 
-@interface BattleWindow : UIWindow
+@interface BattleWindow : UIWindow {
+
+}
 
 @property (strong, nonatomic) UILabel *l1;
 @property (strong, nonatomic) UILabel *l2;
@@ -23,13 +26,15 @@
 @property (strong, nonatomic) UILabel *guide;
 
 @property (strong, nonatomic) UILabel *weaponLabel;
-@property (strong, nonatomic) UILabel *scoreLabel;
+@property (strong, nonatomic) BattleLabel *scoreLabel;
 
 @property (strong, nonatomic) UILabel *speedLabel;
 
-@property (strong, nonatomic) UILabel *accuracyLabel;
-@property (strong, nonatomic) UILabel *pathsLabel;
-@property (strong, nonatomic) UILabel *killsLabel;
+@property (strong, nonatomic) BattleLabel *accuracyLabel;
+@property (strong, nonatomic) BattleLabel *pathsLabel;
+@property (strong, nonatomic) BattleLabel *killsLabel;
+
+@property (strong, nonatomic) NSTimer *breath;
 
 - (NSArray *)labels;
 

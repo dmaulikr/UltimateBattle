@@ -38,7 +38,6 @@
 		0E87A21919F30DE200B55AA2 /* Shatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E87A21819F30DE200B55AA2 /* Shatter.m */; };
 		0E8A113E197D56510028A78F /* FastLaser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E8A113D197D56510028A78F /* FastLaser.m */; };
 		0E9356E619BBCD160023E1B0 /* ShieldDebris.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E9356E519BBCD160023E1B0 /* ShieldDebris.m */; };
-		0E96462A1A5627F1001B2AAF /* BattleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E9646291A5627F1001B2AAF /* BattleLayer.m */; };
 		0EA1A36B1A40E95800A098A6 /* l1-18.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0EA1A3691A40E95800A098A6 /* l1-18.wav */; };
 		0EA1A36C1A40E95800A098A6 /* l2-18.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0EA1A36A1A40E95800A098A6 /* l2-18.wav */; };
 		0EA1A36F1A40E9E900A098A6 /* l1-12.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0EA1A36D1A40E9E900A098A6 /* l1-12.wav */; };
@@ -60,6 +59,7 @@
 		0EC9E70F1967907400497BB9 /* DeadLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EC9E70E1967907400497BB9 /* DeadLine.m */; };
 		0ED1F4B6197C5D2800AFD969 /* FastLaserCannon.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ED1F4B5197C5D2800AFD969 /* FastLaserCannon.m */; };
 		0ED2FAA419DC30F200D3E742 /* Arsenal.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ED2FAA319DC30F200D3E742 /* Arsenal.m */; };
+		0EE353911A589D710083A2A7 /* BattleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EE353901A589D710083A2A7 /* BattleLabel.m */; };
 		0EEAC48C16B73BC3005F629F /* QPBFState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEAC48B16B73BC3005F629F /* QPBFState.m */; };
 		0EEAC48F16B73C35005F629F /* QPBFTitleState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEAC48E16B73C35005F629F /* QPBFTitleState.m */; };
 		0EEAC49216B73D2E005F629F /* QPBFDrawingState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEAC49116B73D2E005F629F /* QPBFDrawingState.m */; };
@@ -241,8 +241,6 @@
 		0E8A113D197D56510028A78F /* FastLaser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FastLaser.m; sourceTree = "<group>"; };
 		0E9356E419BBCD160023E1B0 /* ShieldDebris.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShieldDebris.h; sourceTree = "<group>"; };
 		0E9356E519BBCD160023E1B0 /* ShieldDebris.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShieldDebris.m; sourceTree = "<group>"; };
-		0E9646281A5627F1001B2AAF /* BattleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BattleLayer.h; sourceTree = "<group>"; };
-		0E9646291A5627F1001B2AAF /* BattleLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BattleLayer.m; sourceTree = "<group>"; };
 		0EA1A3691A40E95800A098A6 /* l1-18.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "l1-18.wav"; sourceTree = "<group>"; };
 		0EA1A36A1A40E95800A098A6 /* l2-18.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "l2-18.wav"; sourceTree = "<group>"; };
 		0EA1A36D1A40E9E900A098A6 /* l1-12.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "l1-12.wav"; sourceTree = "<group>"; };
@@ -267,6 +265,8 @@
 		0ED1F4B5197C5D2800AFD969 /* FastLaserCannon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FastLaserCannon.m; sourceTree = "<group>"; };
 		0ED2FAA219DC30F200D3E742 /* Arsenal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Arsenal.h; sourceTree = "<group>"; };
 		0ED2FAA319DC30F200D3E742 /* Arsenal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Arsenal.m; sourceTree = "<group>"; };
+		0EE3538F1A589D710083A2A7 /* BattleLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BattleLabel.h; sourceTree = "<group>"; };
+		0EE353901A589D710083A2A7 /* BattleLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BattleLabel.m; sourceTree = "<group>"; };
 		0EEAC48A16B73BC3005F629F /* QPBFState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBFState.h; sourceTree = "<group>"; };
 		0EEAC48B16B73BC3005F629F /* QPBFState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBFState.m; sourceTree = "<group>"; };
 		0EEAC48D16B73C35005F629F /* QPBFTitleState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBFTitleState.h; sourceTree = "<group>"; };
@@ -594,15 +594,6 @@
 				0E53480E1A43CAB90045FEF1 /* copy.m4a */,
 			);
 			name = Guide;
-			sourceTree = "<group>";
-		};
-		0E9646271A5627DC001B2AAF /* Layers */ = {
-			isa = PBXGroup;
-			children = (
-				0E9646281A5627F1001B2AAF /* BattleLayer.h */,
-				0E9646291A5627F1001B2AAF /* BattleLayer.m */,
-			);
-			name = Layers;
 			sourceTree = "<group>";
 		};
 		0EA1A3681A40E94F00A098A6 /* Combat */ = {
@@ -1159,7 +1150,6 @@
 		BFB9DD5D1633CF640074EB70 /* Battlefield */ = {
 			isa = PBXGroup;
 			children = (
-				0E9646271A5627DC001B2AAF /* Layers */,
 				0E1292AB1A049F8F006A8BAB /* Sounds */,
 				0EF96AAE197598BB00E5DBE2 /* Cycling */,
 				0EEAC48816B73BB9005F629F /* States */,
@@ -1189,6 +1179,8 @@
 				BFB9DD641633D04E0074EB70 /* QuantumLayer.h */,
 				BFB9DD651633D04E0074EB70 /* QuantumLayer.m */,
 				0E22E95C19ECCAF900261AC5 /* BattleWindow.h */,
+				0EE3538F1A589D710083A2A7 /* BattleLabel.h */,
+				0EE353901A589D710083A2A7 /* BattleLabel.m */,
 				0E22E95D19ECCAF900261AC5 /* BattleWindow.m */,
 			);
 			name = "iOS Core";
@@ -1385,6 +1377,7 @@
 				BF0EE1A0163319BA002942A0 /* CGPointExtension.m in Sources */,
 				BF0EE1A3163319BA002942A0 /* NSThread+performBlock.m in Sources */,
 				0E0FE18119D93FC6001EA38F /* WideSpiralLaser.m in Sources */,
+				0EE353911A589D710083A2A7 /* BattleLabel.m in Sources */,
 				BF0EE1A7163319BA002942A0 /* TGAlib.m in Sources */,
 				BF0EE1AA163319BA002942A0 /* TransformUtils.m in Sources */,
 				0E0FE17E19D93DE4001EA38F /* CenterWideSpiralLaser.m in Sources */,
@@ -1417,7 +1410,6 @@
 				BF386A8E16360BC40001FFE2 /* QuantumClone.m in Sources */,
 				BF386A9616360D600001FFE2 /* VRGeometry.m in Sources */,
 				BF8A7698163645300032AF8F /* Bullet.m in Sources */,
-				0E96462A1A5627F1001B2AAF /* BattleLayer.m in Sources */,
 				0E773A2619D8FE1100009DA0 /* WideTriLaser.m in Sources */,
 				BF8A769F163645C30032AF8F /* SingleLaser.m in Sources */,
 				BF8A76A2163646270032AF8F /* QPBattlefield.m in Sources */,

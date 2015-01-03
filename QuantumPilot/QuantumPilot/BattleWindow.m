@@ -19,9 +19,7 @@ static float topCenter = 0.18f;
     return @[self.l1, self.l2, self.l3, self.l4, self.debrisLabel, self.titleLabel, self.subTitle, self.guide, self.speedLabel, self.accuracyLabel, self.pathsLabel, self.killsLabel];
 }
 
-- (id)initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame];
-    
+- (void)setupLabels {
     CGSize size = [[UIScreen mainScreen] bounds].size;
     
     self.l1 = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 90)] autorelease];
@@ -33,13 +31,13 @@ static float topCenter = 0.18f;
     
     self.titleLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, size.width, 100)] autorelease];
     self.subTitle = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, size.width, 60)] autorelease];
-
+    
     self.guide = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 106, 60)] autorelease];
-
+    
     float height = size.height - 10;
     
     self.speedLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 50, 50)] autorelease];
-    self.killsLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 50, 50)] autorelease];
+    self.killsLabel = [[[BattleLabel alloc] initWithFrame:CGRectMake(0, 0, 50, 50)] autorelease];
     
     self.weaponLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0, height-27, 200, 40)] autorelease];
     self.weaponLabel.textColor = [UIColor whiteColor];
@@ -47,15 +45,50 @@ static float topCenter = 0.18f;
     self.weaponLabel.font = [UIFont boldSystemFontOfSize:16];
     self.weaponLabel.textAlignment = NSTextAlignmentCenter;
     
-    self.scoreLabel = [[[UILabel alloc] initWithFrame:CGRectMake(size.width -200, height-27, 200, 40)] autorelease];
+    self.scoreLabel = [[[BattleLabel alloc] initWithFrame:CGRectMake(size.width -200, height-27, 200, 40) size:16] autorelease];
     self.scoreLabel.center = ccp(size.width / 2, 30);
     self.scoreLabel.textColor = [UIColor whiteColor];
-    self.scoreLabel.font = [UIFont boldSystemFontOfSize:16];
+    //    self.scoreLabel.font = [UIFont boldSystemFontOfSize:16];
     self.scoreLabel.textAlignment = NSTextAlignmentCenter;
     
-    self.accuracyLabel  = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 50, 20)] autorelease];
-    self.pathsLabel     = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 50, 20)] autorelease];
+    self.accuracyLabel  = [[[BattleLabel alloc] initWithFrame:CGRectMake(0, 0, 50, 20)] autorelease];
+    self.pathsLabel     = [[[BattleLabel alloc] initWithFrame:CGRectMake(0, 0, 50, 20)] autorelease];
+}
+
+- (void)setupNotifications {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateL1:) name:@"L1" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateL2:) name:@"L2" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateL3:) name:@"L3" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateL4:) name:@"L4" object:nil];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateGuide:) name:@"Guide" object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateDebrisLabel:) name:@"DebrisLabel" object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateTitleLabel:) name:@"TitleLabel" object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateSubtitleLabel:) name:@"SubtitleLabel" object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateSpeedLabel:) name:@"SpeedLabel" object:nil];
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hideLabels) name:@"clearLabels" object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateWeaponLabel:) name:@"WeaponLabel" object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateScoreLabel:) name:@"ScoreLabel" object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateAccuracyLabel:) name:@"AccuracyLabel" object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updatePathsLabel:) name:@"PathsLabel" object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateKillsLabel:) name:@"KillsLabel" object:nil];
+    
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"WeaponLabel" object:[NSNumber numberWithInteger:0]];
+}
+
+- (void)styleLabels {
     for (UILabel *l in [self labels]) {
         l.backgroundColor = [UIColor clearColor];
         l.textColor = [UIColor whiteColor];
@@ -69,39 +102,19 @@ static float topCenter = 0.18f;
     
     self.titleLabel.font = [UIFont systemFontOfSize:30];
     self.subTitle.font = [UIFont systemFontOfSize:16];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateL1:) name:@"L1" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateL2:) name:@"L2" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateL3:) name:@"L3" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateL4:) name:@"L4" object:nil];
+}
 
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateGuide:) name:@"Guide" object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateDebrisLabel:) name:@"DebrisLabel" object:nil];
-
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateTitleLabel:) name:@"TitleLabel" object:nil];
-
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateSubtitleLabel:) name:@"SubtitleLabel" object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateSpeedLabel:) name:@"SpeedLabel" object:nil];
-
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hideLabels) name:@"clearLabels" object:nil];
-
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateWeaponLabel:) name:@"WeaponLabel" object:nil];
-
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateScoreLabel:) name:@"ScoreLabel" object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateAccuracyLabel:) name:@"AccuracyLabel" object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updatePathsLabel:) name:@"PathsLabel" object:nil];
-
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateKillsLabel:) name:@"KillsLabel" object:nil];
-
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"WeaponLabel" object:[NSNumber numberWithInteger:0]];
-    
+- (id)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    [self setupLabels];
+    [self styleLabels];
+    [self setupNotifications];
+    self.breath = [NSTimer scheduledTimerWithTimeInterval:0.016 target:self selector:@selector(breathe) userInfo:nil repeats:YES];
     return self;
+}
+
+- (void)breathe {
+    [self.scoreLabel pulse];
 }
 
 - (void)updateWeaponLabel:(NSNotification *)n {
@@ -129,7 +142,8 @@ static float topCenter = 0.18f;
         self.scoreLabel.text = n.object;
         self.scoreLabel.center = ccp(size.width / 2, 30);
         self.scoreLabel.textColor = [UIColor whiteColor];
-        self.scoreLabel.font = [UIFont boldSystemFontOfSize:16];
+//        self.scoreLabel.font = [UIFont boldSystemFontOfSize:16];
+        [self.scoreLabel resetAnimation];
     } else {
         self.scoreLabel.center = ccp(size.width / 2, 45);
         self.scoreLabel.textColor = [UIColor whiteColor];

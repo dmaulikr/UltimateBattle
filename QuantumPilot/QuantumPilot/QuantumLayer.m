@@ -35,6 +35,7 @@
 
 - (void)breathe {
     [self.f pulse];
+    
 }
 
 - (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
