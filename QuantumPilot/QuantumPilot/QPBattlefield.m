@@ -477,9 +477,6 @@ static QPBattlefield *instance = nil;
     if (_coresCollected > 53) {
         _coresCollected = 0;
         _coreCycles++;
-        if (_coreCycles > 101) {
-            _coreCycles = 101;
-        }
     }
     NSNumber *cores = [NSNumber numberWithInteger:_coresCollected];
     [[NSUserDefaults standardUserDefaults] setObject:cores forKey:@"cores"];
