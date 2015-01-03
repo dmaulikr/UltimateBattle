@@ -489,6 +489,8 @@ static QPBattlefield *instance = nil;
     [self.scoreCycler reset];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"PathsLabel" object:[NSNumber numberWithInteger:-totalPaths]];
+
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"KillsLabel" object:[NSNumber numberWithInteger:totalHits]];
     
     NSNumber *accAnnouncement;
     if (totalShotsFired > 0) {
@@ -601,8 +603,8 @@ static QPBattlefield *instance = nil;
             
             bool greaterZeroX = c.zx > 0;
             bool greaterZeroY = c.zy > 0;
-            bool lessMaxX = c.zx < zonesWide;
-            bool lessMaxY = c.zy < zonesTall;
+            bool lessMaxX = c.zx < zonesWide - 1;
+            bool lessMaxY = c.zy < zonesTall - 1;
             if (greaterZeroX) {
                 [self processPilotBulletsForZone:self.zones[c.zy][c.zx-1] forClone:c];
                 if (greaterZeroY) {
@@ -663,8 +665,8 @@ static QPBattlefield *instance = nil;
     [self processCloneBulletsInZone:self.cloneZones[self.pilot.zy][self.pilot.zx]];
     bool greaterZeroX = self.pilot.zx > 0;
     bool greaterZeroY = self.pilot.zy > 0;
-    bool lessMaxX = self.pilot.zx < zonesWide;
-    bool lessMaxY = self.pilot.zy < zonesTall;
+    bool lessMaxX = self.pilot.zx < zonesWide - 1;
+    bool lessMaxY = self.pilot.zy < zonesTall - 1;
     if (greaterZeroX) {
         [self processCloneBulletsInZone:self.cloneZones[self.pilot.zy][self.pilot.zx-1]];
         if (greaterZeroY) {

@@ -11,10 +11,12 @@
 #import "Arsenal.h"
 #import "Weapon.h"
 
+static float topCenter = 0.18f;
+
 @implementation BattleWindow
 
 - (NSArray *)labels {
-    return @[self.l1, self.l2, self.l3, self.l4, self.debrisLabel, self.titleLabel, self.subTitle, self.guide, self.speedLabel, self.accuracyLabel, self.pathsLabel];
+    return @[self.l1, self.l2, self.l3, self.l4, self.debrisLabel, self.titleLabel, self.subTitle, self.guide, self.speedLabel, self.accuracyLabel, self.pathsLabel, self.killsLabel];
 }
 
 - (id)initWithFrame:(CGRect)frame {
@@ -37,6 +39,7 @@
     float height = size.height - 10;
     
     self.speedLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 50, 50)] autorelease];
+    self.killsLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 50, 50)] autorelease];
     
     self.weaponLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0, height-27, 200, 40)] autorelease];
     self.weaponLabel.textColor = [UIColor whiteColor];
@@ -92,7 +95,9 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateAccuracyLabel:) name:@"AccuracyLabel" object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updatePathsLabel:) name:@"PathsLabel" object:nil];
-    
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateKillsLabel:) name:@"KillsLabel" object:nil];
+
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"WeaponLabel" object:[NSNumber numberWithInteger:0]];
     
@@ -189,8 +194,10 @@
     self.accuracyLabel.text = [NSString stringWithFormat:@"%d%%", abs(acc)];
     if ([[n.object objectForKey:@"corner"] boolValue]) {
         self.accuracyLabel.center = ccp(0.05f * size.width, 10);
+        self.accuracyLabel.font = [UIFont systemFontOfSize:12];
     } else {
-        self.accuracyLabel.center = ccp(0.375f * size.width, .15 * size.height);
+        self.accuracyLabel.center = ccp(0.50f * size.width, topCenter * size.height);
+        self.accuracyLabel.font = [UIFont systemFontOfSize:18];
     }
 }
 
@@ -201,9 +208,19 @@
     
     if (paths >= 0) {
         self.pathsLabel.center = ccp(0.95f * size.width, 10);
+        self.pathsLabel.font =[UIFont systemFontOfSize:12];
     } else {
-        self.pathsLabel.center = ccp(0.625f * size.width, .15 * size.height);
+        self.pathsLabel.center = ccp(0.75f * size.width, topCenter *  size.height);
+        self.pathsLabel.font =[UIFont systemFontOfSize:18];
     }
+}
+
+- (void)updateKillsLabel:(NSNotification *)n {
+    CGSize size = [[UIScreen mainScreen] bounds].size;
+    int kills = [n.object intValue];
+    self.killsLabel.text = [NSString stringWithFormat:@"%dX", abs(kills)];
+    self.killsLabel.center = ccp(0.25f * size.width, topCenter * size.height);
+    self.killsLabel.font =[UIFont systemFontOfSize:18];
 }
 
 

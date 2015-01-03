@@ -5,7 +5,7 @@ redo drag voice
 vert center and enlarge TITLE LAYER scoring
 
 Title Layer: 
-             O Core x kills, lI| leaderboards
+             17X (for kills) draw with ccDraw retangles leaderboards
                scale on transition for 1 s
                cycle 3s swap to next
              FB, Email, SMS, Twitter
@@ -19,6 +19,8 @@ Upgrade Layer:
 
 Ship Power, Ship Shape, Arsenal, Laser Power
 
+Bottom core shows O instead of %
+
 Gamecenter: %@
 
 I rocked
@@ -26,9 +28,10 @@ I dismantled N ships
 I crushed N cores
 I melted N
 
-DETERMINE: Show wave advance
+DETERMINE: Show wave advance. WAVE 1 expanding from below ship (after first kill?. Must reset! They should not know alarm!)
 
-
+WAVE RESET
+WAVE 1
 
 
 
@@ -40,11 +43,11 @@ to left of ship:   cancel(rename) mode 99c (IF CANCEL MODE DOESNT WORK >> RESET 
 to right of ship:  special weapon mode 99c
 
 below cancel mode:    ship power
-right of ship power:  shield power
+SHIP SHAPE:           A ship -- FAT SHIP. Show different shapes. START WITH FAT SHIT.
 left of new weapon:   laser power
 below special weapon: NOVA SPLITTER
 
-below each of these 4 except NOVA SPLITTER is a % ranging from 10 to 100%, split by 18%.
+below ship power, laser power: is a % ranging from 10 to 100%, split by 18%.
 once the 5th upgrade is installed, tapping will cycle by 18% to 100%, 10%
 colored circle below each in the overlay
 

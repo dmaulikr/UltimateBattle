@@ -29,6 +29,7 @@
 
 @property (strong, nonatomic) UILabel *accuracyLabel;
 @property (strong, nonatomic) UILabel *pathsLabel;
+@property (strong, nonatomic) UILabel *killsLabel;
 
 - (NSArray *)labels;
 
