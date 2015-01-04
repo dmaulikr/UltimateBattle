@@ -499,6 +499,12 @@ static QPBattlefield *instance = nil;
 
     [[NSNotificationCenter defaultCenter] postNotificationName:@"KillsLabel" object:@{@"kills" : [NSNumber numberWithInteger:totalHits]}];
     
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"KillsPulse" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"AccuracyPulse" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ScorePulse" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"PathsPulse" object:nil];
+
+    
     NSNumber *accAnnouncement;
     if (totalShotsFired > 0) {
         int acc = (int)ceil((((float)totalHits / (float)totalShotsFired)) * 100.0);
@@ -645,7 +651,7 @@ static QPBattlefield *instance = nil;
                     if (ccpDistance(b.l, bb.l) < 4) {
                         [b crushBullet:bb];
                         hits++;
-                        totalHits++;
+//                        totalHits++;
                     }
                 }
         }
