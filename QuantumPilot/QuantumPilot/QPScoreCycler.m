@@ -11,7 +11,9 @@
 @implementation QPScoreCycler
 
 - (void)score:(int)score {
-    s+= score;
+    if (score > 0) {
+        s+= score;
+    }
 }
 
 - (void)reset {
@@ -20,21 +22,19 @@
 }
 
 - (void)pulse {
+    if (s > 999) {
+        s-= 999;
+        ds+=999;
+    }
+    
+    if (s > 99) {
+        s-= 99;
+        ds+= 99;
+    }
+    
     if (s > 0) {
-        if (s > 999) {
-            s-= 999;
-            ds+=999;
-        }
-        
-        if (s > 99) {
-            s-= 99;
-            ds+= 99;
-        }
-        
-        if (s > 0) {
-            s--;
-            ds++;
-        }
+        s--;
+        ds++;
     }
 }
 

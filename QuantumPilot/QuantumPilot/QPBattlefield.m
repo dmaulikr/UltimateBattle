@@ -405,6 +405,7 @@ static QPBattlefield *instance = nil;
     if (c != self.pilot) {
         hits++;
         totalHits++;
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"ScorePulse" object:nil];
         [self.scoreCycler score:(10000 * hits)];
         [self createDebrisFromCloneKill:(QuantumClone *)c bullet:b];
     }

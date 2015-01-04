@@ -26,5 +26,6 @@
 //- (void)addScoring:(NSDictionary *)d;
 
 - (void)pulse;
+- (void)updateScore;
 
 @end

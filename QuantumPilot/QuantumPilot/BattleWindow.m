@@ -45,7 +45,7 @@ static float topCenter = 0.18f;
     self.weaponLabel.font = [UIFont boldSystemFontOfSize:16];
     self.weaponLabel.textAlignment = NSTextAlignmentCenter;
     
-    self.scoreLabel = [[[BattleLabel alloc] initWithFrame:CGRectMake(size.width -200, height-27, 200, 40) size:16] autorelease];
+    self.scoreLabel = [[[ScoreLabel alloc] initWithFrame:CGRectMake(size.width -200, height-27, 200, 40) size:16] autorelease];
     self.scoreLabel.center = ccp(size.width / 2, 30);
     self.scoreLabel.textColor = [UIColor whiteColor];
     //    self.scoreLabel.font = [UIFont boldSystemFontOfSize:16];
@@ -143,11 +143,10 @@ static float topCenter = 0.18f;
         self.scoreLabel.center = ccp(size.width / 2, 30);
         self.scoreLabel.textColor = [UIColor whiteColor];
 //        self.scoreLabel.font = [UIFont boldSystemFontOfSize:16];
-        [self.scoreLabel resetAnimation];
     } else {
         self.scoreLabel.center = ccp(size.width / 2, 45);
         self.scoreLabel.textColor = [UIColor whiteColor];
-        self.scoreLabel.font = [UIFont boldSystemFontOfSize:26];
+//        self.scoreLabel.font = [UIFont boldSystemFontOfSize:26];
         self.scoreLabel.backgroundColor = [UIColor clearColor];
         self.scoreLabel.text = [NSString stringWithFormat:@"%d", -s];
     }

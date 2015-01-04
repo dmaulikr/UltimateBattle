@@ -22,4 +22,6 @@
 
 - (void)pulse;
 
+- (void)setupNotifications;
+
 @end

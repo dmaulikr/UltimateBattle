@@ -10,35 +10,41 @@
 
 @implementation BattleLabel
 
+- (void)setupNotifications {
+    
+}
+
 - (id)initWithFrame:(CGRect)frame size:(int)fontSize {
     self = [super initWithFrame:frame];
     [self resetAnimation];
+    [self setupNotifications];
     defaultSize = fontSize ?: 12;
     return self;
 }
 
 - (void)resetTimer {
-    timer = 5;
+    timer = 1;
 }
 
 - (bool)maxFont {
-    return bonusFont > 20;
+    return bonusFont > 12;
 }
 
 - (void)pulse {
     if (timer > 0) {
         timer--;
-        if (timer < 0) {
+        if (timer <= 0) {
             [self resetTimer];
             bonusFont++;
+        [self updateFont];
             if ([self maxFont]) {
                 timer = -1;
                 bonusFont = 0;
+                [self updateFont];
             }
-            [self updateFont];
         }
     } else {
-            
+
     }
 }
 

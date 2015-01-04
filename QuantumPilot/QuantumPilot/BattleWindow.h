@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "BattleLabel.h"
+#import "ScoreLabel.h"
 
 @interface BattleWindow : UIWindow {
 
@@ -26,7 +27,7 @@
 @property (strong, nonatomic) UILabel *guide;
 
 @property (strong, nonatomic) UILabel *weaponLabel;
-@property (strong, nonatomic) BattleLabel *scoreLabel;
+@property (strong, nonatomic) ScoreLabel *scoreLabel;
 
 @property (strong, nonatomic) UILabel *speedLabel;
 
