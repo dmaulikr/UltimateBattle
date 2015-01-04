@@ -499,11 +499,7 @@ static QPBattlefield *instance = nil;
 
     [[NSNotificationCenter defaultCenter] postNotificationName:@"KillsLabel" object:@{@"kills" : [NSNumber numberWithInteger:totalHits]}];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"KillsPulse" object:nil];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"AccuracyPulse" object:nil];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ScorePulse" object:nil];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"PathsPulse" object:nil];
-
     
     NSNumber *accAnnouncement;
     if (totalShotsFired > 0) {
