@@ -405,6 +405,11 @@ static QPBattlefield *instance = nil;
     if (c != self.pilot) {
         hits++;
         totalHits++;
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"KillsLabel" object:@{@"kills" : [NSNumber numberWithInt:totalHits], @"x" : [NSNumber numberWithFloat:c.l.x], @"y" : [NSNumber numberWithFloat:_battlefieldFrame.size.height - c.l.y]}];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"KillsPulse" object:nil];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"AccuracyPulse" object:nil];
+
         [[NSNotificationCenter defaultCenter] postNotificationName:@"ScorePulse" object:nil];
         [self.scoreCycler score:(10000 * hits)];
         [self createDebrisFromCloneKill:(QuantumClone *)c bullet:b];
@@ -417,7 +422,8 @@ static QPBattlefield *instance = nil;
         [b pulse];
         if ([self bulletOutOfBounds:b]) {
             shotsFired++;
-            totalShotsFired++;  
+            totalShotsFired++;
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"AccuracyPulse" object:nil];
             [bulletsToErase addObject:b];
         }
     }
@@ -491,7 +497,7 @@ static QPBattlefield *instance = nil;
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"PathsLabel" object:[NSNumber numberWithInteger:-totalPaths]];
 
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"KillsLabel" object:[NSNumber numberWithInteger:totalHits]];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"KillsLabel" object:@{@"kills" : [NSNumber numberWithInteger:totalHits]}];
     
     NSNumber *accAnnouncement;
     if (totalShotsFired > 0) {
@@ -768,6 +774,7 @@ static QPBattlefield *instance = nil;
     shotsFired = 0;
     paths = 1;
     totalPaths++;
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"PathsPulse" object:nil];
 }
 
 - (void)processWaveKill {
@@ -1014,6 +1021,7 @@ static QPBattlefield *instance = nil;
     if (self.currentState == self.fightingState) {
         paths++;
         totalPaths++;
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"PathsPulse" object:nil];        
     }
     [self changeState:state];
     [self.currentState addTouch:l];

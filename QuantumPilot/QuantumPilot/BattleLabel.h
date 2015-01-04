@@ -16,6 +16,8 @@
 
 @property (nonatomic, readonly) int fontSize;
 
+- (void)processMaxFont;
+
 - (id)initWithFrame:(CGRect)frame size:(int)fontSize;
 
 - (void)resetAnimation;

@@ -7,8 +7,8 @@
 #import "Arsenal.h"
 
 @interface QuantumPilot() {
-    CGPoint future[4551];
-    CGPoint circles[4551];
+    CGPoint future[8551];
+    CGPoint circles[8551];
     CGPoint weapon;
 }
 
@@ -378,7 +378,7 @@ static float innerTopHeight = 5.75;
 }
 
 - (void)emptyDeltas {
-    for (int i = 0; i < 4551; i++) {
+    for (int i = 0; i < 8551; i++) {
         drawingDeltas[i] = ccp(-5,-5);
     }
 }
@@ -392,7 +392,7 @@ static float innerTopHeight = 5.75;
 }
 
 - (void)resetFuture {
-    for (int i = 0; i < 4551; i++) {
+    for (int i = 0; i < 8551; i++) {
         future[i] = self.l;
     }
 }

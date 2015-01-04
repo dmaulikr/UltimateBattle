@@ -10,7 +10,9 @@
 #import "BattleLabel.h"
 #import "ScoreLabel.h"
 #import "AccuracyLabel.h"
+#import "KillsLabel.h"
 #import "CCScheduler.h"
+#import "PathsLabel.h"
 
 @interface BattleWindow : UIWindow {
     float _time;
@@ -34,10 +36,10 @@
 @property (strong, nonatomic) UILabel *speedLabel;
 
 @property (strong, nonatomic) AccuracyLabel *accuracyLabel;
-@property (strong, nonatomic) BattleLabel *pathsLabel;
-@property (strong, nonatomic) BattleLabel *killsLabel;
+@property (strong, nonatomic) PathsLabel *pathsLabel;
+@property (strong, nonatomic) KillsLabel *killsLabel;
 
-@property (strong, nonatomic) CCTimer *breath;
+@property (strong, nonatomic) NSTimer *breath;
 
 - (NSArray *)labels;
 

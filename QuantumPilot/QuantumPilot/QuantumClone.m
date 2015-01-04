@@ -13,14 +13,14 @@
 
 @implementation QuantumClone
 
-CGPoint pathDraws[4551];
+CGPoint pathDraws[8551];
 
 static int fireSignalValue = 89;
 
 - (id)copyWithZone:(NSZone *)zone {
     QuantumClone *c = [[[QuantumClone alloc] init] autorelease];
     c.weapon = self.weapon;
-    for (NSInteger i = 0; i < 4551; i++) {
+    for (NSInteger i = 0; i < 8551; i++) {
         [c recordVelocity:pastVelocities[i] firing:pastFireTimings[i] weapon:pastWeapons[i]];
         [c increaseTime];
     }

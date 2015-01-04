@@ -10,6 +10,7 @@
 #import "cocos2d.h"
 #import "Arsenal.h"
 #import "Weapon.h"
+#import "CCScheduler.h"
 
 static float topCenter = 0.18f;
 
@@ -37,7 +38,7 @@ static float topCenter = 0.18f;
     float height = size.height - 10;
     
     self.speedLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 50, 50)] autorelease];
-    self.killsLabel = [[[BattleLabel alloc] initWithFrame:CGRectMake(0, 0, 50, 50)] autorelease];
+    self.killsLabel = [[[KillsLabel alloc] initWithFrame:CGRectMake(0, 0, 50, 50) size:16] autorelease];
     
     self.weaponLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0, height-27, 200, 40)] autorelease];
     self.weaponLabel.textColor = [UIColor whiteColor];
@@ -51,8 +52,8 @@ static float topCenter = 0.18f;
     //    self.scoreLabel.font = [UIFont boldSystemFontOfSize:16];
     self.scoreLabel.textAlignment = NSTextAlignmentCenter;
     
-    self.accuracyLabel  = [[[AccuracyLabel alloc] initWithFrame:CGRectMake(0, 0, 50, 20)] autorelease];
-    self.pathsLabel     = [[[BattleLabel alloc] initWithFrame:CGRectMake(0, 0, 50, 20)] autorelease];
+    self.accuracyLabel  = [[[AccuracyLabel alloc] initWithFrame:CGRectMake(0, 0, 90, 90) size:16] autorelease];
+    self.pathsLabel     = [[[PathsLabel alloc] initWithFrame:CGRectMake(0, 0, 90, 90) size:16] autorelease];
 }
 
 - (void)setupNotifications {
@@ -113,21 +114,27 @@ static float topCenter = 0.18f;
     [self setupLabels];
     [self styleLabels];
     [self setupNotifications];
-    self.breath = [CCTimer timerWithTarget:self selector:@selector(breathe:) interval:0.16f];
+    self.breath = [NSTimer scheduledTimerWithTimeInterval:0.016 target:self selector:@selector(breathe) userInfo:nil repeats:YES];
     return self;
 }
 
-- (void)breathe:(ccTime)deltaTime {
-    _time+= deltaTime;
-    if (_time >= 1) {
-        _time--;
-        [self.scoreLabel pulse];
-    }
-}
-
-//- (void)breathe {
-//    [self.scoreLabel pulse];
+//- (void)breathe:(ccTime)deltaTime {
+//    _time+= deltaTime;
+//    if (_time >= 1) {
+//        _time--;
+//        [self.scoreLabel pulse];
+//        [self.killsLabel pulse];
+//        [self.accuracyLabel pulse];
+//    }
 //}
+
+- (void)breathe {
+    [self.scoreLabel pulse];
+    [self.killsLabel pulse];
+    [self.pathsLabel pulse];
+    [self.accuracyLabel pulse];
+
+}
 
 - (void)updateWeaponLabel:(NSNotification *)n {
     int i = [n.object intValue];
@@ -215,14 +222,14 @@ static float topCenter = 0.18f;
 - (void)updateAccuracyLabel:(NSNotification *)n {
     CGSize size = [[UIScreen mainScreen] bounds].size;
     int acc = [[n.object objectForKey:@"accuracy"] intValue];
-
+    
     self.accuracyLabel.text = [NSString stringWithFormat:@"%d%%", abs(acc)];
     if ([[n.object objectForKey:@"corner"] boolValue]) {
-        self.accuracyLabel.center = ccp(0.05f * size.width, 10);
-        self.accuracyLabel.font = [UIFont systemFontOfSize:12];
+        self.accuracyLabel.center = ccp(0.1f * size.width, 10);
+    //    self.accuracyLabel.font = [UIFont systemFontOfSize:12];
     } else {
         self.accuracyLabel.center = ccp(0.50f * size.width, topCenter * size.height);
-        self.accuracyLabel.font = [UIFont systemFontOfSize:18];
+//        self.accuracyLabel.font = [UIFont systemFontOfSize:18];
     }
 }
 
@@ -232,19 +239,26 @@ static float topCenter = 0.18f;
     self.pathsLabel.text = [NSString stringWithFormat:@"%d§", abs(paths)];
     
     if (paths >= 0) {
-        self.pathsLabel.center = ccp(0.95f * size.width, 10);
-        self.pathsLabel.font =[UIFont systemFontOfSize:12];
+        self.pathsLabel.center = ccp(0.9f * size.width, 10);
+      //  self.pathsLabel.font =[UIFont systemFontOfSize:12];
     } else {
         self.pathsLabel.center = ccp(0.75f * size.width, topCenter *  size.height);
-        self.pathsLabel.font =[UIFont systemFontOfSize:18];
+    //    self.pathsLabel.font =[UIFont systemFontOfSize:18];
     }
 }
 
 - (void)updateKillsLabel:(NSNotification *)n {
     CGSize size = [[UIScreen mainScreen] bounds].size;
-    int kills = [n.object intValue];
+    int kills = [n.object[@"kills"] intValue];
+    if (n.object[@"x"]) {
+        self.killsLabel.center = ccp([n.object[@"x"] floatValue], ([n.object[@"y"] floatValue]));
+    } else {
+        self.killsLabel.center = ccp(0.25f * size.width, topCenter * size.height);
+        self.killsLabel.alpha = 1;
+        
+    }
+    
     self.killsLabel.text = [NSString stringWithFormat:@"%dX", abs(kills)];
-    self.killsLabel.center = ccp(0.25f * size.width, topCenter * size.height);
     self.killsLabel.font =[UIFont systemFontOfSize:18];
 }
 

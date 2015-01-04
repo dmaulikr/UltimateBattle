@@ -16,7 +16,7 @@
     CGPoint outerEdges[4];
     float radius;
     float innerRadius;
-    CGPoint drawingDeltas[4551];
+    CGPoint drawingDeltas[8551];
     int drawFrameTotal;
     
     bool _reachedTarget;

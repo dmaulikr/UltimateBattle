@@ -30,21 +30,25 @@
     return bonusFont > 12;
 }
 
+
+
+- (void)processMaxFont {
+    timer = -1;
+    bonusFont = 0;
+}
+
 - (void)pulse {
     if (timer > 0) {
         timer--;
         if (timer <= 0) {
             [self resetTimer];
             bonusFont++;
-        [self updateFont];
+        
             if ([self maxFont]) {
-                timer = -1;
-                bonusFont = 0;
-                [self updateFont];
+                [self processMaxFont];
             }
+            [self updateFont];
         }
-    } else {
-
     }
 }
 

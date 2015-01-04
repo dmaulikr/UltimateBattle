@@ -43,7 +43,7 @@ enum drawguide {
     
     int _circleCharges;
     
-    CGPoint _deltas[4551];
+    CGPoint _deltas[8551];
     
     int shotsFired;
     int hits;

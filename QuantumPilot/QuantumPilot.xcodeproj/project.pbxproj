@@ -22,6 +22,8 @@
 		0E1292B81A049FAA006A8BAB /* corecrusher.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0E1292B11A049FAA006A8BAB /* corecrusher.m4a */; };
 		0E1292B91A049FAA006A8BAB /* dismantler.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0E1292B21A049FAA006A8BAB /* dismantler.m4a */; };
 		0E1292D71A04ACB1006A8BAB /* collect.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0E1292D61A04ACB1006A8BAB /* collect.wav */; };
+		0E1D29941A594B4300ACF3C9 /* KillsLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E1D29931A594B4300ACF3C9 /* KillsLabel.m */; };
+		0E1D29971A59518D00ACF3C9 /* PathsLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E1D29961A59518D00ACF3C9 /* PathsLabel.m */; };
 		0E22E95E19ECCAF900261AC5 /* BattleWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E22E95D19ECCAF900261AC5 /* BattleWindow.m */; };
 		0E3347431A43FE0600C3FA60 /* l4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0E3347421A43FE0600C3FA60 /* l4.wav */; };
 		0E53480F1A43CDAF0045FEF1 /* drag.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0E53480C1A43CAB90045FEF1 /* drag.m4a */; };
@@ -215,6 +217,10 @@
 		0E1292B11A049FAA006A8BAB /* corecrusher.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = corecrusher.m4a; sourceTree = "<group>"; };
 		0E1292B21A049FAA006A8BAB /* dismantler.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = dismantler.m4a; sourceTree = "<group>"; };
 		0E1292D61A04ACB1006A8BAB /* collect.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = collect.wav; sourceTree = "<group>"; };
+		0E1D29921A594B4300ACF3C9 /* KillsLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KillsLabel.h; sourceTree = "<group>"; };
+		0E1D29931A594B4300ACF3C9 /* KillsLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KillsLabel.m; sourceTree = "<group>"; };
+		0E1D29951A59518D00ACF3C9 /* PathsLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PathsLabel.h; sourceTree = "<group>"; };
+		0E1D29961A59518D00ACF3C9 /* PathsLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PathsLabel.m; sourceTree = "<group>"; };
 		0E22E95C19ECCAF900261AC5 /* BattleWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BattleWindow.h; sourceTree = "<group>"; };
 		0E22E95D19ECCAF900261AC5 /* BattleWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BattleWindow.m; sourceTree = "<group>"; };
 		0E3347421A43FE0600C3FA60 /* l4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = l4.wav; sourceTree = "<group>"; };
@@ -635,6 +641,10 @@
 				0EE353941A58BC5C0083A2A7 /* ScoreLabel.m */,
 				0EE353961A58C26F0083A2A7 /* AccuracyLabel.h */,
 				0EE353971A58C26F0083A2A7 /* AccuracyLabel.m */,
+				0E1D29921A594B4300ACF3C9 /* KillsLabel.h */,
+				0E1D29931A594B4300ACF3C9 /* KillsLabel.m */,
+				0E1D29951A59518D00ACF3C9 /* PathsLabel.h */,
+				0E1D29961A59518D00ACF3C9 /* PathsLabel.m */,
 			);
 			name = Labels;
 			sourceTree = "<group>";
@@ -1306,6 +1316,7 @@
 				BF0EE09D163319B9002942A0 /* CCAction.m in Sources */,
 				BF0EE0A0163319B9002942A0 /* CCActionCamera.m in Sources */,
 				BF0EE0A3163319B9002942A0 /* CCActionCatmullRom.m in Sources */,
+				0E1D29971A59518D00ACF3C9 /* PathsLabel.m in Sources */,
 				BF0EE0A6163319B9002942A0 /* CCActionEase.m in Sources */,
 				BF0EE0A9163319B9002942A0 /* CCActionGrid.m in Sources */,
 				BF0EE0AC163319B9002942A0 /* CCActionGrid3D.m in Sources */,
@@ -1343,6 +1354,7 @@
 				BF0EE0F9163319B9002942A0 /* CCMenuItem.m in Sources */,
 				BF0EE0FC163319B9002942A0 /* CCMotionStreak.m in Sources */,
 				BF0EE0FF163319B9002942A0 /* CCNode+Debug.m in Sources */,
+				0E1D29941A594B4300ACF3C9 /* KillsLabel.m in Sources */,
 				BF0EE102163319B9002942A0 /* CCNode.m in Sources */,
 				0EC9E70F1967907400497BB9 /* DeadLine.m in Sources */,
 				BF0EE105163319B9002942A0 /* CCParallaxNode.m in Sources */,
