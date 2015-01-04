@@ -61,6 +61,7 @@
 		0ED2FAA419DC30F200D3E742 /* Arsenal.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ED2FAA319DC30F200D3E742 /* Arsenal.m */; };
 		0EE353911A589D710083A2A7 /* BattleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EE353901A589D710083A2A7 /* BattleLabel.m */; };
 		0EE353951A58BC5C0083A2A7 /* ScoreLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EE353941A58BC5C0083A2A7 /* ScoreLabel.m */; };
+		0EE353981A58C26F0083A2A7 /* AccuracyLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EE353971A58C26F0083A2A7 /* AccuracyLabel.m */; };
 		0EEAC48C16B73BC3005F629F /* QPBFState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEAC48B16B73BC3005F629F /* QPBFState.m */; };
 		0EEAC48F16B73C35005F629F /* QPBFTitleState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEAC48E16B73C35005F629F /* QPBFTitleState.m */; };
 		0EEAC49216B73D2E005F629F /* QPBFDrawingState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEAC49116B73D2E005F629F /* QPBFDrawingState.m */; };
@@ -270,6 +271,8 @@
 		0EE353901A589D710083A2A7 /* BattleLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BattleLabel.m; sourceTree = "<group>"; };
 		0EE353931A58BC5C0083A2A7 /* ScoreLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreLabel.h; sourceTree = "<group>"; };
 		0EE353941A58BC5C0083A2A7 /* ScoreLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreLabel.m; sourceTree = "<group>"; };
+		0EE353961A58C26F0083A2A7 /* AccuracyLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccuracyLabel.h; sourceTree = "<group>"; };
+		0EE353971A58C26F0083A2A7 /* AccuracyLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccuracyLabel.m; sourceTree = "<group>"; };
 		0EEAC48A16B73BC3005F629F /* QPBFState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBFState.h; sourceTree = "<group>"; };
 		0EEAC48B16B73BC3005F629F /* QPBFState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBFState.m; sourceTree = "<group>"; };
 		0EEAC48D16B73C35005F629F /* QPBFTitleState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBFTitleState.h; sourceTree = "<group>"; };
@@ -630,6 +633,8 @@
 			children = (
 				0EE353931A58BC5C0083A2A7 /* ScoreLabel.h */,
 				0EE353941A58BC5C0083A2A7 /* ScoreLabel.m */,
+				0EE353961A58C26F0083A2A7 /* AccuracyLabel.h */,
+				0EE353971A58C26F0083A2A7 /* AccuracyLabel.m */,
 			);
 			name = Labels;
 			sourceTree = "<group>";
@@ -1434,6 +1439,7 @@
 				0EEAC48C16B73BC3005F629F /* QPBFState.m in Sources */,
 				0EEAC48F16B73C35005F629F /* QPBFTitleState.m in Sources */,
 				0EEAC49216B73D2E005F629F /* QPBFDrawingState.m in Sources */,
+				0EE353981A58C26F0083A2A7 /* AccuracyLabel.m in Sources */,
 				0E63B75216C7039100F63829 /* QPBFFightingState.m in Sources */,
 				0E63B75516C712B800F63829 /* QPBFPausedState.m in Sources */,
 				0E63B75816C71BF700F63829 /* Weapon.m in Sources */,

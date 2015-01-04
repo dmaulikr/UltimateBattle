@@ -14,8 +14,5 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resetAnimation) name:@"ScorePulse" object:nil];
 }
 
-- (void)resetAnimation {
-    [super resetAnimation];
-}
 
 @end

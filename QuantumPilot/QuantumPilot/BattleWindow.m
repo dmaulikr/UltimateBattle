@@ -51,7 +51,7 @@ static float topCenter = 0.18f;
     //    self.scoreLabel.font = [UIFont boldSystemFontOfSize:16];
     self.scoreLabel.textAlignment = NSTextAlignmentCenter;
     
-    self.accuracyLabel  = [[[BattleLabel alloc] initWithFrame:CGRectMake(0, 0, 50, 20)] autorelease];
+    self.accuracyLabel  = [[[AccuracyLabel alloc] initWithFrame:CGRectMake(0, 0, 50, 20)] autorelease];
     self.pathsLabel     = [[[BattleLabel alloc] initWithFrame:CGRectMake(0, 0, 50, 20)] autorelease];
 }
 
