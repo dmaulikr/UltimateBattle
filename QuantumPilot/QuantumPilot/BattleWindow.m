@@ -102,6 +102,10 @@ static float topCenter = 0.18f;
     
     self.titleLabel.font = [UIFont systemFontOfSize:30];
     self.subTitle.font = [UIFont systemFontOfSize:16];
+    
+    self.killsLabel.textColor = [UIColor redColor];
+    self.accuracyLabel.textColor = [UIColor colorWithRed:1 green:1 blue:0 alpha:1];
+    self.pathsLabel.textColor = [UIColor greenColor];
 }
 
 - (id)initWithFrame:(CGRect)frame {
@@ -109,13 +113,21 @@ static float topCenter = 0.18f;
     [self setupLabels];
     [self styleLabels];
     [self setupNotifications];
-    self.breath = [NSTimer scheduledTimerWithTimeInterval:0.016 target:self selector:@selector(breathe) userInfo:nil repeats:YES];
+    self.breath = [CCTimer timerWithTarget:self selector:@selector(breathe:) interval:0.16f];
     return self;
 }
 
-- (void)breathe {
-    [self.scoreLabel pulse];
+- (void)breathe:(ccTime)deltaTime {
+    _time+= deltaTime;
+    if (_time >= 1) {
+        _time--;
+        [self.scoreLabel pulse];
+    }
 }
+
+//- (void)breathe {
+//    [self.scoreLabel pulse];
+//}
 
 - (void)updateWeaponLabel:(NSNotification *)n {
     int i = [n.object intValue];

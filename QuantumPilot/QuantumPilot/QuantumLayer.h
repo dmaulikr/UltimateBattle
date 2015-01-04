@@ -10,10 +10,12 @@
 #import "cocos2d.h"
 #import "QPBattlefield.h"
 
-@interface QuantumLayer : CCLayer
+@interface QuantumLayer : CCLayer {
+    ccTime _time;
+}
 
 @property (nonatomic, retain) QPBattlefield *f;
-@property (nonatomic, retain) NSTimer *breath;
+@property (nonatomic, retain) CCTimer *breath;
 
 + (CCScene *) scene;
 

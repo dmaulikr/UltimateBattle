@@ -25,7 +25,7 @@
         self.f = [QPBattlefield f];
         self.f.layer = self;
         [self addChild:self.f];
-        self.breath = [NSTimer scheduledTimerWithTimeInterval:0.016 target:self selector:@selector(breathe) userInfo:nil repeats:YES];
+        [self schedule:@selector(breathe:)];
         self.isTouchEnabled = YES;
         glDisable( GL_BLEND );
         glColorMask(true, true, true, false);
@@ -33,10 +33,19 @@
     return self;
 }
 
-- (void)breathe {
-    [self.f pulse];
-    
+- (void)breathe:(ccTime)deltaTime {
+    _time+= deltaTime;
+    if (_time >= 0.016) {
+        _time-= 0.016;
+        [self.f pulse];
+    }
 }
+
+
+//- (void)breathe {
+//    [self.f pulse];
+//    
+//}
 
 - (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     if (touches.count == 1) {
