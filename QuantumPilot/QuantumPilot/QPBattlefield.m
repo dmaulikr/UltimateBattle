@@ -405,7 +405,7 @@ static QPBattlefield *instance = nil;
     if (c != self.pilot) {
         hits++;
         totalHits++;
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"KillsLabel" object:@{@"kills" : [NSNumber numberWithInt:totalHits], @"x" : [NSNumber numberWithFloat:c.l.x], @"y" : [NSNumber numberWithFloat:_battlefieldFrame.size.height - c.l.y]}];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"KillsLabel" object:@{@"kills" : [NSNumber numberWithInt:totalHits], @"x" : [NSNumber numberWithFloat:c.l.x], @"y" : [NSNumber numberWithFloat:_battlefieldFrame.size.height - (c.l.y + 45)]}];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"KillsPulse" object:nil];
         
         [[NSNotificationCenter defaultCenter] postNotificationName:@"AccuracyPulse" object:nil];
