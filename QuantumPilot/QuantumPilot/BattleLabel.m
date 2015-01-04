@@ -27,7 +27,7 @@
 }
 
 - (bool)maxFont {
-    return bonusFont > 12;
+    return bonusFont > 18;
 }
 
 

@@ -774,7 +774,6 @@ static QPBattlefield *instance = nil;
     shotsFired = 0;
     paths = 1;
     totalPaths++;
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"PathsPulse" object:nil];
 }
 
 - (void)processWaveKill {
@@ -797,6 +796,7 @@ static QPBattlefield *instance = nil;
     self.score = [self.scoreCycler actualScore];
     [self changeState:self.pausedState];
     [self resetLevelScore];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"PathsPulse" object:nil];
     [self eraseBullets];
     [self.dl reset];
     weaponLevel = 0;
@@ -879,6 +879,10 @@ static QPBattlefield *instance = nil;
     _circleCharges = [self.pilot weaponLevel];
 }
 
+- (void)resetDrawRadius {
+    drawRadius = 50;
+}
+
 - (void)pulseCircleDrawings {
     _drawings = self.currentState == self.titleState ? _coresCollected : _circleCharges;
     switch (_guideMode) {
@@ -886,7 +890,7 @@ static QPBattlefield *instance = nil;
             drawRadius--;
             if (drawRadius < 10) {
                 if (self.currentState == self.fightingState) {
-                    drawRadius = 50;
+                    [self resetDrawRadius];
                     break;
                 } else if (self.currentState == self.titleState || self.currentState == self.pausedState) {
                     
@@ -911,7 +915,7 @@ static QPBattlefield *instance = nil;
         case zigzag:
             drawRadius++;
             if (drawRadius > 50) {
-                drawRadius = 50;
+                [self resetDrawRadius];
                 _guideMode = circle;
             }
             break;

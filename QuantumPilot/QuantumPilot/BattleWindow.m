@@ -38,7 +38,7 @@ static float topCenter = 0.18f;
     float height = size.height - 10;
     
     self.speedLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 50, 50)] autorelease];
-    self.killsLabel = [[[KillsLabel alloc] initWithFrame:CGRectMake(0, 0, 50, 50) size:16] autorelease];
+    self.killsLabel = [[[KillsLabel alloc] initWithFrame:CGRectMake(0, 0, 90, 90) size:16] autorelease];
     
     self.weaponLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0, height-27, 200, 40)] autorelease];
     self.weaponLabel.textColor = [UIColor whiteColor];
