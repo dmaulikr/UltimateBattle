@@ -1022,10 +1022,10 @@ static QPBattlefield *instance = nil;
 }
 
 - (void)changeState:(QPBFState *)state withTouch:(CGPoint)l {
-    if (self.currentState == self.fightingState) {
+    if (self.currentState == self.fightingState && state != self.pausedState) {
         paths++;
         totalPaths++;
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"PathsPulse" object:nil];        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"PathsPulse" object:nil];
     }
     [self changeState:state];
     [self.currentState addTouch:l];

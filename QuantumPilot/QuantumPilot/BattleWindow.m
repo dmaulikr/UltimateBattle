@@ -46,7 +46,7 @@ static float topCenter = 0.18f;
     self.weaponLabel.font = [UIFont boldSystemFontOfSize:16];
     self.weaponLabel.textAlignment = NSTextAlignmentCenter;
     
-    self.scoreLabel = [[[ScoreLabel alloc] initWithFrame:CGRectMake(size.width -200, height-27, 200, 40) size:16] autorelease];
+    self.scoreLabel = [[[ScoreLabel alloc] initWithFrame:CGRectMake(size.width -200, height-27, size.width, 60) size:16] autorelease];
     self.scoreLabel.center = ccp(size.width / 2, 30);
     self.scoreLabel.textColor = [UIColor whiteColor];
     //    self.scoreLabel.font = [UIFont boldSystemFontOfSize:16];
