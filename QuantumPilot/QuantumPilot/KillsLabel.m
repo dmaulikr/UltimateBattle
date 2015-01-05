@@ -21,15 +21,21 @@
 - (void)resetAnimation {
     [super resetAnimation];
     self.alpha = 1;
+    consecutive++;
 }
 
 - (void)processMaxFont {
     [super processMaxFont];
     self.alpha = 0;
+    consecutive = 0;
 }
 
 - (void)setupNotifications {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resetAnimation) name:@"KillsPulse" object:nil];
+}
+
+- (void)displayText {
+    self.text = [@"" stringByPaddingToLength:consecutive + 1 withString:@"¤"startingAtIndex:0];
 }
 
 @end

@@ -38,7 +38,7 @@ static float topCenter = 0.18f;
     float height = size.height - 10;
     
     self.speedLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 50, 50)] autorelease];
-    self.killsLabel = [[[KillsLabel alloc] initWithFrame:CGRectMake(0, 0, 90, 90) size:16] autorelease];
+    self.killsLabel = [[[KillsLabel alloc] initWithFrame:CGRectMake(0, 0, size.width, 90) size:16] autorelease];
     
     self.weaponLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0, height-27, 200, 40)] autorelease];
     self.weaponLabel.textColor = [UIColor whiteColor];
@@ -237,7 +237,7 @@ static float topCenter = 0.18f;
     int kills = [n.object[@"kills"] intValue];
     if (n.object[@"x"]) {
         self.killsLabel.center = ccp([n.object[@"x"] floatValue], ([n.object[@"y"] floatValue]));
-        self.killsLabel.text = @"¤";
+        [self.killsLabel displayText];
         
     } else {
         self.killsLabel.center = ccp(0.25f * size.width, topCenter * size.height);

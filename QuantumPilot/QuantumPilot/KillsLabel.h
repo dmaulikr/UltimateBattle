@@ -8,6 +8,8 @@
 
 #import "BattleLabel.h"
 
-@interface KillsLabel : BattleLabel
+@interface KillsLabel : BattleLabel {
+    int consecutive;
+}
 
 @end
