@@ -895,7 +895,7 @@ static QPBattlefield *instance = nil;
     switch (_guideMode) {
         case circle:
             drawRadius--;
-            if (drawRadius < 10) {
+            if (drawRadius < 8) {
                 if (self.currentState == self.fightingState) {
                     [self resetDrawRadius];
                     break;
@@ -1041,7 +1041,7 @@ static QPBattlefield *instance = nil;
 #pragma mark Input
 
 - (void)addTouch:(CGPoint)l {
-    drawRadius = 0;
+    drawRadius = 13;
     [self.currentState addTouch:l];
 }
 
