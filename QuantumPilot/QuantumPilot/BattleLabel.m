@@ -73,4 +73,10 @@
     [self resetTimer];
 }
 
+- (void)cancel {
+    bonusFont = 0;
+    timer = -1;
+    [self updateFont];
+}
+
 @end

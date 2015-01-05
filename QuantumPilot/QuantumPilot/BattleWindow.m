@@ -52,7 +52,7 @@ static float topCenter = 0.18f;
 
     self.scoreLabel.textAlignment = NSTextAlignmentCenter;
     
-    self.accuracyLabel  = [[[AccuracyLabel alloc] initWithFrame:CGRectMake(0, 0, 90, 90) size:16] autorelease];
+    self.accuracyLabel  = [[[AccuracyLabel alloc] initWithFrame:CGRectMake(0, 0, 120, 90) size:16] autorelease];
     self.pathsLabel     = [[[PathsLabel alloc] initWithFrame:CGRectMake(0, 0, 90, 90) size:16] autorelease];
 }
 
@@ -216,6 +216,7 @@ static float topCenter = 0.18f;
         self.accuracyLabel.center = ccp(0.1f * size.width, 10);
     } else {
         self.accuracyLabel.center = ccp(0.50f * size.width, topCenter * size.height);
+        [self.accuracyLabel cancel];
     }
 }
 
@@ -229,6 +230,7 @@ static float topCenter = 0.18f;
         self.pathsLabel.center = ccp(0.9f * size.width, 10);
     } else {
         self.pathsLabel.center = ccp(0.75f * size.width, topCenter *  size.height);
+        [self.pathsLabel cancel];
     }
 }
 
@@ -243,8 +245,7 @@ static float topCenter = 0.18f;
         self.killsLabel.center = ccp(0.25f * size.width, topCenter * size.height);
         self.killsLabel.alpha = 1;
         self.killsLabel.text = [NSString stringWithFormat:@"%d¤", abs(kills)];
-
-        
+        [self.killsLabel cancel];
     }
     
     self.killsLabel.font =[UIFont systemFontOfSize:18];
