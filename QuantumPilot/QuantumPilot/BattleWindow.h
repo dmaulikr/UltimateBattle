@@ -13,6 +13,7 @@
 #import "KillsLabel.h"
 #import "CCScheduler.h"
 #import "PathsLabel.h"
+#import "WeaponsLabel.h"
 
 @interface BattleWindow : UIWindow {
     float _time;
@@ -30,7 +31,7 @@
 
 @property (strong, nonatomic) UILabel *guide;
 
-@property (strong, nonatomic) UILabel *weaponLabel;
+@property (strong, nonatomic) WeaponsLabel *weaponLabel;
 @property (strong, nonatomic) ScoreLabel *scoreLabel;
 
 @property (strong, nonatomic) UILabel *speedLabel;

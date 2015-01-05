@@ -40,10 +40,9 @@ static float topCenter = 0.18f;
     self.speedLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 50, 50)] autorelease];
     self.killsLabel = [[[KillsLabel alloc] initWithFrame:CGRectMake(0, 0, size.width, 90) size:16] autorelease];
     
-    self.weaponLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0, height-27, 200, 40)] autorelease];
+    self.weaponLabel = [[[WeaponsLabel alloc] initWithFrame:CGRectMake(0, height-27, size.width, 90) size:16] autorelease];
     self.weaponLabel.textColor = [UIColor whiteColor];
     self.weaponLabel.center = ccp(size.width / 2, 10);
-    self.weaponLabel.font = [UIFont boldSystemFontOfSize:16];
     self.weaponLabel.textAlignment = NSTextAlignmentCenter;
     
     self.scoreLabel = [[[ScoreLabel alloc] initWithFrame:CGRectMake(size.width -200, height-27, size.width * 2, 90) size:16] autorelease];
@@ -123,7 +122,7 @@ static float topCenter = 0.18f;
     [self.killsLabel pulse];
     [self.pathsLabel pulse];
     [self.accuracyLabel pulse];
-
+    [self.weaponLabel pulse];
 }
 
 - (void)updateWeaponLabel:(NSNotification *)n {

@@ -34,8 +34,6 @@
     return bonusFont > [self maximumBonusFont];
 }
 
-
-
 - (void)processMaxFont {
     timer = -1;
     bonusFont = 0;

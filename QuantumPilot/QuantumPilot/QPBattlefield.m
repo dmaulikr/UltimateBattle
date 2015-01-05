@@ -555,6 +555,8 @@ static QPBattlefield *instance = nil;
             
             _coresCollected++;
             
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"WeaponPulse" object:nil];
+            
             if (self.pilot.weaponLevel == 0) {
                 switch (d.level) {
                     case 0:
@@ -1039,6 +1041,7 @@ static QPBattlefield *instance = nil;
 #pragma mark Input
 
 - (void)addTouch:(CGPoint)l {
+    drawRadius = 0;
     [self.currentState addTouch:l];
 }
 

@@ -68,6 +68,7 @@
 		0EEAC48F16B73C35005F629F /* QPBFTitleState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEAC48E16B73C35005F629F /* QPBFTitleState.m */; };
 		0EEAC49216B73D2E005F629F /* QPBFDrawingState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEAC49116B73D2E005F629F /* QPBFDrawingState.m */; };
 		0EED0EDE19FF1ECE009B6C7E /* QPScoreCycler.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EED0EDD19FF1ECE009B6C7E /* QPScoreCycler.m */; };
+		0EED805C1A5A492500D34A5F /* WeaponsLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EED805B1A5A492500D34A5F /* WeaponsLabel.m */; };
 		0EF96AB1197598C900E5DBE2 /* Debris.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EF96AB0197598C900E5DBE2 /* Debris.m */; };
 		BF0EE06D163319B8002942A0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF0EE06C163319B8002942A0 /* QuartzCore.framework */; };
 		BF0EE06F163319B8002942A0 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF0EE06E163319B8002942A0 /* OpenGLES.framework */; };
@@ -287,6 +288,8 @@
 		0EEAC49116B73D2E005F629F /* QPBFDrawingState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPBFDrawingState.m; sourceTree = "<group>"; };
 		0EED0EDC19FF1ECE009B6C7E /* QPScoreCycler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPScoreCycler.h; sourceTree = "<group>"; };
 		0EED0EDD19FF1ECE009B6C7E /* QPScoreCycler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPScoreCycler.m; sourceTree = "<group>"; };
+		0EED805A1A5A492500D34A5F /* WeaponsLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeaponsLabel.h; sourceTree = "<group>"; };
+		0EED805B1A5A492500D34A5F /* WeaponsLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeaponsLabel.m; sourceTree = "<group>"; };
 		0EF96AAF197598C900E5DBE2 /* Debris.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Debris.h; sourceTree = "<group>"; };
 		0EF96AB0197598C900E5DBE2 /* Debris.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Debris.m; sourceTree = "<group>"; };
 		BF0EE068163319B8002942A0 /* QP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QP.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -645,6 +648,8 @@
 				0E1D29931A594B4300ACF3C9 /* KillsLabel.m */,
 				0E1D29951A59518D00ACF3C9 /* PathsLabel.h */,
 				0E1D29961A59518D00ACF3C9 /* PathsLabel.m */,
+				0EED805A1A5A492500D34A5F /* WeaponsLabel.h */,
+				0EED805B1A5A492500D34A5F /* WeaponsLabel.m */,
 			);
 			name = Labels;
 			sourceTree = "<group>";
@@ -1319,6 +1324,7 @@
 				0E1D29971A59518D00ACF3C9 /* PathsLabel.m in Sources */,
 				BF0EE0A6163319B9002942A0 /* CCActionEase.m in Sources */,
 				BF0EE0A9163319B9002942A0 /* CCActionGrid.m in Sources */,
+				0EED805C1A5A492500D34A5F /* WeaponsLabel.m in Sources */,
 				BF0EE0AC163319B9002942A0 /* CCActionGrid3D.m in Sources */,
 				0EF96AB1197598C900E5DBE2 /* Debris.m in Sources */,
 				BF0EE0AF163319B9002942A0 /* CCActionInstant.m in Sources */,
