@@ -106,6 +106,7 @@ static float topCenter = 0.18f;
     self.killsLabel.textColor = [UIColor redColor];
     self.accuracyLabel.textColor = [UIColor colorWithRed:1 green:1 blue:0 alpha:1];
     self.pathsLabel.textColor = [UIColor greenColor];
+    self.speedLabel.font = [UIFont systemFontOfSize:22];
 }
 
 - (id)initWithFrame:(CGRect)frame {
