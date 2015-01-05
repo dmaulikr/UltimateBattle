@@ -10,6 +10,14 @@
 
 @implementation KillsLabel
 
+- (int)maximumBonusFont {
+    return 54;
+}
+
+- (int)bonusFontIncrease {
+    return 2;
+}
+
 - (void)resetAnimation {
     [super resetAnimation];
     self.alpha = 1;

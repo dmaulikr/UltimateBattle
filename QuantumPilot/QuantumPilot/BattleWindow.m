@@ -46,10 +46,10 @@ static float topCenter = 0.18f;
     self.weaponLabel.font = [UIFont boldSystemFontOfSize:16];
     self.weaponLabel.textAlignment = NSTextAlignmentCenter;
     
-    self.scoreLabel = [[[ScoreLabel alloc] initWithFrame:CGRectMake(size.width -200, height-27, size.width, 60) size:16] autorelease];
+    self.scoreLabel = [[[ScoreLabel alloc] initWithFrame:CGRectMake(size.width -200, height-27, size.width * 2, 90) size:16] autorelease];
     self.scoreLabel.center = ccp(size.width / 2, 30);
     self.scoreLabel.textColor = [UIColor whiteColor];
-    //    self.scoreLabel.font = [UIFont boldSystemFontOfSize:16];
+
     self.scoreLabel.textAlignment = NSTextAlignmentCenter;
     
     self.accuracyLabel  = [[[AccuracyLabel alloc] initWithFrame:CGRectMake(0, 0, 90, 90) size:16] autorelease];
@@ -118,16 +118,6 @@ static float topCenter = 0.18f;
     return self;
 }
 
-//- (void)breathe:(ccTime)deltaTime {
-//    _time+= deltaTime;
-//    if (_time >= 1) {
-//        _time--;
-//        [self.scoreLabel pulse];
-//        [self.killsLabel pulse];
-//        [self.accuracyLabel pulse];
-//    }
-//}
-
 - (void)breathe {
     [self.scoreLabel pulse];
     [self.killsLabel pulse];
@@ -161,11 +151,9 @@ static float topCenter = 0.18f;
         self.scoreLabel.text = n.object;
         self.scoreLabel.center = ccp(size.width / 2, 30);
         self.scoreLabel.textColor = [UIColor whiteColor];
-//        self.scoreLabel.font = [UIFont boldSystemFontOfSize:16];
     } else {
         self.scoreLabel.center = ccp(size.width / 2, 45);
         self.scoreLabel.textColor = [UIColor whiteColor];
-//        self.scoreLabel.font = [UIFont boldSystemFontOfSize:26];
         self.scoreLabel.backgroundColor = [UIColor clearColor];
         self.scoreLabel.text = [NSString stringWithFormat:@"%d", -s];
     }
@@ -226,24 +214,21 @@ static float topCenter = 0.18f;
     self.accuracyLabel.text = [NSString stringWithFormat:@"%d%%", abs(acc)];
     if ([[n.object objectForKey:@"corner"] boolValue]) {
         self.accuracyLabel.center = ccp(0.1f * size.width, 10);
-    //    self.accuracyLabel.font = [UIFont systemFontOfSize:12];
     } else {
         self.accuracyLabel.center = ccp(0.50f * size.width, topCenter * size.height);
-//        self.accuracyLabel.font = [UIFont systemFontOfSize:18];
     }
 }
 
 - (void)updatePathsLabel:(NSNotification *)n {
     CGSize size = [[UIScreen mainScreen] bounds].size;
     int paths = [n.object intValue];
-    self.pathsLabel.text = [NSString stringWithFormat:@"%d§", abs(paths)];
+    self.pathsLabel.text = [NSString stringWithFormat:@"%dζ", abs(paths)];
+    
     
     if (paths >= 0) {
         self.pathsLabel.center = ccp(0.9f * size.width, 10);
-      //  self.pathsLabel.font =[UIFont systemFontOfSize:12];
     } else {
         self.pathsLabel.center = ccp(0.75f * size.width, topCenter *  size.height);
-    //    self.pathsLabel.font =[UIFont systemFontOfSize:18];
     }
 }
 
@@ -252,13 +237,16 @@ static float topCenter = 0.18f;
     int kills = [n.object[@"kills"] intValue];
     if (n.object[@"x"]) {
         self.killsLabel.center = ccp([n.object[@"x"] floatValue], ([n.object[@"y"] floatValue]));
+        self.killsLabel.text = @"¤";
+        
     } else {
         self.killsLabel.center = ccp(0.25f * size.width, topCenter * size.height);
         self.killsLabel.alpha = 1;
+        self.killsLabel.text = [NSString stringWithFormat:@"%d¤", abs(kills)];
+
         
     }
     
-    self.killsLabel.text = [NSString stringWithFormat:@"%dX", abs(kills)];
     self.killsLabel.font =[UIFont systemFontOfSize:18];
 }
 

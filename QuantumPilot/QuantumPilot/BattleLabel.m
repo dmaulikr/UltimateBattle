@@ -26,8 +26,12 @@
     timer = 1;
 }
 
+- (int)maximumBonusFont {
+    return 24;
+}
+
 - (bool)maxFont {
-    return bonusFont > 18;
+    return bonusFont > [self maximumBonusFont];
 }
 
 
@@ -37,12 +41,20 @@
     bonusFont = 0;
 }
 
+- (int)bonusFontIncrease {
+    return 1;
+}
+
+- (void)increaseBonusFont {
+    bonusFont+= [self bonusFontIncrease];
+}
+
 - (void)pulse {
     if (timer > 0) {
         timer--;
         if (timer <= 0) {
             [self resetTimer];
-            bonusFont++;
+            [self increaseBonusFont];
         
             if ([self maxFont]) {
                 [self processMaxFont];

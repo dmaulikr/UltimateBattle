@@ -2,14 +2,14 @@ redo drag voice
 ~
 1.04
 
-vert center and enlarge TITLE LAYER scoring
+
 
 Animate WEAPON CHANGE LABEL
 
 Play sound on label pulse
 
 Title Layer: 
-             17X (for kills) draw with ccDraw retangles leaderboards
+             draw with ccDraw retangles leaderboards
                scale on transition for 1 s
                cycle 3s swap to next
              FB, Email, SMS, Twitter

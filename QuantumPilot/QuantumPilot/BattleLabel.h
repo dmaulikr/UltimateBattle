@@ -26,4 +26,8 @@
 
 - (void)setupNotifications;
 
+- (int)maximumBonusFont;
+
+- (int)bonusFontIncrease;
+
 @end

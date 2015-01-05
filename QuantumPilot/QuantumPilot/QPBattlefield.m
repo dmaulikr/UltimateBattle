@@ -257,9 +257,13 @@ static QPBattlefield *instance = nil;
         fireCircle = [self fireCircleReset];
         
         [self setupDebrisCores];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"SpeedLabel" object:[NSString stringWithFormat:@"%d%%", _coreCycles]];
+        [self updateBottomCoreLabel];
     }
     return self;
+}
+
+- (void)updateBottomCoreLabel {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"SpeedLabel" object:[NSString stringWithFormat:@"%d◊", _coreCycles]];
 }
 
 - (void)setupDebrisCores {
@@ -405,7 +409,7 @@ static QPBattlefield *instance = nil;
     if (c != self.pilot) {
         hits++;
         totalHits++;
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"KillsLabel" object:@{@"kills" : [NSNumber numberWithInt:totalHits], @"x" : [NSNumber numberWithFloat:c.l.x], @"y" : [NSNumber numberWithFloat:_battlefieldFrame.size.height - (c.l.y + 45)]}];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"KillsLabel" object:@{@"kills" : [NSNumber numberWithInt:totalHits], @"x" : [NSNumber numberWithFloat:c.l.x], @"y" : [NSNumber numberWithFloat:_battlefieldFrame.size.height - (-45 + c.l.y + 45)]}];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"KillsPulse" object:nil];
         
         [[NSNotificationCenter defaultCenter] postNotificationName:@"AccuracyPulse" object:nil];
@@ -531,8 +535,7 @@ static QPBattlefield *instance = nil;
     slow = 0;
     
     _playedDrag = 0;
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"SpeedLabel" object:[NSString stringWithFormat:@"%d%%", _coreCycles]];
+    [self updateBottomCoreLabel];
 }
 
 - (BOOL)debrisOutOfBounds:(Debris *)d {
