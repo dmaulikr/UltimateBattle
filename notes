@@ -8,7 +8,7 @@ Animate WEAPON CHANGE LABEL
 
 Play sound on label pulse
 Voice on restart with veteran: "Again"
-
+Voice on restart normal: "Reset"
 Title Layer: 
              draw with ccDraw retangles leaderboards
                scale on transition for 1 s
@@ -29,7 +29,8 @@ Upgrade Layer:
 
 Ship Power, Ship Shape, Arsenal, Laser Power
 
-Bottom core shows O instead of %
+
+
 
 Gamecenter: %@
 
@@ -38,12 +39,8 @@ I dismantled N ships
 I crushed N cores
 I melted N
 
-DETERMINE: Show wave advance. WAVE 1 expanding from below ship (after first kill?. Must reset! They should not know alarm!)
 
-WAVE RESET
-WAVE 1
-
-
+Bomb upgrade
 
              
 
