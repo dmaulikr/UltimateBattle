@@ -152,7 +152,8 @@ static float topCenter = 0.21f;
         self.scoreLabel.center = ccp(size.width / 2, 30);
         self.scoreLabel.textColor = [UIColor whiteColor];
     } else {
-        self.scoreLabel.center = ccp(size.width / 2, 45);
+        self.scoreLabel.center = ccp(size.width / 2, 52);
+        self.scoreLabel.font = [UIFont systemFontOfSize:24];
         self.scoreLabel.textColor = [UIColor whiteColor];
         self.scoreLabel.backgroundColor = [UIColor clearColor];
         self.scoreLabel.text = [NSString stringWithFormat:@"%d", -s];

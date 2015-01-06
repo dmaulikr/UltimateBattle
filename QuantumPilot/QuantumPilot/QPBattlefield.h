@@ -119,6 +119,16 @@ enum drawguide {
     int zonesTall;
     
     int lastScore;
+    
+    float drawX;
+    int l1x;
+    int l2x;
+    float l1y;
+    float l2y;
+    int l1xt;
+    int l2xt;
+    
+    int lXDirection;
 }
 
 @property (nonatomic, retain) NSMutableArray *bullets;
@@ -225,5 +235,7 @@ enum drawguide {
 - (void)resetFireCircle;
 - (void)moveFireCircleOffscreen;
 - (void)resetScoringTotals;
+
+- (void)resetLineXDirection:(int)lxd;
 
 @end

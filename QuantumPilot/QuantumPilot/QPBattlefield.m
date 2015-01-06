@@ -220,7 +220,6 @@ static QPBattlefield *instance = nil;
         CGRect bounds = [[UIScreen mainScreen] bounds];
         _battlefieldFrame = CGRectMake(bounds.origin.x - 10, bounds.origin.y - 10, bounds.size.width + 10, bounds.size.height + 10);
         _screenSize = bounds.size;
-
         self.bullets = [NSMutableArray array];
         self.cloneBullets = [NSMutableArray array];
 
@@ -233,6 +232,8 @@ static QPBattlefield *instance = nil;
         [self setupPilot];
         [self setupStates];
         [self setupClones];
+        l1y = self.pilot.l.y - 20;
+        l2y = [self.clones[0] l].y + 20;
         [self setupDeadline];
         [self setupSpeeds];
         [self setupWeapons];
@@ -948,7 +949,34 @@ static QPBattlefield *instance = nil;
     }
 }
 
+- (void)calculateTitleDraws {
+    drawX = (_screenSize.width / 2 - ((float)_drawings * (float)3));
+}
+
+- (void)pulseLineX {
+    if (lXDirection == -1) {
+        l1x -= 25;
+        l2x += 25;
+        if (l1x <= -_battlefieldFrame.size.width) {
+            lXDirection = 0;
+        }
+    } else if (lXDirection == 1) {
+        l1x +=25;
+        l2x-= 25;
+        if (l1x >= 0) {
+            l1x = 0;
+            l2x = 0;
+            lXDirection = 0;
+        }
+    }
+}
+
+- (void)resetLineXDirection:(int)lxd {
+    lXDirection = lxd;
+}
+
 - (void)pulse {
+    [self calculateTitleDraws];
     [self pulseCircleDrawings];
     [self calculateCircleCharges];
     [self.currentState pulse];
@@ -956,6 +984,8 @@ static QPBattlefield *instance = nil;
     [self shieldDebrisPulse];
     [self shatterPulse];
     [self scorePulse];
+    
+    [self pulseLineX];
     
     if ([self isPulsing]) {
         [self debrisPulse];
@@ -1069,7 +1099,7 @@ static QPBattlefield *instance = nil;
 #pragma mark Pilot Positioning
 
 - (BOOL)touchingPlayer:(CGPoint)l {
-    return GetDistance(l, self.pilot.l) <= QPBF_PLAYER_TAP_RANGE;
+    return [self.pilot touchesPoint:l];
 }
 
 - (CGPoint)playerTouchWithOffset {
@@ -1191,22 +1221,22 @@ static QPBattlefield *instance = nil;
     [super draw];
     
     [[Arsenal weaponIndexedFromArsenal:[self.pilot arsenalLevel]] setDrawColor];
-    
-    float x = (_screenSize.width / 2 - ((float)_drawings * (float)3));
+    ccDrawLine(ccp(l1x, l1y), ccp(l1x + _battlefieldFrame.size.width, l1y));
+    ccDrawLine(ccp(l2x, l2y), ccp(l2x + _battlefieldFrame.size.width, l2y));
     
     if (self.currentState == self.titleState) {
         if (_drawings > 0) {
             for (int i = 0; i < _drawings + 1; i++) {
-                CGPoint c = ccp(x, 28);
+                CGPoint c = ccp(drawX, 28);
                 ccDrawFilledCircle(c, 1.7, 0, 30, NO);
-                x+=6;
+                drawX+=6;
             }
         }
     } else {
         for (int i = 0; i < _drawings + 1; i++) {
-            CGPoint c = ccp(x, 28);
+            CGPoint c = ccp(drawX, 28);
             ccDrawFilledCircle(c, 1.7, 0, 30, NO);
-            x+=6;
+            drawX+=6;
         }
     }
 

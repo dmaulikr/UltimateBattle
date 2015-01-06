@@ -3,6 +3,10 @@
 
 @implementation QPBFPausedState
 
+- (void)activate:(NSDictionary *)options {
+    [self.f resetLineXDirection:1];
+}
+
 - (void)resetFireCircle {
     [self.f resetFireCircle];
     [self.f showCircleGuideMode];
@@ -13,15 +17,15 @@
         [self.f changeState:self.f.drawingState];
         [self.f setTouchOffsetFromPilotNear:l];
         [self.f addTouch:l];
+        [self.f resetGuideMode];
+        [self.f resetLineXDirection:-1];
     } else {
         [self.f.pilot fire];
         [self.f.pilot resetFuture];
         [self.f changeState:self.f.fightingState withTouch:l];
     }
     
-    if ([self.f touchingPlayer:l]) {
-        [self.f restGuideMode];
-    }
+
     [[NSNotificationCenter defaultCenter] postNotificationName:@"SpeedLabel" object:@""];
 }
 
