@@ -890,6 +890,22 @@ static QPBattlefield *instance = nil;
     drawRadius = 50;
 }
 
+- (int)zigzagTotal {
+    return 30;
+}
+
+- (void)setupZigZags {
+    _guideMode = zigzag;
+    zigzags[0] = self.pilot.l;
+    for (int i = 1; i < [self zigzagTotal]; i++) {
+        int rx = arc4random() % 4;
+        if (arc4random() % 2 == 0) {
+            rx = -rx;
+        }
+        zigzags[i] = ccp(zigzags[i-1].x + rx, zigzags[i-1].y + 3);
+    }
+}
+
 - (void)pulseCircleDrawings {
     _drawings = self.currentState == self.titleState ? _coresCollected : _circleCharges;
     switch (_guideMode) {
@@ -903,25 +919,16 @@ static QPBattlefield *instance = nil;
                     
                     drawRadius = 0;
                     
-                    _guideMode = zigzag;
-                    
                     if (level == 1 && !veteran && !_playedDrag) {
                         [self playDragSound];
                     }
-                    zigzags[0] = self.pilot.l;
-                    for (int i = 1; i < 50; i++) {
-                        int rx = arc4random() % 4;
-                        if (arc4random() % 2 == 0) {
-                            rx = -rx;
-                        }
-                        zigzags[i] = ccp(zigzags[i-1].x + rx, zigzags[i-1].y + 3);
-                    }
+                    [self setupZigZags];
                 }
             }
             break;
         case zigzag:
             drawRadius++;
-            if (drawRadius > 50) {
+            if (drawRadius > [self zigzagTotal]) {
                 [self resetDrawRadius];
                 _guideMode = circle;
             }
