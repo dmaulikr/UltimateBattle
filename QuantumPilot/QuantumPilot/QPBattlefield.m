@@ -1256,6 +1256,7 @@ static QPBattlefield *instance = nil;
 }
 
 - (float)bulletSpeed {
+    return _bulletSpeed * [self speedMod];
     float s = _bulletSpeed +  (min((float)_circleCharges, (float)6) * .40);
     return s * [self speedMod];
 }

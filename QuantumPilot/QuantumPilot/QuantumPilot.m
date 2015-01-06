@@ -313,11 +313,13 @@ static float innerTopHeight = 5.75;
         int wx = d.level;
         int wy = weapon.y;
         
-        if (wx != weapon.x) {
-            wy = 0;
-        } else {
-            wy++;
-        }
+        wy++;
+        
+//        if (wx != weapon.x) {
+//            wy = 0;
+//        } else {
+//            wy++;
+//        }
         
         CGPoint w = weapon;
         w.x = wx;
