@@ -19,7 +19,7 @@
 }
 
 - (void)setupNotifications {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resetAnimation) name:@"WeaponPulse" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resetAnimation:) name:@"WeaponPulse" object:nil];
 }
 
 @end

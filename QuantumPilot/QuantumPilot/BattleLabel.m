@@ -16,7 +16,7 @@
 
 - (id)initWithFrame:(CGRect)frame size:(int)fontSize {
     self = [super initWithFrame:frame];
-    [self resetAnimation];
+    [self resetAnimation:nil];
     [self setupNotifications];
     defaultSize = fontSize ?: 12;
     return self;
@@ -66,13 +66,20 @@
     self.font = [UIFont systemFontOfSize:defaultSize + bonusFont];
 }
 
-- (void)resetAnimation {
+- (void)resetAnimation:(NSNotification *)n {
+    bonusFont = 0;
+    if (n.object) {
+        timer = -1;
+        [self updateFont];
+        return;
+    }
+
     bonusFont = 0;
     [self resetTimer];
 }
 
 - (void)cancel {
-    bonusFont = 0;
+    bonusFont = 20;
     timer = -1;
     [self updateFont];
 }

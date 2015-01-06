@@ -16,12 +16,11 @@
         [self.f changeState:self.f.drawingState withTouch:l];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"TitleLabel" object:@{@"x":[NSNumber numberWithInteger:    [[UIScreen mainScreen] bounds].size.width / 2], @"y" : [NSNumber numberWithInteger:-5000], @"text" : @"QUANTUM PILOT"}];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"SubtitleLabel" object:@{@"x":[NSNumber numberWithInteger:    [[UIScreen mainScreen] bounds].size.width / 2], @"y" : [NSNumber numberWithInteger:-5000], @"text" : @"QUANTUM PILOT"}];
-        [self.f.pilot announceWeapon];
-        
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"ScoreLabel" object:@"0"];
-        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"AccuracyPulse" object:@"title"];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"PathsPulse" object:@"title"];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"SpeedLabel" object:@""];
         
+        [self.f.pilot announceWeapon];
         [self.f resetScoringTotals];
     }
     

@@ -18,8 +18,8 @@
     return 2;
 }
 
-- (void)resetAnimation {
-    [super resetAnimation];
+- (void)resetAnimation:(NSNotification *)n {
+    [super resetAnimation:n];
     self.alpha = 1;
     consecutive++;
 }
@@ -31,7 +31,7 @@
 }
 
 - (void)setupNotifications {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resetAnimation) name:@"KillsPulse" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resetAnimation:) name:@"KillsPulse" object:nil];
 }
 
 - (void)displayText {

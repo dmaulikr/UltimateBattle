@@ -72,6 +72,9 @@
 }
 
 - (void)assignLevel {
+    _level = arc4random() % 2 == 0 ? 1 : 4;
+//    _level += arc4random() % 2;
+    return;
     int wRandom[7] = {130, 130, 50, 30, 30, 15, 5};
     
     int wRandomTotal = 0;

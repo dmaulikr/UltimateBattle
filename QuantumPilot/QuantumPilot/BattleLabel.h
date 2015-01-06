@@ -20,7 +20,7 @@
 
 - (id)initWithFrame:(CGRect)frame size:(int)fontSize;
 
-- (void)resetAnimation;
+- (void)resetAnimation:(NSNotification *)n;
 
 - (void)pulse;
 

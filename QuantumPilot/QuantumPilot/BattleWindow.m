@@ -12,7 +12,7 @@
 #import "Weapon.h"
 #import "CCScheduler.h"
 
-static float topCenter = 0.18f;
+static float topCenter = 0.21f;
 
 @implementation BattleWindow
 
@@ -211,10 +211,14 @@ static float topCenter = 0.18f;
     CGSize size = [[UIScreen mainScreen] bounds].size;
     int acc = [[n.object objectForKey:@"accuracy"] intValue];
     
-    self.accuracyLabel.text = [NSString stringWithFormat:@"%d%%", abs(acc)];
     if ([[n.object objectForKey:@"corner"] boolValue]) {
         self.accuracyLabel.center = ccp(0.1f * size.width, 10);
+        self.accuracyLabel.text = [NSString stringWithFormat:@"%d%%", abs(acc)];
+        if ([n.object objectForKey:@"cancel"]) {
+            [self.accuracyLabel cancel];
+        }
     } else {
+            self.accuracyLabel.text = [NSString stringWithFormat:@"%d\n%%", abs(acc)];
         self.accuracyLabel.center = ccp(0.50f * size.width, topCenter * size.height);
         [self.accuracyLabel cancel];
     }
@@ -223,13 +227,13 @@ static float topCenter = 0.18f;
 - (void)updatePathsLabel:(NSNotification *)n {
     CGSize size = [[UIScreen mainScreen] bounds].size;
     int paths = [n.object intValue];
-    self.pathsLabel.text = [NSString stringWithFormat:@"%dζ", abs(paths)];
-    
     
     if (paths >= 0) {
         self.pathsLabel.center = ccp(0.9f * size.width, 10);
+        self.pathsLabel.text = [NSString stringWithFormat:@"%dζ", abs(paths)];
     } else {
         self.pathsLabel.center = ccp(0.75f * size.width, topCenter *  size.height);
+        self.pathsLabel.text = [NSString stringWithFormat:@"%d\nζ", abs(paths)];
         [self.pathsLabel cancel];
     }
 }
@@ -240,15 +244,12 @@ static float topCenter = 0.18f;
     if (n.object[@"x"]) {
         self.killsLabel.center = ccp([n.object[@"x"] floatValue], ([n.object[@"y"] floatValue]));
         [self.killsLabel displayText];
-        
     } else {
         self.killsLabel.center = ccp(0.25f * size.width, topCenter * size.height);
         self.killsLabel.alpha = 1;
-        self.killsLabel.text = [NSString stringWithFormat:@"%d¤", abs(kills)];
+        self.killsLabel.text = [NSString stringWithFormat:@"%d\n¤", abs(kills)];
         [self.killsLabel cancel];
     }
-    
-    self.killsLabel.font =[UIFont systemFontOfSize:18];
 }
 
 

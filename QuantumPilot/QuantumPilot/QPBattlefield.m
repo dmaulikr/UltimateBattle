@@ -992,7 +992,9 @@ static QPBattlefield *instance = nil;
         scoreDisplay = [NSString stringWithFormat:@"%d", -lastScore];
     }
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"ScoreLabel" object:[NSString stringWithFormat:@"%@", scoreDisplay]];
+    if (currentScore > 0 || -lastScore < 0) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"ScoreLabel" object:[NSString stringWithFormat:@"%@", scoreDisplay]];
+    }
     
     if (self.currentState != self.titleState) {
         NSNumber *accAnnouncement;

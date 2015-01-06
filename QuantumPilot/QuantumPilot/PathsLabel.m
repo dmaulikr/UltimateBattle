@@ -11,11 +11,11 @@
 @implementation PathsLabel
 
 - (void)setupNotifications {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resetAnimation) name:@"PathsPulse" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resetAnimation:) name:@"PathsPulse" object:nil];
 }
 
-- (void)resetAnimation {
-    [super resetAnimation];
+- (void)resetAnimation:(NSNotification *)n {
+    [super resetAnimation:n];
     self.alpha = 1;
 }
 

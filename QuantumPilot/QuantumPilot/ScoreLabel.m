@@ -11,7 +11,7 @@
 @implementation ScoreLabel
 
 - (void)setupNotifications {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resetAnimation) name:@"ScorePulse" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resetAnimation:) name:@"ScorePulse" object:nil];
 }
 
 
