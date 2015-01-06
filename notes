@@ -4,6 +4,23 @@ redo drag voice
 
 
 
+Bottom: boost, ship, laser (triple)
+Top: cycle Level with Title, showing Level with last Score.
+
+Center: Show level name:
+
+show best kills, %, paths
+
+(range up to Arsenal 1..Arsenal 7 etc)
+
+consider arsenal 7 as:
+
+dismantler
+nova splitter
+exoslicer
+gamma hammer
+core crusher..
+
 Animate WEAPON CHANGE LABEL
 
 Play sound on label pulse
