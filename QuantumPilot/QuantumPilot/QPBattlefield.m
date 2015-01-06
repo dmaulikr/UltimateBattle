@@ -280,7 +280,7 @@ static QPBattlefield *instance = nil;
 }
 
 - (CGPoint)fireCircleReset {
-    return ccp([[UIScreen mainScreen] bounds].size.width / 2 ,28);
+    return ccp([[UIScreen mainScreen] bounds].size.width / 2, 28);
 }
 
 - (float)pulseRotation {

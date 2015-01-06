@@ -4,8 +4,8 @@
 @implementation QPBFTitleState
 
 - (void)activate:(NSDictionary *)options {
+    [super activate:options];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"TitleLabel" object:@{@"x":[NSNumber numberWithInteger:    [[UIScreen mainScreen] bounds].size.width / 2], @"y" : [NSNumber numberWithInteger:12], @"text" : @"QUANTUM PILOT"}];
-    [self.f moveFireCircleOffscreen];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"WeaponLabel" object:[NSNumber numberWithInteger:-1]];
     [self.f resetLineXDirection:1];
 }

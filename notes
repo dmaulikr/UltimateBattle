@@ -2,12 +2,13 @@ redo drag voice
 ~
 1.04
 
-
-
 Bottom: boost, ship, laser (triple)
 Top: cycle Level with Title, showing Level with last Score.
 
 Center: Show level name:
+
+Tap < or > to see other levels (slide in from left or right stylishly!)
+Engage - 7
 
 show best kills, %, paths
 
@@ -33,19 +34,10 @@ Title Layer:
              FB, Email, SMS, Twitter
                +1 O Core
 
-13X pop up on kills
-
 +◊, -◊
 
 
-Large and vertically centered
-
 3s cycle SCORE with SHARE >> drop down slightly. Keep large. Vertically center.
-
-Upgrade Layer:
-
-Ship Power, Ship Shape, Arsenal, Laser Power
-
 
 
 
@@ -59,6 +51,10 @@ I melted N
 
 Bomb upgrade
 
+
+Scanner
+Bombs?
+Shield?
              
 
 recycle overlays:
@@ -66,27 +62,19 @@ recycle overlays:
 to left of ship:   cancel(rename) mode 99c (IF CANCEL MODE DOESNT WORK >> RESET CORE CRUSHER)
 to right of ship:  special weapon mode 99c
 
-below cancel mode:    ship power
-SHIP SHAPE:           A ship -- FAT SHIP. Show different shapes. START WITH FAT SHIT.
-left of new weapon:   laser power
-below special weapon: NOVA SPLITTER
-
 below ship power, laser power: is a % ranging from 10 to 100%, split by 18%.
 once the 5th upgrade is installed, tapping will cycle by 18% to 100%, 10%
 colored circle below each in the overlay
 
-NOVA SPLITTER installs NOVA SPLITTER into weapon arsenal
-once maxed, LIMIT DISMANTLER, LIMIT __WEAPONNAME__ up to FULL ARMORY
+cost is shown beneath each of these 4 with a NUMBER # then ◊
 
-cost is shown beneath each of these 4 with a NUMBER # then a big fill colored circle O
-
-this big O fills up when the player collets 54 debris cores
-
-show 0 Cores at start.
-show 4 core spendable upgrades at start.
+show 0 ◊ at start.
+show 4 ◊ spendable upgrades at start.
 
 twitter, email, sms, facebook up top below title
-
+gamecenter highscores ?
+IAP : Buy 1000 core cycles for 99c
+~1.X?
 below twitter: DEADLINE ACTIVE to DEADLINE STALLED and CLONE SHIP
 below facebook: SCANNER OFF to SHOT PREDICTION and CLONE SHIP
 
@@ -96,18 +84,13 @@ DEADLINE/SCANNER do not appear without 10 playes (or at least 1 core cycle)
 all upgrades: 1
 weapons: 1
 
-tap upgrade with insufficient cores: show prompt to install all power levels for 99c.
-
-
 seamless GIF recording
 GIF to Twitter
 GIF to Facebook
 
 
-gamecenter highscores ?
 gamecenter achievements ?
 gamepad
-IAP
 
 game video
 highres photos showcasing new elements

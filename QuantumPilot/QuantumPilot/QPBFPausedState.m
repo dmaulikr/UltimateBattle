@@ -4,6 +4,7 @@
 @implementation QPBFPausedState
 
 - (void)activate:(NSDictionary *)options {
+    [super activate:options];
     [self.f resetLineXDirection:1];
 }
 
@@ -23,6 +24,7 @@
         [self.f.pilot fire];
         [self.f.pilot resetFuture];
         [self.f changeState:self.f.fightingState withTouch:l];
+        [self.f resetLineXDirection:-1];
     }
     
 
