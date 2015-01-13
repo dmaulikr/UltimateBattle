@@ -39,6 +39,7 @@
 @property (strong, nonatomic) AccuracyLabel *accuracyLabel;
 @property (strong, nonatomic) PathsLabel *pathsLabel;
 @property (strong, nonatomic) KillsLabel *killsLabel;
+@property (strong, nonatomic) BattleLabel *leaderboardLabel;
 
 @property (strong, nonatomic) NSTimer *breath;
 

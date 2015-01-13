@@ -259,8 +259,27 @@ static QPBattlefield *instance = nil;
         
         [self setupDebrisCores];
         [self updateBottomCoreLabel];
+        
+        [self setupLeaderboard];
     }
     return self;
+}
+
+- (void)setupLeaderboard {
+    CGSize size = [[UIScreen mainScreen] bounds].size;
+
+    float segment = 10;
+    float y = .73 * size.height;
+    _leaderboardPoints[0] = ccp(.76 * size.width, y);
+    _leaderboardPoints[1] = ccp(_leaderboardPoints[0].x, _leaderboardPoints[0].y + (2 * segment));
+    _leaderboardPoints[2] = ccp(_leaderboardPoints[1].x + segment, _leaderboardPoints[1].y);
+    _leaderboardPoints[3] = ccp(_leaderboardPoints[2].x, _leaderboardPoints[2].y - (2 * segment));
+    _leaderboardPoints[4] = ccp(_leaderboardPoints[3].x, _leaderboardPoints[3].y + (3 * segment));
+    _leaderboardPoints[5] = ccp(_leaderboardPoints[4].x + segment, _leaderboardPoints[4].y);
+    _leaderboardPoints[6] = ccp(_leaderboardPoints[5].x, _leaderboardPoints[5].y - (3 * segment));
+    _leaderboardPoints[7] = ccp(_leaderboardPoints[6].x, _leaderboardPoints[6].y + segment);
+    _leaderboardPoints[8] = ccp(_leaderboardPoints[7].x + segment, _leaderboardPoints[7].y);
+    _leaderboardPoints[9] = ccp(_leaderboardPoints[8].x, _leaderboardPoints[7].y - segment);
 }
 
 - (void)updateBottomCoreLabel {
@@ -505,6 +524,8 @@ static QPBattlefield *instance = nil;
     [[NSNotificationCenter defaultCenter] postNotificationName:@"KillsLabel" object:@{@"kills" : [NSNumber numberWithInteger:totalHits]}];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ScorePulse" object:nil];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"LeaderboardLabel" object:nil];
     
     NSNumber *accAnnouncement;
     if (totalShotsFired > 0) {
@@ -1231,6 +1252,11 @@ static QPBattlefield *instance = nil;
                 ccDrawFilledCircle(c, 1.7, 0, 30, NO);
                 drawX+=6;
             }
+        }
+        
+        ccDrawColor4F(1, 1, 1, 1.0);
+        if (lastScore > 0) {
+            ccDrawPoly(_leaderboardPoints, 10, NO);
         }
     } else {
         for (int i = 0; i < _drawings + 1; i++) {

@@ -8,7 +8,9 @@
 
 #import "CCNode.h"
 
-@interface DeadLine : CCNode
+@interface DeadLine : CCNode {
+    int _width;
+}
 
 @property (nonatomic) float y;
 @property (nonatomic) float speed;

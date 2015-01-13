@@ -17,7 +17,7 @@ static float topCenter = 0.21f;
 @implementation BattleWindow
 
 - (NSArray *)labels {
-    return @[self.l1, self.l2, self.l3, self.l4, self.debrisLabel, self.titleLabel, self.subTitle, self.guide, self.speedLabel, self.accuracyLabel, self.pathsLabel, self.killsLabel];
+    return @[self.l1, self.l2, self.l3, self.l4, self.debrisLabel, self.titleLabel, self.subTitle, self.guide, self.speedLabel, self.accuracyLabel, self.pathsLabel, self.killsLabel, self.leaderboardLabel];
 }
 
 - (void)setupLabels {
@@ -29,10 +29,8 @@ static float topCenter = 0.21f;
     self.l4 = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 90)] autorelease];
     
     self.debrisLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 90)] autorelease];
-    
     self.titleLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, size.width, 100)] autorelease];
     self.subTitle = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, size.width, 60)] autorelease];
-    
     self.guide = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 106, 60)] autorelease];
     
     float height = size.height - 10;
@@ -53,6 +51,11 @@ static float topCenter = 0.21f;
     
     self.accuracyLabel  = [[[AccuracyLabel alloc] initWithFrame:CGRectMake(0, 0, 120, 90) size:16] autorelease];
     self.pathsLabel     = [[[PathsLabel alloc] initWithFrame:CGRectMake(0, 0, 90, 90) size:16] autorelease];
+    
+    self.leaderboardLabel = [[[BattleLabel alloc] initWithFrame:CGRectMake(0, 0, 120, 90) size:16] autorelease];
+    self.leaderboardLabel.text = @"#1\n ";
+    self.leaderboardLabel.center = ccp(5000,5000);
+    
 }
 
 - (void)setupNotifications {
@@ -83,6 +86,9 @@ static float topCenter = 0.21f;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updatePathsLabel:) name:@"PathsLabel" object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateKillsLabel:) name:@"KillsLabel" object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateLeaderboardLabel:) name:@"LeaderboardLabel" object:nil];
+    
     
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"WeaponLabel" object:[NSNumber numberWithInteger:0]];
@@ -220,7 +226,7 @@ static float topCenter = 0.21f;
         }
     } else {
             self.accuracyLabel.text = [NSString stringWithFormat:@"%d\n%%", abs(acc)];
-        self.accuracyLabel.center = ccp(0.50f * size.width, topCenter * size.height);
+        self.accuracyLabel.center = ccp(0.40f * size.width, topCenter * size.height);
         [self.accuracyLabel cancel];
     }
 }
@@ -233,7 +239,7 @@ static float topCenter = 0.21f;
         self.pathsLabel.center = ccp(0.9f * size.width, 10);
         self.pathsLabel.text = [NSString stringWithFormat:@"%dζ", abs(paths)];
     } else {
-        self.pathsLabel.center = ccp(0.75f * size.width, topCenter *  size.height);
+        self.pathsLabel.center = ccp(0.6f * size.width, topCenter *  size.height);
         self.pathsLabel.text = [NSString stringWithFormat:@"%d\nζ", abs(paths)];
         [self.pathsLabel cancel];
     }
@@ -246,12 +252,17 @@ static float topCenter = 0.21f;
         self.killsLabel.center = ccp([n.object[@"x"] floatValue], ([n.object[@"y"] floatValue]));
         [self.killsLabel displayText];
     } else {
-        self.killsLabel.center = ccp(0.25f * size.width, topCenter * size.height);
+        self.killsLabel.center = ccp(0.2f * size.width, topCenter * size.height);
         self.killsLabel.alpha = 1;
         self.killsLabel.text = [NSString stringWithFormat:@"%d\n¤", abs(kills)];
         [self.killsLabel cancel];
     }
 }
 
+- (void)updateLeaderboardLabel:(NSNotification *)n {
+    CGSize size = [[UIScreen mainScreen] bounds].size;
+    self.leaderboardLabel.center = ccp(0.8f * size.width, topCenter * size.height);
+    [self.leaderboardLabel cancel];
+}
 
 @end

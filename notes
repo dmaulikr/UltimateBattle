@@ -2,7 +2,7 @@ redo drag voice
 ~
 1.04
 
-Bottom: boost, ship, laser (triple)
+Bottom: boost, laser (triple)
 Top: cycle Level with Title, showing Level with last Score.
 
 Center: Show level name:
@@ -10,7 +10,6 @@ Center: Show level name:
 Tap < or > to see other levels (slide in from left or right stylishly!)
 Engage - 7
 
-show best kills, %, paths
 
 (range up to Arsenal 1..Arsenal 7 etc)
 
@@ -47,6 +46,7 @@ I rocked
 I dismantled N ships
 I crushed N cores
 I melted N
+hexagon music
 
 
 Bomb upgrade

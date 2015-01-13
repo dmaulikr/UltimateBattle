@@ -129,6 +129,8 @@ enum drawguide {
     int l2xt;
     
     int lXDirection;
+    
+    CGPoint _leaderboardPoints[10];
 }
 
 @property (nonatomic, retain) NSMutableArray *bullets;

@@ -15,8 +15,9 @@
 - (id)init {
     self = [super init];
     if (self) {
-        self.speed = [self defaultSpeed];;
+        self.speed = [self defaultSpeed];
         [self reset];
+        _width = [[UIScreen mainScreen] bounds].size.width;
     }
     return self;
 }
@@ -46,7 +47,7 @@
 
 - (void)draw {
     ccDrawColor4F(1, 0, 0, 1.0);
-    ccDrawLine(ccp(0,self.y), ccp(320,self.y));
+    ccDrawLine(ccp(0,self.y), ccp(_width,self.y));
 }
 
 + (void)setDrawColor {
