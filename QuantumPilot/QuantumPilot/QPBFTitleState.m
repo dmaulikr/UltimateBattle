@@ -11,6 +11,8 @@
 }
 
 - (void)addTouch:(CGPoint)l {
+    float yLimit = [[UIScreen mainScreen] bounds].size.height;
+    yLimit = yLimit * 2/3;
     if ([self.f touchingPlayer:l]) {
         [self.f setTouchOffsetFromPilotNear:l];
         [self.f changeState:self.f.drawingState withTouch:l];
@@ -26,6 +28,8 @@
         [self.f resetScoringTotals];
         
         [self.f resetLineXDirection:-1];
+    } else if (l.y > yLimit) {
+        [self.f topScreenTappedWithX:l.x];
     }
     
     [self.f restGuideMode];

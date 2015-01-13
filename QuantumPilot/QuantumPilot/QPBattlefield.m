@@ -558,6 +558,8 @@ static QPBattlefield *instance = nil;
     
     _playedDrag = 0;
     [self updateBottomCoreLabel];
+    
+    [self initiateTopLabelCycling];
 }
 
 - (BOOL)debrisOutOfBounds:(Debris *)d {
@@ -1376,6 +1378,16 @@ static QPBattlefield *instance = nil;
     totalShotsFired = 0;
     totalHits = 0;
     totalPaths = 0;
+}
+
+- (void)topScreenTappedWithX:(float)x {
+    NSLog(@"Show gamecenter or social");
+}
+
+#pragma mark button ui
+
+- (void)initiateTopLabelCycling {
+    
 }
 
 @end

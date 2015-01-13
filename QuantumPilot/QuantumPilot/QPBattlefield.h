@@ -240,4 +240,6 @@ enum drawguide {
 
 - (void)resetLineXDirection:(int)lxd;
 
+- (void)topScreenTappedWithX:(float)x;
+
 @end
