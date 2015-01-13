@@ -8,6 +8,8 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"TitleLabel" object:@{@"x":[NSNumber numberWithInteger:    [[UIScreen mainScreen] bounds].size.width / 2], @"y" : [NSNumber numberWithInteger:12], @"text" : @"QUANTUM PILOT"}];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"WeaponLabel" object:[NSNumber numberWithInteger:-1]];
     [self.f resetLineXDirection:1];
+    
+    [self initiateTopLabelCycling];
 }
 
 - (void)addTouch:(CGPoint)l {
@@ -39,5 +41,8 @@
     
 }
 
+- (void)initiateTopLabelCycling {
+    
+}
 
 @end
