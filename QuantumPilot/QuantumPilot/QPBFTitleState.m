@@ -9,6 +9,7 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"WeaponLabel" object:[NSNumber numberWithInteger:-1]];
     [self.f resetLineXDirection:1];
     [self resetTimer];
+    _showingScore = true;
 }
 
 - (void)addTouch:(CGPoint)l {
