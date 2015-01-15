@@ -21,17 +21,31 @@ static float topCenter = 0.21f;
 }
 
 - (void)hideIcons {
-    self.twitterIcon.center = ccp(5000,5000);
-    self.facebookIcon.center = ccp(5000,5000);
+    for (UIView *v in [self socialIcons]) {
+        v.center = ccp(5000, 5000);
+    }
+}
+
+- (NSArray *)socialIcons {
+    return @[self.twitterIcon, self.facebookIcon, self.instagramIcon, self.messageIcon];
 }
 
 - (void)setupSocialIcons {
-    self.twitterIcon    = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"twitter.png"]] autorelease];
-    self.facebookIcon   = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"facebook.png"]] autorelease];
-    self.twitterIcon.transform = CGAffineTransformMakeScale(.5, .5);
-    self.facebookIcon.transform = CGAffineTransformMakeScale(.5, .5);
-    [self addSubview:self.twitterIcon];
-    [self addSubview:self.facebookIcon];
+    self.twitterIcon        = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"twitter.png"]] autorelease];
+    self.facebookIcon       = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"facebook.png"]] autorelease];
+    self.instagramIcon      = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"instagram.png"]] autorelease];
+    self.messageIcon        = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"message.png"]] autorelease];
+    
+    [self.twitterIcon addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(twitterTapped)]];
+    [self.facebookIcon addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(facebookTapped)]];
+    [self.instagramIcon addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(instagramTapped)]];
+    [self.messageIcon addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(messageTapped)]];
+    
+    for (UIView *v in [self socialIcons]) {
+        v.transform = CGAffineTransformMakeScale(.5, .5);
+        [self addSubview:v];
+        v.userInteractionEnabled = true;
+    }
     [self hideIcons];
 }
 
@@ -290,15 +304,63 @@ static float topCenter = 0.21f;
         for (UILabel *l in @[self.killsLabel, self.accuracyLabel, self.pathsLabel, self.leaderboardLabel]) {
             l.center = ccp(5000,5000);
         }
-        CGSize size = [[UIScreen mainScreen] bounds].size;
-        self.twitterIcon.center     = ccp(0.8f * size.width, topCenter * size.height);
-        self.facebookIcon.center    = ccp(0.2f * size.width, topCenter * size.height);
-        [self bringSubviewToFront:self.twitterIcon];
-        [self bringSubviewToFront:self.facebookIcon];
+        if (!_sharing) {
+            CGSize size = [[UIScreen mainScreen] bounds].size;
+            self.twitterIcon.center     = ccp(0.8f * size.width, topCenter * size.height);
+            self.facebookIcon.center    = ccp(0.2f * size.width, topCenter * size.height);
+            self.messageIcon.center     = ccp(0.4f * size.width, topCenter * size.height);
+            self.instagramIcon.center   = ccp(0.6f * size.width, topCenter * size.height);
+
+            for (UIView *v in [self socialIcons]) {
+                [self bringSubviewToFront:v];
+            }
+        }
     } else {
         [self hideIcons];
     }
+}
 
+- (NSString *)shareText {
+    return @"Crushing it in Quantum Pilot";
+}
+
+- (void)twitterTapped {
+    _sharing = true;
+    SLComposeViewController *vc = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+    [vc setInitialText:[self shareText]];
+    [vc setCompletionHandler:^(SLComposeViewControllerResult result) {
+        _sharing = false;
+    }];
+    [[CCDirector sharedDirector] presentViewController:vc animated:YES completion:nil];
+}
+
+- (void)facebookTapped {
+    _sharing = true;
+    SLComposeViewController *vc = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+    [vc setInitialText:[self shareText]];
+    [vc setCompletionHandler:^(SLComposeViewControllerResult result) {
+        _sharing = false;
+    }];
+    [[CCDirector sharedDirector] presentViewController:vc animated:YES completion:nil];
+}
+
+- (void)instagramTapped {
+    _sharing = true;
+}
+
+- (void)messageTapped {
+    _sharing = true;
+    MFMessageComposeViewController *vc = [[[MFMessageComposeViewController alloc] init] autorelease];
+    vc.messageComposeDelegate = self;
+    [vc setBody:[self shareText]];
+    [[CCDirector sharedDirector] presentViewController:vc animated:YES completion:nil];
+}
+
+- (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result {
+    [[CCDirector sharedDirector] dismissViewControllerAnimated:true completion:^{
+    //play sound
+        _sharing = false;
+    }];
 }
 
 @end

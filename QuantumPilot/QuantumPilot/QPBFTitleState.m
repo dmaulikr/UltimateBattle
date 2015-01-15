@@ -9,13 +9,15 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"WeaponLabel" object:[NSNumber numberWithInteger:-1]];
     [self.f resetLineXDirection:1];
     [self resetTimer];
-    _showingScore = true;
+    _showingScore = false;
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowSocial" object:@""];
 }
 
 - (void)addTouch:(CGPoint)l {
     float yLimit = [[UIScreen mainScreen] bounds].size.height;
     yLimit = yLimit * 2/3;
     if ([self.f touchingPlayer:l]) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowSocial" object:nil];
         [self.f setTouchOffsetFromPilotNear:l];
         [self.f changeState:self.f.drawingState withTouch:l];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"TitleLabel" object:@{@"x":[NSNumber numberWithInteger:    [[UIScreen mainScreen] bounds].size.width / 2], @"y" : [NSNumber numberWithInteger:-5000], @"text" : @"QUANTUM PILOT"}];
@@ -31,18 +33,18 @@
         
         [self.f resetLineXDirection:-1];
     } else if (l.y > yLimit) {
-        [self.f topScreenTappedWithX:l.x];
+        [self handleTopTap:l.x];
     }
     
     [self.f restGuideMode];
 }
 
-- (void)deactivate {
-    
+- (void)handleTopTap:(float)x {
+
 }
 
 - (void)resetTimer {
-    _timer = 230;
+    _timer = 80;
 }
 
 - (void)pulse {

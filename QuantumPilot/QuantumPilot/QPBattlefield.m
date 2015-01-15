@@ -1413,10 +1413,6 @@ static QPBattlefield *instance = nil;
     totalPaths = 0;
 }
 
-- (void)topScreenTappedWithX:(float)x {
-    NSLog(@"Show gamecenter or social");
-}
-
 - (bool)showSocial {
     return lastScore > 0;
 }

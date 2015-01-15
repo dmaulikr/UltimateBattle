@@ -25,8 +25,6 @@
 		0E1D29941A594B4300ACF3C9 /* KillsLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E1D29931A594B4300ACF3C9 /* KillsLabel.m */; };
 		0E1D29971A59518D00ACF3C9 /* PathsLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E1D29961A59518D00ACF3C9 /* PathsLabel.m */; };
 		0E22E95E19ECCAF900261AC5 /* BattleWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E22E95D19ECCAF900261AC5 /* BattleWindow.m */; };
-		0E29AA9A1A67709B00AB929E /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E29AA991A67709B00AB929E /* facebook.png */; };
-		0E29AA9C1A6770BD00AB929E /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E29AA9B1A6770BD00AB929E /* twitter.png */; };
 		0E3347431A43FE0600C3FA60 /* l4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0E3347421A43FE0600C3FA60 /* l4.wav */; };
 		0E53480F1A43CDAF0045FEF1 /* drag.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0E53480C1A43CAB90045FEF1 /* drag.m4a */; };
 		0E5348101A43CDB20045FEF1 /* tap.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0E53480D1A43CAB90045FEF1 /* tap.m4a */; };
@@ -42,6 +40,11 @@
 		0E87A21919F30DE200B55AA2 /* Shatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E87A21819F30DE200B55AA2 /* Shatter.m */; };
 		0E8A113E197D56510028A78F /* FastLaser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E8A113D197D56510028A78F /* FastLaser.m */; };
 		0E9224F61A6854FD00D9730E /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E9224F51A6854FD00D9730E /* Social.framework */; };
+		0E9224FA1A686BF500D9730E /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E9224F71A686BF500D9730E /* facebook.png */; };
+		0E9224FB1A686BF500D9730E /* instagram.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E9224F81A686BF500D9730E /* instagram.png */; };
+		0E9224FC1A686BF500D9730E /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E9224F91A686BF500D9730E /* twitter.png */; };
+		0E9225001A686CCD00D9730E /* message.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E9224FF1A686CCD00D9730E /* message.png */; };
+		0E9225021A687A9C00D9730E /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E9225011A687A9C00D9730E /* MessageUI.framework */; };
 		0E9356E619BBCD160023E1B0 /* ShieldDebris.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E9356E519BBCD160023E1B0 /* ShieldDebris.m */; };
 		0EA1A36B1A40E95800A098A6 /* l1-18.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0EA1A3691A40E95800A098A6 /* l1-18.wav */; };
 		0EA1A36C1A40E95800A098A6 /* l2-18.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0EA1A36A1A40E95800A098A6 /* l2-18.wav */; };
@@ -227,8 +230,6 @@
 		0E1D29961A59518D00ACF3C9 /* PathsLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PathsLabel.m; sourceTree = "<group>"; };
 		0E22E95C19ECCAF900261AC5 /* BattleWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BattleWindow.h; sourceTree = "<group>"; };
 		0E22E95D19ECCAF900261AC5 /* BattleWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BattleWindow.m; sourceTree = "<group>"; };
-		0E29AA991A67709B00AB929E /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
-		0E29AA9B1A6770BD00AB929E /* twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter.png; sourceTree = "<group>"; };
 		0E3347421A43FE0600C3FA60 /* l4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = l4.wav; sourceTree = "<group>"; };
 		0E53480C1A43CAB90045FEF1 /* drag.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = drag.m4a; sourceTree = "<group>"; };
 		0E53480D1A43CAB90045FEF1 /* tap.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = tap.m4a; sourceTree = "<group>"; };
@@ -254,6 +255,11 @@
 		0E8A113C197D56510028A78F /* FastLaser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FastLaser.h; sourceTree = "<group>"; };
 		0E8A113D197D56510028A78F /* FastLaser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FastLaser.m; sourceTree = "<group>"; };
 		0E9224F51A6854FD00D9730E /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		0E9224F71A686BF500D9730E /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
+		0E9224F81A686BF500D9730E /* instagram.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = instagram.png; sourceTree = "<group>"; };
+		0E9224F91A686BF500D9730E /* twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter.png; sourceTree = "<group>"; };
+		0E9224FF1A686CCD00D9730E /* message.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = message.png; sourceTree = "<group>"; };
+		0E9225011A687A9C00D9730E /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		0E9356E419BBCD160023E1B0 /* ShieldDebris.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShieldDebris.h; sourceTree = "<group>"; };
 		0E9356E519BBCD160023E1B0 /* ShieldDebris.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShieldDebris.m; sourceTree = "<group>"; };
 		0EA1A3691A40E95800A098A6 /* l1-18.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "l1-18.wav"; sourceTree = "<group>"; };
@@ -575,6 +581,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E9225021A687A9C00D9730E /* MessageUI.framework in Frameworks */,
 				0E9224F61A6854FD00D9730E /* Social.framework in Frameworks */,
 				BF0EE06D163319B8002942A0 /* QuartzCore.framework in Frameworks */,
 				BF0EE06F163319B8002942A0 /* OpenGLES.framework in Frameworks */,
@@ -712,6 +719,7 @@
 		BF0EE06B163319B8002942A0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0E9225011A687A9C00D9730E /* MessageUI.framework */,
 				0E9224F51A6854FD00D9730E /* Social.framework */,
 				BF0EE06C163319B8002942A0 /* QuartzCore.framework */,
 				BF0EE06E163319B8002942A0 /* OpenGLES.framework */,
@@ -746,8 +754,10 @@
 		BF0EE07F163319B8002942A0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				0E29AA991A67709B00AB929E /* facebook.png */,
-				0E29AA9B1A6770BD00AB929E /* twitter.png */,
+				0E9224F71A686BF500D9730E /* facebook.png */,
+				0E9224F81A686BF500D9730E /* instagram.png */,
+				0E9224F91A686BF500D9730E /* twitter.png */,
+				0E9224FF1A686CCD00D9730E /* message.png */,
 				BF0EE096163319B9002942A0 /* Info.plist */,
 				BF0EE097163319B9002942A0 /* iTunesArtwork */,
 			);
@@ -1300,8 +1310,8 @@
 				0E1292B31A049FAA006A8BAB /* novasplitter.m4a in Resources */,
 				0E1292B81A049FAA006A8BAB /* corecrusher.m4a in Resources */,
 				0EA1A3821A40EBA100A098A6 /* x1-12.wav in Resources */,
-				0E29AA9A1A67709B00AB929E /* facebook.png in Resources */,
 				0EA1A3861A40EBA100A098A6 /* x5-12.wav in Resources */,
+				0E9224FA1A686BF500D9730E /* facebook.png in Resources */,
 				0E1292D71A04ACB1006A8BAB /* collect.wav in Resources */,
 				0EA1A36F1A40E9E900A098A6 /* l1-12.wav in Resources */,
 				0EA1A38C1A40ED4900A098A6 /* collect-8.wav in Resources */,
@@ -1310,13 +1320,15 @@
 				0E1292B91A049FAA006A8BAB /* dismantler.m4a in Resources */,
 				0EA1A3771A40EB7100A098A6 /* l6-12.wav in Resources */,
 				0EA1A3831A40EBA100A098A6 /* x2-12.wav in Resources */,
-				0E29AA9C1A6770BD00AB929E /* twitter.png in Resources */,
 				BF0EE1D6163319BB002942A0 /* ChangeLog in Resources */,
 				0E1292B41A049FAA006A8BAB /* spacemelter.m4a in Resources */,
 				BFA1BE56163B5C7100833186 /* Default-568h@2x.png in Resources */,
+				0E9224FC1A686BF500D9730E /* twitter.png in Resources */,
 				0E53480F1A43CDAF0045FEF1 /* drag.m4a in Resources */,
+				0E9224FB1A686BF500D9730E /* instagram.png in Resources */,
 				0E5348101A43CDB20045FEF1 /* tap.m4a in Resources */,
 				0E3347431A43FE0600C3FA60 /* l4.wav in Resources */,
+				0E9225001A686CCD00D9730E /* message.png in Resources */,
 				0EA1A3751A40EB7100A098A6 /* l3-22.wav in Resources */,
 				0E1292B51A049FAA006A8BAB /* gammahammer.m4a in Resources */,
 				0EA1A36C1A40E95800A098A6 /* l2-18.wav in Resources */,

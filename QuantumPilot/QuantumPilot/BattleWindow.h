@@ -15,8 +15,12 @@
 #import "PathsLabel.h"
 #import "WeaponsLabel.h"
 
-@interface BattleWindow : UIWindow {
+#import <Social/Social.h>
+#import <MessageUI/MessageUI.h>
+
+@interface BattleWindow : UIWindow <MFMessageComposeViewControllerDelegate> {
     float _time;
+    bool _sharing;
 }
 
 @property (strong, nonatomic) UILabel *l1;
@@ -45,6 +49,8 @@
 
 @property (strong, nonatomic) UIImageView *twitterIcon;
 @property (strong, nonatomic) UIImageView *facebookIcon;
+@property (strong, nonatomic) UIImageView *instagramIcon;
+@property (strong, nonatomic) UIImageView *messageIcon;
 
 - (NSArray *)labels;
 
