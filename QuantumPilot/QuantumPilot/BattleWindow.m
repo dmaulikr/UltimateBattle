@@ -88,7 +88,10 @@ static float topCenter = 0.21f;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateKillsLabel:) name:@"KillsLabel" object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateLeaderboardLabel:) name:@"LeaderboardLabel" object:nil];
-    
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateLeaderboardLabel:) name:@"LeaderboardLabel" object:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showSocial) name:@"ShowSocial" object:nil];
     
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"WeaponLabel" object:[NSNumber numberWithInteger:0]];
@@ -225,7 +228,7 @@ static float topCenter = 0.21f;
             [self.accuracyLabel cancel];
         }
     } else {
-            self.accuracyLabel.text = [NSString stringWithFormat:@"%d\n%%", abs(acc)];
+        self.accuracyLabel.text = [NSString stringWithFormat:@"%d\n%%", abs(acc)];
         self.accuracyLabel.center = ccp(0.40f * size.width, topCenter * size.height);
         [self.accuracyLabel cancel];
     }
@@ -263,6 +266,12 @@ static float topCenter = 0.21f;
     CGSize size = [[UIScreen mainScreen] bounds].size;
     self.leaderboardLabel.center = ccp(0.8f * size.width, topCenter * size.height);
     [self.leaderboardLabel cancel];
+}
+
+- (void)showSocial {
+    for (UILabel *l in @[self.killsLabel, self.accuracyLabel, self.pathsLabel, self.leaderboardLabel]) {
+        l.center = ccp(5000,5000);
+    }
 }
 
 @end

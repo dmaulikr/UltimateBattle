@@ -249,6 +249,11 @@ static QPBattlefield *instance = nil;
                                                  selector:@selector(processCloneBulletMoved:)
                                                      name:@"CloneBulletMoved"
                                                    object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(showScores)
+                                                     name:@"ShowScores"
+                                                   object:nil];
 
         
         _screenSize = [[UIScreen mainScreen] bounds].size;
@@ -501,6 +506,35 @@ static QPBattlefield *instance = nil;
     [self.pilot engage];
 }
 
+- (void)announceAccuracy {
+    NSNumber *accAnnouncement;
+    if (totalShotsFired > 0) {
+        int acc = (int)ceil((((float)totalHits / (float)totalShotsFired)) * 100.0);
+        if (acc > 100) {
+            acc = 100;
+        }
+        accAnnouncement = [NSNumber numberWithInteger:-1 * acc];
+    } else {
+        accAnnouncement = [NSNumber numberWithInteger:0];
+    }
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"AccuracyLabel" object:@{@"accuracy" : [accAnnouncement stringValue], @"corner" : [NSNumber numberWithBool:false]}];
+}
+
+- (void)showScores {
+    if (lastScore > 0) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"PathsLabel" object:[NSNumber numberWithInteger:-totalPaths]];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"KillsLabel" object:@{@"kills" : [NSNumber numberWithInteger:totalHits]}];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"ScorePulse" object:nil];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"LeaderboardLabel" object:nil];
+        
+        [self announceAccuracy];
+    }
+}
+
 - (void)resetBattlefield {
     veteran = level > 4;
     _guideMode = veteran ? circle : _guideMode;
@@ -519,26 +553,7 @@ static QPBattlefield *instance = nil;
     lastScore = [self.scoreCycler actualScore];
     [self.scoreCycler reset];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"PathsLabel" object:[NSNumber numberWithInteger:-totalPaths]];
-
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"KillsLabel" object:@{@"kills" : [NSNumber numberWithInteger:totalHits]}];
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"ScorePulse" object:nil];
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"LeaderboardLabel" object:nil];
-    
-    NSNumber *accAnnouncement;
-    if (totalShotsFired > 0) {
-        int acc = (int)ceil((((float)totalHits / (float)totalShotsFired)) * 100.0);
-        if (acc > 100) {
-            acc = 100;
-        }
-        accAnnouncement = [NSNumber numberWithInteger:-1 * acc];
-    } else {
-        accAnnouncement = [NSNumber numberWithInteger:0];
-    }
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"AccuracyLabel" object:@{@"accuracy" : [accAnnouncement stringValue], @"corner" : [NSNumber numberWithBool:false]}];
+    [self showScores];
     
     [self eraseBullets];
     [self eraseClones];
@@ -1238,34 +1253,32 @@ static QPBattlefield *instance = nil;
 
 #pragma mark Pilot effects
 
-- (void)draw {
-    [super draw];
+- (void)drawTitleState {
+    if (_drawings > 0) {
+        [self drawCharges];
+    }
     
-    [[Arsenal weaponIndexedFromArsenal:[self.pilot arsenalLevel]] setDrawColor];
-    ccDrawLine(ccp(l1x, l1y), ccp(l1x + _battlefieldFrame.size.width, l1y));
-    ccDrawLine(ccp(l2x, l2y), ccp(l2x + _battlefieldFrame.size.width, l2y));
-    
-    if (self.currentState == self.titleState) {
-        if (_drawings > 0) {
-            for (int i = 0; i < _drawings + 1; i++) {
-                CGPoint c = ccp(drawX, 28);
-                ccDrawFilledCircle(c, 1.7, 0, 30, NO);
-                drawX+=6;
-            }
-        }
-        
+    if ([self.titleState showingScore]) {
         ccDrawColor4F(1, 1, 1, 1.0);
         if (lastScore > 0) {
             ccDrawPoly(_leaderboardPoints, 10, NO);
         }
     } else {
-        for (int i = 0; i < _drawings + 1; i++) {
-            CGPoint c = ccp(drawX, 28);
-            ccDrawFilledCircle(c, 1.7, 0, 30, NO);
-            drawX+=6;
-        }
+        
     }
+    
+    
+}
 
+- (void)drawCharges {
+    for (int i = 0; i < _drawings + 1; i++) {
+        CGPoint c = ccp(drawX, 28);
+        ccDrawFilledCircle(c, 1.7, 0, 30, NO);
+        drawX+=6;
+    }
+}
+
+- (void)drawGuideMode {
     switch (_guideMode) {
         case circle:
             ccDrawCircle(self.pilot.l, drawRadius, 0, 50, 0);
@@ -1279,6 +1292,26 @@ static QPBattlefield *instance = nil;
         default:
             break;
     }
+}
+
+- (void)drawSidelines {
+    ccDrawLine(ccp(l1x, l1y), ccp(l1x + _battlefieldFrame.size.width, l1y));
+    ccDrawLine(ccp(l2x, l2y), ccp(l2x + _battlefieldFrame.size.width, l2y));
+}
+
+- (void)draw {
+    [super draw];
+    
+    [[Arsenal weaponIndexedFromArsenal:[self.pilot arsenalLevel]] setDrawColor];
+    [self drawSidelines];
+    
+    if (self.currentState == self.titleState) {
+        [self drawTitleState];
+    } else {
+        [self drawCharges];
+    }
+
+    [self drawGuideMode];
 }
 
 - (float)bulletSpeed {

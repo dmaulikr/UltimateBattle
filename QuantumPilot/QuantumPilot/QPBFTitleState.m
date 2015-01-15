@@ -8,8 +8,7 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"TitleLabel" object:@{@"x":[NSNumber numberWithInteger:    [[UIScreen mainScreen] bounds].size.width / 2], @"y" : [NSNumber numberWithInteger:12], @"text" : @"QUANTUM PILOT"}];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"WeaponLabel" object:[NSNumber numberWithInteger:-1]];
     [self.f resetLineXDirection:1];
-    
-    [self initiateTopLabelCycling];
+    [self resetTimer];
 }
 
 - (void)addTouch:(CGPoint)l {
@@ -41,8 +40,22 @@
     
 }
 
-- (void)initiateTopLabelCycling {
-    
+- (void)resetTimer {
+    _timer = 230;
+}
+
+- (void)pulse {
+    _timer --;
+    if (_timer <= 0) {
+        [self resetTimer];
+        _showingScore = !_showingScore;
+        NSString *name = _showingScore ? @"ShowScores" : @"ShowSocial";
+        [[NSNotificationCenter defaultCenter] postNotificationName:name object:nil];
+    }
+}
+
+- (bool)showingScore {
+    return _showingScore;
 }
 
 @end
