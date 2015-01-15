@@ -43,6 +43,9 @@
 
 @property (strong, nonatomic) NSTimer *breath;
 
+@property (strong, nonatomic) UIImageView *twitterIcon;
+@property (strong, nonatomic) UIImageView *facebookIcon;
+
 - (NSArray *)labels;
 
 @end

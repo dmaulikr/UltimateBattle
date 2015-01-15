@@ -20,8 +20,25 @@ static float topCenter = 0.21f;
     return @[self.l1, self.l2, self.l3, self.l4, self.debrisLabel, self.titleLabel, self.subTitle, self.guide, self.speedLabel, self.accuracyLabel, self.pathsLabel, self.killsLabel, self.leaderboardLabel];
 }
 
+- (void)hideIcons {
+    self.twitterIcon.center = ccp(5000,5000);
+    self.facebookIcon.center = ccp(5000,5000);
+}
+
+- (void)setupSocialIcons {
+    self.twitterIcon    = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"twitter.png"]] autorelease];
+    self.facebookIcon   = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"facebook.png"]] autorelease];
+    self.twitterIcon.transform = CGAffineTransformMakeScale(.5, .5);
+    self.facebookIcon.transform = CGAffineTransformMakeScale(.5, .5);
+    [self addSubview:self.twitterIcon];
+    [self addSubview:self.facebookIcon];
+    [self hideIcons];
+}
+
 - (void)setupLabels {
     CGSize size = [[UIScreen mainScreen] bounds].size;
+    
+    [self setupSocialIcons];
     
     self.l1 = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 90)] autorelease];
     self.l2 = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 90)] autorelease];
@@ -91,7 +108,7 @@ static float topCenter = 0.21f;
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateLeaderboardLabel:) name:@"LeaderboardLabel" object:nil];
 
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showSocial) name:@"ShowSocial" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showSocial:) name:@"ShowSocial" object:nil];
     
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"WeaponLabel" object:[NSNumber numberWithInteger:0]];
@@ -268,10 +285,20 @@ static float topCenter = 0.21f;
     [self.leaderboardLabel cancel];
 }
 
-- (void)showSocial {
-    for (UILabel *l in @[self.killsLabel, self.accuracyLabel, self.pathsLabel, self.leaderboardLabel]) {
-        l.center = ccp(5000,5000);
+- (void)showSocial:(NSNotification *)n {
+    if (n.object) {
+        for (UILabel *l in @[self.killsLabel, self.accuracyLabel, self.pathsLabel, self.leaderboardLabel]) {
+            l.center = ccp(5000,5000);
+        }
+        CGSize size = [[UIScreen mainScreen] bounds].size;
+        self.twitterIcon.center     = ccp(0.8f * size.width, topCenter * size.height);
+        self.facebookIcon.center    = ccp(0.2f * size.width, topCenter * size.height);
+        [self bringSubviewToFront:self.twitterIcon];
+        [self bringSubviewToFront:self.facebookIcon];
+    } else {
+        [self hideIcons];
     }
+
 }
 
 @end

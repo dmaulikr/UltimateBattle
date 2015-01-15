@@ -522,7 +522,9 @@ static QPBattlefield *instance = nil;
 }
 
 - (void)showScores {
-    if (lastScore > 0) {
+    if ([self showSocial]) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowSocial" object:nil];
+        
         [[NSNotificationCenter defaultCenter] postNotificationName:@"PathsLabel" object:[NSNumber numberWithInteger:-totalPaths]];
         
         [[NSNotificationCenter defaultCenter] postNotificationName:@"KillsLabel" object:@{@"kills" : [NSNumber numberWithInteger:totalHits]}];
@@ -1413,6 +1415,10 @@ static QPBattlefield *instance = nil;
 
 - (void)topScreenTappedWithX:(float)x {
     NSLog(@"Show gamecenter or social");
+}
+
+- (bool)showSocial {
+    return lastScore > 0;
 }
 
 @end

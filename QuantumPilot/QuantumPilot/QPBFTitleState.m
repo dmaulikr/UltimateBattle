@@ -50,8 +50,13 @@
     if (_timer <= 0) {
         [self resetTimer];
         _showingScore = !_showingScore;
-        NSString *name = _showingScore ? @"ShowScores" : @"ShowSocial";
-        [[NSNotificationCenter defaultCenter] postNotificationName:name object:nil];
+        if (_showingScore) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowScores" object:@""];
+        } else {
+            if ([self.f showSocial]) {
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowSocial" object:@""];
+            }
+        }
     }
 }
 

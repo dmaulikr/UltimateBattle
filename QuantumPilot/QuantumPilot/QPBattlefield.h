@@ -240,4 +240,6 @@ enum drawguide {
 
 - (void)resetLineXDirection:(int)lxd;
 
+- (bool)showSocial;
+
 @end
