@@ -41,6 +41,7 @@
 		0E773A2619D8FE1100009DA0 /* WideTriLaser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E773A2519D8FE1100009DA0 /* WideTriLaser.m */; };
 		0E87A21919F30DE200B55AA2 /* Shatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E87A21819F30DE200B55AA2 /* Shatter.m */; };
 		0E8A113E197D56510028A78F /* FastLaser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E8A113D197D56510028A78F /* FastLaser.m */; };
+		0E9224F61A6854FD00D9730E /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E9224F51A6854FD00D9730E /* Social.framework */; };
 		0E9356E619BBCD160023E1B0 /* ShieldDebris.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E9356E519BBCD160023E1B0 /* ShieldDebris.m */; };
 		0EA1A36B1A40E95800A098A6 /* l1-18.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0EA1A3691A40E95800A098A6 /* l1-18.wav */; };
 		0EA1A36C1A40E95800A098A6 /* l2-18.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0EA1A36A1A40E95800A098A6 /* l2-18.wav */; };
@@ -252,6 +253,7 @@
 		0E87A21819F30DE200B55AA2 /* Shatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shatter.m; sourceTree = "<group>"; };
 		0E8A113C197D56510028A78F /* FastLaser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FastLaser.h; sourceTree = "<group>"; };
 		0E8A113D197D56510028A78F /* FastLaser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FastLaser.m; sourceTree = "<group>"; };
+		0E9224F51A6854FD00D9730E /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		0E9356E419BBCD160023E1B0 /* ShieldDebris.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShieldDebris.h; sourceTree = "<group>"; };
 		0E9356E519BBCD160023E1B0 /* ShieldDebris.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShieldDebris.m; sourceTree = "<group>"; };
 		0EA1A3691A40E95800A098A6 /* l1-18.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "l1-18.wav"; sourceTree = "<group>"; };
@@ -573,6 +575,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E9224F61A6854FD00D9730E /* Social.framework in Frameworks */,
 				BF0EE06D163319B8002942A0 /* QuartzCore.framework in Frameworks */,
 				BF0EE06F163319B8002942A0 /* OpenGLES.framework in Frameworks */,
 				BF0EE071163319B8002942A0 /* OpenAL.framework in Frameworks */,
@@ -709,6 +712,7 @@
 		BF0EE06B163319B8002942A0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0E9224F51A6854FD00D9730E /* Social.framework */,
 				BF0EE06C163319B8002942A0 /* QuartzCore.framework */,
 				BF0EE06E163319B8002942A0 /* OpenGLES.framework */,
 				BF0EE070163319B8002942A0 /* OpenAL.framework */,
