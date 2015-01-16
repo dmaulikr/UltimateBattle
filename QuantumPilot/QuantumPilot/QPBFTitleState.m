@@ -64,7 +64,7 @@
         [self resetTimer];
         _showingScore = !_showingScore;
         if (_showingScore) {
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowScores" object:@""];
+            [self.f announceScores];
         } else {
             if ([self.f showSocial]) {
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowSocial" object:@""];

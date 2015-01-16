@@ -1418,4 +1418,10 @@ static QPBattlefield *instance = nil;
     return [NSString stringWithFormat:@"I'm crushing it in Quantum Pilot with %d from %d clone ship kills. Can you defeat yourself? %@", lastScore, totalHits, @"https://itunes.apple.com/us/app/quantum-pilot/id935956154?mt=8"  ];
 }
 
+- (void)announceScores {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowScores" object:@""];
+    [self scorePulse];
+    
+}
+
 @end

@@ -241,6 +241,7 @@ enum drawguide {
 - (void)resetLineXDirection:(int)lxd;
 
 - (bool)showSocial;
+- (void)announceScores;
 
 - (NSString *)shareText;
 
