@@ -1417,4 +1417,8 @@ static QPBattlefield *instance = nil;
     return lastScore > 0;
 }
 
+- (NSString *)shareText {
+    return [NSString stringWithFormat:@"I'm crushing it in Quantum Pilot with %d from %d clone ship kills. Can you defeat yourself? %@", lastScore, totalHits, @"https://itunes.apple.com/us/app/quantum-pilot/id935956154?mt=8"  ];
+}
+
 @end

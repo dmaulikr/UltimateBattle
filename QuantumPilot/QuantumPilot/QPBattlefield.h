@@ -242,4 +242,6 @@ enum drawguide {
 
 - (bool)showSocial;
 
+- (NSString *)shareText;
+
 @end

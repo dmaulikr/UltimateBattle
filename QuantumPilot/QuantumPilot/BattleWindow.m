@@ -11,6 +11,7 @@
 #import "Arsenal.h"
 #import "Weapon.h"
 #import "CCScheduler.h"
+#import "QPBattlefield.h"
 
 static float topCenter = 0.21f;
 
@@ -321,7 +322,7 @@ static float topCenter = 0.21f;
 }
 
 - (NSString *)shareText {
-    return @"Crushing it in Quantum Pilot";
+    return [[QPBattlefield f] shareText];
 }
 
 - (void)twitterTapped {
