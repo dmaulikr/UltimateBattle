@@ -386,7 +386,6 @@ static QPBattlefield *instance = nil;
 //        return;
 //    }
     
-    
     Debris *d = [[[Debris alloc] initWithL:c.l] autorelease];
     [d multiplySpeed:[self speedMod]];
     [d assignLevel];
@@ -537,7 +536,7 @@ static QPBattlefield *instance = nil;
 
 - (void)resetBattlefield {
     veteran = level > 4;
-    _guideMode = veteran ? circle : _guideMode;
+    _guideMode = veteran ? _guideMode : circle;
     level = 1;
     if (_coresCollected > 53) {
         _coresCollected = 0;
@@ -1039,6 +1038,7 @@ static QPBattlefield *instance = nil;
         }
         
         if (self.currentState == self.titleState || self.currentState == self.pausedState) {
+    
         } else {
             [self scorePulse];
         }
@@ -1267,8 +1267,6 @@ static QPBattlefield *instance = nil;
     } else {
         
     }
-    
-    
 }
 
 - (void)drawCharges {
@@ -1305,14 +1303,14 @@ static QPBattlefield *instance = nil;
     
     [[Arsenal weaponIndexedFromArsenal:[self.pilot arsenalLevel]] setDrawColor];
     [self drawSidelines];
+
+    [self drawGuideMode];
     
     if (self.currentState == self.titleState) {
         [self drawTitleState];
     } else {
         [self drawCharges];
     }
-
-    [self drawGuideMode];
 }
 
 - (float)bulletSpeed {

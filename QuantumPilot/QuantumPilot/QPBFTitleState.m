@@ -13,27 +13,38 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowSocial" object:@""];
 }
 
+- (void)announceLabels {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowSocial" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"TitleLabel" object:@{@"x":[NSNumber numberWithInteger:    [[UIScreen mainScreen] bounds].size.width / 2], @"y" : [NSNumber numberWithInteger:-5000], @"text" : @"QUANTUM PILOT"}];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"SubtitleLabel" object:@{@"x":[NSNumber numberWithInteger:    [[UIScreen mainScreen] bounds].size.width / 2], @"y" : [NSNumber numberWithInteger:-5000], @"text" : @"QUANTUM PILOT"}];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ScorePulse" object:@"title"];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ScoreLabel" object:@"0"];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"AccuracyPulse" object:@"title"];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"PathsPulse" object:@"title"];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"SpeedLabel" object:@""];
+}
+
+- (void)start:(CGPoint)l {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowSocial" object:nil];
+    [self.f setTouchOffsetFromPilotNear:l];
+    [self.f changeState:self.f.drawingState withTouch:l];
+    [self announceLabels];
+    [self.f.pilot announceWeapon];
+    [self.f resetScoringTotals];
+    [self.f resetLineXDirection:-1];
+}
+
 - (void)addTouch:(CGPoint)l {
     float yLimit = [[UIScreen mainScreen] bounds].size.height;
-    yLimit = yLimit * 2/3;
+    float y2Limit = yLimit;
+    yLimit  = yLimit * 2/3;
+    y2Limit = y2Limit * 1/3;
     if ([self.f touchingPlayer:l]) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowSocial" object:nil];
-        [self.f setTouchOffsetFromPilotNear:l];
-        [self.f changeState:self.f.drawingState withTouch:l];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"TitleLabel" object:@{@"x":[NSNumber numberWithInteger:    [[UIScreen mainScreen] bounds].size.width / 2], @"y" : [NSNumber numberWithInteger:-5000], @"text" : @"QUANTUM PILOT"}];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"SubtitleLabel" object:@{@"x":[NSNumber numberWithInteger:    [[UIScreen mainScreen] bounds].size.width / 2], @"y" : [NSNumber numberWithInteger:-5000], @"text" : @"QUANTUM PILOT"}];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"ScorePulse" object:@"title"];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"ScoreLabel" object:@"0"];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"AccuracyPulse" object:@"title"];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"PathsPulse" object:@"title"];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"SpeedLabel" object:@""];
-        
-        [self.f.pilot announceWeapon];
-        [self.f resetScoringTotals];
-        
-        [self.f resetLineXDirection:-1];
+        [self start:l];
     } else if (l.y > yLimit) {
         [self handleTopTap:l.x];
+    } else if (l.y > y2Limit) {
+        [self start:l];
     }
     
     [self.f restGuideMode];
