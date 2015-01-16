@@ -529,8 +529,6 @@ static QPBattlefield *instance = nil;
         
         [[NSNotificationCenter defaultCenter] postNotificationName:@"KillsLabel" object:@{@"kills" : [NSNumber numberWithInteger:totalHits]}];
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"ScorePulse" object:nil];
-        
         [[NSNotificationCenter defaultCenter] postNotificationName:@"LeaderboardLabel" object:nil];
         
         [self announceAccuracy];
@@ -556,6 +554,7 @@ static QPBattlefield *instance = nil;
     [self.scoreCycler reset];
     
     [self showScores];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ScorePulse" object:nil];
     
     [self eraseBullets];
     [self eraseClones];

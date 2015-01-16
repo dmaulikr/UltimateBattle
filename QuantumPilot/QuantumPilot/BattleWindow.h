@@ -49,7 +49,7 @@
 
 @property (strong, nonatomic) UIImageView *twitterIcon;
 @property (strong, nonatomic) UIImageView *facebookIcon;
-@property (strong, nonatomic) UIImageView *instagramIcon;
+//@property (strong, nonatomic) UIImageView *instagramIcon;
 @property (strong, nonatomic) UIImageView *messageIcon;
 
 - (NSArray *)labels;

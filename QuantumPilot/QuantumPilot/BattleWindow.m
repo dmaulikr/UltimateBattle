@@ -28,18 +28,18 @@ static float topCenter = 0.21f;
 }
 
 - (NSArray *)socialIcons {
-    return @[self.twitterIcon, self.facebookIcon, self.instagramIcon, self.messageIcon];
+    return @[self.twitterIcon, self.facebookIcon, self.messageIcon];
 }
 
 - (void)setupSocialIcons {
     self.twitterIcon        = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"twitter.png"]] autorelease];
     self.facebookIcon       = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"facebook.png"]] autorelease];
-    self.instagramIcon      = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"instagram.png"]] autorelease];
+//    self.instagramIcon      = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"instagram.png"]] autorelease];
     self.messageIcon        = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"message.png"]] autorelease];
     
     [self.twitterIcon addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(twitterTapped)]];
     [self.facebookIcon addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(facebookTapped)]];
-    [self.instagramIcon addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(instagramTapped)]];
+//    [self.instagramIcon addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(instagramTapped)]];
     [self.messageIcon addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(messageTapped)]];
     
     for (UIView *v in [self socialIcons]) {
@@ -301,16 +301,17 @@ static float topCenter = 0.21f;
 }
 
 - (void)showSocial:(NSNotification *)n {
+    [self.scoreLabel cancel];
     if (n.object) {
         for (UILabel *l in @[self.killsLabel, self.accuracyLabel, self.pathsLabel, self.leaderboardLabel]) {
             l.center = ccp(5000,5000);
         }
         if (!_sharing) {
             CGSize size = [[UIScreen mainScreen] bounds].size;
-            self.twitterIcon.center     = ccp(0.8f * size.width, topCenter * size.height);
-            self.facebookIcon.center    = ccp(0.2f * size.width, topCenter * size.height);
-            self.messageIcon.center     = ccp(0.4f * size.width, topCenter * size.height);
-            self.instagramIcon.center   = ccp(0.6f * size.width, topCenter * size.height);
+            self.twitterIcon.center     = ccp(0.75f * size.width, topCenter * size.height);
+            self.facebookIcon.center    = ccp(0.25f * size.width, topCenter * size.height);
+            self.messageIcon.center     = ccp(0.5f * size.width, topCenter * size.height);
+//            self.instagramIcon.center   = ccp(0.6f * size.width, topCenter * size.height);
 
             for (UIView *v in [self socialIcons]) {
                 [self bringSubviewToFront:v];
