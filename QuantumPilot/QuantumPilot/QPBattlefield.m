@@ -505,13 +505,19 @@ static QPBattlefield *instance = nil;
     [self.pilot engage];
 }
 
+- (int)accuracy {
+    int acc = (int)ceil((((float)totalHits / (float)totalShotsFired)) * 100.0);
+    if (acc > 100) {
+        acc = 100;
+    }
+    
+    return acc;
+}
+
 - (void)announceAccuracy {
     NSNumber *accAnnouncement;
     if (totalShotsFired > 0) {
-        int acc = (int)ceil((((float)totalHits / (float)totalShotsFired)) * 100.0);
-        if (acc > 100) {
-            acc = 100;
-        }
+        int acc = [self accuracy];
         accAnnouncement = [NSNumber numberWithInteger:-1 * acc];
     } else {
         accAnnouncement = [NSNumber numberWithInteger:0];
@@ -1415,7 +1421,26 @@ static QPBattlefield *instance = nil;
 }
 
 - (NSString *)shareText {
-    return [NSString stringWithFormat:@"I'm crushing it in Quantum Pilot with %d from %d clone ship kills. Can you defeat yourself? %@", lastScore, totalHits, @"https://itunes.apple.com/us/app/quantum-pilot/id935956154?mt=8"  ];
+    int t = arc4random() % 5;
+    
+    NSString *v = @"";
+    switch (t) {
+        case 0:
+            v = [NSString stringWithFormat:@"I dismantled %d clone ships in Quantum Pilot with %d%% accuracy. Can you defeat yourself? %@", totalHits, [self accuracy], @"https://itunes.apple.com/us/app/quantum-pilot/id935956154?mt=8"];
+            break;
+        case 1:
+            v = [NSString stringWithFormat:@"I melted %d clone ships in Quantum Pilot with %d points. Can you defeat yourself? %@", totalHits, lastScore, @"https://itunes.apple.com/us/app/quantum-pilot/id935956154?mt=8"];
+            break;
+        case 2:
+            v = [NSString stringWithFormat:@"I destroyed %d clone ships in Quantum Pilot from only %d paths. Can you defeat yourself? %@", totalHits, totalPaths, @"https://itunes.apple.com/us/app/quantum-pilot/id935956154?mt=8"];
+            break;
+            
+        default:
+            v = [NSString stringWithFormat:@"I'm crushing it in Quantum Pilot with %d from %d clone ship kills. Can you defeat yourself? %@", lastScore, totalHits, @"https://itunes.apple.com/us/app/quantum-pilot/id935956154?mt=8"];
+            break;
+    }
+    
+    return v;
 }
 
 - (void)announceScores {

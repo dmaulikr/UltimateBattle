@@ -4,16 +4,14 @@ redo drag voice
 
 boost, scanner, laser
 
+per level, yes!
+shorten diamond cost
 
-collisions, ex mode
-
-
+collisions, ex mode, recycler 2X
 
 level selection
 level opening
 
-Bottom: boost, laser (triple)
-Top: cycle Level with Title, showing Level with last Score.
 
 Center: Show level name:
 
@@ -36,19 +34,9 @@ Animate WEAPON CHANGE LABEL
 Play sound on label pulse
 Voice on restart with veteran: "Again"
 Voice on restart normal: "Reset"
-Title Layer: 
-             draw with ccDraw retangles leaderboards
-               scale on transition for 1 s
-               cycle 3s swap to next
-             FB, Email, SMS, Twitter
                +1 O Core
 
 +◊, -◊
-
-
-3s cycle SCORE with SHARE >> drop down slightly. Keep large. Vertically center.
-
-
 
 Gamecenter: %@
 
