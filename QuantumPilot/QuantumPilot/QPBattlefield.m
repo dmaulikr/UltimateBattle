@@ -1426,7 +1426,7 @@ static QPBattlefield *instance = nil;
     NSString *v = @"";
     switch (t) {
         case 0:
-            v = [NSString stringWithFormat:@"I dismantled %d clone ships in Quantum Pilot with %d%% accuracy. Can you defeat yourself? %@", totalHits, [self accuracy], @"https://itunes.apple.com/us/app/quantum-pilot/id935956154?mt=8"];
+            v = [NSString stringWithFormat:@"I dismantled %d clone ships in Quantum Pilot with %d%%    1 accuracy. Can you defeat yourself? %@", totalHits, [self accuracy], @"https://itunes.apple.com/us/app/quantum-pilot/id935956154?mt=8"];
             break;
         case 1:
             v = [NSString stringWithFormat:@"I melted %d clone ships in Quantum Pilot with %d points. Can you defeat yourself? %@", totalHits, lastScore, @"https://itunes.apple.com/us/app/quantum-pilot/id935956154?mt=8"];
