@@ -544,7 +544,7 @@ static QPBattlefield *instance = nil;
     veteran = level > 4;
     _guideMode = veteran ? _guideMode : circle;
     level = 1;
-    if (_coresCollected > 53) {
+    if (_coresCollected > 20) {
         _coresCollected = 0;
         _coreCycles++;
     }
@@ -925,10 +925,6 @@ static QPBattlefield *instance = nil;
     [self.shatters removeObjectsInArray:shattersToErase];
 }
 
-- (void)calculateCircleCharges {
-    _circleCharges = [self.pilot weaponLevel];
-}
-
 - (void)resetDrawRadius {
     drawRadius = 50;
 }
@@ -950,7 +946,6 @@ static QPBattlefield *instance = nil;
 }
 
 - (void)pulseCircleDrawings {
-    _drawings = self.currentState == self.titleState ? _coresCollected : _circleCharges;
     switch (_guideMode) {
         case circle:
             drawRadius--;
@@ -992,7 +987,7 @@ static QPBattlefield *instance = nil;
 }
 
 - (void)calculateTitleDraws {
-    drawX = (_screenSize.width / 2 - ((float)_drawings * (float)3));
+    drawX = (_screenSize.width / 2 - ((float)_coresCollected * (float)3)) + 3;
 }
 
 - (void)pulseLineX {
@@ -1020,7 +1015,6 @@ static QPBattlefield *instance = nil;
 - (void)pulse {
     [self calculateTitleDraws];
     [self pulseCircleDrawings];
-    [self calculateCircleCharges];
     [self.currentState pulse];
     [self rhythmPulse];
     [self shieldDebrisPulse];
@@ -1104,6 +1098,8 @@ static QPBattlefield *instance = nil;
     
     self.currentState = state;
     [self.currentState activate:options];
+    
+    [self updateBottomCoreLabel];
 }
 
 - (void)changeState:(QPBFState *)state {
@@ -1261,7 +1257,7 @@ static QPBattlefield *instance = nil;
 #pragma mark Pilot effects
 
 - (void)drawTitleState {
-    if (_drawings > 0) {
+    if (_coresCollected > 0) {
         [self drawCharges];
     }
     
@@ -1276,10 +1272,14 @@ static QPBattlefield *instance = nil;
 }
 
 - (void)drawCharges {
-    for (int i = 0; i < _drawings + 1; i++) {
+    for (int i = 0; i < _coresCollected; i++) {
         CGPoint c = ccp(drawX, 28);
         ccDrawFilledCircle(c, 1.7, 0, 30, NO);
+        
         drawX+=6;
+        if (i == _coresCollected - 1) {
+            [self calculateTitleDraws];
+        }
     }
 }
 
@@ -1317,12 +1317,14 @@ static QPBattlefield *instance = nil;
     } else {
         [self drawCharges];
     }
+    
+    [self drawCharges];
 }
 
 - (float)bulletSpeed {
-    return _bulletSpeed * [self speedMod];
-    float s = _bulletSpeed +  (min((float)_circleCharges, (float)6) * .40);
-    return s * [self speedMod];
+    return _bulletSpeed * [self speedMod]; //+ laser level
+//    float s = _bulletSpeed +  (min((float)_circleCharges, (float)6) * .40);
+//    return s * [self speedMod];
 }
 
 - (void)playDragSound {

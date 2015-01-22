@@ -41,8 +41,6 @@ enum drawguide {
     float _breathCycle;
     NSInteger _breathFlow;
     
-    int _circleCharges;
-    
     CGPoint _deltas[8551];
     
     int shotsFired;
