@@ -33,6 +33,8 @@
 		0E63B75516C712B800F63829 /* QPBFPausedState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E63B75416C712B800F63829 /* QPBFPausedState.m */; };
 		0E63B75816C71BF700F63829 /* Weapon.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E63B75716C71BF700F63829 /* Weapon.m */; };
 		0E63B75B16C71C7C00F63829 /* SingleLaserCannon.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E63B75916C71C7C00F63829 /* SingleLaserCannon.m */; };
+		0E6EFB3F1A71BFF000610320 /* UpgradeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E6EFB3E1A71BFF000610320 /* UpgradeButton.m */; };
+		0E6EFB421A71D9DF00610320 /* BoostButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E6EFB411A71D9DF00610320 /* BoostButton.m */; };
 		0E74ED7719D5B4DF00D55989 /* TightSpiralLaserCannon.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E74ED7619D5B4DF00D55989 /* TightSpiralLaserCannon.m */; };
 		0E74ED7A19D5B51400D55989 /* TightSpiralLaser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E74ED7919D5B51400D55989 /* TightSpiralLaser.m */; };
 		0E773A2319D8FDFA00009DA0 /* WideTriLaserCannon.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E773A2219D8FDFA00009DA0 /* WideTriLaserCannon.m */; };
@@ -242,6 +244,10 @@
 		0E63B75716C71BF700F63829 /* Weapon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Weapon.m; sourceTree = "<group>"; };
 		0E63B75916C71C7C00F63829 /* SingleLaserCannon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleLaserCannon.m; sourceTree = "<group>"; };
 		0E63B75A16C71C7C00F63829 /* SingleLaserCannon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleLaserCannon.h; sourceTree = "<group>"; };
+		0E6EFB3D1A71BFF000610320 /* UpgradeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpgradeButton.h; sourceTree = "<group>"; };
+		0E6EFB3E1A71BFF000610320 /* UpgradeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpgradeButton.m; sourceTree = "<group>"; };
+		0E6EFB401A71D9DF00610320 /* BoostButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoostButton.h; sourceTree = "<group>"; };
+		0E6EFB411A71D9DF00610320 /* BoostButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoostButton.m; sourceTree = "<group>"; };
 		0E74ED7519D5B4DF00D55989 /* TightSpiralLaserCannon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TightSpiralLaserCannon.h; sourceTree = "<group>"; };
 		0E74ED7619D5B4DF00D55989 /* TightSpiralLaserCannon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TightSpiralLaserCannon.m; sourceTree = "<group>"; };
 		0E74ED7819D5B51400D55989 /* TightSpiralLaser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TightSpiralLaser.h; sourceTree = "<group>"; };
@@ -664,6 +670,8 @@
 				0E1D29961A59518D00ACF3C9 /* PathsLabel.m */,
 				0EED805A1A5A492500D34A5F /* WeaponsLabel.h */,
 				0EED805B1A5A492500D34A5F /* WeaponsLabel.m */,
+				0E6EFB3D1A71BFF000610320 /* UpgradeButton.h */,
+				0E6EFB3E1A71BFF000610320 /* UpgradeButton.m */,
 			);
 			name = Labels;
 			sourceTree = "<group>";
@@ -747,6 +755,8 @@
 				BF0EE099163319B9002942A0 /* libs */,
 				0E1292A91A04998F006A8BAB /* Images.xcassets */,
 				BF0EE1F2163319BB002942A0 /* Supporting Files */,
+				0E6EFB401A71D9DF00610320 /* BoostButton.h */,
+				0E6EFB411A71D9DF00610320 /* BoostButton.m */,
 			);
 			path = QuantumPilot;
 			sourceTree = "<group>";
@@ -1458,6 +1468,7 @@
 				BF0EE1E2163319BB002942A0 /* neon_matrix_impl.c in Sources */,
 				BF0EE1E4163319BB002942A0 /* plane.c in Sources */,
 				BF0EE1E6163319BB002942A0 /* quaternion.c in Sources */,
+				0E6EFB3F1A71BFF000610320 /* UpgradeButton.m in Sources */,
 				BF0EE1E8163319BB002942A0 /* ray2.c in Sources */,
 				BF0EE1EA163319BB002942A0 /* utility.c in Sources */,
 				BF0EE1EC163319BB002942A0 /* vec2.c in Sources */,
@@ -1472,6 +1483,7 @@
 				BF386A9616360D600001FFE2 /* VRGeometry.m in Sources */,
 				BF8A7698163645300032AF8F /* Bullet.m in Sources */,
 				0E773A2619D8FE1100009DA0 /* WideTriLaser.m in Sources */,
+				0E6EFB421A71D9DF00610320 /* BoostButton.m in Sources */,
 				BF8A769F163645C30032AF8F /* SingleLaser.m in Sources */,
 				BF8A76A2163646270032AF8F /* QPBattlefield.m in Sources */,
 				BF8A76AA16365CFE0032AF8F /* TriLaser.m in Sources */,

@@ -308,25 +308,7 @@ static float innerTopHeight = 5.75;
 
 - (BOOL)processDebris:(Debris *)d {
     if ([self isCollidingWithDebris:d]) {
-//        self.debris += ([d level] + 1);
         d.l = ccp(5000,500);
-        
-        int wx = d.level;
-        int wy = weapon.y;
-        
-        wy++;
-        
-//        if (wx != weapon.x) {
-//            wy = 0;
-//        } else {
-//            wy++;
-//        }
-        
-        CGPoint w = weapon;
-        w.x = wx;
-        w.y = wy;
-        weapon = w;
-        
         return true;
     }
     
@@ -420,6 +402,15 @@ static float innerTopHeight = 5.75;
 
 - (int)calcZy {
     return (int)self.l.y / 50.0f;
+}
+
+- (void)powerLaser {
+    int wy = weapon.y;
+    wy++;
+    
+    CGPoint w = weapon;
+    w.y = wy;
+    weapon = w;
 }
 
 @end

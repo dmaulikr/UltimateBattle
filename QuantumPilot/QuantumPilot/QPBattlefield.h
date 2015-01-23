@@ -8,6 +8,7 @@
 #import "DeadLine.h"
 #import "ShieldDebris.h"
 #import "QPScoreCycler.h"
+#import "UpgradeButton.h"
 
 #define QP_BF_SCORE     @"QP_BF_SCORE"
 #define QP_BF_ACCSCORE  @"QP_BF_ACCSCORE"
@@ -129,6 +130,9 @@ enum drawguide {
     int lXDirection;
     
     CGPoint _leaderboardPoints[10];
+    
+    int boostLevel;
+    int laserLevel;
 }
 
 @property (nonatomic, retain) NSMutableArray *bullets;
@@ -242,5 +246,10 @@ enum drawguide {
 - (void)announceScores;
 
 - (NSString *)shareText;
+
+#pragma mark Upgrades
+
+- (void)upgradeBoost:(UpgradeButton *)b;
+- (void)updateBoostLabel;
 
 @end

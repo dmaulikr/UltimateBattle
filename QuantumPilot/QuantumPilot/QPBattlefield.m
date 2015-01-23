@@ -301,6 +301,8 @@ static QPBattlefield *instance = nil;
     if (coreCycles) {
         _coreCycles = [coreCycles intValue];
     }
+    
+    _coreCycles = 25;
 }
 
 - (CGPoint)fireCircleReset {
@@ -1322,7 +1324,7 @@ static QPBattlefield *instance = nil;
 }
 
 - (float)bulletSpeed {
-    return _bulletSpeed * [self speedMod]; //+ laser level
+    return _bulletSpeed * [self speedMod] + (.40 * self.pilot.weaponLevel);
 //    float s = _bulletSpeed +  (min((float)_circleCharges, (float)6) * .40);
 //    return s * [self speedMod];
 }
@@ -1450,5 +1452,40 @@ static QPBattlefield *instance = nil;
     [self scorePulse];
     
 }
+
+- (int)maxUpgrade {
+    return 5;
+}
+
+- (void)upgradeBoost:(UpgradeButton *)b {
+    if (_coreCycles > 0 && boostLevel < [self maxUpgrade]) {
+        _coreCycles--;
+        boostLevel++;
+        [self.pilot powerLaser];
+    }
+    
+    [self updateBoostLabel];
+    [self updateBottomCoreLabel];
+}
+
+- (void)updateBoostLabel {
+    NSString *boostText = [NSString stringWithFormat:@"BOOST\n+%d◊", boostLevel];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"BoostLabel" object:boostText];
+}
+
+- (void)upgradeLaser:(UpgradeButton *)b {
+    if (_coreCycles > 0 && laserLevel < [self maxUpgrade]) {
+        _coreCycles--;
+        laserLevel++;
+        NSLog(@"laserLevel: %d", laserLevel);
+    }
+}
+
+- (void)updateLaserLabel {
+    NSString *laserText = [NSString stringWithFormat:@"LASER\n+%d◊", laserLevel];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"LaserLabel" object:laserText];
+}
+
+
 
 @end

@@ -150,11 +150,20 @@ static float topCenter = 0.21f;
     self.speedLabel.font = [UIFont systemFontOfSize:22];
 }
 
+- (void)setupButtons {
+    CGSize size = [[UIScreen mainScreen] bounds].size;
+    self.boostbutton = [[BoostButton alloc] initWithFrame:CGRectMake(0, 0, 120, 60)];
+    self.boostbutton.center = ccp(size.width * .25f, size.height * 2/3 + 60);
+    [self addSubview:self.boostbutton];
+    [self bringSubviewToFront:self.boostbutton];
+}
+
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     [self setupLabels];
     [self styleLabels];
     [self setupNotifications];
+    [self setupButtons];
     self.breath = [NSTimer scheduledTimerWithTimeInterval:0.016 target:self selector:@selector(breathe) userInfo:nil repeats:YES];
     return self;
 }

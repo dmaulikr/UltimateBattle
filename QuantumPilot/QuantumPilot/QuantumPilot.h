@@ -128,6 +128,8 @@
 
 - (void)updateZone;
 
+- (void)powerLaser;
+
 @end
 
 @protocol QuantumPilotingDelegate <NSObject>

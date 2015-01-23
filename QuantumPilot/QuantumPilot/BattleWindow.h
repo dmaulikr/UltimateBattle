@@ -14,6 +14,7 @@
 #import "CCScheduler.h"
 #import "PathsLabel.h"
 #import "WeaponsLabel.h"
+#import "BoostButton.h"
 
 #import <Social/Social.h>
 #import <MessageUI/MessageUI.h>
@@ -51,6 +52,8 @@
 @property (strong, nonatomic) UIImageView *facebookIcon;
 //@property (strong, nonatomic) UIImageView *instagramIcon;
 @property (strong, nonatomic) UIImageView *messageIcon;
+
+@property (strong, nonatomic) BoostButton *boostbutton;
 
 - (NSArray *)labels;
 
