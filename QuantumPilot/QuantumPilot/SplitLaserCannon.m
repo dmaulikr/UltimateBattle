@@ -11,9 +11,11 @@
 
 @implementation SplitLaserCannon
 
-+ (NSArray *)bulletsForLocation:(CGPoint)location direction:(NSInteger)direction {
-    SplitLaser *l = [[[SplitLaser alloc] initWithLocation:location velocity:ccp(-[self speed] * .4, [self speed] * direction * .6)] autorelease];
-    SplitLaser *r = [[[SplitLaser alloc] initWithLocation:location velocity:ccp([self speed] * .4, [self speed] * direction * .6)] autorelease];
++ (NSArray *)bulletsForLocation:(CGPoint)location direction:(NSInteger)direction charge:(int)charge {
+    
+    float s = [self chargedSpeed:charge];
+    SplitLaser *l = [[[SplitLaser alloc] initWithLocation:location velocity:ccp(-s * .4, s * direction * .6)] autorelease];
+    SplitLaser *r = [[[SplitLaser alloc] initWithLocation:location velocity:ccp(s * .4, s * direction * .6)] autorelease];
     return @[l, r];
 }
 

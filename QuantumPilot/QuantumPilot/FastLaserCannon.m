@@ -12,9 +12,9 @@
 
 @implementation FastLaserCannon
 
-+ (NSArray *)bulletsForLocation:(CGPoint)location direction:(NSInteger)direction {
-    FastLaser *b = [[[FastLaser alloc] initWithLocation:ccp(location.x - 3, location.y) velocity:CGPointMake(0,direction * [self speed])] autorelease];
-    FastLaser *b2 = [[[FastLaser alloc] initWithLocation:ccp(location.x + 3, location.y) velocity:CGPointMake(0,direction * [self speed])] autorelease];
++ (NSArray *)bulletsForLocation:(CGPoint)location direction:(NSInteger)direction charge:(int)charge {
+    FastLaser *b = [[[FastLaser alloc] initWithLocation:ccp(location.x - 3, location.y) velocity:CGPointMake(0,direction * [self chargedSpeed:charge])] autorelease];
+    FastLaser *b2 = [[[FastLaser alloc] initWithLocation:ccp(location.x + 3, location.y) velocity:CGPointMake(0,direction * [self chargedSpeed:charge])] autorelease];
     
     return @[b, b2];
 }

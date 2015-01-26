@@ -50,10 +50,8 @@ static int fireSignalValue = 89;
 }
 
 - (void)sendBulletsToBattlefield  {
-//    Class w = NSClassFromString(self.weapon);
     Class w = [Arsenal weaponIndexedFromArsenal:[self pastWeapon]];
-    [self.bulletDelegate cloneBulletsFired:[w bulletsForLocation:outerEdges[0] direction:[self fireDirection]] li:[self pastWeapon]];
-
+    [self.bulletDelegate cloneBulletsFired:[w bulletsForLocation:outerEdges[0] direction:[self fireDirection] charge:[self pastWeaponCharge]] li:[self pastWeapon]];
 }
 
 - (void)recordVelocity:(CGPoint)vel firing:(BOOL)firing weapon:(CGPoint)wep {
@@ -162,6 +160,14 @@ static int fireSignalValue = 89;
         index = latestIndex - 1;
     }
     return pastWeapons[index].x;
+}
+
+- (int)pastWeaponCharge {
+    int index = timeIndex >= 0 ? timeIndex : 0;
+    if (index >= latestIndex) {
+        index = latestIndex - 1;
+    }
+    return pastWeapons[index].y;
 }
 
 - (void)setShipDrawColor {

@@ -16,11 +16,13 @@
 
 + (NSArray *)newBullets;
 
-+ (NSArray *)bulletsForLocation:(CGPoint)location direction:(NSInteger)direction;
++ (NSArray *)bulletsForLocation:(CGPoint)location direction:(NSInteger)direction charge:(int)charge;
 
 + (float)defaultSpeed;
 + (float)speed;
 - (void)setupSpeed;
+
++ (float)chargedSpeed:(int)charge;
 
 + (void)setDrawColor;
 
@@ -28,5 +30,7 @@
 
 + (NSString *)weaponName;
 + (UIColor *)weaponColor;
+
+
 
 @end

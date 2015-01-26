@@ -602,7 +602,7 @@ static QPBattlefield *instance = nil;
             
             [[NSNotificationCenter defaultCenter] postNotificationName:@"WeaponPulse" object:nil];
             
-            if (self.pilot.weaponLevel == 0) {
+            if (self.pilot.weaponLevel != d.level) {
                 switch (d.level) {
                     case 0:
                         AudioServicesPlaySystemSound(dismantler);
@@ -1324,9 +1324,7 @@ static QPBattlefield *instance = nil;
 }
 
 - (float)bulletSpeed {
-    return _bulletSpeed * [self speedMod] + (.40 * self.pilot.weaponLevel);
-//    float s = _bulletSpeed +  (min((float)_circleCharges, (float)6) * .40);
-//    return s * [self speedMod];
+    return _bulletSpeed * [self speedMod];
 }
 
 - (void)playDragSound {

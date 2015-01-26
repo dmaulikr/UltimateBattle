@@ -27,7 +27,6 @@ static Weapon *instance = nil;
 
 + (float)speed {
     return [[QPBattlefield f] bulletSpeed];
-//    return [[self w] speed];
 }
 
 - (void)setupSpeed {
@@ -39,7 +38,7 @@ static Weapon *instance = nil;
     return nil;
 }
 
-+ (NSArray *)newBulletsForLocation:(CGPoint)location direction:(NSInteger)direction {
++ (NSArray *)bulletsForLocation:(CGPoint)location direction:(NSInteger)direction charge:(int)charge {
     return nil;
 }
 
@@ -65,6 +64,10 @@ static Weapon *instance = nil;
 
 + (UIColor *)weaponColor {
     return [UIColor greenColor];;
+}
+
++ (float)chargedSpeed:(int)charge {
+    return [self speed] + (.20f * charge);
 }
 
 @end

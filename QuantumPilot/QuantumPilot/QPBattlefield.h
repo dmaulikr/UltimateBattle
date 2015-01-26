@@ -221,6 +221,8 @@ enum drawguide {
 
 - (float)bulletSpeed;
 
+- (void)bulletsFired:(NSArray *)bullets li:(int)li;
+
 #pragma mark Guide
 
 - (void)playDragSound;

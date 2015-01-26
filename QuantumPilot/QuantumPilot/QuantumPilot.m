@@ -125,7 +125,7 @@ static float innerTopHeight = 5.75;
 - (void)sendBulletsToBattlefield {
     int i = weapon.x;
     Class w = [Arsenal weaponIndexedFromArsenal:i];
-    [self.bulletDelegate bulletsFired:[w bulletsForLocation:outerEdges[0] direction:[self fireDirection]] li:weapon.x];
+    [self.bulletDelegate bulletsFired:[w bulletsForLocation:outerEdges[0] direction:[self fireDirection] charge:[self weaponLevel]] li:weapon.x];
 }
 
 - (void)checkForFiringWeapon {
@@ -309,6 +309,9 @@ static float innerTopHeight = 5.75;
 - (BOOL)processDebris:(Debris *)d {
     if ([self isCollidingWithDebris:d]) {
         d.l = ccp(5000,500);
+        CGPoint w = weapon;
+        w.x = d.level;
+        weapon = w;
         return true;
     }
     

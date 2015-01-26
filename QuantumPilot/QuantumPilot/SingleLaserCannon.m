@@ -3,9 +3,8 @@
 
 @implementation SingleLaserCannon
 
-+ (NSArray *)bulletsForLocation:(CGPoint)location direction:(NSInteger)direction speed:(float)speed {{
-    SingleLaser *b = [[[SingleLaser alloc] initWithLocation:location velocity:CGPointMake(0,direction * speed)] autorelease];
-    //speed gets base battlefield + .6 * weapon level- (void)powerLaser {
++ (NSArray *)bulletsForLocation:(CGPoint)location direction:(NSInteger)direction charge:(int)charge {
+    SingleLaser *b = [[[SingleLaser alloc] initWithLocation:location velocity:CGPointMake(0,direction * [self chargedSpeed:charge])] autorelease];        
     return [NSArray arrayWithObject:b];
 }
 

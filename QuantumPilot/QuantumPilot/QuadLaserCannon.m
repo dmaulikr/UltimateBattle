@@ -10,11 +10,12 @@
 #import "CloseQuadLaser.h"
 @implementation QuadLaserCannon
 
-+ (NSArray *)bulletsForLocation:(CGPoint)location direction:(NSInteger)direction {
-    QuadLaser *ll = [[[QuadLaser alloc] initWithLocation:location velocity:ccp(-.4 * [self speed], .85 * direction * [self speed])] autorelease];
-    CloseQuadLaser *lr = [[[CloseQuadLaser alloc] initWithLocation:location velocity:ccp(-.15 * [self speed], .85 * direction * [self speed])] autorelease];
-    QuadLaser *rl = [[[QuadLaser alloc] initWithLocation:location velocity:ccp(.4 * [self speed], .85 * direction * [self speed])] autorelease];
-    CloseQuadLaser *rr = [[[CloseQuadLaser alloc] initWithLocation:location velocity:ccp(.15 * [self speed], .85 * direction * [self speed])] autorelease];
++ (NSArray *)bulletsForLocation:(CGPoint)location direction:(NSInteger)direction charge:(int)charge {
+    float s = [self chargedSpeed:charge];
+    QuadLaser *ll = [[[QuadLaser alloc] initWithLocation:location velocity:ccp(-.4 * s, .85 * direction * s)] autorelease];
+    CloseQuadLaser *lr = [[[CloseQuadLaser alloc] initWithLocation:location velocity:ccp(-.15 * s, .85 * direction * s)] autorelease];
+    QuadLaser *rl = [[[QuadLaser alloc] initWithLocation:location velocity:ccp(.4 * s, .85 * direction * s)] autorelease];
+    CloseQuadLaser *rr = [[[CloseQuadLaser alloc] initWithLocation:location velocity:ccp(.15 * s, .85 * direction * s)] autorelease];
     
     return @[ll, lr, rl, rr];
 }
