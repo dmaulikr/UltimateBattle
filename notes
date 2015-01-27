@@ -18,6 +18,9 @@ display top buttons in boxes:
 
 width / 4, use half of for centering
 
+as line passes vertical point, animate downward point with horizontal movement
+reverse for the line withdrawal
+
 remove accuracy & paths label from their present position in corner
 show kills, accuracy, paths, 2 WAVE in paused
 
