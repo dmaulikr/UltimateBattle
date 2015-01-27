@@ -263,11 +263,11 @@ static float topCenter = 0.21f;
     int acc = [[n.object objectForKey:@"accuracy"] intValue];
     
     if ([[n.object objectForKey:@"corner"] boolValue]) {
-        self.accuracyLabel.center = ccp(0.1f * size.width, 10);
-        self.accuracyLabel.text = [NSString stringWithFormat:@"%d%%", abs(acc)];
-        if ([n.object objectForKey:@"cancel"]) {
-            [self.accuracyLabel cancel];
-        }
+//        self.accuracyLabel.center = ccp(0.1f * size.width, 10);
+//        self.accuracyLabel.text = [NSString stringWithFormat:@"%d%%", abs(acc)];
+//        if ([n.object objectForKey:@"cancel"]) {
+//            [self.accuracyLabel cancel];
+//        }
     } else {
         self.accuracyLabel.text = [NSString stringWithFormat:@"%d\n%%", abs(acc)];
         self.accuracyLabel.center = ccp(0.40f * size.width, topCenter * size.height);
@@ -280,8 +280,8 @@ static float topCenter = 0.21f;
     int paths = [n.object intValue];
     
     if (paths >= 0) {
-        self.pathsLabel.center = ccp(0.9f * size.width, 10);
-        self.pathsLabel.text = [NSString stringWithFormat:@"%dζ", abs(paths)];
+//        self.pathsLabel.center = ccp(0.9f * size.width, 10);
+//        self.pathsLabel.text = [NSString stringWithFormat:@"%dζ", abs(paths)];
     } else {
         self.pathsLabel.center = ccp(0.6f * size.width, topCenter *  size.height);
         self.pathsLabel.text = [NSString stringWithFormat:@"%d\nζ", abs(paths)];
