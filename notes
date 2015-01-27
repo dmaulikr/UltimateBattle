@@ -4,9 +4,20 @@ redo drag voice
 
 between stage powerups:
 booster + 0diamond, scanner, laser
-per level, yes!
 shorten diamond cost
-show diamonds in paused state
+draw 3 grid box bottom as lines merge in to show:
+
+kill symbol: +0 (laser)
+! symbol: +0 (scan)
+path symbol: +0 (boost)
+
+include email in top section
+display top buttons in boxes:
+
+width / 4, use half of for centering
+
+remove accuracy & paths label from their present position in corner
+show kills, accuracy, paths, 2 WAVE in paused
 
 collisions, ex mode, recycler 2X as perm 99c upgrades
 
