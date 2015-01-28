@@ -48,6 +48,7 @@ static float innerTopHeight = 5.75;
     if (self) {
         [self engage];
         _debris = 0;
+        _fieldSize = [[UIScreen mainScreen] bounds].size;
     }
     return self;
 }
@@ -226,12 +227,12 @@ static float innerTopHeight = 5.75;
     if (ll.x < 5) {
         ll = ccp(5, ll.y);
         [self processedReachedTarget];
-    } else if (ll.x > 315) {
-        ll = ccp(315, ll.y);
+    } else if (ll.x > (_fieldSize.width - 5)) {
+        ll = ccp(_fieldSize.width - 5, ll.y);
         [self processedReachedTarget];
     }
-    if (ll.y > 573) {
-        ll = ccp(ll.x, 573);
+    if (ll.y > (_fieldSize.height - 5)) {
+        ll = ccp(ll.x, _fieldSize.height - 5);
         [self processedReachedTarget];
     }
     self.l = ll;
@@ -275,10 +276,10 @@ static float innerTopHeight = 5.75;
 - (void)addWaypoint:(CGPoint)l {
     if (l.x < 5) {
         l = ccp(5, l.y);
-    } else if (l.x > 315) {
-        l = ccp(315, l.y);
-    } else if (l.y > 573) {
-        l = ccp(l.x, 573);
+    } else if (l.x > _fieldSize.width - 5) {
+        l = ccp(_fieldSize.width - 5, l.y);
+    } else if (l.y > _fieldSize.height - 5) {
+        l = ccp(l.x, _fieldSize.height - 5);
     } else if (l.y < 5) {
         l = ccp(l.x, 5);
     }

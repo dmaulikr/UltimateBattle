@@ -65,7 +65,6 @@
     
     for (UITouch *touch in touchArray) {
         CGPoint l = [touch locationInView:[touch view]];
- 
         [self.f moveTouch:ccp(l.x, height-l.y)];
     }
 }

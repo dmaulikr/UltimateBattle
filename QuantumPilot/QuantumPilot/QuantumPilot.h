@@ -20,6 +20,8 @@
     int drawFrameTotal;
     
     bool _reachedTarget;
+    
+    CGSize _fieldSize;
 }
 
 @property (nonatomic) CGPoint l;
