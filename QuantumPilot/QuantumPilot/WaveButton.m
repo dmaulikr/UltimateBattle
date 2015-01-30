@@ -12,6 +12,7 @@
 
 - (void)styleLabel {
     self.label.textColor = [UIColor yellowColor];
+    self.userInteractionEnabled = false;
 }
 
 - (NSString *)updateNotificationName {

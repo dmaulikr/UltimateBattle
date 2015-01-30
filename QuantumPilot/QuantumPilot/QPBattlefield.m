@@ -1017,19 +1017,6 @@ static QPBattlefield *instance = nil;
             l3h = 0;
         }
         
-//        float percentage = (_battlefieldFrame.size.width - l2x) / _battlefieldFrame.size
-//        .width;
-//
-//        if (percentage > 1/3) {
-//            l3y = l1y - (90 - (percentage * 90));
-//        }
-////
-//        if (l1x < _battlefieldFrame.size.width * 2/3) {
-////            l3y+= ;
-//            if (l3y > l1y) {
-//                l3y = l1y;
-//            }
-//        }
     } else if (lXDirection == 1) {
         l1x +=10;
         l2x-= 10;
