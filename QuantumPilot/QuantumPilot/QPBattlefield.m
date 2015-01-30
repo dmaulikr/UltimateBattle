@@ -55,6 +55,7 @@ static QPBattlefield *instance = nil;
     self.pausedState =  [[[QPBFPausedState alloc] initWithBattlefield:self] autorelease];
     self.fightingState = [[[QPBFFightingState alloc] initWithBattlefield:self] autorelease];
     [self changeState:self.titleState];
+    [self resetLineXDirection:0];
 }
 
 - (void)setupDeadline {
@@ -237,6 +238,7 @@ static QPBattlefield *instance = nil;
         l3y = l1y - 90;
         l3x = _battlefieldFrame.size.width * 2/3;
         l4x =_battlefieldFrame.size.width * 1/3;
+        l3h = 0;
         [self setupDeadline];
         [self setupSpeeds];
         [self setupWeapons];
@@ -1010,6 +1012,11 @@ static QPBattlefield *instance = nil;
             lXDirection = 0;
         }
         
+        l3h-= 2;
+        if (l3h < 0) {
+            l3h = 0;
+        }
+        
 //        float percentage = (_battlefieldFrame.size.width - l2x) / _battlefieldFrame.size
 //        .width;
 //
@@ -1026,6 +1033,10 @@ static QPBattlefield *instance = nil;
     } else if (lXDirection == 1) {
         l1x +=10;
         l2x-= 10;
+        l3h+= 2;
+        if (l3h > 45) {
+            l3h = 45;
+        }
         
         if (l1x >= 0) {
             l1x = 0;
@@ -1332,9 +1343,13 @@ static QPBattlefield *instance = nil;
     ccDrawLine(ccp(l1x, l2y), ccp(l1x + _battlefieldFrame.size.width, l2y));
     ccDrawLine(ccp(l2x, l1y), ccp(l2x + _battlefieldFrame.size.width, l1y));
 
-//    ccDrawLine(ccp(l1x, l2y + 30), ccp(l1x + _ba ttlefieldFrame.size.width, l2y + 30));
-//    ccDrawLine(ccp(l2x, l1y - 90), ccp(l2x + _battlefieldFrame.size.width, l1y - 90));
-//    ccDrawLine(ccp(l3x, l1y - 90), ccp(l3x, l3y));
+    if (_score > 0 || lastScore > 0) {
+        ccDrawLine(ccp(l1x, l1y - 90), ccp(l1x + _battlefieldFrame.size.width, l1y - 90));
+        ccDrawLine(ccp(l2x, l1y - 90), ccp(l2x + _battlefieldFrame.size.width, l1y - 90));
+        
+        ccDrawLine(ccp(l3x, l1y - 45 - l3h), ccp(l3x, l1y - 45 + l3h));
+        ccDrawLine(ccp(l4x ,l1y - 45 - l3h), ccp(l4x, l1y - 45 + l3h));
+    }
 }
 
 - (void)draw {
