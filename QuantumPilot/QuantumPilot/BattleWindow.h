@@ -16,6 +16,7 @@
 #import "WeaponsLabel.h"
 #import "BoostButton.h"
 #import "LaserButton.h"
+#import "WaveButton.h"
 
 #import <Social/Social.h>
 #import <MessageUI/MessageUI.h>
@@ -56,6 +57,7 @@
 
 @property (strong, nonatomic) BoostButton *boostbutton;
 @property (strong, nonatomic) LaserButton *laserbutton;
+@property (strong, nonatomic) WaveButton *waveButton;
 
 - (NSArray *)labels;
 

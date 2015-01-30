@@ -12,7 +12,7 @@
 @implementation BoostButton
 
 - (void)styleLabel {
-    self.label.textColor = [UIColor yellowColor];
+    self.label.textColor = [UIColor greenColor];
 }
 
 - (NSString *)updateNotificationName {

@@ -59,18 +59,18 @@
 }
 
 - (void)pulse {
-    _timer --;
-    if (_timer <= 0) {
-        [self resetTimer];
-        _showingScore = !_showingScore;
-        if (_showingScore) {
-            [self.f announceScores];
-        } else {
-            if ([self.f showSocial]) {
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowSocial" object:@""];
-            }
-        }
-    }
+//    _timer --;
+//    if (_timer <= 0) {
+//        [self resetTimer];
+//        _showingScore = !_showingScore;
+//        if (_showingScore) {
+//            [self.f announceScores];
+//        } else {
+//            if ([self.f showSocial]) {
+//                [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowSocial" object:@""];
+//            }
+//        }
+//    }
 }
 
 - (bool)showingScore {

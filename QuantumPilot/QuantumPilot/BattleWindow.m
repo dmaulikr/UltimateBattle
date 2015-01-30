@@ -152,15 +152,21 @@ static float topCenter = 0.21f;
 
 - (void)setupButtons {
     CGSize size = [[UIScreen mainScreen] bounds].size;
-    self.boostbutton = [[BoostButton alloc] initWithFrame:CGRectMake(0, 0, 120, 60)];
+    self.boostbutton = [[BoostButton alloc] initWithFrame:CGRectMake(0, 0, 160, 120)];
     self.boostbutton.center = ccp(size.width * .75f, size.height * 2/3 + 60);
     [self addSubview:self.boostbutton];
     [self bringSubviewToFront:self.boostbutton];
     
-    self.laserbutton = [[LaserButton alloc] initWithFrame:CGRectMake(0, 0, 120, 60)];
+    self.laserbutton = [[LaserButton alloc] initWithFrame:CGRectMake(0, 0, 160, 120)];
     self.laserbutton.center = ccp(size.width * .25f, size.height * 2/3 + 60);
     [self addSubview:self.laserbutton];
     [self bringSubviewToFront:self.laserbutton];
+    
+    self.waveButton = [[WaveButton alloc] initWithFrame:CGRectMake(0, 0, 160, 120)];
+    self.waveButton.center = ccp(size.width * .50f, size.height * 2/3 + 60);
+    [self addSubview:self.waveButton];
+    [self bringSubviewToFront:self.waveButton];
+    
 }
 
 - (id)initWithFrame:(CGRect)frame {
@@ -257,6 +263,7 @@ static float topCenter = 0.21f;
     
     self.boostbutton.alpha = 0;
     self.laserbutton.alpha = 0;
+    self.waveButton.alpha = 0;
 }
 
 - (void)updateDebrisLabel:(NSNotification *)n {
@@ -267,54 +274,57 @@ static float topCenter = 0.21f;
 }
 
 - (void)updateAccuracyLabel:(NSNotification *)n {
-    CGSize size = [[UIScreen mainScreen] bounds].size;
+//    CGSize size = [[UIScreen mainScreen] bounds].size;
     int acc = [[n.object objectForKey:@"accuracy"] intValue];
+    self.waveButton.label.text = [NSString stringWithFormat:@"%d\n%%", abs(acc)];
     
-    if ([[n.object objectForKey:@"corner"] boolValue]) {
-//        self.accuracyLabel.center = ccp(0.1f * size.width, 10);
-//        self.accuracyLabel.text = [NSString stringWithFormat:@"%d%%", abs(acc)];
-//        if ([n.object objectForKey:@"cancel"]) {
-//            [self.accuracyLabel cancel];
-//        }
-    } else {
-        self.accuracyLabel.text = [NSString stringWithFormat:@"%d\n%%", abs(acc)];
-        self.accuracyLabel.center = ccp(0.40f * size.width, topCenter * size.height);
-        [self.accuracyLabel cancel];
-    }
+//    if ([[n.object objectForKey:@"corner"] boolValue]) {
+////        self.accuracyLabel.center = ccp(0.1f * size.width, 10);
+////        self.accuracyLabel.text = [NSString stringWithFormat:@"%d%%", abs(acc)];
+////        if ([n.object objectForKey:@"cancel"]) {
+////            [self.accuracyLabel cancel];
+////        }
+//    } else {
+////        self.accuracyLabel.text = [NSString stringWithFormat:@"%d\n%%", abs(acc)];
+////        self.accuracyLabel.center = ccp(0.5f * size.width, topCenter * size.height);
+////        [self.accuracyLabel cancel];
+//    }
 }
 
 - (void)updatePathsLabel:(NSNotification *)n {
-    CGSize size = [[UIScreen mainScreen] bounds].size;
+//    CGSize size = [[UIScreen mainScreen] bounds].size;
     int paths = [n.object intValue];
+//    self.boostbutton.label.text = [NSString stringWithFormat:@"%d\nζ", abs(paths)];
     
     if (paths >= 0) {
 //        self.pathsLabel.center = ccp(0.9f * size.width, 10);
 //        self.pathsLabel.text = [NSString stringWithFormat:@"%dζ", abs(paths)];
     } else {
-        self.pathsLabel.center = ccp(0.6f * size.width, topCenter *  size.height);
-        self.pathsLabel.text = [NSString stringWithFormat:@"%d\nζ", abs(paths)];
-        [self.pathsLabel cancel];
+//        self.pathsLabel.center = ccp(0.6f * size.width, topCenter *  size.height);
+//        self.pathsLabel.text = [NSString stringWithFormat:@"%d\nζ", abs(paths)];
+//        [self.pathsLabel cancel];
     }
 }
 
 - (void)updateKillsLabel:(NSNotification *)n {
-    CGSize size = [[UIScreen mainScreen] bounds].size;
+//    CGSize size = [[UIScreen mainScreen] bounds].size;
     int kills = [n.object[@"kills"] intValue];
     if (n.object[@"x"]) {
         self.killsLabel.center = ccp([n.object[@"x"] floatValue], ([n.object[@"y"] floatValue]));
         [self.killsLabel displayText];
     } else {
-        self.killsLabel.center = ccp(0.2f * size.width, topCenter * size.height);
-        self.killsLabel.alpha = 1;
-        self.killsLabel.text = [NSString stringWithFormat:@"%d\n¤", abs(kills)];
-        [self.killsLabel cancel];
+//        self.laserbutton.label.text = [NSString stringWithFormat:@"%d\n¤", abs(kills)];
+//        self.killsLabel.center = ccp(0.25f * size.width, topCenter * size.height);
+//        self.killsLabel.alpha = 1;
+//        self.killsLabel.text = [NSString stringWithFormat:@"%d\n¤", abs(kills)];
+//        [self.killsLabel cancel];
     }
 }
 
 - (void)updateLeaderboardLabel:(NSNotification *)n {
-    CGSize size = [[UIScreen mainScreen] bounds].size;
-    self.leaderboardLabel.center = ccp(0.8f * size.width, topCenter * size.height);
-    [self.leaderboardLabel cancel];
+//    CGSize size = [[UIScreen mainScreen] bounds].size;
+//    self.leaderboardLabel.center = ccp(0.8f * size.width, topCenter * size.height);
+//    [self.leaderboardLabel cancel];
 }
 
 - (void)showSocial:(NSNotification *)n {

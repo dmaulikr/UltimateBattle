@@ -436,9 +436,9 @@ static QPBattlefield *instance = nil;
         hits++;
         totalHits++;
         [[NSNotificationCenter defaultCenter] postNotificationName:@"KillsLabel" object:@{@"kills" : [NSNumber numberWithInt:totalHits], @"x" : [NSNumber numberWithFloat:c.l.x], @"y" : [NSNumber numberWithFloat:_battlefieldFrame.size.height - (-45 + c.l.y + 45)]}];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"KillsPulse" object:nil];
-        
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"AccuracyPulse" object:nil];
+//        [[NSNotificationCenter defaultCenter] postNotificationName:@"KillsPulse" object:nil];
+//        
+//        [[NSNotificationCenter defaultCenter] postNotificationName:@"AccuracyPulse" object:nil];
 
         [[NSNotificationCenter defaultCenter] postNotificationName:@"ScorePulse" object:nil];
         [self.scoreCycler score:(10000 * hits)];
@@ -508,6 +508,9 @@ static QPBattlefield *instance = nil;
 }
 
 - (int)accuracy {
+    if (totalHits >= totalShotsFired) {
+        return 100;
+    }
     int acc = (int)ceil((((float)totalHits / (float)totalShotsFired)) * 100.0);
     if (acc > 100) {
         acc = 100;
@@ -529,17 +532,18 @@ static QPBattlefield *instance = nil;
 }
 
 - (void)showScores {
-    if ([self showSocial]) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowSocial" object:nil];
+//    if ([self showSocial]) {
+        NSString *laserText = [NSString stringWithFormat:@"%d\n¤", abs(totalHits)];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"LaserLabel" object:laserText];
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"PathsLabel" object:[NSNumber numberWithInteger:-totalPaths]];
+        NSString *pathsText = [NSString stringWithFormat:@"%d\nζ", abs(totalPaths)];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"BoostLabel" object:pathsText];
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"KillsLabel" object:@{@"kills" : [NSNumber numberWithInteger:totalHits]}];
+        NSString *waveText = [NSString stringWithFormat:@"%d\n%%", abs([self accuracy])];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"WaveLabel" object:waveText];
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"LeaderboardLabel" object:nil];
-        
-        [self announceAccuracy];
-    }
+    //    [self announceAccuracy];
+  //  }
 }
 
 - (void)resetBattlefield {
@@ -848,11 +852,14 @@ static QPBattlefield *instance = nil;
     self.score = [self.scoreCycler actualScore];
     [self changeState:self.pausedState];
     [self resetLevelScore];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"PathsPulse" object:nil];
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"PathsPulse" object:nil];
     [self eraseBullets];
     [self.dl reset];
     weaponLevel = 0;
     level++;
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"WaveLabel" object:[NSString stringWithFormat:@"WAVE\n%d", level]];
+    
     if (!veteran &&level == 2) {
         [self playCopySound];
     }
@@ -1084,9 +1091,9 @@ static QPBattlefield *instance = nil;
             accAnnouncement = [NSNumber numberWithInteger:100];
         }
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"AccuracyLabel" object:@{@"accuracy" : [accAnnouncement stringValue], @"corner" : [NSNumber numberWithBool:true]}];
-        
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"PathsLabel" object:[NSNumber numberWithInteger:totalPaths]];
+//        [[NSNotificationCenter defaultCenter] postNotificationName:@"AccuracyLabel" object:@{@"accuracy" : [accAnnouncement stringValue], @"corner" : [NSNumber numberWithBool:true]}];
+//        
+//        [[NSNotificationCenter defaultCenter] postNotificationName:@"PathsLabel" object:[NSNumber numberWithInteger:totalPaths]];
     }
 
 }
@@ -1263,14 +1270,14 @@ static QPBattlefield *instance = nil;
         [self drawCharges];
     }
     
-    if ([self.titleState showingScore]) {
-        ccDrawColor4F(1, 1, 1, 1.0);
-        if (lastScore > 0) {
-            ccDrawPoly(_leaderboardPoints, 10, NO);
-        }
-    } else {
-        
-    }
+//    if ([self.titleState showingScore]) {
+//        ccDrawColor4F(1, 1, 1, 1.0);
+//        if (lastScore > 0) {
+//            ccDrawPoly(_leaderboardPoints, 10, NO);
+//        }
+//    } else {
+//        
+//    }
 }
 
 - (void)drawCharges {
