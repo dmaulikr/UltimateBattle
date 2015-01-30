@@ -39,7 +39,7 @@
     float y2Limit = yLimit;
     yLimit  = yLimit * 2/3;
     y2Limit = y2Limit * 1/3;
-    if ([self.f touchingPlayer:l]) {
+    if ([self.f touchingPlayer:l] && [self.f finishedAnimatingSidelines]) {
         [self start:l];
     } else if (l.y > yLimit) {
         [self handleTopTap:l.x];

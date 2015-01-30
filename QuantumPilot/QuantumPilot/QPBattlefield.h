@@ -261,5 +261,6 @@ enum drawguide {
 - (void)updateBoostLabel;
 - (void)updateLaserLabel;
 
+- (bool)finishedAnimatingSidelines;
 
 @end

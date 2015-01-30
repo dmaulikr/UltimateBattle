@@ -576,6 +576,7 @@ static QPBattlefield *instance = nil;
     [self eraseClones];
     [self eraseDebris];
     [self resetPilot];
+    self.pilot.l = ccp(5000, -5000);
     [self changeState:self.titleState];
     [self setupClone];
     [self.dl reset];
@@ -840,7 +841,8 @@ static QPBattlefield *instance = nil;
 - (void)processWaveKill {
     AudioServicesPlaySystemSound(process);
     _recentBonus += [self currentScoreBonus];
-    [self.pilot resetPosition];
+
+    self.pilot.l = ccp(5000,-5000);
     QuantumClone *c = [[self.pilot clone] copy];
     c.bulletDelegate = self;
     c.weapon = self.pilot.weapon;
@@ -1042,6 +1044,7 @@ static QPBattlefield *instance = nil;
             l1x = 0;
             l2x = 0;
             lXDirection = 0;
+            [self.pilot resetPosition];
         }
     }
 }
@@ -1533,6 +1536,9 @@ static QPBattlefield *instance = nil;
     [[NSNotificationCenter defaultCenter] postNotificationName:@"LaserLabel" object:laserText];
 }
 
+- (bool)finishedAnimatingSidelines {
+    return lXDirection == 0;
+}
 
 
 @end
