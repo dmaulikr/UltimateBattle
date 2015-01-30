@@ -3,38 +3,29 @@ redo drag voice
 1.04
 
 Devlog: bullet speed power level recording instead of always based off pilot
-iPad testing
-
-thanks: Blast Process for testing
-Sigrid & Mueseum for lines
-
-between stage powerups:
-booster + 0diamond, scanner, laser
-shorten diamond cost
-draw 3 grid box bottom as lines merge in to show:
-
+remove accuracy & paths label from their present position in corner
 kill symbol: +0 (laser)
 ! symbol: +0 (scan)
 path symbol: +0 (boost)
-
-include email in top section
-display top buttons in boxes:
-
-width / 4, use half of for centering
-
+draw 3 grid box bottom as lines merge in to show:
+show kills, accuracy, paths, 2 WAVE in paused
 as line passes vertical point, animate downward point with horizontal movement
+shorten diamond cost
+include email in top between games section
+display top buttons in boxes:
+width / 4, use half of for centering
 reverse for the line withdrawal
 
-remove accuracy & paths label from their present position in corner
-show kills, accuracy, paths, 2 WAVE in paused
 
-iPad deployment
+
+
+
+
 
 collisions, ex mode, recycler 2X as perm 99c upgrades
 
 level selection
 level opening
-
 
 Center: Show level name:
 
@@ -69,54 +60,17 @@ I crushed N cores
 I melted N
 hexagon music
 
-
-Bomb upgrade
-
-
-Scanner
-Bombs?
-Shield?
-             
-
-recycle overlays:
-
-to left of ship:   cancel(rename) mode 99c (IF CANCEL MODE DOESNT WORK >> RESET CORE CRUSHER)
-to right of ship:  special weapon mode 99c
-
-below ship power, laser power: is a % ranging from 10 to 100%, split by 18%.
-once the 5th upgrade is installed, tapping will cycle by 18% to 100%, 10%
-colored circle below each in the overlay
-
-cost is shown beneath each of these 4 with a NUMBER # then ◊
-
-show 0 ◊ at start.
-show 4 ◊ spendable upgrades at start.
-
-twitter, email, sms, facebook up top below title
-gamecenter highscores ?
-IAP : Buy 1000 core cycles for 99c
-~1.X?
-below twitter: DEADLINE ACTIVE to DEADLINE STALLED and CLONE SHIP
-below facebook: SCANNER OFF to SHOT PREDICTION and CLONE SHIP
-
-MODE upgrades do not appear without 20 plays (or at least 2 core cycles)
-DEADLINE/SCANNER do not appear without 10 playes (or at least 1 core cycle)
-
-all upgrades: 1
-weapons: 1
-
 seamless GIF recording
 GIF to Twitter
 GIF to Facebook
 
-
 gamecenter achievements ?
-gamepad
+gamepad && gamepad support
 
 game video
 highres photos showcasing new elements
 build and deploy
 https://developer.apple.com/library/ios/documentation/Audio/Conceptual/AudioSessionProgrammingGuide/ConfiguringanAudioSession/ConfiguringanAudioSession.html#//apple_ref/doc/uid/TP40007875-CH2-SW1 << use other audio
-
-multifinger for core fragments
 ~
+thanks: Blast Process for testing
+Sigrid & Mueseum for lines

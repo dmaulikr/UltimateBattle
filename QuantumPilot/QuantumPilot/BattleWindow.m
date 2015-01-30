@@ -153,9 +153,14 @@ static float topCenter = 0.21f;
 - (void)setupButtons {
     CGSize size = [[UIScreen mainScreen] bounds].size;
     self.boostbutton = [[BoostButton alloc] initWithFrame:CGRectMake(0, 0, 120, 60)];
-    self.boostbutton.center = ccp(size.width * .25f, size.height * 2/3 + 60);
+    self.boostbutton.center = ccp(size.width * .75f, size.height * 2/3 + 60);
     [self addSubview:self.boostbutton];
     [self bringSubviewToFront:self.boostbutton];
+    
+    self.laserbutton = [[LaserButton alloc] initWithFrame:CGRectMake(0, 0, 120, 60)];
+    self.laserbutton.center = ccp(size.width * .25f, size.height * 2/3 + 60);
+    [self addSubview:self.laserbutton];
+    [self bringSubviewToFront:self.laserbutton];
 }
 
 - (id)initWithFrame:(CGRect)frame {
@@ -249,6 +254,9 @@ static float topCenter = 0.21f;
             l.center = ccp(5000,5000);
         }
     }
+    
+    self.boostbutton.alpha = 0;
+    self.laserbutton.alpha = 0;
 }
 
 - (void)updateDebrisLabel:(NSNotification *)n {

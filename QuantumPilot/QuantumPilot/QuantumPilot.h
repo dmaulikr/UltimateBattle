@@ -131,6 +131,7 @@
 - (void)updateZone;
 
 - (void)powerLaser;
+- (void)powerBoost;
 
 @end
 

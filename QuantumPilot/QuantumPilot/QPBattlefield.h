@@ -252,6 +252,9 @@ enum drawguide {
 #pragma mark Upgrades
 
 - (void)upgradeBoost:(UpgradeButton *)b;
+- (void)upgradeLaser:(UpgradeButton *)b;
 - (void)updateBoostLabel;
+- (void)updateLaserLabel;
+
 
 @end

@@ -16,13 +16,16 @@
     self.label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
     self.label.numberOfLines = 0;
     self.label.textAlignment = NSTextAlignmentCenter;
-    self.label.textColor = [UIColor whiteColor];
     self.label.font = [UIFont systemFontOfSize:20];
     [self addSubview:self.label];
+    [self styleLabel];
     [self setupNotifications];
     [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(upgrade)]];
-    self.backgroundColor = [UIColor redColor];
     return self;
+}
+
+- (void)styleLabel {
+    self.label.textColor = [UIColor whiteColor];
 }
 
 - (NSString *)updateNotificationName {
@@ -55,5 +58,4 @@
     self.alpha = 1;
     self.label.text = n.object;
 }
-
 @end

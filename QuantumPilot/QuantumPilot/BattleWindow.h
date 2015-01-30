@@ -15,6 +15,7 @@
 #import "PathsLabel.h"
 #import "WeaponsLabel.h"
 #import "BoostButton.h"
+#import "LaserButton.h"
 
 #import <Social/Social.h>
 #import <MessageUI/MessageUI.h>
@@ -54,6 +55,7 @@
 @property (strong, nonatomic) UIImageView *messageIcon;
 
 @property (strong, nonatomic) BoostButton *boostbutton;
+@property (strong, nonatomic) LaserButton *laserbutton;
 
 - (NSArray *)labels;
 

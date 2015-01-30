@@ -417,6 +417,10 @@ static float innerTopHeight = 5.75;
     weapon = w;
 }
 
+- (void)powerBoost {
+    self.speed += .2;
+}
+
 @end
 
 

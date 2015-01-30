@@ -66,6 +66,7 @@
 		0EA1A3881A40EBA100A098A6 /* x7-12.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0EA1A3801A40EBA100A098A6 /* x7-12.wav */; };
 		0EA1A38A1A40EC0600A098A6 /* process-12.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0EA1A3891A40EC0600A098A6 /* process-12.wav */; };
 		0EA1A38C1A40ED4900A098A6 /* collect-8.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0EA1A38B1A40ED4900A098A6 /* collect-8.wav */; };
+		0EAE0E991A7B28D100E9B438 /* LaserButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EAE0E981A7B28D100E9B438 /* LaserButton.m */; };
 		0EC9E70F1967907400497BB9 /* DeadLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EC9E70E1967907400497BB9 /* DeadLine.m */; };
 		0ED1F4B6197C5D2800AFD969 /* FastLaserCannon.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ED1F4B5197C5D2800AFD969 /* FastLaserCannon.m */; };
 		0ED2FAA419DC30F200D3E742 /* Arsenal.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ED2FAA319DC30F200D3E742 /* Arsenal.m */; };
@@ -286,6 +287,8 @@
 		0EA1A3801A40EBA100A098A6 /* x7-12.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "x7-12.wav"; sourceTree = "<group>"; };
 		0EA1A3891A40EC0600A098A6 /* process-12.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "process-12.wav"; sourceTree = "<group>"; };
 		0EA1A38B1A40ED4900A098A6 /* collect-8.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "collect-8.wav"; sourceTree = "<group>"; };
+		0EAE0E971A7B28D100E9B438 /* LaserButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaserButton.h; sourceTree = "<group>"; };
+		0EAE0E981A7B28D100E9B438 /* LaserButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaserButton.m; sourceTree = "<group>"; };
 		0EC9E70D1967907400497BB9 /* DeadLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeadLine.h; sourceTree = "<group>"; };
 		0EC9E70E1967907400497BB9 /* DeadLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeadLine.m; sourceTree = "<group>"; };
 		0ED1F4B4197C5D2800AFD969 /* FastLaserCannon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FastLaserCannon.h; sourceTree = "<group>"; };
@@ -672,6 +675,10 @@
 				0EED805B1A5A492500D34A5F /* WeaponsLabel.m */,
 				0E6EFB3D1A71BFF000610320 /* UpgradeButton.h */,
 				0E6EFB3E1A71BFF000610320 /* UpgradeButton.m */,
+				0E6EFB401A71D9DF00610320 /* BoostButton.h */,
+				0E6EFB411A71D9DF00610320 /* BoostButton.m */,
+				0EAE0E971A7B28D100E9B438 /* LaserButton.h */,
+				0EAE0E981A7B28D100E9B438 /* LaserButton.m */,
 			);
 			name = Labels;
 			sourceTree = "<group>";
@@ -755,8 +762,6 @@
 				BF0EE099163319B9002942A0 /* libs */,
 				0E1292A91A04998F006A8BAB /* Images.xcassets */,
 				BF0EE1F2163319BB002942A0 /* Supporting Files */,
-				0E6EFB401A71D9DF00610320 /* BoostButton.h */,
-				0E6EFB411A71D9DF00610320 /* BoostButton.m */,
 			);
 			path = QuantumPilot;
 			sourceTree = "<group>";
@@ -1403,6 +1408,7 @@
 				BF0EE10E163319B9002942A0 /* CCParticleSystem.m in Sources */,
 				BF0EE111163319B9002942A0 /* CCParticleSystemQuad.m in Sources */,
 				BF0EE114163319BA002942A0 /* CCProgressTimer.m in Sources */,
+				0EAE0E991A7B28D100E9B438 /* LaserButton.m in Sources */,
 				BF0EE118163319BA002942A0 /* CCRenderTexture.m in Sources */,
 				BF0EE11B163319BA002942A0 /* CCScene.m in Sources */,
 				BF0EE11E163319BA002942A0 /* CCScheduler.m in Sources */,

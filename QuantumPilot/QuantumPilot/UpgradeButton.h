@@ -18,4 +18,6 @@
 
 - (NSString *)updateNotificationName;
 
+- (void)styleLabel;
+
 @end

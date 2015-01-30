@@ -1459,7 +1459,7 @@ static QPBattlefield *instance = nil;
     if (_coreCycles > 0 && boostLevel < [self maxUpgrade]) {
         _coreCycles--;
         boostLevel++;
-        [self.pilot powerLaser];
+        [self.pilot powerBoost];
     }
     
     [self updateBoostLabel];
@@ -1467,7 +1467,7 @@ static QPBattlefield *instance = nil;
 }
 
 - (void)updateBoostLabel {
-    NSString *boostText = [NSString stringWithFormat:@"BOOST\n+%d◊", boostLevel];
+    NSString *boostText = [NSString stringWithFormat:@"ζ\n+%d◊", boostLevel];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"BoostLabel" object:boostText];
 }
 
@@ -1475,12 +1475,15 @@ static QPBattlefield *instance = nil;
     if (_coreCycles > 0 && laserLevel < [self maxUpgrade]) {
         _coreCycles--;
         laserLevel++;
-        NSLog(@"laserLevel: %d", laserLevel);
+        [self.pilot powerLaser];
     }
+    
+    [self updateLaserLabel];
+    [self updateBottomCoreLabel];
 }
 
 - (void)updateLaserLabel {
-    NSString *laserText = [NSString stringWithFormat:@"LASER\n+%d◊", laserLevel];
+    NSString *laserText = [NSString stringWithFormat:@"¤\n+%d◊", laserLevel];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"LaserLabel" object:laserText];
 }
 

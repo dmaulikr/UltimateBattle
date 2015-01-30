@@ -11,6 +11,10 @@
 
 @implementation BoostButton
 
+- (void)styleLabel {
+    self.label.textColor = [UIColor yellowColor];
+}
+
 - (NSString *)updateNotificationName {
     return @"BoostLabel";
 }

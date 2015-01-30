@@ -7,6 +7,7 @@
     [super activate:options];
     [self.f resetLineXDirection:1];
     [self.f updateBoostLabel];
+    [self.f updateLaserLabel];
 }
 
 - (void)resetFireCircle {
@@ -22,6 +23,7 @@
         [self.f resetGuideMode];
         [self.f resetLineXDirection:-1];
     } else {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"clearLabels" object:nil];
         [self.f.pilot fire];
         [self.f.pilot resetFuture];
         [self.f changeState:self.f.fightingState withTouch:l];
