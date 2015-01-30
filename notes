@@ -16,7 +16,9 @@ display top buttons in boxes:
 width / 4, use half of for centering
 reverse for the line withdrawal
 
-
+"reset", "again"
+lines up top
+sound on upgrade ("laser", "boost")
 
 
 show white wave on fourth
