@@ -729,7 +729,7 @@ static QPBattlefield *instance = nil;
 }
 
 - (void)processCloneBullets {
-    if ([self.pilot notfighting]) {
+    if (self.pilot.zy < 0) {
         return;
     }
     [self processCloneBulletsInZone:self.cloneZones[self.pilot.zy][self.pilot.zx]];
@@ -770,7 +770,7 @@ static QPBattlefield *instance = nil;
         }
     }
 }
-
+ 
 - (void)bulletPulse {
     [self pulseBullets:self.bullets];
     [self pulseCloneBullets:self.cloneBullets];
