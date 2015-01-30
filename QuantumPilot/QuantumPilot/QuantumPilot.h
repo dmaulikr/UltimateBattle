@@ -133,6 +133,8 @@
 - (void)powerLaser;
 - (void)powerBoost;
 
+- (bool)notfighting;
+
 @end
 
 @protocol QuantumPilotingDelegate <NSObject>

@@ -729,6 +729,9 @@ static QPBattlefield *instance = nil;
 }
 
 - (void)processCloneBullets {
+    if ([self.pilot notfighting]) {
+        return;
+    }
     [self processCloneBulletsInZone:self.cloneZones[self.pilot.zy][self.pilot.zx]];
     bool greaterZeroX = self.pilot.zx > 0;
     bool greaterZeroY = self.pilot.zy > 0;

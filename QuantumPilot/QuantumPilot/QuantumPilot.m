@@ -422,6 +422,10 @@ static float innerTopHeight = 5.75;
     self.speed += .2;
 }
 
+- (bool)notfighting {
+    return self.l.x > 1000;
+}
+
 @end
 
 
