@@ -234,6 +234,9 @@ static QPBattlefield *instance = nil;
         [self setupClones];
         l1y = self.pilot.l.y - 20;
         l2y = [self.clones[0] l].y + 20;
+        l3y = l1y - 90;
+        l3x = _battlefieldFrame.size.width * 2/3;
+        l4x =_battlefieldFrame.size.width * 1/3;
         [self setupDeadline];
         [self setupSpeeds];
         [self setupWeapons];
@@ -1001,14 +1004,29 @@ static QPBattlefield *instance = nil;
 
 - (void)pulseLineX {
     if (lXDirection == -1) {
-        l1x -= 25;
-        l2x += 25;
+        l1x -= 10;
+        l2x += 10;
         if (l1x <= -_battlefieldFrame.size.width) {
             lXDirection = 0;
         }
+        
+//        float percentage = (_battlefieldFrame.size.width - l2x) / _battlefieldFrame.size
+//        .width;
+//
+//        if (percentage > 1/3) {
+//            l3y = l1y - (90 - (percentage * 90));
+//        }
+////
+//        if (l1x < _battlefieldFrame.size.width * 2/3) {
+////            l3y+= ;
+//            if (l3y > l1y) {
+//                l3y = l1y;
+//            }
+//        }
     } else if (lXDirection == 1) {
-        l1x +=25;
-        l2x-= 25;
+        l1x +=10;
+        l2x-= 10;
+        
         if (l1x >= 0) {
             l1x = 0;
             l2x = 0;
@@ -1311,6 +1329,12 @@ static QPBattlefield *instance = nil;
 - (void)drawSidelines {
     ccDrawLine(ccp(l1x, l1y), ccp(l1x + _battlefieldFrame.size.width, l1y));
     ccDrawLine(ccp(l2x, l2y), ccp(l2x + _battlefieldFrame.size.width, l2y));
+    ccDrawLine(ccp(l1x, l2y), ccp(l1x + _battlefieldFrame.size.width, l2y));
+    ccDrawLine(ccp(l2x, l1y), ccp(l2x + _battlefieldFrame.size.width, l1y));
+
+//    ccDrawLine(ccp(l1x, l2y + 30), ccp(l1x + _ba ttlefieldFrame.size.width, l2y + 30));
+//    ccDrawLine(ccp(l2x, l1y - 90), ccp(l2x + _battlefieldFrame.size.width, l1y - 90));
+//    ccDrawLine(ccp(l3x, l1y - 90), ccp(l3x, l3y));
 }
 
 - (void)draw {

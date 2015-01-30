@@ -153,12 +153,12 @@ static float topCenter = 0.21f;
 - (void)setupButtons {
     CGSize size = [[UIScreen mainScreen] bounds].size;
     self.boostbutton = [[BoostButton alloc] initWithFrame:CGRectMake(0, 0, 160, 120)];
-    self.boostbutton.center = ccp(size.width * .75f, size.height * 2/3 + 60);
+    self.boostbutton.center = ccp(size.width * .8f, size.height * 2/3 + 60);
     [self addSubview:self.boostbutton];
     [self bringSubviewToFront:self.boostbutton];
     
     self.laserbutton = [[LaserButton alloc] initWithFrame:CGRectMake(0, 0, 160, 120)];
-    self.laserbutton.center = ccp(size.width * .25f, size.height * 2/3 + 60);
+    self.laserbutton.center = ccp(size.width * .20f, size.height * 2/3 + 60);
     [self addSubview:self.laserbutton];
     [self bringSubviewToFront:self.laserbutton];
     

@@ -124,10 +124,13 @@ enum drawguide {
     int l2x;
     float l1y;
     float l2y;
-    int l1xt;
-    int l2xt;
-    
+
     int lXDirection;
+
+    int l3x;
+    int l4x;
+    int l3y;
+    int l4y;
     
     CGPoint _leaderboardPoints[10];
     
