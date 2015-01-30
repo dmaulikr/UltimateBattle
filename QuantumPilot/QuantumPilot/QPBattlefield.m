@@ -306,8 +306,6 @@ static QPBattlefield *instance = nil;
     if (coreCycles) {
         _coreCycles = [coreCycles intValue];
     }
-    
-    _coreCycles = 25;
 }
 
 - (CGPoint)fireCircleReset {
@@ -510,6 +508,8 @@ static QPBattlefield *instance = nil;
 
 - (void)resetPilot {
     [self.pilot engage];
+    laserLevel = 0;
+    boostLevel = 0;
 }
 
 - (int)accuracy {

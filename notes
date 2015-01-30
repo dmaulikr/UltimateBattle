@@ -4,14 +4,7 @@ redo drag voice
 
 Devlog: bullet speed power level recording instead of always based off pilot
 remove accuracy & paths label from their present position in corner
-kill symbol: +0 (laser)
-! symbol: +0 (scan)
-path symbol: +0 (boost)
-draw 3 grid box bottom as lines merge in to show:
-show kills, accuracy, paths, 2 WAVE in paused
-as line passes vertical point, animate downward point with horizontal movement
-shorten diamond cost
-include email in top between games section
+include game center in top between games section
 display top buttons in boxes:
 width / 4, use half of for centering
 reverse for the line withdrawal
