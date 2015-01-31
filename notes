@@ -4,30 +4,15 @@
 
 Devlog: bullet speed power level recording instead of always based off pilot
 include game center in top between games section
-display top buttons in boxes:
 width / 4, use half of for centering
-reverse for the line withdrawal
-
-
-lines up top
-sound on upgrade -- maybe a click?
-
-
-show white wave on fourth
-gamecenter icon on social
-
-
-
-collisions, ex mode, recycler 2X as perm 99c upgrades
 
 level selection
 level opening
-
-Center: Show level name:
-
+Center: Show level name: 
 Tap < or > to see other levels (slide in from left or right stylishly!)
 Engage - 7
 
+collisions, ex mode, recycler 2X as perm 99c upgrades
 
 (range up to Arsenal 1..Arsenal 7 etc)
 
@@ -40,15 +25,6 @@ gamma hammer
 core crusher..
 
 Animate WEAPON CHANGE LABEL
-
-Play sound on label pulse
-Voice on restart with veteran: "Again"
-Voice on restart normal: "Reset"
-               +1 O Core
-
-+◊, -◊
-
-Gamecenter: %@
 
 I rocked
 I dismantled N ships
