@@ -1480,16 +1480,20 @@ static QPBattlefield *instance = nil;
 - (NSString *)shareText {
     int t = arc4random() % 5;
     
+    NSString *cloneShipKills = [NSString stringWithFormat:@"%d clone %@ ship kill", totalHits, totalHits > 1 ? @"kills" : @"kills"];
+    NSString *cloneShips = [NSString stringWithFormat:@"%d clone %@", totalHits, totalHits > 1 ? @"ships" : @"ships"];
+    NSString *paths = [NSString stringWithFormat:@"%d %@", totalPaths, totalPaths > 1 ? @"paths" : @"path"];
+    
     NSString *v = @"";
     switch (t) {
         case 0:
-            v = [NSString stringWithFormat:@"I dismantled %d clone ships in Quantum Pilot with %d%%    1 accuracy. Can you defeat yourself? %@", totalHits, [self accuracy], @"https://itunes.apple.com/us/app/quantum-pilot/id935956154?mt=8"];
+            v = [NSString stringWithFormat:@"I dismantled %@ in Quantum Pilot with %d%% accuracy. Can you defeat yourself? %@", totalHits, [self accuracy], @"https://itunes.apple.com/us/app/quantum-pilot/id935956154?mt=8"];
             break;
         case 1:
-            v = [NSString stringWithFormat:@"I melted %d clone ships in Quantum Pilot with %d points. Can you defeat yourself? %@", totalHits, lastScore, @"https://itunes.apple.com/us/app/quantum-pilot/id935956154?mt=8"];
+            v = [NSString stringWithFormat:@"I melted %d %@ in Quantum Pilot with %d points. Can you defeat yourself? %@", totalHits, lastScore, @"https://itunes.apple.com/us/app/quantum-pilot/id935956154?mt=8"];
             break;
         case 2:
-            v = [NSString stringWithFormat:@"I destroyed %d clone ships in Quantum Pilot from only %d paths. Can you defeat yourself? %@", totalHits, totalPaths, @"https://itunes.apple.com/us/app/quantum-pilot/id935956154?mt=8"];
+            v = [NSString stringWithFormat:@"I destroyed %d %@ in Quantum Pilot from only %@ paths. Can you defeat yourself? %@", totalHits, totalPaths, @"https://itunes.apple.com/us/app/quantum-pilot/id935956154?mt=8"];
             break;
             
         default:
