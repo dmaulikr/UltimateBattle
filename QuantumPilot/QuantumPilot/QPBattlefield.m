@@ -174,11 +174,24 @@ static QPBattlefield *instance = nil;
     path  = [[NSBundle mainBundle] pathForResource:@"tap" ofType:@"m4a"];
     pathURL = [NSURL fileURLWithPath : path];
     AudioServicesCreateSystemSoundID((CFURLRef) pathURL, &tap);
+
+    path  = [[NSBundle mainBundle] pathForResource:@"boost" ofType:@"m4a"];
+    pathURL = [NSURL fileURLWithPath : path];
+    AudioServicesCreateSystemSoundID((CFURLRef) pathURL, &boost);
+    
+    path  = [[NSBundle mainBundle] pathForResource:@"laser" ofType:@"m4a"];
+    pathURL = [NSURL fileURLWithPath : path];
+    AudioServicesCreateSystemSoundID((CFURLRef) pathURL, &laser);
+
     
     path  = [[NSBundle mainBundle] pathForResource:@"copy" ofType:@"m4a"];
     pathURL = [NSURL fileURLWithPath : path];
     AudioServicesCreateSystemSoundID((CFURLRef) pathURL, &copy);
 
+    path  = [[NSBundle mainBundle] pathForResource:@"again" ofType:@"m4a"];
+    pathURL = [NSURL fileURLWithPath : path];
+    AudioServicesCreateSystemSoundID((CFURLRef) pathURL, &again);
+    
 }
 
 - (void)createSound:(NSString *)s systemSoundID:(SystemSoundID)ssid format:(NSString *)f{
@@ -552,6 +565,11 @@ static QPBattlefield *instance = nil;
 - (void)resetBattlefield {
     veteran = level > 4;
     _guideMode = veteran ? _guideMode : circle;
+    if (veteran) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            AudioServicesPlaySystemSound(again);
+        });
+    }
     level = 1;
     if (_coresCollected > 20) {
         _coresCollected = 0;
@@ -1495,6 +1513,7 @@ static QPBattlefield *instance = nil;
 - (void)upgradeBoost:(UpgradeButton *)b {
     if (_coreCycles > 0 && boostLevel < [self maxUpgrade]) {
         _coreCycles--;
+        AudioServicesPlaySystemSound(boost);
         boostLevel++;
         [self.pilot powerBoost];
     }
@@ -1505,11 +1524,15 @@ static QPBattlefield *instance = nil;
 
 - (void)updateBoostLabel {
     NSString *boostText = [NSString stringWithFormat:@"ζ\n+%d◊", boostLevel];
+    if (boostLevel >= [self maxUpgrade]) {
+        boostText = @"ζ\n+MAX";
+    }
     [[NSNotificationCenter defaultCenter] postNotificationName:@"BoostLabel" object:boostText];
 }
 
 - (void)upgradeLaser:(UpgradeButton *)b {
     if (_coreCycles > 0 && laserLevel < [self maxUpgrade]) {
+        AudioServicesPlaySystemSound(laser);
         _coreCycles--;
         laserLevel++;
         [self.pilot powerLaser];
@@ -1521,6 +1544,9 @@ static QPBattlefield *instance = nil;
 
 - (void)updateLaserLabel {
     NSString *laserText = [NSString stringWithFormat:@"¤\n+%d◊", laserLevel];
+    if (laserLevel >= [self maxUpgrade]) {
+        laserText = @"¤\n+MAX";
+    }
     [[NSNotificationCenter defaultCenter] postNotificationName:@"LaserLabel" object:laserText];
 }
 

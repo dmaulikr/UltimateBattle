@@ -6,6 +6,9 @@
 - (void)activate:(NSDictionary *)options {
     [self.f resetGuideMode];
     [self.f resetFireCircle];
+    if (self.f.currentState == self.f.pausedState) {
+        [self.f.pilot resetPosition];
+    }
 }
 
 - (void)shiftToDrawingState {

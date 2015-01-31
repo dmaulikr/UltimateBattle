@@ -97,6 +97,11 @@ enum drawguide {
     SystemSoundID tap;
     SystemSoundID copy;
     
+    SystemSoundID again;
+
+    SystemSoundID boost;
+    SystemSoundID laser;
+    
     NSInteger _recentBonus;
     
     int drawRadius;

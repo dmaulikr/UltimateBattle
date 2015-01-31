@@ -26,7 +26,6 @@
 		0E1D29971A59518D00ACF3C9 /* PathsLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E1D29961A59518D00ACF3C9 /* PathsLabel.m */; };
 		0E22E95E19ECCAF900261AC5 /* BattleWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E22E95D19ECCAF900261AC5 /* BattleWindow.m */; };
 		0E3347431A43FE0600C3FA60 /* l4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0E3347421A43FE0600C3FA60 /* l4.wav */; };
-		0E53480F1A43CDAF0045FEF1 /* drag.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0E53480C1A43CAB90045FEF1 /* drag.m4a */; };
 		0E5348101A43CDB20045FEF1 /* tap.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0E53480D1A43CAB90045FEF1 /* tap.m4a */; };
 		0E5348111A43CDB70045FEF1 /* copy.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0E53480E1A43CAB90045FEF1 /* copy.m4a */; };
 		0E63B75216C7039100F63829 /* QPBFFightingState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E63B75116C7039100F63829 /* QPBFFightingState.m */; };
@@ -39,6 +38,10 @@
 		0E74ED7A19D5B51400D55989 /* TightSpiralLaser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E74ED7919D5B51400D55989 /* TightSpiralLaser.m */; };
 		0E773A2319D8FDFA00009DA0 /* WideTriLaserCannon.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E773A2219D8FDFA00009DA0 /* WideTriLaserCannon.m */; };
 		0E773A2619D8FE1100009DA0 /* WideTriLaser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E773A2519D8FE1100009DA0 /* WideTriLaser.m */; };
+		0E7DC83E1A7C910700938BFF /* again.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0E7DC83C1A7C90DD00938BFF /* again.m4a */; };
+		0E7DC83F1A7C910B00938BFF /* drag.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0E7DC83D1A7C90F900938BFF /* drag.m4a */; };
+		0E7DC8421A7C929900938BFF /* laser.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0E7DC8401A7C929900938BFF /* laser.m4a */; };
+		0E7DC8431A7C929900938BFF /* boost.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0E7DC8411A7C929900938BFF /* boost.m4a */; };
 		0E87A21919F30DE200B55AA2 /* Shatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E87A21819F30DE200B55AA2 /* Shatter.m */; };
 		0E8A113E197D56510028A78F /* FastLaser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E8A113D197D56510028A78F /* FastLaser.m */; };
 		0E9224F61A6854FD00D9730E /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E9224F51A6854FD00D9730E /* Social.framework */; };
@@ -235,7 +238,6 @@
 		0E22E95C19ECCAF900261AC5 /* BattleWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BattleWindow.h; sourceTree = "<group>"; };
 		0E22E95D19ECCAF900261AC5 /* BattleWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BattleWindow.m; sourceTree = "<group>"; };
 		0E3347421A43FE0600C3FA60 /* l4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = l4.wav; sourceTree = "<group>"; };
-		0E53480C1A43CAB90045FEF1 /* drag.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = drag.m4a; sourceTree = "<group>"; };
 		0E53480D1A43CAB90045FEF1 /* tap.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = tap.m4a; sourceTree = "<group>"; };
 		0E53480E1A43CAB90045FEF1 /* copy.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = copy.m4a; sourceTree = "<group>"; };
 		0E63B75016C7039100F63829 /* QPBFFightingState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPBFFightingState.h; sourceTree = "<group>"; };
@@ -258,6 +260,10 @@
 		0E773A2219D8FDFA00009DA0 /* WideTriLaserCannon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WideTriLaserCannon.m; sourceTree = "<group>"; };
 		0E773A2419D8FE1100009DA0 /* WideTriLaser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WideTriLaser.h; sourceTree = "<group>"; };
 		0E773A2519D8FE1100009DA0 /* WideTriLaser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WideTriLaser.m; sourceTree = "<group>"; };
+		0E7DC83C1A7C90DD00938BFF /* again.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = again.m4a; sourceTree = "<group>"; };
+		0E7DC83D1A7C90F900938BFF /* drag.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = drag.m4a; sourceTree = "<group>"; };
+		0E7DC8401A7C929900938BFF /* laser.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = laser.m4a; sourceTree = "<group>"; };
+		0E7DC8411A7C929900938BFF /* boost.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = boost.m4a; sourceTree = "<group>"; };
 		0E87A21719F30DE200B55AA2 /* Shatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shatter.h; sourceTree = "<group>"; };
 		0E87A21819F30DE200B55AA2 /* Shatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shatter.m; sourceTree = "<group>"; };
 		0E8A113C197D56510028A78F /* FastLaser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FastLaser.h; sourceTree = "<group>"; };
@@ -630,9 +636,12 @@
 		0E53480B1A43CAB30045FEF1 /* Guide */ = {
 			isa = PBXGroup;
 			children = (
-				0E53480C1A43CAB90045FEF1 /* drag.m4a */,
+				0E7DC83C1A7C90DD00938BFF /* again.m4a */,
+				0E7DC83D1A7C90F900938BFF /* drag.m4a */,
 				0E53480D1A43CAB90045FEF1 /* tap.m4a */,
 				0E53480E1A43CAB90045FEF1 /* copy.m4a */,
+				0E7DC8401A7C929900938BFF /* laser.m4a */,
+				0E7DC8411A7C929900938BFF /* boost.m4a */,
 			);
 			name = Guide;
 			sourceTree = "<group>";
@@ -1324,6 +1333,7 @@
 				0E1292AA1A04998F006A8BAB /* Images.xcassets in Resources */,
 				0EA1A3881A40EBA100A098A6 /* x7-12.wav in Resources */,
 				0EA1A3701A40E9E900A098A6 /* l2-12.wav in Resources */,
+				0E7DC83F1A7C910B00938BFF /* drag.m4a in Resources */,
 				0E5348111A43CDB70045FEF1 /* copy.m4a in Resources */,
 				0EA1A36B1A40E95800A098A6 /* l1-18.wav in Resources */,
 				0EA1A3871A40EBA100A098A6 /* x6-12.wav in Resources */,
@@ -1332,6 +1342,7 @@
 				0EA1A3821A40EBA100A098A6 /* x1-12.wav in Resources */,
 				0EA1A3861A40EBA100A098A6 /* x5-12.wav in Resources */,
 				0E9224FA1A686BF500D9730E /* facebook.png in Resources */,
+				0E7DC8431A7C929900938BFF /* boost.m4a in Resources */,
 				0E1292D71A04ACB1006A8BAB /* collect.wav in Resources */,
 				0EA1A36F1A40E9E900A098A6 /* l1-12.wav in Resources */,
 				0EA1A38C1A40ED4900A098A6 /* collect-8.wav in Resources */,
@@ -1344,10 +1355,11 @@
 				0E1292B41A049FAA006A8BAB /* spacemelter.m4a in Resources */,
 				BFA1BE56163B5C7100833186 /* Default-568h@2x.png in Resources */,
 				0E9224FC1A686BF500D9730E /* twitter.png in Resources */,
-				0E53480F1A43CDAF0045FEF1 /* drag.m4a in Resources */,
 				0E9224FB1A686BF500D9730E /* instagram.png in Resources */,
+				0E7DC8421A7C929900938BFF /* laser.m4a in Resources */,
 				0E5348101A43CDB20045FEF1 /* tap.m4a in Resources */,
 				0E3347431A43FE0600C3FA60 /* l4.wav in Resources */,
+				0E7DC83E1A7C910700938BFF /* again.m4a in Resources */,
 				0E9225001A686CCD00D9730E /* message.png in Resources */,
 				0EA1A3751A40EB7100A098A6 /* l3-22.wav in Resources */,
 				0E1292B51A049FAA006A8BAB /* gammahammer.m4a in Resources */,

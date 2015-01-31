@@ -2,8 +2,11 @@ redo drag voice
 ~
 1.04
 
+Drag your ship to record a path
+Reset
+Again
+
 Devlog: bullet speed power level recording instead of always based off pilot
-remove accuracy & paths label from their present position in corner
 include game center in top between games section
 display top buttons in boxes:
 width / 4, use half of for centering
