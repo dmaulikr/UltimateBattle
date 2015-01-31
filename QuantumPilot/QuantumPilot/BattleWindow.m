@@ -353,22 +353,32 @@ static float topCenter = 0.21f;
     return [[QPBattlefield f] shareText];
 }
 
+- (void)hideSocial {
+    for (UIView *v in [self socialIcons]) {
+        v.center = ccp(5000,5000);
+    }
+}
+
 - (void)twitterTapped {
     _sharing = true;
+    [self hideSocial];
     SLComposeViewController *vc = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
     [vc setInitialText:[self shareText]];
     [vc setCompletionHandler:^(SLComposeViewControllerResult result) {
         _sharing = false;
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowSocial" object:@""];
     }];
     [[CCDirector sharedDirector] presentViewController:vc animated:YES completion:nil];
 }
 
 - (void)facebookTapped {
     _sharing = true;
+    [self hideSocial];
     SLComposeViewController *vc = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
     [vc setInitialText:[self shareText]];
     [vc setCompletionHandler:^(SLComposeViewControllerResult result) {
         _sharing = false;
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowSocial" object:@""];
     }];
     [[CCDirector sharedDirector] presentViewController:vc animated:YES completion:nil];
 }
@@ -382,13 +392,16 @@ static float topCenter = 0.21f;
     MFMessageComposeViewController *vc = [[[MFMessageComposeViewController alloc] init] autorelease];
     vc.messageComposeDelegate = self;
     [vc setBody:[self shareText]];
-    [[CCDirector sharedDirector] presentViewController:vc animated:YES completion:nil];
+    [[CCDirector sharedDirector] presentViewController:vc animated:YES completion: ^{
+        [self hideSocial];
+    }];
 }
 
 - (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result {
     [[CCDirector sharedDirector] dismissViewControllerAnimated:true completion:^{
     //play sound
         _sharing = false;
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowSocial" object:@""];
     }];
 }
 
