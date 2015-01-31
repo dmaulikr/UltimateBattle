@@ -175,11 +175,11 @@ static QPBattlefield *instance = nil;
     pathURL = [NSURL fileURLWithPath : path];
     AudioServicesCreateSystemSoundID((CFURLRef) pathURL, &tap);
 
-    path  = [[NSBundle mainBundle] pathForResource:@"boost" ofType:@"m4a"];
+    path  = [[NSBundle mainBundle] pathForResource:@"boost" ofType:@"wav"];
     pathURL = [NSURL fileURLWithPath : path];
     AudioServicesCreateSystemSoundID((CFURLRef) pathURL, &boost);
     
-    path  = [[NSBundle mainBundle] pathForResource:@"laser" ofType:@"m4a"];
+    path  = [[NSBundle mainBundle] pathForResource:@"laser" ofType:@"wav"];
     pathURL = [NSURL fileURLWithPath : path];
     AudioServicesCreateSystemSoundID((CFURLRef) pathURL, &laser);
 

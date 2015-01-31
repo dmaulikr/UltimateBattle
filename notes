@@ -1,10 +1,6 @@
-redo drag voice
+
 ~
 1.04
-
-Drag your ship to record a path
-Reset
-Again
 
 Devlog: bullet speed power level recording instead of always based off pilot
 include game center in top between games section
@@ -12,9 +8,9 @@ display top buttons in boxes:
 width / 4, use half of for centering
 reverse for the line withdrawal
 
-"reset", "again"
+
 lines up top
-sound on upgrade ("laser", "boost")
+sound on upgrade -- maybe a click?
 
 
 show white wave on fourth

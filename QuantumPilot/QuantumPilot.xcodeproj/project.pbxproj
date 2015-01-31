@@ -40,8 +40,10 @@
 		0E773A2619D8FE1100009DA0 /* WideTriLaser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E773A2519D8FE1100009DA0 /* WideTriLaser.m */; };
 		0E7DC83E1A7C910700938BFF /* again.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0E7DC83C1A7C90DD00938BFF /* again.m4a */; };
 		0E7DC83F1A7C910B00938BFF /* drag.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0E7DC83D1A7C90F900938BFF /* drag.m4a */; };
-		0E7DC8421A7C929900938BFF /* laser.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0E7DC8401A7C929900938BFF /* laser.m4a */; };
-		0E7DC8431A7C929900938BFF /* boost.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0E7DC8411A7C929900938BFF /* boost.m4a */; };
+		0E7DC8421A7C929900938BFF /* laserx.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0E7DC8401A7C929900938BFF /* laserx.m4a */; };
+		0E7DC8431A7C929900938BFF /* boostx.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0E7DC8411A7C929900938BFF /* boostx.m4a */; };
+		0E7DC8461A7C96CF00938BFF /* boost.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0E7DC8441A7C96CF00938BFF /* boost.wav */; };
+		0E7DC8471A7C96CF00938BFF /* laser.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0E7DC8451A7C96CF00938BFF /* laser.wav */; };
 		0E87A21919F30DE200B55AA2 /* Shatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E87A21819F30DE200B55AA2 /* Shatter.m */; };
 		0E8A113E197D56510028A78F /* FastLaser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E8A113D197D56510028A78F /* FastLaser.m */; };
 		0E9224F61A6854FD00D9730E /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E9224F51A6854FD00D9730E /* Social.framework */; };
@@ -262,8 +264,10 @@
 		0E773A2519D8FE1100009DA0 /* WideTriLaser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WideTriLaser.m; sourceTree = "<group>"; };
 		0E7DC83C1A7C90DD00938BFF /* again.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = again.m4a; sourceTree = "<group>"; };
 		0E7DC83D1A7C90F900938BFF /* drag.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = drag.m4a; sourceTree = "<group>"; };
-		0E7DC8401A7C929900938BFF /* laser.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = laser.m4a; sourceTree = "<group>"; };
-		0E7DC8411A7C929900938BFF /* boost.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = boost.m4a; sourceTree = "<group>"; };
+		0E7DC8401A7C929900938BFF /* laserx.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = laserx.m4a; sourceTree = "<group>"; };
+		0E7DC8411A7C929900938BFF /* boostx.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = boostx.m4a; sourceTree = "<group>"; };
+		0E7DC8441A7C96CF00938BFF /* boost.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = boost.wav; sourceTree = "<group>"; };
+		0E7DC8451A7C96CF00938BFF /* laser.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = laser.wav; sourceTree = "<group>"; };
 		0E87A21719F30DE200B55AA2 /* Shatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shatter.h; sourceTree = "<group>"; };
 		0E87A21819F30DE200B55AA2 /* Shatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shatter.m; sourceTree = "<group>"; };
 		0E8A113C197D56510028A78F /* FastLaser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FastLaser.h; sourceTree = "<group>"; };
@@ -640,8 +644,10 @@
 				0E7DC83D1A7C90F900938BFF /* drag.m4a */,
 				0E53480D1A43CAB90045FEF1 /* tap.m4a */,
 				0E53480E1A43CAB90045FEF1 /* copy.m4a */,
-				0E7DC8401A7C929900938BFF /* laser.m4a */,
-				0E7DC8411A7C929900938BFF /* boost.m4a */,
+				0E7DC8401A7C929900938BFF /* laserx.m4a */,
+				0E7DC8411A7C929900938BFF /* boostx.m4a */,
+				0E7DC8441A7C96CF00938BFF /* boost.wav */,
+				0E7DC8451A7C96CF00938BFF /* laser.wav */,
 			);
 			name = Guide;
 			sourceTree = "<group>";
@@ -1342,7 +1348,7 @@
 				0EA1A3821A40EBA100A098A6 /* x1-12.wav in Resources */,
 				0EA1A3861A40EBA100A098A6 /* x5-12.wav in Resources */,
 				0E9224FA1A686BF500D9730E /* facebook.png in Resources */,
-				0E7DC8431A7C929900938BFF /* boost.m4a in Resources */,
+				0E7DC8431A7C929900938BFF /* boostx.m4a in Resources */,
 				0E1292D71A04ACB1006A8BAB /* collect.wav in Resources */,
 				0EA1A36F1A40E9E900A098A6 /* l1-12.wav in Resources */,
 				0EA1A38C1A40ED4900A098A6 /* collect-8.wav in Resources */,
@@ -1355,8 +1361,10 @@
 				0E1292B41A049FAA006A8BAB /* spacemelter.m4a in Resources */,
 				BFA1BE56163B5C7100833186 /* Default-568h@2x.png in Resources */,
 				0E9224FC1A686BF500D9730E /* twitter.png in Resources */,
+				0E7DC8461A7C96CF00938BFF /* boost.wav in Resources */,
+				0E7DC8471A7C96CF00938BFF /* laser.wav in Resources */,
 				0E9224FB1A686BF500D9730E /* instagram.png in Resources */,
-				0E7DC8421A7C929900938BFF /* laser.m4a in Resources */,
+				0E7DC8421A7C929900938BFF /* laserx.m4a in Resources */,
 				0E5348101A43CDB20045FEF1 /* tap.m4a in Resources */,
 				0E3347431A43FE0600C3FA60 /* l4.wav in Resources */,
 				0E7DC83E1A7C910700938BFF /* again.m4a in Resources */,

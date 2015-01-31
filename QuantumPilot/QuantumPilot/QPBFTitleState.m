@@ -26,6 +26,7 @@
 
 - (void)start:(CGPoint)l {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowSocial" object:nil];
+    [self.f.pilot resetPosition];
     [self.f setTouchOffsetFromPilotNear:l];
     [self.f changeState:self.f.drawingState withTouch:l];
     [self announceLabels];
