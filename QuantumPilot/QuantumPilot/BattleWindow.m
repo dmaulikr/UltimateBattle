@@ -152,18 +152,19 @@ float topCenter = 0.23f;
 
 - (void)setupButtons {
     CGSize size = [[UIScreen mainScreen] bounds].size;
-    self.boostbutton = [[BoostButton alloc] initWithFrame:CGRectMake(0, 0, 160, 120)];
-    self.boostbutton.center = ccp(size.width * .8f, size.height * 2/3 + 60);
+    float w = size.width * 1/3;
+    self.boostbutton = [[BoostButton alloc] initWithFrame:CGRectMake(0, 0, w, 120)];
+    self.boostbutton.center = ccp(size.width * 5/6, size.height * 2/3 + 60);
     [self addSubview:self.boostbutton];
     [self bringSubviewToFront:self.boostbutton];
     
-    self.laserbutton = [[LaserButton alloc] initWithFrame:CGRectMake(0, 0, 160, 120)];
-    self.laserbutton.center = ccp(size.width * .20f, size.height * 2/3 + 60);
+    self.laserbutton = [[LaserButton alloc] initWithFrame:CGRectMake(0, 0, w, 120)];
+    self.laserbutton.center = ccp(size.width * 1/6, size.height * 2/3 + 60);
     [self addSubview:self.laserbutton];
     [self bringSubviewToFront:self.laserbutton];
     
-    self.waveButton = [[WaveButton alloc] initWithFrame:CGRectMake(0, 0, 160, 120)];
-    self.waveButton.center = ccp(size.width * .50f, size.height * 2/3 + 60);
+    self.waveButton = [[WaveButton alloc] initWithFrame:CGRectMake(0, 0, w, 120)];
+    self.waveButton.center = ccp(size.width * .5, size.height * 2/3 + 60);
     [self addSubview:self.waveButton];
     [self bringSubviewToFront:self.waveButton];
     
