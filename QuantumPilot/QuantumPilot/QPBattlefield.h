@@ -143,6 +143,9 @@ enum drawguide {
     
     int boostLevel;
     int laserLevel;
+    
+    bool drawUpgradeSidelines;
+    bool drawTopSidelines;
 }
 
 @property (nonatomic, retain) NSMutableArray *bullets;
@@ -267,5 +270,6 @@ enum drawguide {
 - (void)updateLaserLabel;
 
 - (bool)finishedAnimatingSidelines;
+- (float)topLineY;
 
 @end

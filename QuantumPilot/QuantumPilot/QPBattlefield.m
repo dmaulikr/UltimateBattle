@@ -228,6 +228,11 @@ static QPBattlefield *instance = nil;
     NSLog(@"wide, tall, size, count, count[0]: %d, %d, %d %d", zonesWide, zonesTall, self.zones.count, [self.zones[0] count]);
 }
 
+- (float)topLineY {
+    float height = [[UIScreen mainScreen] bounds].size.height;
+    return height * 2/3;
+}
+
 - (id)init {
     self = [super init];
     if (self) {
@@ -247,7 +252,7 @@ static QPBattlefield *instance = nil;
         [self setupStates];
         [self setupClones];
         l1y = self.pilot.l.y - 20;
-        l2y = [self.clones[0] l].y + 20;
+        l2y = [self topLineY] + 20;
         l3y = l1y - 90;
         l3x = _battlefieldFrame.size.width * 2/3;
         l4x =_battlefieldFrame.size.width * 1/3;
@@ -1026,6 +1031,8 @@ static QPBattlefield *instance = nil;
 }
 
 - (void)pulseLineX {
+    drawUpgradeSidelines =  _score > 0 || lastScore > 0;
+    drawTopSidelines = self.currentState == self.titleState;
     if (lXDirection == -1) {
         l1x -= 10;
         l2x += 10;
@@ -1346,19 +1353,29 @@ static QPBattlefield *instance = nil;
     }
 }
 
+
 - (void)drawSidelines {
     ccDrawLine(ccp(l1x, l1y), ccp(l1x + _battlefieldFrame.size.width, l1y));
     ccDrawLine(ccp(l2x, l2y), ccp(l2x + _battlefieldFrame.size.width, l2y));
     ccDrawLine(ccp(l1x, l2y), ccp(l1x + _battlefieldFrame.size.width, l2y));
     ccDrawLine(ccp(l2x, l1y), ccp(l2x + _battlefieldFrame.size.width, l1y));
 
-    if (_score > 0 || lastScore > 0) {
+    if (drawUpgradeSidelines) {
         ccDrawLine(ccp(l1x, l1y - 90), ccp(l1x + _battlefieldFrame.size.width, l1y - 90));
         ccDrawLine(ccp(l2x, l1y - 90), ccp(l2x + _battlefieldFrame.size.width, l1y - 90));
         
         ccDrawLine(ccp(l3x, l1y - 45 - l3h), ccp(l3x, l1y - 45 + l3h));
         ccDrawLine(ccp(l4x ,l1y - 45 - l3h), ccp(l4x, l1y - 45 + l3h));
+        
+        if (drawTopSidelines) {
+            ccDrawLine(ccp(l1x, l2y + 90), ccp(l1x + _battlefieldFrame.size.width, l2y + 90));
+            ccDrawLine(ccp(l2x, l2y + 90), ccp(l2x + _battlefieldFrame.size.width, l2y + 90));
+            
+            //        ccDrawLine(ccp(l3x, l2y + 45 - l3h), ccp(l3x, l2y - 45 + l3h));
+            //        ccDrawLine(ccp(l4x ,l2y + 45 - l3h), ccp(l4x, l2y - 45 + l3h));
+        }
     }
+    
 }
 
 - (void)draw {
@@ -1480,24 +1497,24 @@ static QPBattlefield *instance = nil;
 - (NSString *)shareText {
     int t = arc4random() % 5;
     
-    NSString *cloneShipKills = [NSString stringWithFormat:@"%d clone %@ ship kill", totalHits, totalHits > 1 ? @"kills" : @"kills"];
-    NSString *cloneShips = [NSString stringWithFormat:@"%d clone %@", totalHits, totalHits > 1 ? @"ships" : @"ships"];
-    NSString *paths = [NSString stringWithFormat:@"%d %@", totalPaths, totalPaths > 1 ? @"paths" : @"path"];
+    NSString *cloneShipKills = [NSString stringWithFormat:@"%d clone ship %@", totalHits, totalHits > 1 ? @"kills" : @"kills"];
+    NSString *cloneShips = [NSString stringWithFormat:@"%d clone %@", totalHits, totalHits > 1 ? @"ships" : @"ship"];
+    NSString *path = [NSString stringWithFormat:@"%d %@", totalPaths, totalPaths > 1 ? @"paths" : @"path"];
     
     NSString *v = @"";
     switch (t) {
         case 0:
-            v = [NSString stringWithFormat:@"I dismantled %@ in Quantum Pilot with %d%% accuracy. Can you defeat yourself? %@", totalHits, [self accuracy], @"https://itunes.apple.com/us/app/quantum-pilot/id935956154?mt=8"];
+            v = [NSString stringWithFormat:@"I dismantled %@ in Quantum Pilot with %d%% accuracy. Can you defeat yourself? %@", cloneShips, [self accuracy], @"https://itunes.apple.com/us/app/quantum-pilot/id935956154?mt=8"];
             break;
         case 1:
-            v = [NSString stringWithFormat:@"I melted %d %@ in Quantum Pilot with %d points. Can you defeat yourself? %@", totalHits, lastScore, @"https://itunes.apple.com/us/app/quantum-pilot/id935956154?mt=8"];
+            v = [NSString stringWithFormat:@"I melted %@ in Quantum Pilot with %d points. Can you defeat yourself? %@", cloneShips, lastScore, @"https://itunes.apple.com/us/app/quantum-pilot/id935956154?mt=8"];
             break;
         case 2:
-            v = [NSString stringWithFormat:@"I destroyed %d %@ in Quantum Pilot from only %@ paths. Can you defeat yourself? %@", totalHits, totalPaths, @"https://itunes.apple.com/us/app/quantum-pilot/id935956154?mt=8"];
+            v = [NSString stringWithFormat:@"I destroyed %@ in Quantum Pilot from only %@. Can you defeat yourself? %@", cloneShips, path, @"https://itunes.apple.com/us/app/quantum-pilot/id935956154?mt=8"];
             break;
             
         default:
-            v = [NSString stringWithFormat:@"I'm crushing it in Quantum Pilot with %d from %d clone ship kills. Can you defeat yourself? %@", lastScore, totalHits, @"https://itunes.apple.com/us/app/quantum-pilot/id935956154?mt=8"];
+            v = [NSString stringWithFormat:@"I'm crushing it in Quantum Pilot with %d from %@. Can you defeat yourself? %@", lastScore, cloneShipKills, @"https://itunes.apple.com/us/app/quantum-pilot/id935956154?mt=8"];
             break;
     }
     

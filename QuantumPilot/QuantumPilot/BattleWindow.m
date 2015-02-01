@@ -13,7 +13,7 @@
 #import "CCScheduler.h"
 #import "QPBattlefield.h"
 
-static float topCenter = 0.21f;
+float topCenter = 0.23f;
 
 @implementation BattleWindow
 
@@ -335,9 +335,20 @@ static float topCenter = 0.21f;
         }
         if (!_sharing) {
             CGSize size = [[UIScreen mainScreen] bounds].size;
-            self.twitterIcon.center     = ccp(0.75f * size.width, topCenter * size.height);
-            self.facebookIcon.center    = ccp(0.25f * size.width, topCenter * size.height);
-            self.messageIcon.center     = ccp(0.5f * size.width, topCenter * size.height);
+            topCenter = [[UIScreen mainScreen] bounds].size.height;
+            topCenter = topCenter * 1/3 - 65;
+
+            float x1 = .125 * size.width;
+            float x2 = x1 * 3;
+            float x3 = x1 * 5;
+            float x4 = x1 * 7;
+            self.twitterIcon.center     = ccp(x1, topCenter);
+            self.facebookIcon.center    = ccp(x2, topCenter);
+            self.messageIcon.center     = ccp(x3, topCenter);
+//            self.twitterIcon.center     = ccp(80, topCenter * size.height);
+//            self.facebookIcon.center    = ccp(240+80, topCenter * size.height);
+//            self.messageIcon.center     = ccp(160, topCenter * size.height);
+            
 //            self.instagramIcon.center   = ccp(0.6f * size.width, topCenter * size.height);
 
             for (UIView *v in [self socialIcons]) {
@@ -381,10 +392,6 @@ static float topCenter = 0.21f;
         [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowSocial" object:@""];
     }];
     [[CCDirector sharedDirector] presentViewController:vc animated:YES completion:nil];
-}
-
-- (void)instagramTapped {
-    _sharing = true;
 }
 
 - (void)messageTapped {
