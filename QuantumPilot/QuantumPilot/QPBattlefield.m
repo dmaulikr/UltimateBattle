@@ -1557,7 +1557,7 @@ static QPBattlefield *instance = nil;
 - (void)updateBoostLabel {
     NSString *boostText = [NSString stringWithFormat:@"ζ\n+%d◊", boostLevel];
     if (boostLevel >= [self maxUpgrade]) {
-        boostText = @"ζ\n+MAX";
+        boostText = @"ζ\nMAX";
     }
     [[NSNotificationCenter defaultCenter] postNotificationName:@"BoostLabel" object:boostText];
 }
@@ -1577,7 +1577,7 @@ static QPBattlefield *instance = nil;
 - (void)updateLaserLabel {
     NSString *laserText = [NSString stringWithFormat:@"¤\n+%d◊", laserLevel];
     if (laserLevel >= [self maxUpgrade]) {
-        laserText = @"¤\n+MAX";
+        laserText = @"¤\nMAX";
     }
     [[NSNotificationCenter defaultCenter] postNotificationName:@"LaserLabel" object:laserText];
 }
