@@ -139,6 +139,10 @@ enum drawguide {
     
     int l3h;
     
+    int tl1x;
+    int tl2x;
+    int tl3x;
+    
     CGPoint _leaderboardPoints[10];
     
     int boostLevel;

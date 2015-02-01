@@ -257,6 +257,10 @@ static QPBattlefield *instance = nil;
         l3x = _battlefieldFrame.size.width * 2/3;
         l4x =_battlefieldFrame.size.width * 1/3;
         l3h = 0;
+        
+        tl1x = _battlefieldFrame.size.width * .25;
+        tl2x = tl1x * 2;
+        tl3x = tl1x * 3;
         [self setupDeadline];
         [self setupSpeeds];
         [self setupWeapons];
@@ -1032,7 +1036,7 @@ static QPBattlefield *instance = nil;
 
 - (void)pulseLineX {
     drawUpgradeSidelines =  _score > 0 || lastScore > 0;
-    drawTopSidelines = self.currentState == self.titleState;
+//    drawTopSidelines = self.currentState == self.titleState;
     if (lXDirection == -1) {
         l1x -= 10;
         l2x += 10;
@@ -1152,6 +1156,12 @@ static QPBattlefield *instance = nil;
     
     self.currentState = state;
     [self.currentState activate:options];
+    
+    if (self.currentState == self.titleState) {
+        drawTopSidelines = true;
+    } else if (self.currentState == self.pausedState) {
+        drawTopSidelines = false;
+    }
     
     [self updateBottomCoreLabel];
 }
@@ -1357,6 +1367,7 @@ static QPBattlefield *instance = nil;
 - (void)drawSidelines {
     ccDrawLine(ccp(l1x, l1y), ccp(l1x + _battlefieldFrame.size.width, l1y));
     ccDrawLine(ccp(l2x, l2y), ccp(l2x + _battlefieldFrame.size.width, l2y));
+    
     ccDrawLine(ccp(l1x, l2y), ccp(l1x + _battlefieldFrame.size.width, l2y));
     ccDrawLine(ccp(l2x, l1y), ccp(l2x + _battlefieldFrame.size.width, l1y));
 
@@ -1371,11 +1382,11 @@ static QPBattlefield *instance = nil;
             ccDrawLine(ccp(l1x, l2y + 90), ccp(l1x + _battlefieldFrame.size.width, l2y + 90));
             ccDrawLine(ccp(l2x, l2y + 90), ccp(l2x + _battlefieldFrame.size.width, l2y + 90));
             
-            //        ccDrawLine(ccp(l3x, l2y + 45 - l3h), ccp(l3x, l2y - 45 + l3h));
-            //        ccDrawLine(ccp(l4x ,l2y + 45 - l3h), ccp(l4x, l2y - 45 + l3h));
+            ccDrawLine(ccp(tl1x, l2y + 45 + l3h), ccp(tl1x, l2y + 45 - l3h));
+            ccDrawLine(ccp(tl2x ,l2y + 45 + l3h), ccp(tl2x, l2y + 45 - l3h));
+            ccDrawLine(ccp(tl3x ,l2y + 45 + l3h), ccp(tl3x, l2y + 45 - l3h));
         }
     }
-    
 }
 
 - (void)draw {
