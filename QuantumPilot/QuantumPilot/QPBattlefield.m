@@ -254,13 +254,15 @@ static QPBattlefield *instance = nil;
         l1y = self.pilot.l.y - 20;
         l2y = [self topLineY] + 20;
         l3y = l1y - 90;
-        l3x = _battlefieldFrame.size.width * 2/3;
-        l4x =_battlefieldFrame.size.width * 1/3;
+        l3x = (_screenSize.width / 2) - (_screenSize.width / 6);
+        l4x = (_screenSize.width / 2) + (_screenSize.width / 6);
         l3h = 0;
         
-        tl1x = _battlefieldFrame.size.width * .25;
-        tl2x = tl1x * 2;
-        tl3x = tl1x * 3;
+        float center = _screenSize.width / 2;
+        
+        tl1x = center - _screenSize.width / 4;
+        tl2x = center;
+        tl3x = center + _screenSize.width / 4;
         [self setupDeadline];
         [self setupSpeeds];
         [self setupWeapons];
@@ -557,7 +559,6 @@ static QPBattlefield *instance = nil;
 }
 
 - (void)showScores {
-//    if ([self showSocial]) {
         NSString *laserText = [NSString stringWithFormat:@"%d\n¤", abs(totalHits)];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"LaserLabel" object:laserText];
         
@@ -566,9 +567,6 @@ static QPBattlefield *instance = nil;
         
         NSString *waveText = [NSString stringWithFormat:@"%d\n%%", abs([self accuracy])];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"WaveLabel" object:waveText];
-        
-    //    [self announceAccuracy];
-  //  }
 }
 
 - (void)resetBattlefield {
@@ -892,7 +890,9 @@ static QPBattlefield *instance = nil;
     [self.dl reset];
     weaponLevel = 0;
     level++;
-    
+
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"WaveLabel" object:[NSString stringWithFormat:@"XXXX"]];
+
     [[NSNotificationCenter defaultCenter] postNotificationName:@"WaveLabel" object:[NSString stringWithFormat:@"WAVE\n%d", level]];
     
     if (!veteran &&level == 2) {

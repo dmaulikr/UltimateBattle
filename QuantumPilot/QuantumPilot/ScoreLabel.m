@@ -10,6 +10,10 @@
 
 @implementation ScoreLabel
 
+- (void)reset {
+    
+}
+
 - (void)setupNotifications {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resetAnimation:) name:@"ScorePulse" object:nil];
 }

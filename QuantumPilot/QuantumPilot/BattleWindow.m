@@ -68,23 +68,23 @@ float topCenter = 0.23f;
     float height = size.height - 10;
     
     self.speedLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 50, 50)] autorelease];
-    self.killsLabel = [[[KillsLabel alloc] initWithFrame:CGRectMake(0, 0, size.width, 90) size:16] autorelease];
+    self.killsLabel = [[[KillsLabel alloc] initWithFrame:CGRectMake(0, 0, size.width, 90) size:24] autorelease];
     
-    self.weaponLabel = [[[WeaponsLabel alloc] initWithFrame:CGRectMake(0, height-27, size.width, 90) size:16] autorelease];
+    self.weaponLabel = [[[WeaponsLabel alloc] initWithFrame:CGRectMake(0, height-27, size.width, 90) size:24] autorelease];
     self.weaponLabel.textColor = [UIColor whiteColor];
     self.weaponLabel.center = ccp(size.width / 2, 10);
     self.weaponLabel.textAlignment = NSTextAlignmentCenter;
     
-    self.scoreLabel = [[[ScoreLabel alloc] initWithFrame:CGRectMake(size.width -200, height-27, size.width * 2, 90) size:16] autorelease];
+    self.scoreLabel = [[[ScoreLabel alloc] initWithFrame:CGRectMake(size.width -200, height-27, size.width * 2, 90) size:28] autorelease];
     self.scoreLabel.center = ccp(size.width / 2, 30);
     self.scoreLabel.textColor = [UIColor whiteColor];
 
     self.scoreLabel.textAlignment = NSTextAlignmentCenter;
     
-    self.accuracyLabel  = [[[AccuracyLabel alloc] initWithFrame:CGRectMake(0, 0, 120, 90) size:16] autorelease];
-    self.pathsLabel     = [[[PathsLabel alloc] initWithFrame:CGRectMake(0, 0, 90, 90) size:16] autorelease];
+    self.accuracyLabel  = [[[AccuracyLabel alloc] initWithFrame:CGRectMake(0, 0, 120, 90) size:24] autorelease];
+    self.pathsLabel     = [[[PathsLabel alloc] initWithFrame:CGRectMake(0, 0, 90, 90) size:24] autorelease];
     
-    self.leaderboardLabel = [[[BattleLabel alloc] initWithFrame:CGRectMake(0, 0, 120, 90) size:16] autorelease];
+    self.leaderboardLabel = [[[BattleLabel alloc] initWithFrame:CGRectMake(0, 0, 120, 90) size:24] autorelease];
     self.leaderboardLabel.text = @"#1\n ";
     self.leaderboardLabel.center = ccp(5000,5000);
     
@@ -136,18 +136,18 @@ float topCenter = 0.23f;
         l.numberOfLines = 0;
         l.lineBreakMode = NSLineBreakByWordWrapping;
         l.textAlignment = NSTextAlignmentCenter;
-        l.font = [UIFont systemFontOfSize:12];
+        l.font = [UIFont fontWithName:@"Copperplate" size:12];
     }
     
     self.guide.textColor = [UIColor greenColor];
     
-    self.titleLabel.font = [UIFont systemFontOfSize:30];
-    self.subTitle.font = [UIFont systemFontOfSize:16];
+    self.titleLabel.font = [UIFont fontWithName:@"Copperplate" size:30];
+    self.subTitle.font = [UIFont fontWithName:@"Copperplate" size:16];
     
     self.killsLabel.textColor = [UIColor redColor];
     self.accuracyLabel.textColor = [UIColor colorWithRed:1 green:1 blue:0 alpha:1];
     self.pathsLabel.textColor = [UIColor greenColor];
-    self.speedLabel.font = [UIFont systemFontOfSize:22];
+    self.speedLabel.font = [UIFont fontWithName:@"Copperplate" size:22];
 }
 
 - (void)setupButtons {
@@ -163,8 +163,9 @@ float topCenter = 0.23f;
     [self addSubview:self.laserbutton];
     [self bringSubviewToFront:self.laserbutton];
     
-    self.waveButton = [[WaveButton alloc] initWithFrame:CGRectMake(0, 0, w, 120)];
-    self.waveButton.center = ccp(size.width * .5, size.height * 2/3 + 60);
+    self.waveButton = [[WaveButton alloc] initWithFrame:CGRectMake(0, 0, size.width / 2, size.width / 2)];
+    self.waveButton.center = ccp(size.width / 2, size.height * 2/3 + 60);
+    
     [self addSubview:self.waveButton];
     [self bringSubviewToFront:self.waveButton];
     
@@ -215,7 +216,7 @@ float topCenter = 0.23f;
         self.scoreLabel.textColor = [UIColor whiteColor];
     } else {
         self.scoreLabel.center = ccp(size.width / 2, 52);
-        self.scoreLabel.font = [UIFont systemFontOfSize:24];
+        self.scoreLabel.font = [UIFont fontWithName:@"Copperplate" size:24];
         self.scoreLabel.textColor = [UIColor whiteColor];
         self.scoreLabel.backgroundColor = [UIColor clearColor];
         self.scoreLabel.text = [NSString stringWithFormat:@"%d", -s];
@@ -338,7 +339,6 @@ float topCenter = 0.23f;
             CGSize size = [[UIScreen mainScreen] bounds].size;
             topCenter = [[UIScreen mainScreen] bounds].size.height;
             topCenter = topCenter * 1/3 - 65;
-
             float x1 = .125 * size.width;
             float x2 = x1 * 3;
             float x3 = x1 * 5;
@@ -359,6 +359,8 @@ float topCenter = 0.23f;
     } else {
         [self hideIcons];
     }
+    
+    //self.scoreLabel.font = [UIFont fontWithName:@"Copperplate" size:50];
 }
 
 - (NSString *)shareText {

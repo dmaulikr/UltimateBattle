@@ -40,7 +40,8 @@ static float innerTopHeight = 5.75;
 
 + (CGPoint)resetPosition {
     float y = [[UIScreen mainScreen] bounds].size.height;
-    return CGPointMake([[UIScreen mainScreen] bounds].size.width / 2, y * 1/3);
+    float x = [[UIScreen mainScreen] bounds].size.width;
+    return CGPointMake(x / 2, y * 1/3);
 }
 
 - (id)init {

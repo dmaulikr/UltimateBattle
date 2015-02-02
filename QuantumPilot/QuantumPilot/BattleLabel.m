@@ -18,7 +18,7 @@
     self = [super initWithFrame:frame];
     [self resetAnimation:nil];
     [self setupNotifications];
-    defaultSize = fontSize ?: 12;
+    defaultSize = fontSize ?: 16;
     return self;
 }
 
@@ -63,7 +63,7 @@
 }
 
 - (void)updateFont {
-    self.font = [UIFont systemFontOfSize:defaultSize + bonusFont];
+    self.font = [UIFont fontWithName:@"Copperplate" size:defaultSize + bonusFont];
 }
 
 - (void)resetAnimation:(NSNotification *)n {

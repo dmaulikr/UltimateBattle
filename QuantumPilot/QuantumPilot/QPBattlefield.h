@@ -125,23 +125,23 @@ enum drawguide {
     int lastScore;
     
     float drawX;
-    int l1x;
-    int l2x;
+    float l1x;
+    float l2x;
     float l1y;
     float l2y;
 
     int lXDirection;
 
-    int l3x;
-    int l4x;
+    float l3x;
+    float l4x;
     int l3y;
     int l4y;
     
     int l3h;
     
-    int tl1x;
-    int tl2x;
-    int tl3x;
+    float tl1x;
+    float tl2x;
+    float tl3x;
     
     CGPoint _leaderboardPoints[10];
     

@@ -7,6 +7,7 @@
 //
 
 #import "UpgradeButton.h"
+#import "cocos2d.h"
 
 @implementation UpgradeButton
 
@@ -14,9 +15,10 @@
     self = [super initWithFrame:frame];
     self.userInteractionEnabled = true;
     self.label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
+    self.label.center = ccp(frame.size.width / 2, frame.size.height / 2);
     self.label.numberOfLines = 0;
     self.label.textAlignment = NSTextAlignmentCenter;
-    self.label.font = [UIFont systemFontOfSize:36];
+    self.label.font = [UIFont fontWithName:@"Copperplate" size:36];
     [self addSubview:self.label];
     [self styleLabel];
     [self setupNotifications];
