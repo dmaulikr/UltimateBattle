@@ -143,8 +143,6 @@ enum drawguide {
     float tl2x;
     float tl3x;
     
-    CGPoint _leaderboardPoints[10];
-    
     int boostLevel;
     int laserLevel;
     
