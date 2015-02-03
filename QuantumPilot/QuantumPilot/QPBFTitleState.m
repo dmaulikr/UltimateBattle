@@ -44,7 +44,7 @@
         [self start:l];
     } else if (l.y > yLimit) {
         [self handleTopTap:l.x];
-    } else if (l.y > y2Limit) {
+    } else if (l.y > y2Limit && [self.f finishedAnimatingSidelines]) {
         [self start:l];
     }
     
