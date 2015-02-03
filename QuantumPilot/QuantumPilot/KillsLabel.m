@@ -10,6 +10,10 @@
 
 @implementation KillsLabel
 
+- (NSString *)nameOfFont {
+    return @"Helvetica";
+}
+
 - (int)maximumBonusFont {
     return 54;
 }

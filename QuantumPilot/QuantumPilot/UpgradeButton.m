@@ -18,7 +18,7 @@
     self.label.center = ccp(frame.size.width / 2, frame.size.height / 2);
     self.label.numberOfLines = 0;
     self.label.textAlignment = NSTextAlignmentCenter;
-    self.label.font = [UIFont fontWithName:@"Copperplate" size:36];
+    self.label.font = [UIFont fontWithName:@"Helvetica" size:36];
     [self addSubview:self.label];
     [self styleLabel];
     [self setupNotifications];

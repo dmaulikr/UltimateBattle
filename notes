@@ -1,6 +1,5 @@
-
 ~
-1.04
+1.03
 
 level selection
 level opening
@@ -10,51 +9,25 @@ Engage - 7
 
 levels
 
+games past Wave 10
+highscore per level
+weapon kills
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-collisions, ex mode, recycler 2X as perm 99c upgrades
-
-(range up to Arsenal 1..Arsenal 7 etc)
-
-consider arsenal 7 as:
-
-dismantler
-nova splitter
-exoslicer
-gamma hammer
-core crusher..
-
-Animate WEAPON CHANGE LABEL
-
-I rocked
-I dismantled N ships
-I crushed N cores
-I melted N
-hexagon music
-
-seamless GIF recording
-GIF to Twitter
-GIF to Facebook
-
-gamecenter achievements ?
-gamepad && gamepad support
-
-game video
-highres photos showcasing new elements
+ship
 build and deploy
-https://developer.apple.com/library/ios/documentation/Audio/Conceptual/AudioSessionProgrammingGuide/ConfiguringanAudioSession/ConfiguringanAudioSession.html#//apple_ref/doc/uid/TP40007875-CH2-SW1 << use other audio
-~
+announce:
+
+appspy
+toucharcade
+tigsource
+macworld
+148apps
+iphone.mob.org
+digitaltrends.com
+kotaku
+phonearena
+
+KSIOlajidebt Plays 
+https://www.youtube.com/user/LetsPlay
+
 Thanks to Sigrid + Museum, Adam, Blast Process

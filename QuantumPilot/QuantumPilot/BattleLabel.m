@@ -62,8 +62,12 @@
     }
 }
 
+- (NSString *)nameOfFont {
+    return @"Courier";
+}
+
 - (void)updateFont {
-    self.font = [UIFont fontWithName:@"Copperplate" size:defaultSize + bonusFont];
+    self.font = [UIFont fontWithName:[self nameOfFont] size:defaultSize + bonusFont];
 }
 
 - (void)resetAnimation:(NSNotification *)n {

@@ -30,4 +30,6 @@
 
 - (void)cancel;
 
+- (NSString *)nameOfFont;
+
 @end

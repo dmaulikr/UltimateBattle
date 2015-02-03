@@ -136,18 +136,18 @@ float topCenter = 0.23f;
         l.numberOfLines = 0;
         l.lineBreakMode = NSLineBreakByWordWrapping;
         l.textAlignment = NSTextAlignmentCenter;
-        l.font = [UIFont fontWithName:@"Copperplate" size:12];
+        l.font = [UIFont fontWithName:@"Symbol" size:12];
     }
     
     self.guide.textColor = [UIColor greenColor];
     
-    self.titleLabel.font = [UIFont fontWithName:@"Copperplate" size:30];
-    self.subTitle.font = [UIFont fontWithName:@"Copperplate" size:16];
-    
+    self.titleLabel.font = [UIFont fontWithName:@"Courier" size:30];
+    self.subTitle.font = [UIFont fontWithName:@"Courier" size:16];
+    self.weaponLabel.font = [UIFont fontWithName:@"Courier" size:12];
     self.killsLabel.textColor = [UIColor redColor];
     self.accuracyLabel.textColor = [UIColor colorWithRed:1 green:1 blue:0 alpha:1];
     self.pathsLabel.textColor = [UIColor greenColor];
-    self.speedLabel.font = [UIFont fontWithName:@"Copperplate" size:22];
+    self.speedLabel.font = [UIFont fontWithName:@"Courier" size:22];
 }
 
 - (void)setupButtons {
@@ -216,7 +216,7 @@ float topCenter = 0.23f;
         self.scoreLabel.textColor = [UIColor whiteColor];
     } else {
         self.scoreLabel.center = ccp(size.width / 2, 52);
-        self.scoreLabel.font = [UIFont fontWithName:@"Copperplate" size:24];
+        self.scoreLabel.font = [UIFont fontWithName:@"Courier" size:24];
         self.scoreLabel.textColor = [UIColor whiteColor];
         self.scoreLabel.backgroundColor = [UIColor clearColor];
         self.scoreLabel.text = [NSString stringWithFormat:@"%d", -s];
@@ -360,7 +360,7 @@ float topCenter = 0.23f;
         [self hideIcons];
     }
     
-    //self.scoreLabel.font = [UIFont fontWithName:@"Copperplate" size:50];
+    //self.scoreLabel.font = [UIFont fontWithName:@"Symbol" size:50];
 }
 
 - (NSString *)shareText {
