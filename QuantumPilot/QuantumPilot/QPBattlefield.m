@@ -1018,8 +1018,8 @@ static QPBattlefield *instance = nil;
     drawUpgradeSidelines =  _score > 0 || lastScore > 0;
 //    drawTopSidelines = self.currentState == self.titleState;
     if (lXDirection == -1) {
-        l1x -= 10;
-        l2x += 10;
+        l1x -= 5;
+        l2x += 5;
         if (l1x <= -_battlefieldFrame.size.width) {
             lXDirection = 0;
         }
@@ -1030,8 +1030,8 @@ static QPBattlefield *instance = nil;
         }
         
     } else if (lXDirection == 1) {
-        l1x +=10;
-        l2x-= 10;
+        l1x +=5;
+        l2x-= 5;
         l3h+= 2;
         if (l3h > 45) {
             l3h = 45;
