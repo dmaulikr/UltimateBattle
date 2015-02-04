@@ -148,6 +148,9 @@ enum drawguide {
     
     bool drawUpgradeSidelines;
     bool drawTopSidelines;
+    
+    int levelsOpened;
+    int currentLevel;
 }
 
 @property (nonatomic, retain) NSMutableArray *bullets;

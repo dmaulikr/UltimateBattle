@@ -292,6 +292,7 @@ static QPBattlefield *instance = nil;
         
         [self setupDebrisCores];
         [self updateBottomCoreLabel];
+        [self updateLevelLabel];
     }
     return self;
 }
@@ -309,6 +310,13 @@ static QPBattlefield *instance = nil;
     NSNumber *coreCycles = [[NSUserDefaults standardUserDefaults] objectForKey:@"corecycles"];
     if (coreCycles) {
         _coreCycles = [coreCycles intValue];
+    }
+}
+
+- (void)setupLevels {
+    NSNumber *lvls = [[NSUserDefaults standardUserDefaults] objectForKey:@"levels"];
+    if (lvls) {
+        levelsOpened = [lvls intValue];
     }
 }
 
@@ -391,13 +399,9 @@ static QPBattlefield *instance = nil;
 }
 
 - (void)createDebrisFromCloneKill:(QuantumClone *)c bullet:(Bullet *)b {
-//    if (self.clones.lastObject == c) {
-//        return;
-//    }
-    
     Debris *d = [[[Debris alloc] initWithL:c.l] autorelease];
     [d multiplySpeed:[self speedMod]];
-    [d assignLevel];
+    [d assignLevelFromLevel:currentLevel];
     [self addChild:d];
     [self.debris addObject:d];
     
@@ -558,18 +562,21 @@ static QPBattlefield *instance = nil;
         });
     }
     level = 1;
-    if (_coresCollected > 20) {
-        _coresCollected = 0;
-        _coreCycles++;
-    }
-    NSNumber *cores = [NSNumber numberWithInteger:_coresCollected];
-    [[NSUserDefaults standardUserDefaults] setObject:cores forKey:@"cores"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    [self cycleCores];
     
-    NSNumber *coreCycles  = [NSNumber numberWithInteger:_coreCycles];
-    [[NSUserDefaults standardUserDefaults] setObject:coreCycles forKey:@"corecycles"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    NSMutableArray *highscores = [[NSUserDefaults standardUserDefaults] objectForKey:@"levelscores"];
+    if (!highscores) {
+        highscores = [NSMutableArray arrayWithArray:@[[NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0],
+                       [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0],
+                       [NSNumber numberWithInt:0]]];
+    }
     lastScore = [self.scoreCycler actualScore];
+    if (lastScore > [highscores[currentLevel] intValue]) {
+        highscores[currentLevel] = [NSNumber numberWithInt:lastScore];
+        [[NSUserDefaults standardUserDefaults] setObject:highscores forKey:@"levelscores"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    
     [self.scoreCycler reset];
     
     [self showScores];
@@ -594,12 +601,12 @@ static QPBattlefield *instance = nil;
     
     _playedDrag = 0;
     [self updateBottomCoreLabel];
+    [self updateLevelLabel];
 }
 
 - (BOOL)debrisOutOfBounds:(Debris *)d {
     return !CGRectContainsPoint(_battlefieldFrame, d.l) || [d dissipated];
 }
-
 
 - (void)debrisPulse {
     NSMutableArray *debrisToErase = [NSMutableArray array];
@@ -844,10 +851,24 @@ static QPBattlefield *instance = nil;
     totalPaths++;
 }
 
+- (void)cycleCores {
+    if (_coresCollected > 10) {
+        _coresCollected = 0;
+        _coreCycles++;
+    }
+    NSNumber *cores = [NSNumber numberWithInteger:_coresCollected];
+    [[NSUserDefaults standardUserDefaults] setObject:cores forKey:@"cores"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    NSNumber *coreCycles  = [NSNumber numberWithInteger:_coreCycles];
+    [[NSUserDefaults standardUserDefaults] setObject:coreCycles forKey:@"corecycles"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
 - (void)processWaveKill {
     AudioServicesPlaySystemSound(process);
     _recentBonus += [self currentScoreBonus];
-
+    [self cycleCores];
     self.pilot.l = ccp(5000,-5000);
     QuantumClone *c = [[self.pilot clone] copy];
     c.bulletDelegate = self;
@@ -1508,7 +1529,6 @@ static QPBattlefield *instance = nil;
 - (void)announceScores {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowScores" object:@""];
     [self scorePulse];
-    
 }
 
 - (int)maxUpgrade {
@@ -1559,5 +1579,31 @@ static QPBattlefield *instance = nil;
     return lXDirection == 0;
 }
 
+- (int)levelCost {
+    return currentLevel * 5;
+}
+
+- (int)levelBestScore {
+    NSArray *highscores = [[NSUserDefaults standardUserDefaults] objectForKey:@"levelscores"];
+    if (highscores) {
+        return [highscores[currentLevel] intValue];
+    }
+    
+    return 0;
+}
+
+- (NSArray *)levelNames {
+    return @[@"Decision", @"Precision", @"Disrupt", @"x", @"xx", @"xxx", @"xxxx"];
+}
+
+- (void)updateLevelLabel {
+    NSString *levelString = [self levelNames][currentLevel];
+    if (currentLevel >= levelsOpened) {
+        levelString = [NSString stringWithFormat:@"%@\n%d", levelString, [self levelBestScore]];
+    } else {
+        levelString = [NSString stringWithFormat:@"%@\n%d◊", levelString, [self levelCost]];
+    }
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"LevelLabel" object:levelString];
+}
 
 @end

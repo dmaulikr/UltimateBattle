@@ -58,6 +58,8 @@
 @property (strong, nonatomic) LaserButton *laserbutton;
 @property (strong, nonatomic) WaveButton *waveButton;
 
+@property (strong, nonatomic) UILabel *levelLabel;
+
 - (NSArray *)labels;
 
 @end

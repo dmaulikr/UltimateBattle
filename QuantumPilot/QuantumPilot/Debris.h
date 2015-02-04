@@ -32,7 +32,7 @@
 
 - (bool)isDebris;
 
-- (void)assignLevel;
+- (void)assignLevelFromLevel:(int)level;
 
 - (void)multiplySpeed:(float)s;
 

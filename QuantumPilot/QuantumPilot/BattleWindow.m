@@ -20,7 +20,7 @@ float topCenter = 0.23f;
 CGPoint _pathCenter;
 
 - (NSArray *)labels {
-    return @[self.l1, self.l2, self.l3, self.l4, self.debrisLabel, self.titleLabel, self.subTitle, self.guide, self.speedLabel, self.accuracyLabel, self.pathsLabel, self.killsLabel, self.leaderboardLabel];
+    return @[self.l1, self.l2, self.l3, self.l4, self.debrisLabel, self.titleLabel, self.subTitle, self.guide, self.speedLabel, self.accuracyLabel, self.pathsLabel, self.killsLabel, self.leaderboardLabel, self.levelLabel];
 }
 
 - (void)hideIcons {
@@ -55,6 +55,7 @@ CGPoint _pathCenter;
     
     [self setupSocialIcons];
     
+    self.levelLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 90)] autorelease];
     self.l1 = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 90)] autorelease];
     self.l2 = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 90)] autorelease];
     self.l3 = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 90)] autorelease];
@@ -120,7 +121,7 @@ CGPoint _pathCenter;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateLeaderboardLabel:) name:@"LeaderboardLabel" object:nil];
 
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateLeaderboardLabel:) name:@"LeaderboardLabel" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateLevelLabel:) name:@"LevelLabel" object:nil];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showSocial:) name:@"ShowSocial" object:nil];
     
@@ -139,6 +140,9 @@ CGPoint _pathCenter;
     }
     
     self.guide.textColor = [UIColor greenColor];
+    self.levelLabel.font = [UIFont fontWithName:@"Courier" size:18];
+    CGSize size = [[UIScreen mainScreen] bounds].size;
+    self.levelLabel.center = ccp(size.width / 2, size.height / 2);
     
     self.titleLabel.font = [UIFont fontWithName:@"Courier" size:30];
     self.subTitle.font = [UIFont fontWithName:@"Courier" size:16];
@@ -317,9 +321,13 @@ CGPoint _pathCenter;
 }
 
 - (void)updateLeaderboardLabel:(NSNotification *)n {
-//    CGSize size = [[UIScreen mainScreen] bounds].size;
-//    self.leaderboardLabel.center = ccp(0.8f * size.width, topCenter * size.height);
-//    [self.leaderboardLabel cancel];
+}
+
+- (void)updateLevelLabel:(NSNotification *)n {
+    [self bringSubviewToFront:self.levelLabel];
+    CGSize size = [[UIScreen mainScreen] bounds].size;
+    self.levelLabel.center = ccp(size.width / 2, size.height / 2);
+    self.levelLabel.text = n.object;
 }
 
 - (void)showSocial:(NSNotification *)n {
