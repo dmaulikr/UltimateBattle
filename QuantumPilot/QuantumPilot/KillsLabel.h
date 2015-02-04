@@ -12,6 +12,4 @@
     int consecutive;
 }
 
-- (void)displayText;
-
 @end

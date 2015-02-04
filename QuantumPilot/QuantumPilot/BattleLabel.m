@@ -88,4 +88,8 @@
     [self updateFont];
 }
 
+- (void)displayText {
+    
+}
+
 @end

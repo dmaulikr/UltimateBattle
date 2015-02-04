@@ -32,4 +32,6 @@
 
 - (NSString *)nameOfFont;
 
+- (void)displayText;
+
 @end

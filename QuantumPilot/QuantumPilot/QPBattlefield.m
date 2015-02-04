@@ -1154,7 +1154,9 @@ static QPBattlefield *instance = nil;
     if (self.currentState == self.fightingState && state != self.pausedState) {
         paths++;
         totalPaths++;
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"PathsPulse" object:nil];
+//        [[NSNotificationCenter defaultCenter] postNotificationName:@"PathsLabel" object:@{@"x" : [NSNumber numberWithFloat:l.x], @"y" : [NSNumber numberWithFloat:_battlefieldFrame.size.height - l.y]}];
+//
+//        [[NSNotificationCenter defaultCenter] postNotificationName:@"PathsPulse" object:nil];
     }
     [self changeState:state];
     [self.currentState addTouch:l];

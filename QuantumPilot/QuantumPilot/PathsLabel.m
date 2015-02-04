@@ -19,5 +19,15 @@
     self.alpha = 1;
 }
 
+- (void)displayText {
+    self.text = @"ζ";
+    self.alpha = 1;
+}
+
+- (void)processMaxFont {
+    self.alpha = 0;
+    timer = -1;
+    bonusFont = 0;
+}
 
 @end

@@ -17,6 +17,8 @@ float topCenter = 0.23f;
 
 @implementation BattleWindow
 
+CGPoint _pathCenter;
+
 - (NSArray *)labels {
     return @[self.l1, self.l2, self.l3, self.l4, self.debrisLabel, self.titleLabel, self.subTitle, self.guide, self.speedLabel, self.accuracyLabel, self.pathsLabel, self.killsLabel, self.leaderboardLabel];
 }
@@ -34,12 +36,10 @@ float topCenter = 0.23f;
 - (void)setupSocialIcons {
     self.twitterIcon        = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"twitter.png"]] autorelease];
     self.facebookIcon       = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"facebook.png"]] autorelease];
-//    self.instagramIcon      = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"instagram.png"]] autorelease];
     self.messageIcon        = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"message.png"]] autorelease];
     
     [self.twitterIcon addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(twitterTapped)]];
     [self.facebookIcon addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(facebookTapped)]];
-//    [self.instagramIcon addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(instagramTapped)]];
     [self.messageIcon addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(messageTapped)]];
     
     for (UIView *v in [self socialIcons]) {
@@ -87,7 +87,6 @@ float topCenter = 0.23f;
     self.leaderboardLabel = [[[BattleLabel alloc] initWithFrame:CGRectMake(0, 0, 120, 90) size:24] autorelease];
     self.leaderboardLabel.text = @"#1\n ";
     self.leaderboardLabel.center = ccp(5000,5000);
-    
 }
 
 - (void)setupNotifications {
@@ -184,9 +183,11 @@ float topCenter = 0.23f;
 - (void)breathe {
     [self.scoreLabel pulse];
     [self.killsLabel pulse];
-    [self.pathsLabel pulse];
+//    [self.pathsLabel pulse];
     [self.accuracyLabel pulse];
     [self.weaponLabel pulse];
+    
+//    self.pathsLabel.center = _pathCenter;
 }
 
 - (void)updateWeaponLabel:(NSNotification *)n {
@@ -295,22 +296,14 @@ float topCenter = 0.23f;
 
 - (void)updatePathsLabel:(NSNotification *)n {
 //    CGSize size = [[UIScreen mainScreen] bounds].size;
-    int paths = [n.object intValue];
-//    self.boostbutton.label.text = [NSString stringWithFormat:@"%d\nζ", abs(paths)];
-    
-    if (paths >= 0) {
-//        self.pathsLabel.center = ccp(0.9f * size.width, 10);
-//        self.pathsLabel.text = [NSString stringWithFormat:@"%dζ", abs(paths)];
-    } else {
-//        self.pathsLabel.center = ccp(0.6f * size.width, topCenter *  size.height);
-//        self.pathsLabel.text = [NSString stringWithFormat:@"%d\nζ", abs(paths)];
-//        [self.pathsLabel cancel];
-    }
+    NSDictionary *d = n.object;
+    _pathCenter = ccp([d[@"x"] floatValue], [d[@"y"] floatValue]);
+    [self.pathsLabel displayText];
 }
 
 - (void)updateKillsLabel:(NSNotification *)n {
 //    CGSize size = [[UIScreen mainScreen] bounds].size;
-    int kills = [n.object[@"kills"] intValue];
+
     if (n.object[@"x"]) {
         self.killsLabel.center = ccp([n.object[@"x"] floatValue], ([n.object[@"y"] floatValue]));
         [self.killsLabel displayText];
@@ -346,6 +339,9 @@ float topCenter = 0.23f;
             self.twitterIcon.center     = ccp(x1, topCenter);
             self.facebookIcon.center    = ccp(x2, topCenter);
             self.messageIcon.center     = ccp(x3, topCenter);
+            self.laserbutton.alpha = 1;
+            self.waveButton.alpha = 1;
+            self.boostbutton.alpha = 1;
 //            self.twitterIcon.center     = ccp(80, topCenter * size.height);
 //            self.facebookIcon.center    = ccp(240+80, topCenter * size.height);
 //            self.messageIcon.center     = ccp(160, topCenter * size.height);
@@ -371,6 +367,10 @@ float topCenter = 0.23f;
     for (UIView *v in [self socialIcons]) {
         v.center = ccp(5000,5000);
     }
+    
+    self.laserbutton.alpha = 0;
+    self.waveButton.alpha = 0;
+    self.boostbutton.alpha = 0;
 }
 
 - (void)twitterTapped {
