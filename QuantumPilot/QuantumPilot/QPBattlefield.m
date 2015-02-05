@@ -291,6 +291,7 @@ static QPBattlefield *instance = nil;
         fireCircle = [self fireCircleReset];
         
         [self setupDebrisCores];
+        [self setupLevels];
         [self updateBottomCoreLabel];
         [self updateLevelLabel];
     }
@@ -1579,6 +1580,8 @@ static QPBattlefield *instance = nil;
     return lXDirection == 0;
 }
 
+#pragma mark Levels
+
 - (int)levelCost {
     return currentLevel * 5;
 }
@@ -1596,14 +1599,58 @@ static QPBattlefield *instance = nil;
     return @[@"Decision", @"Precision", @"Disrupt", @"x", @"xx", @"xxx", @"xxxx"];
 }
 
+- (bool)levelOpened {
+    return currentLevel <= levelsOpened;
+}
+
+- (bool)viewingNextLevel {
+    return currentLevel == levelsOpened + 1;
+}
+
 - (void)updateLevelLabel {
     NSString *levelString = [self levelNames][currentLevel];
-    if (currentLevel >= levelsOpened) {
+    if ([self levelOpened]) {
         levelString = [NSString stringWithFormat:@"%@\n%d", levelString, [self levelBestScore]];
     } else {
-        levelString = [NSString stringWithFormat:@"%@\n%d◊", levelString, [self levelCost]];
+        if ([self viewingNextLevel]) {
+            levelString = [NSString stringWithFormat:@"%@\n%d◊", levelString, [self levelCost]];
+        } else {
+            levelString = [NSString stringWithFormat:@"%@\n<Locked>", levelString];
+        }
+
     }
     [[NSNotificationCenter defaultCenter] postNotificationName:@"LevelLabel" object:levelString];
+}
+
+- (void)selectNextLevel {
+    currentLevel++;
+    if (currentLevel > [[self levelNames] count] - 1) {
+        currentLevel = 0;
+    }
+    
+    [self updateLevelLabel];
+}
+
+- (void)selectPreviousLevel {
+    currentLevel--;
+    if (currentLevel < 0) {
+        currentLevel = [[self levelNames] count] - 1;
+    }
+    
+    [self updateLevelLabel];
+}
+
+- (void)openLevel {
+    if (_coreCycles >= [self levelCost] && [self viewingNextLevel]) {
+        _coreCycles-= [self levelCost];
+        [self cycleCores];
+        levelsOpened++;
+        [self updateBottomCoreLabel];
+        [self updateLevelLabel];
+        AudioServicesPlaySystemSound(boost);
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:levelsOpened] forKey:@"levels"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
 }
 
 @end

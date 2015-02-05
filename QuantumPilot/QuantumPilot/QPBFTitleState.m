@@ -25,18 +25,23 @@
 }
 
 - (void)start:(CGPoint)l {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowSocial" object:nil];
-    [self.f.pilot resetPosition];
-    [self.f setTouchOffsetFromPilotNear:l];
-    [self.f changeState:self.f.drawingState withTouch:l];
-    [self announceLabels];
-    [self.f.pilot announceWeapon];
-    [self.f resetScoringTotals];
-    [self.f resetLineXDirection:-1];
+    if ([self.f levelOpened]) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowSocial" object:nil];
+        [self.f.pilot resetPosition];
+        [self.f setTouchOffsetFromPilotNear:l];
+        [self.f changeState:self.f.drawingState withTouch:l];
+        [self announceLabels];
+        [self.f.pilot announceWeapon];
+        [self.f resetScoringTotals];
+        [self.f resetLineXDirection:-1];
+    } else {
+        [self.f openLevel];
+    }
 }
 
 - (void)addTouch:(CGPoint)l {
     float yLimit = [[UIScreen mainScreen] bounds].size.height;
+    float width = [[UIScreen mainScreen] bounds].size.width;
     float y2Limit = yLimit;
     yLimit  = yLimit * 2/3;
     y2Limit = y2Limit * 1/3;
@@ -45,7 +50,13 @@
     } else if (l.y > yLimit) {
         [self handleTopTap:l.x];
     } else if (l.y > y2Limit && [self.f finishedAnimatingSidelines]) {
-        [self start:l];
+        if (l.x > width * 2/3) {
+            [self.f selectNextLevel];
+        } else if (l.x < width / 3) {
+            [self.f selectPreviousLevel];
+        } else {
+            [self start:l];
+        }
     }
     
     [self.f restGuideMode];

@@ -277,4 +277,11 @@ enum drawguide {
 - (bool)finishedAnimatingSidelines;
 - (float)topLineY;
 
+- (void)selectNextLevel;
+- (void)selectPreviousLevel;
+
+- (bool)levelOpened;
+
+- (void)openLevel;
+
 @end
