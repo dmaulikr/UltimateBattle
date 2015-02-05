@@ -77,11 +77,40 @@
         return;
     } else if (level == 1) {
         _level = arc4random() % 2 == 0 ? 0 : 1;
+    } else if (level == 2) {
+        //dismantler, exoslicer, gamma hammer
+        _level = arc4random() % 3;
+        if (_level == 1) {
+            _level = 3;
+        } else if (_level == 2) {
+            _level = 4;
+        }
+    } else if (level == 3) {
+        _level = arc4random() % 5;
+        //nova splitter, gamma hammer, core crusher
+        //core crusher rare
+        if (_level == 0 || _level == 1) {
+            _level = 1;
+        } else if (_level == 2 || _level == 3) {
+            _level = 4;
+        } else {
+            _level = 2;
+        }
+    } else if (level == 4) {
+        _level = arc4random() % 3;
+        //core crusher, space melter, nova splitter
+        if (_level == 0) {
+            _level = 2;
+        } else if (_level == 1) {
+            _level = 5;
+        } else {
+            _level = 1;
+        }
     }
     
     return;
     
-    int wRandom[7] = {130, 130, 50, 30, 30, 15, 5};
+    int wRandom[7] = {130, 130, 50, 60, 70, 15, 5};
     int wRandomTotal = 0;
     for (int i = 0; i < 7; i++) {
         wRandomTotal += wRandom[i];

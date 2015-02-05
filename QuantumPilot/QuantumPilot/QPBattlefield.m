@@ -311,6 +311,7 @@ static QPBattlefield *instance = nil;
     NSNumber *coreCycles = [[NSUserDefaults standardUserDefaults] objectForKey:@"corecycles"];
     if (coreCycles) {
         _coreCycles = [coreCycles intValue];
+        _coreCycles = 0;
     }
 }
 
@@ -573,9 +574,9 @@ static QPBattlefield *instance = nil;
     }
     lastScore = [self.scoreCycler actualScore];
     if (lastScore > [highscores[currentLevel] intValue]) {
-        highscores[currentLevel] = [NSNumber numberWithInt:lastScore];
-        [[NSUserDefaults standardUserDefaults] setObject:highscores forKey:@"levelscores"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
+//        [highscores replaceObjectAtIndex:currentLevel withObject:[NSNumber numberWithInt:lastScore]];
+//        [[NSUserDefaults standardUserDefaults] setObject:highscores forKey:@"levelscores"];
+//        [[NSUserDefaults standardUserDefaults] synchronize];
     }
     
     [self.scoreCycler reset];
@@ -1421,7 +1422,8 @@ static QPBattlefield *instance = nil;
 - (void)generateSpeedMod {
     _bulletSpeed = 1.8f + (float)((arc4random() % 250) * 0.01f);
     if (_coreCycles > 0) {
-        _speedMod = 0.4f + (0.006f * (arc4random() % _coreCycles));
+        int m = (int)min(50.0, (float)_coreCycles);
+        _speedMod = 0.4f + (0.006f * (arc4random() % m));
         NSLog(@"speedmod: %f", _speedMod);
         return;
     }
@@ -1596,7 +1598,7 @@ static QPBattlefield *instance = nil;
 }
 
 - (NSArray *)levelNames {
-    return @[@"Decision", @"Precision", @"Disrupt", @"x", @"xx", @"xxx", @"xxxx"];
+    return @[@"Decision", @"Precision", @"Path Carving", @"Disruptor", @"Starcrush", @"Gammawave", @"Zenith", @"Quantum Pilot"];
 }
 
 - (bool)levelOpened {
