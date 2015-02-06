@@ -258,6 +258,10 @@ static QPBattlefield *instance = nil;
         l4x = (_screenSize.width / 2) + (_screenSize.width / 6);
         l3h = 0;
         
+        arrowLX = _screenSize.width * .05;
+        arrowRX = _screenSize.width * .95;
+        arrowY  = _screenSize.height / 2 - 10;
+        
         float center = _screenSize.width / 2;
         tl1x = center - _screenSize.width / 4;
         tl2x = center;
@@ -1328,7 +1332,12 @@ static QPBattlefield *instance = nil;
 - (void)drawTitleState {
     if (_coresCollected > 0) {
         [self drawCharges];
-    }    
+    }
+    
+    ccDrawLine(ccp(arrowRX, arrowY), ccp(arrowRX + 10, arrowY + 10));
+    ccDrawLine(ccp(arrowRX, arrowY + 20), ccp(arrowRX + 10, arrowY + 10));
+    ccDrawLine(ccp(arrowLX, arrowY), ccp(arrowLX - 10, arrowY + 10));
+    ccDrawLine(ccp(arrowLX, arrowY + 20), ccp(arrowLX - 10, arrowY + 10));
 }
 
 - (void)drawCharges {

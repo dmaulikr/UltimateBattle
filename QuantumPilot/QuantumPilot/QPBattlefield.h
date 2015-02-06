@@ -151,6 +151,10 @@ enum drawguide {
     
     int levelsOpened;
     int currentLevel;
+    
+    float arrowRX;
+    float arrowLX;
+    float arrowY;
 }
 
 @property (nonatomic, retain) NSMutableArray *bullets;
