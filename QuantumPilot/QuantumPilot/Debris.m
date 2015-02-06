@@ -106,23 +106,39 @@
         } else {
             _level = 1;
         }
-    }
-    
-    return;
-    
-    int wRandom[7] = {130, 130, 50, 60, 70, 15, 5};
-    int wRandomTotal = 0;
-    for (int i = 0; i < 7; i++) {
-        wRandomTotal += wRandom[i];
-    }
-
-    int weaponRandom = arc4random() % wRandomTotal;
-    _level = 0;
-    int accum = 0;
-    for (int i = 0; i < 6; i++) {
-        accum+= wRandom[i];
-        if (weaponRandom > accum) {
-            _level++;
+    } else if (level == 5) {
+        _level = arc4random() % 12;
+        if (_level < 7) {
+            _level = 0;
+        } else if (_level < 11) {
+            _level = 4;
+        } else {
+            _level = 6;
+        }
+    } else if (level == 6) {
+        _level = arc4random() % 3;
+        if (_level == 0) {
+            _level = 3;
+        } else if (level == 1) {
+            _level = 5;
+        } else {
+            _level = 4;
+        }
+    } else {
+        int wRandom[7] = {130, 130, 50, 60, 70, 15, 5};
+        int wRandomTotal = 0;
+        for (int i = 0; i < 7; i++) {
+            wRandomTotal += wRandom[i];
+        }
+        
+        int weaponRandom = arc4random() % wRandomTotal;
+        _level = 0;
+        int accum = 0;
+        for (int i = 0; i < 6; i++) {
+            accum+= wRandom[i];
+            if (weaponRandom > accum) {
+                _level++;
+            }
         }
     }
 }
