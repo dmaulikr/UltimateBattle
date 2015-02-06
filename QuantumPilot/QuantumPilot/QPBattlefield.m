@@ -566,7 +566,7 @@ static QPBattlefield *instance = nil;
     level = 1;
     [self cycleCores];
     
-    NSMutableArray *highscores = [[NSUserDefaults standardUserDefaults] objectForKey:@"levelscores"];
+    NSMutableArray *highscores = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] objectForKey:@"levelscores"]];
     if (!highscores) {
         highscores = [NSMutableArray arrayWithArray:@[[NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0],
                        [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0],
@@ -574,9 +574,9 @@ static QPBattlefield *instance = nil;
     }
     lastScore = [self.scoreCycler actualScore];
     if (lastScore > [highscores[currentLevel] intValue]) {
-//        [highscores replaceObjectAtIndex:currentLevel withObject:[NSNumber numberWithInt:lastScore]];
-//        [[NSUserDefaults standardUserDefaults] setObject:highscores forKey:@"levelscores"];
-//        [[NSUserDefaults standardUserDefaults] synchronize];
+        [highscores replaceObjectAtIndex:currentLevel withObject:[NSNumber numberWithInt:lastScore]];
+        [[NSUserDefaults standardUserDefaults] setObject:highscores forKey:@"levelscores"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
     }
     
     [self.scoreCycler reset];
