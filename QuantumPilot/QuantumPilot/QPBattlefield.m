@@ -879,9 +879,19 @@ static QPBattlefield *instance = nil;
     QuantumClone *c = [[self.pilot clone] copy];
     c.bulletDelegate = self;
     c.weapon = self.pilot.weapon;
-    [self.clones addObject:c];
-    [self addChild:c];
+    
     [self.clones removeObject:self.pilot.clone];
+    level++;
+    if (level <= 10) {
+        [self.clones addObject:c];
+    } else {
+        int index = level % 10;
+        [self removeChild:self.clones[index] cleanup:true];
+        [self.clones replaceObjectAtIndex:index withObject:c];
+    }
+    
+    [self addChild:c];
+    
     [self removeChild:self.pilot.clone cleanup:YES];
     self.pilot.clone = nil;
     [self.pilot installWeapon];
@@ -896,7 +906,6 @@ static QPBattlefield *instance = nil;
     [self eraseBullets];
     [self.dl reset];
     weaponLevel = 0;
-    level++;
 
 //    [[NSNotificationCenter defaultCenter] postNotificationName:@"WaveLabel" object:[NSString stringWithFormat:@"XXXX"]];
 
