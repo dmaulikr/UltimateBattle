@@ -306,7 +306,7 @@ static float innerTopHeight = 5.75;
 }
 
 - (void)registerHit {
-//    self.active = NO;
+    self.active = NO;
 }
 
 - (BOOL)processDebris:(Debris *)d {
