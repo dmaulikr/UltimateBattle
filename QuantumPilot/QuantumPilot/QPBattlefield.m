@@ -571,7 +571,7 @@ static QPBattlefield *instance = nil;
     [self cycleCores];
     
     NSMutableArray *highscores = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] objectForKey:@"levelscores"]];
-    if (!highscores) {
+    if (!highscores || highscores.count == 0) {
         highscores = [NSMutableArray arrayWithArray:@[[NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0],
                        [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0],
                        [NSNumber numberWithInt:0]]];
