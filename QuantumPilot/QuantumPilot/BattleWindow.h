@@ -17,13 +17,15 @@
 #import "BoostButton.h"
 #import "LaserButton.h"
 #import "WaveButton.h"
-
 #import <Social/Social.h>
 #import <MessageUI/MessageUI.h>
+#import <AudioToolbox/AudioToolbox.h>
 
 @interface BattleWindow : UIWindow <MFMessageComposeViewControllerDelegate> {
     float _time;
     bool _sharing;
+    
+    SystemSoundID thanks;
 }
 
 @property (strong, nonatomic) UILabel *l1;

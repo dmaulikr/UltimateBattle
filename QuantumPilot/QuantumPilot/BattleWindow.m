@@ -182,6 +182,10 @@ CGPoint _pathCenter;
     [self styleLabels];
     [self setupNotifications];
     [self setupButtons];
+    NSString *path  = [[NSBundle mainBundle] pathForResource:@"thanks" ofType:@"m4a"];
+    NSURL *pathURL = [NSURL fileURLWithPath : path];
+    AudioServicesCreateSystemSoundID((CFURLRef) pathURL, &thanks);
+
     self.breath = [NSTimer scheduledTimerWithTimeInterval:0.016 target:self selector:@selector(breathe) userInfo:nil repeats:YES];
     return self;
 }
@@ -427,7 +431,10 @@ CGPoint _pathCenter;
 }
 
 - (void)fourthIconTapped {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://itunes.apple.com/us/app/quantum-pilot/id935956154"]];
+    AudioServicesPlaySystemSound(thanks);
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://itunes.apple.com/us/app/quantum-pilot/id935956154"]];
+    });
 }
 
 @end

@@ -47,6 +47,7 @@
 		0E87A21919F30DE200B55AA2 /* Shatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E87A21819F30DE200B55AA2 /* Shatter.m */; };
 		0E8A113E197D56510028A78F /* FastLaser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E8A113D197D56510028A78F /* FastLaser.m */; };
 		0E8F46051A87F72400819918 /* qp128.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E8F46041A87F72400819918 /* qp128.png */; };
+		0E8F46071A87F89600819918 /* thanks.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0E8F46061A87F89000819918 /* thanks.m4a */; };
 		0E9224F61A6854FD00D9730E /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E9224F51A6854FD00D9730E /* Social.framework */; };
 		0E9224FA1A686BF500D9730E /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E9224F71A686BF500D9730E /* facebook.png */; };
 		0E9224FB1A686BF500D9730E /* instagram.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E9224F81A686BF500D9730E /* instagram.png */; };
@@ -274,6 +275,7 @@
 		0E8A113C197D56510028A78F /* FastLaser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FastLaser.h; sourceTree = "<group>"; };
 		0E8A113D197D56510028A78F /* FastLaser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FastLaser.m; sourceTree = "<group>"; };
 		0E8F46041A87F72400819918 /* qp128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qp128.png; sourceTree = "<group>"; };
+		0E8F46061A87F89000819918 /* thanks.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = thanks.m4a; sourceTree = "<group>"; };
 		0E9224F51A6854FD00D9730E /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		0E9224F71A686BF500D9730E /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
 		0E9224F81A686BF500D9730E /* instagram.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = instagram.png; sourceTree = "<group>"; };
@@ -791,6 +793,7 @@
 		BF0EE07F163319B8002942A0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0E8F46061A87F89000819918 /* thanks.m4a */,
 				0E9224F71A686BF500D9730E /* facebook.png */,
 				0E8F46041A87F72400819918 /* qp128.png */,
 				0E9224F81A686BF500D9730E /* instagram.png */,
@@ -1352,6 +1355,7 @@
 				0EA1A3821A40EBA100A098A6 /* x1-12.wav in Resources */,
 				0EA1A3861A40EBA100A098A6 /* x5-12.wav in Resources */,
 				0E9224FA1A686BF500D9730E /* facebook.png in Resources */,
+				0E8F46071A87F89600819918 /* thanks.m4a in Resources */,
 				0E7DC8431A7C929900938BFF /* boostx.m4a in Resources */,
 				0E1292D71A04ACB1006A8BAB /* collect.wav in Resources */,
 				0EA1A36F1A40E9E900A098A6 /* l1-12.wav in Resources */,
