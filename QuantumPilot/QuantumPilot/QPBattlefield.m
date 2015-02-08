@@ -858,7 +858,7 @@ static QPBattlefield *instance = nil;
 }
 
 - (void)cycleCores {
-    if (_coresCollected > 10) {
+    if (_coresCollected > 5) {
         _coresCollected = 0;
         _coreCycles++;
     }

@@ -30,17 +30,19 @@ CGPoint _pathCenter;
 }
 
 - (NSArray *)socialIcons {
-    return @[self.twitterIcon, self.facebookIcon, self.messageIcon];
+    return @[self.twitterIcon, self.facebookIcon, self.messageIcon, self.fourthIcon];
 }
 
 - (void)setupSocialIcons {
     self.twitterIcon        = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"twitter.png"]] autorelease];
     self.facebookIcon       = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"facebook.png"]] autorelease];
     self.messageIcon        = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"message.png"]] autorelease];
+    self.fourthIcon         = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"qp128.png"]] autorelease];
     
     [self.twitterIcon addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(twitterTapped)]];
     [self.facebookIcon addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(facebookTapped)]];
     [self.messageIcon addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(messageTapped)]];
+    [self.fourthIcon addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(fourthIconTapped)]];
     
     for (UIView *v in [self socialIcons]) {
         v.transform = CGAffineTransformMakeScale(.5, .5);
@@ -347,6 +349,7 @@ CGPoint _pathCenter;
             self.twitterIcon.center     = ccp(x1, topCenter);
             self.facebookIcon.center    = ccp(x2, topCenter);
             self.messageIcon.center     = ccp(x3, topCenter);
+            self.fourthIcon.center      = ccp(x4, topCenter);
             self.laserbutton.alpha = 1;
             self.waveButton.alpha = 1;
             self.boostbutton.alpha = 1;
@@ -421,6 +424,10 @@ CGPoint _pathCenter;
         _sharing = false;
         [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowSocial" object:@""];
     }];
+}
+
+- (void)fourthIconTapped {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://itunes.apple.com/us/app/quantum-pilot/id935956154"]];
 }
 
 @end

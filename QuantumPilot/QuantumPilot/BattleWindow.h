@@ -53,6 +53,7 @@
 @property (strong, nonatomic) UIImageView *twitterIcon;
 @property (strong, nonatomic) UIImageView *facebookIcon;
 @property (strong, nonatomic) UIImageView *messageIcon;
+@property (strong, nonatomic) UIImageView *fourthIcon;
 
 @property (strong, nonatomic) BoostButton *boostbutton;
 @property (strong, nonatomic) LaserButton *laserbutton;
