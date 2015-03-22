@@ -53,9 +53,6 @@ static float halfSegment = 1.2;
             self.vel = ccp(self.vel.x + [self oscillateSpeed], self.vel.y);
         }
     }
-    
-    
-    
 }
 
 - (bool)shouldTurn {

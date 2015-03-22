@@ -1,3 +1,16 @@
+
+
+
+x multiplier
+score as deadline scrolls back
++1 for bullet
++100 per kill
+-10 per path
+no show multiplier until >0
+score halved when hit
+show multiplier reset to 0 when hit
+multiplier reset to 0 when hit (-multilplication in time with 
+
 announce:
 
 appspy
