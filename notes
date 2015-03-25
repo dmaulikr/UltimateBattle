@@ -1,4 +1,5 @@
 
+    [self drawPolyWithVerts:points count:4 fillColor:[CCColor colorWithRed:1 green:0 blue:0 alpha:0.5] borderWidth:0 
 
 
 x multiplier
